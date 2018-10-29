@@ -1,20 +1,26 @@
 {
-  "name": "@tecsinapse/ui-kit-example",
-  "homepage": "https://renanccastro.github.io/@tecsinapse/ui-kit",
-  "version": "0.0.0",
-  "license": "MIT",
+  "name": "example",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-scripts": "^1.1.4",
-    "@tecsinapse/ui-kit": "link:.."
+    "@material-ui/core": "^3.3.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-scripts": "2.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
-  }
+  },
+  "eslintConfig": {
+    "extends": "@tecsinapse/tecsinapse-js"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
