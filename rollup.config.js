@@ -4,7 +4,6 @@ import localResolve from 'rollup-plugin-local-resolve';
 
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
-import globals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
 import filesize from 'rollup-plugin-filesize';
 
@@ -15,25 +14,41 @@ export default [
     input: 'src/index.js',
     output: [
       { file: pkg.main, name: pkg.name, format: 'cjs' },
-      { file: pkg.browser, name: pkg.name, format: 'umd' },
+      {
+        file: pkg.browser,
+        name: pkg.name,
+        format: 'umd',
+        globals: {
+          react: 'React',
+          'react-router': 'Link',
+          'react-transition-group': 'ReactTransitionGroup',
+          'styled-component': 'styled',
+          'bootstrap-styled': 'Jumbotron',
+          '@material-ui/core': 'material-ui',
+          '@material-ui/icons': 'material-ui',
+          classnames: 'cn',
+        },
+      },
     ],
+
     plugins: [
-      globals(),
       builtins(),
       babel({
         exclude: ['node_modules/**'],
+        extensions: ['.js'],
       }),
       localResolve(),
       autoExternal(),
       resolve({
-        module: true,
         jsnext: true,
         main: true,
-        preferBuiltins: true,
         browser: true,
-        modulesOnly: true,
       }),
-      commonjs(),
+      commonjs({
+        namedExports: {
+          'node_modules/@material-ui/core/colors/index.js': ['grey'],
+        },
+      }),
 
       filesize(),
     ],

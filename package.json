@@ -12,8 +12,12 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@material-ui/core": "^3.3.2",
+    "@material-ui/icons": "^3.0.1",
+    "@storybook/addon-actions": "^4.0.2",
+    "@storybook/react": "^4.0.2",
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.0.5",
     "docz": "^0.12.7",
+    "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "rollup": "^0.66.6",
@@ -24,9 +28,7 @@
     "rollup-plugin-local-resolve": "^1.0.7",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "@storybook/addon-actions": "^4.0.2",
-    "@storybook/react": "^4.0.2"
+    "rollup-plugin-node-resolve": "^3.4.0"
   },
   "scripts": {
     "build": "rm -rf build/ && babel src/ -d build/ && rollup -c",
@@ -40,7 +42,8 @@
   },
   "peerDependencies": {
     "@material-ui/core": "^3.0.0",
-    "react": ">= 16.3.x"
+    "react": ">= 16.3.x",
+    "@material-ui/icons": "^3.0.1"
   },
   "files": [
     "dist"
