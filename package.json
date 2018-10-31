@@ -1,9 +1,9 @@
 {
   "name": "@tecsinapse/ui-kit",
   "version": "1.0.0",
-  "main": "index.cjs.js",
+  "main": "dist/index.cjs.js",
   "module": "build/index.js",
-  "browser": "index.js",
+  "browser": "dist/index.js",
   "sideEffects": false,
   "dependencies": {},
   "devDependencies": {
