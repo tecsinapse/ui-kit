@@ -1,6 +1,24 @@
 ---
-name: Hello world
+name: Iniciando
 ---
 
+import { Playground, PropsTable } from 'docz'
+import {Button} from '../src/Buttons/Button'
+import ThemeProvider from '../src/ThemeProvider'
+
 # Documentação Inicial UI-KIT
-Geração da documentação do UI-KIT
+
+Coloque o ThemeProvider na raiz da aplicação, escolhendo a variante.
+
+## ThemeProvider
+
+<PropsTable of={ThemeProvider} />
+
+### Uso Básico
+
+<Playground>
+    <ThemeProvider variant="orange">
+        <Button submitting onClick={()=>{}}> Teste </Button>
+    </ThemeProvider>
+</Playground>
+
