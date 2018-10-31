@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { StyledSnackbarContent } from './StyledSnackbarContent';
 
-export function Snackbar({ show, onClose, variant, message }) {
+export function Snackbar({ show, onClose, variant, children }) {
   return (
     <MaterialSnackbar
       anchorOrigin={{
@@ -17,19 +17,18 @@ export function Snackbar({ show, onClose, variant, message }) {
       <StyledSnackbarContent
         onClose={onClose}
         variant={variant}
-        message={message}
+        message={children}
       />
     </MaterialSnackbar>
   );
 }
 
 Snackbar.defaultProps = {
-  message: '',
   onClose: () => {},
 };
 Snackbar.propTypes = {
-  message: PropTypes.node,
   onClose: PropTypes.func,
   show: PropTypes.bool.isRequired,
   variant: PropTypes.oneOf(['success', 'warning', 'error']).isRequired,
 };
+export default Snackbar;

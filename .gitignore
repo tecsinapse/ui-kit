@@ -7,6 +7,7 @@ node_modules
 # builds
 build
 .cache
+.docz
 dist
 .rpt2_cache
 
