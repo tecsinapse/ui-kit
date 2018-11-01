@@ -1,4 +1,5 @@
-#Iniciando
+# Iniciando
+
 Rodar
 ```
     yarn install
@@ -8,7 +9,7 @@ Para buildar e publicar a lib:
     yarn build && yarn publish
 ```
 
-#Desenvolvendo
+# Desenvolvendo
 
 Rodar storybook:
 ```
