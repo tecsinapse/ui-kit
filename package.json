@@ -9,6 +9,7 @@
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@material-ui/core": "^3.3.2",
@@ -16,10 +17,17 @@
     "@storybook/addon-actions": "^4.0.2",
     "@storybook/react": "^4.0.2",
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.0.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "docz": "^0.12.7",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "jest": "^23.6.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-test-renderer": "^16.6.0",
+    "regenerator-runtime": "^0.12.1",
     "rollup": "^0.66.6",
     "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-babel": "4.0.3",
@@ -33,12 +41,11 @@
   "scripts": {
     "build": "rm -rf build/ && babel src/ -d build/ && rollup -c",
     "dev": "rollup -c -w",
-    "test": "node test/test.js",
-    "pretest": "npm run build",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "storybook:build": "build-storybook -c .storybook -o .out",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "test": "NODE_ENV=test jest test/"
   },
   "peerDependencies": {
     "@material-ui/core": "^3.0.0",
@@ -48,5 +55,19 @@
   "files": [
     "dist",
     "build"
-  ]
+  ],
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/jest-setup.js",
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components"
+    ]
+  }
 }
