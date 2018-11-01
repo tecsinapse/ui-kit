@@ -20,9 +20,9 @@ Abrir server de documentação do DOCZ
 ```
 Ambos são atualizados automaticamente com alterações nos arquivos.
 
-Para rodar o app de exemplo, fazer o link da lib na pasta de exemplo:
+Para rodar o app de exemplo, fazer o link da lib na pasta de exemplo após executar o build:
 ```
-    yarn link
+    yarn build && yarn link
     cd example/
     yarn link @tecsinapse/ui-kit
     yarn install && yarn start
