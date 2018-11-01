@@ -1,4 +1,4 @@
-import { NewComponent } from '@tecsinapse/ui-kit';
+import { Button } from '@tecsinapse/ui-kit';
 import React from 'react';
 import './App.css';
 import logo from './logo.svg';
@@ -8,18 +8,8 @@ export default function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <NewComponent />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Button> Teste Botão! </Button>
+        <Button submitting> Enviando </Button>
       </header>
     </div>
   );

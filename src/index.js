@@ -1,3 +1,4 @@
 export * from './Buttons/Button';
 export * from './Buttons/FloatingButton';
 export * from './Notifications/Snackbar';
+export * from './ThemeProvider';
