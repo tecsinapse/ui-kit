@@ -10,7 +10,7 @@ const style = {
   buttonColorThird: globalStyle.buttonColorThird,
 };
 const styleByProps = ({ variant, disabled, margin }) => {
-  let buttonStyle;
+  let buttonStyle = {};
   if (variant === 'success') {
     buttonStyle = {
       ...buttonStyle,
@@ -66,6 +66,7 @@ export const Button = ({
   </MaterialButton>
 );
 
+export const supportedVariants = ['success', 'secondary', 'third'];
 Button.defaultProps = {
   submitting: false,
   margin: false,
@@ -74,7 +75,7 @@ Button.defaultProps = {
   variant: 'success',
 };
 Button.propTypes = {
-  variant: PropTypes.oneOf(['success', 'secondary', 'third']),
+  variant: PropTypes.oneOf(supportedVariants),
   submitting: PropTypes.bool,
   fullWidth: PropTypes.bool,
   margin: PropTypes.bool,
