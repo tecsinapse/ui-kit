@@ -11,6 +11,9 @@ const styles = theme => ({
       borderColor: theme.palette.secondary.main,
     },
   },
+  input: {
+    padding: 12,
+  },
   notchedOutline: {},
   cssLabel: {
     '&$cssFocused': {
@@ -21,11 +24,12 @@ const styles = theme => ({
 });
 
 const InputUI = withStyles(styles)(
-  ({ classes, key, error, fullWidth = false, label }) => (
+  ({ classes, key, error, fullWidth = false, label, onChange, value }) => (
     <FormControl key={key} error={!!error} fullWidth={fullWidth}>
       <TextField
         id="outlined-name"
         label={label}
+        onChange={onChange}
         InputLabelProps={{
           classes: {
             root: classes.cssLabel,
@@ -39,8 +43,11 @@ const InputUI = withStyles(styles)(
             notchedOutline: classes.notchedOutline,
           },
         }}
+        inputProps={{
+          className: classes.input,
+        }}
         margin="normal"
-        value=""
+        value={value}
         error={!!error}
         variant="outlined"
       />
@@ -54,11 +61,13 @@ Input.defaultProps = {
   fullWidth: false,
   error: null,
   label: null,
+  onChange: null,
 };
 Input.propTypes = {
   fullWidth: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 export default Input;
