@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import Icon from '@mdi/react';
 import * as Icons from '@mdi/js';
 import React, { useState } from 'react';
@@ -10,10 +12,10 @@ const IconWrapper = ({ iconPath, path }) => (
       navigator.clipboard
         .writeText(
           `
-import { ${path} } as Icons from '@mdi/js';
-import Icon from '@mdi/react';
-<Icon path={${path}} size={1} />
-`
+            import { ${path} } from '@mdi/js';
+            import Icon from '@mdi/react';
+            <Icon path={${path}} size={1} />
+          `
         )
         .then(
           () => {
@@ -45,7 +47,11 @@ export default function IconSearch() {
               value === '' || path.toLowerCase().includes(value.toLowerCase())
           )
           .map(iconPath => (
-            <IconWrapper iconPath={Icons[iconPath]} key={iconPath} path={iconPath} />
+            <IconWrapper
+              iconPath={Icons[iconPath]}
+              key={iconPath}
+              path={iconPath}
+            />
           ))}
       </div>
     </div>
