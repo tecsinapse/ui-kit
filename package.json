@@ -49,7 +49,7 @@
     "build": "rm -rf build/ && babel src/ -d build/ && rollup -c",
     "dev": "rollup -c -w",
     "docz:dev": "docz dev",
-    "docz:build": "docz build -d docs/docz/",
+    "docz:build": "docz build -d docs/docz/ --base='/ui-kit/docz/' ",
     "storybook:build": "build-storybook -c .storybook -o docs/storybook/",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "NODE_ENV=test jest test/"
