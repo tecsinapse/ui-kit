@@ -138,6 +138,7 @@ const InputUI = withStyles(styles)(
     name,
     warning,
     disabled,
+    ...input
   }) => (
     <FormControl key={key} error={!!error} fullWidth={fullWidth}>
       <TextField
@@ -167,6 +168,7 @@ const InputUI = withStyles(styles)(
         value={value}
         error={!!error}
         variant="outlined"
+        {...input}
       />
       {error && <FormHelperText>{error}</FormHelperText>}
     </FormControl>
