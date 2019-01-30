@@ -135,6 +135,7 @@ const InputUI = withStyles(styles)(
     onChange,
     value,
     success,
+    name,
     warning,
     disabled,
   }) => (
@@ -142,6 +143,7 @@ const InputUI = withStyles(styles)(
       <TextField
         disabled={disabled}
         id="outlined-name"
+        name={name}
         label={label}
         onChange={onChange}
         InputLabelProps={{
@@ -188,6 +190,7 @@ Input.propTypes = {
   warning: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,
+  name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
 };
 
