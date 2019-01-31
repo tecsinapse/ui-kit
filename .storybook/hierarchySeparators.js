@@ -1,6 +1,7 @@
 export const GROUPS = {
   COMPONENTS: 'Components',
   NOTIFICATIONS: 'Notifications',
+  ALERTS: 'Alerts',
   GRID: 'Grid',
   FORMS: 'Forms',
   LAYOUT: 'Layout',
