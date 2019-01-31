@@ -135,13 +135,16 @@ const InputUI = withStyles(styles)(
     onChange,
     value,
     success,
+    name,
     warning,
     disabled,
+    ...input
   }) => (
     <FormControl key={key} error={!!error} fullWidth={fullWidth}>
       <TextField
         disabled={disabled}
         id="outlined-name"
+        name={name}
         label={label}
         onChange={onChange}
         InputLabelProps={{
@@ -165,6 +168,7 @@ const InputUI = withStyles(styles)(
         value={value}
         error={!!error}
         variant="outlined"
+        {...input}
       />
       {error && <FormHelperText>{error}</FormHelperText>}
     </FormControl>
@@ -188,6 +192,7 @@ Input.propTypes = {
   warning: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,
+  name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
 };
 
