@@ -1,6 +1,6 @@
 {
   "name": "@tecsinapse/ui-kit",
-  "version": "0.0.8",
+  "version": "0.0.11",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "browser": "dist/index.js",
@@ -18,8 +18,6 @@
     "@material-ui/icons": "^3.0.2",
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
-    "@mdi/js": "^3.0.39",
-    "@mdi/react": "^1.1.0",
     "@storybook/addon-actions": "^4.0.2",
     "@storybook/addon-info": "^4.0.4",
     "@storybook/addon-knobs": "^4.0.4",
@@ -30,6 +28,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "docz": "^0.12.7",
+    "docz-theme-default": "^0.13.7",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "jest": "^23.6.0",
@@ -62,8 +61,8 @@
     "test": "NODE_ENV=test jest test/"
   },
   "peerDependencies": {
-    "@material-ui/core": "^3.5.1",
-    "@material-ui/icons": "^3.0.1",
+    "@material-ui/core": "^3.9.1",
+    "@material-ui/icons": "^3.0.2",
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
     "react": ">= 16.3.x",
