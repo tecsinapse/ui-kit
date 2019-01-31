@@ -49,18 +49,19 @@ export const Button = ({
   submitting,
   fullWidth,
   disabled,
-  onClick,
   variant,
   margin,
+  type,
   children,
+  ...props
 }) => (
   <MaterialButton
-    type="submit"
+    type={type}
     variant="contained"
     style={styleByProps({ disabled, variant, margin })}
     fullWidth={fullWidth}
     disabled={disabled || submitting}
-    onClick={onClick}
+    {...props}
   >
     {submitting && <CircularProgress size={20} />} {children}
   </MaterialButton>
@@ -73,6 +74,7 @@ Button.defaultProps = {
   disabled: false,
   fullWidth: false,
   variant: 'success',
+  type: 'submit',
 };
 Button.propTypes = {
   variant: PropTypes.oneOf(supportedVariants),
@@ -80,7 +82,7 @@ Button.propTypes = {
   fullWidth: PropTypes.bool,
   margin: PropTypes.bool,
   disabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
+  type: PropTypes.string,
 };
 
 export default Button;
