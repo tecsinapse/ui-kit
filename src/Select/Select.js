@@ -7,8 +7,9 @@ import FormControl from '@material-ui/core/FormControl';
 import PropTypes from 'prop-types';
 import { selectInputStyle } from './SelectInputStyle';
 import { SelectCustomComponents } from './SelectCustomComponents';
+import { SelectCustomWebComponents } from './SelectCustomWebComponents';
 
-export const Select = withStyles(selectInputStyle)(
+export const SelectUnstyled = (
   ({
     value,
     onChange,
@@ -26,6 +27,7 @@ export const Select = withStyles(selectInputStyle)(
     menuPlacement = 'bottom',
     key,
     fullWidth,
+    variant = 'mobile',
     ...rest
   }) => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -61,7 +63,7 @@ export const Select = withStyles(selectInputStyle)(
           label={label}
           menuIsOpen={menuIsOpen}
           setMenuIsOpen={setMenuIsOpen}
-          components={SelectCustomComponents}
+          components={variant === 'mobile' ? SelectCustomComponents : SelectCustomWebComponents}
           menuPortalTarget={document.body}
           placeholder={placeholder || label || ''}
           backspaceRemovesValue={false}
@@ -75,8 +77,9 @@ export const Select = withStyles(selectInputStyle)(
   }
 );
 
-Select.defaultProps = {
+SelectUnstyled.defaultProps = {
   fullWidth: false,
+  variant: 'mobile',
   success: false,
   warning: false,
   disabled: false,
@@ -85,9 +88,10 @@ Select.defaultProps = {
   error: null,
   touched: false,
 };
-Select.propTypes = {
+SelectUnstyled.propTypes = {
   fullWidth: PropTypes.bool,
   disabled: PropTypes.bool,
+  variant: PropTypes.string,
   touched: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,
@@ -101,4 +105,6 @@ Select.propTypes = {
   onChange: PropTypes.func,
 };
 
-export default Select;
+export default SelectUnstyled;
+export const Select = withStyles(selectInputStyle)(SelectUnstyled);
+export const SelectWeb = withStyles(selectInputStyle)(SelectUnstyled);

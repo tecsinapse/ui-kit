@@ -17,13 +17,14 @@ const options = [
     label: 'Option C',
   },
 ];
-const SelectWrapper = () => {
+export const SelectWrapper = ({variant}) => {
   const [value, setValue] = useState('a');
   return (
     <Select
       value={value}
       options={options}
       onChange={setValue}
+      variant={variant}
       label="Placeholder"
     />
   );
