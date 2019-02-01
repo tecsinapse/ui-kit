@@ -107,4 +107,3 @@ SelectUnstyled.propTypes = {
 
 export default SelectUnstyled;
 export const Select = withStyles(selectInputStyle)(SelectUnstyled);
-export const SelectWeb = withStyles(selectInputStyle)(SelectUnstyled);
