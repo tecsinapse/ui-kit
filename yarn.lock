@@ -1796,6 +1796,13 @@
     "@svgr/plugin-svgo" "^4.0.3"
     loader-utils "^1.1.0"
 
+"@tecsinapse/es-utils@^0.0.92":
+  version "0.0.92"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/es-utils/-/es-utils-0.0.92.tgz#451967a7a26054e7d096aeea9320dcf98b8f3ede"
+  integrity sha512-Sba/T611PiuRqXVIzAVHAP91SxJZZ6CZX64hsDnz/dPcXmm5iNv2GEGs+0oaW3ZuPSpmHoIAcIa+RU4ccahGHA==
+  dependencies:
+    lodash.uniq "^4.5.0"
+
 "@tecsinapse/eslint-config-tecsinapse-js@^2.0.6":
   version "2.0.9"
   resolved "https://registry.yarnpkg.com/@tecsinapse/eslint-config-tecsinapse-js/-/eslint-config-tecsinapse-js-2.0.9.tgz#0a21767ec9f3330c28a9457fb2d325dc478e7475"
@@ -8525,6 +8532,11 @@ lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
+
+lodash.uniq@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
+  integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
 lodash@>4.17.4, "lodash@>=3.5 <5", lodash@^4.0.1, lodash@^4.13.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.11"

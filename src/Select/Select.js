@@ -1,10 +1,7 @@
 import { withStyles } from '@material-ui/core';
 import React, { useState } from 'react';
 import ReactSelect from 'react-select';
-import {
-  flatten,
-  getAnyFromArray,
-} from '@tecsinapse/tecsinapse-es-utils/objectUtils';
+import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/core/object';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import PropTypes from 'prop-types';
