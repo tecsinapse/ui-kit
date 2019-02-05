@@ -37,7 +37,7 @@ ConfirmationAlert.defaultProps = {
   confirmButtonText: 'Confirmar',
 };
 ConfirmationAlert.propTypes = {
-  show: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
   proceed: PropTypes.func.isRequired,
   dismiss: PropTypes.func.isRequired,
   cancel: PropTypes.func.isRequired,
