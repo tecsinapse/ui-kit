@@ -1,15 +1,15 @@
-import {Tooltip, withStyles} from '@material-ui/core';
-import React, {Fragment, useState} from 'react';
+import { Tooltip, withStyles } from '@material-ui/core';
+import React, { Fragment, useState } from 'react';
 import ReactSelect from 'react-select';
-import {flatten, getAnyFromArray} from '@tecsinapse/es-utils/core/object';
+import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/core/object';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import PropTypes from 'prop-types';
-import {selectInputStyle } from './SelectInputStyle';
-import {SelectCustomComponents} from './SelectCustomComponents';
-import {selectCustomWebComponents} from './SelectCustomWebComponents';
-import {Help} from '@material-ui/icons';
-import {inputStyles} from '../Inputs/InputStyles';
+import { selectInputStyle } from './SelectInputStyle';
+import { SelectCustomComponents } from './SelectCustomComponents';
+import { selectCustomWebComponents } from './SelectCustomWebComponents';
+import { Help } from '@material-ui/icons';
+import { inputStyles } from '../Inputs/InputStyles';
 
 export const SelectUnstyled = ({
   value,
@@ -31,7 +31,7 @@ export const SelectUnstyled = ({
   warning,
   error,
   success,
-  multSelect = false,
+  isMulti = false,
   ...rest
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -53,6 +53,7 @@ export const SelectUnstyled = ({
       : flattenChildren(children);
 
   const defaultProps = {
+    isMulti,
     value: getAnyFromArray(map.filter(c => c.value === value)),
     isDisabled: disabled,
     options: map,
@@ -110,7 +111,12 @@ export const SelectUnstyled = ({
         };
 
   return (
-    <FormControl key={key} error={!!error} fullWidth={fullWidth} style={{minWidth: '200px'}}>
+    <FormControl
+      key={key}
+      error={!!error}
+      fullWidth={fullWidth}
+      style={{ minWidth: '200px' /* , ...style */ }}
+    >
       <ReactSelect {...selectProps} />
       {error && <FormHelperText>{error}</FormHelperText>}
     </FormControl>
@@ -123,6 +129,7 @@ SelectUnstyled.defaultProps = {
   success: false,
   warning: false,
   disabled: false,
+  isMulti: false,
   label: null,
   onChange: null,
   error: null,
@@ -131,6 +138,7 @@ SelectUnstyled.defaultProps = {
 SelectUnstyled.propTypes = {
   fullWidth: PropTypes.bool,
   disabled: PropTypes.bool,
+  isMulti: PropTypes.bool,
   variant: PropTypes.string,
   touched: PropTypes.bool,
   error: PropTypes.string,

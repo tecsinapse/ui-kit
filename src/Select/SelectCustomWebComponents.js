@@ -1,23 +1,20 @@
-import {DropdownIndicator} from "./DropdownIndicator";
-import {IndicatorsContainer} from "./IndicatorsContainer";
-import {NoOptionsMessage} from "./NoOptionsMessage";
-import {Placeholder} from "./Placeholder";
-import {ValueContainer} from "./ValueContainer";
-import {MenuListWeb} from "./MenuListWeb";
-import {OptionWeb} from "./OptionWeb";
-import {MenuWeb} from "./MenuWeb";
-import {ControlWeb} from "./ControlWeb";
-import {SingleValueWeb} from "./SingleValueWeb";
+import {NoOptionsMessage} from './NoOptionsMessage';
+import {Placeholder} from './Placeholder';
+import {MenuListWeb} from './MenuListWeb';
+import {OptionWeb} from './OptionWeb';
+import {MenuWeb} from './MenuWeb';
+import {ControlWeb} from './ControlWeb';
+import {SingleValueWeb} from './SingleValueWeb';
+import {MultiValue} from "./MultiValue";
 
 export const selectCustomWebComponents = {
   NoOptionsMessage,
   Placeholder,
-  ValueContainer,
-  DropdownIndicator,
-  IndicatorsContainer,
-  MenuList:MenuListWeb,
-  Option:OptionWeb,
-  Menu:MenuWeb,
-  Control:ControlWeb,
-  SingleValue:SingleValueWeb,
- };
+  MultiValue,
+  // ValueContainer, // isso tá quebrando o multi
+  MenuList: MenuListWeb,
+  Option: OptionWeb,
+  Menu: MenuWeb,
+  Control: ControlWeb,
+  SingleValue: SingleValueWeb,
+};
