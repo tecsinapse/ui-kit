@@ -7,6 +7,7 @@ export const SingleValue = ({ selectProps, innerProps, children }) => (
     component="p"
     color="textSecondary"
     style={{
+      width: '100%',
       ...(selectProps.isDisabled ? { color: 'rgb(180, 180, 180)' } : {}),
     }}
     className={selectProps.childrenClasses.placeholder}

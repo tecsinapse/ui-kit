@@ -17,7 +17,8 @@ const options = [
     label: 'Option C',
   },
 ];
-const SelectWrapper = () => {
+
+export const SelectWrapper = (props) => {
   const [value, setValue] = useState('a');
   return (
     <Select
@@ -25,6 +26,7 @@ const SelectWrapper = () => {
       options={options}
       onChange={setValue}
       label="Placeholder"
+      {...props}
     />
   );
 };

@@ -1,0 +1,45 @@
+---
+name: Select
+category: Select
+group: Select
+---
+
+import { Playground, PropsTable } from 'docz';
+import RawSelect, { Select } from './Select';
+import { SelectWrapper } from './Select.story.js';
+import ReactSelect from 'react-select';
+
+# Mobile Select
+
+<PropsTable of={RawSelect} />
+
+## Basic usage
+
+<Playground>
+
+    <div>
+      <h3>Web</h3>
+      <SelectWrapper variant="web" />
+    </div>
+
+    <div>
+      <h3>Web fullWidth</h3>
+      <SelectWrapper variant="web" fullWidth/>
+    </div>
+
+    <div>
+      <h3>Web Multi</h3>
+      <SelectWrapper variant="web" fullWidth isMulti/>
+    </div>
+
+    <div>
+      <h3>FullScreen</h3>
+      <SelectWrapper fullWidth />
+    </div>
+
+    <div>
+      <h3>Multi FullScreen</h3>
+      <SelectWrapper fullWidth isMulti/>
+    </div>
+
+</Playground>

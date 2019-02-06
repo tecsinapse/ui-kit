@@ -4,170 +4,83 @@ import FormHelperText from '@material-ui/core/FormHelperText/FormHelperText';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField/TextField';
-import { mdiAlertCircle, mdiCheckCircle, mdiCloseCircle } from '@mdi/js';
-import Icon from '@mdi/react';
+import { inputStyles } from './InputStyles';
 import {
-  defaultGreen,
-  defaultGreenDarker,
-  defaultOrange,
-  defaultOrangeDarker,
-  defaultRed,
-  defaultRedDarker,
-} from '../colors';
+  getEndAdornmentIcon,
+  labelClass,
+  outlinedInputClass,
+} from './styleUtils';
 
-const stylesError = {
-  cssOutlinedInputRed: {
-    '&$cssFocused $notchedOutline': {
-      borderColor: defaultRed,
-    },
-    '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
-      borderColor: `${defaultRedDarker} !important`,
-    },
-  },
-  cssLabelRed: {
-    '&$cssFocused': {
-      color: defaultRed,
-    },
-  },
-};
-const stylesSuccess = {
-  cssOutlinedInputSuccess: {
-    '& $notchedOutline': {
-      borderColor: defaultGreen,
-    },
-    '&$cssFocused $notchedOutline': {
-      borderColor: defaultGreen,
-    },
-    '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
-      borderColor: `${defaultGreenDarker} !important`,
-    },
-  },
-  cssLabelSuccess: {
-    '&$cssFocused': {
-      color: defaultGreen,
-    },
-    color: defaultGreen,
-  },
-};
-const stylesWarning = {
-  cssOutlinedInputWarning: {
-    '& $notchedOutline': {
-      borderColor: defaultOrange,
-    },
-    '&$cssFocused $notchedOutline': {
-      borderColor: defaultOrange,
-    },
-    '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
-      borderColor: `${defaultOrangeDarker} !important`,
-    },
-  },
-  cssLabelWarning: {
-    '&$cssFocused': {
-      color: defaultOrange,
-    },
-    color: defaultOrange,
-  },
-};
+export const TextFieldComponent = ({
+  classes,
+  key,
+  label,
+  onChange,
+  value,
+  name,
+  warning,
+  error,
+  success,
+  disabled,
+  ...input
+}) => (
+  <TextField
+    disabled={disabled}
+    id="outlined-name"
+    name={name}
+    label={label}
+    onChange={onChange}
+    InputLabelProps={{
+      classes: {
+        root: classes[labelClass({ warning, error, success })],
+        focused: classes.cssFocused,
+      },
+    }}
+    InputProps={{
+      classes: {
+        root: classes[outlinedInputClass({ warning, error, success })],
+        focused: classes.cssFocused,
+        notchedOutline: classes.notchedOutline,
+      },
+      endAdornment: getEndAdornmentIcon({ warning, error, success }),
+    }}
+    inputProps={{
+      className: classes.input,
+    }}
+    margin="dense"
+    value={value}
+    error={!!error}
+    variant="outlined"
+    {...input}
+  />
+);
 
-const styles = theme => ({
-  cssOutlinedInput: {
-    '&$cssFocused $notchedOutline': {
-      borderColor: theme.palette.secondary.main,
-    },
-  },
-  cssLabel: {
-    '&$cssFocused': {
-      color: theme.palette.secondary.main,
-    },
-  },
-  ...stylesError,
-  ...stylesSuccess,
-  ...stylesWarning,
-  notchedOutline: {},
-  cssFocused: {},
-});
-
-const outlinedInputClass = ({ success, error, warning }) => {
-  if (error) {
-    return 'cssOutlinedInputRed';
-  }
-  if (success) {
-    return 'cssOutlinedInputSuccess';
-  }
-  if (warning) {
-    return 'cssOutlinedInputWarning';
-  }
-  return 'cssOutlinedInput';
-};
-const labelClass = ({ success, error, warning }) => {
-  if (error) {
-    return 'cssLabelRed';
-  }
-  if (success) {
-    return 'cssLabelSuccess';
-  }
-  if (warning) {
-    return 'cssLabelWarning';
-  }
-  return 'cssLabel';
-};
-
-function getEndAdornmentIcon({ warning, error, success }) {
-  if (error) {
-    return <Icon path={mdiCloseCircle} color={defaultRed} size={1} />;
-  }
-  if (success) {
-    return <Icon path={mdiCheckCircle} color={defaultGreen} size={1} />;
-  }
-  if (warning) {
-    return <Icon path={mdiAlertCircle} color={defaultOrange} size={1} />;
-  }
-  return undefined;
-}
-
-const InputUI = withStyles(styles)(
+const InputUI = withStyles(inputStyles)(
   ({
     classes,
     key,
-    error,
     fullWidth = false,
     label,
     onChange,
     value,
-    success,
     name,
     warning,
+    error,
+    success,
     disabled,
     ...input
   }) => (
     <FormControl key={key} error={!!error} fullWidth={fullWidth}>
-      <TextField
-        disabled={disabled}
-        id="outlined-name"
-        name={name}
+      <TextFieldComponent
+        classes={classes}
         label={label}
         onChange={onChange}
-        InputLabelProps={{
-          classes: {
-            root: classes[labelClass({ warning, error, success })],
-            focused: classes.cssFocused,
-          },
-        }}
-        InputProps={{
-          classes: {
-            root: classes[outlinedInputClass({ warning, error, success })],
-            focused: classes.cssFocused,
-            notchedOutline: classes.notchedOutline,
-          },
-          endAdornment: getEndAdornmentIcon({ warning, error, success }),
-        }}
-        inputProps={{
-          className: classes.input,
-        }}
-        margin="dense"
         value={value}
-        error={!!error}
-        variant="outlined"
+        name={name}
+        warning={warning}
+        error={error}
+        success={success}
+        disabled={disabled}
         {...input}
       />
       {error && <FormHelperText>{error}</FormHelperText>}

@@ -7,7 +7,6 @@ export const selectInputStyle = theme => ({
   },
   input: {
     display: 'flex',
-    padding: 0,
   },
   dummyWrapper: {
     display: 'none',
@@ -45,7 +44,7 @@ export const selectInputStyle = theme => ({
     position: 'absolute',
     zIndex: 1,
     left: 0,
-    width: 'calc(80vw - 20px)',
+    width: '100%',
   },
   divider: {
     height: theme.spacing.unit * 2,
