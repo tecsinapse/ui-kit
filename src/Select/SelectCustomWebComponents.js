@@ -1,27 +1,23 @@
-import { Control } from './Control';
-import { Option } from './Option';
-import { NoOptionsMessage } from './NoOptionsMessage';
-import { Placeholder } from './Placeholder';
-import { Menu } from './Menu';
-import { Input } from './Input';
-import { ValueContainer } from './ValueContainer';
-import { DropdownIndicator } from './DropdownIndicator';
-import { MenuList } from './MenuList';
-import { IndicatorsContainer } from './IndicatorsContainer';
-import { SelectContainer } from './SelectContainer';
-import { SingleValue } from './SingleValue';
+import {DropdownIndicator} from "./DropdownIndicator";
+import {IndicatorsContainer} from "./IndicatorsContainer";
+import {NoOptionsMessage} from "./NoOptionsMessage";
+import {Placeholder} from "./Placeholder";
+import {ValueContainer} from "./ValueContainer";
+import {MenuListWeb} from "./MenuListWeb";
+import {OptionWeb} from "./OptionWeb";
+import {MenuWeb} from "./MenuWeb";
+import {ControlWeb} from "./ControlWeb";
+import {SingleValueWeb} from "./SingleValueWeb";
 
-export const SelectCustomWebComponents = {
-  Control,
+export const selectCustomWebComponents = {
   NoOptionsMessage,
-  Option,
   Placeholder,
   ValueContainer,
-  // Menu,
-  Input,
   DropdownIndicator,
   IndicatorsContainer,
-  // MenuList,
-  // SelectContainer,
-  SingleValue,
-};
+  MenuList:MenuListWeb,
+  Option:OptionWeb,
+  Menu:MenuWeb,
+  Control:ControlWeb,
+  SingleValue:SingleValueWeb,
+ };

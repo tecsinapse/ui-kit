@@ -1,81 +1,121 @@
-import { withStyles } from '@material-ui/core';
-import React, { useState } from 'react';
+import {Tooltip, withStyles} from '@material-ui/core';
+import React, {Fragment, useState} from 'react';
 import ReactSelect from 'react-select';
-import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/core/object';
+import {flatten, getAnyFromArray} from '@tecsinapse/es-utils/core/object';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import PropTypes from 'prop-types';
-import { selectInputStyle } from './SelectInputStyle';
-import { SelectCustomComponents } from './SelectCustomComponents';
-import { SelectCustomWebComponents } from './SelectCustomWebComponents';
+import {selectInputStyle } from './SelectInputStyle';
+import {SelectCustomComponents} from './SelectCustomComponents';
+import {selectCustomWebComponents} from './SelectCustomWebComponents';
+import {Help} from '@material-ui/icons';
+import {inputStyles} from '../Inputs/InputStyles';
 
-export const SelectUnstyled = (
-  ({
-    value,
-    onChange,
-    name,
-    children,
-    tooltip,
+export const SelectUnstyled = ({
+  value,
+  onChange,
+  name,
+  children,
+  tooltip,
+  label,
+  options = [],
+  endAdornment,
+  classes,
+  disabled,
+  placeholder,
+  touched,
+  menuPlacement = 'bottom',
+  key,
+  fullWidth,
+  variant = 'mobile',
+  warning,
+  error,
+  success,
+  multSelect = false,
+  ...rest
+}) => {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+  const flattenChildren = childrenIn =>
+    childrenIn
+      ? flatten(childrenIn)
+          .filter(c => !!c && !!c.props)
+          .map(suggestion => ({
+            value: suggestion.props.value,
+            label: suggestion.props.children,
+            disabled: suggestion.props.disabled || false,
+          }))
+      : [];
+
+  const map =
+    options !== undefined && options && options.length !== 0
+      ? options
+      : flattenChildren(children);
+
+  const defaultProps = {
+    value: getAnyFromArray(map.filter(c => c.value === value)),
+    isDisabled: disabled,
+    options: map,
+    className: classes.select,
+    childrenClasses: classes,
+    placeholder: placeholder || label || '',
     label,
-    options = [],
-    endAdornment,
-    classes,
-    disabled,
-    placeholder,
-    error,
-    touched,
-    menuPlacement = 'bottom',
-    key,
-    fullWidth,
-    variant = 'mobile',
-    ...rest
-  }) => {
-    const [menuIsOpen, setMenuIsOpen] = useState(false);
+    textFieldProps: {
+      label,
+      disabled,
+      error,
+      InputLabelProps: {
+        shrink: true,
+      },
+    },
+    name,
+    meta: { touched, error },
 
-    const flattenChildren = childrenIn =>
-      childrenIn
-        ? flatten(childrenIn)
-            .filter(c => !!c && !!c.props)
-            .map(suggestion => ({
-              value: suggestion.props.value,
-              label: suggestion.props.children,
-              disabled: suggestion.props.disabled || false,
-            }))
-        : [];
+    endAdornment: (
+      <Fragment>
+        {endAdornment}
+        {tooltip ? (
+          <Tooltip title={tooltip} placement="right">
+            <Help />
+          </Tooltip>
+        ) : null}
+      </Fragment>
+    ),
+    ...rest,
+  };
 
-    const map =
-      options !== undefined && options && options.length !== 0
-        ? options
-        : flattenChildren(children);
-    return (
-      <FormControl key={key} error={!!error} fullWidth={fullWidth}>
-        <ReactSelect
-          {...rest}
-          value={getAnyFromArray(map.filter(c => c.value === value))}
-          isDisabled={disabled}
-          onChange={input2 => {
-            onChange(input2.value);
+  const selectProps =
+    variant === 'mobile'
+      ? {
+          ...defaultProps,
+          menuIsOpen,
+          setMenuIsOpen,
+          components: SelectCustomComponents,
+          menuPortalTarget: document.body,
+          backspaceRemovesValue: false,
+          deleteRemovesValue: false,
+
+          onChange: input => {
+            onChange(input.value);
             setMenuIsOpen(false);
-          }}
-          options={map}
-          className={classes.select}
-          childrenClasses={classes}
-          label={label}
-          menuIsOpen={menuIsOpen}
-          setMenuIsOpen={setMenuIsOpen}
-          components={variant === 'mobile' ? SelectCustomComponents : SelectCustomWebComponents}
-          menuPortalTarget={document.body}
-          placeholder={placeholder || label || ''}
-          backspaceRemovesValue={false}
-          deleteRemovesValue={false}
-          meta={{ touched, error }}
-          name={name}
-        />
-        {error && <FormHelperText>{error}</FormHelperText>}
-      </FormControl>
-    );
-  }
-);
+          },
+        }
+      : {
+          ...defaultProps,
+          menuPlacement,
+          components: selectCustomWebComponents,
+          onChange: input2 => {
+            onChange(input2.value);
+          },
+        };
+
+  return (
+    <FormControl key={key} error={!!error} fullWidth={fullWidth} style={{minWidth: '200px'}}>
+      <ReactSelect {...selectProps} />
+      {error && <FormHelperText>{error}</FormHelperText>}
+    </FormControl>
+  );
+};
 
 SelectUnstyled.defaultProps = {
   fullWidth: false,
@@ -97,7 +137,7 @@ SelectUnstyled.propTypes = {
   label: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      value: PropTypes.object,
+      value: PropTypes.any,
       label: PropTypes.string,
       disabled: PropTypes.bool,
     })
@@ -106,4 +146,7 @@ SelectUnstyled.propTypes = {
 };
 
 export default SelectUnstyled;
-export const Select = withStyles(selectInputStyle)(SelectUnstyled);
+export const Select = withStyles(theme => ({
+  ...selectInputStyle(theme),
+  ...inputStyles(theme),
+}))(SelectUnstyled);

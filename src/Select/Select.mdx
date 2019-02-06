@@ -4,9 +4,9 @@ category: Select
 group: Select
 ---
 
-import { Playground, PropsTable } from 'docz'
-import RawSelect, {Select} from './Select'
-import { SelectWrapper } from './Select.story.js'
+import { Playground, PropsTable } from 'docz';
+import RawSelect, { Select } from './Select';
+import { SelectWrapper } from './Select.story.js';
 
 # Mobile Select
 
@@ -17,13 +17,18 @@ import { SelectWrapper } from './Select.story.js'
 <Playground>
 
     <div>
-      <h3>Default</h3>
-      <SelectWrapper variant="web"/>
+      <h3>Web</h3>
+      <SelectWrapper variant="web" />
+    </div>
+
+    <div>
+      <h3>Web fullWidth</h3>
+      <SelectWrapper variant="web" fullWidth/>
     </div>
 
     <div>
       <h3>FullScreen</h3>
-      <SelectWrapper />
+      <SelectWrapper fullWidth />
     </div>
 
 </Playground>

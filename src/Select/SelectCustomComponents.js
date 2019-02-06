@@ -18,10 +18,9 @@ export const SelectCustomComponents = {
   Placeholder,
   ValueContainer,
   Menu,
-  Input,
   DropdownIndicator,
   IndicatorsContainer,
   MenuList,
-  SelectContainer,
   SingleValue,
+  Input,
 };
