@@ -1,10 +1,12 @@
 import { configure, addDecorator } from '@storybook/react';
+
 import React from 'react';
 import ThemeProvider from '../src/ThemeProvider';
 import { setDefaults } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { setOptions } from '@storybook/addon-options';
 import { withInfo } from '@storybook/addon-info';
+
 
 import { withSmartKnobs } from 'storybook-addon-smart-knobs';
 

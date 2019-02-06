@@ -154,7 +154,7 @@ SelectUnstyled.propTypes = {
   success: PropTypes.bool,
   warning: PropTypes.bool,
   isMulti: PropTypes.bool,
-  variant: PropTypes.string.oneOf(['auto', 'mobile', 'web']),
+  variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
   touched: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,

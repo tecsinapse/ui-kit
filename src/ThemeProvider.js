@@ -1,8 +1,17 @@
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import {
+  createMuiTheme,
+  MuiThemeProvider as OldMuiThemeProvider,
+} from '@material-ui/core';
+import {
+  install,
+  ThemeProvider as MuiThemeProvider,
+} from '@material-ui/styles';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { defaultOrange, defaultRed } from './colors';
+
+install();
 
 const themeColors = {
   orange: {
@@ -31,7 +40,9 @@ const theme = variant =>
     typography: {
       useNextVariants: true,
     },
-
+    spacing: {
+      unit: 12,
+    },
     overrides: {
       MuiCollapse: {
         entered: {
@@ -43,7 +54,11 @@ const theme = variant =>
     palette: { ...themeColors[variant] },
   });
 export function ThemeProvider({ children, variant }) {
-  return <MuiThemeProvider theme={theme(variant)}>{children}</MuiThemeProvider>;
+  return (
+    <OldMuiThemeProvider theme={theme(variant)}>
+      <MuiThemeProvider theme={theme(variant)}>{children}</MuiThemeProvider>
+    </OldMuiThemeProvider>
+  );
 }
 export default ThemeProvider;
 ThemeProvider.propTypes = {
