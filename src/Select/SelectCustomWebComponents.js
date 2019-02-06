@@ -11,7 +11,6 @@ export const selectCustomWebComponents = {
   NoOptionsMessage,
   Placeholder,
   MultiValue,
-  // ValueContainer, // isso tá quebrando o multi
   MenuList: MenuListWeb,
   Option: OptionWeb,
   Menu: MenuWeb,

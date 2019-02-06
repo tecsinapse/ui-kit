@@ -84,6 +84,15 @@ export const SelectUnstyled = ({
         ) : null}
       </Fragment>
     ),
+
+    onChange: input2 => {
+      if (setMenuIsOpen !== undefined) {
+        setMenuIsOpen(false);
+      }
+      onChange(
+        input2 instanceof Array ? input2.map(c => c.value) : input2.value
+      );
+    },
     ...rest,
   };
 
@@ -97,23 +106,11 @@ export const SelectUnstyled = ({
           menuPortalTarget: document.body,
           backspaceRemovesValue: false,
           deleteRemovesValue: false,
-
-          onChange: input => {
-            onChange(input.value);
-            setMenuIsOpen(false);
-          },
         }
       : {
           ...defaultProps,
           menuPlacement,
           components: selectCustomWebComponents,
-          onChange: input2 => {
-            if(input2 instanceof Array) {
-              onChange(input2.map( c => c.value));
-            } else {
-              onChange(input2.value);
-            }
-          },
         };
 
   return (
