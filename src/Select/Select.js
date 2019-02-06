@@ -4,11 +4,14 @@ import ReactSelect from 'react-select';
 import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/core/object';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
+import { useTheme } from '@material-ui/styles';
+import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 import PropTypes from 'prop-types';
+
+import { Help } from '@material-ui/icons';
 import { selectInputStyle } from './SelectInputStyle';
 import { SelectCustomComponents } from './SelectCustomComponents';
 import { selectCustomWebComponents } from './SelectCustomWebComponents';
-import { Help } from '@material-ui/icons';
 import { inputStyles } from '../Inputs/InputStyles';
 
 export const SelectUnstyled = ({
@@ -27,7 +30,6 @@ export const SelectUnstyled = ({
   menuPlacement = 'bottom',
   key,
   fullWidth,
-  variant = 'mobile',
   warning,
   error,
   success,
@@ -35,6 +37,14 @@ export const SelectUnstyled = ({
   ...rest
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+  let { variant } = rest;
+  if (variant === 'auto' && !matches) {
+    variant = 'mobile';
+  } else {
+    variant = 'web';
+  }
 
   const flattenChildren = childrenIn =>
     childrenIn
@@ -128,7 +138,7 @@ export const SelectUnstyled = ({
 
 SelectUnstyled.defaultProps = {
   fullWidth: false,
-  variant: 'mobile',
+  variant: 'auto',
   success: false,
   warning: false,
   disabled: false,
@@ -141,8 +151,10 @@ SelectUnstyled.defaultProps = {
 SelectUnstyled.propTypes = {
   fullWidth: PropTypes.bool,
   disabled: PropTypes.bool,
+  success: PropTypes.bool,
+  warning: PropTypes.bool,
   isMulti: PropTypes.bool,
-  variant: PropTypes.string,
+  variant: PropTypes.string.oneOf(['auto', 'mobile', 'web']),
   touched: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,
@@ -152,7 +164,7 @@ SelectUnstyled.propTypes = {
       label: PropTypes.string,
       disabled: PropTypes.bool,
     })
-  ),
+  ).isRequired,
   onChange: PropTypes.func,
 };
 
