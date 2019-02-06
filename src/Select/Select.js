@@ -54,7 +54,9 @@ export const SelectUnstyled = ({
 
   const defaultProps = {
     isMulti,
-    // value: getAnyFromArray(map.filter(c => c.value === value)),
+    value: !isMulti
+      ? getAnyFromArray(map.filter(c => c.value === value))
+      : map.filter(c => value.includes(c.value)),
     isDisabled: disabled,
     options: map,
     className: classes.select,
@@ -106,7 +108,11 @@ export const SelectUnstyled = ({
           menuPlacement,
           components: selectCustomWebComponents,
           onChange: input2 => {
-            onChange(input2.value);
+            if(input2 instanceof Array) {
+              onChange(input2.map( c => c.value));
+            } else {
+              onChange(input2.value);
+            }
           },
         };
 
