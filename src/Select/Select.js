@@ -54,7 +54,7 @@ export const SelectUnstyled = ({
 
   const defaultProps = {
     isMulti,
-    value: getAnyFromArray(map.filter(c => c.value === value)),
+    // value: getAnyFromArray(map.filter(c => c.value === value)),
     isDisabled: disabled,
     options: map,
     className: classes.select,

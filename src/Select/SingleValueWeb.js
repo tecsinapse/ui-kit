@@ -8,13 +8,4 @@ export function SingleValueWeb({ selectProps, innerProps, children, ...rest }) {
       {children}
     </components.SingleValue>
   );
-
-  // return (
-  //   <Typography
-  //     className={selectProps.childrenClasses.singleValue}
-  //     {...innerProps}
-  //   >
-  //     {children}
-  //   </Typography>
-  // );
 }
