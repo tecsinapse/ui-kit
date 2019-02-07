@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
 import { AppBar as MaterialAppBar } from '@material-ui/core';
@@ -11,6 +11,9 @@ import Icon from '@mdi/react';
 import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(({ palette, spacing }) => ({
+  marginLeft: {
+    marginLeft: `${spacing.unit / 2}px !important`,
+  },
   toolbar: {
     paddingLeft: spacing.unit,
     paddingRight: spacing.unit,
@@ -18,6 +21,8 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
   },
   grow: {
     flexGrow: 1,
+    display: 'flex',
+    flexDirection: 'row',
   },
   appBar: {
     display: 'flex',
@@ -40,9 +45,11 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
 
 export const AppBar = ({
   title,
+  subtitle,
+  titleComponent,
   menuOnClick,
-  renderLeftIcons,
-  renderRightIcons,
+  leftIcons,
+  rightIcons,
 }) => {
   const classes = useStyles();
   return (
@@ -56,11 +63,26 @@ export const AppBar = ({
           >
             <Icon path={mdiMenu} color="white" size={1} />
           </IconButton>
-          {renderLeftIcons && renderLeftIcons()}
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            {title}
-          </Typography>
-          {renderRightIcons && renderRightIcons()}
+          {leftIcons}
+          <div className={classes.grow}>
+            {titleComponent || (
+              <Fragment>
+                <Typography variant="h6" color="inherit">
+                  {title}
+                </Typography>
+                {subtitle && (
+                  <Typography
+                    variant="h6"
+                    color="secondary"
+                    classes={{ root: classes.marginLeft }}
+                  >
+                    {subtitle}
+                  </Typography>
+                )}
+              </Fragment>
+            )}
+          </div>
+          {rightIcons}
         </Toolbar>
         <div className={classes.paperBreadcrumb}>
           <Breadcrumbs
