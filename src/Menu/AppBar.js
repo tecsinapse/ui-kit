@@ -34,7 +34,7 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     display: 'flex',
     height: spacing.unit * 3,
     borderTop: '1px solid white',
-    paddingLeft: spacing.unit,
+    paddingLeft: spacing.unit * 2,
     paddingRight: spacing.unit,
     backgroundColor: palette.primary.light,
   },
