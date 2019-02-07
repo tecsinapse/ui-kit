@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
 import { AppBar as MaterialAppBar } from '@material-ui/core';
@@ -9,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { mdiChevronRight, mdiMenu } from '@mdi/js';
 import Icon from '@mdi/react';
 import Link from '@material-ui/core/Link';
+import { DefaultProductTypography } from '../DefaultProductTypography';
 
 const useStyles = makeStyles(({ palette, spacing }) => ({
   marginLeft: {
@@ -65,21 +67,10 @@ export const AppBar = ({
           </IconButton>
           {leftIcons}
           <div className={classes.grow}>
-            {titleComponent || (
-              <Fragment>
-                <Typography variant="h6" color="inherit">
-                  {title}
-                </Typography>
-                {subtitle && (
-                  <Typography
-                    variant="h6"
-                    color="secondary"
-                    classes={{ root: classes.marginLeft }}
-                  >
-                    {subtitle}
-                  </Typography>
-                )}
-              </Fragment>
+            {titleComponent ? (
+              <DefaultProductTypography title={title} subtitle={subtitle} />
+            ) : (
+              { titleComponent }
             )}
           </div>
           {rightIcons}
@@ -114,5 +105,22 @@ export const AppBar = ({
       </MaterialAppBar>
     </div>
   );
+};
+
+AppBar.defaultProps = {
+  title: '',
+  subtitle: '',
+  titleComponent: null,
+  menuOnClick: null,
+  leftIcons: null,
+  rightIcons: null,
+};
+AppBar.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  titleComponent: PropTypes.func,
+  menuOnClick: PropTypes.func,
+  leftIcons: PropTypes.func,
+  rightIcons: PropTypes.func,
 };
 export default AppBar;
