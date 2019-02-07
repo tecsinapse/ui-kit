@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { mdiOneUp, mdiShieldHalfFull, mdiTurtle } from '@mdi/js';
 
 import Icon from '@mdi/react';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import { AppBar } from './AppBar';
 
 storiesOf(`${GROUPS.MENU}|AppBar`, module).add('AppBar', () => (
