@@ -1,7 +1,7 @@
 import React from 'react';
-import { makeStyles, } from '@material-ui/styles';
+import {makeStyles,} from '@material-ui/styles';
 import classNames from 'classnames';
-import { TextFieldComponent } from '../Inputs/Input';
+import {TextFieldComponent} from '../Inputs/Input';
 
 const useStyles = makeStyles({
   flex: {
