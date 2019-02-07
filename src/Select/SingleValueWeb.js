@@ -5,7 +5,6 @@ import React from 'react';
 export function SingleValueWeb({ selectProps, innerProps, children, ...rest }) {
   return (
     <components.SingleValue selectProps={selectProps} {...rest}>
-      oie
       {children}
     </components.SingleValue>
   );

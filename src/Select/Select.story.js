@@ -18,7 +18,7 @@ const options = [
   },
 ];
 
-export const SelectWrapper = (props) => {
+export const SelectWrapper = props => {
   const [value, setValue] = useState('a');
   return (
     <Select
@@ -31,6 +31,9 @@ export const SelectWrapper = (props) => {
   );
 };
 
-storiesOf(`${GROUPS.FORMS}|Select`, module).add('Select Mobile', () => (
-  <SelectWrapper />
-));
+storiesOf(`${GROUPS.FORMS}|Select`, module)
+  .add('Select Auto Detect', () => <SelectWrapper />)
+  .add('Select Web', () => <SelectWrapper variant="web" />)
+  .add('Select Mobile', () => <SelectWrapper variant="mobile" />)
+  .add('Select Mobile Multi', () => <SelectWrapper isMulti variant="mobile" />)
+  .add('Select Web Multi', () => <SelectWrapper isMulti variant="web" />);

@@ -9,7 +9,7 @@ export const selectInputStyle = theme => ({
     display: 'flex',
   },
   dummyWrapper: {
-    display: 'none',
+    display: 'none'
   },
   valueContainer: {
     minWidth: 0,
@@ -55,6 +55,9 @@ export const selectInputStyle = theme => ({
   },
   select: {
     paddingTop: theme.spacing.unit / 2,
+  },
+  flex: {
+    display: 'flex',
   },
   dropdownIndicator: {
     padding: '2px !important',

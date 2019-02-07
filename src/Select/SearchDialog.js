@@ -34,7 +34,7 @@ const tabStyles = theme => ({
   searchBar: {
     flexGrow: '1',
     paddingRight: 0,
-    boxShadow: 'none',
+    boxShadow: 'none !important',
     width: '100%',
   },
   searchBarContainer: {
