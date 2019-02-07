@@ -34,11 +34,16 @@ import ReactSelect from 'react-select';
 
     <div>
       <h3>FullScreen</h3>
-      <SelectWrapper fullWidth />
+      <SelectWrapper fullWidth variant="mobile"/>
     </div>
 
     <div>
       <h3>Multi FullScreen</h3>
+      <SelectWrapper fullWidth isMulti variant="mobile"/>
+    </div>
+
+    <div>
+      <h3>Multi FullScreen auto-size</h3>
       <SelectWrapper fullWidth isMulti/>
     </div>
 

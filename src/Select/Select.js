@@ -37,13 +37,17 @@ export const SelectUnstyled = ({
   ...rest
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  let { variant } = rest;
+
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
-  let { variant } = rest;
-  if (variant === 'auto' && !matches) {
-    variant = 'mobile';
-  } else {
-    variant = 'web';
+
+  if (variant === 'auto') {
+    if (!matches) {
+      variant = 'mobile';
+    } else {
+      variant = 'web';
+    }
   }
 
   const flattenChildren = childrenIn =>
@@ -128,7 +132,7 @@ export const SelectUnstyled = ({
       key={key}
       error={!!error}
       fullWidth={fullWidth}
-      style={{ minWidth: '200px' /* , ...style */ }}
+      style={{ minWidth: '200px' }}
     >
       <ReactSelect {...selectProps} />
       {error && <FormHelperText>{error}</FormHelperText>}
