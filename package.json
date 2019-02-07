@@ -1,6 +1,6 @@
 {
   "name": "@tecsinapse/ui-kit",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "browser": "dist/index.js",
@@ -31,6 +31,7 @@
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.0.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "classnames": "^2.2.6",
     "docz": "^0.13.7",
     "docz-theme-default": "^0.13.7",
     "enzyme": "^3.7.0",
