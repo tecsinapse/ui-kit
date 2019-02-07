@@ -1,5 +1,6 @@
 import MenuItem from '@material-ui/core/MenuItem';
 import React from 'react';
+import Checkbox from '@material-ui/core/Checkbox';
 
 export function OptionWeb({
   innerRef,
@@ -8,6 +9,7 @@ export function OptionWeb({
   children,
   data,
   isSelected,
+  selectProps,
 }) {
   return (
     <MenuItem
@@ -20,6 +22,9 @@ export function OptionWeb({
       disabled={data.disabled || false}
       {...innerProps}
     >
+      {selectProps.isMulti && (
+        <Checkbox checked={isSelected} value="checkedA" />
+      )}
       {children}
     </MenuItem>
   );

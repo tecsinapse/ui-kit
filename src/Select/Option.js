@@ -1,5 +1,6 @@
 import React from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
+import Checkbox from '@material-ui/core/Checkbox';
 
 export function Option({
   innerRef,
@@ -8,11 +9,12 @@ export function Option({
   children,
   data,
   isSelected,
+  selectProps,
 }) {
   return (
     <MenuItem
       buttonRef={innerRef}
-      selected={isSelected}
+      selected={!selectProps.isMulti && isSelected}
       component="div"
       style={{
         fontWeight: isSelected ? 500 : 400,
@@ -23,6 +25,7 @@ export function Option({
       disabled={data.disabled || false}
       {...innerProps}
     >
+      { selectProps.isMulti && <Checkbox checked={isSelected} value="checkedA" />}
       {children}
     </MenuItem>
   );

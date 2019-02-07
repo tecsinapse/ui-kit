@@ -1,13 +1,12 @@
 import { Tooltip, withStyles } from '@material-ui/core';
 import React, { Fragment, useState } from 'react';
-import ReactSelect from 'react-select';
 import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/core/object';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import { useTheme } from '@material-ui/styles';
 import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 import PropTypes from 'prop-types';
-
+import ReactSelect from 'react-select';
 import { Help } from '@material-ui/icons';
 import { selectInputStyle } from './SelectInputStyle';
 import { SelectCustomComponents } from './SelectCustomComponents';
@@ -17,6 +16,7 @@ import { inputStyles } from '../Inputs/InputStyles';
 export const SelectUnstyled = ({
   value,
   onChange,
+  onBlur,
   name,
   children,
   tooltip,
@@ -68,6 +68,8 @@ export const SelectUnstyled = ({
 
   const defaultProps = {
     isMulti,
+    menuIsOpen,
+    setMenuIsOpen,
     value: !isMulti
       ? getAnyFromArray(map.filter(c => c.value === value))
       : map.filter(c => value.includes(c.value)),
@@ -87,7 +89,7 @@ export const SelectUnstyled = ({
     },
     name,
     meta: { touched, error },
-
+    hideSelectedOptions: false,
     endAdornment: (
       <Fragment>
         {endAdornment}
@@ -98,14 +100,20 @@ export const SelectUnstyled = ({
         ) : null}
       </Fragment>
     ),
-
     onChange: input2 => {
-      if (setMenuIsOpen !== undefined) {
+      if (setMenuIsOpen !== undefined && !isMulti) {
         setMenuIsOpen(false);
       }
       onChange(
         input2 instanceof Array ? input2.map(c => c.value) : input2.value
       );
+    },
+    onBlur: event => {
+      if (onBlur) {
+        onBlur(event);
+      }
+
+      selectProps.setMenuIsOpen(false);
     },
     ...rest,
   };
@@ -113,18 +121,16 @@ export const SelectUnstyled = ({
   const selectProps =
     variant === 'mobile'
       ? {
-          ...defaultProps,
-          menuIsOpen,
-          setMenuIsOpen,
           components: SelectCustomComponents,
           menuPortalTarget: document.body,
           backspaceRemovesValue: false,
           deleteRemovesValue: false,
+          ...defaultProps,
         }
       : {
-          ...defaultProps,
           menuPlacement,
           components: selectCustomWebComponents,
+          ...defaultProps,
         };
 
   return (
@@ -149,6 +155,7 @@ SelectUnstyled.defaultProps = {
   isMulti: false,
   label: null,
   onChange: null,
+  onBlur: null,
   error: null,
   touched: false,
 };
@@ -170,6 +177,7 @@ SelectUnstyled.propTypes = {
     })
   ).isRequired,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
 };
 
 export default SelectUnstyled;

@@ -6,11 +6,15 @@ import {MenuWeb} from './MenuWeb';
 import {ControlWeb} from './ControlWeb';
 import {SingleValueWeb} from './SingleValueWeb';
 import {MultiValue} from "./MultiValue";
+import {SelectContainer} from "./SelectContainer";
+import {ValueContainer} from "./ValueContainer";
 
 export const selectCustomWebComponents = {
   NoOptionsMessage,
   Placeholder,
   MultiValue,
+  SelectContainer,
+  ValueContainer,
   MenuList: MenuListWeb,
   Option: OptionWeb,
   Menu: MenuWeb,

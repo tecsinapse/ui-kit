@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IconButton } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { Close, Search } from '@material-ui/icons';
+import { ArrowBack, ArrowBackIos, Close, Search } from '@material-ui/icons';
 import SearchBar from 'material-ui-search-bar';
 import Dialog from '@material-ui/core/Dialog';
 import Paper from '@material-ui/core/Paper';
@@ -94,7 +94,7 @@ export const SearchDialog = withStyles(tabStyles)(
             style={{ marginLeft: '5px' }}
             onClick={() => setMenuIsOpen(false)}
           >
-            <Close color="inherit" />
+            <ArrowBackIos color="inherit" />
           </IconButton>
 
           <SearchBar
