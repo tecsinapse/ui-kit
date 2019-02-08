@@ -49,10 +49,6 @@ export const selectInputStyle = theme => ({
   divider: {
     height: theme.spacing.unit * 2,
   },
-  dropdown: {
-    display: 'flex',
-    flexBasis: '5%',
-  },
   select: {
     paddingTop: theme.spacing.unit / 2,
   },
@@ -60,6 +56,6 @@ export const selectInputStyle = theme => ({
     display: 'flex',
   },
   dropdownIndicator: {
-    padding: '2px !important',
+    cursor: "pointer !important",
   },
 });

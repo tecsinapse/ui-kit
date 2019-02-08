@@ -112,7 +112,6 @@ export const SelectUnstyled = ({
       if (onBlur) {
         onBlur(event);
       }
-
       selectProps.setMenuIsOpen(false);
     },
     ...rest,
