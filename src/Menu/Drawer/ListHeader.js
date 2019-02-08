@@ -27,7 +27,7 @@ const useStyles = makeStyles(({ spacing }) => ({
     borderRadius: 0,
     backgroundColor: grey[100],
     paddingTop: spacing.unit / 2,
-    paddingBottom: spacing.unit / 2,
+    paddingBottom: spacing.unit / 2
   },
 }));
 
