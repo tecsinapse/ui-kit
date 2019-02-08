@@ -1857,23 +1857,24 @@
   dependencies:
     lodash.uniq "^4.5.0"
 
-"@tecsinapse/eslint-config-tecsinapse-js@^2.0.6":
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/eslint-config-tecsinapse-js/-/eslint-config-tecsinapse-js-2.0.9.tgz#0a21767ec9f3330c28a9457fb2d325dc478e7475"
-  integrity sha512-uCLZNafnGhv8fNkRlo2gZMzoTldZN13rC8C4qnvM+DeDowl2GLL+h0YmR5WUPMzmgv8t0o5/iwTXN0RzcBH5aQ==
+"@tecsinapse/eslint-config-tecsinapse-js@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/eslint-config-tecsinapse-js/-/eslint-config-tecsinapse-js-2.1.2.tgz#747e636182b1656c8f9f7fa9f6e49affc6267b59"
+  integrity sha512-moZlJ0/vJ/U+lPCDPiM1S5GPrNhau3yFkUNJ0LLAgCt5ulLXMAX0QVkpJHx57YHC2hnESmsUAgRu6f/tfQ8zMQ==
   dependencies:
     "@meteorjs/eslint-config-meteor" "^1.0.5"
     babel-eslint "9.0.0"
     eslint "5.6.0"
     eslint-config-airbnb "^17.1.0"
     eslint-config-prettier "^3.1.0"
-    eslint-config-react-app "^3.0.4"
+    eslint-config-react-app "^3.0.6"
     eslint-import-resolver-meteor "^0.4.0"
     eslint-plugin-flowtype "^2.50.3"
     eslint-plugin-import "^2.14.0"
     eslint-plugin-jsx-a11y "^6.0.3"
     eslint-plugin-meteor "^5.1.0"
     eslint-plugin-react ">=7.8.2"
+    eslint-plugin-react-hooks "^1.0.1"
     prettier "^1.15.2"
 
 "@types/estree@0.0.39":
@@ -5474,7 +5475,7 @@ eslint-config-prettier@^3.1.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-react-app@^3.0.4:
+eslint-config-react-app@^3.0.6:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-3.0.6.tgz#addcae1359235941e95f3c96970b7ac8552e1130"
   integrity sha512-VL5rA1EBZv7f9toc9x71or7nr4jRmwCH4V9JKB9DFVaTLOLI9+vjWLgQLjMu3xR9iUT80dty86RbCfNaKyrFFg==
@@ -5548,6 +5549,11 @@ eslint-plugin-meteor@^5.1.0:
   integrity sha512-0/mQ0vOhmJQSDbhU84CsLGFEq967ye6sqyJKG/H8Nwv3+Ti1ayfsKqI0iEK85NcI8v6jJ7o/0EHkHg14bcLbaw==
   dependencies:
     invariant "2.2.4"
+
+eslint-plugin-react-hooks@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.0.1.tgz#76b6fb4edafab02eab0090078977687157605dd9"
+  integrity sha512-yNhvY7EFBp0mq0Bt8BHoS57GwJ4e1qSYdvDFSfPnjmiSmyGUfQFQGcQs4K0JQFDGopWkURWq58psbUJIhWZ2Kg==
 
 eslint-plugin-react@>=7.8.2:
   version "7.12.4"
