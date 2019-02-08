@@ -1,29 +1,19 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Drawer as MuiDrawer } from '@material-ui/core';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import StarBorder from '@material-ui/icons/StarBorder';
 import { makeStyles } from '@material-ui/styles';
-import { mdiMenuDown, mdiMenuUp } from '@mdi/js';
-import Icon from '@mdi/react';
 import { ListHeader } from './ListHeader';
+import { MenuItem } from './MenuItem';
+import { searchLogic } from './searchLogic';
+import { SearchResultListing } from './SearchResultListing';
+import { demoItems } from './demoItems';
 
-const useStyles = makeStyles(theme => ({
-  nested: {
-    paddingLeft: theme.spacing.unit * 4,
-  },
+export const useStyles = makeStyles(theme => ({
   parentList: {
     width: theme.spacing.unit * 30,
   },
-  parentItem: {
-    height: theme.spacing.unit * 5,
-  },
 }));
-
-const MenuList = ({ closeDrawer, items }) => {
+const MenuList = ({ closeDrawer, items, depth = 0 }) => {
   const [open, setOpen] = useState({});
   const classes = useStyles();
   const handleClick = key =>
@@ -33,50 +23,45 @@ const MenuList = ({ closeDrawer, items }) => {
     }));
 
   return (
-    <List className={classes.parentList}>
-      <ListHeader />
-      {items.map(({ key, title }) => (
-        <Fragment>
-          <ListItem
-            button
-            divider
-            className={classes.parentItem}
-            onClick={() => handleClick(key)}
-          >
-            <ListItemText
-              primary={title}
-              primaryTypographyProps={{ variant: 'subtitle2' }}
+    <List className={classes.parentList} disablePadding>
+      {items.map(({ title, children }) => (
+        <MenuItem
+          depth={depth}
+          key={title}
+          title={title}
+          open={open[title]}
+          handleClick={a => {
+            if (children) {
+              handleClick(a);
+            }
+          }}
+        >
+          {children ? (
+            <MenuList
+              closeDrawer={closeDrawer}
+              depth={depth + 1}
+              items={children}
             />
-            {open[key] ? (
-              <Icon path={mdiMenuUp} color="gray" size={1} />
-            ) : (
-              <Icon path={mdiMenuDown} color="gray" size={1} />
-            )}
-          </ListItem>
-          <Collapse in={open[key]} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <StarBorder />
-                </ListItemIcon>
-                <ListItemText inset primary="Starred" />
-              </ListItem>
-            </List>
-          </Collapse>
-        </Fragment>
+          ) : null}
+        </MenuItem>
       ))}
     </List>
   );
 };
-
-export const Drawer = ({ open, onClose }) => (
-  <MuiDrawer open={open} onClose={onClose}>
-    <MenuList
-      closeDrawer={onClose}
-      items={[{ key: 'Olá!', title: 'Portal' }, { key: 'Mundo', title: 'CRM' }]}
-    />
-  </MuiDrawer>
-);
+export const Drawer = ({ open, onClose }) => {
+  const [search, setSearch] = useState('');
+  let searchResults = [];
+  if (search != null) {
+    searchResults = searchLogic(demoItems, search);
+  }
+  return (
+    <MuiDrawer open={open} onClose={onClose}>
+      <ListHeader search={search} setSearch={setSearch} />
+      {!search && <MenuList closeDrawer={onClose} items={demoItems} />}
+      {search && <SearchResultListing searchResults={searchResults} />}
+    </MuiDrawer>
+  );
+};
 
 Drawer.defaultProps = {};
 Drawer.propTypes = {};

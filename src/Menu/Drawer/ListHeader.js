@@ -2,9 +2,6 @@ import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import { mdiTurtle } from '@mdi/js';
-import Icon from '@mdi/react';
 import classNames from 'classnames';
 
 import SearchBar from 'material-ui-search-bar';
@@ -27,11 +24,11 @@ const useStyles = makeStyles(({ spacing }) => ({
     borderRadius: 0,
     backgroundColor: grey[100],
     paddingTop: spacing.unit / 2,
-    paddingBottom: spacing.unit / 2
+    paddingBottom: spacing.unit / 2,
   },
 }));
 
-export const ListHeader = () => {
+export const ListHeader = ({ search, setSearch }) => {
   const classes = useStyles();
   return (
     <Fragment>
@@ -50,6 +47,9 @@ export const ListHeader = () => {
         <SearchBar
           placeholder="O que você busca?"
           className={classes.searchBar}
+          value={search}
+          onChange={setSearch}
+          onCancelSearch={() => setSearch('')}
         />
       </ListItem>
     </Fragment>

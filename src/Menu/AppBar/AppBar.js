@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
@@ -120,7 +120,7 @@ AppBar.propTypes = {
   subtitle: PropTypes.string,
   titleComponent: PropTypes.func,
   menuOnClick: PropTypes.func,
-  leftIcons: PropTypes.func,
-  rightIcons: PropTypes.func,
+  leftIcons: PropTypes.object,
+  rightIcons: PropTypes.object,
 };
 export default AppBar;
