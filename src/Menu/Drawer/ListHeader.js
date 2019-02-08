@@ -6,7 +6,6 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import { mdiTurtle } from '@mdi/js';
 import Icon from '@mdi/react';
 import classNames from 'classnames';
-import classNames from 'classnames';
 
 import SearchBar from 'material-ui-search-bar';
 import { grey } from '@material-ui/core/colors';
