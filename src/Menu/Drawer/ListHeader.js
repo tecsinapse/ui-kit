@@ -25,7 +25,7 @@ const useStyles = makeStyles(({ spacing }) => ({
     boxShadow: 'none',
     width: `calc(100% - ${spacing.unit}px + 6px )`,
     borderRadius: 0,
-    backgroundColor: grey[200],
+    backgroundColor: grey[100],
     paddingTop: spacing.unit / 2,
     paddingBottom: spacing.unit / 2,
   },
@@ -41,9 +41,6 @@ export const ListHeader = () => {
           className={classes.noPadding}
           secondary="Gestão de frotas"
         />
-        <ListItemSecondaryAction>
-          <Icon path={mdiTurtle} size={1} />
-        </ListItemSecondaryAction>
       </ListItem>
       <ListItem
         alignItems="flex-start"
