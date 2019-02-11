@@ -1,3 +1,34 @@
+<a name="0.0.17"></a>
+## <small>0.0.17 (2019-02-11)</small>
+
+* a ([5eb0ac2](https://github.com/tecsinapse/ui-kit/commit/5eb0ac2))
+* Add build-all script ([8325ec0](https://github.com/tecsinapse/ui-kit/commit/8325ec0))
+* Add select all options to select ([68e2b7c](https://github.com/tecsinapse/ui-kit/commit/68e2b7c))
+* Added huskyy ([0daeb8e](https://github.com/tecsinapse/ui-kit/commit/0daeb8e))
+* adding description ([a8a34dd](https://github.com/tecsinapse/ui-kit/commit/a8a34dd))
+* adding travis integration ([58b1fea](https://github.com/tecsinapse/ui-kit/commit/58b1fea))
+* commiting error ([78431ae](https://github.com/tecsinapse/ui-kit/commit/78431ae))
+* commiting error ([0aaec34](https://github.com/tecsinapse/ui-kit/commit/0aaec34))
+* corrigindo package json ([5398ead](https://github.com/tecsinapse/ui-kit/commit/5398ead))
+* Drawer being rendered on screen ([3a1366e](https://github.com/tecsinapse/ui-kit/commit/3a1366e))
+* ellipsis on multivalue input ([8cd9f12](https://github.com/tecsinapse/ui-kit/commit/8cd9f12))
+* husky ([c60956e](https://github.com/tecsinapse/ui-kit/commit/c60956e))
+* init bumped for releases ([b323a7c](https://github.com/tecsinapse/ui-kit/commit/b323a7c))
+* lock ([9e84e56](https://github.com/tecsinapse/ui-kit/commit/9e84e56))
+* Recursive menu and search working! \o/ ([3985cb6](https://github.com/tecsinapse/ui-kit/commit/3985cb6))
+* Release 0.0.16 ([f75ee63](https://github.com/tecsinapse/ui-kit/commit/f75ee63))
+* Removing unused component ([26ed95b](https://github.com/tecsinapse/ui-kit/commit/26ed95b))
+* Search Bar ([e596f33](https://github.com/tecsinapse/ui-kit/commit/e596f33))
+* Select working \o/ ([9a1e22b](https://github.com/tecsinapse/ui-kit/commit/9a1e22b))
+* Showing items lenght at multi select ([7db0428](https://github.com/tecsinapse/ui-kit/commit/7db0428))
+* teste ([3819f2a](https://github.com/tecsinapse/ui-kit/commit/3819f2a))
+* teste ([9d0cbf6](https://github.com/tecsinapse/ui-kit/commit/9d0cbf6))
+* travis ci ([8b822a3](https://github.com/tecsinapse/ui-kit/commit/8b822a3))
+* Update version and added build and publish scripts ([35c6432](https://github.com/tecsinapse/ui-kit/commit/35c6432))
+* yarn lock ([a05aa04](https://github.com/tecsinapse/ui-kit/commit/a05aa04))
+
+
+
 <a name="0.0.16"></a>
 ## <small>0.0.16 (2019-02-11)</small>
 
