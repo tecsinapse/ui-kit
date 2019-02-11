@@ -1,17 +1,27 @@
-import React, { Fragment } from 'react';
+import React, { cloneElement, Fragment } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { mdiMenuDown, mdiMenuUp } from '@mdi/js';
 import Icon from '@mdi/react';
+import classNames from 'classnames';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import List from '@material-ui/core/List';
+import { grey } from '@material-ui/core/colors';
 
 const useStyles = depth =>
   makeStyles(theme => ({
-    parentItem: {
-      height: theme.spacing.unit * (depth > 0 ? 4 : 5),
+    item: {
       paddingLeft: theme.spacing.unit * (depth + 1),
+    },
+    parentItem: {
+      height: theme.spacing.unit * 5,
+    },
+    childItem: {
+      height: theme.spacing.unit * 3,
+    },
+    openItem: {
+      backgroundColor: grey[Math.max(1, depth) * 100],
     },
   }));
 export const TitleSubtitleMenuItem = ({ title, subtitle, onClick }) => (
@@ -24,19 +34,35 @@ export const TitleSubtitleMenuItem = ({ title, subtitle, onClick }) => (
   </ListItem>
 );
 
-export const MenuItem = ({ depth, handleClick, open, title, children }) => {
+export const MenuItem = ({
+  depth,
+  handleClick,
+  open,
+  title,
+  children,
+  showAsOpen = false,
+  selected = false,
+}) => {
   const classes = useStyles(depth)();
   return (
     <Fragment>
       <ListItem
         button
-        divider
-        className={classes.parentItem}
+        divider={depth === 0}
+        className={classNames({
+          [classes.openItem]: open || showAsOpen,
+          [classes.parentItem]: depth === 0,
+          [classes.childItem]: depth > 0,
+          [classes.item]: true,
+        })}
         onClick={() => handleClick(title)}
       >
         <ListItemText
           primary={title}
-          primaryTypographyProps={{ variant: 'subtitle2' }}
+          primaryTypographyProps={{
+            variant: 'subtitle2',
+            color: selected ? 'textSecondary' : 'textPrimary',
+          }}
         />
         {children && (
           <Fragment>
@@ -51,7 +77,7 @@ export const MenuItem = ({ depth, handleClick, open, title, children }) => {
       {children && (
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding dense>
-            {children}
+            {cloneElement(children, { showAsOpen: open })}
           </List>
         </Collapse>
       )}

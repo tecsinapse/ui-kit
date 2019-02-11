@@ -6,7 +6,10 @@ export const demoItems = [
       {
         title: '3',
         children: [
-          { title: '2', children: [{ title: '2' }, { title: '3' }] },
+          {
+            title: '2',
+            children: [{ title: '2' }, { title: '3', selected: true }],
+          },
           { title: '3' },
         ],
       },
