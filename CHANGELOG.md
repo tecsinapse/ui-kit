@@ -1,3 +1,16 @@
+<a name="0.0.25"></a>
+## <small>0.0.25 (2019-02-11)</small>
+
+* Adding logic to open menu based on selected option ([ce17c30](https://github.com/tecsinapse/ui-kit/commit/ce17c30))
+* Change client name ([1c7f63e](https://github.com/tecsinapse/ui-kit/commit/1c7f63e))
+* Custom components on menu ([3f8ae73](https://github.com/tecsinapse/ui-kit/commit/3f8ae73))
+* New docs ([61d9ea9](https://github.com/tecsinapse/ui-kit/commit/61d9ea9))
+* Release 0.0.23 ([e67c605](https://github.com/tecsinapse/ui-kit/commit/e67c605))
+* Release 0.0.24 ([16159bd](https://github.com/tecsinapse/ui-kit/commit/16159bd))
+* Solving menu scroll problemns ([ae3674a](https://github.com/tecsinapse/ui-kit/commit/ae3674a))
+
+
+
 <a name="0.0.24"></a>
 ## <small>0.0.24 (2019-02-11)</small>
 
