@@ -5,6 +5,7 @@
   "module": "build/index.js",
   "browser": "dist/index.js",
   "sideEffects": false,
+  "description": "TecSinapse UI-KIT",
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.1.2",
