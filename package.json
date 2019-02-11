@@ -1,6 +1,6 @@
 {
   "name": "@tecsinapse/ui-kit",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "browser": "dist/index.js",
@@ -68,7 +68,8 @@
     "storybook:build": "build-storybook -c .storybook -o docs/storybook/",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "NODE_ENV=test jest test/",
-    "build-all": " yarn build && yarn docz:build && yarn storybook:build"
+    "build-all": "yarn build && yarn docz:build && yarn storybook:build",
+    "build-publish": "yarn build-all && npm publish"
   },
   "peerDependencies": {
     "@material-ui/core": "^3.9.1",
