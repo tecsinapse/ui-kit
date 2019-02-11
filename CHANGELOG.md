@@ -1,3 +1,11 @@
+<a name="0.0.24"></a>
+## <small>0.0.24 (2019-02-11)</small>
+
+* Change client name ([1c7f63e](https://github.com/tecsinapse/ui-kit/commit/1c7f63e))
+* Release 0.0.23 ([e67c605](https://github.com/tecsinapse/ui-kit/commit/e67c605))
+
+
+
 <a name="0.0.23"></a>
 ## <small>0.0.23 (2019-02-11)</small>
 
