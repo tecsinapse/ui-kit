@@ -14,7 +14,11 @@ export const SearchResultListing = ({ searchResults }) => {
   return (
     <List className={classes.parentList}>
       {searchResults.map(({ title, subtitle }) => (
-        <TitleSubtitleMenuItem key={title} title={title} subtitle={subtitle} />
+        <TitleSubtitleMenuItem
+          key={`${title}${subtitle}`}
+          title={title}
+          subtitle={subtitle}
+        />
       ))}
     </List>
   );
