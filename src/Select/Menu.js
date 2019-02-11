@@ -1,5 +1,6 @@
 import React from 'react';
 import { SearchDialog } from './SearchDialog';
+import { SelectAllButton } from './SelectAllButton';
 
 export const Menu = ({
   menuPlacement,
@@ -12,6 +13,9 @@ export const Menu = ({
     label={selectProps.label}
     setMenuIsOpen={selectProps.setMenuIsOpen}
   >
+    {selectProps.isMulti && selectProps.allowSelectAll && (
+      <SelectAllButton {...selectProps} />
+    )}
     {children}
   </SearchDialog>
 );

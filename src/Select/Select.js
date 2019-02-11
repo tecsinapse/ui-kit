@@ -34,9 +34,11 @@ export const SelectUnstyled = ({
   error,
   success,
   isMulti = false,
+  allowSelectAll = true,
   ...rest
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [allSelected, setAllSelected] = useState(false);
   let { variant } = rest;
 
   const theme = useTheme();
@@ -88,6 +90,8 @@ export const SelectUnstyled = ({
       },
     },
     name,
+    allSelected,
+    allowSelectAll,
     meta: { touched, error },
     hideSelectedOptions: false,
     endAdornment: (
@@ -113,6 +117,10 @@ export const SelectUnstyled = ({
         onBlur(event);
       }
       selectProps.setMenuIsOpen(false);
+    },
+    selectAll: event => {
+      onChange(!allSelected ? options.map(c => c.value) : []);
+      setAllSelected(!allSelected);
     },
     ...rest,
   };
@@ -146,6 +154,7 @@ export const SelectUnstyled = ({
 };
 
 SelectUnstyled.defaultProps = {
+  allowSelectAll: true,
   fullWidth: false,
   variant: 'auto',
   success: false,
@@ -159,6 +168,7 @@ SelectUnstyled.defaultProps = {
   touched: false,
 };
 SelectUnstyled.propTypes = {
+  allowSelectAll: PropTypes.bool,
   fullWidth: PropTypes.bool,
   disabled: PropTypes.bool,
   success: PropTypes.bool,

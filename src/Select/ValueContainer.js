@@ -7,21 +7,19 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
 
   if (selectProps.isMulti) {
     const childList = children[0];
-
+    const itensMaxLenght = 1;
     const childrensToPrint =
       childList instanceof Array && childList.slice
-        ? childList.slice(0, 2)
+        ? childList.slice(0, itensMaxLenght)
         : childList[0];
 
-    const restSize = length - 2;
+    const restSize = length - itensMaxLenght;
 
     return (
       <components.ValueContainer {...props}>
         {childrensToPrint}
+        {restSize > 0 && <Chip label={`+${restSize}`} />}
         {React.cloneElement(children[1])}
-        {!selectProps.menuIsOpen && restSize > 0 && (
-          <Chip label={`+${restSize}`} />
-        )}
       </components.ValueContainer>
     );
   }
