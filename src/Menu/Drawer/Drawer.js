@@ -1,64 +1,47 @@
 import React, { useState } from 'react';
 import { Drawer as MuiDrawer } from '@material-ui/core';
-import List from '@material-ui/core/List';
-import { makeStyles } from '@material-ui/styles';
+import { styled } from '@material-ui/styles';
 import { ListHeader } from './ListHeader';
-import { MenuItem } from './MenuItem';
 import { searchLogic } from './searchLogic';
 import { SearchResultListing } from './SearchResultListing';
 import { demoItems } from './demoItems';
+import { MenuList } from './MenuList';
 
-export const useStyles = makeStyles(theme => ({
-  parentList: {
-    width: theme.spacing.unit * 30,
+const ScrollableDiv = styled('div')({
+  scrollable: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignContent: 'stretch',
   },
-}));
-const MenuList = ({ closeDrawer, items, depth = 0 }) => {
-  const [open, setOpen] = useState({});
-  const classes = useStyles();
-  const handleClick = key =>
-    setOpen(prevOpen => ({
-      ...prevOpen,
-      [key]: !prevOpen[key],
-    }));
+});
+const OverflowYDiv = styled('div')({
+  grow: {
+    flexGrow: 1,
+    overflowY: 'scroll',
+    overflow: '-moz-scrollbars-none',
+    '-ms-overflow-style': 'none',
+    '&::-webkit-scrollbar': { width: '0 !important' },
+  },
+});
 
-  return (
-    <List className={classes.parentList} disablePadding>
-      {items.map(({ title, children }) => (
-        <MenuItem
-          depth={depth}
-          key={title}
-          title={title}
-          open={open[title]}
-          handleClick={a => {
-            if (children) {
-              handleClick(a);
-            }
-          }}
-        >
-          {children ? (
-            <MenuList
-              closeDrawer={closeDrawer}
-              depth={depth + 1}
-              items={children}
-            />
-          ) : null}
-        </MenuItem>
-      ))}
-    </List>
-  );
-};
 export const Drawer = ({ open, onClose }) => {
   const [search, setSearch] = useState('');
+  // const classes = useStyles();
   let searchResults = [];
   if (search != null) {
     searchResults = searchLogic(demoItems, search);
   }
   return (
     <MuiDrawer open={open} onClose={onClose}>
-      <ListHeader search={search} setSearch={setSearch} />
-      {!search && <MenuList closeDrawer={onClose} items={demoItems} />}
-      {search && <SearchResultListing searchResults={searchResults} />}
+      <ScrollableDiv>
+        <div>
+          <ListHeader search={search} setSearch={setSearch} />
+        </div>
+        <OverflowYDiv>
+          {!search && <MenuList closeDrawer={onClose} items={demoItems} />}
+          {search && <SearchResultListing searchResults={searchResults} />}
+        </OverflowYDiv>
+      </ScrollableDiv>
     </MuiDrawer>
   );
 };
