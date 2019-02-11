@@ -1,3 +1,11 @@
+<a name="0.0.22"></a>
+## <small>0.0.22 (2019-02-11)</small>
+
+* bumped ([5347592](https://github.com/tecsinapse/ui-kit/commit/5347592))
+* Release 0.0.21 ([6564c2c](https://github.com/tecsinapse/ui-kit/commit/6564c2c))
+
+
+
 <a name="0.0.21"></a>
 ## <small>0.0.21 (2019-02-11)</small>
 
