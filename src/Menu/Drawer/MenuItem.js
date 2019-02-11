@@ -39,6 +39,8 @@ export const MenuItem = ({
   handleClick,
   open,
   title,
+  component = 'div',
+  componentProps = {},
   children,
   showAsOpen = false,
   selected = false,
@@ -48,6 +50,7 @@ export const MenuItem = ({
     <Fragment>
       <ListItem
         button
+        component={component}
         divider={depth === 0}
         className={classNames({
           [classes.openItem]: open || showAsOpen,
@@ -56,6 +59,7 @@ export const MenuItem = ({
           [classes.item]: true,
         })}
         onClick={() => handleClick(title)}
+        {...componentProps}
       >
         <ListItemText
           primary={title}

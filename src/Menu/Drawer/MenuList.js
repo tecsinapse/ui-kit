@@ -24,11 +24,13 @@ export const MenuList = ({ closeDrawer, items, depth = 0, showAsOpen }) => {
     }));
   return (
     <List className={classes.parentList} disablePadding>
-      {items.map(({ title, children, selected }) => (
+      {items.map(({ title, component, componentProps, children, selected }) => (
         <MenuItem
           depth={depth}
           key={title}
           title={title}
+          component={component}
+          componentProps={componentProps}
           open={open[title]}
           showAsOpen={showAsOpen}
           selected={selected}

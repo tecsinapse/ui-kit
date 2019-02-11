@@ -1,3 +1,5 @@
+import Link from '@material-ui/core/Link';
+
 export const demoItems = [
   {
     title: 'Portal',
@@ -8,7 +10,10 @@ export const demoItems = [
         children: [
           {
             title: '2',
-            children: [{ title: '2' }, { title: '3', selected: true }],
+            children: [
+              { title: '2', component: Link, componentProps: { to: '/test' } },
+              { title: '3', selected: true },
+            ],
           },
           { title: '3' },
         ],
