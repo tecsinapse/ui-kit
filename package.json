@@ -1,11 +1,10 @@
 {
   "name": "@tecsinapse/ui-kit",
-  "version": "0.0.15",
+  "description": "TecSinapse UI-KIT",
+  "version": "0.0.16",
+  "browser": "dist/index.js",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
-  "browser": "dist/index.js",
-  "sideEffects": false,
-  "description": "TecSinapse UI-KIT",
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -61,16 +60,47 @@
     "storybook-addon-smart-knobs": "^3.3.1",
     "typeface-roboto": "^0.0.54"
   },
+  "files": [
+    "build",
+    "dist"
+  ],
   "scripts": {
     "build": "rm -rf build/ && babel src/ -d build/ && rollup -c",
-    "dev": "rollup -c -w",
-    "docz:dev": "docz dev",
-    "docz:build": "docz build -d docs/docz/ --base='/ui-kit/docz/' ",
-    "storybook:build": "build-storybook -c .storybook -o docs/storybook/",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "NODE_ENV=test jest test/",
     "build-all": "yarn build && yarn docz:build && yarn storybook:build",
-    "build-publish": "yarn build-all && npm publish"
+    "build-publish": "yarn build-all && npm publish",
+    "dev": "rollup -c -w",
+    "docz:build": "docz build -d docs/docz/ --base='/ui-kit/docz/' ",
+    "docz:dev": "docz dev",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook:build": "build-storybook -c .storybook -o docs/storybook/",
+    "test": "NODE_ENV=test jest test/"
+  },
+  "husky": {
+    "hooks": {
+      "post-commit": "git update-index --again",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "moduleDirectories": [
+      "bower_components",
+      "node_modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/jest-setup.js",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --max-warnings=0 --fix",
+      "prettier --write",
+      "git add"
+    ]
   },
   "peerDependencies": {
     "@material-ui/core": "^3.9.1",
@@ -88,35 +118,5 @@
     "react-window": "^1.5.1",
     "typeface-roboto": "^0.0.54"
   },
-  "files": [
-    "dist",
-    "build"
-  ],
-  "jest": {
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/jest-setup.js",
-    "moduleDirectories": [
-      "node_modules",
-      "bower_components"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "post-commit": "git update-index --again"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --max-warnings=0 --fix",
-      "prettier --write",
-      "git add"
-    ]
-  }
+  "sideEffects": false
 }
