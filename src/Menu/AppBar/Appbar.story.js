@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import IconButton from '@material-ui/core/IconButton';
 import { mdiOneUp, mdiShieldHalfFull, mdiTurtle } from '@mdi/js';
@@ -17,7 +17,7 @@ storiesOf(`${GROUPS.MENU}|AppBar`, module).add('AppBar', () => (
       </div>
     }
     title="Portal "
-    subtitle="BAMAQ"
+    subtitle="Tecsinapse"
     rightIcons={
       <div>
         <IconButton color="inherit" aria-label="Abrir menu">
