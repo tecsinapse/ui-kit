@@ -2,3 +2,13 @@ language: node_js
 node_js:
   - 9
   - 8
+script:
+  - yarn storybook:build
+  - yarn docz:build
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
