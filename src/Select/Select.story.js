@@ -36,4 +36,7 @@ storiesOf(`${GROUPS.FORMS}|Select`, module)
   .add('Select Web', () => <SelectWrapper variant="web" />)
   .add('Select Mobile', () => <SelectWrapper variant="mobile" />)
   .add('Select Mobile Multi', () => <SelectWrapper isMulti variant="mobile" />)
-  .add('Select Web Multi', () => <SelectWrapper isMulti variant="web" />);
+  .add('Select Web Multi', () => <SelectWrapper isMulti variant="web" />)
+  .add('Multi FullScreen auto-size not allowed select all', () => (
+    <SelectWrapper isMulti variant="web" allowSelectAll={false} />
+  ));

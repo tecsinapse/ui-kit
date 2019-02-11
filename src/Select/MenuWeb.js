@@ -1,8 +1,14 @@
-import Paper from "@material-ui/core/Paper";
-import React from "react";
+import Paper from '@material-ui/core/Paper';
+import React from 'react';
+import { SelectAllButton } from './SelectAllButton';
 
-
-export const MenuWeb = ({ menuPlacement, theme, selectProps, innerProps, children }) => {
+export const MenuWeb = ({
+  menuPlacement,
+  theme,
+  selectProps,
+  innerProps,
+  children,
+}) => {
   const style = {
     ...(menuPlacement === 'bottom'
       ? { marginTop: theme.spacing.unit }
@@ -17,6 +23,9 @@ export const MenuWeb = ({ menuPlacement, theme, selectProps, innerProps, childre
       style={style}
       {...innerProps}
     >
+      {selectProps.isMulti && selectProps.allowSelectAll && (
+        <SelectAllButton {...selectProps} />
+      )}
       {children}
     </Paper>
   );
