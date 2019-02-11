@@ -67,7 +67,8 @@
     "docz:build": "docz build -d docs/docz/ --base='/ui-kit/docz/' ",
     "storybook:build": "build-storybook -c .storybook -o docs/storybook/",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "NODE_ENV=test jest test/"
+    "test": "NODE_ENV=test jest test/",
+    "build-all": " yarn build && yarn docz:build && yarn storybook:build"
   },
   "peerDependencies": {
     "@material-ui/core": "^3.9.1",
