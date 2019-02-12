@@ -8,20 +8,16 @@ import { SearchResultListing } from './SearchResultListing';
 import { MenuList } from './MenuList';
 
 const ScrollableDiv = styled('div')({
-  scrollable: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignContent: 'stretch',
-  },
+  display: 'flex',
+  flexDirection: 'column',
+  alignContent: 'stretch',
 });
 const OverflowYDiv = styled('div')({
-  grow: {
-    flexGrow: 1,
-    overflowY: 'scroll',
-    overflow: '-moz-scrollbars-none',
-    '-ms-overflow-style': 'none',
-    '&::-webkit-scrollbar': { width: '0 !important' },
-  },
+  flexGrow: 1,
+  overflowY: 'scroll',
+  overflow: '-moz-scrollbars-none',
+  '-ms-overflow-style': 'none',
+  '&::-webkit-scrollbar': { width: '0 !important' },
 });
 
 export const Drawer = ({ items, open, onClose }) => {
