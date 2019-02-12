@@ -48,10 +48,11 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
 export const AppBar = ({
   title,
   subtitle,
-  titleComponent,
+  titleComponent = null,
   menuOnClick,
   leftIcons,
   rightIcons,
+  breadcrumbs = [],
 }) => {
   const classes = useStyles();
   return (
@@ -81,25 +82,22 @@ export const AppBar = ({
             separator={<Icon path={mdiChevronRight} color="white" size={1} />}
             arial-label="Breadcrumb"
           >
-            <Link
-              href="/"
-              component="a"
-              variant="subtitle2"
-              classes={{ root: classes.link }}
-            >
-              Portal
-            </Link>
-            <Link
-              href="/"
-              component="a"
-              variant="subtitle2"
-              classes={{ root: classes.link }}
-            >
-              CRM
-            </Link>
-            <Typography color="textPrimary" variant="subtitle2">
-              #1234
-            </Typography>
+            {breadcrumbs.map((current, index, arr) =>
+              index === arr.length - 1 ? (
+                <Typography color="textPrimary" variant="subtitle2">
+                  {current.title}
+                </Typography>
+              ) : (
+                <Link
+                  component={current.component}
+                  variant="subtitle2"
+                  classes={{ root: classes.link }}
+                  {...current.componentProps}
+                >
+                  {current.title}
+                </Link>
+              )
+            )}
           </Breadcrumbs>
         </div>
       </MaterialAppBar>
@@ -115,12 +113,19 @@ AppBar.defaultProps = {
   leftIcons: null,
   rightIcons: null,
 };
+const breadcrumb = PropTypes.shape({
+  title: PropTypes.string,
+  component: PropTypes.object,
+  componentProps: PropTypes.object,
+});
+
 AppBar.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  titleComponent: PropTypes.func,
+  titleComponent: PropTypes.object,
   menuOnClick: PropTypes.func,
   leftIcons: PropTypes.object,
   rightIcons: PropTypes.object,
+  breadcrumbs: PropTypes.arrayOf(breadcrumb).isRequired,
 };
 export default AppBar;

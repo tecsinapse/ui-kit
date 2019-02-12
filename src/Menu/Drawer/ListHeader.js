@@ -14,13 +14,13 @@ const useStyles = makeStyles(({ spacing }) => ({
     flexDirection: 'column',
   },
   noPadding: {
-    padding: 0,
+    padding: '0px !important',
   },
   searchBar: {
     flexGrow: '1',
-    paddingRight: spacing.unit,
-    boxShadow: 'none',
-    width: `calc(100% - ${spacing.unit}px + 6px )`,
+    boxShadow: 'none !important',
+    width: '100%',
+    height: spacing.unit * 5,
     borderRadius: 0,
     backgroundColor: grey[100],
     paddingTop: spacing.unit / 2,

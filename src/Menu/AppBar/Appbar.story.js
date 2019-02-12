@@ -18,6 +18,24 @@ storiesOf(`${GROUPS.MENU}|AppBar`, module).add('AppBar', () => (
     }
     title="Portal "
     subtitle="Tecsinapse"
+    breadcrumbs={[
+      {
+        title: 'Portal',
+        component: 'a',
+      },
+      {
+        title: 'Usuários',
+        component: 'a',
+      },
+      {
+        title: 'Usuário',
+        component: 'a',
+      },
+      {
+        title: '#1234',
+        component: 'a',
+      },
+    ]}
     rightIcons={
       <div>
         <IconButton color="inherit" aria-label="Abrir menu">

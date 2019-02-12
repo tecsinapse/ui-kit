@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
 import { Drawer as MuiDrawer } from '@material-ui/core';
-import { styled } from '@material-ui/styles';
 import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
 import { ListHeader } from './ListHeader';
 import { searchLogic } from './searchLogic';
 import { SearchResultListing } from './SearchResultListing';
 import { MenuList } from './MenuList';
 
-const ScrollableDiv = styled('div')({
-  display: 'flex',
-  flexDirection: 'column',
-  alignContent: 'stretch',
-});
-const OverflowYDiv = styled('div')({
-  flexGrow: 1,
+const StyledDiv = styled('div')({
   overflowY: 'scroll',
   overflow: '-moz-scrollbars-none',
-  '-ms-overflow-style': 'none',
+  msOverflowStyle: 'none',
   '&::-webkit-scrollbar': { width: '0 !important' },
 });
 
@@ -28,15 +22,15 @@ export const Drawer = ({ items, open, onClose }) => {
   }
   return (
     <MuiDrawer open={open} onClose={onClose}>
-      <ScrollableDiv>
+      <StyledDiv>
         <div>
           <ListHeader search={search} setSearch={setSearch} />
         </div>
-        <OverflowYDiv>
+        <div>
           {!search && <MenuList closeDrawer={onClose} items={items} />}
           {search && <SearchResultListing searchResults={searchResults} />}
-        </OverflowYDiv>
-      </ScrollableDiv>
+        </div>
+      </StyledDiv>
     </MuiDrawer>
   );
 };
