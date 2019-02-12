@@ -1,3 +1,10 @@
+<a name="0.0.31"></a>
+## <small>0.0.31 (2019-02-12)</small>
+
+* solving flex style problems ([2f29e43](https://github.com/tecsinapse/ui-kit/commit/2f29e43))
+
+
+
 <a name="0.0.29"></a>
 ## <small>0.0.29 (2019-02-12)</small>
 
