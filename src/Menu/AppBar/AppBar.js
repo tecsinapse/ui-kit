@@ -84,11 +84,16 @@ export const AppBar = ({
           >
             {breadcrumbs.map((current, index, arr) =>
               index === arr.length - 1 ? (
-                <Typography color="textPrimary" variant="subtitle2">
+                <Typography
+                  key={current.title}
+                  color="textPrimary"
+                  variant="subtitle2"
+                >
                   {current.title}
                 </Typography>
               ) : (
                 <Link
+                  key={current.title}
                   component={current.component}
                   variant="subtitle2"
                   classes={{ root: classes.link }}

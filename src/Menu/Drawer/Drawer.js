@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Drawer as MuiDrawer } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { styled } from '@material-ui/styles';
 import { ListHeader } from './ListHeader';
 import { searchLogic } from './searchLogic';
 import { SearchResultListing } from './SearchResultListing';
 import { MenuList } from './MenuList';
 
 const StyledDiv = styled('div')({
-  overflowY: 'scroll',
-  overflow: '-moz-scrollbars-none',
-  msOverflowStyle: 'none',
-  '&::-webkit-scrollbar': { width: '0 !important' },
+  '&&': {
+    overflowY: 'scroll',
+    overflow: '-moz-scrollbars-none',
+    msOverflowStyle: 'none',
+    '&::-webkit-scrollbar': { width: '0 !important' },
+  },
 });
 
 export const Drawer = ({ items, open, onClose }) => {
