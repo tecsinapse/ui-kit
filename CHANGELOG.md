@@ -1,3 +1,10 @@
+<a name="0.0.27"></a>
+## <small>0.0.27 (2019-02-12)</small>
+
+* solving prop problems ([22f16a9](https://github.com/tecsinapse/ui-kit/commit/22f16a9))
+
+
+
 <a name="0.0.26"></a>
 ## <small>0.0.26 (2019-02-12)</small>
 
