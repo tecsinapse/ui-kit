@@ -1,3 +1,10 @@
+<a name="0.0.26"></a>
+## <small>0.0.26 (2019-02-12)</small>
+
+* search logic done right ([b40928f](https://github.com/tecsinapse/ui-kit/commit/b40928f))
+
+
+
 <a name="0.0.25"></a>
 ## <small>0.0.25 (2019-02-11)</small>
 
