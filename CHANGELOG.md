@@ -1,3 +1,10 @@
+<a name="0.0.28"></a>
+## <small>0.0.28 (2019-02-12)</small>
+
+* solving release problem ([382831c](https://github.com/tecsinapse/ui-kit/commit/382831c))
+
+
+
 <a name="0.0.27"></a>
 ## <small>0.0.27 (2019-02-12)</small>
 
