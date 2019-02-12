@@ -1,3 +1,11 @@
+<a name="0.0.29"></a>
+## <small>0.0.29 (2019-02-12)</small>
+
+* generate docs on release ([ec83b91](https://github.com/tecsinapse/ui-kit/commit/ec83b91))
+* quick fix for title component on menu bug ([dcf7a3e](https://github.com/tecsinapse/ui-kit/commit/dcf7a3e))
+
+
+
 <a name="0.0.28"></a>
 ## <small>0.0.28 (2019-02-12)</small>
 
