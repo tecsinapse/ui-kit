@@ -1,3 +1,11 @@
+<a name="0.0.33"></a>
+## <small>0.0.33 (2019-02-12)</small>
+
+* api for breadcrumbs ([2ac9ae6](https://github.com/tecsinapse/ui-kit/commit/2ac9ae6))
+* css specificity issues ([0d88d48](https://github.com/tecsinapse/ui-kit/commit/0d88d48))
+
+
+
 <a name="0.0.31"></a>
 ## <small>0.0.31 (2019-02-12)</small>
 
