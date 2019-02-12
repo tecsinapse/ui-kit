@@ -37,6 +37,8 @@ export const MenuList = ({ closeDrawer, items, depth = 0, showAsOpen }) => {
           handleClick={a => {
             if (children) {
               handleClick(a);
+            } else {
+              closeDrawer();
             }
           }}
         >

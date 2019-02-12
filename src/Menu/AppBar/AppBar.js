@@ -120,7 +120,7 @@ AppBar.defaultProps = {
 };
 const breadcrumb = PropTypes.shape({
   title: PropTypes.string,
-  component: PropTypes.object,
+  component: PropTypes.function,
   componentProps: PropTypes.object,
 });
 
