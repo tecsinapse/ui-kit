@@ -1,3 +1,10 @@
+<a name="0.0.35"></a>
+## <small>0.0.35 (2019-02-12)</small>
+
+* making proptypes right ([3ddf081](https://github.com/tecsinapse/ui-kit/commit/3ddf081))
+
+
+
 <a name="0.0.33"></a>
 ## <small>0.0.33 (2019-02-12)</small>
 
