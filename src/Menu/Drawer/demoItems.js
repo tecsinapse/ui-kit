@@ -4,18 +4,17 @@ export const demoItems = [
   {
     title: 'Portal',
     children: [
-      { title: '2', children: [{ title: '2' }, { title: '3' }] },
+      { title: 'a', children: [{ title: 'b' }, { title: 'c' }] },
       {
-        title: '3',
+        title: 'd',
         children: [
           {
-            title: '2',
+            title: 'e',
             children: [
-              { title: '2', component: Link, componentProps: { to: '/test' } },
-              { title: '3', selected: true },
+              { title: 'f', component: Link, componentProps: { to: '/test' } },
             ],
           },
-          { title: '3' },
+          { title: 'h' },
         ],
       },
     ],
@@ -23,8 +22,12 @@ export const demoItems = [
   {
     title: 'CRM',
     children: [
-      { title: '2', children: [{ title: '2' }, { title: '3' }] },
-      { title: 'Não sei direito o que é' },
+      { title: 'Dados de Integração DMS' },
+      { title: 'g', selected: true },
+      { title: 'h' },
+      { title: 'j' },
+      { title: 'l' },
+      { title: 'm' },
     ],
   },
 ];

@@ -12,7 +12,8 @@ import { grey } from '@material-ui/core/colors';
 const useStyles = depth =>
   makeStyles(theme => ({
     item: {
-      paddingLeft: theme.spacing.unit * (depth + 1),
+      paddingLeft:
+        theme.spacing.unit * (depth >= 1 ? (depth + 1) * 1.25 : depth + 1),
     },
     parentItem: {
       height: theme.spacing.unit * 5,
@@ -21,7 +22,13 @@ const useStyles = depth =>
       height: theme.spacing.unit * 3,
     },
     openItem: {
-      backgroundColor: grey[Math.max(1, depth) * 100],
+      backgroundColor: grey[Math.min(Math.max(1, depth) * 50, 100)],
+    },
+    selected: {
+      backgroundColor: grey[200],
+    },
+    shadow: {
+      borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
     },
   }));
 export const TitleSubtitleMenuItem = ({ title, subtitle, onClick }) => (
@@ -47,7 +54,11 @@ export const MenuItem = ({
 }) => {
   const classes = useStyles(depth)();
   return (
-    <Fragment>
+    <div
+      className={classNames({
+        [classes.shadow]: depth === 0 && open,
+      })}
+    >
       <ListItem
         button
         component={component}
@@ -57,6 +68,7 @@ export const MenuItem = ({
           [classes.parentItem]: depth === 0,
           [classes.childItem]: depth > 0,
           [classes.item]: true,
+          [classes.selected]: selected,
         })}
         onClick={() => handleClick(title)}
         {...componentProps}
@@ -65,7 +77,7 @@ export const MenuItem = ({
           primary={title}
           primaryTypographyProps={{
             variant: 'subtitle2',
-            color: selected ? 'textSecondary' : 'textPrimary',
+            color: selected ? 'secondary' : 'textPrimary',
           }}
         />
         {children && (
@@ -85,6 +97,6 @@ export const MenuItem = ({
           </List>
         </Collapse>
       )}
-    </Fragment>
+    </div>
   );
 };

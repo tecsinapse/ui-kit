@@ -19,12 +19,16 @@ export function selectedTitlesTree(items) {
   return flatten(titles);
 }
 
-export function searchLogic(items, searchText, subtitle = null) {
+export function searchLogic(items, searchText, subtitle = '') {
   const found = [];
   for (const item of items) {
     if (item.children) {
       found.push(
-        searchLogic(item.children, searchText, subtitle || item.title)
+        searchLogic(
+          item.children,
+          searchText,
+          `${subtitle ? `${subtitle} > ` : ''}${item.title}`
+        )
       );
     } else if (
       item.title.toLowerCase().indexOf(searchText.toLowerCase()) >= 0 &&
