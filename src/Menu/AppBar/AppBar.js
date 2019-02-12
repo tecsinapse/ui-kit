@@ -68,9 +68,9 @@ export const AppBar = ({
           {leftIcons}
           <div className={classes.grow}>
             {titleComponent ? (
-              <DefaultProductTypography title={title} subtitle={subtitle} />
-            ) : (
               { titleComponent }
+            ) : (
+              <DefaultProductTypography title={title} subtitle={subtitle} />
             )}
           </div>
           {rightIcons}
