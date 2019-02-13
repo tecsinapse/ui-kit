@@ -1,3 +1,10 @@
+<a name="0.0.38"></a>
+## <small>0.0.38 (2019-02-13)</small>
+
+* solving end adornment not showing on input ([be2c9f1](https://github.com/tecsinapse/ui-kit/commit/be2c9f1))
+
+
+
 <a name="0.0.37"></a>
 ## <small>0.0.37 (2019-02-13)</small>
 
