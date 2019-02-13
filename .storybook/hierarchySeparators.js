@@ -9,6 +9,7 @@ export const GROUPS = {
   LAYOUT: 'Layout',
   TYPOGRAPHY: 'Typography',
   ICONS: 'Icons',
+  CALENDAR: 'Calendar',
 };
 
 export const OPTIONS = {
