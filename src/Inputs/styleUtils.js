@@ -1,7 +1,7 @@
-import {mdiAlertCircle, mdiCheckCircle, mdiCloseCircle} from "@mdi/js";
-import {defaultGreen, defaultOrange, defaultRed} from "../colors";
-import React from "react";
-import Icon from "@material-ui/core/Icon";
+import { mdiAlertCircle, mdiCheckCircle, mdiCloseCircle } from '@mdi/js';
+import React from 'react';
+import Icon from '@mdi/react';
+import { defaultGreen, defaultOrange, defaultRed } from '../colors';
 
 export const outlinedInputClass = ({ success, error, warning }) => {
   if (error) {
