@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { InlineDatePicker, MuiPickersUtilsProvider } from 'material-ui-pickers';
@@ -6,7 +7,21 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import LuxonUtils from '@date-io/luxon';
 import { DateTime } from 'luxon';
-import { weeklyCalendarStyles } from './WeeklyCalendarStyles';
+import {
+  weeklyCalendarStyles,
+  muiInlineDatePicker,
+} from './WeeklyCalendarStyles';
+
+const materialTheme = createMuiTheme(muiInlineDatePicker);
+
+const fillWeekDays = startDate => {
+  const weekDaysTemp = [];
+  for (let i = 0; i < 7; i++) {
+    const day = i === 0 ? startDate : startDate.plus({ days: i });
+    weekDaysTemp.push(day);
+  }
+  return weekDaysTemp;
+};
 
 export const WeeklyCalendarComponent = ({
   classes,
@@ -15,42 +30,40 @@ export const WeeklyCalendarComponent = ({
   onWeekChange,
   locale,
 }) => {
-  const fillWeekDays = startDate => {
-    const weekDaysTemp = [];
-    for (let i = 0; i < 7; i++) {
-      const day = startDate.plus({ days: i }).setLocale(locale);
-      weekDaysTemp.push(day);
-    }
-    return weekDaysTemp;
-  };
-
-  const [selectedDay, setSelectedDay] = useState(currentDate);
-  const [weekDays, setWeekDays] = useState(fillWeekDays(currentDate));
+  const [selectedDay, setSelectedDay] = useState(currentDate.setLocale(locale));
+  const [weekDays, setWeekDays] = useState(
+    fillWeekDays(currentDate.setLocale(locale))
+  );
 
   const handleWeekChange = startDay => {
-    setWeekDays(fillWeekDays(startDay));
-    onWeekChange(weekDays);
-    setSelectedDay(startDay.setLocale(locale));
-    onDayChange(startDay);
+    const localizedDate = startDay.setLocale(locale);
+    if (localizedDate.equals(weekDays[0])) {
+      return;
+    }
+    setWeekDays(fillWeekDays(localizedDate));
   };
 
-  const handleDayChange = (event, day) => {
-    setSelectedDay(day);
-    onDayChange(day);
-  };
+  useEffect(() => {
+    onWeekChange(weekDays);
+    setSelectedDay(weekDays[0]);
+  }, [weekDays]);
+
+  useEffect(() => {
+    onDayChange(selectedDay);
+  }, [selectedDay]);
 
   return (
     <div className={classes.root}>
       <MuiPickersUtilsProvider utils={LuxonUtils} locale={locale}>
-        <InlineDatePicker
-          className={classes.cssDatepicker}
-          format="MMMM, yyyy"
-          onChange={handleWeekChange}
-        />
+        <MuiThemeProvider theme={materialTheme}>
+          <InlineDatePicker format="MMMM, yyyy" onChange={handleWeekChange} />
+        </MuiThemeProvider>
       </MuiPickersUtilsProvider>
       <BottomNavigation
         value={selectedDay}
-        onChange={handleDayChange}
+        onChange={(event, day) =>
+          !day.equals(selectedDay) && setSelectedDay(day)
+        }
         showLabels
         className={classes.cssButtonNavigation}
       >
@@ -96,14 +109,13 @@ export const WeeklyCalendar = props => <WeeklyCalendarUI {...props} />;
 WeeklyCalendar.defaultProps = {
   onDayChange: day => {},
   onWeekChange: weekDays => {},
-  currentDate: DateTime.local(),
   locale: 'pt-BR',
 };
 
 WeeklyCalendar.propTypes = {
   onDayChange: PropTypes.func,
   onWeekChange: PropTypes.func,
-  currentDate: PropTypes.objectOf(DateTime),
+  currentDate: PropTypes.objectOf(DateTime).isRequired,
   locale: PropTypes.string,
 };
 
