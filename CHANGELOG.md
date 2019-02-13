@@ -1,3 +1,10 @@
+<a name="0.0.37"></a>
+## <small>0.0.37 (2019-02-13)</small>
+
+* Adding component logic also on search listing ([3f2cf8d](https://github.com/tecsinapse/ui-kit/commit/3f2cf8d))
+
+
+
 <a name="0.0.35"></a>
 ## <small>0.0.35 (2019-02-12)</small>
 
