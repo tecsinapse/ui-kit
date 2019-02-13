@@ -36,6 +36,8 @@ export function searchLogic(items, searchText, subtitle = '') {
     ) {
       found.push({
         title: item.title,
+        component: item.component,
+        componentProps: item.componentProps,
         subtitle,
       });
     }

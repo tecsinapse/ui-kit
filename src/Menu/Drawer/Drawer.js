@@ -30,7 +30,15 @@ export const Drawer = ({ items, open, onClose }) => {
         </div>
         <div>
           {!search && <MenuList closeDrawer={onClose} items={items} />}
-          {search && <SearchResultListing searchResults={searchResults} />}
+          {search && (
+            <SearchResultListing
+              onClick={() => {
+                onClose();
+                setSearch('');
+              }}
+              searchResults={searchResults}
+            />
+          )}
         </div>
       </StyledDiv>
     </MuiDrawer>

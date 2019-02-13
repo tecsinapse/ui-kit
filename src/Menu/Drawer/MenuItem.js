@@ -31,8 +31,14 @@ const useStyles = depth =>
       borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
     },
   }));
-export const TitleSubtitleMenuItem = ({ title, subtitle, onClick }) => (
-  <ListItem button divider onClick={onClick}>
+export const TitleSubtitleMenuItem = ({
+  title,
+  subtitle,
+  onClick,
+  component,
+  ...props
+}) => (
+  <ListItem button divider onClick={onClick} component={component} {...props}>
     <ListItemText
       primary={title}
       secondary={subtitle}
