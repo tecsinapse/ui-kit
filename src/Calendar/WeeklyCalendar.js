@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
+
 import { InlineDatePicker, MuiPickersUtilsProvider } from 'material-ui-pickers';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import Typography from '@material-ui/core/Typography';
 import LuxonUtils from '@date-io/luxon';
 import { DateTime } from 'luxon';
 import {
-  weeklyCalendarStyles,
+  weeklyCalendarStyles as useStyles,
   muiInlineDatePicker,
 } from './WeeklyCalendarStyles';
 
@@ -77,10 +78,12 @@ export const WeeklyCalendarComponent = ({
             key={day.day}
             label={
               <div>
-                <span className={classes.weekDayLabel}>
+                <Typography className={classes.weekDayLabel} color="textSecondary" variant="caption">
                   {day.get('weekdayShort')}
-                </span>
-                <span className={classes.dayLabel}>{day.day}</span>
+                </Typography>
+                <Typography className={classes.weekDayValue} color="textSecondary" variant="body1">
+                  {day.day}
+                </Typography>
               </div>
             }
             value={day}
@@ -91,8 +94,15 @@ export const WeeklyCalendarComponent = ({
   );
 };
 
-const WeeklyCalendarUI = withStyles(weeklyCalendarStyles)(
-  ({ classes, currentDate, onDayChange, onWeekChange, locale, ...other }) => (
+const WeeklyCalendarUI = ({
+  currentDate,
+  onDayChange,
+  onWeekChange,
+  locale,
+  ...other
+}) => {
+  const classes = useStyles();
+  return (
     <WeeklyCalendarComponent
       classes={classes}
       currentDate={currentDate}
@@ -101,8 +111,8 @@ const WeeklyCalendarUI = withStyles(weeklyCalendarStyles)(
       locale={locale}
       {...other}
     />
-  )
-);
+  );
+};
 
 export const WeeklyCalendar = props => <WeeklyCalendarUI {...props} />;
 

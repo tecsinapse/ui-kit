@@ -1,3 +1,5 @@
+import { makeStyles } from '@material-ui/styles';
+
 import { defaultGreyLight200 } from '../colors';
 
 export const muiInlineDatePicker = {
@@ -21,16 +23,18 @@ export const muiInlineDatePicker = {
   },
 };
 
-export const weeklyCalendarStyles = theme => ({
+export const weeklyCalendarStyles = makeStyles(({ palette, spacing }) => ({
   root: {
-    padding: '8px 16px 4px 16px',
+    padding: `${spacing.unit * 0.67} ${spacing.unit * 1.34} ${spacing.unit / 3} ${spacing.unit * 1.34}`,
     minWidth: 320,
     justifyContent: 'center',
   },
   selected: {
     '& $cssButtonNavigationWrp': {
-      backgroundColor: theme.palette.secondary.main,
-      color: theme.palette.secondary.contrastText,
+      backgroundColor: palette.secondary.main,
+    },
+    '& $weekDayLabel, & $weekDayValue': {
+      color: palette.secondary.contrastText,
     },
   },
   cssButtonNavigation: {
@@ -45,16 +49,15 @@ export const weeklyCalendarStyles = theme => ({
     borderColor: defaultGreyLight200,
     borderStyle: 'solid',
     borderRadius: '15%',
-    margin: 4,
-    padding: 2,
+    margin: spacing.unit / 4,
+    padding: spacing.unit / 6,
   },
   weekDayLabel: {
-    display: 'block',
-    fontSize: '7pt',
     textTransform: 'uppercase',
+    lineHeight: '1.3 !important',
+    fontSize: '0.65rem !important',
   },
-  dayLabel: {
-    display: 'block',
-    fontSize: '12pt',
+  weekDayValue: {
+    lineHeight: '1.4 !important',
   },
-});
+}));
