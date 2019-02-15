@@ -10,6 +10,11 @@ const useStyles = makeStyles(theme => ({
   table: {
     width: '100%',
   },
+  row: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.background.default,
+    },
+  },
 }));
 
 const objectDeepPath = (obj, key) => {
@@ -51,18 +56,18 @@ const convertValuesToTableCell = ({ field, options = {} }, values) => (
   </TableCell>
 );
 
-const convertDataValuesToTableRow = (columns, dataValues) => (
-  <TableRow>
+const convertDataValuesToTableRow = (columns, dataValues, classes) => (
+  <TableRow className={classes.row}>
     {columns.map(column => convertValuesToTableCell(column, dataValues))}
   </TableRow>
 );
 
-const createBody = (columns, data) => {
+const createBody = (columns, data, classes) => {
   let rows = null;
 
   if (columns && columns.length > 0 && data && data.length > 0) {
     rows = data.map(dataValues =>
-      convertDataValuesToTableRow(columns, dataValues)
+      convertDataValuesToTableRow(columns, dataValues, classes)
     );
   }
 
@@ -75,7 +80,7 @@ const Table = props => {
   return (
     <MUITable className={classes.table}>
       {createHeaders(columns)}
-      {createBody(columns, data)}
+      {createBody(columns, data, classes)}
     </MUITable>
   );
 };
