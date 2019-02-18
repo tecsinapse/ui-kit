@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/es/Typography/Typography';
+
 import { FormControlLabel, Radio } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 
 import RadioGroup from '@material-ui/core/es/RadioGroup/RadioGroup';
 
 import { Select } from '../../Select/Select';
+import { Button } from '../../Buttons/Button';
+import { defaultLabels } from './data-types';
 
 export const Step1 = ({
   classes,
@@ -15,6 +19,7 @@ export const Step1 = ({
   setSelectedPerson,
   selectedDuration,
   setSelectedDuration,
+  onNextStep,
   durations,
   labels,
 }) => {
@@ -27,7 +32,7 @@ export const Step1 = ({
     setSelectedDuration(Number(event.target.value));
 
   return (
-    <div style={{ width: '92%' }}>
+    <div>
       <Typography variant="h6">{labels.selectPersonLabel}</Typography>
       <Select
         maxLenghtOption={3}
@@ -54,14 +59,17 @@ export const Step1 = ({
           ))}
         </RadioGroup>
       </Grid>
+      <Divider variant="middle" />
+      <Grid container justify="center" className={classes.stepButtons}>
+        <Button onClick={onNextStep}>{labels.buttonLabelNext}</Button>
+      </Grid>
     </div>
   );
 };
 
-Step1.defaultProps = {
-  durations: [15, 20, 30],
-};
+Step1.defaultProps = {};
 
 Step1.propTypes = {
-  durations: PropTypes.arrayOf(PropTypes.number),
+  labels: PropTypes.instanceOf(defaultLabels).isRequired,
+  durations: PropTypes.arrayOf(PropTypes.number).isRequired,
 };

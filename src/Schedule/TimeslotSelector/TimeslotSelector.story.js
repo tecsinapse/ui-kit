@@ -12,8 +12,13 @@ const personsAvailabilities = require('../../../test/resources/availabilities.js
 storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module).add(
   'TimeslotSelector',
   () => (
-    <Paper>
-      <TimeslotSelector personsAvailabilities={personsAvailabilities} />
+    <Paper style={{ width: 600 }}>
+      <TimeslotSelector
+        personsAvailabilities={personsAvailabilities}
+        durations={[15, 20, 30]}
+        defaultDuration={20}
+        defaultSelectAllPerson
+      />
     </Paper>
   )
 );

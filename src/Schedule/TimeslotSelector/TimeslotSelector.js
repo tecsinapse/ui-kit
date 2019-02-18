@@ -1,45 +1,36 @@
 import React, { useState } from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
+import Grid from '@material-ui/core/Grid';
 import StepLabel from '@material-ui/core/StepLabel';
 import PropTypes from 'prop-types';
 
 import { timeslotSelectorStyles as useStyles } from './TimeslotSelectorStyles';
-import { Button } from '../../Buttons/Button';
 import { Step1 } from './Step1';
 import { Step2 } from './Step2';
 
+import { defaultLabels } from './data-types';
+
 const STEP_1_KEY = 0;
 const STEP_2_KEY = 1;
-
-const renderButtons = (step, setStep) => {
-  if (step === STEP_1_KEY) {
-    return <Button onClick={() => setStep(STEP_2_KEY)}>Avançar</Button>;
-  }
-
-  return [
-    <Button onClick={() => setStep(STEP_1_KEY)}>Voltar</Button>,
-    <Button>Agendar</Button>,
-  ];
-};
-
-export const defaultLabels = {
-  step1Label: 'Seleção de consultores e tempo de atendimento',
-  step2Label: 'Escolha da data e horário de atendimento',
-  selectPersonLabel: 'Selecione o(s) consultor(es) e o tempo de atendimento',
-  minuteslabel: 'minutos',
-};
 
 export const TimeslotSelectorComponent = ({
   classes,
   locale,
   labels,
   personsAvailabilities,
+  durations,
+  defaultDuration,
+  defaultSelectAllPerson,
   ...other
 }) => {
-  const [step, setStep] = useState(STEP_1_KEY);
-  const [selectedPerson, setSelectedPerson] = useState([]);
-  const [selectedDuration, setSelectedDuration] = useState([]);
+  const [step, setStep] = useState(STEP_2_KEY);
+  const [selectedPerson, setSelectedPerson] = useState(
+    defaultSelectAllPerson
+      ? personsAvailabilities.map(person => person.email)
+      : []
+  );
+  const [selectedDuration, setSelectedDuration] = useState(defaultDuration);
 
   const renderStep = stepActive =>
     stepActive === STEP_1_KEY ? (
@@ -50,30 +41,37 @@ export const TimeslotSelectorComponent = ({
         selectedDuration={selectedDuration}
         setSelectedDuration={setSelectedDuration}
         personsAvailabilities={personsAvailabilities}
+        durations={durations}
         classes={classes}
         labels={labels}
+        onNextStep={() => setStep(STEP_2_KEY)}
       />
     ) : (
-      <Step2 personsAvailability={personsAvailabilities} />
+      <Step2
+        key={STEP_2_KEY}
+        selectedPerson={selectedPerson}
+        selectedDuration={selectedDuration}
+        personsAvailabilities={personsAvailabilities}
+        classes={classes}
+        labels={labels}
+        onPreviousStep={() => setStep(STEP_1_KEY)}
+      />
     );
 
   return (
-    <div className={classes.root}>
-      <Stepper activeStep={step} alternativeLabel>
-        <Step key={STEP_1_KEY}>
-          <StepLabel>{labels.step1Label}</StepLabel>
-        </Step>
-        <Step key={STEP_2_KEY}>
-          <StepLabel>{labels.step2Label}</StepLabel>
-        </Step>
-      </Stepper>
-      <div className={classes.stepContent}>
-        <div className={classes.stepBody}>{renderStep(step)}</div>
-        <div className={classes.stepButtons}>
-          {renderButtons(step, setStep)}
-        </div>
-      </div>
-    </div>
+    <Grid container className={classes.root} justify="center">
+      <Grid item>
+        <Stepper activeStep={step} alternativeLabel>
+          <Step key={STEP_1_KEY}>
+            <StepLabel>{labels.step1Label}</StepLabel>
+          </Step>
+          <Step key={STEP_2_KEY}>
+            <StepLabel>{labels.step2Label}</StepLabel>
+          </Step>
+        </Stepper>
+        <div className={classes.stepContent}>{renderStep(step)}</div>
+      </Grid>
+    </Grid>
   );
 };
 
@@ -81,6 +79,7 @@ const TimeslotSelectorUI = ({
   locale,
   labels,
   personsAvailabilities,
+  durations,
   ...other
 }) => {
   const classes = useStyles();
@@ -90,6 +89,7 @@ const TimeslotSelectorUI = ({
       locale={locale}
       labels={labels}
       personsAvailabilities={personsAvailabilities}
+      durations={durations}
       {...other}
     />
   );
@@ -101,6 +101,8 @@ TimeslotSelector.defaultProps = {
   labels: defaultLabels,
   other: {},
   locale: 'pt-BR',
+  defaultDuration: undefined,
+  defaultSelectAllPerson: false,
 };
 
 TimeslotSelector.propTypes = {
@@ -108,6 +110,9 @@ TimeslotSelector.propTypes = {
   personsAvailabilities: PropTypes.arrayOf(PropTypes.object).isRequired,
   locale: PropTypes.string,
   other: PropTypes.object,
+  durations: PropTypes.arrayOf(PropTypes.number).isRequired,
+  defaultDuration: PropTypes.number,
+  defaultSelectAllPerson: PropTypes.bool,
 };
 
 export default TimeslotSelector;

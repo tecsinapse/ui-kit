@@ -6,23 +6,18 @@ export const timeslotSelectorStyles = makeStyles(({ palette, spacing }) => ({
   root: {
     minWidth: globalConst.minWidth,
   },
-  component100Per: {
-    width: '100% !important',
-  },
   stepContent: {
-    padding: spacing.unit,
+    padding: spacing.unit * 2,
     paddingTop: 0,
-    width: '100%',
   },
   stepButtons: {
-    padding: spacing.unit,
-    width: '100%',
-    contentAlign: 'center',
+    paddingTop: spacing.unit,
+    spacing: spacing.unit * 2,
   },
-  stepBody: {
-    width: '100%',
-    padding: spacing.unit,
-    marginBottom: spacing.unit,
-    paddingTop: 0,
+  availiabilityCard: {
+    width: 500,
+  },
+  availiabilityCardTime: {
+    margin: spacing.unit / 4,
   },
 }));
