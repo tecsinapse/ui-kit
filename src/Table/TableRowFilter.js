@@ -20,7 +20,7 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter }) => {
         const { options } = column || {};
         return (
           <TableCell>
-            {options.filter ? (
+            {options.filter && (
               <Input
                 style={{ height: 35 }}
                 startAdornment={
@@ -28,7 +28,7 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter }) => {
                 }
                 onChange={onChange(column, onChangeFilter)}
               />
-            ) : null}
+            )}
           </TableCell>
         );
       })}
