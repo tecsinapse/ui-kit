@@ -31,6 +31,7 @@
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.1.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "babel-plugin-inline-react-svg": "^1.0.1",
     "classnames": "^2.2.6",
     "docz": "^0.13.7",
     "docz-theme-default": "^0.13.7",
