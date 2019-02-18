@@ -1,3 +1,10 @@
+<a name="0.0.40"></a>
+## <small>0.0.40 (2019-02-18)</small>
+
+* menu title can now be a function too - solving bug ([f1405aa](https://github.com/tecsinapse/ui-kit/commit/f1405aa))
+
+
+
 <a name="0.0.39"></a>
 ## <small>0.0.39 (2019-02-18)</small>
 
