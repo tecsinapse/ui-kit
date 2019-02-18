@@ -22,6 +22,8 @@ export const TextFieldComponent = ({
   error,
   success,
   disabled,
+  endAdornment,
+  startAdornment,
   ...input
 }) => (
   <TextField
@@ -42,10 +44,11 @@ export const TextFieldComponent = ({
         focused: classes.cssFocused,
         notchedOutline: classes.notchedOutline,
       },
-      endAdornment: getEndAdornmentIcon({ warning, error, success }),
-    }}
-    inputProps={{
       className: classes.input,
+      endAdornment: !endAdornment
+        ? getEndAdornmentIcon({ warning, error, success })
+        : endAdornment,
+      startAdornment,
     }}
     margin="dense"
     value={value}
@@ -68,6 +71,8 @@ const InputUI = withStyles(inputStyles)(
     error,
     success,
     disabled,
+    endAdornment,
+    startAdornment,
     ...input
   }) => (
     <FormControl key={key} error={!!error} fullWidth={fullWidth}>
@@ -81,6 +86,8 @@ const InputUI = withStyles(inputStyles)(
         error={error}
         success={success}
         disabled={disabled}
+        endAdornment={endAdornment}
+        startAdornment={startAdornment}
         {...input}
       />
       {error && <FormHelperText>{error}</FormHelperText>}
@@ -97,6 +104,8 @@ Input.defaultProps = {
   label: null,
   onChange: null,
   error: false,
+  endAdornment: null,
+  startAdornment: null,
 };
 Input.propTypes = {
   fullWidth: PropTypes.bool,
@@ -107,6 +116,8 @@ Input.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  endAdornment: PropTypes.object,
+  startAdornment: PropTypes.object,
 };
 
 export default Input;
