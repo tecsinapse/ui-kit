@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
 import { DateTime } from 'luxon';
 
