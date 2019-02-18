@@ -7,12 +7,14 @@ export function selectedTitlesTree(items) {
   const titles = [];
   for (const item of items) {
     if (item.selected) {
-      titles.push(item.title);
+      titles.push(typeof item.title === 'function' ? item.title() : item.title);
     } else if (item.children) {
       const childFound = selectedTitlesTree(item.children);
       if (childFound.length > 0) {
         titles.push(childFound);
-        titles.push(item.title);
+        titles.push(
+          typeof item.title === 'function' ? item.title() : item.title
+        );
       }
     }
   }
@@ -27,15 +29,19 @@ export function searchLogic(items, searchText, subtitle = '') {
         searchLogic(
           item.children,
           searchText,
-          `${subtitle ? `${subtitle} > ` : ''}${item.title}`
+          `${subtitle ? `${subtitle} > ` : ''}${
+            typeof item.title === 'function' ? item.title() : item.title
+          }`
         )
       );
     } else if (
-      item.title.toLowerCase().indexOf(searchText.toLowerCase()) >= 0 &&
+      (typeof item.title === 'function' ? item.title() : item.title)
+        .toLowerCase()
+        .indexOf(searchText.toLowerCase()) >= 0 &&
       subtitle
     ) {
       found.push({
-        title: item.title,
+        title: typeof item.title === 'function' ? item.title() : item.title,
         component: item.component,
         componentProps: item.componentProps,
         subtitle,

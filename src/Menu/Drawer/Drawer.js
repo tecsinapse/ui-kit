@@ -47,7 +47,7 @@ export const Drawer = ({ items, open, onClose }) => {
 
 Drawer.defaultProps = {};
 const menuItemShape = PropTypes.shape({
-  title: PropTypes.string.isRequired,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   component: PropTypes.object,
   componentProps: PropTypes.object,
 });
