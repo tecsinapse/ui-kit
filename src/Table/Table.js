@@ -4,7 +4,11 @@ import MUITable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import { resolveObj } from '@tecsinapse/es-utils/core/object';
+import {
+  resolveObj,
+  isEmptyOrNull,
+  isNotEmptyOrNull,
+} from '@tecsinapse/es-utils/core/object';
 import { tableStyles } from './tableStyle';
 import TableRowFilter from './TableRowFilter';
 import TableHeader from './TableHeader';
@@ -25,11 +29,11 @@ const convertDataValuesToTableRow = (columns, dataValues, classes) => (
 );
 
 const createRows = (columns, rowData, classes) => {
-  if (!columns && columns.length === 0) return null;
+  if (isEmptyOrNull(columns)) return null;
 
   const rows = [];
 
-  if (columns && columns.length > 0 && rowData && rowData.length > 0) {
+  if (isNotEmptyOrNull(rowData)) {
     rows.push(
       rowData.map(dataValues =>
         convertDataValuesToTableRow(columns, dataValues, classes)
