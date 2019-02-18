@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import { mdiFilterVariant } from '@mdi/js';
+import { mdiMagnify } from '@mdi/js';
 import Icon from '@mdi/react';
 import { Input } from '../Inputs/Input';
 
@@ -23,8 +23,8 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter }) => {
             {options.filter ? (
               <Input
                 style={{ height: 35 }}
-                endAdornment={
-                  <Icon path={mdiFilterVariant} size={1} color="#C4C4C4" />
+                startAdornment={
+                  <Icon path={mdiMagnify} size={1} color="#C4C4C4" />
                 }
                 onChange={onChange(column, onChangeFilter)}
               />
