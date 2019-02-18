@@ -1,3 +1,10 @@
+<a name="0.0.39"></a>
+## <small>0.0.39 (2019-02-18)</small>
+
+* menu title can now be a function too ([c7c9e66](https://github.com/tecsinapse/ui-kit/commit/c7c9e66))
+
+
+
 <a name="0.0.38"></a>
 ## <small>0.0.38 (2019-02-13)</small>
 
