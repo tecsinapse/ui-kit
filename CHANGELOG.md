@@ -1,3 +1,10 @@
+<a name="0.0.41"></a>
+## <small>0.0.41 (2019-02-18)</small>
+
+* flags icons ([44c72a7](https://github.com/tecsinapse/ui-kit/commit/44c72a7))
+
+
+
 <a name="0.0.40"></a>
 ## <small>0.0.40 (2019-02-18)</small>
 
