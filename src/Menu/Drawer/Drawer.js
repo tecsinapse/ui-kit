@@ -3,7 +3,7 @@ import { Drawer as MuiDrawer } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { styled } from '@material-ui/styles';
 import { ListHeader } from './ListHeader';
-import { searchLogic } from './searchLogic';
+import { normalizeFunctionItems, searchLogic } from './searchLogic';
 import { SearchResultListing } from './SearchResultListing';
 import { MenuList } from './MenuList';
 
@@ -16,7 +16,8 @@ const StyledDiv = styled('div')({
   },
 });
 
-export const Drawer = ({ items, open, onClose }) => {
+export const Drawer = ({ items: oldItems, open, onClose }) => {
+  const items = normalizeFunctionItems(oldItems);
   const [search, setSearch] = useState('');
   let searchResults = [];
   if (search != null) {

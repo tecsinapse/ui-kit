@@ -7,14 +7,12 @@ export function selectedTitlesTree(items) {
   const titles = [];
   for (const item of items) {
     if (item.selected) {
-      titles.push(typeof item.title === 'function' ? item.title() : item.title);
+      titles.push(item.title);
     } else if (item.children) {
       const childFound = selectedTitlesTree(item.children);
       if (childFound.length > 0) {
         titles.push(childFound);
-        titles.push(
-          typeof item.title === 'function' ? item.title() : item.title
-        );
+        titles.push(item.title);
       }
     }
   }
@@ -29,19 +27,15 @@ export function searchLogic(items, searchText, subtitle = '') {
         searchLogic(
           item.children,
           searchText,
-          `${subtitle ? `${subtitle} > ` : ''}${
-            typeof item.title === 'function' ? item.title() : item.title
-          }`
+          `${subtitle ? `${subtitle} > ` : ''}${item.title}`
         )
       );
     } else if (
-      (typeof item.title === 'function' ? item.title() : item.title)
-        .toLowerCase()
-        .indexOf(searchText.toLowerCase()) >= 0 &&
+      item.title.toLowerCase().indexOf(searchText.toLowerCase()) >= 0 &&
       subtitle
     ) {
       found.push({
-        title: typeof item.title === 'function' ? item.title() : item.title,
+        title: item.title,
         component: item.component,
         componentProps: item.componentProps,
         subtitle,
@@ -49,4 +43,19 @@ export function searchLogic(items, searchText, subtitle = '') {
     }
   }
   return flatten(found);
+}
+
+export function normalizeFunctionItems(oldItems) {
+  if (!oldItems) return null;
+  const items = [];
+  for (const oldItem of oldItems) {
+    const item = {
+      ...oldItem,
+      title:
+        typeof oldItem.title === 'function' ? oldItem.title() : oldItem.title,
+    };
+    item.children = normalizeFunctionItems(oldItem.children);
+    items.push(item);
+  }
+  return items;
 }
