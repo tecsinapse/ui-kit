@@ -14,9 +14,11 @@ export const timeslotSelectorStyles = makeStyles(({ palette, spacing }) => ({
     paddingTop: spacing.unit,
     spacing: spacing.unit * 2,
   },
-  availiabilityCard: {
-    width: 500,
+  availiabilityCardRoot: {
+    padding: `${spacing.unit}px !important`,
+    paddingBottom: `${spacing.unit}px !important`,
   },
+
   availiabilityCardTime: {
     margin: spacing.unit / 4,
   },

@@ -24,7 +24,7 @@ export const TimeslotSelectorComponent = ({
   defaultSelectAllPerson,
   ...other
 }) => {
-  const [step, setStep] = useState(STEP_2_KEY);
+  const [step, setStep] = useState(STEP_1_KEY);
   const [selectedPerson, setSelectedPerson] = useState(
     defaultSelectAllPerson
       ? personsAvailabilities.map(person => person.email)
