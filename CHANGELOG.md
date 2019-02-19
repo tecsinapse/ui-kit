@@ -1,3 +1,10 @@
+<a name="0.0.42"></a>
+## <small>0.0.42 (2019-02-19)</small>
+
+* solving broken breadcrumb ([c1f9d38](https://github.com/tecsinapse/ui-kit/commit/c1f9d38))
+
+
+
 <a name="0.0.41"></a>
 ## <small>0.0.41 (2019-02-18)</small>
 
