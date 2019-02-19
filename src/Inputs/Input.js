@@ -4,7 +4,9 @@ import FormHelperText from '@material-ui/core/FormHelperText/FormHelperText';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField/TextField';
+import MaskedInput from 'react-text-mask';
 import { inputStyles } from './InputStyles';
+
 import {
   getEndAdornmentIcon,
   labelClass,
@@ -22,6 +24,7 @@ export const TextFieldComponent = ({
   error,
   success,
   disabled,
+  mask,
   ...input
 }) => (
   <TextField
@@ -37,6 +40,7 @@ export const TextFieldComponent = ({
       },
     }}
     InputProps={{
+      className: classes.input,
       classes: {
         root: classes[outlinedInputClass({ warning, error, success })],
         focused: classes.cssFocused,
@@ -44,15 +48,14 @@ export const TextFieldComponent = ({
       },
       endAdornment: getEndAdornmentIcon({ warning, error, success }),
     }}
-    inputProps={{
-      className: classes.input,
-    }}
     margin="dense"
     value={value}
     error={!!error}
     variant="outlined"
     {...input}
-  />
+  >
+    <MaskedInput mask={mask} />
+  </TextField>
 );
 
 const InputUI = withStyles(inputStyles)(
@@ -68,6 +71,7 @@ const InputUI = withStyles(inputStyles)(
     error,
     success,
     disabled,
+    mask,
     ...input
   }) => (
     <FormControl key={key} error={!!error} fullWidth={fullWidth}>
@@ -81,6 +85,7 @@ const InputUI = withStyles(inputStyles)(
         error={error}
         success={success}
         disabled={disabled}
+        mask={mask}
         {...input}
       />
       {error && <FormHelperText>{error}</FormHelperText>}
@@ -97,7 +102,19 @@ Input.defaultProps = {
   label: null,
   onChange: null,
   error: false,
+  mask: null,
 };
+
+const maskProp = PropTypes.oneOfType([
+  PropTypes.array,
+  PropTypes.func,
+  PropTypes.bool,
+  PropTypes.shape({
+    mask: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
+    pipe: PropTypes.func,
+  }),
+]);
+
 Input.propTypes = {
   fullWidth: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -107,6 +124,7 @@ Input.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  mask: maskProp,
 };
 
 export default Input;
