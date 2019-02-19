@@ -7,7 +7,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 
-import { mdiChevronRight, mdiMenu } from '@mdi/js';
+import { mdiMenu } from '@mdi/js';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+
 import Icon from '@mdi/react';
 import Link from '@material-ui/core/Link';
 import { DefaultProductTypography } from '../DefaultProductTypography';
@@ -42,6 +44,9 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
   },
   link: {
     color: `${palette.common.white} !important`,
+  },
+  separator: {
+    color: 'white',
   },
 }));
 
@@ -79,7 +84,12 @@ export const AppBar = ({
         <div className={classes.paperBreadcrumb}>
           <Breadcrumbs
             classes={{ root: classes.breadcrumb }}
-            separator={<Icon path={mdiChevronRight} color="white" size={1} />}
+            separator={
+              <NavigateNextIcon
+                fontSize="small"
+                className={classes.separator}
+              />
+            }
             arial-label="Breadcrumb"
           >
             {breadcrumbs.map((current, index, arr) =>
