@@ -7,4 +7,5 @@ export const defaultLabels = {
   buttonLabelNext: 'Avançar',
   buttonLabelprevious: 'Voltar',
   buttonLabelSchedule: 'Agendar',
+  noTimeSlotAvailable: 'Nenhum horário disponivel',
 };

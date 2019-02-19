@@ -7,11 +7,43 @@ import { DateTime } from 'luxon';
 import Card from '@material-ui/core/es/Card/Card';
 import CardContent from '@material-ui/core/es/CardContent/CardContent';
 import Chip from '@material-ui/core/es/Chip/Chip';
-import { capitalize } from '@material-ui/core/es/utils/helpers';
 
 import { Button } from '../..';
 import { WeeklyCalendar } from '../../Calendar/WeeklyCalendar';
 import { defaultLabels } from './data-types';
+
+const generateTimeSlots = (personAvailabilities, date, duration) => {
+  const dateAvailabilities = personAvailabilities.availabilities
+    .filter(av => av.date === date.toFormat('yyyy-MM-dd'))
+    .map(av => av.availabilities);
+  const timeSlots = [];
+  if (!dateAvailabilities.length) {
+    return [];
+  }
+
+  dateAvailabilities[0].forEach(dateAvs => {
+    let timeSlot = DateTime.fromISO(dateAvs.start);
+    const endTime = DateTime.fromISO(dateAvs.end);
+    while (timeSlot < endTime) {
+      timeSlots.push(timeSlot.toLocaleString(DateTime.TIME_SIMPLE));
+      timeSlot = timeSlot.plus({ minutes: duration });
+    }
+  });
+  return timeSlots;
+};
+
+const mapByPerson = (personsAvailabilities, date, duration) => {
+  const map = [];
+  personsAvailabilities.forEach(pa => {
+    map[pa.email] = {
+      name: pa.name,
+      email: pa.email,
+      timeSlots: generateTimeSlots(pa, date, duration),
+    };
+  });
+
+  return map;
+};
 
 export const Step2 = ({
   classes,
@@ -20,13 +52,17 @@ export const Step2 = ({
   selectedDuration,
   onPreviousStep,
   labels,
+  locale,
 }) => {
   const [selectedDate, setSelectedDate] = useState(DateTime.local());
-  const availabilitiesByPerson = {};
-  personsAvailabilities.forEach(key => {
-    availabilitiesByPerson[key.email] = key;
-  });
+  // const [selectedTime, setSelectedTime] = useState(null);
+  const timeSlotsByPerson = mapByPerson(
+    personsAvailabilities,
+    selectedDate,
+    selectedDuration
+  );
   const bull = <span className={classes.bullet}>•</span>;
+
   return (
     <div>
       <Grid justify="center" container spacing={16}>
@@ -44,7 +80,7 @@ export const Step2 = ({
 
         <Grid item container xs={12} spacing={8}>
           {selectedPerson.map(key => {
-            const person = availabilitiesByPerson[key];
+            const person = timeSlotsByPerson[key];
             return (
               <Grid item xs={12}>
                 <Card>
@@ -55,17 +91,26 @@ export const Step2 = ({
                       gutterBottom
                     >
                       <b>{person.name}</b> {bull}{' '}
-                      {capitalize(selectedDate.weekdayLong)}, {selectedDate.day}{' '}
-                      de {capitalize(selectedDate.monthLong)} de{' '}
-                      {selectedDate.year}
+                      {selectedDate
+                        .setLocale(locale)
+                        .toLocaleString(DateTime.DATE_HUGE)}
                     </Typography>
-
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(av => (
-                      <Chip
-                        className={classes.availiabilityCardTime}
-                        label="00:00"
-                      />
-                    ))}
+                    {person.timeSlots.length ? (
+                      person.timeSlots.map(ts => (
+                        <Chip
+                          className={classes.availiabilityCardTime}
+                          label={ts}
+                        />
+                      ))
+                    ) : (
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        gutterBottom="gutterBottom"
+                      >
+                        {labels.noTimeSlotAvailable}
+                      </Typography>
+                    )}
                   </CardContent>
                 </Card>
               </Grid>

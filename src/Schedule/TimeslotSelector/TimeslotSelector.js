@@ -58,6 +58,7 @@ export const TimeslotSelectorComponent = ({
         classes={classes}
         labels={labels}
         onPreviousStep={() => setStep(STEP_1_KEY)}
+        locale={locale}
       />
     );
 
