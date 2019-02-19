@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import Grid from '@material-ui/core/Grid';
+import Dialog from '@material-ui/core/es/Dialog/Dialog';
+import Paper from '@material-ui/core/Paper';
+
 import StepLabel from '@material-ui/core/StepLabel';
 import PropTypes from 'prop-types';
 
@@ -59,19 +62,21 @@ export const TimeslotSelectorComponent = ({
     );
 
   return (
-    <Grid container className={classes.root} justify="center">
-      <Grid item>
-        <Stepper activeStep={step} alternativeLabel>
-          <Step key={STEP_1_KEY}>
-            <StepLabel>{labels.step1Label}</StepLabel>
-          </Step>
-          <Step key={STEP_2_KEY}>
-            <StepLabel>{labels.step2Label}</StepLabel>
-          </Step>
-        </Stepper>
-        <div className={classes.stepContent}>{renderStep(step)}</div>
+    <Paper className={classes.root} style={other.style}>
+      <Grid container justify="center">
+        <Grid item>
+          <Stepper activeStep={step} alternativeLabel>
+            <Step key={STEP_1_KEY}>
+              <StepLabel>{labels.step1Label}</StepLabel>
+            </Step>
+            <Step key={STEP_2_KEY}>
+              <StepLabel>{labels.step2Label}</StepLabel>
+            </Step>
+          </Stepper>
+          <div className={classes.stepContent}>{renderStep(step)}</div>
+        </Grid>
       </Grid>
-    </Grid>
+    </Paper>
   );
 };
 
@@ -95,7 +100,19 @@ const TimeslotSelectorUI = ({
   );
 };
 
-const TimeslotSelector = props => <TimeslotSelectorUI {...props} />;
+const TimeslotSelector = props => {
+  const { dialog, dialogProps } = props;
+  const _props = { ...props };
+  delete _props.dialog;
+  delete _props.dialogProps;
+  return dialog ? (
+    <Dialog {...dialogProps}>
+      <TimeslotSelectorUI {..._props} />
+    </Dialog>
+  ) : (
+    <TimeslotSelectorUI {..._props} />
+  );
+};
 
 TimeslotSelector.defaultProps = {
   labels: defaultLabels,
@@ -103,6 +120,8 @@ TimeslotSelector.defaultProps = {
   locale: 'pt-BR',
   defaultDuration: undefined,
   defaultSelectAllPerson: false,
+  dialog: false,
+  dialogProps: {},
 };
 
 TimeslotSelector.propTypes = {
@@ -113,6 +132,8 @@ TimeslotSelector.propTypes = {
   durations: PropTypes.arrayOf(PropTypes.number).isRequired,
   defaultDuration: PropTypes.number,
   defaultSelectAllPerson: PropTypes.bool,
+  dialog: PropTypes.bool,
+  dialogProps: PropTypes.object,
 };
 
 export default TimeslotSelector;
