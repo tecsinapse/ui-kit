@@ -1,17 +1,9 @@
-import {
-  createMuiTheme,
-  MuiThemeProvider as OldMuiThemeProvider,
-} from '@material-ui/core';
-import {
-  install,
-  ThemeProvider as MuiThemeProvider,
-} from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { defaultOrange, defaultRed } from './colors';
-
-install();
 
 const themeColors = {
   orange: {
@@ -54,11 +46,7 @@ const theme = variant =>
     palette: { ...themeColors[variant] },
   });
 export function ThemeProvider({ children, variant }) {
-  return (
-    <OldMuiThemeProvider theme={theme(variant)}>
-      <MuiThemeProvider theme={theme(variant)}>{children}</MuiThemeProvider>
-    </OldMuiThemeProvider>
-  );
+  return <MuiThemeProvider theme={theme(variant)}>{children}</MuiThemeProvider>;
 }
 export default ThemeProvider;
 ThemeProvider.propTypes = {

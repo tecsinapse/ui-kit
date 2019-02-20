@@ -57,11 +57,12 @@ export const AppBar = ({
   menuOnClick,
   leftIcons,
   rightIcons,
+  className,
   breadcrumbs = [],
 }) => {
   const classes = useStyles();
   return (
-    <div>
+    <div className={className}>
       <MaterialAppBar className={classes.appBar}>
         <Toolbar disableGutters className={classes.toolbar}>
           <IconButton
