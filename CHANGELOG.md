@@ -1,3 +1,11 @@
+<a name="0.0.43"></a>
+## <small>0.0.43 (2019-02-20)</small>
+
+* AppBar ([d61f3ec](https://github.com/tecsinapse/ui-kit/commit/d61f3ec))
+* Custom components on menu ([5a9333c](https://github.com/tecsinapse/ui-kit/commit/5a9333c))
+
+
+
 <a name="0.0.42"></a>
 ## <small>0.0.42 (2019-02-19)</small>
 
