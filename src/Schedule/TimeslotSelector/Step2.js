@@ -55,7 +55,7 @@ export const Step2 = ({
   locale,
 }) => {
   const [selectedDate, setSelectedDate] = useState(DateTime.local());
-  // const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedPersonTimeSlot, setSelectedPersonTimeSlot] = useState({});
   const timeSlotsByPerson = mapByPerson(
     personsAvailabilities,
     selectedDate,
@@ -96,12 +96,28 @@ export const Step2 = ({
                         .toLocaleString(DateTime.DATE_HUGE)}
                     </Typography>
                     {person.timeSlots.length ? (
-                      person.timeSlots.map(ts => (
-                        <Chip
-                          className={classes.availiabilityCardTime}
-                          label={ts}
-                        />
-                      ))
+                      person.timeSlots.map(ts =>
+                        ts === selectedPersonTimeSlot.timeSlot &&
+                        person.email === selectedPersonTimeSlot.email ? (
+                          <Chip
+                            className={classes.availiabilityCardTime}
+                            label={ts}
+                            color="primary"
+                          />
+                        ) : (
+                          <Chip
+                            className={classes.availiabilityCardTime}
+                            label={ts}
+                            clickable
+                            onClick={() =>
+                              setSelectedPersonTimeSlot({
+                                timeSlot: ts,
+                                email: person.email,
+                              })
+                            }
+                          />
+                        )
+                      )
                     ) : (
                       <Typography
                         variant="body2"
