@@ -25,6 +25,8 @@ export const TimeslotSelectorComponent = ({
   durations,
   defaultDuration,
   defaultSelectAllPerson,
+  onHandleSchedule,
+  onWeekChange,
   ...other
 }) => {
   const [step, setStep] = useState(STEP_1_KEY);
@@ -59,6 +61,8 @@ export const TimeslotSelectorComponent = ({
         labels={labels}
         onPreviousStep={() => setStep(STEP_1_KEY)}
         locale={locale}
+        onHandleSchedule={onHandleSchedule}
+        onWeekChange={onWeekChange}
       />
     );
 
@@ -86,6 +90,8 @@ const TimeslotSelectorUI = ({
   labels,
   personsAvailabilities,
   durations,
+  onHandleSchedule,
+  onWeekChange,
   ...other
 }) => {
   const classes = useStyles();
@@ -96,6 +102,8 @@ const TimeslotSelectorUI = ({
       labels={labels}
       personsAvailabilities={personsAvailabilities}
       durations={durations}
+      onHandleSchedule={onHandleSchedule}
+      onWeekChange={onWeekChange}
       {...other}
     />
   );
@@ -123,10 +131,11 @@ TimeslotSelector.defaultProps = {
   defaultSelectAllPerson: false,
   dialog: false,
   dialogProps: {},
+  onWeekChange: {},
 };
 
 TimeslotSelector.propTypes = {
-  labels: PropTypes.instanceOf(defaultLabels),
+  labels: PropTypes.object,
   personsAvailabilities: PropTypes.arrayOf(PropTypes.object).isRequired,
   locale: PropTypes.string,
   other: PropTypes.object,
@@ -135,6 +144,8 @@ TimeslotSelector.propTypes = {
   defaultSelectAllPerson: PropTypes.bool,
   dialog: PropTypes.bool,
   dialogProps: PropTypes.object,
+  onHandleSchedule: PropTypes.func.isRequired,
+  onWeekChange: PropTypes.func,
 };
 
 export default TimeslotSelector;

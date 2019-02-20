@@ -10,7 +10,6 @@ import RadioGroup from '@material-ui/core/es/RadioGroup/RadioGroup';
 
 import { Select } from '../../Select/Select';
 import { Button } from '../../Buttons/Button';
-import { defaultLabels } from './data-types';
 
 export const Step1 = ({
   classes,
@@ -46,13 +45,14 @@ export const Step1 = ({
       <Grid container justify="center">
         <RadioGroup
           name="durationSet"
-          value={selectedDuration}
+          value={String(selectedDuration)}
           onChange={radioDurationHandle}
           row
         >
           {durations.map(duration => (
             <FormControlLabel
-              value={duration}
+              key={duration}
+              value={String(duration)}
               control={<Radio />}
               label={`${duration} ${labels.minuteslabel}`}
             />
@@ -70,6 +70,6 @@ export const Step1 = ({
 Step1.defaultProps = {};
 
 Step1.propTypes = {
-  labels: PropTypes.instanceOf(defaultLabels).isRequired,
+  labels: PropTypes.object.isRequired,
   durations: PropTypes.arrayOf(PropTypes.number).isRequired,
 };

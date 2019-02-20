@@ -16,6 +16,8 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       durations={[15, 20, 30]}
       defaultDuration={20}
       defaultSelectAllPerson
+      onWeekChange={obj => console.log(obj)}
+      onHandleSchedule={obj => console.log(obj)}
     />
   ))
   .add('Modal TimeslotSelector', () => (
@@ -26,5 +28,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       defaultSelectAllPerson
       dialog
       dialogProps={{ open: true }}
+      onWeekChange={obj => console.log(obj)}
+      onHandleSchedule={obj => console.log(obj)}
     />
   ));

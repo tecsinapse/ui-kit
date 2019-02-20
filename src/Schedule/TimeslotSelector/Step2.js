@@ -10,7 +10,6 @@ import Chip from '@material-ui/core/es/Chip/Chip';
 
 import { Button } from '../..';
 import { WeeklyCalendar } from '../../Calendar/WeeklyCalendar';
-import { defaultLabels } from './data-types';
 
 const generateTimeSlots = (personAvailabilities, date, duration) => {
   const dateAvailabilities = personAvailabilities.availabilities
@@ -25,7 +24,7 @@ const generateTimeSlots = (personAvailabilities, date, duration) => {
     let timeSlot = DateTime.fromISO(dateAvs.start);
     const endTime = DateTime.fromISO(dateAvs.end);
     while (timeSlot < endTime) {
-      timeSlots.push(timeSlot.toLocaleString(DateTime.TIME_SIMPLE));
+      timeSlots.push(timeSlot.toLocaleString(DateTime.TIME_24_SIMPLE));
       timeSlot = timeSlot.plus({ minutes: duration });
     }
   });
@@ -51,6 +50,8 @@ export const Step2 = ({
   selectedPerson,
   selectedDuration,
   onPreviousStep,
+  onHandleSchedule,
+  onWeekChange,
   labels,
   locale,
 }) => {
@@ -75,6 +76,7 @@ export const Step2 = ({
           <WeeklyCalendar
             currentDate={selectedDate}
             onDayChange={setSelectedDate}
+            onWeekChange={onWeekChange}
           />
         </Grid>
 
@@ -82,14 +84,10 @@ export const Step2 = ({
           {selectedPerson.map(key => {
             const person = timeSlotsByPerson[key];
             return (
-              <Grid item xs={12}>
+              <Grid item xs={12} key={person.email}>
                 <Card>
                   <CardContent className={classes.availiabilityCardRoot}>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      gutterBottom
-                    >
+                    <Typography variant="body1" color="textSecondary">
                       <b>{person.name}</b> {bull}{' '}
                       {selectedDate
                         .setLocale(locale)
@@ -100,17 +98,20 @@ export const Step2 = ({
                         ts === selectedPersonTimeSlot.timeSlot &&
                         person.email === selectedPersonTimeSlot.email ? (
                           <Chip
+                            key={ts}
                             className={classes.availiabilityCardTime}
                             label={ts}
-                            color="primary"
+                            color="secondary"
                           />
                         ) : (
                           <Chip
+                            key={ts}
                             className={classes.availiabilityCardTime}
                             label={ts}
                             clickable
                             onClick={() =>
                               setSelectedPersonTimeSlot({
+                                date: selectedDate.toISODate(),
                                 timeSlot: ts,
                                 email: person.email,
                               })
@@ -119,11 +120,7 @@ export const Step2 = ({
                         )
                       )
                     ) : (
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        gutterBottom="gutterBottom"
-                      >
+                      <Typography variant="body1" color="textSecondary">
                         {labels.noTimeSlotAvailable}
                       </Typography>
                     )}
@@ -145,16 +142,26 @@ export const Step2 = ({
           <Button onClick={onPreviousStep}>{labels.buttonLabelprevious}</Button>
         </Grid>
         <Grid item>
-          <Button>{labels.buttonLabelSchedule}</Button>
+          <Button
+            onClick={() =>
+              onHandleSchedule && onHandleSchedule(selectedPersonTimeSlot)
+            }
+          >
+            {labels.buttonLabelSchedule}
+          </Button>
         </Grid>
       </Grid>
     </div>
   );
 };
 
-Step2.defaultProps = {};
+Step2.defaultProps = {
+  onWeekChange: {},
+};
 
 Step2.propTypes = {
-  labels: PropTypes.instanceOf(defaultLabels).isRequired,
+  labels: PropTypes.object.isRequired,
   onPreviousStep: PropTypes.func.isRequired,
+  onHandleSchedule: PropTypes.func.isRequired,
+  onWeekChange: PropTypes.func,
 };

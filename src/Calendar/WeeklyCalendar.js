@@ -7,7 +7,6 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Typography from '@material-ui/core/Typography';
 import LuxonUtils from '@date-io/luxon';
-import { DateTime } from 'luxon';
 import {
   weeklyCalendarStyles as useStyles,
   muiInlineDatePicker,
@@ -78,10 +77,18 @@ export const WeeklyCalendarComponent = ({
             key={day.day}
             label={
               <div>
-                <Typography className={classes.weekDayLabel} color="textSecondary" variant="caption">
+                <Typography
+                  className={classes.weekDayLabel}
+                  color="textSecondary"
+                  variant="caption"
+                >
                   {day.get('weekdayShort')}
                 </Typography>
-                <Typography className={classes.weekDayValue} color="textSecondary" variant="body1">
+                <Typography
+                  className={classes.weekDayValue}
+                  color="textSecondary"
+                  variant="body1"
+                >
                   {day.day}
                 </Typography>
               </div>
@@ -125,7 +132,7 @@ WeeklyCalendar.defaultProps = {
 WeeklyCalendar.propTypes = {
   onDayChange: PropTypes.func,
   onWeekChange: PropTypes.func,
-  currentDate: PropTypes.objectOf(DateTime).isRequired,
+  currentDate: PropTypes.object.isRequired,
   locale: PropTypes.string,
 };
 
