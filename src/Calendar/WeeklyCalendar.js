@@ -46,6 +46,16 @@ export const WeeklyCalendarComponent = ({
     setWeekDays(fillWeekDays(localizedDate));
   };
 
+  const previousWeek = () => {
+    const nextWeekStart = selectedDay.minus({ day: 7 });
+    setWeekDays(fillWeekDays(nextWeekStart.setLocale(locale)));
+  };
+
+  const nextWeek = () => {
+    const nextWeekStart = selectedDay.plus({ day: 7 });
+    setWeekDays(fillWeekDays(nextWeekStart.setLocale(locale)));
+  };
+
   useEffect(() => {
     onWeekChange(weekDays);
     setSelectedDay(weekDays[0]);
@@ -59,11 +69,18 @@ export const WeeklyCalendarComponent = ({
     <div className={classes.root}>
       <MuiPickersUtilsProvider utils={LuxonUtils} locale={locale}>
         <MuiThemeProvider theme={materialTheme}>
-          <InlineDatePicker format="MMMM, yyyy" onChange={handleWeekChange} />
+          <InlineDatePicker
+            value={selectedDay}
+            format="MMMM, yyyy"
+            onChange={handleWeekChange}
+          />
         </MuiThemeProvider>
       </MuiPickersUtilsProvider>
       <div style={{ display: 'flex' }}>
-        <Button className={classes.cssButtonWeekChange}>
+        <Button
+          className={classes.cssButtonWeekChange}
+          onClick={() => previousWeek()}
+        >
           <KeyboardArrowLeft />
         </Button>
         <BottomNavigation
@@ -104,7 +121,10 @@ export const WeeklyCalendarComponent = ({
             />
           ))}
         </BottomNavigation>
-        <Button className={classes.cssButtonWeekChange}>
+        <Button
+          className={classes.cssButtonWeekChange}
+          onClick={() => nextWeek()}
+        >
           <KeyboardArrowRight />
         </Button>
       </div>
