@@ -84,7 +84,13 @@ export const Step2 = ({
           />
         </Grid>
 
-        <Grid item container xs={12} spacing={8}>
+        <Grid
+          item
+          container
+          xs={12}
+          spacing={8}
+          style={{ height: 360, overflowY: 'scroll' }}
+        >
           {selectedPerson.map(key => {
             const person = timeSlotsByPerson[key];
             return (
