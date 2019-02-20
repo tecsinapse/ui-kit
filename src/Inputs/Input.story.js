@@ -5,6 +5,22 @@ import { GROUPS } from '../../.storybook/hierarchySeparators';
 
 storiesOf(`${GROUPS.FORMS}|Input`, module)
   .add('input', () => <Input name="a" label="Placeholder" />)
+  .add('input mask  date-raw', () => (
+    <Input
+      name="a"
+      label="Placeholder"
+      mask={[/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]}
+    />
+  ))
+  .add('input mask  phone', () => (
+    <Input name="a" label="Placeholder" mask="phone" />
+  ))
+  .add('input mask  cpf', () => (
+    <Input name="a" label="Placeholder" mask="cpf" />
+  ))
+  .add('input mask  currency', () => (
+    <Input name="a" label="Placeholder" mask="currency" />
+  ))
   .add('input invalid', () => (
     <Input
       name="a"

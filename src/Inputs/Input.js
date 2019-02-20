@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField/TextField';
 import MaskedInput from 'react-text-mask';
+import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import { inputStyles } from './InputStyles';
 
 import {
@@ -12,6 +13,105 @@ import {
   labelClass,
   outlinedInputClass,
 } from './styleUtils';
+
+const TextMaskCustom = props => {
+  const { inputRef, mask, ...other } = props;
+
+  const PHONE_MASK = [
+    '(',
+    /[1-9]/,
+    /\d/,
+    ')',
+    ' ',
+    /[1-9]/,
+    /\d/,
+    /\d/,
+    /\d/,
+    '-',
+    /\d/,
+    /\d/,
+    /\d/,
+    /\d/,
+  ];
+  const CEL_MASK = [
+    '(',
+    /[1-9]/,
+    /\d/,
+    ')',
+    ' ',
+    /[1-9]/,
+    /[1-9]/,
+    /\d/,
+    /\d/,
+    /\d/,
+    '-',
+    /\d/,
+    /\d/,
+    /\d/,
+    /\d/,
+  ];
+  const CPF_MASK = [
+    /\d/,
+    /\d/,
+    /\d/,
+    '.',
+    /\d/,
+    /\d/,
+    /\d/,
+    '.',
+    /\d/,
+    /\d/,
+    /\d/,
+    '-',
+    /\d/,
+    /\d/,
+  ];
+  const numberMask = createNumberMask({
+    prefix: 'R$ ',
+    suffix: '',
+    thousandsSeparatorSymbol: '.',
+    decimalSymbol: ',',
+    allowDecimal: true,
+  });
+
+  let inputMask = null;
+  if (!mask) {
+    return null;
+  }
+
+  if (typeof mask === 'string') {
+    switch (mask) {
+      case 'phone':
+        inputMask = PHONE_MASK;
+        break;
+      case 'cel':
+        inputMask = CEL_MASK;
+        break;
+      case 'cpf':
+        inputMask = CPF_MASK;
+        break;
+      case 'currency':
+        inputMask = numberMask;
+        break;
+      default:
+        return null;
+    }
+  } else {
+    inputMask = mask;
+  }
+
+  return (
+    <MaskedInput
+      {...other}
+      ref={ref => {
+        inputRef(ref ? ref.inputElement : null);
+      }}
+      mask={inputMask}
+      placeholderChar={'\u2000'}
+      showMask
+    />
+  );
+};
 
 export const TextFieldComponent = ({
   classes,
@@ -26,37 +126,43 @@ export const TextFieldComponent = ({
   disabled,
   mask,
   ...input
-}) => (
-  <TextField
-    disabled={disabled}
-    id="outlined-name"
-    name={name}
-    label={label}
-    onChange={onChange}
-    InputLabelProps={{
-      classes: {
-        root: classes[labelClass({ warning, error, success })],
-        focused: classes.cssFocused,
-      },
-    }}
-    InputProps={{
-      className: classes.input,
-      classes: {
-        root: classes[outlinedInputClass({ warning, error, success })],
-        focused: classes.cssFocused,
-        notchedOutline: classes.notchedOutline,
-      },
-      endAdornment: getEndAdornmentIcon({ warning, error, success }),
-    }}
-    margin="dense"
-    value={value}
-    error={!!error}
-    variant="outlined"
-    {...input}
-  >
-    <MaskedInput mask={mask} />
-  </TextField>
-);
+}) => {
+  let inputComponent;
+
+  if (mask)
+    inputComponent = props => TextMaskCustom(Object.assign({ mask }, props));
+
+  return (
+    <TextField
+      disabled={disabled}
+      id="outlined-name"
+      name={name}
+      label={label}
+      onChange={onChange}
+      InputLabelProps={{
+        classes: {
+          root: classes[labelClass({ warning, error, success })],
+          focused: classes.cssFocused,
+        },
+      }}
+      InputProps={{
+        inputComponent,
+        className: classes.input,
+        classes: {
+          root: classes[outlinedInputClass({ warning, error, success })],
+          focused: classes.cssFocused,
+          notchedOutline: classes.notchedOutline,
+        },
+        endAdornment: getEndAdornmentIcon({ warning, error, success }),
+      }}
+      margin="dense"
+      value={value}
+      error={!!error}
+      variant="outlined"
+      {...input}
+    />
+  );
+};
 
 const InputUI = withStyles(inputStyles)(
   ({
@@ -106,6 +212,7 @@ Input.defaultProps = {
 };
 
 const maskProp = PropTypes.oneOfType([
+  PropTypes.string,
   PropTypes.array,
   PropTypes.func,
   PropTypes.bool,

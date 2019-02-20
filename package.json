@@ -30,8 +30,8 @@
     "@tecsinapse/es-utils": "^0.0.92",
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.1.2",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-loader": "^8.0.5",
     "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.5",
     "classnames": "^2.2.6",
     "docz": "^0.13.7",
     "docz-theme-default": "^0.13.7",
@@ -119,6 +119,7 @@
     "react-text-mask": "^5.4.3",
     "react-virtualized": "^9.21.0",
     "react-window": "^1.5.1",
+    "text-mask-addons": "^3.8.0",
     "typeface-roboto": "^0.0.54"
   },
   "sideEffects": false
