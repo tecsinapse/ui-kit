@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LuxonUtils from '@date-io/luxon';
+import Button from '@material-ui/core/Button';
 import {
   weeklyCalendarStyles as useStyles,
   muiInlineDatePicker,
@@ -61,58 +62,52 @@ export const WeeklyCalendarComponent = ({
           <InlineDatePicker format="MMMM, yyyy" onChange={handleWeekChange} />
         </MuiThemeProvider>
       </MuiPickersUtilsProvider>
-      <BottomNavigation
-        value={selectedDay}
-        onChange={(event, day) =>
-          !day.equals(selectedDay) && setSelectedDay(day)
-        }
-        showLabels
-        className={classes.cssButtonNavigation}
-      >
-        <BottomNavigationAction
-          icon={<KeyboardArrowLeft />}
-          classes={{
-            root: classes.cssButtonNavigationAct,
-            wrapper: classes.cssButtonNavigationWrp,
-          }}
-        />
-        {weekDays.map(day => (
-          <BottomNavigationAction
-            classes={{
-              root: classes.cssButtonNavigationAct,
-              wrapper: classes.cssButtonNavigationWrp,
-              selected: classes.selected,
-            }}
-            key={day.day}
-            label={
-              <div>
-                <Typography
-                  className={classes.weekDayLabel}
-                  color="textSecondary"
-                  variant="caption"
-                >
-                  {day.get('weekdayShort')}
-                </Typography>
-                <Typography
-                  className={classes.weekDayValue}
-                  color="textSecondary"
-                  variant="body1"
-                >
-                  {day.day}
-                </Typography>
-              </div>
-            }
-            value={day}
-          />
-        ))}
-        <BottomNavigationAction
-          icon={<KeyboardArrowRight />}
-          classes={{
-            root: classes.cssButtonNavigationAct,
-            wrapper: classes.cssButtonNavigationWrp,
-          }}
-        />
-      </BottomNavigation>
+      <div style={{ display: 'flex' }}>
+        <Button className={classes.cssButtonWeekChange}>
+          <KeyboardArrowLeft />
+        </Button>
+        <BottomNavigation
+          value={selectedDay}
+          onChange={(event, day) =>
+            !day.equals(selectedDay) && setSelectedDay(day)
+          }
+          showLabels
+          className={classes.cssButtonNavigation}
+        >
+          {weekDays.map(day => (
+            <BottomNavigationAction
+              classes={{
+                root: classes.cssButtonNavigationAct,
+                wrapper: classes.cssButtonNavigationWrp,
+                selected: classes.selected,
+              }}
+              key={day.day}
+              label={
+                <div>
+                  <Typography
+                    className={classes.weekDayLabel}
+                    color="textSecondary"
+                    variant="caption"
+                  >
+                    {day.get('weekdayShort')}
+                  </Typography>
+                  <Typography
+                    className={classes.weekDayValue}
+                    color="textSecondary"
+                    variant="body1"
+                  >
+                    {day.day}
+                  </Typography>
+                </div>
+              }
+              value={day}
+            />
+          ))}
+        </BottomNavigation>
+        <Button className={classes.cssButtonWeekChange}>
+          <KeyboardArrowRight />
+        </Button>
+      </div>
     </div>
   );
 };

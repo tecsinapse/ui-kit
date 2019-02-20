@@ -27,7 +27,7 @@ export const weeklyCalendarStyles = makeStyles(({ palette, spacing }) => ({
   root: {
     padding: `${spacing.unit} ${spacing.unit * 2} ${spacing.unit /
       3} ${spacing.unit * 1.34}`,
-    minWidth: 320,
+    minWidth: 380,
     justifyContent: 'center',
   },
   selected: {
@@ -43,6 +43,10 @@ export const weeklyCalendarStyles = makeStyles(({ palette, spacing }) => ({
   },
   cssButtonNavigationAct: {
     minWidth: '24px !important',
+    padding: '0px !important',
+  },
+  cssButtonWeekChange: {
+    minWidth: '16px !important',
     padding: '0px !important',
   },
   cssButtonNavigationWrp: {
