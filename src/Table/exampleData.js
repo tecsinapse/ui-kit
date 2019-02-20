@@ -1,5 +1,6 @@
 export const cars = [
   {
+    id: 1,
     brand: 'BMW',
     model: {
       name: 'X5',
@@ -8,6 +9,7 @@ export const cars = [
     price: '29000000',
   },
   {
+    id: 2,
     brand: 'AUDI',
     model: {
       name: 'A5',
@@ -16,6 +18,7 @@ export const cars = [
     price: '21000000',
   },
   {
+    id: 3,
     brand: 'Mercedes',
     model: {
       name: 'Classe C C-200',
@@ -24,6 +27,7 @@ export const cars = [
     price: '10980000',
   },
   {
+    id: 4,
     brand: 'BMW',
     model: {
       name: 'Z4',
