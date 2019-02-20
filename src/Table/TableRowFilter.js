@@ -17,11 +17,12 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter }) => {
   return (
     <TableRow>
       {columns.map(column => {
-        const { options } = column || {};
+        const { field, options } = column || {};
         return (
-          <TableCell>
+          <TableCell key={field}>
             {options.filter && (
               <Input
+                name={field}
                 style={{ height: 35 }}
                 startAdornment={
                   <Icon path={mdiMagnify} size={1} color="#C4C4C4" />

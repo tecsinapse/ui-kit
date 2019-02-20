@@ -19,7 +19,7 @@ const convertValuesToTableCell = (
 ) => {
   if (selection) {
     return (
-      <TableCell padding="checkbox">
+      <TableCell key={field} padding="checkbox">
         <Checkbox checked={isSelected(selectedRows, rowData, rowId)} />
       </TableCell>
     );

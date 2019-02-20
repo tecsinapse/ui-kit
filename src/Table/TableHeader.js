@@ -59,7 +59,9 @@ const convertColumnToTableCell = (
     );
   }
   return (
-    <TableCell align={options.numeric ? 'right' : 'left'}>{title}</TableCell>
+    <TableCell key={field} align={options.numeric ? 'right' : 'left'}>
+      {title}
+    </TableCell>
   );
 };
 

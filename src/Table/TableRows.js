@@ -110,7 +110,7 @@ TableRows.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-      field: PropTypes.string.isRequired,
+      field: PropTypes.string,
       options: PropTypes.shape({
         filter: PropTypes.bool,
       }),

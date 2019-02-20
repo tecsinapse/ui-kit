@@ -12,6 +12,7 @@ const initializeColumns = (tableColumns, tableOptions) => {
   const columns = [...tableColumns];
   if (tableOptions.selection) {
     columns.splice(0, 0, {
+      field: 'checkbox-header',
       selection: true,
     });
   }
