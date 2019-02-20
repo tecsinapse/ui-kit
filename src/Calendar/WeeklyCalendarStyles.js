@@ -27,7 +27,6 @@ export const weeklyCalendarStyles = makeStyles(({ palette, spacing }) => ({
   root: {
     padding: `${spacing.unit} ${spacing.unit * 2} ${spacing.unit /
       3} ${spacing.unit * 1.34}`,
-    minWidth: 380,
     justifyContent: 'center',
   },
   selected: {
@@ -56,6 +55,8 @@ export const weeklyCalendarStyles = makeStyles(({ palette, spacing }) => ({
     borderRadius: 8,
     margin: spacing.unit / 4,
     padding: spacing.unit / 6,
+    paddingLeft: spacing.unit / 2,
+    paddingRight: spacing.unit / 2,
   },
   weekDayLabel: {
     textTransform: 'uppercase',
