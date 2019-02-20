@@ -32,6 +32,7 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     display: 'flex',
     flexGrow: 0,
     position: 'unset',
+    backgroundColor: palette.primary.main,
   },
   breadcrumb: { display: 'flex !important' },
   paperBreadcrumb: {
