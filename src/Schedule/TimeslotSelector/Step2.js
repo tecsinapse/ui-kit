@@ -56,12 +56,16 @@ export const Step2 = ({
   locale,
 }) => {
   const [selectedDate, setSelectedDate] = useState(DateTime.local());
-  const [selectedPersonTimeSlot, setSelectedPersonTimeSlot] = useState({});
+  const [selectedPersonTimeSlot, setSelectedPersonTimeSlot] = useState(null);
   const timeSlotsByPerson = mapByPerson(
     personsAvailabilities,
     selectedDate,
     selectedDuration
   );
+  const handleDayChange = day => {
+    setSelectedDate(day);
+    setSelectedPersonTimeSlot(null);
+  };
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
@@ -75,7 +79,7 @@ export const Step2 = ({
         <Grid item xs={7}>
           <WeeklyCalendar
             currentDate={selectedDate}
-            onDayChange={setSelectedDate}
+            onDayChange={handleDayChange}
             onWeekChange={onWeekChange}
           />
         </Grid>
@@ -95,7 +99,8 @@ export const Step2 = ({
                     </Typography>
                     {person.timeSlots.length ? (
                       person.timeSlots.map(ts =>
-                        ts === selectedPersonTimeSlot.timeSlot &&
+                        selectedPersonTimeSlot &&
+                        ts === selectedPersonTimeSlot.time &&
                         person.email === selectedPersonTimeSlot.email ? (
                           <Chip
                             key={ts}
@@ -112,7 +117,7 @@ export const Step2 = ({
                             onClick={() =>
                               setSelectedPersonTimeSlot({
                                 date: selectedDate.toISODate(),
-                                timeSlot: ts,
+                                time: ts,
                                 email: person.email,
                               })
                             }
@@ -143,6 +148,7 @@ export const Step2 = ({
         </Grid>
         <Grid item>
           <Button
+            disabled={selectedPersonTimeSlot == null}
             onClick={() =>
               onHandleSchedule && onHandleSchedule(selectedPersonTimeSlot)
             }

@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable no-alert */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
@@ -7,6 +8,13 @@ import TimeslotSelector from './TimeslotSelector';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 const personsAvailabilities = require('../../../test/resources/availabilities.json');
+
+const onHandleScheduleTest = selected =>
+  alert(
+    `Usuário: ${selected.email}\nData: ${selected.date}\nHora: ${
+      selected.time
+    }\n`
+  );
 
 storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
   .add('TimeslotSelector', () => (
@@ -17,7 +25,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       defaultDuration={20}
       defaultSelectAllPerson
       onWeekChange={obj => console.log(obj)}
-      onHandleSchedule={obj => console.log(obj)}
+      onHandleSchedule={onHandleScheduleTest}
     />
   ))
   .add('Modal TimeslotSelector', () => (
@@ -29,6 +37,6 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       dialog
       dialogProps={{ open: true }}
       onWeekChange={obj => console.log(obj)}
-      onHandleSchedule={obj => console.log(obj)}
+      onHandleSchedule={onHandleScheduleTest}
     />
   ));
