@@ -6,6 +6,8 @@ import { InlineDatePicker, MuiPickersUtilsProvider } from 'material-ui-pickers';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Typography from '@material-ui/core/Typography';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LuxonUtils from '@date-io/luxon';
 import {
   weeklyCalendarStyles as useStyles,
@@ -67,6 +69,13 @@ export const WeeklyCalendarComponent = ({
         showLabels
         className={classes.cssButtonNavigation}
       >
+        <BottomNavigationAction
+          icon={<KeyboardArrowLeft />}
+          classes={{
+            root: classes.cssButtonNavigationAct,
+            wrapper: classes.cssButtonNavigationWrp,
+          }}
+        />
         {weekDays.map(day => (
           <BottomNavigationAction
             classes={{
@@ -96,6 +105,13 @@ export const WeeklyCalendarComponent = ({
             value={day}
           />
         ))}
+        <BottomNavigationAction
+          icon={<KeyboardArrowRight />}
+          classes={{
+            root: classes.cssButtonNavigationAct,
+            wrapper: classes.cssButtonNavigationWrp,
+          }}
+        />
       </BottomNavigation>
     </div>
   );
