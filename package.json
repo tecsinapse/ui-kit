@@ -109,7 +109,7 @@
     "@material-ui/styles": "^3.0.0-alpha.10",
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
-    "@tecsinapse/es-utils": "^0.0.92",
+    "@tecsinapse/es-utils": "0.0.92",
     "classnames": "^2.2.6",
     "material-ui-search-bar": "1.0.0-beta.13",
     "memoize-one": "^5.0.0",
