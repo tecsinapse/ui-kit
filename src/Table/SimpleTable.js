@@ -23,7 +23,7 @@ const columns = [
 
 const SimpleTable = () => (
   <Paper style={{ width: 1000 }}>
-    <Table columns={columns} data={cars} />
+    <Table columns={columns} data={cars} rowId={row => row.id} />
   </Paper>
 );
 

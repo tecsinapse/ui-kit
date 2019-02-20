@@ -7,41 +7,43 @@ const columns = [
   {
     title: 'Brand',
     field: 'brand',
-    options: {
-      filter: true,
-    },
   },
   {
     title: 'Model',
     field: 'model.name',
-    options: {
-      filter: true,
-    },
   },
   {
     title: 'Year',
     field: 'model.year',
     options: {
-      filter: true,
       numeric: true,
     },
   },
 ];
 
-const onFilterData = filteredData => {
-  // eslint-disable-next-line no-console
-  console.log(filteredData);
+const tableOptions = {
+  selection: true,
 };
 
-const FilteringTable = () => (
+const onSelectRow = (selectedRows, selectedRow, checked) => {
+  // eslint-disable-next-line no-console
+  console.log(selectedRows);
+  // eslint-disable-next-line no-console
+  console.log(checked);
+  // eslint-disable-next-line no-console
+  console.log(selectedRow);
+};
+
+const SelectionTable = () => (
   <Paper style={{ width: 1000 }}>
     <Table
       columns={columns}
       data={cars}
       rowId={row => row.id}
-      onFilterData={onFilterData}
+      options={tableOptions}
+      onSelectRow={onSelectRow}
     />
   </Paper>
 );
 
-export default FilteringTable;
+export default SelectionTable;
