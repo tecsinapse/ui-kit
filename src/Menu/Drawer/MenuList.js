@@ -24,32 +24,45 @@ export const MenuList = ({ closeDrawer, items, depth = 0, showAsOpen }) => {
     }));
   return (
     <List className={classes.parentList} disablePadding>
-      {items.map(({ title, component, componentProps, children, selected }) => (
-        <MenuItem
-          depth={depth}
-          key={title}
-          title={title}
-          component={component}
-          componentProps={componentProps}
-          open={open[title]}
-          showAsOpen={showAsOpen}
-          selected={selected}
-          handleClick={a => {
-            if (children) {
-              handleClick(a);
-            }
-          }}
-        >
-          {children ? (
-            <MenuList
-              closeDrawer={closeDrawer}
-              depth={depth + 1}
-              items={children}
+      {items.map(
+        ({
+          title: newTitle,
+          component,
+          componentProps,
+          children,
+          selected,
+        }) => {
+          const title = typeof newTitle === 'function' ? newTitle() : newTitle;
+          return (
+            <MenuItem
+              depth={depth}
+              key={title}
+              title={title}
+              component={component}
+              componentProps={componentProps}
+              open={open[title]}
               showAsOpen={showAsOpen}
-            />
-          ) : null}
-        </MenuItem>
-      ))}
+              selected={selected}
+              handleClick={a => {
+                if (children) {
+                  handleClick(a);
+                } else {
+                  closeDrawer();
+                }
+              }}
+            >
+              {children ? (
+                <MenuList
+                  closeDrawer={closeDrawer}
+                  depth={depth + 1}
+                  items={children}
+                  showAsOpen={showAsOpen}
+                />
+              ) : null}
+            </MenuItem>
+          );
+        }
+      )}
     </List>
   );
 };

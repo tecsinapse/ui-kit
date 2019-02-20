@@ -1,30 +1,23 @@
 import React, { useState } from 'react';
 import { Drawer as MuiDrawer } from '@material-ui/core';
-import { styled } from '@material-ui/styles';
 import PropTypes from 'prop-types';
+import { styled } from '@material-ui/styles';
 import { ListHeader } from './ListHeader';
-import { searchLogic } from './searchLogic';
+import { normalizeFunctionItems, searchLogic } from './searchLogic';
 import { SearchResultListing } from './SearchResultListing';
 import { MenuList } from './MenuList';
 
-const ScrollableDiv = styled('div')({
-  scrollable: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignContent: 'stretch',
-  },
-});
-const OverflowYDiv = styled('div')({
-  grow: {
-    flexGrow: 1,
+const StyledDiv = styled('div')({
+  '&&': {
     overflowY: 'scroll',
     overflow: '-moz-scrollbars-none',
-    '-ms-overflow-style': 'none',
+    msOverflowStyle: 'none',
     '&::-webkit-scrollbar': { width: '0 !important' },
   },
 });
 
-export const Drawer = ({ items, open, onClose }) => {
+export const Drawer = ({ items: oldItems, open, onClose }) => {
+  const items = normalizeFunctionItems(oldItems);
   const [search, setSearch] = useState('');
   let searchResults = [];
   if (search != null) {
@@ -32,22 +25,30 @@ export const Drawer = ({ items, open, onClose }) => {
   }
   return (
     <MuiDrawer open={open} onClose={onClose}>
-      <ScrollableDiv>
+      <StyledDiv>
         <div>
           <ListHeader search={search} setSearch={setSearch} />
         </div>
-        <OverflowYDiv>
+        <div>
           {!search && <MenuList closeDrawer={onClose} items={items} />}
-          {search && <SearchResultListing searchResults={searchResults} />}
-        </OverflowYDiv>
-      </ScrollableDiv>
+          {search && (
+            <SearchResultListing
+              onClick={() => {
+                onClose();
+                setSearch('');
+              }}
+              searchResults={searchResults}
+            />
+          )}
+        </div>
+      </StyledDiv>
     </MuiDrawer>
   );
 };
 
 Drawer.defaultProps = {};
 const menuItemShape = PropTypes.shape({
-  title: PropTypes.string.isRequired,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   component: PropTypes.object,
   componentProps: PropTypes.object,
 });

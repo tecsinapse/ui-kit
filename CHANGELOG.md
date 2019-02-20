@@ -1,3 +1,83 @@
+<a name="0.0.43"></a>
+## <small>0.0.43 (2019-02-20)</small>
+
+* AppBar ([d61f3ec](https://github.com/tecsinapse/ui-kit/commit/d61f3ec))
+* Custom components on menu ([5a9333c](https://github.com/tecsinapse/ui-kit/commit/5a9333c))
+
+
+
+<a name="0.0.42"></a>
+## <small>0.0.42 (2019-02-19)</small>
+
+* solving broken breadcrumb ([c1f9d38](https://github.com/tecsinapse/ui-kit/commit/c1f9d38))
+
+
+
+<a name="0.0.41"></a>
+## <small>0.0.41 (2019-02-18)</small>
+
+* flags icons ([44c72a7](https://github.com/tecsinapse/ui-kit/commit/44c72a7))
+
+
+
+<a name="0.0.40"></a>
+## <small>0.0.40 (2019-02-18)</small>
+
+* menu title can now be a function too - solving bug ([f1405aa](https://github.com/tecsinapse/ui-kit/commit/f1405aa))
+
+
+
+<a name="0.0.39"></a>
+## <small>0.0.39 (2019-02-18)</small>
+
+* menu title can now be a function too ([c7c9e66](https://github.com/tecsinapse/ui-kit/commit/c7c9e66))
+
+
+
+<a name="0.0.38"></a>
+## <small>0.0.38 (2019-02-13)</small>
+
+* solving end adornment not showing on input ([be2c9f1](https://github.com/tecsinapse/ui-kit/commit/be2c9f1))
+
+
+
+<a name="0.0.37"></a>
+## <small>0.0.37 (2019-02-13)</small>
+
+* Adding component logic also on search listing ([3f2cf8d](https://github.com/tecsinapse/ui-kit/commit/3f2cf8d))
+
+
+
+<a name="0.0.35"></a>
+## <small>0.0.35 (2019-02-12)</small>
+
+* making proptypes right ([3ddf081](https://github.com/tecsinapse/ui-kit/commit/3ddf081))
+
+
+
+<a name="0.0.33"></a>
+## <small>0.0.33 (2019-02-12)</small>
+
+* api for breadcrumbs ([2ac9ae6](https://github.com/tecsinapse/ui-kit/commit/2ac9ae6))
+* css specificity issues ([0d88d48](https://github.com/tecsinapse/ui-kit/commit/0d88d48))
+
+
+
+<a name="0.0.31"></a>
+## <small>0.0.31 (2019-02-12)</small>
+
+* solving flex style problems ([2f29e43](https://github.com/tecsinapse/ui-kit/commit/2f29e43))
+
+
+
+<a name="0.0.29"></a>
+## <small>0.0.29 (2019-02-12)</small>
+
+* generate docs on release ([ec83b91](https://github.com/tecsinapse/ui-kit/commit/ec83b91))
+* quick fix for title component on menu bug ([dcf7a3e](https://github.com/tecsinapse/ui-kit/commit/dcf7a3e))
+
+
+
 <a name="0.0.28"></a>
 ## <small>0.0.28 (2019-02-12)</small>
 

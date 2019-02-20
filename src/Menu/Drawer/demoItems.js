@@ -4,7 +4,7 @@ export const demoItems = [
   {
     title: 'Portal',
     children: [
-      { title: 'a', children: [{ title: 'b' }, { title: 'c' }] },
+      { title: 'a', children: [{ title: () => 'b' }, { title: 'c' }] },
       {
         title: 'd',
         children: [

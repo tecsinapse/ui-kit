@@ -16,9 +16,3 @@ deploy:
     keep-history: false
     on:
       tags: true
-  - provider: npm
-    skip-cleanup: true
-    email: "renanccastro@gmail.com"
-    api_key: $NPM_API_KEY
-    on:
-      tags: true

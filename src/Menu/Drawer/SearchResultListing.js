@@ -5,19 +5,22 @@ import { TitleSubtitleMenuItem } from './MenuItem';
 
 export const useStyles = makeStyles(theme => ({
   parentList: {
-    width: theme.spacing.unit * 30,
+    width: theme.spacing.unit * 25,
   },
 }));
 
-export const SearchResultListing = ({ searchResults }) => {
+export const SearchResultListing = ({ searchResults, onClick }) => {
   const classes = useStyles();
   return (
     <List className={classes.parentList}>
-      {searchResults.map(({ title, subtitle }) => (
+      {searchResults.map(({ title, subtitle, component, componentProps }) => (
         <TitleSubtitleMenuItem
           key={`${title}${subtitle}`}
           title={title}
           subtitle={subtitle}
+          onClick={onClick}
+          component={component}
+          {...componentProps}
         />
       ))}
     </List>
