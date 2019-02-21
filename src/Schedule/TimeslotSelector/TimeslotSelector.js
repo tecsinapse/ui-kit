@@ -109,7 +109,7 @@ const TimeslotSelectorUI = ({
   );
 };
 
-const TimeslotSelector = props => {
+export const TimeslotSelector = props => {
   const { dialog, dialogProps } = props;
   const _props = { ...props };
   delete _props.dialog;
