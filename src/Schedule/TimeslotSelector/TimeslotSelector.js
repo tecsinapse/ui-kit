@@ -110,7 +110,13 @@ const TimeslotSelectorUI = ({
 };
 
 export const TimeslotSelector = props => {
-  const { dialog, dialogProps } = props;
+  const { dialog } = props;
+  let { dialogProps } = props;
+  if (!dialogProps) {
+    dialogProps = { open: true };
+  } else if (dialog.open === undefined) {
+    dialogProps.open = true;
+  }
   const _props = { ...props };
   delete _props.dialog;
   delete _props.dialogProps;

@@ -47,10 +47,8 @@ export default [
       commonjs({
         include: 'node_modules/**',
         namedExports: {
-          'node_modules/@material-ui/core/colors/index.js': [
-            'grey',
-            'withStyles',
-          ],
+          'node_modules/@material-ui/core/colors/index.js': ['grey'],
+          'node_modules/@material-ui/core/styles/index.js': ['withStyles'],
           'node_modules/@material-ui/core/useMediaQuery/index.js': [
             'unstable_useMediaQuery',
           ],

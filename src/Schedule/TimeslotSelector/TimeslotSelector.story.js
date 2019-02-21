@@ -3,7 +3,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import TimeslotSelector from './TimeslotSelector';
+import { TimeslotSelector } from './TimeslotSelector';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
@@ -35,7 +35,6 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       defaultDuration={20}
       defaultSelectAllPerson
       dialog
-      dialogProps={{ open: true }}
       onWeekChange={obj => console.log(obj)}
       onHandleSchedule={onHandleScheduleTest}
     />
