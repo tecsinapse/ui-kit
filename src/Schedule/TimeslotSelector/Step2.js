@@ -8,7 +8,7 @@ import Card from '@material-ui/core/es/Card/Card';
 import CardContent from '@material-ui/core/es/CardContent/CardContent';
 import Chip from '@material-ui/core/es/Chip/Chip';
 
-import { Button } from '../..';
+import { Button } from '../../Buttons/Button';
 import { WeeklyCalendar } from '../../Calendar/WeeklyCalendar';
 
 const generateTimeSlots = (personAvailabilities, date, duration) => {

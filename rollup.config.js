@@ -45,8 +45,16 @@ export default [
         browser: true,
       }),
       commonjs({
+        include: 'node_modules/**',
         namedExports: {
           'node_modules/@material-ui/core/colors/index.js': ['grey'],
+          'node_modules/@material-ui/core/useMediaQuery/index.js': [
+            'unstable_useMediaQuery',
+          ],
+          'node_modules/@material-ui/utils/node_modules/react-is/index.js': [
+            'isValidElementType',
+            'ForwardRef',
+          ],
         },
       }),
 
