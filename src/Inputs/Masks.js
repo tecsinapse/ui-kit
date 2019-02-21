@@ -94,6 +94,47 @@ export const PLATE_OLD_MASK = [
   /\d/,
 ];
 
+export const DATE_MASK = [
+  /\d/,
+  /\d/,
+  '/',
+  /\d/,
+  /\d/,
+  '/',
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/,
+];
+
+export const TIME_MASK_1 = [
+  /[0-2]/,
+  /\d/,
+  ':',
+  /[0-5]/,
+  /\d/,
+  ':',
+  /[0-5]/,
+  /\d/,
+];
+export const TIME_MASK_2 = [
+  /[0-2]/,
+  /[0-3]/,
+  ':',
+  /[0-5]/,
+  /\d/,
+  ':',
+  /[0-5]/,
+  /\d/,
+];
+
+export const TIME_MASK = rawValue => {
+  if (rawValue.charAt(0) === '2') {
+    return TIME_MASK_2;
+  }
+  return TIME_MASK_1;
+};
+
 export const CURRENCY_MASK = createNumberMask({
   prefix: 'R$ ',
   suffix: '',

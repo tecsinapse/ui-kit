@@ -16,6 +16,8 @@ import {
   PLATE_OLD_MASK,
   CELL_PHONE_MASK,
   CPF_CNPJ_MASK,
+  DATE_MASK,
+  TIME_MASK,
 } from './Masks';
 
 import {
@@ -64,6 +66,12 @@ const TextMaskCustom = props => {
       case 'cpfcnpj':
         inputMask = CPF_CNPJ_MASK;
         break;
+      case 'date':
+        inputMask = DATE_MASK;
+        break;
+      case 'time':
+        inputMask = TIME_MASK;
+        break;
       default:
         // It should never be reached
         return null;
@@ -101,6 +109,8 @@ const InputComponentValidator = mask => {
       case 'plateOld':
       case 'cellphone':
       case 'cpfcnpj':
+      case 'date':
+      case 'time':
         break;
       default:
         return undefined;

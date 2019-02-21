@@ -22,12 +22,11 @@ storiesOf(`${GROUPS.FORMS}|Input`, module)
   .add('input disabled', () => (
     <Input name="a" value="Valor Desabilitado" disabled label="Placeholder" />
   ))
-  .add('input mask date-raw', () => (
-    <Input
-      name="a"
-      label="Placeholder"
-      mask={[/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]}
-    />
+  .add('input mask date', () => (
+    <Input name="a" label="Placeholder" mask="date" />
+  ))
+  .add('input mask time', () => (
+    <Input name="a" label="Placeholder" mask="time" />
   ))
   .add('input mask  phone', () => (
     <Input name="a" label="Placeholder" mask="phone" />
