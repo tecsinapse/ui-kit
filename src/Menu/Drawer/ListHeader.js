@@ -28,16 +28,19 @@ const useStyles = makeStyles(({ spacing }) => ({
   },
 }));
 
-export const ListHeader = ({ search, setSearch }) => {
+export const ListHeader = ({
+  search,
+  setSearch,
+  title,
+  subtitle,
+  productName,
+}) => {
   const classes = useStyles();
   return (
     <Fragment>
       <ListItem alignItems="flex-start" divider className={classes.flexColumn}>
-        <DefaultProductTypography title="Portal" subtitle="BAMAQ" />
-        <ListItemText
-          className={classes.noPadding}
-          secondary="Gestão de frotas"
-        />
+        <DefaultProductTypography title={title} subtitle={subtitle} />
+        <ListItemText className={classes.noPadding} secondary={productName} />
       </ListItem>
       <ListItem
         alignItems="flex-start"

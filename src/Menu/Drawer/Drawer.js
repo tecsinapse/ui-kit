@@ -16,7 +16,14 @@ const StyledDiv = styled('div')({
   },
 });
 
-export const Drawer = ({ items: oldItems, open, onClose }) => {
+export const Drawer = ({
+  items: oldItems,
+  open,
+  onClose,
+  title,
+  subtitle,
+  productName,
+}) => {
   const items = normalizeFunctionItems(oldItems);
   const [search, setSearch] = useState('');
   let searchResults = [];
@@ -27,7 +34,13 @@ export const Drawer = ({ items: oldItems, open, onClose }) => {
     <MuiDrawer open={open} onClose={onClose}>
       <StyledDiv>
         <div>
-          <ListHeader search={search} setSearch={setSearch} />
+          <ListHeader
+            search={search}
+            setSearch={setSearch}
+            title={title}
+            subtitle={subtitle}
+            productName={productName}
+          />
         </div>
         <div>
           {!search && <MenuList closeDrawer={onClose} items={items} />}
@@ -57,6 +70,9 @@ menuItemShape.children = PropTypes.arrayOf(PropTypes.shape(menuItemShape));
 Drawer.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  productName: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(menuItemShape).isRequired,
 };
 export default Drawer;
