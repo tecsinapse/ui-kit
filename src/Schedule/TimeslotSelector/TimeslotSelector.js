@@ -90,6 +90,8 @@ const TimeslotSelectorUI = ({
   labels,
   personsAvailabilities,
   durations,
+  defaultDuration,
+  defaultSelectAllPerson,
   onHandleSchedule,
   onWeekChange,
   ...other
@@ -104,6 +106,8 @@ const TimeslotSelectorUI = ({
       durations={durations}
       onHandleSchedule={onHandleSchedule}
       onWeekChange={onWeekChange}
+      defaultDuration={defaultDuration}
+      defaultSelectAllPerson={defaultSelectAllPerson}
       {...other}
     />
   );

@@ -17,9 +17,11 @@ import {
 
 const materialTheme = createMuiTheme(muiInlineDatePicker);
 
-const fillWeekDays = startDate => {
+export const WEEK_DAYS = 7;
+
+export const fillWeekDays = (startDate, days) => {
   const weekDaysTemp = [];
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < days; i++) {
     const day = i === 0 ? startDate : startDate.plus({ days: i });
     weekDaysTemp.push(day);
   }
@@ -35,7 +37,7 @@ export const WeeklyCalendarComponent = ({
 }) => {
   const [selectedDay, setSelectedDay] = useState(currentDate.setLocale(locale));
   const [weekDays, setWeekDays] = useState(
-    fillWeekDays(currentDate.setLocale(locale))
+    fillWeekDays(currentDate.setLocale(locale), WEEK_DAYS)
   );
 
   const handleWeekChange = startDay => {
@@ -43,17 +45,17 @@ export const WeeklyCalendarComponent = ({
     if (localizedDate.equals(weekDays[0])) {
       return;
     }
-    setWeekDays(fillWeekDays(localizedDate));
+    setWeekDays(fillWeekDays(localizedDate), WEEK_DAYS);
   };
 
   const previousWeek = () => {
     const nextWeekStart = selectedDay.minus({ day: 7 });
-    setWeekDays(fillWeekDays(nextWeekStart.setLocale(locale)));
+    setWeekDays(fillWeekDays(nextWeekStart.setLocale(locale), WEEK_DAYS));
   };
 
   const nextWeek = () => {
     const nextWeekStart = selectedDay.plus({ day: 7 });
-    setWeekDays(fillWeekDays(nextWeekStart.setLocale(locale)));
+    setWeekDays(fillWeekDays(nextWeekStart.setLocale(locale), WEEK_DAYS));
   };
 
   useEffect(() => {
