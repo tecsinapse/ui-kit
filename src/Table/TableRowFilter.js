@@ -17,9 +17,9 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter }) => {
   return (
     <TableRow>
       {columns.map(column => {
-        const { field, options } = column || {};
+        const { field, options = {} } = column || {};
         return (
-          <TableCell key={field}>
+          <TableCell key={field} align={options.numeric ? 'right' : 'left'}>
             {options.filter && (
               <Input
                 name={field}

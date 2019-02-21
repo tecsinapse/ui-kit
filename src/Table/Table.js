@@ -2,18 +2,26 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import MUITable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import { resolveObj } from '@tecsinapse/es-utils/core/object';
+import { resolveObj, isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
 import { tableStyles } from './tableStyle';
 import TableRowFilter from './TableRowFilter';
 import TableHeader from './TableHeader';
 import TableRows from './TableRows';
 
-const initializeColumns = (tableColumns, tableOptions) => {
+const initializeColumns = (tableColumns, tableOptions, actions) => {
   const columns = [...tableColumns];
   if (tableOptions.selection) {
     columns.splice(0, 0, {
       field: 'checkbox-header',
       selection: true,
+    });
+  }
+
+  const hasActions = isNotEmptyOrNull(actions);
+  if (hasActions) {
+    columns.push({
+      field: 'actions',
+      actions,
     });
   }
   return columns;
@@ -53,13 +61,14 @@ const Table = props => {
     selectedData,
     rowId,
     onSelectRow,
+    actions,
   } = props;
   let { rowCount } = props;
 
   const classes = tableStyles();
   const [rowData, setRowData] = useState([...data]);
   const [selectedRows, setSelectedRows] = useState([...selectedData]);
-  const [tableColumns] = useState(initializeColumns(columns, options));
+  const [tableColumns] = useState(initializeColumns(columns, options, actions));
   rowCount = rowCount || data.length;
 
   const someColumnHasFilter = columns.some(
@@ -108,6 +117,7 @@ Table.defaultProps = {
   selectedData: [],
   onSelectRow: null,
   rowCount: null,
+  actions: [],
 };
 
 Table.propTypes = {
@@ -129,6 +139,13 @@ Table.propTypes = {
   selectedData: PropTypes.arrayOf(PropTypes.object),
   onSelectRow: PropTypes.func,
   rowCount: PropTypes.number,
+  actions: PropTypes.arrayOf(
+    PropTypes.shape({
+      tooltip: PropTypes.string,
+      icon: PropTypes.string,
+      onClick: PropTypes.func,
+    })
+  ),
 };
 
 export default Table;
