@@ -3,7 +3,7 @@
     "email": "ricardo.almeida@example.com.br",
     "availabilities": [{
         "date": "2019-02-12",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "08:00",
             "end": "10:15"
         }, {
@@ -24,7 +24,7 @@
         }]
     }, {
         "date": "2019-02-13",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "07:30",
             "end": "09:30"
         }, {
@@ -45,7 +45,7 @@
         }]
     }, {
         "date": "2019-02-15",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "08:00",
             "end": "10:15"
         }, {
@@ -66,7 +66,7 @@
         }]
     }, {
         "date": "2019-02-18",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "08:00",
             "end": "10:15"
         }, {
@@ -87,7 +87,7 @@
         }]
     }, {
         "date": "2019-02-22",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "08:00",
             "end": "10:15"
         }, {
@@ -112,7 +112,7 @@
     "email": "vinícius.oliveira@example.com.br",
     "availabilities": [{
         "date": "2019-02-12",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "07:30",
             "end": "09:30"
         }, {
@@ -133,7 +133,7 @@
         }]
     }, {
         "date": "2019-02-13",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "08:00",
             "end": "10:15"
         }, {
@@ -154,7 +154,7 @@
         }]
     }, {
         "date": "2019-02-15",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "08:00",
             "end": "10:15"
         }, {
@@ -175,7 +175,7 @@
         }]
     }, {
         "date": "2019-02-18",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "08:00",
             "end": "10:15"
         }, {
@@ -196,7 +196,7 @@
         }]
     }, {
         "date": "2019-02-22",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "07:30",
             "end": "09:30"
         }, {
@@ -221,7 +221,7 @@
     "email": "josé.moraes@example.com.br",
     "availabilities": [{
         "date": "2019-02-12",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "08:00",
             "end": "10:15"
         }, {
@@ -242,7 +242,7 @@
         }]
     }, {
         "date": "2019-02-13",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "07:30",
             "end": "09:30"
         }, {
@@ -263,7 +263,7 @@
         }]
     }, {
         "date": "2019-02-15",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "08:00",
             "end": "10:15"
         }, {
@@ -284,7 +284,7 @@
         }]
     }, {
         "date": "2019-02-18",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "08:00",
             "end": "10:15"
         }, {
@@ -305,7 +305,7 @@
         }]
     }, {
         "date": "2019-02-22",
-        "availabilities": [{
+        "timeSlot": [{
             "start": "08:00",
             "end": "10:15"
         }, {
