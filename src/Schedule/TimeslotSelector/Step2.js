@@ -12,17 +12,17 @@ import { Button } from '../..';
 import { WeeklyCalendar } from '../../Calendar/WeeklyCalendar';
 
 const generateTimeSlots = (personAvailabilities, date, duration) => {
-  const dateAvailabilities = personAvailabilities.availabilities
+  const dateTimeSlots = personAvailabilities.availabilities
     .filter(av => av.date === date.toFormat('yyyy-MM-dd'))
-    .map(av => av.availabilities);
+    .map(av => av.timeSlot);
   const timeSlots = [];
-  if (!dateAvailabilities.length) {
+  if (!dateTimeSlots.length) {
     return [];
   }
 
-  dateAvailabilities[0].forEach(dateAvs => {
-    let timeSlot = DateTime.fromISO(dateAvs.start);
-    const endTime = DateTime.fromISO(dateAvs.end);
+  dateTimeSlots[0].forEach(dateTs => {
+    let timeSlot = DateTime.fromISO(dateTs.start);
+    const endTime = DateTime.fromISO(dateTs.end);
     while (timeSlot < endTime) {
       timeSlots.push(timeSlot.toLocaleString(DateTime.TIME_24_SIMPLE));
       timeSlot = timeSlot.plus({ minutes: duration });
