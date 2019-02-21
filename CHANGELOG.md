@@ -1,3 +1,11 @@
+<a name="0.0.44"></a>
+## <small>0.0.44 (2019-02-21)</small>
+
+* Blocking es-utils last version ([087f91c](https://github.com/tecsinapse/ui-kit/commit/087f91c))
+* Parametrizing portals ([32ffd88](https://github.com/tecsinapse/ui-kit/commit/32ffd88))
+
+
+
 <a name="0.0.43"></a>
 ## <small>0.0.43 (2019-02-20)</small>
 
