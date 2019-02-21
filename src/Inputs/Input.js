@@ -6,7 +6,17 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField/TextField';
 import MaskedInput from 'react-text-mask';
 import { inputStyles } from './InputStyles';
-import { PHONE_MASK, CEL_MASK, CPF_MASK, CURRENCY_MASK } from './Masks';
+import {
+  PHONE_MASK,
+  CELL_MASK,
+  CPF_MASK,
+  CURRENCY_MASK,
+  CNPJ_MASK,
+  PLATE_MERCO_MASK,
+  PLATE_OLD_MASK,
+  CELL_PHONE_MASK,
+  CPF_CNPJ_MASK,
+} from './Masks';
 
 import {
   getEndAdornmentIcon,
@@ -16,7 +26,8 @@ import {
 
 const TextMaskCustom = props => {
   const { inputRef, mask, ...other } = props;
-  let inputMask = null;
+  let inputMask;
+  let pipeFunc;
 
   if (!mask) {
     return null;
@@ -27,8 +38,8 @@ const TextMaskCustom = props => {
       case 'phone':
         inputMask = PHONE_MASK;
         break;
-      case 'cel':
-        inputMask = CEL_MASK;
+      case 'cell':
+        inputMask = CELL_MASK;
         break;
       case 'cpf':
         inputMask = CPF_MASK;
@@ -36,7 +47,25 @@ const TextMaskCustom = props => {
       case 'currency':
         inputMask = CURRENCY_MASK;
         break;
+      case 'cnpj':
+        inputMask = CNPJ_MASK;
+        break;
+      case 'plate':
+        inputMask = PLATE_MERCO_MASK;
+        pipeFunc = conformedValue => conformedValue.toUpperCase();
+        break;
+      case 'plateold':
+        inputMask = PLATE_OLD_MASK;
+        pipeFunc = conformedValue => conformedValue.toUpperCase();
+        break;
+      case 'cellphone':
+        inputMask = CELL_PHONE_MASK;
+        break;
+      case 'cpfcnpj':
+        inputMask = CPF_CNPJ_MASK;
+        break;
       default:
+        // It should never be reached
         return null;
     }
   } else {
@@ -51,9 +80,34 @@ const TextMaskCustom = props => {
       }}
       mask={inputMask}
       placeholderChar={'\u2000'}
+      pipe={pipeFunc}
       showMask
+      guide={false}
     />
   );
+};
+
+const InputComponentValidator = mask => {
+  if (!mask) return undefined;
+
+  if (typeof mask === 'string') {
+    switch (mask) {
+      case 'phone':
+      case 'cel':
+      case 'cpf':
+      case 'currency':
+      case 'cnpj':
+      case 'plate':
+      case 'plateOld':
+      case 'cellphone':
+      case 'cpfcnpj':
+        break;
+      default:
+        return undefined;
+    }
+  }
+
+  return TextMaskCustom;
 };
 
 export const TextFieldComponent = ({
@@ -83,7 +137,7 @@ export const TextFieldComponent = ({
       },
     }}
     InputProps={{
-      inputComponent: mask ? TextMaskCustom : undefined,
+      inputComponent: InputComponentValidator(mask),
       inputProps: {
         mask,
       },
