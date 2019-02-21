@@ -60,6 +60,7 @@
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "storybook-addon-smart-knobs": "^3.3.1",
+    "text-mask-addons": "^3.8.0",
     "typeface-roboto": "^0.0.54"
   },
   "files": [
@@ -119,7 +120,6 @@
     "react-text-mask": "^5.4.3",
     "react-virtualized": "^9.21.0",
     "react-window": "^1.5.1",
-    "text-mask-addons": "^3.8.0",
     "typeface-roboto": "^0.0.54"
   },
   "sideEffects": false
