@@ -1,3 +1,11 @@
+<a name="0.0.46"></a>
+## <small>0.0.46 (2019-02-22)</small>
+
+* adding shrink label prop ([143f9ef](https://github.com/tecsinapse/ui-kit/commit/143f9ef))
+* better margins on select ([704fb57](https://github.com/tecsinapse/ui-kit/commit/704fb57))
+
+
+
 <a name="0.0.45"></a>
 ## <small>0.0.45 (2019-02-21)</small>
 
