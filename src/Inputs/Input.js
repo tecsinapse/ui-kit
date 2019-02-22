@@ -17,6 +17,7 @@ import {
   CPF_CNPJ_MASK,
   DATE_MASK,
   TIME_MASK,
+  CEP_MASK,
 } from './Masks';
 
 import {
@@ -36,6 +37,9 @@ const TextMaskCustom = props => {
 
   if (typeof mask === 'string') {
     switch (mask) {
+      case 'cep':
+        inputMask = CEP_MASK;
+        break;
       case 'phone':
         inputMask = PHONE_MASK;
         break;
@@ -95,6 +99,7 @@ const InputComponentValidator = mask => {
 
   if (typeof mask === 'string') {
     switch (mask) {
+      case 'cep':
       case 'phone':
       case 'cel':
       case 'cpf':

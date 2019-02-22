@@ -22,6 +22,9 @@ storiesOf(`${GROUPS.FORMS}|Input`, module)
   .add('input disabled', () => (
     <Input name="a" value="Valor Desabilitado" disabled label="Placeholder" />
   ))
+  .add('input mask cep', () => (
+    <Input name="a" label="Placeholder" mask="cep" />
+  ))
   .add('input mask date', () => (
     <Input name="a" label="Placeholder" mask="date" />
   ))

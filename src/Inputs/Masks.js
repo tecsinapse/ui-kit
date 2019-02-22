@@ -1,5 +1,7 @@
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
+export const CEP_MASK = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
+
 export const PHONE_MASK = [
   '(',
   /[1-9]/,
