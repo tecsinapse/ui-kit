@@ -1,3 +1,11 @@
+<a name="0.0.49"></a>
+## <small>0.0.49 (2019-02-22)</small>
+
+* Select ([af7ee7f](https://github.com/tecsinapse/ui-kit/commit/af7ee7f))
+* solving styles errors on select ([b7bff8b](https://github.com/tecsinapse/ui-kit/commit/b7bff8b))
+
+
+
 <a name="0.0.48"></a>
 ## <small>0.0.48 (2019-02-22)</small>
 
