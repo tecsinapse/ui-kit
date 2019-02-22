@@ -22,6 +22,7 @@ export const TextFieldComponent = ({
   error,
   success,
   disabled,
+  shrinkLabel,
   ...input
 }) => (
   <TextField
@@ -35,6 +36,7 @@ export const TextFieldComponent = ({
         root: classes[labelClass({ warning, error, success })],
         focused: classes.cssFocused,
       },
+      shrink: shrinkLabel,
     }}
     InputProps={{
       classes: {
@@ -43,9 +45,6 @@ export const TextFieldComponent = ({
         notchedOutline: classes.notchedOutline,
       },
       endAdornment: getEndAdornmentIcon({ warning, error, success }),
-    }}
-    inputProps={{
-      className: classes.input,
     }}
     margin="dense"
     value={value}
@@ -97,6 +96,7 @@ Input.defaultProps = {
   label: null,
   onChange: null,
   error: false,
+  shrinkLabel: undefined,
 };
 Input.propTypes = {
   fullWidth: PropTypes.bool,
@@ -107,6 +107,7 @@ Input.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  shrinkLabel: PropTypes.bool,
 };
 
 export default Input;
