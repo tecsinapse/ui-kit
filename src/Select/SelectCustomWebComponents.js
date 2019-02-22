@@ -9,13 +9,11 @@ import { MultiValue } from './MultiValue';
 import { SelectContainer } from './SelectContainer';
 import { ValueContainer } from './ValueContainer';
 import { IndicatorsContainer } from './IndicatorContainer';
-import { MultiValueContainer } from './MultiValueContainer';
 
 export const selectCustomWebComponents = {
   NoOptionsMessage,
   Placeholder,
   MultiValue,
-  MultiValueContainer,
   SelectContainer,
   IndicatorsContainer,
   ValueContainer,

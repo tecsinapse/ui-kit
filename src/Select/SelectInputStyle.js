@@ -8,9 +8,8 @@ export const selectInputStyle = theme => ({
   input: {
     display: 'flex',
   },
-  inputMultiline: {
-    paddingTop: `${theme.spacing.unit / 4}px !important`,
-    paddingBottom: `${theme.spacing.unit / 4}px !important`,
+  multiValueContainer: {
+    paddingLeft: '0px !important',
   },
   inputMultilineDense: {
     paddingTop: '0px !important',
@@ -28,7 +27,7 @@ export const selectInputStyle = theme => ({
     minWidth: 0,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-around',
     flexGrow: 1,
   },
   chip: {
