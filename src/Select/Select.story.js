@@ -30,9 +30,22 @@ export const SelectWrapper = props => {
     />
   );
 };
+export const SelectWrapper2 = props => {
+  const [value, setValue] = useState(null);
+  return (
+    <Select
+      value={value}
+      options={options}
+      onChange={setValue}
+      label="Placeholder"
+      {...props}
+    />
+  );
+};
 
 storiesOf(`${GROUPS.FORMS}|Select`, module)
   .add('Select Auto Detect', () => <SelectWrapper />)
+  .add('Select No Value', () => <SelectWrapper2 />)
   .add('Select Web', () => <SelectWrapper variant="web" />)
   .add('Select Mobile', () => <SelectWrapper variant="mobile" />)
   .add('Select Mobile Multi', () => <SelectWrapper isMulti variant="mobile" />)

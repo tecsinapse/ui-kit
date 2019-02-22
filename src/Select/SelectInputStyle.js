@@ -8,8 +8,17 @@ export const selectInputStyle = theme => ({
   input: {
     display: 'flex',
   },
+  inputMultiline: {
+    paddingTop: '3px !important',
+    paddingBottom: '3px !important',
+  },
+  inputNormal: {
+    display: 'flex',
+    paddingTop: '6px !important',
+    paddingBottom: '6px !important',
+  },
   dummyWrapper: {
-    display: 'none'
+    display: 'none',
   },
   valueContainer: {
     minWidth: 0,
@@ -50,12 +59,12 @@ export const selectInputStyle = theme => ({
     height: theme.spacing.unit * 2,
   },
   select: {
-    paddingTop: theme.spacing.unit / 2,
+    // paddingTop: theme.spacing.unit / 2,
   },
   flex: {
     display: 'flex',
   },
   dropdownIndicator: {
-    cursor: "pointer !important",
+    cursor: 'pointer !important',
   },
 });

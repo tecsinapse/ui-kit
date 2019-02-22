@@ -1,3 +1,47 @@
+<a name="0.0.48"></a>
+## <small>0.0.48 (2019-02-22)</small>
+
+* adding component for select no value ([adf2df9](https://github.com/tecsinapse/ui-kit/commit/adf2df9))
+* adding shrink label prop ([143f9ef](https://github.com/tecsinapse/ui-kit/commit/143f9ef))
+* better margins on select ([704fb57](https://github.com/tecsinapse/ui-kit/commit/704fb57))
+* flex missing on select ([c103334](https://github.com/tecsinapse/ui-kit/commit/c103334))
+* Release 0.0.46 ([1c66b4b](https://github.com/tecsinapse/ui-kit/commit/1c66b4b))
+* Release 0.0.47 ([5e79ba5](https://github.com/tecsinapse/ui-kit/commit/5e79ba5))
+* Update es-utils ([cb47cf7](https://github.com/tecsinapse/ui-kit/commit/cb47cf7))
+
+
+
+<a name="0.0.47"></a>
+## <small>0.0.47 (2019-02-22)</small>
+
+* adding shrink label prop ([143f9ef](https://github.com/tecsinapse/ui-kit/commit/143f9ef))
+* better margins on select ([704fb57](https://github.com/tecsinapse/ui-kit/commit/704fb57))
+* Release 0.0.46 ([1c66b4b](https://github.com/tecsinapse/ui-kit/commit/1c66b4b))
+
+
+
+<a name="0.0.46"></a>
+## <small>0.0.46 (2019-02-22)</small>
+
+* adding shrink label prop ([143f9ef](https://github.com/tecsinapse/ui-kit/commit/143f9ef))
+* better margins on select ([704fb57](https://github.com/tecsinapse/ui-kit/commit/704fb57))
+
+
+
+<a name="0.0.45"></a>
+## <small>0.0.45 (2019-02-21)</small>
+
+
+
+
+<a name="0.0.44"></a>
+## <small>0.0.44 (2019-02-21)</small>
+
+* Blocking es-utils last version ([087f91c](https://github.com/tecsinapse/ui-kit/commit/087f91c))
+* Parametrizing portals ([32ffd88](https://github.com/tecsinapse/ui-kit/commit/32ffd88))
+
+
+
 <a name="0.0.43"></a>
 ## <small>0.0.43 (2019-02-20)</small>
 

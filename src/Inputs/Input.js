@@ -1,6 +1,4 @@
 import React from 'react';
-import FormControl from '@material-ui/core/FormControl/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText/FormHelperText';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField/TextField';
@@ -22,12 +20,15 @@ export const TextFieldComponent = ({
   error,
   success,
   disabled,
+  shrinkLabel,
+  placeholder,
   ...input
 }) => (
   <TextField
     disabled={disabled}
     id="outlined-name"
     name={name}
+    placeholder={placeholder || label}
     label={label}
     onChange={onChange}
     InputLabelProps={{
@@ -35,6 +36,7 @@ export const TextFieldComponent = ({
         root: classes[labelClass({ warning, error, success })],
         focused: classes.cssFocused,
       },
+      shrink: shrinkLabel,
     }}
     InputProps={{
       classes: {
@@ -43,9 +45,6 @@ export const TextFieldComponent = ({
         notchedOutline: classes.notchedOutline,
       },
       endAdornment: getEndAdornmentIcon({ warning, error, success }),
-    }}
-    inputProps={{
-      className: classes.input,
     }}
     margin="dense"
     value={value}
@@ -68,23 +67,24 @@ const InputUI = withStyles(inputStyles)(
     error,
     success,
     disabled,
+    placeholder,
     ...input
   }) => (
-    <FormControl key={key} error={!!error} fullWidth={fullWidth}>
-      <TextFieldComponent
-        classes={classes}
-        label={label}
-        onChange={onChange}
-        value={value}
-        name={name}
-        warning={warning}
-        error={error}
-        success={success}
-        disabled={disabled}
-        {...input}
-      />
-      {error && <FormHelperText>{error}</FormHelperText>}
-    </FormControl>
+    <TextFieldComponent
+      key={key}
+      error={!!error}
+      fullWidth={fullWidth}
+      classes={classes}
+      label={label}
+      placeholder={placeholder}
+      onChange={onChange}
+      value={value}
+      name={name}
+      warning={warning}
+      success={success}
+      disabled={disabled}
+      {...input}
+    />
   )
 );
 export const Input = props => <InputUI {...props} />;
@@ -97,6 +97,8 @@ Input.defaultProps = {
   label: null,
   onChange: null,
   error: false,
+  shrinkLabel: undefined,
+  placeholder: null,
 };
 Input.propTypes = {
   fullWidth: PropTypes.bool,
@@ -107,6 +109,8 @@ Input.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  shrinkLabel: PropTypes.bool,
+  placeholder: PropTypes.string,
 };
 
 export default Input;
