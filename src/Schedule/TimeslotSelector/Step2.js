@@ -23,7 +23,7 @@ const generateTimeSlots = (personAvailabilities, date, duration) => {
   dateTimeSlots[0].forEach(dateTs => {
     let timeSlot = DateTime.fromISO(dateTs.start);
     const endTime = DateTime.fromISO(dateTs.end);
-    while (timeSlot < endTime) {
+    while (timeSlot.plus({ minutes: duration }) < endTime) {
       timeSlots.push(timeSlot.toLocaleString(DateTime.TIME_24_SIMPLE));
       timeSlot = timeSlot.plus({ minutes: duration });
     }
