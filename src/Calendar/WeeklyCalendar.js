@@ -45,7 +45,7 @@ export const WeeklyCalendarComponent = ({
     if (localizedDate.equals(weekDays[0])) {
       return;
     }
-    setWeekDays(fillWeekDays(localizedDate), WEEK_DAYS);
+    setWeekDays(fillWeekDays(localizedDate, WEEK_DAYS));
   };
 
   const previousWeek = () => {

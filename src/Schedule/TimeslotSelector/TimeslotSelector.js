@@ -125,7 +125,7 @@ export const TimeslotSelector = props => {
   delete _props.dialog;
   delete _props.dialogProps;
   return dialog ? (
-    <Dialog {...dialogProps}>
+    <Dialog {...dialogProps} disableEnforceFocus>
       <TimeslotSelectorUI {..._props} />
     </Dialog>
   ) : (
