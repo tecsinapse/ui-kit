@@ -18,6 +18,7 @@ export const FloatingButton = ({ children, disabled, variant, onClick }) => (
     aria-label="add"
     disabled={disabled}
     onClick={onClick}
+    color={['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined}
     style={{
       ...styles.button,
       ...styleByProps({ buttonStyle, variant, disabled }),
@@ -31,7 +32,13 @@ FloatingButton.defaultProps = {
   variant: 'success',
 };
 FloatingButton.propTypes = {
-  variant: PropTypes.oneOf(['success', 'warning', 'error']),
+  variant: PropTypes.oneOf([
+    'success',
+    'warning',
+    'error',
+    'primary',
+    'secondary',
+  ]),
   disabled: PropTypes.bool,
 };
 export default FloatingButton;

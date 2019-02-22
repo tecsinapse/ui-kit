@@ -60,7 +60,13 @@ Button.defaultProps = {
   type: 'submit',
 };
 Button.propTypes = {
-  variant: PropTypes.oneOf(['success', 'warning', 'error']),
+  variant: PropTypes.oneOf([
+    'success',
+    'warning',
+    'error',
+    'primary',
+    'secondary',
+  ]),
   submitting: PropTypes.bool,
   fullWidth: PropTypes.bool,
   margin: PropTypes.bool,

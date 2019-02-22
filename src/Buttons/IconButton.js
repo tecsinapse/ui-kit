@@ -40,7 +40,13 @@ IconButton.defaultProps = {
   variant: 'success',
 };
 IconButton.propTypes = {
-  variant: PropTypes.oneOf(['success', 'warning', 'error']),
+  variant: PropTypes.oneOf([
+    'success',
+    'warning',
+    'error',
+    'primary',
+    'secondary',
+  ]),
   disabled: PropTypes.bool,
 };
 

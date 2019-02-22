@@ -13,6 +13,31 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
   .add('button', () => (
     <Button onClick={action('onClick')}>Smart Button</Button>
   ))
+  .add('success button', () => (
+    <Button variant="success" onClick={action('onClick')}>
+      Smart Button
+    </Button>
+  ))
+  .add('warning button', () => (
+    <Button variant="warning " onClick={action('onClick')}>
+      Smart Button
+    </Button>
+  ))
+  .add('error button', () => (
+    <Button variant="error " onClick={action('onClick')}>
+      Smart Button
+    </Button>
+  ))
+  .add('primary button', () => (
+    <Button variant="primary" onClick={action('onClick')}>
+      Smart Button
+    </Button>
+  ))
+  .add('secondary button', () => (
+    <Button variant="secondary" onClick={action('onClick')}>
+      Smart Button
+    </Button>
+  ))
   .add('icon button', () => (
     <IconButton onClick={action('onClick')}>
       <DeleteIcon />
