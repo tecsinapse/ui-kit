@@ -94,6 +94,29 @@ export const PLATE_OLD_MASK = [
   /\d/,
 ];
 
+export const PLATE_MASK_DEF = [/[A-Z]/i, /[A-Z]/i, /[A-Z]/i, /\d/, /[0-9A-Z]/];
+
+export const PLATE_MASK = rawValue => {
+  if (rawValue.length <= 4) {
+    return PLATE_MASK_DEF;
+  }
+
+  // Check if it is a old plate
+  const fth = rawValue.charAt(3);
+  if (fth === '-' || (rawValue.charAt(4) >= '0' && rawValue.charAt(4) <= '9')) {
+    // Check if the a old plate should become a merco plate
+    const sth = rawValue.length >= 6 ? rawValue.charAt(5) : null;
+    if (sth != null && fth === '-' && sth.toLowerCase() !== sth.toUpperCase()) {
+      // go back to merco plate
+      return PLATE_MERCO_MASK;
+    }
+
+    return PLATE_OLD_MASK;
+  }
+
+  return PLATE_MERCO_MASK;
+};
+
 export const DATE_MASK = [
   /\d/,
   /\d/,

@@ -12,8 +12,7 @@ import {
   CPF_MASK,
   CURRENCY_MASK,
   CNPJ_MASK,
-  PLATE_MERCO_MASK,
-  PLATE_OLD_MASK,
+  PLATE_MASK,
   CELL_PHONE_MASK,
   CPF_CNPJ_MASK,
   DATE_MASK,
@@ -53,11 +52,7 @@ const TextMaskCustom = props => {
         inputMask = CNPJ_MASK;
         break;
       case 'plate':
-        inputMask = PLATE_MERCO_MASK;
-        pipeFunc = conformedValue => conformedValue.toUpperCase();
-        break;
-      case 'plateold':
-        inputMask = PLATE_OLD_MASK;
+        inputMask = PLATE_MASK;
         pipeFunc = conformedValue => conformedValue.toUpperCase();
         break;
       case 'cellphone':
@@ -106,7 +101,6 @@ const InputComponentValidator = mask => {
       case 'currency':
       case 'cnpj':
       case 'plate':
-      case 'plateOld':
       case 'cellphone':
       case 'cpfcnpj':
       case 'date':
