@@ -31,11 +31,13 @@ export const SelectWrapper = props => {
   );
 };
 export const SelectWrapper2 = props => {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState([null]);
   return (
     <Select
       value={value}
       options={options}
+      placeholder="select your destiny"
+      menuPlacement="top"
       onChange={setValue}
       label="Placeholder"
       {...props}
@@ -46,6 +48,7 @@ export const SelectWrapper2 = props => {
 storiesOf(`${GROUPS.FORMS}|Select`, module)
   .add('Select Auto Detect', () => <SelectWrapper />)
   .add('Select No Value', () => <SelectWrapper2 />)
+  .add('Select No Value Multi', () => <SelectWrapper2 isMulti />)
   .add('Select Web', () => <SelectWrapper variant="web" />)
   .add('Select Mobile', () => <SelectWrapper variant="mobile" />)
   .add('Select Mobile Multi', () => <SelectWrapper isMulti variant="mobile" />)

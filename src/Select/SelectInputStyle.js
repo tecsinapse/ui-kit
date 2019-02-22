@@ -9,13 +9,17 @@ export const selectInputStyle = theme => ({
     display: 'flex',
   },
   inputMultiline: {
-    paddingTop: '3px !important',
-    paddingBottom: '3px !important',
+    paddingTop: `${theme.spacing.unit / 4}px !important`,
+    paddingBottom: `${theme.spacing.unit / 4}px !important`,
+  },
+  inputMultilineDense: {
+    paddingTop: '0px !important',
+    paddingBottom: '0px !important',
   },
   inputNormal: {
     display: 'flex',
-    paddingTop: '6px !important',
-    paddingBottom: '6px !important',
+    paddingTop: `${theme.spacing.unit / 2}px !important`,
+    paddingBottom: `${theme.spacing.unit / 2}px !important`,
   },
   dummyWrapper: {
     display: 'none',
