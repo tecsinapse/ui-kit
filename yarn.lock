@@ -1454,14 +1454,14 @@
     react-inspector "^2.3.0"
     uuid "^3.3.2"
 
-"@storybook/addon-info@^4.0.4":
-  version "4.1.11"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-info/-/addon-info-4.1.11.tgz#b2ea3a4fb4cad208f9d6075737b5bfe8636e28f9"
-  integrity sha512-eROXuXS5YgLeXsnkqjXqbZ8UFgNIwORDkn4UfD+Aej1//SWpGeNihOxQvx+pvs0NnsTR+/w4c1gbqa/Gr3f78w==
+"@storybook/addon-info@^4.1.13":
+  version "4.1.13"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-info/-/addon-info-4.1.13.tgz#b91494a5f4e69998fee9a3110717c2bb208f1542"
+  integrity sha512-l30GWUUYGpXhYCyO3yKEdlBCc/Vc7+q2tQ3VdOmlMcPZGW9QxJg6Qav3GC8aIPlAhcFwlzxE4bT+0sCQGSKUIQ==
   dependencies:
-    "@storybook/addons" "4.1.11"
-    "@storybook/client-logger" "4.1.11"
-    "@storybook/components" "4.1.11"
+    "@storybook/addons" "4.1.13"
+    "@storybook/client-logger" "4.1.13"
+    "@storybook/components" "4.1.13"
     core-js "^2.5.7"
     global "^4.3.2"
     marksy "^6.1.0"
@@ -1471,15 +1471,15 @@
     react-lifecycles-compat "^3.0.4"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-knobs@^4.0.4":
-  version "4.1.11"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-4.1.11.tgz#fd6c90d62a5bf5f94899746a95b02f1ef127cd81"
-  integrity sha512-UQzYZoo0WKHKHSayaEBLvyZNqlqCOKahXzT2r+hS3t6wRnHJSfPtEHD0xTYMJSkA5t+bhlIOFJy0tribd0sdPQ==
+"@storybook/addon-knobs@^4.1.13":
+  version "4.1.13"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-4.1.13.tgz#7a5688903fde1726c168aa188216aaaafb3eb498"
+  integrity sha512-QXOYa4L3sHC27KiXLlJFPSG1ZuJFcESIAKRaWSE+3Rz/AMbt5jgba66CH1b4SXVEIaiEKg6oWu+eRL9JzcmdjA==
   dependencies:
     "@emotion/styled" "^0.10.6"
-    "@storybook/addons" "4.1.11"
-    "@storybook/components" "4.1.11"
-    "@storybook/core-events" "4.1.11"
+    "@storybook/addons" "4.1.13"
+    "@storybook/components" "4.1.13"
+    "@storybook/core-events" "4.1.13"
     copy-to-clipboard "^3.0.8"
     core-js "^2.5.7"
     escape-html "^1.0.3"
@@ -1525,6 +1525,16 @@
     global "^4.3.2"
     util-deprecate "^1.0.2"
 
+"@storybook/addons@4.1.13":
+  version "4.1.13"
+  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-4.1.13.tgz#801cbb6bf7f7b4d494ae20df43b4b8c406b32e19"
+  integrity sha512-5WqXwFOc5Oj/ccem7I5FXTWJlCxfgzCgUlWGwkut/ahfuKkcvAPFKuRslReCWLT0sBZl8iap49HgYSNGDztAbA==
+  dependencies:
+    "@storybook/channels" "4.1.13"
+    "@storybook/components" "4.1.13"
+    global "^4.3.2"
+    util-deprecate "^1.0.2"
+
 "@storybook/channel-postmessage@4.1.11":
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-4.1.11.tgz#3320a5f3e05652466eff1c53843205c262a92dfb"
@@ -1539,10 +1549,20 @@
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.1.11.tgz#d161497fa3cd848cc9d518aa1c37052857e22e3c"
   integrity sha512-zYusY8cno4keMozn2lDpBgyNSOueFh+hrPETioSB5Z8Kd3F5OjM7681vJC8QA67yOBEie2hHk0CVxRpuxziMwA==
 
+"@storybook/channels@4.1.13":
+  version "4.1.13"
+  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.1.13.tgz#4b58d1f17916e6ba1ee633f0c014edb5b7b26b17"
+  integrity sha512-58GNagdBKagAGDVhdkNVB2cFOLBDAft7Ky2qDdha9pZyyTwJy5VqchvNQokv7kgwCusmic2vYEO35fVY1/v2cQ==
+
 "@storybook/client-logger@4.1.11":
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-4.1.11.tgz#2b1e34e892045199592fdb01656e5dcdcd1999d7"
   integrity sha512-Xxy6sY7Zd405o28wUAhlpqY2FbSZsTrsN3g/uo4Mqo4XD2f0Z4wIv1GOuM5DI2KlHpHGI+36YPO2VFx5Bq+yiQ==
+
+"@storybook/client-logger@4.1.13":
+  version "4.1.13"
+  resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-4.1.13.tgz#32cf35913fdadd246d7e8e30f2cf81e466b24027"
+  integrity sha512-L2lPvioMKmPfsLoNJ5NlSVhqpAK8Y3ngnzy+haXQItLsKwu7D+N41i5IAFlEzDzMBaWj/0wKrgMK0QTZWXJIjA==
 
 "@storybook/components@4.1.11":
   version "4.1.11"
@@ -1560,10 +1580,31 @@
     react-textarea-autosize "^7.0.4"
     render-fragment "^0.1.1"
 
+"@storybook/components@4.1.13":
+  version "4.1.13"
+  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-4.1.13.tgz#02de7346c137fe3c94c1d7b83186022c992bd7a1"
+  integrity sha512-EATXdzCJa9UfLcmVTR0TuspOnYHuTCv5wiitDVLPDdpvuqWEDEXxVHBhYOolElo0PeLqC7Dxm2OHLNzh1Su5gQ==
+  dependencies:
+    "@emotion/core" "^0.13.1"
+    "@emotion/provider" "^0.11.2"
+    "@emotion/styled" "^0.10.6"
+    global "^4.3.2"
+    lodash "^4.17.11"
+    prop-types "^15.6.2"
+    react-inspector "^2.3.0"
+    react-split-pane "^0.1.84"
+    react-textarea-autosize "^7.0.4"
+    render-fragment "^0.1.1"
+
 "@storybook/core-events@4.1.11":
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-4.1.11.tgz#78cfb2b4014ca27909421cdebfa9c96533929a5a"
   integrity sha512-rVb76xFLJkTFcBHL1oTdJW8O2N7q+Cc6Mo7v9u3TnM4WuRk08/GyzzO7sRvEg3Mvo59AOLu1uqYovRMo4tZEnQ==
+
+"@storybook/core-events@4.1.13":
+  version "4.1.13"
+  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-4.1.13.tgz#f919062bf1ffa9f90ab53138262e06d75e8f0d85"
+  integrity sha512-nRado+I9Jxv9CSH/u0qECbaTQpuoBCJ6+9sJm2lg04jjBvczqmjCi7RoY0NTlVp2VbVeAjht74KMOAfPQ2D+IA==
 
 "@storybook/core@4.1.11":
   version "4.1.11"
@@ -12789,10 +12830,10 @@ stealthy-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
-storybook-addon-smart-knobs@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/storybook-addon-smart-knobs/-/storybook-addon-smart-knobs-3.3.1.tgz#9a1d4b6130c949747c310a91912330ec695e7b78"
-  integrity sha512-ONNWSLeVjZI5lMEeR23/xTSygZswYsuTosrzX8xgClEryQ4J541nNAjvls/ZRCpQAsa0MFJ8VFyFi9GLbGTqIg==
+storybook-addon-smart-knobs@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/storybook-addon-smart-knobs/-/storybook-addon-smart-knobs-4.1.0.tgz#0974714d64cc6b2f5dd3ce4b72c547bf06361cdc"
+  integrity sha512-IVgbGdC2+/QCi7wQ3t3qd3oSZV56xalCQOlsRNeJlqBroP8zG4ZSQcXZLwiEqdHVTKcTeXrjqEUsHLy5Iru82g==
 
 stream-browserify@^2.0.1:
   version "2.0.2"

@@ -1,8 +1,9 @@
-import { Button } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { globalStyle } from '../globalStyle';
+import Fab from '@material-ui/core/Fab';
+import { styleByProps } from './buttonStyleByProp';
+import { buttonStyle } from './Button';
 
 const styles = {
   button: {
@@ -11,26 +12,26 @@ const styles = {
     right: 30,
     borderRadius: '50%',
   },
-  buttonColorSecondary: globalStyle.buttonColorSecondary,
 };
-export const FloatingButton = ({ icon, disabled, onClick }) => (
-  <Button
-    variant="fab"
+export const FloatingButton = ({ children, disabled, variant, onClick }) => (
+  <Fab
     aria-label="add"
     disabled={disabled}
     onClick={onClick}
-    style={{ ...styles.buttonColorSecondary, ...(disabled && styles.disabled) }}
+    style={{
+      ...styles.button,
+      ...styleByProps({ buttonStyle, variant, disabled }),
+    }}
   >
-    {icon || <Add />}
-  </Button>
+    {children || <Add />}
+  </Fab>
 );
 FloatingButton.defaultProps = {
   disabled: false,
-  icon: <Add />,
+  variant: 'success',
 };
 FloatingButton.propTypes = {
-  icon: PropTypes.node,
+  variant: PropTypes.oneOf(['success', 'warning', 'error']),
   disabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
 };
 export default FloatingButton;

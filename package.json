@@ -22,8 +22,8 @@
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
     "@storybook/addon-actions": "^4.0.2",
-    "@storybook/addon-info": "^4.0.4",
-    "@storybook/addon-knobs": "^4.0.4",
+    "@storybook/addon-info": "^4.1.13",
+    "@storybook/addon-knobs": "^4.1.13",
     "@storybook/addon-options": "^4.0.4",
     "@storybook/addon-storysource": "^4.0.4",
     "@storybook/react": "^4.0.2",
@@ -58,7 +58,7 @@
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^3.4.0",
-    "storybook-addon-smart-knobs": "^3.3.1",
+    "storybook-addon-smart-knobs": "^4.1.0",
     "typeface-roboto": "^0.0.54"
   },
   "files": [
