@@ -35,6 +35,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       defaultDuration={20}
       defaultSelectAllPerson
       dialog
+      openOpened
       onWeekChange={obj => console.log(obj)}
       onHandleSchedule={onHandleScheduleTest}
     />
