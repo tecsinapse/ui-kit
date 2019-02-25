@@ -44,3 +44,18 @@ export function searchLogic(items, searchText, subtitle = '') {
   }
   return flatten(found);
 }
+
+export function normalizeFunctionItems(oldItems) {
+  if (!oldItems) return null;
+  const items = [];
+  for (const oldItem of oldItems) {
+    const item = {
+      ...oldItem,
+      title:
+        typeof oldItem.title === 'function' ? oldItem.title() : oldItem.title,
+    };
+    item.children = normalizeFunctionItems(oldItem.children);
+    items.push(item);
+  }
+  return items;
+}

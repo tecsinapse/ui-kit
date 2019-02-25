@@ -1,48 +1,31 @@
 import { Button as MaterialButton, CircularProgress } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { globalStyle } from '../globalStyle';
+import { styleByProps } from './buttonStyleByProp';
+import {
+  defaultGreen,
+  defaultGrey,
+  defaultOrange,
+  defaultRed,
+} from '../colors';
 
-const style = {
-  disabled: globalStyle.disabled,
-  buttonColorSuccess: globalStyle.buttonColorSuccess,
-  buttonColorSecondary: globalStyle.buttonColorSecondary,
-  buttonColorThird: globalStyle.buttonColorThird,
-};
-const styleByProps = ({ variant, disabled, margin }) => {
-  let buttonStyle = {};
-  if (variant === 'success') {
-    buttonStyle = {
-      ...buttonStyle,
-      ...style.buttonColorSuccess,
-    };
-  }
-  if (variant === 'secondary') {
-    buttonStyle = {
-      ...buttonStyle,
-      ...style.buttonColorSecondary,
-    };
-  }
-  if (variant === 'third') {
-    buttonStyle = {
-      ...buttonStyle,
-      ...style.buttonColorThird,
-    };
-  }
-  if (disabled) {
-    buttonStyle = {
-      ...buttonStyle,
-      ...style.disabled,
-    };
-  }
-  if (margin) {
-    buttonStyle = {
-      ...buttonStyle,
-      ...globalStyle.marginTop,
-    };
-  }
-
-  return buttonStyle;
+export const buttonStyle = {
+  disabled: {
+    backgroundColor: defaultGrey,
+    color: 'white',
+  },
+  buttonColorSuccess: {
+    backgroundColor: defaultGreen,
+    color: 'white',
+  },
+  buttonColorWarning: {
+    backgroundColor: defaultOrange,
+    color: 'white',
+  },
+  buttonColorError: {
+    backgroundColor: defaultRed,
+    color: 'white',
+  },
 };
 
 export const Button = ({
@@ -58,7 +41,8 @@ export const Button = ({
   <MaterialButton
     type={type}
     variant="contained"
-    style={styleByProps({ disabled, variant, margin })}
+    style={styleByProps({ buttonStyle, disabled, variant, margin })}
+    color={['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined}
     fullWidth={fullWidth}
     disabled={disabled || submitting}
     {...props}
@@ -67,7 +51,6 @@ export const Button = ({
   </MaterialButton>
 );
 
-export const supportedVariants = ['success', 'secondary', 'third'];
 Button.defaultProps = {
   submitting: false,
   margin: false,
@@ -77,7 +60,13 @@ Button.defaultProps = {
   type: 'submit',
 };
 Button.propTypes = {
-  variant: PropTypes.oneOf(supportedVariants),
+  variant: PropTypes.oneOf([
+    'success',
+    'warning',
+    'error',
+    'primary',
+    'secondary',
+  ]),
   submitting: PropTypes.bool,
   fullWidth: PropTypes.bool,
   margin: PropTypes.bool,

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import { Help } from '@material-ui/icons';
 import { selectInputStyle } from './SelectInputStyle';
-import { SelectCustomComponents } from './SelectCustomComponents';
+import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';
 import { selectCustomWebComponents } from './SelectCustomWebComponents';
 import { inputStyles } from '../Inputs/InputStyles';
 
@@ -128,7 +128,7 @@ export const SelectUnstyled = ({
   const selectProps =
     variant === 'mobile'
       ? {
-          components: SelectCustomComponents,
+          components: SelectMobileCustomComponents,
           menuPortalTarget: document.body,
           backspaceRemovesValue: false,
           deleteRemovesValue: false,
