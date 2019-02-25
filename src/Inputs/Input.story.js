@@ -21,4 +21,34 @@ storiesOf(`${GROUPS.FORMS}|Input`, module)
   ))
   .add('input disabled', () => (
     <Input name="a" value="Valor Desabilitado" disabled label="Placeholder" />
+  ))
+  .add('input mask cep', () => (
+    <Input name="a" label="Placeholder" mask="cep" />
+  ))
+  .add('input mask date', () => (
+    <Input name="a" label="Placeholder" mask="date" />
+  ))
+  .add('input mask time', () => (
+    <Input name="a" label="Placeholder" mask="time" />
+  ))
+  .add('input mask  phone', () => (
+    <Input name="a" label="Placeholder" mask="phone" />
+  ))
+  .add('input mask  cellphone', () => (
+    <Input name="a" label="Placeholder" mask="cellphone" />
+  ))
+  .add('input mask  cpf', () => (
+    <Input name="a" label="Placeholder" mask="cpf" />
+  ))
+  .add('input mask  cnpj', () => (
+    <Input name="a" label="Placeholder" mask="cnpj" />
+  ))
+  .add('input mask  cpf/cnpj', () => (
+    <Input name="a" label="Placeholder" mask="cpfcnpj" />
+  ))
+  .add('input mask  currency', () => (
+    <Input name="a" label="Placeholder" mask="currency" />
+  ))
+  .add('input mask  plate (mercosul)', () => (
+    <Input name="a" label="Placeholder" mask="plate" />
   ));
