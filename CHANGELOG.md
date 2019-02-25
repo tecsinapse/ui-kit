@@ -1,3 +1,21 @@
+<a name="0.0.51"></a>
+## <small>0.0.51 (2019-02-25)</small>
+
+* Add cep mask ([5edd11f](https://github.com/tecsinapse/ui-kit/commit/5edd11f))
+* Add mask cpf, cnpj, cpfcnpj, cellphone and plate. Fix invalid mask ([df3c237](https://github.com/tecsinapse/ui-kit/commit/df3c237))
+* Add mask deps ([44122de](https://github.com/tecsinapse/ui-kit/commit/44122de))
+* Add time/date mask ([855ce05](https://github.com/tecsinapse/ui-kit/commit/855ce05))
+* adding 2 more variants by theme on buttons ([4d879c1](https://github.com/tecsinapse/ui-kit/commit/4d879c1))
+* Mask as inputComponent (cpf, phone, cel, currency). Add story example ([27555fd](https://github.com/tecsinapse/ui-kit/commit/27555fd))
+* Merge old plate and merco plate ([98a8fc0](https://github.com/tecsinapse/ui-kit/commit/98a8fc0))
+* Release 0.0.50 ([7533ae4](https://github.com/tecsinapse/ui-kit/commit/7533ae4))
+* Separate mask file and improve code format ([4f417d1](https://github.com/tecsinapse/ui-kit/commit/4f417d1))
+* Simplify mask verification ([7fabfc6](https://github.com/tecsinapse/ui-kit/commit/7fabfc6))
+* solving babel loader dependency error ([f29583d](https://github.com/tecsinapse/ui-kit/commit/f29583d))
+* Standard variant naming and adding more buttons ([77b7174](https://github.com/tecsinapse/ui-kit/commit/77b7174))
+
+
+
 <a name="0.0.50"></a>
 ## <small>0.0.50 (2019-02-25)</small>
 
