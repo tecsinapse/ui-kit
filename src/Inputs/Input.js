@@ -72,7 +72,6 @@ const TextMaskCustom = props => {
         inputMask = TIME_MASK;
         break;
       default:
-        // It should never be reached
         return null;
     }
   } else {
@@ -92,31 +91,6 @@ const TextMaskCustom = props => {
       guide={false}
     />
   );
-};
-
-const InputComponentValidator = mask => {
-  if (!mask) return undefined;
-
-  if (typeof mask === 'string') {
-    switch (mask) {
-      case 'cep':
-      case 'phone':
-      case 'cel':
-      case 'cpf':
-      case 'currency':
-      case 'cnpj':
-      case 'plate':
-      case 'cellphone':
-      case 'cpfcnpj':
-      case 'date':
-      case 'time':
-        break;
-      default:
-        return undefined;
-    }
-  }
-
-  return TextMaskCustom;
 };
 
 export const TextFieldComponent = ({
@@ -146,7 +120,7 @@ export const TextFieldComponent = ({
       },
     }}
     InputProps={{
-      inputComponent: InputComponentValidator(mask),
+      inputComponent: mask ? TextMaskCustom : undefined,
       inputProps: {
         mask,
       },
@@ -214,7 +188,19 @@ Input.defaultProps = {
 };
 
 const maskProp = PropTypes.oneOfType([
-  PropTypes.string,
+  PropTypes.oneOf([
+    'cep',
+    'phone',
+    'cel',
+    'cpf',
+    'currency',
+    'cnpj',
+    'plate',
+    'cellphone',
+    'cpfcnpj',
+    'date',
+    'time',
+  ]),
   PropTypes.array,
   PropTypes.func,
   PropTypes.bool,

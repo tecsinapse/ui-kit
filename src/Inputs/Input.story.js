@@ -51,7 +51,4 @@ storiesOf(`${GROUPS.FORMS}|Input`, module)
   ))
   .add('input mask  plate (mercosul)', () => (
     <Input name="a" label="Placeholder" mask="plate" />
-  ))
-  .add('input mask invalid', () => (
-    <Input name="a" label="Placeholder" mask="blamask" />
   ));
