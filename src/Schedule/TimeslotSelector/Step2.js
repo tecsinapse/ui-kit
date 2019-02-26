@@ -54,6 +54,7 @@ export const Step2 = ({
   onWeekChange,
   labels,
   locale,
+  cancelDialog,
 }) => {
   const [selectedDate, setSelectedDate] = useState(DateTime.local());
   const [selectedPersonTimeSlot, setSelectedPersonTimeSlot] = useState(null);
@@ -71,11 +72,13 @@ export const Step2 = ({
   return (
     <div>
       <Grid justify="center" container spacing={16}>
-        <Grid item xs={12}>
-          <Typography variant="h6" align="center">
-            {labels.selectDayEndTimeLabel}
-          </Typography>
-        </Grid>
+        {labels.selectDayEndTimeLabel && (
+          <Grid item xs={12}>
+            <Typography variant="h6" align="center">
+              {labels.selectDayEndTimeLabel}
+            </Typography>
+          </Grid>
+        )}
         <Grid item xs={7}>
           <WeeklyCalendar
             currentDate={selectedDate}
@@ -83,13 +86,12 @@ export const Step2 = ({
             onWeekChange={onWeekChange}
           />
         </Grid>
-
         <Grid
           item
           container
           xs={12}
           spacing={8}
-          style={{ height: 360, overflowY: 'scroll' }}
+          className={classes.stepContentScrolling}
         >
           {selectedPerson.map(key => {
             const person = timeSlotsByPerson[key];
@@ -125,6 +127,8 @@ export const Step2 = ({
                                 date: selectedDate.toISODate(),
                                 time: ts,
                                 email: person.email,
+                                id: person.id,
+                                duration: selectedDuration,
                               })
                             }
                           />
@@ -149,11 +153,19 @@ export const Step2 = ({
         spacing={16}
         className={classes.stepButtons}
       >
+        {cancelDialog && (
+          <Grid item>
+            <Button variant="third" onClick={cancelDialog}>
+              {labels.buttonLabelCancel}
+            </Button>
+          </Grid>
+        )}
         <Grid item>
           <Button onClick={onPreviousStep}>{labels.buttonLabelprevious}</Button>
         </Grid>
         <Grid item>
           <Button
+            variant="secondary"
             disabled={selectedPersonTimeSlot == null}
             onClick={() =>
               onHandleSchedule && onHandleSchedule(selectedPersonTimeSlot)
@@ -169,6 +181,7 @@ export const Step2 = ({
 
 Step2.defaultProps = {
   onWeekChange: {},
+  cancelDialog: undefined,
 };
 
 Step2.propTypes = {
@@ -176,4 +189,5 @@ Step2.propTypes = {
   onPreviousStep: PropTypes.func.isRequired,
   onHandleSchedule: PropTypes.func.isRequired,
   onWeekChange: PropTypes.func,
+  cancelDialog: PropTypes.func,
 };

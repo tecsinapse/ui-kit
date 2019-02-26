@@ -10,6 +10,11 @@ export const timeslotSelectorStyles = makeStyles(({ palette, spacing }) => ({
     padding: spacing.unit * 2,
     paddingTop: 0,
   },
+  stepContentScrolling: {
+    height: 320,
+    overflowY: 'scroll',
+    marginBottom: spacing.unit,
+  },
   stepButtons: {
     paddingTop: spacing.unit,
     spacing: spacing.unit * 2,

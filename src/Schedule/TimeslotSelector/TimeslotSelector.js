@@ -18,7 +18,6 @@ const STEP_1_KEY = 0;
 const STEP_2_KEY = 1;
 
 export const TimeslotSelectorComponent = ({
-  classes,
   locale,
   labels,
   personsAvailabilities,
@@ -30,8 +29,10 @@ export const TimeslotSelectorComponent = ({
   dialog,
   closeOnHandleSchedule,
   setDlgOpen,
+  cancelDialog,
   ...other
 }) => {
+  const classes = useStyles();
   const [step, setStep] = useState(STEP_1_KEY);
   const [selectedPerson, setSelectedPerson] = useState(
     defaultSelectAllPerson
@@ -59,6 +60,7 @@ export const TimeslotSelectorComponent = ({
         durations={durations}
         classes={classes}
         labels={labels}
+        cancelDialog={cancelDialog}
         onNextStep={() => setStep(STEP_2_KEY)}
       />
     ) : (
@@ -72,6 +74,7 @@ export const TimeslotSelectorComponent = ({
         onPreviousStep={() => setStep(STEP_1_KEY)}
         locale={locale}
         onHandleSchedule={internalOnHandleSchedule}
+        cancelDialog={cancelDialog}
         onWeekChange={onWeekChange}
       />
     );
@@ -95,51 +98,17 @@ export const TimeslotSelectorComponent = ({
   );
 };
 
-const TimeslotSelectorUI = ({
-  locale,
-  labels,
-  personsAvailabilities,
-  durations,
-  defaultDuration,
-  defaultSelectAllPerson,
-  onHandleSchedule,
-  onWeekChange,
-  dialog,
-  closeOnHandleSchedule,
-  setDlgOpen,
-  ...other
-}) => {
-  const classes = useStyles();
-  return (
-    <TimeslotSelectorComponent
-      classes={classes}
-      locale={locale}
-      labels={labels}
-      personsAvailabilities={personsAvailabilities}
-      durations={durations}
-      onHandleSchedule={onHandleSchedule}
-      onWeekChange={onWeekChange}
-      defaultDuration={defaultDuration}
-      defaultSelectAllPerson={defaultSelectAllPerson}
-      dialog={dialog}
-      closeOnHandleSchedule={closeOnHandleSchedule}
-      setDlgOpen={setDlgOpen}
-      {...other}
-    />
-  );
-};
-
 export const TimeslotSelector = props => {
   const { dialog, openOpened } = props;
   const [dlgOpen, setDlgOpen] = useState(openOpened);
   if (dialog) {
     return (
-      <Dialog open={dlgOpen} disableEnforceFocus>
-        <TimeslotSelectorUI {...props} setDlgOpen={setDlgOpen} />
+      <Dialog open={dlgOpen} disableEnforceFocus closeAfterTransition>
+        <TimeslotSelectorComponent {...props} setDlgOpen={setDlgOpen} />
       </Dialog>
     );
   }
-  return <TimeslotSelectorUI {...props} />;
+  return <TimeslotSelectorComponent {...props} />;
 };
 
 TimeslotSelector.defaultProps = {
@@ -152,6 +121,7 @@ TimeslotSelector.defaultProps = {
   openOpened: false,
   onWeekChange: {},
   closeOnHandleSchedule: true,
+  cancelDialog: undefined,
 };
 
 TimeslotSelector.propTypes = {
@@ -165,6 +135,7 @@ TimeslotSelector.propTypes = {
   dialog: PropTypes.bool,
   openOpened: PropTypes.bool,
   onHandleSchedule: PropTypes.func.isRequired,
+  cancelDialog: PropTypes.func,
   onWeekChange: PropTypes.func,
   closeOnHandleSchedule: PropTypes.bool,
 };

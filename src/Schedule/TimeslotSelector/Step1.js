@@ -21,6 +21,7 @@ export const Step1 = ({
   onNextStep,
   durations,
   labels,
+  cancelDialog,
 }) => {
   const persons = personsAvailabilities.map(person => ({
     value: person.email,
@@ -32,7 +33,9 @@ export const Step1 = ({
 
   return (
     <div>
-      <Typography variant="h6">{labels.selectPersonLabel}</Typography>
+      {labels.selectPersonLabel && (
+        <Typography variant="h6">{labels.selectPersonLabel}</Typography>
+      )}
       <Select
         maxLenghtOption={3}
         value={selectedPerson}
@@ -60,16 +63,33 @@ export const Step1 = ({
         </RadioGroup>
       </Grid>
       <Divider variant="middle" />
-      <Grid container justify="center" className={classes.stepButtons}>
-        <Button onClick={onNextStep}>{labels.buttonLabelNext}</Button>
+      <Grid
+        container
+        justify="center"
+        className={classes.stepButtons}
+        spacing={16}
+      >
+        {cancelDialog && (
+          <Grid item>
+            <Button variant="third" onClick={cancelDialog}>
+              {labels.buttonLabelCancel}
+            </Button>
+          </Grid>
+        )}
+        <Grid item>
+          <Button onClick={onNextStep}>{labels.buttonLabelNext}</Button>
+        </Grid>
       </Grid>
     </div>
   );
 };
 
-Step1.defaultProps = {};
+Step1.defaultProps = {
+  cancelDialog: undefined,
+};
 
 Step1.propTypes = {
   labels: PropTypes.object.isRequired,
   durations: PropTypes.arrayOf(PropTypes.number).isRequired,
+  cancelDialog: PropTypes.func,
 };

@@ -38,5 +38,6 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       openOpened
       onWeekChange={obj => console.log(obj)}
       onHandleSchedule={onHandleScheduleTest}
+      onCloseDialog={() => {}}
     />
   ));
