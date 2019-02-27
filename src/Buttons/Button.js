@@ -35,6 +35,7 @@ export const Button = ({
   variant,
   margin,
   type,
+  size = 'medium',
   children,
   ...props
 }) => (
@@ -45,6 +46,7 @@ export const Button = ({
     color={['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined}
     fullWidth={fullWidth}
     disabled={disabled || submitting}
+    size={size}
     {...props}
   >
     {submitting && <CircularProgress size={20} />} {children}
@@ -58,6 +60,7 @@ Button.defaultProps = {
   fullWidth: false,
   variant: 'success',
   type: 'submit',
+  size: 'medium',
 };
 Button.propTypes = {
   variant: PropTypes.oneOf([
@@ -72,6 +75,7 @@ Button.propTypes = {
   margin: PropTypes.bool,
   disabled: PropTypes.bool,
   type: PropTypes.string,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 export default Button;
