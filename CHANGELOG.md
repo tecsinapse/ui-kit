@@ -1,3 +1,25 @@
+<a name="0.0.56"></a>
+## <small>0.0.56 (2019-02-27)</small>
+
+* Release 0.0.55 ([b34573a](https://github.com/tecsinapse/ui-kit/commit/b34573a))
+* Select Multi: (de)seleção automática com base nos itens #12 ([ca3694d](https://github.com/tecsinapse/ui-kit/commit/ca3694d)), closes [#12](https://github.com/tecsinapse/ui-kit/issues/12)
+
+
+
+<a name="0.0.55"></a>
+## <small>0.0.55 (2019-02-27)</small>
+
+* Select Multi: (de)seleção automática com base nos itens #12 ([ca3694d](https://github.com/tecsinapse/ui-kit/commit/ca3694d)), closes [#12](https://github.com/tecsinapse/ui-kit/issues/12)
+
+
+
+<a name="0.0.55"></a>
+## <small>0.0.55 (2019-02-27)</small>
+
+* Select Multi: (de)seleção automática com base nos itens #12 ([ca3694d](https://github.com/tecsinapse/ui-kit/commit/ca3694d)), closes [#12](https://github.com/tecsinapse/ui-kit/issues/12)
+
+
+
 <a name="0.0.54"></a>
 ## <small>0.0.54 (2019-02-27)</small>
 
