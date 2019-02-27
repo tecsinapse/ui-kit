@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
-  "version": "0.0.56",
+  "version": "0.0.57",
   "browser": "dist/index.js",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
@@ -120,9 +120,9 @@
     "react": ">= 16.3.x",
     "react-select": "^2.3.0",
     "react-text-mask": "^5.4.3",
-    "text-mask-addons": "^3.8.0",
     "react-virtualized": "^9.21.0",
     "react-window": "^1.5.1",
+    "text-mask-addons": "^3.8.0",
     "typeface-roboto": "^0.0.54"
   },
   "sideEffects": false
