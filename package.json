@@ -46,6 +46,7 @@
     "react": "16.7.0-alpha.2",
     "react-dom": "16.7.0-alpha.2",
     "react-select": "^2.3.0",
+    "react-swipeable-views": "^0.13.1",
     "react-test-renderer": "^16.6.0",
     "react-text-mask": "^5.4.3",
     "react-virtualized": "^9.21.0",
