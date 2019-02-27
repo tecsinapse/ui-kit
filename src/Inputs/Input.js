@@ -3,26 +3,23 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField/TextField';
 import MaskedInput from 'react-text-mask';
+import classNames from 'classnames';
 import { inputStyles } from './InputStyles';
 import {
-  PHONE_MASK,
   CELL_MASK,
+  CELL_PHONE_MASK,
+  CEP_MASK,
+  CNPJ_MASK,
+  CPF_CNPJ_MASK,
   CPF_MASK,
   CURRENCY_MASK,
-  CNPJ_MASK,
-  PLATE_MASK,
-  CELL_PHONE_MASK,
-  CPF_CNPJ_MASK,
   DATE_MASK,
+  PHONE_MASK,
+  PLATE_MASK,
   TIME_MASK,
-  CEP_MASK,
 } from './Masks';
 
-import {
-  getEndAdornmentIcon,
-  labelClass,
-  outlinedInputClass,
-} from './styleUtils';
+import { GetEndAdornment, labelClass, outlinedInputClass } from './styleUtils';
 
 const TextMaskCustom = props => {
   const { inputRef, mask, ...other } = props;
@@ -105,6 +102,7 @@ export const TextFieldComponent = ({
   mask,
   shrinkLabel,
   placeholder,
+  endAdornment,
   ...input
 }) => (
   <TextField
@@ -116,7 +114,7 @@ export const TextFieldComponent = ({
     onChange={onChange}
     InputLabelProps={{
       classes: {
-        root: classes[labelClass({ warning, error, success })],
+        root: classNames(classes[labelClass({ warning, error, success })]),
         focused: classes.cssFocused,
       },
       shrink: shrinkLabel,
@@ -128,11 +126,21 @@ export const TextFieldComponent = ({
       },
       className: classes.input,
       classes: {
-        root: classes[outlinedInputClass({ warning, error, success })],
+        root: classNames(
+          classes[outlinedInputClass({ warning, error, success })],
+          classes.inputRoot
+        ),
         focused: classes.cssFocused,
         notchedOutline: classes.notchedOutline,
       },
-      endAdornment: getEndAdornmentIcon({ warning, error, success }),
+      endAdornment: (
+        <GetEndAdornment
+          warning={warning}
+          error={error}
+          success={success}
+          endAdornment={endAdornment}
+        />
+      ),
     }}
     margin="dense"
     value={value}
@@ -157,11 +165,13 @@ const InputUI = withStyles(inputStyles)(
     disabled,
     placeholder,
     mask,
+    helperText,
     ...input
   }) => (
     <TextFieldComponent
       key={key}
       error={!!error}
+      helperText={error || helperText}
       fullWidth={fullWidth}
       classes={classes}
       label={label}
@@ -186,10 +196,11 @@ Input.defaultProps = {
   disabled: false,
   label: null,
   onChange: null,
-  error: false,
+  error: undefined,
   mask: null,
   shrinkLabel: undefined,
   placeholder: null,
+  helperText: null,
 };
 
 const maskProp = PropTypes.oneOfType([
@@ -227,6 +238,7 @@ Input.propTypes = {
   mask: maskProp,
   shrinkLabel: PropTypes.bool,
   placeholder: PropTypes.string,
+  helperText: PropTypes.string,
 };
 
 export default Input;

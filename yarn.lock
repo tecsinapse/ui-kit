@@ -1918,10 +1918,10 @@
   dependencies:
     lodash.uniq "^4.5.0"
 
-"@tecsinapse/eslint-config-tecsinapse-js@^2.1.2":
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/eslint-config-tecsinapse-js/-/eslint-config-tecsinapse-js-2.1.3.tgz#d644118f0f5878c42d8260c20399fc350ba0c5cc"
-  integrity sha512-M14hA57WBGB/PQJe19FAG6EBoXmskOhaW16FrRt6hE/NGRRoGPufAXsxdYAWBuRWvVbvNcUBSV/flJ9PO3qqAQ==
+"@tecsinapse/eslint-config-tecsinapse-js@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/eslint-config-tecsinapse-js/-/eslint-config-tecsinapse-js-2.1.4.tgz#ebcdbe16677fe6f9229eeafe1b2d27f3b6f9b812"
+  integrity sha512-1BzRhzC+lTthxsSzm3bz/ohadiDNt9XzH2LKpXJIWUO52vKLLfPbauI882PBCBPynPPMBn3pLSzy2f4zl3Bnyw==
   dependencies:
     "@meteorjs/eslint-config-meteor" "^1.0.5"
     babel-eslint "9.0.0"

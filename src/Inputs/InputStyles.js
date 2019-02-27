@@ -62,6 +62,9 @@ export const stylesWarning = {
 };
 
 export const inputStyles = theme => ({
+  inputRoot: {
+    paddingRight: theme.spacing.unit / 3,
+  },
   cssOutlinedInput: {
     '&$cssFocused $notchedOutline': {
       borderColor: theme.palette.secondary.main,
