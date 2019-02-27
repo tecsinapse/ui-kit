@@ -108,6 +108,14 @@ export const SelectUnstyled = ({
       if (setMenuIsOpen !== undefined && !isMulti) {
         setMenuIsOpen(false);
       }
+
+      if (isMulti) {
+        setAllSelected(
+          input2 instanceof Array &&
+            input2.map(c => c.value).length === map.length
+        );
+      }
+
       onChange(
         input2 instanceof Array ? input2.map(c => c.value) : input2.value
       );
