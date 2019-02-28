@@ -142,7 +142,7 @@ Table.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       tooltip: PropTypes.string,
-      icon: PropTypes.string,
+      icon: PropTypes.object,
       onClick: PropTypes.func,
     })
   ),

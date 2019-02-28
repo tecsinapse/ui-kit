@@ -1,6 +1,8 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import EditIcon from '@material-ui/icons/Edit';
+import SearchIcon from '@material-ui/icons/Search';
+import MailIcon from '@material-ui/icons/Mail';
 import DeleteIcon from '@material-ui/icons/DeleteForever';
 import Table from './Table';
 import { cars } from './exampleData';
@@ -24,6 +26,22 @@ const columns = [
 ];
 
 const actions = [
+  {
+    icon: <MailIcon />,
+    tooltip: 'Mail',
+    onClick: rowData => {
+      // eslint-disable-next-line
+      console.log(JSON.stringify(rowData));
+    },
+  },
+  {
+    icon: <SearchIcon />,
+    tooltip: 'Search item',
+    onClick: rowData => {
+      // eslint-disable-next-line no-alert
+      alert(JSON.stringify(rowData));
+    },
+  },
   {
     icon: <EditIcon />,
     tooltip: 'Edit item',
