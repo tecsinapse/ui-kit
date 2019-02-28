@@ -1,3 +1,10 @@
+<a name="0.0.59"></a>
+## <small>0.0.59 (2019-02-28)</small>
+
+* * on error grouped input ([f3e7214](https://github.com/tecsinapse/ui-kit/commit/f3e7214))
+
+
+
 <a name="0.0.58"></a>
 ## <small>0.0.58 (2019-02-28)</small>
 
