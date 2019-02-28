@@ -1,3 +1,10 @@
+<a name="0.0.58"></a>
+## <small>0.0.58 (2019-02-28)</small>
+
+* error is now array or string ([245706f](https://github.com/tecsinapse/ui-kit/commit/245706f))
+
+
+
 <a name="0.0.57"></a>
 ## <small>0.0.57 (2019-02-27)</small>
 
