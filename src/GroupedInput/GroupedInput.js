@@ -58,6 +58,7 @@ export const GroupedInput = ({
   sm,
 }) => {
   const classes = useStyles();
+  const errorIsArray = error instanceof Array;
   return (
     <div>
       <Divider />
@@ -66,7 +67,7 @@ export const GroupedInput = ({
           variant="subtitle2"
           className={classNames({ [classes.errorLabel]: !!error })}
         >
-          {header} {!!error && '* '}
+          {header} {!!error && !errorIsArray && '* '}
         </Typography>
         <Button
           type="button"
@@ -79,7 +80,7 @@ export const GroupedInput = ({
           Novo Campo
         </Button>
       </div>
-      {!!error && (
+      {!!error && !errorIsArray && (
         <FormHelperText className={classes.errorLabel}>{error}</FormHelperText>
       )}
 
@@ -94,7 +95,7 @@ export const GroupedInput = ({
           <Grid item xs={xs} sm={sm} key={`${name}.${index}`}>
             <Input
               mask={mask}
-              error={error}
+              error={errorIsArray ? error[index] : undefined}
               success={
                 success && success.length > index ? success[index] : undefined
               }
@@ -141,7 +142,7 @@ GroupedInput.propTypes = {
   header: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   values: PropTypes.array.isRequired,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType(PropTypes.string, PropTypes.array),
   success: PropTypes.arrayOf(PropTypes.bool),
   warnings: PropTypes.arrayOf(PropTypes.bool),
   push: PropTypes.func.isRequired,
