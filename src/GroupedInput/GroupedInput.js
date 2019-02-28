@@ -67,7 +67,7 @@ export const GroupedInput = ({
           variant="subtitle2"
           className={classNames({ [classes.errorLabel]: !!error })}
         >
-          {header} {!!error && !errorIsArray && '* '}
+          {header} {!!error && '* '}
         </Typography>
         <Button
           type="button"
@@ -142,7 +142,7 @@ GroupedInput.propTypes = {
   header: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   values: PropTypes.array.isRequired,
-  error: PropTypes.oneOfType(PropTypes.string, PropTypes.array),
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   success: PropTypes.arrayOf(PropTypes.bool),
   warnings: PropTypes.arrayOf(PropTypes.bool),
   push: PropTypes.func.isRequired,
