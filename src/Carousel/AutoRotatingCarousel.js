@@ -125,11 +125,13 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
 
   return (
     <div className={classes.content}>
-      <div className={classNames(classes.arrow, classes.arrowLeft)}>
-        <Fab>
-          <ArrowBackIcon className={classes.arrowIcon} />
-        </Fab>
-      </div>
+      {hasMultipleChildren && (
+        <div className={classNames(classes.arrow, classes.arrowLeft)}>
+          <Fab>
+            <ArrowBackIcon className={classes.arrowIcon} />
+          </Fab>
+        </div>
+      )}
 
       <div className={classes.bla}>
         <Paper elevation={0} className={classes.carouselWrapper /* TODO */}>
@@ -137,11 +139,13 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
         </Paper>
       </div>
 
-      <div className={classNames(classes.arrow, classes.arrowRight)}>
-        <Fab>
-          <ArrowForwardIcon className={classes.arrowIcon} />
-        </Fab>
-      </div>
+      {hasMultipleChildren && (
+        <div className={classNames(classes.arrow, classes.arrowRight)}>
+          <Fab>
+            <ArrowForwardIcon className={classes.arrowIcon} />
+          </Fab>
+        </div>
+      )}
     </div>
   );
 };
