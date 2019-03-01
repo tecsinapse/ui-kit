@@ -35,6 +35,7 @@ export const SelectUnstyled = ({
   success,
   isMulti = false,
   allowSelectAll = true,
+  selectPromptMessage = 'Selecione',
   ...rest
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -69,6 +70,7 @@ export const SelectUnstyled = ({
       : flattenChildren(children);
 
   const defaultProps = {
+    selectPromptMessage,
     isMulti,
     menuIsOpen,
     setMenuIsOpen,
@@ -174,6 +176,7 @@ SelectUnstyled.defaultProps = {
   onBlur: null,
   error: null,
   touched: false,
+  selectPromptMessage: 'Selecione',
 };
 SelectUnstyled.propTypes = {
   allowSelectAll: PropTypes.bool,
@@ -195,6 +198,7 @@ SelectUnstyled.propTypes = {
   ).isRequired,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
+  selectPromptMessage: PropTypes.string,
 };
 
 export default SelectUnstyled;
