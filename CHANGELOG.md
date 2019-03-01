@@ -1,3 +1,233 @@
+<a name="0.0.61"></a>
+## <small>0.0.61 (2019-03-01)</small>
+
+* adding selectPromptMessage for i18n on select ([b4d0190](https://github.com/tecsinapse/ui-kit/commit/b4d0190))
+
+
+
+<a name="0.0.60"></a>
+## <small>0.0.60 (2019-02-28)</small>
+
+
+
+
+<a name="0.0.59"></a>
+## <small>0.0.59 (2019-02-28)</small>
+
+* * on error grouped input ([f3e7214](https://github.com/tecsinapse/ui-kit/commit/f3e7214))
+
+
+
+<a name="0.0.58"></a>
+## <small>0.0.58 (2019-02-28)</small>
+
+* error is now array or string ([245706f](https://github.com/tecsinapse/ui-kit/commit/245706f))
+
+
+
+<a name="0.0.57"></a>
+## <small>0.0.57 (2019-02-27)</small>
+
+* grouped input release ([93d7af6](https://github.com/tecsinapse/ui-kit/commit/93d7af6))
+* Release 0.0.55 ([b34573a](https://github.com/tecsinapse/ui-kit/commit/b34573a))
+* Release 0.0.56 ([93a37ac](https://github.com/tecsinapse/ui-kit/commit/93a37ac))
+* Select Multi: (de)seleção automática com base nos itens #12 ([ca3694d](https://github.com/tecsinapse/ui-kit/commit/ca3694d)), closes [#12](https://github.com/tecsinapse/ui-kit/issues/12)
+
+
+
+<a name="0.0.56"></a>
+## <small>0.0.56 (2019-02-27)</small>
+
+* Release 0.0.55 ([b34573a](https://github.com/tecsinapse/ui-kit/commit/b34573a))
+* Select Multi: (de)seleção automática com base nos itens #12 ([ca3694d](https://github.com/tecsinapse/ui-kit/commit/ca3694d)), closes [#12](https://github.com/tecsinapse/ui-kit/issues/12)
+
+
+
+<a name="0.0.55"></a>
+## <small>0.0.55 (2019-02-27)</small>
+
+* Select Multi: (de)seleção automática com base nos itens #12 ([ca3694d](https://github.com/tecsinapse/ui-kit/commit/ca3694d)), closes [#12](https://github.com/tecsinapse/ui-kit/issues/12)
+
+
+
+<a name="0.0.55"></a>
+## <small>0.0.55 (2019-02-27)</small>
+
+* Select Multi: (de)seleção automática com base nos itens #12 ([ca3694d](https://github.com/tecsinapse/ui-kit/commit/ca3694d)), closes [#12](https://github.com/tecsinapse/ui-kit/issues/12)
+
+
+
+<a name="0.0.54"></a>
+## <small>0.0.54 (2019-02-27)</small>
+
+
+
+
+<a name="0.0.53"></a>
+## <small>0.0.53 (2019-02-27)</small>
+
+* Add cep mask ([5edd11f](https://github.com/tecsinapse/ui-kit/commit/5edd11f))
+* Add mask cpf, cnpj, cpfcnpj, cellphone and plate. Fix invalid mask ([df3c237](https://github.com/tecsinapse/ui-kit/commit/df3c237))
+* Add mask deps ([44122de](https://github.com/tecsinapse/ui-kit/commit/44122de))
+* Add time/date mask ([855ce05](https://github.com/tecsinapse/ui-kit/commit/855ce05))
+* adding 2 more variants by theme on buttons ([4d879c1](https://github.com/tecsinapse/ui-kit/commit/4d879c1))
+* adding 2 more variants by theme on buttons and divider ([821b450](https://github.com/tecsinapse/ui-kit/commit/821b450))
+* Mask as inputComponent (cpf, phone, cel, currency). Add story example ([27555fd](https://github.com/tecsinapse/ui-kit/commit/27555fd))
+* Merge old plate and merco plate ([98a8fc0](https://github.com/tecsinapse/ui-kit/commit/98a8fc0))
+* new example for menu documentation ([2188045](https://github.com/tecsinapse/ui-kit/commit/2188045))
+* Release 0.0.50 ([7533ae4](https://github.com/tecsinapse/ui-kit/commit/7533ae4))
+* Release 0.0.51 ([2ccd118](https://github.com/tecsinapse/ui-kit/commit/2ccd118))
+* Release 0.0.52 ([13fd884](https://github.com/tecsinapse/ui-kit/commit/13fd884))
+* Separate mask file and improve code format ([4f417d1](https://github.com/tecsinapse/ui-kit/commit/4f417d1))
+* Simplify mask verification ([7fabfc6](https://github.com/tecsinapse/ui-kit/commit/7fabfc6))
+* solving babel loader dependency error ([f29583d](https://github.com/tecsinapse/ui-kit/commit/f29583d))
+* Standard variant naming and adding more buttons ([77b7174](https://github.com/tecsinapse/ui-kit/commit/77b7174))
+
+
+
+<a name="0.0.52"></a>
+## <small>0.0.52 (2019-02-27)</small>
+
+* Add cep mask ([5edd11f](https://github.com/tecsinapse/ui-kit/commit/5edd11f))
+* Add mask cpf, cnpj, cpfcnpj, cellphone and plate. Fix invalid mask ([df3c237](https://github.com/tecsinapse/ui-kit/commit/df3c237))
+* Add mask deps ([44122de](https://github.com/tecsinapse/ui-kit/commit/44122de))
+* Add time/date mask ([855ce05](https://github.com/tecsinapse/ui-kit/commit/855ce05))
+* adding 2 more variants by theme on buttons ([4d879c1](https://github.com/tecsinapse/ui-kit/commit/4d879c1))
+* Mask as inputComponent (cpf, phone, cel, currency). Add story example ([27555fd](https://github.com/tecsinapse/ui-kit/commit/27555fd))
+* Merge old plate and merco plate ([98a8fc0](https://github.com/tecsinapse/ui-kit/commit/98a8fc0))
+* new example for menu documentation ([2188045](https://github.com/tecsinapse/ui-kit/commit/2188045))
+* Release 0.0.50 ([7533ae4](https://github.com/tecsinapse/ui-kit/commit/7533ae4))
+* Release 0.0.51 ([2ccd118](https://github.com/tecsinapse/ui-kit/commit/2ccd118))
+* Separate mask file and improve code format ([4f417d1](https://github.com/tecsinapse/ui-kit/commit/4f417d1))
+* Simplify mask verification ([7fabfc6](https://github.com/tecsinapse/ui-kit/commit/7fabfc6))
+* solving babel loader dependency error ([f29583d](https://github.com/tecsinapse/ui-kit/commit/f29583d))
+* Standard variant naming and adding more buttons ([77b7174](https://github.com/tecsinapse/ui-kit/commit/77b7174))
+
+
+
+<a name="0.0.51"></a>
+## <small>0.0.51 (2019-02-25)</small>
+
+* Add cep mask ([5edd11f](https://github.com/tecsinapse/ui-kit/commit/5edd11f))
+* Add mask cpf, cnpj, cpfcnpj, cellphone and plate. Fix invalid mask ([df3c237](https://github.com/tecsinapse/ui-kit/commit/df3c237))
+* Add mask deps ([44122de](https://github.com/tecsinapse/ui-kit/commit/44122de))
+* Add time/date mask ([855ce05](https://github.com/tecsinapse/ui-kit/commit/855ce05))
+* adding 2 more variants by theme on buttons ([4d879c1](https://github.com/tecsinapse/ui-kit/commit/4d879c1))
+* Mask as inputComponent (cpf, phone, cel, currency). Add story example ([27555fd](https://github.com/tecsinapse/ui-kit/commit/27555fd))
+* Merge old plate and merco plate ([98a8fc0](https://github.com/tecsinapse/ui-kit/commit/98a8fc0))
+* Release 0.0.50 ([7533ae4](https://github.com/tecsinapse/ui-kit/commit/7533ae4))
+* Separate mask file and improve code format ([4f417d1](https://github.com/tecsinapse/ui-kit/commit/4f417d1))
+* Simplify mask verification ([7fabfc6](https://github.com/tecsinapse/ui-kit/commit/7fabfc6))
+* solving babel loader dependency error ([f29583d](https://github.com/tecsinapse/ui-kit/commit/f29583d))
+* Standard variant naming and adding more buttons ([77b7174](https://github.com/tecsinapse/ui-kit/commit/77b7174))
+
+
+
+<a name="0.0.50"></a>
+## <small>0.0.50 (2019-02-25)</small>
+
+* Add cep mask ([5edd11f](https://github.com/tecsinapse/ui-kit/commit/5edd11f))
+* Add mask cpf, cnpj, cpfcnpj, cellphone and plate. Fix invalid mask ([df3c237](https://github.com/tecsinapse/ui-kit/commit/df3c237))
+* Add mask deps ([44122de](https://github.com/tecsinapse/ui-kit/commit/44122de))
+* Add time/date mask ([855ce05](https://github.com/tecsinapse/ui-kit/commit/855ce05))
+* adding 2 more variants by theme on buttons ([4d879c1](https://github.com/tecsinapse/ui-kit/commit/4d879c1))
+* Mask as inputComponent (cpf, phone, cel, currency). Add story example ([27555fd](https://github.com/tecsinapse/ui-kit/commit/27555fd))
+* Merge old plate and merco plate ([98a8fc0](https://github.com/tecsinapse/ui-kit/commit/98a8fc0))
+* Separate mask file and improve code format ([4f417d1](https://github.com/tecsinapse/ui-kit/commit/4f417d1))
+* Simplify mask verification ([7fabfc6](https://github.com/tecsinapse/ui-kit/commit/7fabfc6))
+* solving babel loader dependency error ([f29583d](https://github.com/tecsinapse/ui-kit/commit/f29583d))
+* Standard variant naming and adding more buttons ([77b7174](https://github.com/tecsinapse/ui-kit/commit/77b7174))
+
+
+
+<a name="0.0.49"></a>
+## <small>0.0.49 (2019-02-22)</small>
+
+* Select ([af7ee7f](https://github.com/tecsinapse/ui-kit/commit/af7ee7f))
+* solving styles errors on select ([b7bff8b](https://github.com/tecsinapse/ui-kit/commit/b7bff8b))
+
+
+
+<a name="0.0.48"></a>
+## <small>0.0.48 (2019-02-22)</small>
+
+* adding component for select no value ([adf2df9](https://github.com/tecsinapse/ui-kit/commit/adf2df9))
+* adding shrink label prop ([143f9ef](https://github.com/tecsinapse/ui-kit/commit/143f9ef))
+* better margins on select ([704fb57](https://github.com/tecsinapse/ui-kit/commit/704fb57))
+* flex missing on select ([c103334](https://github.com/tecsinapse/ui-kit/commit/c103334))
+* Release 0.0.46 ([1c66b4b](https://github.com/tecsinapse/ui-kit/commit/1c66b4b))
+* Release 0.0.47 ([5e79ba5](https://github.com/tecsinapse/ui-kit/commit/5e79ba5))
+* Update es-utils ([cb47cf7](https://github.com/tecsinapse/ui-kit/commit/cb47cf7))
+
+
+
+<a name="0.0.47"></a>
+## <small>0.0.47 (2019-02-22)</small>
+
+* adding shrink label prop ([143f9ef](https://github.com/tecsinapse/ui-kit/commit/143f9ef))
+* better margins on select ([704fb57](https://github.com/tecsinapse/ui-kit/commit/704fb57))
+* Release 0.0.46 ([1c66b4b](https://github.com/tecsinapse/ui-kit/commit/1c66b4b))
+
+
+
+<a name="0.0.46"></a>
+## <small>0.0.46 (2019-02-22)</small>
+
+* adding shrink label prop ([143f9ef](https://github.com/tecsinapse/ui-kit/commit/143f9ef))
+* better margins on select ([704fb57](https://github.com/tecsinapse/ui-kit/commit/704fb57))
+
+
+
+<a name="0.0.45"></a>
+## <small>0.0.45 (2019-02-21)</small>
+
+
+
+
+<a name="0.0.44"></a>
+## <small>0.0.44 (2019-02-21)</small>
+
+* Blocking es-utils last version ([087f91c](https://github.com/tecsinapse/ui-kit/commit/087f91c))
+* Parametrizing portals ([32ffd88](https://github.com/tecsinapse/ui-kit/commit/32ffd88))
+
+
+
+<a name="0.0.43"></a>
+## <small>0.0.43 (2019-02-20)</small>
+
+* AppBar ([d61f3ec](https://github.com/tecsinapse/ui-kit/commit/d61f3ec))
+* Custom components on menu ([5a9333c](https://github.com/tecsinapse/ui-kit/commit/5a9333c))
+
+
+
+<a name="0.0.42"></a>
+## <small>0.0.42 (2019-02-19)</small>
+
+* solving broken breadcrumb ([c1f9d38](https://github.com/tecsinapse/ui-kit/commit/c1f9d38))
+
+
+
+<a name="0.0.41"></a>
+## <small>0.0.41 (2019-02-18)</small>
+
+* flags icons ([44c72a7](https://github.com/tecsinapse/ui-kit/commit/44c72a7))
+
+
+
+<a name="0.0.40"></a>
+## <small>0.0.40 (2019-02-18)</small>
+
+* menu title can now be a function too - solving bug ([f1405aa](https://github.com/tecsinapse/ui-kit/commit/f1405aa))
+
+
+
+<a name="0.0.39"></a>
+## <small>0.0.39 (2019-02-18)</small>
+
+* menu title can now be a function too ([c7c9e66](https://github.com/tecsinapse/ui-kit/commit/c7c9e66))
+
+
+
 <a name="0.0.38"></a>
 ## <small>0.0.38 (2019-02-13)</small>
 

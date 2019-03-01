@@ -8,7 +8,7 @@ export function NoOptionsMessage({ selectProps, innerProps }) {
       className={selectProps.childrenClasses.noOptionsMessage}
       {...innerProps}
     >
-      Selecione...
+      {selectProps.selectPromptMessage}...
     </Typography>
   );
 }

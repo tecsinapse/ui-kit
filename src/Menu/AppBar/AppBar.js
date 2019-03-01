@@ -7,7 +7,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 
-import { mdiChevronRight, mdiMenu } from '@mdi/js';
+import { mdiMenu } from '@mdi/js';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+
 import Icon from '@mdi/react';
 import Link from '@material-ui/core/Link';
 import { DefaultProductTypography } from '../DefaultProductTypography';
@@ -30,6 +32,7 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     display: 'flex',
     flexGrow: 0,
     position: 'unset',
+    backgroundColor: palette.primary.main,
   },
   breadcrumb: { display: 'flex !important' },
   paperBreadcrumb: {
@@ -43,6 +46,9 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
   link: {
     color: `${palette.common.white} !important`,
   },
+  separator: {
+    color: 'white',
+  },
 }));
 
 export const AppBar = ({
@@ -52,11 +58,12 @@ export const AppBar = ({
   menuOnClick,
   leftIcons,
   rightIcons,
+  className,
   breadcrumbs = [],
 }) => {
   const classes = useStyles();
   return (
-    <div>
+    <div className={className}>
       <MaterialAppBar className={classes.appBar}>
         <Toolbar disableGutters className={classes.toolbar}>
           <IconButton
@@ -79,7 +86,12 @@ export const AppBar = ({
         <div className={classes.paperBreadcrumb}>
           <Breadcrumbs
             classes={{ root: classes.breadcrumb }}
-            separator={<Icon path={mdiChevronRight} color="white" size={1} />}
+            separator={
+              <NavigateNextIcon
+                fontSize="small"
+                className={classes.separator}
+              />
+            }
             arial-label="Breadcrumb"
           >
             {breadcrumbs.map((current, index, arr) =>
@@ -119,7 +131,7 @@ AppBar.defaultProps = {
   rightIcons: null,
 };
 const breadcrumb = PropTypes.shape({
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   component: PropTypes.function,
   componentProps: PropTypes.object,
 });

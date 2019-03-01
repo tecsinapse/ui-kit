@@ -5,5 +5,12 @@ import { Drawer } from './Drawer';
 import { demoItems } from './demoItems';
 
 storiesOf(`${GROUPS.MENU}|Drawer`, module).add('Drawer', () => (
-  <Drawer items={demoItems} open onClose={() => {}} />
+  <Drawer
+    items={demoItems}
+    open
+    onClose={() => {}}
+    productName="Gestão de Frotas"
+    subtitle="TecSinapse"
+    title="Portal"
+  />
 ));

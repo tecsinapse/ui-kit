@@ -8,14 +8,26 @@ export const selectInputStyle = theme => ({
   input: {
     display: 'flex',
   },
+  multiValueContainer: {
+    paddingLeft: '0px !important',
+  },
+  inputMultilineDense: {
+    paddingTop: '0px !important',
+    paddingBottom: '0px !important',
+  },
+  inputNormal: {
+    display: 'flex',
+    paddingTop: `${theme.spacing.unit / 2}px !important`,
+    paddingBottom: `${theme.spacing.unit / 2}px !important`,
+  },
   dummyWrapper: {
-    display: 'none'
+    display: 'none',
   },
   valueContainer: {
     minWidth: 0,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-around',
     flexGrow: 1,
   },
   chip: {
@@ -50,12 +62,12 @@ export const selectInputStyle = theme => ({
     height: theme.spacing.unit * 2,
   },
   select: {
-    paddingTop: theme.spacing.unit / 2,
+    // paddingTop: theme.spacing.unit / 2,
   },
   flex: {
     display: 'flex',
   },
   dropdownIndicator: {
-    cursor: "pointer !important",
+    cursor: 'pointer !important',
   },
 });
