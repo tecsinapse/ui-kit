@@ -1,3 +1,10 @@
+<a name="0.0.61"></a>
+## <small>0.0.61 (2019-03-01)</small>
+
+* adding selectPromptMessage for i18n on select ([b4d0190](https://github.com/tecsinapse/ui-kit/commit/b4d0190))
+
+
+
 <a name="0.0.60"></a>
 ## <small>0.0.60 (2019-02-28)</small>
 
