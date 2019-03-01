@@ -25,10 +25,10 @@ const Action = ({ action, row, setAnchorEl }) => {
 const TableActions = ({ actions, row }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
-  // Commented rule of no-array-index-key because in the array of actions this is not necessary
-  // eslint-disable-next-line
   const actionButtons = actions.map((action, index) => (
     <Action
+      // Commented rule of no-array-index-key because in the array of actions this is not necessary
+      // eslint-disable-next-line
       key={`action-${index}`}
       action={action}
       row={row}
