@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
@@ -109,14 +109,15 @@ const useStyle = makeStyles({
 export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
   const classes = useStyle();
   const hasMultipleChildren = children.length != null;
+  const [slideIndex, setSlideIndex] = useState(0);
 
   const carousel = (
     <Carousel
       autoplay={autoplay && hasMultipleChildren}
       className={classes.carousel /* TODO */}
-      index={null /* TODO */}
+      index={slideIndex /* TODO */}
       interval={interval}
-      onChangeIndex={null /* TODO */}
+      onChangeIndex={newIndex => setSlideIndex(newIndex)}
       slideClassName={classes.slide /* TODO */}
     >
       {React.Children.map(children, c => React.cloneElement(c))}
@@ -127,7 +128,7 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
     <div className={classes.content}>
       {hasMultipleChildren && (
         <div className={classNames(classes.arrow, classes.arrowLeft)}>
-          <Fab>
+          <Fab onClick={() => setSlideIndex(prevIndex => prevIndex - 1)}>
             <ArrowBackIcon className={classes.arrowIcon} />
           </Fab>
         </div>
@@ -141,7 +142,7 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
 
       {hasMultipleChildren && (
         <div className={classNames(classes.arrow, classes.arrowRight)}>
-          <Fab>
+          <Fab onClick={() => setSlideIndex(prevIndex => prevIndex + 1)}>
             <ArrowForwardIcon className={classes.arrowIcon} />
           </Fab>
         </div>
