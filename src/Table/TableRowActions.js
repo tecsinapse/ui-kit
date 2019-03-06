@@ -22,7 +22,7 @@ const Action = ({ action, row, setAnchorEl }) => {
   return button;
 };
 
-const TableActions = ({ actions, row }) => {
+const TableRowActions = ({ actions, row }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const actionButtons = actions.map((action, index) => (
@@ -69,11 +69,11 @@ const TableActions = ({ actions, row }) => {
   );
 };
 
-TableActions.defaultProps = {
+TableRowActions.defaultProps = {
   row: null,
 };
 
-TableActions.propTypes = {
+TableRowActions.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       tooltip: PropTypes.string,
@@ -84,4 +84,4 @@ TableActions.propTypes = {
   row: PropTypes.object,
 };
 
-export default TableActions;
+export default TableRowActions;

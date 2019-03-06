@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import Checkbox from '@material-ui/core/Checkbox';
 import { resolveObj, isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
-import TableActions from './TableActions';
+import TableRowActions from './TableRowActions';
 
 const stringifyIfObject = value =>
   typeof value === 'object' ? JSON.stringify(value) : value;
@@ -34,7 +34,7 @@ const convertValuesToTableCell = (
           width: actions.length < 4 ? `${actions.length * 50}px` : '50px',
         }}
       >
-        <TableActions actions={actions} row={rowData} rowId={rowId} />
+        <TableRowActions actions={actions} row={rowData} rowId={rowId} />
       </TableCell>
     );
   }
