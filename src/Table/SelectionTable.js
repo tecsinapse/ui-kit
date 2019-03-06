@@ -1,5 +1,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
+import DeleteIcon from '@material-ui/icons/Delete';
+import SendIcon from '@material-ui/icons/Send';
 import Table from './Table';
 import { cars } from './exampleData';
 
@@ -42,6 +44,30 @@ const SelectionTable = () => (
       rowId={row => row.id}
       options={tableOptions}
       onSelectRow={onSelectRow}
+      toolbarOptions={{
+        title: 'List of Cars',
+        actions: [
+          {
+            label: 'No Icon Button',
+            onClick: selectedRows => {},
+          },
+          {
+            label: 'Send',
+            iconRight: <SendIcon />,
+            tooltip: 'Send rows do email',
+            // eslint-disable-next-line
+            onClick: selectedRows =>
+              alert(`You have send ${selectedRows.length} row(s)`),
+          },
+          {
+            label: 'Delete',
+            iconLeft: <DeleteIcon />,
+            // eslint-disable-next-line
+            onClick: selectedRows =>
+              alert(`You have deleted ${selectedRows.length} row(s)`),
+          },
+        ],
+      }}
     />
   </Paper>
 );

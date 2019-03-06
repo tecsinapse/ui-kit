@@ -7,6 +7,7 @@ import { tableStyles } from './tableStyle';
 import TableRowFilter from './TableRowFilter';
 import TableHeader from './TableHeader';
 import TableRows from './TableRows';
+import TableToolbar from './TableToolbar';
 
 const initializeColumns = (tableColumns, tableOptions, actions) => {
   const columns = [...tableColumns];
@@ -62,6 +63,7 @@ const Table = props => {
     rowId,
     onSelectRow,
     actions,
+    toolbarOptions,
   } = props;
   let { rowCount } = props;
 
@@ -76,37 +78,44 @@ const Table = props => {
   );
 
   return (
-    <MUITable className={classes.table}>
-      <TableHeader
-        columns={tableColumns}
-        rowCount={rowCount}
+    <div>
+      <TableToolbar
+        options={toolbarOptions}
         selectedRows={selectedRows}
-        setSelectedRows={setSelectedRows}
-        data={rowData}
-        onSelectRow={onSelectRow}
+        selection={options.selection}
       />
-      <TableBody>
-        <TableRowFilter
-          rendered={someColumnHasFilter}
+      <MUITable className={classes.table}>
+        <TableHeader
           columns={tableColumns}
-          onChangeFilter={onChangeFilter(
-            data,
-            setRowData,
-            tableColumns,
-            onFilterData
-          )}
-        />
-        <TableRows
-          columns={tableColumns}
-          data={rowData}
-          rowId={rowId}
           rowCount={rowCount}
           selectedRows={selectedRows}
           setSelectedRows={setSelectedRows}
+          data={rowData}
           onSelectRow={onSelectRow}
         />
-      </TableBody>
-    </MUITable>
+        <TableBody>
+          <TableRowFilter
+            rendered={someColumnHasFilter}
+            columns={tableColumns}
+            onChangeFilter={onChangeFilter(
+              data,
+              setRowData,
+              tableColumns,
+              onFilterData
+            )}
+          />
+          <TableRows
+            columns={tableColumns}
+            data={rowData}
+            rowId={rowId}
+            rowCount={rowCount}
+            selectedRows={selectedRows}
+            setSelectedRows={setSelectedRows}
+            onSelectRow={onSelectRow}
+          />
+        </TableBody>
+      </MUITable>
+    </div>
   );
 };
 
@@ -118,6 +127,7 @@ Table.defaultProps = {
   onSelectRow: null,
   rowCount: null,
   actions: [],
+  toolbarOptions: null,
 };
 
 Table.propTypes = {
@@ -146,6 +156,19 @@ Table.propTypes = {
       onClick: PropTypes.func,
     })
   ),
+  toolbarOptions: PropTypes.shape({
+    title: PropTypes.string,
+    selectedLabel: PropTypes.func,
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string,
+        tooltip: PropTypes.string,
+        iconLeft: PropTypes.object,
+        iconRight: PropTypes.object,
+        onClick: PropTypes.func.isRequired,
+      })
+    ),
+  }),
 };
 
 export default Table;
