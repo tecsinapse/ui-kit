@@ -27,6 +27,7 @@ const useStyle = backImg =>
       whiteSpace: 'nowrap',
       overflow: 'hidden',
       flexBasis: '50%',
+      flexGrow: 1,
     },
     title: {
       textTransform: 'uppercase',

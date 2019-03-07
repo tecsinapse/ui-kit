@@ -22,19 +22,6 @@ const useStyle = makeStyles({
     position: 'relative',
     display: 'flex',
   },
-  contentMobile: {
-    width: '100%',
-    height: '100%',
-    maxWidth: 'initial',
-    maxHeight: 'initial',
-    margin: 0,
-    top: 0,
-    transform: 'none',
-
-    '& > $carouselWrapper': {
-      borderRadius: 0,
-    },
-  },
   arrow: {
     width: 48,
     height: 48,
@@ -46,7 +33,7 @@ const useStyle = makeStyles({
     left: 10,
   },
   arrowRight: {
-    right: 15,
+    right: 10,
   },
   arrowIcon: {
     color: grey[700],
@@ -153,7 +140,7 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
 
 AutoRotatingCarousel.defaultProps = {
   autoplay: false,
-  interval: 30000,
+  interval: 5000,
 };
 
 AutoRotatingCarousel.propTypes = {
