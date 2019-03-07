@@ -72,15 +72,15 @@ const TableToolbarSelection = ({ options, selectedRows }) => {
 			</div>
 			{actions && (
 				<div className={classes.actions}>
-					{actions.map((action, index) => (
+					{actions.map((action, index) => {
 						// Commented rule of no-array-index-key because in the array of actions this is not necessary
 						// eslint-disable-next-line
-						<Action
+						return <Action
 							key={`tb-action-${index}`}
 							action={action}
 							selectedRows={selectedRows}
 						/>
-					))}
+					})}
 				</div>
 			)}
 		</Toolbar>

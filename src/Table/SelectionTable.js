@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
+import { Button } from '@material-ui/core';
 import Table from './Table';
 import { Select } from '../Select/Select';
 import { cars } from './exampleData';
-import { Button } from '@material-ui/core';
 
 const columns = [
   {
@@ -104,7 +104,7 @@ const SelectionTable = () => (
               alert(`You have deleted ${selectedRows.length} row(s)`),
           },
 		],
-		advancedFiltersComponent: <FilterComponent/>
+		advancedFiltersComponent: <FilterComponent/>,
       }}
     />
   </Paper>

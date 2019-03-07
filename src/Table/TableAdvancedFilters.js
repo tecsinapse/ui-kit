@@ -13,14 +13,15 @@ const styles = makeStyles(theme => ({
 	popover: {
 		maxWidth: '700px',
 		maxHeight: '400px',
-	}
+	},
 }));
 
 const TableAdvancedFilters = ({ tooltipAdvancedFilter, advancedFiltersComponent }) => {
+	const [anchorEl, setAnchorEl] = useState(null);
+	
 	if (!advancedFiltersComponent) return null;
 
 	const classes = styles();
-	const [anchorEl, setAnchorEl] = useState(null);
 	const open = Boolean(anchorEl);
 
 	return (
@@ -50,6 +51,11 @@ const TableAdvancedFilters = ({ tooltipAdvancedFilter, advancedFiltersComponent 
 		</React.Fragment>
 	);
 };
+
+TableAdvancedFilters.defaultProps = {
+	tooltipAdvancedFilter: null,
+	advancedFiltersComponent: null,
+}
 
 TableAdvancedFilters.propTypes = {
 	tooltipAdvancedFilter: PropTypes.string,
