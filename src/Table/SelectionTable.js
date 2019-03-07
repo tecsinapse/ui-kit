@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
 import Table from './Table';
+import { Select } from '../Select/Select';
 import { cars } from './exampleData';
+import { Button } from '@material-ui/core';
 
 const columns = [
   {
@@ -36,6 +38,41 @@ const onSelectRow = (selectedRows, selectedRow, checked) => {
   console.log(selectedRow);
 };
 
+const FilterComponent = () => {
+	const options = [
+		{
+			value: 'a',
+			label: 'Option A',
+		},
+		{
+			value: 'b',
+			label: 'Option B',
+		},
+		{
+			value: 'c',
+			label: 'Option C',
+		},
+	];
+	const [value, setValue] = useState('a');
+	return (
+		<div style={{ height: '200px' }}>
+			<Select
+				value={value}
+				options={options}
+				onChange={setValue}
+				label="Placeholder"
+			/>
+			<Select
+				value={value}
+				options={options}
+				onChange={setValue}
+				label="Placeholder 2"
+			/>
+			<Button style={{marginTop: 15}}>Filter</Button>
+		</div>
+	);
+}
+
 const SelectionTable = () => (
   <Paper style={{ width: 1000 }}>
     <Table
@@ -45,7 +82,7 @@ const SelectionTable = () => (
       options={tableOptions}
       onSelectRow={onSelectRow}
       toolbarOptions={{
-        title: 'List of Cars',
+		title: 'List of Cars',
         actions: [
           {
             label: 'No Icon Button',
@@ -66,7 +103,8 @@ const SelectionTable = () => (
             onClick: selectedRows =>
               alert(`You have deleted ${selectedRows.length} row(s)`),
           },
-        ],
+		],
+		advancedFiltersComponent: <FilterComponent/>
       }}
     />
   </Paper>

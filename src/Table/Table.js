@@ -158,7 +158,9 @@ Table.propTypes = {
   ),
   toolbarOptions: PropTypes.shape({
     title: PropTypes.string,
-    selectedLabel: PropTypes.func,
+	selectedLabel: PropTypes.func,
+	tooltipAdvancedFilter: PropTypes.string,
+	advancedFiltersComponent: PropTypes.obj,
     actions: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string,

@@ -2,135 +2,77 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Tooltip from '@material-ui/core/Tooltip';
 import { makeStyles } from '@material-ui/styles';
-import { lighten } from '@material-ui/core/styles/colorManipulator';
+import TableToolbarSelection from './TableToolbarSelection';
+import TableAdvancedFilters from './TableAdvancedFilters';
+
+const tableToolbarStyles = makeStyles(theme => ({
+	toolbar: {
+		paddingRight: theme.spacing.unit,
+	},
+	title: {
+		width: '100%',
+		maxWidth: '80%',
+	},
+	filter: {
+		width: '100%',
+		textAlign: 'right',
+		maxWidth: '20%',
+	},
+}));
 
 const SimpleToolbar = ({ options }) => {
-  const { title } = options || {};
-  return (
-    <Toolbar>
-      <div>
-        <Typography variant="h6" id="tableTitle">
-          {title}
-        </Typography>
-      </div>
-    </Toolbar>
-  );
-};
+	const { title, tooltipAdvancedFilter, advancedFiltersComponent } = options || {};
+	const classes = tableToolbarStyles();
 
-const selectionStyles = makeStyles(theme => ({
-  toolbar: {
-    color: theme.palette.secondary.main,
-    backgroundColor: lighten(theme.palette.secondary.light, 0.8),
-  },
-  title: {
-    width: '100%',
-    maxWidth: '50%',
-  },
-  colorTitle: {
-    color: theme.palette.secondary.main,
-  },
-  actions: {
-    width: '100%',
-    textAlign: 'right',
-    maxWidth: '50%',
-  },
-}));
-
-const actionStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing.unit,
-    color: theme.palette.text.secondary,
-  },
-}));
-
-const Action = ({ action, selectedRows }) => {
-  const { label, tooltip, iconLeft, iconRight, onClick } = action;
-
-  const classes = actionStyles();
-
-  const button = (
-    <Button onClick={() => onClick(selectedRows)} className={classes.button}>
-      {iconLeft}
-      {label}
-      {iconRight}
-    </Button>
-  );
-
-  if (tooltip) {
-    return <Tooltip title={tooltip}>{button}</Tooltip>;
-  }
-  return button;
-};
-
-const SelectionToolbar = ({ options, selectedRows }) => {
-  const { actions, selectedLabel } = options || {};
-  const classes = selectionStyles();
-
-  return (
-    <Toolbar className={classes.toolbar}>
-      <div className={classes.title}>
-        <Typography
-          variant="subtitle1"
-          id="tableTitle"
-          className={classes.colorTitle}
-        >
-          {selectedLabel
-            ? selectedLabel(selectedRows.length)
-            : `${selectedRows.length} Selected`}
-        </Typography>
-      </div>
-      {actions && (
-        <div className={classes.actions}>
-          {actions.map((action, index) => (
-            // Commented rule of no-array-index-key because in the array of actions this is not necessary
-            // eslint-disable-next-line
-            <Action
-              key={`tb-action-${index}`}
-              action={action}
-              selectedRows={selectedRows}
-            />
-          ))}
-        </div>
-      )}
-    </Toolbar>
-  );
+	return (
+		<Toolbar className={classes.toolbar}>
+			<div className={classes.title}>
+				<Typography variant="h6" id="tableTitle">
+					{title}
+				</Typography>
+			</div>
+			<div className={classes.filter}>
+				<TableAdvancedFilters tooltipAdvancedFilter={tooltipAdvancedFilter} advancedFiltersComponent={advancedFiltersComponent} />
+			</div>
+		</Toolbar>
+	);
 };
 
 const TableToolbar = ({ options, selectedRows, selection }) => {
-  if (!options && !selection) return null;
+	if (!options && !selection) return null;
 
-  if (selectedRows.length === 0) {
-    return <SimpleToolbar options={options} />;
-  }
+	if (selectedRows.length === 0) {
+		return <SimpleToolbar options={options} />;
+	}
 
-  return <SelectionToolbar options={options} selectedRows={selectedRows} />;
+	return <TableToolbarSelection options={options} selectedRows={selectedRows} />;
 };
 
 TableToolbar.defaultProps = {
-  selectedRows: [],
-  selection: false,
-  options: null,
+	selectedRows: [],
+	selection: false,
+	options: null,
 };
 
 TableToolbar.propTypes = {
-  selectedRows: PropTypes.arrayOf(PropTypes.object),
-  selection: PropTypes.bool,
-  options: PropTypes.shape({
-    title: PropTypes.string,
-    selectedLabel: PropTypes.func,
-    actions: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string,
-        tooltip: PropTypes.string,
-        iconLeft: PropTypes.object,
-        iconRight: PropTypes.object,
-        onClick: PropTypes.func.isRequired,
-      })
-    ),
-  }),
+	selectedRows: PropTypes.arrayOf(PropTypes.object),
+	selection: PropTypes.bool,
+	options: PropTypes.shape({
+		title: PropTypes.string,
+		selectedLabel: PropTypes.func,
+		tooltipAdvancedFilter: PropTypes.string,
+		advancedFiltersComponent: PropTypes.obj,
+		actions: PropTypes.arrayOf(
+			PropTypes.shape({
+				label: PropTypes.string,
+				tooltip: PropTypes.string,
+				iconLeft: PropTypes.object,
+				iconRight: PropTypes.object,
+				onClick: PropTypes.func.isRequired,
+			})
+		),
+	}),
 };
 
 export default TableToolbar;
