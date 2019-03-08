@@ -9,7 +9,7 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { grey } from '@material-ui/core/colors';
 import Carousel from './Carousel';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles(theme => ({
   content: {
     width: '100%',
     height: '100%',
@@ -17,24 +17,23 @@ const useStyle = makeStyles({
     display: 'flex',
   },
   arrow: {
-    width: 48,
-    height: 48,
+    width: 4 * theme.spacing.unit,
+    height: 4 * theme.spacing.unit,
     zIndex: 1,
     top: '50%',
     position: 'absolute',
   },
   arrowLeft: {
-    left: 10,
+    left: 2 * theme.spacing.unit,
   },
   arrowRight: {
-    right: 10,
+    right: 2 * theme.spacing.unit,
   },
   arrowIcon: {
     color: grey[700],
   },
   carouselWrapper: {
     overflow: 'hidden',
-    borderRadius: 14,
     transform: 'scale(1.0)',
     background: 'transparent',
     height: '100%',
@@ -53,7 +52,7 @@ const useStyle = makeStyles({
     height: '100%',
     zIndex: -1,
   },
-});
+}));
 
 export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
   const classes = useStyle();
@@ -76,8 +75,11 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
   return (
     <div className={classes.content}>
       {hasMultipleChildren && (
-        <div className={classNames(classes.arrow, classes.arrowLeft)}>
-          <Fab onClick={() => setSlideIndex(prevIndex => prevIndex - 1)}>
+        <div>
+          <Fab
+            className={classNames(classes.arrow, classes.arrowLeft)}
+            onClick={() => setSlideIndex(prevIndex => prevIndex - 1)}
+          >
             <ArrowBackIcon className={classes.arrowIcon} />
           </Fab>
         </div>
@@ -90,8 +92,11 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
       </div>
 
       {hasMultipleChildren && (
-        <div className={classNames(classes.arrow, classes.arrowRight)}>
-          <Fab onClick={() => setSlideIndex(prevIndex => prevIndex + 1)}>
+        <div>
+          <Fab
+            className={classNames(classes.arrow, classes.arrowRight)}
+            onClick={() => setSlideIndex(prevIndex => prevIndex + 1)}
+          >
             <ArrowForwardIcon className={classes.arrowIcon} />
           </Fab>
         </div>

@@ -5,32 +5,32 @@ import AutoRotatingCaorusel from './AutoRotatingCarousel';
 
 storiesOf(`Carousel`, module)
   .add('carousel single', () => (
-    <div style={{ width: '500px', height: '500px' }}>
+    <div style={{ width: '700px', height: '400px' }}>
       <AutoRotatingCaorusel>
         <Slide
-          titleImage="https://conservationnation.org/img/logos/cn-elephant-orange.png"
-          title="Title Example"
-          subtitle="Subtitle example"
-          backgroundImage="http://www.gkndriveline.com/contentassets/bcb5f78ba1cc4a21aac5be368c008f08/gkn-driveline-adapts-motorsports-technology-for-worlds-quickest-most-powerful-suv-min.jpg/"
+          titleImage="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/100px-BMW.svg.png"
+          title="Relatório de Manuntenção BMW 2019"
+          subtitle="Já estão disponíveis todos os relatórios de manuntenção de 2019 com todas as informações técnicas de recall"
+          backgroundImage="http://equatusvehicleservices.co.uk/wp-content/uploads/2017/03/mechanical-repairs-700x400.jpg"
         />
       </AutoRotatingCaorusel>
     </div>
   ))
   .add('carousel multiple', () => (
-    <div style={{ width: '600px', height: '600px' }}>
+    <div style={{ width: '700px', height: '400px' }}>
       <AutoRotatingCaorusel>
         <Slide
-          titleImage="https://conservationnation.org/img/logos/cn-elephant-orange.png"
-          title="Title Example"
-          subtitle="Subtitle example"
-          backgroundImage="http://www.gkndriveline.com/contentassets/bcb5f78ba1cc4a21aac5be368c008f08/gkn-driveline-adapts-motorsports-technology-for-worlds-quickest-most-powerful-suv-min.jpg/"
+          titleImage="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/100px-BMW.svg.png"
+          title="Relatório de Manuntenção BMW 2019"
+          subtitle="Já estão disponíveis todos os relatórios de manuntenção de 2019 com todas as informações técnicas de recall"
+          backgroundImage="http://equatusvehicleservices.co.uk/wp-content/uploads/2017/03/mechanical-repairs-700x400.jpg"
         />
 
         <Slide
-          titleImage="https://conservationnation.org/img/logos/cn-elephant-orange.png"
-          title="Title Example"
-          subtitle="Subtitle example"
-          backgroundImage="http://i.imgur.com/nif7ztU.jpg"
+          titleImage="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/100px-BMW.svg.png"
+          title="Comitê Geral Seleciona Integrantes"
+          subtitle="O comitê geral elegeu os novos membros para o Premium Selection"
+          backgroundImage="https://autonesian.com/wp-content/uploads/2017/02/astra-autoprima-bmw-2-700x400.jpg"
         />
       </AutoRotatingCaorusel>
     </div>

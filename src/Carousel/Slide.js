@@ -12,7 +12,6 @@ const useStyle = backImg =>
       position: 'relative',
     },
     titleDiv: {
-      lineHeight: '32px',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
       overflow: 'hidden',
@@ -36,6 +35,12 @@ const useStyle = backImg =>
       width: '100%',
       justifyContent: 'flex-end',
       alignItems: 'center',
+    },
+    cra: {
+      display: 'block',
+      height: '100%',
+      width: '100%',
+      textDecoration: 'none',
     },
   });
 
