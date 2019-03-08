@@ -10,15 +10,9 @@ import { grey } from '@material-ui/core/colors';
 import Carousel from './Carousel';
 
 const useStyle = makeStyles({
-  root: {
-    '& > *:focus': {
-      outline: 'none',
-    },
-  },
   content: {
     width: '100%',
     height: '100%',
-    border: '7px solid blue',
     position: 'relative',
     display: 'flex',
   },
@@ -46,36 +40,7 @@ const useStyle = makeStyles({
     height: '100%',
     width: '100%',
   },
-  dots: {
-    paddingTop: 36,
-    margin: '0 auto',
-  },
-  dotsMobile: {
-    paddingTop: 0,
-  },
-  dotsMobileLandscape: {
-    paddingTop: 20,
-  },
-  footer: {
-    marginTop: -72,
-    width: '100%',
-    position: 'relative',
-    textAlign: 'center',
-  },
-  footerMobile: {
-    marginTop: -92,
-  },
-  footerMobileLandscape: {
-    marginTop: -3,
-    transform: 'translateY(-50vh)',
-    display: 'inline-block',
-    width: 'auto',
-  },
   slide: {
-    width: '100%',
-    height: '100%',
-  },
-  slideMobile: {
     width: '100%',
     height: '100%',
   },
@@ -83,11 +48,7 @@ const useStyle = makeStyles({
     height: '100%',
     width: '100%',
   },
-  carouselContainer: {
-    height: '100%',
-  },
-  closed: {},
-  bla: {
+  carouselDiv: {
     width: '100%',
     height: '100%',
     zIndex: -1,
@@ -102,11 +63,11 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
   const carousel = (
     <Carousel
       autoplay={autoplay && hasMultipleChildren}
-      className={classes.carousel /* TODO */}
-      index={slideIndex /* TODO */}
+      className={classes.carousel}
+      index={slideIndex}
       interval={interval}
       onChangeIndex={newIndex => setSlideIndex(newIndex)}
-      slideClassName={classes.slide /* TODO */}
+      slideClassName={classes.slide}
     >
       {React.Children.map(children, c => React.cloneElement(c))}
     </Carousel>
@@ -122,8 +83,8 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
         </div>
       )}
 
-      <div className={classes.bla}>
-        <Paper elevation={0} className={classes.carouselWrapper /* TODO */}>
+      <div className={classes.carouselDiv}>
+        <Paper elevation={0} className={classes.carouselWrapper}>
           {carousel}
         </Paper>
       </div>

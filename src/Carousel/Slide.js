@@ -7,19 +7,11 @@ const useStyle = backImg =>
   makeStyles({
     root: {
       display: 'flex',
-      border: '1px solid red',
       justifyContent: 'flex-end',
       alignItems: 'flex-end',
       position: 'relative',
     },
-    rootMobileLandscape: {
-      width: '100%',
-      display: 'flex',
-      flexDirection: 'row',
-    },
     titleDiv: {
-      border: '1px solid red',
-
       lineHeight: '32px',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
@@ -36,14 +28,12 @@ const useStyle = backImg =>
       color: '#fff',
     },
     titleImage: {
-      border: '1px solid red',
       alignSelf: 'flex-end',
     },
-    xa: {
+    info: {
       position: 'absolute',
       display: 'flex',
       width: '100%',
-      border: '1px solid blue',
       justifyContent: 'flex-end',
       alignItems: 'center',
     },
@@ -67,7 +57,7 @@ function Slide({
         title="image"
         style={{ width: '100%' }}
       />
-      <div className={classes.xa}>
+      <div className={classes.info}>
         <div className={classes.titleImage}>
           {<img src={titleImage} alt="" />}
         </div>
