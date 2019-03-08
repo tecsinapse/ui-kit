@@ -16,9 +16,9 @@ const useStyle = makeStyles({
     },
   },
   content: {
-    width: '500px',
-    height: '500px',
-    border: '5px solid blue',
+    width: '100%',
+    height: '100%',
+    border: '7px solid blue',
     position: 'relative',
     display: 'flex',
   },
@@ -89,6 +89,7 @@ const useStyle = makeStyles({
   closed: {},
   bla: {
     width: '100%',
+    height: '100%',
     zIndex: -1,
   },
 });

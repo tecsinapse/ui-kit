@@ -7,12 +7,10 @@ const useStyle = backImg =>
   makeStyles({
     root: {
       display: 'flex',
-      backgroundImage: `url(${backImg})`,
-      height: '500px',
-      width: '500px',
       border: '1px solid red',
       justifyContent: 'flex-end',
       alignItems: 'flex-end',
+      position: 'relative',
     },
     rootMobileLandscape: {
       width: '100%',
@@ -42,6 +40,7 @@ const useStyle = backImg =>
       alignSelf: 'flex-end',
     },
     xa: {
+      position: 'absolute',
       display: 'flex',
       width: '100%',
       border: '1px solid blue',
@@ -62,6 +61,12 @@ function Slide({
 
   return (
     <div className={classes.root}>
+      <img
+        src={backgroundImage}
+        alt=""
+        title="image"
+        style={{ width: '100%' }}
+      />
       <div className={classes.xa}>
         <div className={classes.titleImage}>
           {<img src={titleImage} alt="" />}
