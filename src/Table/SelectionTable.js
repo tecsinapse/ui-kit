@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
@@ -39,39 +39,39 @@ const onSelectRow = (selectedRows, selectedRow, checked) => {
 };
 
 const FilterComponent = () => {
-	const options = [
-		{
-			value: 'a',
-			label: 'Option A',
-		},
-		{
-			value: 'b',
-			label: 'Option B',
-		},
-		{
-			value: 'c',
-			label: 'Option C',
-		},
-	];
-	const [value, setValue] = useState('a');
-	return (
-		<div style={{ height: '200px' }}>
-			<Select
-				value={value}
-				options={options}
-				onChange={setValue}
-				label="Placeholder"
-			/>
-			<Select
-				value={value}
-				options={options}
-				onChange={setValue}
-				label="Placeholder 2"
-			/>
-			<Button style={{marginTop: 15}}>Filter</Button>
-		</div>
-	);
-}
+  const options = [
+    {
+      value: 'a',
+      label: 'Option A',
+    },
+    {
+      value: 'b',
+      label: 'Option B',
+    },
+    {
+      value: 'c',
+      label: 'Option C',
+    },
+  ];
+  const [value, setValue] = useState('a');
+  return (
+    <div style={{ height: '200px' }}>
+      <Select
+        value={value}
+        options={options}
+        onChange={setValue}
+        label="Placeholder"
+      />
+      <Select
+        value={value}
+        options={options}
+        onChange={setValue}
+        label="Placeholder 2"
+      />
+      <Button style={{ marginTop: 15 }}>Filter</Button>
+    </div>
+  );
+};
 
 const SelectionTable = () => (
   <Paper style={{ width: 1000 }}>
@@ -82,29 +82,32 @@ const SelectionTable = () => (
       options={tableOptions}
       onSelectRow={onSelectRow}
       toolbarOptions={{
-		title: 'List of Cars',
+        title: 'List of Cars',
         actions: [
           {
+            key: 'no-icon',
             label: 'No Icon Button',
             onClick: selectedRows => {},
           },
           {
+            key: 'send',
             label: 'Send',
             iconRight: <SendIcon />,
             tooltip: 'Send rows do email',
-            // eslint-disable-next-line
             onClick: selectedRows =>
+              // eslint-disable-next-line
               alert(`You have send ${selectedRows.length} row(s)`),
           },
           {
+            key: 'delete',
             label: 'Delete',
             iconLeft: <DeleteIcon />,
-            // eslint-disable-next-line
             onClick: selectedRows =>
+              // eslint-disable-next-line
               alert(`You have deleted ${selectedRows.length} row(s)`),
           },
-		],
-		advancedFiltersComponent: <FilterComponent/>,
+        ],
+        advancedFiltersComponent: <FilterComponent />,
       }}
     />
   </Paper>
