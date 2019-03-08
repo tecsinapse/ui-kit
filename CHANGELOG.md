@@ -1,3 +1,10 @@
+<a name="0.0.62"></a>
+## <small>0.0.62 (2019-03-08)</small>
+
+* updating documentation and storybook ([0629eb8](https://github.com/tecsinapse/ui-kit/commit/0629eb8))
+
+
+
 <a name="0.0.61"></a>
 ## <small>0.0.61 (2019-03-01)</small>
 
