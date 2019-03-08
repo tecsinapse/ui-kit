@@ -19,12 +19,12 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
     </Button>
   ))
   .add('warning button', () => (
-    <Button variant="warning " onClick={action('onClick')}>
+    <Button variant="warning" onClick={action('onClick')}>
       Smart Button
     </Button>
   ))
   .add('error button', () => (
-    <Button variant="error " onClick={action('onClick')}>
+    <Button variant="error" onClick={action('onClick')}>
       Smart Button
     </Button>
   ))
