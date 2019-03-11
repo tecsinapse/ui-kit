@@ -12,7 +12,6 @@ const useStyle = makeStyles({
   },
   titleDiv: {
     textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
     overflow: 'hidden',
     flexBasis: '50%',
     flexGrow: 1,
@@ -34,12 +33,6 @@ const useStyle = makeStyles({
     width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'center',
-  },
-  cra: {
-    display: 'block',
-    height: '100%',
-    width: '100%',
-    textDecoration: 'none',
   },
 });
 
