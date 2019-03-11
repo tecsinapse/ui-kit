@@ -8,6 +8,7 @@ storiesOf(`Carousel`, module)
     <div style={{ width: '700px', height: '400px' }}>
       <AutoRotatingCaorusel>
         <Slide
+          link="http://www.google.com.br"
           titleImage="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/100px-BMW.svg.png"
           title="Relatório de Manuntenção BMW 2019"
           subtitle="Já estão disponíveis todos os relatórios de manuntenção de 2019 com todas as informações técnicas de recall"
@@ -20,6 +21,7 @@ storiesOf(`Carousel`, module)
     <div style={{ width: '700px', height: '400px' }}>
       <AutoRotatingCaorusel>
         <Slide
+          link="http://www.google.com.br"
           titleImage="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/100px-BMW.svg.png"
           title="Relatório de Manuntenção BMW 2019"
           subtitle="Já estão disponíveis todos os relatórios de manuntenção de 2019 com todas as informações técnicas de recall"

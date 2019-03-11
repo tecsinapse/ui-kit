@@ -50,7 +50,6 @@ const useStyle = makeStyles(theme => ({
   carouselDiv: {
     width: '100%',
     height: '100%',
-    zIndex: -1,
   },
 }));
 

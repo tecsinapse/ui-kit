@@ -3,46 +3,45 @@ import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 
-const useStyle = backImg =>
-  makeStyles({
-    root: {
-      display: 'flex',
-      justifyContent: 'flex-end',
-      alignItems: 'flex-end',
-      position: 'relative',
-    },
-    titleDiv: {
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      flexBasis: '50%',
-      flexGrow: 1,
-    },
-    title: {
-      textTransform: 'uppercase',
-      fontWeight: 'bold',
-      color: '#fff',
-    },
-    subtitle: {
-      color: '#fff',
-    },
-    titleImage: {
-      alignSelf: 'flex-end',
-    },
-    info: {
-      position: 'absolute',
-      display: 'flex',
-      width: '100%',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-    },
-    cra: {
-      display: 'block',
-      height: '100%',
-      width: '100%',
-      textDecoration: 'none',
-    },
-  });
+const useStyle = makeStyles({
+  root: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    position: 'relative',
+  },
+  titleDiv: {
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    flexBasis: '50%',
+    flexGrow: 1,
+  },
+  title: {
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  subtitle: {
+    color: '#fff',
+  },
+  titleImage: {
+    alignSelf: 'flex-end',
+  },
+  info: {
+    position: 'absolute',
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  cra: {
+    display: 'block',
+    height: '100%',
+    width: '100%',
+    textDecoration: 'none',
+  },
+});
 
 function Slide({
   backgroundImage,
@@ -52,10 +51,14 @@ function Slide({
   link,
   ...other
 }) {
-  const classes = useStyle(backgroundImage)();
+  const classes = useStyle();
 
   return (
-    <div className={classes.root}>
+    <div
+      className={classes.root}
+      onClick={() => (link ? window.open(link) : null)}
+      onKeyPress={() => null}
+    >
       <img
         src={backgroundImage}
         alt=""
