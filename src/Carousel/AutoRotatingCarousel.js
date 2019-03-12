@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { grey } from '@material-ui/core/colors';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Carousel from './Carousel';
 
 const useStyle = makeStyles(theme => ({
@@ -15,6 +16,12 @@ const useStyle = makeStyles(theme => ({
     height: '100%',
     position: 'relative',
     display: 'flex',
+  },
+  progress: {
+    zIndex: -1,
+    top: '50%',
+    left: '50%',
+    position: 'absolute',
   },
   arrow: {
     width: 4 * theme.spacing.unit,
@@ -83,6 +90,8 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
           </Fab>
         </div>
       )}
+
+      <CircularProgress className={classes.progress} size={60} />
 
       <div className={classes.carouselDiv}>
         <Paper elevation={0} className={classes.carouselWrapper}>
