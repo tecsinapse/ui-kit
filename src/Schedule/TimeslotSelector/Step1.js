@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/es/Typography/Typography';
 
 import { FormControlLabel, Radio } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
@@ -8,8 +7,7 @@ import Grid from '@material-ui/core/Grid';
 
 import RadioGroup from '@material-ui/core/es/RadioGroup/RadioGroup';
 
-import { Select } from '../../Select/Select';
-import { Button } from '../../Buttons/Button';
+import { Select, Button } from '../../index';
 
 export const Step1 = ({
   classes,
@@ -33,9 +31,6 @@ export const Step1 = ({
 
   return (
     <div>
-      {labels.selectPersonLabel && (
-        <Typography variant="h6">{labels.selectPersonLabel}</Typography>
-      )}
       <Select
         maxLenghtOption={3}
         value={selectedPerson}
@@ -77,7 +72,9 @@ export const Step1 = ({
           </Grid>
         )}
         <Grid item>
-          <Button onClick={onNextStep}>{labels.buttonLabelNext}</Button>
+          <Button onClick={onNextStep} variant="secondary">
+            {labels.buttonLabelNext}
+          </Button>
         </Grid>
       </Grid>
     </div>

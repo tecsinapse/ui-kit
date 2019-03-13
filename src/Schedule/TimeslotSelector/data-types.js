@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 export const defaultLabels = {
   step1Label: 'Consultor e duração',
   step2Label: 'Data e horário',
-  // selectPersonLabel: 'Selecione o(s) consultor(es) e o tempo de atendimento',
   minuteslabel: 'minutos',
-  // selectDayEndTimeLabel: 'Selecione o dia e hora desejado para agendamento',
   buttonLabelCancel: 'Cancelar',
   buttonLabelNext: 'Avançar',
   buttonLabelprevious: 'Voltar',

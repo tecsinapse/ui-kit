@@ -8,8 +8,7 @@ import Card from '@material-ui/core/es/Card/Card';
 import CardContent from '@material-ui/core/es/CardContent/CardContent';
 import Chip from '@material-ui/core/es/Chip/Chip';
 
-import { Button } from '../../Buttons/Button';
-import { WeeklyCalendar } from '../../Calendar/WeeklyCalendar';
+import { Button, WeeklyCalendar } from '../../index';
 
 const generateTimeSlots = (personAvailabilities, date, duration) => {
   const dateTimeSlots = personAvailabilities.availabilities
@@ -70,112 +69,105 @@ export const Step2 = ({
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <div>
-      <Grid justify="center" container spacing={16}>
-        {labels.selectDayEndTimeLabel && (
-          <Grid item xs={12}>
-            <Typography variant="h6" align="center">
-              {labels.selectDayEndTimeLabel}
-            </Typography>
-          </Grid>
-        )}
-        <Grid item xs={7}>
-          <WeeklyCalendar
-            currentDate={selectedDate}
-            onDayChange={handleDayChange}
-            onWeekChange={onWeekChange}
-          />
-        </Grid>
-        <Grid
-          item
-          container
-          xs={12}
-          spacing={8}
-          className={classes.stepContentScrolling}
-        >
-          {selectedPerson.map(key => {
-            const person = timeSlotsByPerson[key];
-            return (
-              <Grid item xs={12} key={person.email}>
-                <Card>
-                  <CardContent className={classes.availiabilityCardRoot}>
-                    <Typography variant="body1" color="textSecondary">
-                      <b>{person.name}</b> {bull}{' '}
-                      {selectedDate
-                        .setLocale(locale)
-                        .toLocaleString(DateTime.DATE_HUGE)}
-                    </Typography>
-                    {person.timeSlots.length ? (
-                      person.timeSlots.map(ts =>
-                        selectedPersonTimeSlot &&
-                        ts === selectedPersonTimeSlot.time &&
-                        person.email === selectedPersonTimeSlot.email ? (
-                          <Chip
-                            key={ts}
-                            className={classes.availiabilityCardTime}
-                            label={ts}
-                            color="secondary"
-                          />
-                        ) : (
-                          <Chip
-                            key={ts}
-                            className={classes.availiabilityCardTime}
-                            label={ts}
-                            clickable
-                            onClick={() =>
-                              setSelectedPersonTimeSlot({
-                                date: selectedDate.toISODate(),
-                                time: ts,
-                                email: person.email,
-                                id: person.id,
-                                duration: selectedDuration,
-                              })
-                            }
-                          />
-                        )
-                      )
-                    ) : (
-                      <Typography variant="body1" color="textSecondary">
-                        {labels.noTimeSlotAvailable}
-                      </Typography>
-                    )}
-                  </CardContent>
-                </Card>
-              </Grid>
-            );
-          })}
-        </Grid>
-      </Grid>
-      <Divider variant="middle" />
-      <Grid
-        container
-        justify="center"
-        spacing={16}
-        className={classes.stepButtons}
-      >
-        {cancelDialog && (
+    <React.Fragment>
+      <div>
+        <Grid justify="center" container spacing={0}>
           <Grid item>
-            <Button variant="third" onClick={cancelDialog}>
-              {labels.buttonLabelCancel}
+            <WeeklyCalendar
+              currentDate={selectedDate}
+              onDayChange={handleDayChange}
+              onWeekChange={onWeekChange}
+            />
+          </Grid>
+        </Grid>
+      </div>
+      <div className={classes.stepContent}>
+        <div className={classes.stepContentScrolling}>
+          <Grid item container direction="column" spacing={8}>
+            {selectedPerson.map(key => {
+              const person = timeSlotsByPerson[key];
+              return (
+                <Grid item key={person.email}>
+                  <Card>
+                    <CardContent className={classes.availabilityCardRoot}>
+                      <Typography variant="body1" color="textSecondary">
+                        <b>{person.name}</b> {bull}{' '}
+                        {selectedDate
+                          .setLocale(locale)
+                          .toLocaleString(DateTime.DATE_HUGE)}
+                      </Typography>
+                      {person.timeSlots.length ? (
+                        person.timeSlots.map(ts =>
+                          selectedPersonTimeSlot &&
+                          ts === selectedPersonTimeSlot.time &&
+                          person.email === selectedPersonTimeSlot.email ? (
+                            <Chip
+                              key={ts}
+                              className={classes.availabilityCardTime}
+                              label={ts}
+                              color="secondary"
+                            />
+                          ) : (
+                            <Chip
+                              key={ts}
+                              className={classes.availabilityCardTime}
+                              label={ts}
+                              clickable
+                              onClick={() =>
+                                setSelectedPersonTimeSlot({
+                                  date: selectedDate.toISODate(),
+                                  time: ts,
+                                  email: person.email,
+                                  id: person.id,
+                                  duration: selectedDuration,
+                                })
+                              }
+                            />
+                          )
+                        )
+                      ) : (
+                        <Typography variant="body1" color="textSecondary">
+                          {labels.noTimeSlotAvailable}
+                        </Typography>
+                      )}
+                    </CardContent>
+                  </Card>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </div>
+      </div>
+      <div className={classes.stepButtons}>
+        <Grid container alignContent="flex-end" justify="center" spacing={8}>
+          <Grid item xs={12}>
+            <Divider variant="middle" />
+          </Grid>
+          {cancelDialog && (
+            <Grid item>
+              <Button variant="third" onClick={cancelDialog}>
+                {labels.buttonLabelCancel}
+              </Button>
+            </Grid>
+          )}
+          <Grid item>
+            <Button onClick={onPreviousStep} variant="secondary">
+              {labels.buttonLabelprevious}
             </Button>
           </Grid>
-        )}
-        <Grid item>
-          <Button onClick={onPreviousStep}>{labels.buttonLabelprevious}</Button>
+          <Grid item>
+            <Button
+              disabled={selectedPersonTimeSlot == null}
+              onClick={() =>
+                onHandleSchedule && onHandleSchedule(selectedPersonTimeSlot)
+              }
+            >
+              {labels.buttonLabelSchedule}
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Button
-            variant="secondary"
-            disabled={selectedPersonTimeSlot == null}
-            onClick={() =>
-              onHandleSchedule && onHandleSchedule(selectedPersonTimeSlot)
-            }
-          >
-            {labels.buttonLabelSchedule}
-          </Button>
-        </Grid>
-      </Grid>
-    </div>
+      </div>
+    </React.Fragment>
   );
 };
 

@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
-import Grid from '@material-ui/core/Grid';
+import { DialogContent, Typography } from '@material-ui/core';
 import Dialog from '@material-ui/core/es/Dialog/Dialog';
-import Paper from '@material-ui/core/Paper';
-
 import StepLabel from '@material-ui/core/StepLabel';
 import PropTypes from 'prop-types';
 
@@ -18,6 +16,7 @@ const STEP_1_KEY = 0;
 const STEP_2_KEY = 1;
 
 export const TimeslotSelectorComponent = ({
+  classes,
   locale,
   labels,
   personsAvailabilities,
@@ -30,9 +29,7 @@ export const TimeslotSelectorComponent = ({
   closeOnHandleSchedule,
   setDlgOpen,
   cancelDialog,
-  ...other
 }) => {
-  const classes = useStyles();
   const [step, setStep] = useState(STEP_1_KEY);
   const [selectedPerson, setSelectedPerson] = useState(
     defaultSelectAllPerson
@@ -78,37 +75,54 @@ export const TimeslotSelectorComponent = ({
         onWeekChange={onWeekChange}
       />
     );
-
   return (
-    <Paper className={classes.root} style={other.style}>
-      <Grid container justify="center">
-        <Grid item>
-          <Stepper activeStep={step} alternativeLabel>
-            <Step key={STEP_1_KEY}>
-              <StepLabel>{labels.step1Label}</StepLabel>
-            </Step>
-            <Step key={STEP_2_KEY}>
-              <StepLabel>{labels.step2Label}</StepLabel>
-            </Step>
-          </Stepper>
-          <div className={classes.stepContent}>{renderStep(step)}</div>
-        </Grid>
-      </Grid>
-    </Paper>
+    <div className={classes.root}>
+      <Stepper
+        className={classes.stepHeader}
+        activeStep={step}
+        alternativeLabel
+      >
+        <Step key={STEP_1_KEY}>
+          <StepLabel>
+            <Typography variant="caption">{labels.step1Label}</Typography>
+          </StepLabel>
+        </Step>
+        <Step key={STEP_2_KEY}>
+          <StepLabel>
+            <Typography variant="caption">{labels.step2Label}</Typography>
+          </StepLabel>
+        </Step>
+      </Stepper>
+      {renderStep(step)}
+    </div>
   );
 };
 
 export const TimeslotSelector = props => {
   const { dialog, openOpened } = props;
   const [dlgOpen, setDlgOpen] = useState(openOpened);
+  const classes = useStyles();
   if (dialog) {
     return (
-      <Dialog open={dlgOpen} disableEnforceFocus closeAfterTransition>
-        <TimeslotSelectorComponent {...props} setDlgOpen={setDlgOpen} />
+      <Dialog
+        classes={{ paperScrollPaper: classes.paperScrollPaper }}
+        maxWidth={false}
+        fullWidth
+        open={dlgOpen}
+        disableEnforceFocus
+        closeAfterTransition
+      >
+        <DialogContent>
+          <TimeslotSelectorComponent
+            {...props}
+            classes={classes}
+            setDlgOpen={setDlgOpen}
+          />
+        </DialogContent>
       </Dialog>
     );
   }
-  return <TimeslotSelectorComponent {...props} />;
+  return <TimeslotSelectorComponent classes={classes} {...props} />;
 };
 
 TimeslotSelector.defaultProps = {
