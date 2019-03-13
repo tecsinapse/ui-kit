@@ -1,8 +1,6 @@
-import { makeStyles } from '@material-ui/styles';
-
 import { globalConst } from '../../globalStyle';
 
-export const timeslotSelectorStyles = makeStyles(({ palette, spacing }) => ({
+export const timeslotSelectorStyles = ({ palette, spacing }) => ({
   root: {
     minWidth: globalConst.minWidth,
     width: '100%',
@@ -47,4 +45,4 @@ export const timeslotSelectorStyles = makeStyles(({ palette, spacing }) => ({
   availabilityCardTime: {
     margin: spacing.unit / 4,
   },
-}));
+});

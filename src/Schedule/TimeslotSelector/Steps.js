@@ -7,7 +7,6 @@ class Steps extends React.Component {
   constructor(props) {
     super(props);
     const steps = [];
-    this.callCancel = props.callCancel;
     props.steps.forEach((value, key) => {
       steps.push({
         key,
@@ -31,7 +30,7 @@ class Steps extends React.Component {
         key: stepKey,
         callNextStep: this.nextStep.bind(this),
         callPreviousStep: this.previousStep.bind(this),
-        callCancel: this.callCancel,
+        ...this.props,
       })
     ) : (
       <div />
@@ -85,13 +84,11 @@ class Steps extends React.Component {
 
 Steps.defaultProps = {
   step: 0,
-  callCancel: undefined,
 };
 
 Steps.propTypes = {
-  steps: PropTypes.object.isRequired,
+  steps: PropTypes.arrayOf(PropTypes.object).isRequired,
   step: PropTypes.number,
-  callCancel: PropTypes.func,
 };
 
 export default Steps;

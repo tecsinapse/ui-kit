@@ -7,7 +7,8 @@ import Grid from '@material-ui/core/Grid';
 
 import RadioGroup from '@material-ui/core/es/RadioGroup/RadioGroup';
 
-import { Select, Button } from '../../index';
+import { Select } from '../../Select/Select';
+import { Button } from '../../Buttons/Button';
 
 export const Step1 = ({
   classes,

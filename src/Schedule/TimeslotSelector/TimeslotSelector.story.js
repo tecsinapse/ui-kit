@@ -2,9 +2,9 @@
 /* eslint-disable no-alert */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Typography } from '@material-ui/core';
+import { TextField, Typography } from '@material-ui/core';
 
-import { TimeslotSelector } from './TimeslotSelector';
+import TimeslotSelector from './TimeslotSelector';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
@@ -12,12 +12,14 @@ import { Button } from '../..';
 
 const personsAvailabilities = require('../../../test/resources/availabilities.json');
 
-const onHandleScheduleTest = selected =>
+const onHandleScheduleTest = selected => {
   alert(
     `Usuário: ${selected.email}\nData: ${selected.date}\nHora: ${
       selected.time
     }\n`
   );
+  console.log(selected);
+};
 
 const style = {
   border: 'solid gray 1px',
@@ -27,9 +29,17 @@ const style = {
 const customSteps = [
   {
     label: 'Empresas',
-    component: ({ key, callNextStep }) => (
+    component: ({ key, callNextStep, changeOtherProps, otherProps }) => (
       <div key={key}>
         <Typography variant="h4">Empresas</Typography>
+        <TextField
+          value={otherProps.empresa}
+          onChange={event =>
+            changeOtherProps
+              ? changeOtherProps('empresa', event.target.value)
+              : () => {}
+          }
+        />
         <Button onClick={callNextStep} variant="secondary">
           Próximo
         </Button>

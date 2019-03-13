@@ -8,7 +8,8 @@ import Card from '@material-ui/core/es/Card/Card';
 import CardContent from '@material-ui/core/es/CardContent/CardContent';
 import Chip from '@material-ui/core/es/Chip/Chip';
 
-import { Button, WeeklyCalendar } from '../../index';
+import { WeeklyCalendar } from '../../Calendar/WeeklyCalendar';
+import { Button } from '../../Buttons/Button';
 
 const generateTimeSlots = (personAvailabilities, date, duration) => {
   const dateTimeSlots = personAvailabilities.availabilities
@@ -54,6 +55,7 @@ export const Step2 = ({
   locale,
   callPreviousStep,
   callCancel,
+  otherProps,
 }) => {
   const [selectedDate, setSelectedDate] = useState(DateTime.local());
   const [selectedPersonTimeSlot, setSelectedPersonTimeSlot] = useState(null);
@@ -120,6 +122,7 @@ export const Step2 = ({
                                   email: person.email,
                                   id: person.id,
                                   duration: selectedDuration,
+                                  otherProps,
                                 })
                               }
                             />
@@ -176,6 +179,7 @@ export const Step2 = ({
 Step2.defaultProps = {
   onWeekChange: {},
   callCancel: undefined,
+  otherProps: undefined,
 };
 
 Step2.propTypes = {
@@ -184,4 +188,5 @@ Step2.propTypes = {
   onWeekChange: PropTypes.func,
   callPreviousStep: PropTypes.func.isRequired,
   callCancel: PropTypes.func,
+  otherProps: PropTypes.object,
 };
