@@ -50,7 +50,7 @@ export class TimeslotSelectorComponent extends React.Component {
   }
 
   render() {
-    const { beforeSteps, labels } = this.props;
+    const { beforeSteps, labels, cancelDialog } = this.props;
 
     const steps = [];
 
@@ -113,6 +113,7 @@ export class TimeslotSelectorComponent extends React.Component {
       setSelectedPerson: this.changeSelectedPerson,
       setSelectedDuration: this.changeSelectedDuration,
       changeOtherProps: this.changeOtherProps,
+      callCancel: cancelDialog,
     };
     return <Steps steps={steps} {...props} />;
   }
