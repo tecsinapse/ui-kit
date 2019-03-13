@@ -46,6 +46,7 @@
     "prop-types": "^15.6.2",
     "react": "16.7.0-alpha.2",
     "react-dom": "16.7.0-alpha.2",
+    "react-dropzone": "^10.0.2",
     "react-select": "^2.3.0",
     "react-test-renderer": "^16.6.0",
     "react-text-mask": "^5.4.3",
