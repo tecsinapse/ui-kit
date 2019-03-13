@@ -13,6 +13,6 @@ export const Placeholder = ({ selectProps, innerProps }) => (
     }}
     className={selectProps.childrenClasses.placeholder}
   >
-    Selecione...
+    {selectProps.selectPromptMessage}...
   </Typography>
 );

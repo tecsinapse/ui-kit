@@ -6,17 +6,30 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
   const { length } = getValue();
 
   if (selectProps.isMulti) {
-    const childList = children[0];
+    const childList = children && children[0];
     const itensMaxLenght = 1;
     const childrensToPrint =
       childList instanceof Array && childList.slice
         ? childList.slice(0, itensMaxLenght)
-        : childList[0];
+        : childList && childList[0];
 
     const restSize = length - itensMaxLenght;
 
+    if (length === 0) {
+      return (
+        <components.ValueContainer
+          {...props}
+          className={selectProps.childrenClasses.multiValueContainer}
+        >
+          {children}
+        </components.ValueContainer>
+      );
+    }
     return (
-      <components.ValueContainer {...props}>
+      <components.ValueContainer
+        {...props}
+        className={selectProps.childrenClasses.multiValueContainer}
+      >
         {childrensToPrint}
         {restSize > 0 && <Chip label={`+${restSize}`} />}
         {React.cloneElement(children[1])}

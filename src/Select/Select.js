@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import { Help } from '@material-ui/icons';
 import { selectInputStyle } from './SelectInputStyle';
-import { SelectCustomComponents } from './SelectCustomComponents';
+import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';
 import { selectCustomWebComponents } from './SelectCustomWebComponents';
 import { inputStyles } from '../Inputs/InputStyles';
 
@@ -35,6 +35,7 @@ export const SelectUnstyled = ({
   success,
   isMulti = false,
   allowSelectAll = true,
+  selectPromptMessage = 'Selecione',
   ...rest
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -69,6 +70,7 @@ export const SelectUnstyled = ({
       : flattenChildren(children);
 
   const defaultProps = {
+    selectPromptMessage,
     isMulti,
     menuIsOpen,
     setMenuIsOpen,
@@ -108,6 +110,14 @@ export const SelectUnstyled = ({
       if (setMenuIsOpen !== undefined && !isMulti) {
         setMenuIsOpen(false);
       }
+
+      if (isMulti) {
+        setAllSelected(
+          input2 instanceof Array &&
+            input2.map(c => c.value).length === map.length
+        );
+      }
+
       onChange(
         input2 instanceof Array ? input2.map(c => c.value) : input2.value
       );
@@ -128,7 +138,7 @@ export const SelectUnstyled = ({
   const selectProps =
     variant === 'mobile'
       ? {
-          components: SelectCustomComponents,
+          components: SelectMobileCustomComponents,
           menuPortalTarget: document.body,
           backspaceRemovesValue: false,
           deleteRemovesValue: false,
@@ -166,6 +176,7 @@ SelectUnstyled.defaultProps = {
   onBlur: null,
   error: null,
   touched: false,
+  selectPromptMessage: 'Selecione',
 };
 SelectUnstyled.propTypes = {
   allowSelectAll: PropTypes.bool,
@@ -187,6 +198,7 @@ SelectUnstyled.propTypes = {
   ).isRequired,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
+  selectPromptMessage: PropTypes.string,
 };
 
 export default SelectUnstyled;

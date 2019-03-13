@@ -25,7 +25,9 @@ export function Option({
       disabled={data.disabled || false}
       {...innerProps}
     >
-      { selectProps.isMulti && <Checkbox checked={isSelected} value="checkedA" />}
+      {selectProps.isMulti && (
+        <Checkbox checked={isSelected} value="checkedA" />
+      )}
       {children}
     </MenuItem>
   );

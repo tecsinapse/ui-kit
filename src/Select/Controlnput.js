@@ -27,7 +27,7 @@ export const Controlnput = ({
       inputComponent: InputComponentReact,
       inputProps: {
         className: classNames(selectProps.childrenClasses.input, {
-          [selectProps.childrenClasses.inputMultiline]:
+          [selectProps.childrenClasses.inputMultilineDense]:
             selectProps.isMulti && selectProps.value.length > 0,
           [selectProps.childrenClasses.inputNormal]:
             !selectProps.isMulti ||
