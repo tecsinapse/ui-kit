@@ -38,8 +38,9 @@ export const SelectUnstyled = ({
   selectPromptMessage = 'Selecione',
   ...rest
 }) => {
+  const valuesAllSelected = isMulti && value && value.length === options.length;
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [allSelected, setAllSelected] = useState(false);
+  const [allSelected, setAllSelected] = useState(valuesAllSelected);
   let { variant } = rest;
 
   const theme = useTheme();
