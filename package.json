@@ -105,7 +105,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --max-warnings=0 --fix",
+      "eslint --max-warnings=0 --fix --no-ignore",
       "prettier --write",
       "git add"
     ]

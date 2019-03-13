@@ -11,6 +11,7 @@ export const GROUPS = {
   TYPOGRAPHY: 'Typography',
   ICONS: 'Icons',
   CALENDAR: 'Calendar',
+  SCHEDULE: 'Schedule',
 };
 
 export const OPTIONS = {
