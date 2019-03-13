@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/styles';
 import TableToolbarSelection from './TableToolbarSelection';
 import TableAdvancedFilters from './TableAdvancedFilters';
+import { toolbarOptionsTypes } from './TablePropTypes';
 
 const tableToolbarStyles = makeStyles(theme => ({
   toolbar: {
@@ -64,22 +65,7 @@ TableToolbar.defaultProps = {
 TableToolbar.propTypes = {
   selectedRows: PropTypes.arrayOf(PropTypes.object),
   selection: PropTypes.bool,
-  options: PropTypes.shape({
-    title: PropTypes.string,
-    selectedLabel: PropTypes.func,
-    tooltipAdvancedFilter: PropTypes.string,
-    advancedFiltersComponent: PropTypes.object,
-    actions: PropTypes.arrayOf(
-      PropTypes.shape({
-        key: PropTypes.string.isRequired,
-        label: PropTypes.string,
-        tooltip: PropTypes.string,
-        iconLeft: PropTypes.object,
-        iconRight: PropTypes.object,
-        onClick: PropTypes.func.isRequired,
-      })
-    ),
-  }),
+  options: toolbarOptionsTypes,
 };
 
 export default TableToolbar;

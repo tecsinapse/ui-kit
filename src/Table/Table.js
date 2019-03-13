@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import MUITable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import { resolveObj, isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
+import TableFooter from '@material-ui/core/TableFooter';
 import { tableStyles } from './tableStyle';
 import TableRowFilter from './TableRowFilter';
 import TableHeader from './TableHeader';
 import TableRows from './TableRows';
 import TableToolbar from './TableToolbar';
+import TablePagination from './TablePagination';
+import { toolbarOptionsTypes } from './TablePropTypes';
 
 const initializeColumns = (tableColumns, tableOptions, actions) => {
   const columns = [...tableColumns];
@@ -64,9 +67,20 @@ const Table = props => {
     onSelectRow,
     actions,
     toolbarOptions,
+    pagination,
+    rowsPerPageOptions,
+    rowsPerPage,
+    page,
   } = props;
-  let { rowCount } = props;
 
+  let { rowCount } = props;
+  const paginationOptions = {
+    rowsPerPageOptions,
+    rowsPerPage,
+    page,
+    rowCount,
+    pagination,
+  };
   const classes = tableStyles();
   const [rowData, setRowData] = useState([...data]);
   const [selectedRows, setSelectedRows] = useState([...selectedData]);
@@ -114,6 +128,9 @@ const Table = props => {
             onSelectRow={onSelectRow}
           />
         </TableBody>
+        <TableFooter>
+          <TablePagination {...paginationOptions} />
+        </TableFooter>
       </MUITable>
     </div>
   );
@@ -128,6 +145,10 @@ Table.defaultProps = {
   rowCount: null,
   actions: [],
   toolbarOptions: null,
+  pagination: false,
+  rowsPerPageOptions: [5, 15, 30],
+  rowsPerPage: 15,
+  page: 0,
 };
 
 Table.propTypes = {
@@ -156,22 +177,11 @@ Table.propTypes = {
       onClick: PropTypes.func,
     })
   ),
-  toolbarOptions: PropTypes.shape({
-    title: PropTypes.string,
-    selectedLabel: PropTypes.func,
-    tooltipAdvancedFilter: PropTypes.string,
-    advancedFiltersComponent: PropTypes.object,
-    actions: PropTypes.arrayOf(
-      PropTypes.shape({
-        key: PropTypes.string.isRequired,
-        label: PropTypes.string,
-        tooltip: PropTypes.string,
-        iconLeft: PropTypes.object,
-        iconRight: PropTypes.object,
-        onClick: PropTypes.func.isRequired,
-      })
-    ),
-  }),
+  toolbarOptions: toolbarOptionsTypes,
+  pagination: PropTypes.bool,
+  rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
+  rowsPerPage: PropTypes.number,
+  page: PropTypes.number,
 };
 
 export default Table;

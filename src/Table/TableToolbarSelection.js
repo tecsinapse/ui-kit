@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import { makeStyles } from '@material-ui/styles';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
+import { toolbarOptionsTypes } from './TablePropTypes';
 
 const selectionStyles = makeStyles(theme => ({
   toolbar: {
@@ -91,20 +92,7 @@ TableToolbarSelection.defaultProps = {
 
 TableToolbarSelection.propTypes = {
   selectedRows: PropTypes.arrayOf(PropTypes.object),
-  options: PropTypes.shape({
-    title: PropTypes.string,
-    selectedLabel: PropTypes.func,
-    actions: PropTypes.arrayOf(
-      PropTypes.shape({
-        key: PropTypes.string.isRequired,
-        label: PropTypes.string,
-        tooltip: PropTypes.string,
-        iconLeft: PropTypes.object,
-        iconRight: PropTypes.object,
-        onClick: PropTypes.func.isRequired,
-      })
-    ),
-  }),
+  options: toolbarOptionsTypes,
 };
 
 export default TableToolbarSelection;
