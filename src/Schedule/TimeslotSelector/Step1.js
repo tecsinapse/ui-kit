@@ -32,7 +32,7 @@ export const Step1 = ({
   return (
     <div>
       <Select
-        maxLenghtOption={3}
+        itensMaxLenght={3}
         value={selectedPerson}
         options={persons}
         isMulti

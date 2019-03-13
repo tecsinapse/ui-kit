@@ -7,7 +7,7 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
 
   if (selectProps.isMulti) {
     const childList = children && children[0];
-    const itensMaxLenght = 1;
+    const itensMaxLenght = selectProps.itensMaxLenght || 1;
     const childrensToPrint =
       childList instanceof Array && childList.slice
         ? childList.slice(0, itensMaxLenght)
