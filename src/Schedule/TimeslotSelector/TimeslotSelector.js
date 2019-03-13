@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import { DialogContent, Typography } from '@material-ui/core';
+import { DialogContent } from '@material-ui/core';
 import Dialog from '@material-ui/core/es/Dialog/Dialog';
-import StepLabel from '@material-ui/core/StepLabel';
 import PropTypes from 'prop-types';
 
 import { timeslotSelectorStyles as useStyles } from './TimeslotSelectorStyles';
@@ -11,11 +8,10 @@ import { Step1 } from './Step1';
 import { Step2 } from './Step2';
 
 import { defaultLabels } from './data-types';
-
-const STEP_1_KEY = 0;
-const STEP_2_KEY = 1;
+import Steps from './Steps';
 
 export const TimeslotSelectorComponent = ({
+  beforeSteps,
   classes,
   locale,
   labels,
@@ -30,7 +26,6 @@ export const TimeslotSelectorComponent = ({
   setDlgOpen,
   cancelDialog,
 }) => {
-  const [step, setStep] = useState(STEP_1_KEY);
   const [selectedPerson, setSelectedPerson] = useState(
     defaultSelectAllPerson
       ? personsAvailabilities.map(person => person.email)
@@ -44,11 +39,19 @@ export const TimeslotSelectorComponent = ({
           setDlgOpen(false);
         }
       : onHandleSchedule;
+  const steps = [];
 
-  const renderStep = stepActive =>
-    stepActive === STEP_1_KEY ? (
+  if (beforeSteps && beforeSteps.length >= 1) {
+    beforeSteps.map(bs =>
+      steps.push({ label: bs.label, component: bs.component })
+    );
+  }
+
+  steps.push({
+    label: labels.step1Label,
+    component: ({ key, callCancel, callNextStep, callPreviousStep }) => (
       <Step1
-        key={STEP_1_KEY}
+        key={key}
         selectedPerson={selectedPerson}
         setSelectedPerson={setSelectedPerson}
         selectedDuration={selectedDuration}
@@ -57,45 +60,34 @@ export const TimeslotSelectorComponent = ({
         durations={durations}
         classes={classes}
         labels={labels}
-        cancelDialog={cancelDialog}
-        onNextStep={() => setStep(STEP_2_KEY)}
+        callNextStep={callNextStep}
+        callCancel={callCancel}
+        callPreviousStep={
+          beforeSteps && beforeSteps.length > 0 && callPreviousStep
+        }
       />
-    ) : (
+    ),
+  });
+  steps.push({
+    label: labels.step2Label,
+    component: ({ key, callCancel, callPreviousStep }) => (
       <Step2
-        key={STEP_2_KEY}
+        key={key}
         selectedPerson={selectedPerson}
         selectedDuration={selectedDuration}
         personsAvailabilities={personsAvailabilities}
         classes={classes}
         labels={labels}
-        onPreviousStep={() => setStep(STEP_1_KEY)}
         locale={locale}
         onHandleSchedule={internalOnHandleSchedule}
-        cancelDialog={cancelDialog}
+        callCancel={callCancel}
+        callPreviousStep={callPreviousStep}
         onWeekChange={onWeekChange}
       />
-    );
-  return (
-    <div className={classes.root}>
-      <Stepper
-        className={classes.stepHeader}
-        activeStep={step}
-        alternativeLabel
-      >
-        <Step key={STEP_1_KEY}>
-          <StepLabel>
-            <Typography variant="caption">{labels.step1Label}</Typography>
-          </StepLabel>
-        </Step>
-        <Step key={STEP_2_KEY}>
-          <StepLabel>
-            <Typography variant="caption">{labels.step2Label}</Typography>
-          </StepLabel>
-        </Step>
-      </Stepper>
-      {renderStep(step)}
-    </div>
-  );
+    ),
+  });
+
+  return <Steps steps={steps} classes={classes} callCancel={cancelDialog} />;
 };
 
 export const TimeslotSelector = props => {

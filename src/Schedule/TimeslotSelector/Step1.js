@@ -16,10 +16,11 @@ export const Step1 = ({
   setSelectedPerson,
   selectedDuration,
   setSelectedDuration,
-  onNextStep,
   durations,
   labels,
-  cancelDialog,
+  callCancel,
+  callNextStep,
+  callPreviousStep,
 }) => {
   const persons = personsAvailabilities.map(person => ({
     value: person.email,
@@ -64,29 +65,41 @@ export const Step1 = ({
         className={classes.stepButtons}
         spacing={16}
       >
-        {cancelDialog && (
+        {callCancel && (
           <Grid item>
-            <Button variant="third" onClick={cancelDialog}>
+            <Button variant="third" onClick={callCancel}>
               {labels.buttonLabelCancel}
             </Button>
           </Grid>
         )}
-        <Grid item>
-          <Button onClick={onNextStep} variant="secondary">
-            {labels.buttonLabelNext}
-          </Button>
-        </Grid>
+        {callPreviousStep && (
+          <Grid item>
+            <Button onClick={callPreviousStep} variant="secondary">
+              {labels.buttonLabelprevious}
+            </Button>
+          </Grid>
+        )}
+        {callNextStep && (
+          <Grid item>
+            <Button onClick={callNextStep} variant="secondary">
+              {labels.buttonLabelNext}
+            </Button>
+          </Grid>
+        )}
       </Grid>
     </div>
   );
 };
 
 Step1.defaultProps = {
-  cancelDialog: undefined,
+  callCancel: undefined,
+  callPreviousStep: undefined,
 };
 
 Step1.propTypes = {
   labels: PropTypes.object.isRequired,
   durations: PropTypes.arrayOf(PropTypes.number).isRequired,
-  cancelDialog: PropTypes.func,
+  callNextStep: PropTypes.func.isRequired,
+  callCancel: PropTypes.func,
+  callPreviousStep: PropTypes.func,
 };

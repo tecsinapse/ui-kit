@@ -48,12 +48,12 @@ export const Step2 = ({
   personsAvailabilities,
   selectedPerson,
   selectedDuration,
-  onPreviousStep,
   onHandleSchedule,
   onWeekChange,
   labels,
   locale,
-  cancelDialog,
+  callPreviousStep,
+  callCancel,
 }) => {
   const [selectedDate, setSelectedDate] = useState(DateTime.local());
   const [selectedPersonTimeSlot, setSelectedPersonTimeSlot] = useState(null);
@@ -143,18 +143,20 @@ export const Step2 = ({
           <Grid item xs={12}>
             <Divider variant="middle" />
           </Grid>
-          {cancelDialog && (
+          {callCancel && (
             <Grid item>
-              <Button variant="third" onClick={cancelDialog}>
+              <Button variant="third" onClick={callCancel}>
                 {labels.buttonLabelCancel}
               </Button>
             </Grid>
           )}
-          <Grid item>
-            <Button onClick={onPreviousStep} variant="secondary">
-              {labels.buttonLabelprevious}
-            </Button>
-          </Grid>
+          {callPreviousStep && (
+            <Grid item>
+              <Button onClick={callPreviousStep} variant="secondary">
+                {labels.buttonLabelprevious}
+              </Button>
+            </Grid>
+          )}
           <Grid item>
             <Button
               disabled={selectedPersonTimeSlot == null}
@@ -173,13 +175,13 @@ export const Step2 = ({
 
 Step2.defaultProps = {
   onWeekChange: {},
-  cancelDialog: undefined,
+  callCancel: undefined,
 };
 
 Step2.propTypes = {
   labels: PropTypes.object.isRequired,
-  onPreviousStep: PropTypes.func.isRequired,
   onHandleSchedule: PropTypes.func.isRequired,
   onWeekChange: PropTypes.func,
-  cancelDialog: PropTypes.func,
+  callPreviousStep: PropTypes.func.isRequired,
+  callCancel: PropTypes.func,
 };
