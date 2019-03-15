@@ -64,7 +64,8 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "storybook-addon-smart-knobs": "^4.1.0",
     "text-mask-addons": "^3.8.0",
-    "typeface-roboto": "^0.0.54"
+    "typeface-roboto": "^0.0.54",
+    "uniqid": "^5.0.3"
   },
   "files": [
     "build",
