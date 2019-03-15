@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { PreviewList } from './PreviewList';
 
-function Uploader({
+export function Uploader({
   value,
   acceptedFormat,
   filesLimit,
@@ -16,7 +16,10 @@ function Uploader({
     accept: acceptedFormat.join(','),
     maxSize: maxFileSize,
     onDrop: acceptedFiles => {
-      if (acceptedFiles.length + value.length < filesLimit && onChange) {
+      if (
+        acceptedFiles.length + Object.keys(value).length <= filesLimit &&
+        onChange
+      ) {
         onChange(acceptedFiles);
       }
       // TODO (LIP): Define what it should happen for ignored files
@@ -36,7 +39,7 @@ function Uploader({
 }
 
 Uploader.defaultProps = {
-  value: [],
+  value: {},
   acceptedFormat: ['image/*', 'video/*', 'application/*'],
   filesLimit: 3,
   maxFileSize: 3000000,
@@ -50,13 +53,9 @@ Uploader.propTypes = {
   maxFileSize: PropTypes.number,
   dropzoneText: PropTypes.string,
   onChange: PropTypes.func,
-  value: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: PropTypes.number,
-      file: PropTypes.object,
-      upProgress: PropTypes.number,
-    })
-  ),
+  value: PropTypes.shape({
+    _id: PropTypes.number,
+    file: PropTypes.object,
+    upProgress: PropTypes.number,
+  }),
 };
-
-export default Uploader;

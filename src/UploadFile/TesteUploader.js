@@ -1,41 +1,42 @@
 import React, { useState } from 'react';
 import uniqid from 'uniqid';
 import { setInterval, clearInterval } from 'timers';
-import Uploader from './Uploader';
+import { Uploader } from './Uploader';
 
-function TesteUploader() {
-  const [files, setFiles] = useState([{}]);
+export function TesteUploader() {
+  const [files, setFiles] = useState({});
 
-  function DummyUploader(uid) {
+  function DummyUploader(copyFiles, uid) {
+    const newCopyFile = copyFiles;
     const timer = setInterval(() => {
-      const copyFiles = { ...files };
-      copyFiles[uid] = {
-        uid,
-        file: copyFiles[uid].file,
-        completed: copyFiles[uid].completed + 5,
+      newCopyFile[uid] = {
+        file: newCopyFile[uid].file,
+        completed: newCopyFile[uid].completed + Math.random() * 10,
       };
 
-      if (copyFiles[uid].completed >= 100) {
+      if (newCopyFile[uid].completed >= 100) {
         clearInterval(timer);
       }
 
-      setFiles(copyFiles);
+      setFiles(newCopyFile);
     }, 500);
   }
 
-  const onNewFiles = newFiles =>
+  const onNewFiles = newFiles => {
+    const copyFiles = { ...files };
     newFiles.forEach(file => {
-      const copyFiles = { ...files };
       const uid = uniqid();
+
       copyFiles[uid] = {
-        uid,
         file,
         completed: 0,
       };
+
       setFiles(copyFiles);
 
-      DummyUploader(uid);
+      DummyUploader(copyFiles, uid);
     });
+  };
 
   return (
     <Uploader
@@ -45,5 +46,3 @@ function TesteUploader() {
     />
   );
 }
-
-export default TesteUploader;
