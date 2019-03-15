@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import MUITable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -31,7 +31,13 @@ const initializeColumns = (tableColumns, tableOptions, actions) => {
   return columns;
 };
 
-const onChangeFilter = (data, setRowData, columns, onFilterData) => () => {
+const onChangeFilter = (
+  data,
+  setData,
+  columns,
+  onFilterData,
+  setPage
+) => () => {
   let filteredData = [...data];
 
   columns.forEach(column => {
@@ -52,13 +58,26 @@ const onChangeFilter = (data, setRowData, columns, onFilterData) => () => {
     });
   });
 
-  setRowData(filteredData);
-  onFilterData(filteredData);
+  setPage(0);
+  setData(filteredData);
+
+  if (onFilterData) {
+    onFilterData(filteredData);
+  }
+};
+
+const onChangePage = (data, setPageData, setPage, setRowsPerPage) => (
+  rowsPerPage,
+  page
+) => {
+  setPage(page);
+  setRowsPerPage(rowsPerPage);
+  setPageData(data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage));
 };
 
 const Table = props => {
   const {
-    data,
+    data: originalData,
     columns,
     onFilterData,
     options,
@@ -69,23 +88,34 @@ const Table = props => {
     toolbarOptions,
     pagination,
     rowsPerPageOptions,
-    rowsPerPage,
-    page,
+    rowsPerPage: rowsPerPageProp,
+    page: pageProp,
   } = props;
 
   let { rowCount } = props;
+  const classes = tableStyles();
+  const [data, setData] = useState([...originalData]);
+  const [pageData, setPageData] = useState([]);
+  const [page, setPage] = useState(pageProp);
+  const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp);
+
+  useEffect(() => {
+    setPageData(
+      data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+    );
+  }, [data]);
+
+  const [selectedRows, setSelectedRows] = useState([...selectedData]);
+  const [tableColumns] = useState(initializeColumns(columns, options, actions));
+  rowCount = rowCount || data.length;
   const paginationOptions = {
     rowsPerPageOptions,
     rowsPerPage,
     page,
     rowCount,
     pagination,
+    onChangePage: onChangePage(data, setPageData, setPage, setRowsPerPage),
   };
-  const classes = tableStyles();
-  const [rowData, setRowData] = useState([...data]);
-  const [selectedRows, setSelectedRows] = useState([...selectedData]);
-  const [tableColumns] = useState(initializeColumns(columns, options, actions));
-  rowCount = rowCount || data.length;
 
   const someColumnHasFilter = columns.some(
     ({ options: columnOptions = {} }) => columnOptions.filter
@@ -101,26 +131,27 @@ const Table = props => {
       <MUITable className={classes.table}>
         <TableHeader
           columns={tableColumns}
-          rowCount={rowCount}
           selectedRows={selectedRows}
           setSelectedRows={setSelectedRows}
-          data={rowData}
+          data={pageData}
           onSelectRow={onSelectRow}
+          rowId={rowId}
         />
         <TableBody>
           <TableRowFilter
             rendered={someColumnHasFilter}
             columns={tableColumns}
             onChangeFilter={onChangeFilter(
-              data,
-              setRowData,
+              originalData,
+              setData,
               tableColumns,
-              onFilterData
+              onFilterData,
+              setPage
             )}
           />
           <TableRows
             columns={tableColumns}
-            data={rowData}
+            data={pageData}
             rowId={rowId}
             rowCount={rowCount}
             selectedRows={selectedRows}

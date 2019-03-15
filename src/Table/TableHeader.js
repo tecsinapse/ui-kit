@@ -16,11 +16,32 @@ const headerStyles = makeStyles(theme => ({
   },
 }));
 
-const selectAll = (data, selectedRows, setSelectedRows, onSelectRow) => () => {
-  let newSelectedRows = [];
+const getSelectedRowsPage = (data, selectedRows, rowId) =>
+  isEmptyOrNull(selectedRows)
+    ? []
+    : selectedRows.filter(selected =>
+        data.some(rowData => rowId(rowData) === rowId(selected))
+      );
+
+const selectAll = (
+  data,
+  selectedRows,
+  setSelectedRows,
+  onSelectRow,
+  rowId
+) => () => {
+  const selectedRowsPage = getSelectedRowsPage(data, selectedRows, rowId);
+  let newSelectedRows = isEmptyOrNull(selectedRows)
+    ? []
+    : selectedRows.filter(selected =>
+        data.every(rowData => rowId(rowData) !== rowId(selected))
+      );
   let checked = false;
-  if (isEmptyOrNull(selectedRows) || selectedRows.length !== data.length) {
-    newSelectedRows = [...data];
+  if (
+    isEmptyOrNull(selectedRowsPage) ||
+    selectedRowsPage.length !== data.length
+  ) {
+    newSelectedRows = newSelectedRows.concat(data);
     checked = true;
   }
 
@@ -32,18 +53,21 @@ const selectAll = (data, selectedRows, setSelectedRows, onSelectRow) => () => {
 
 const convertColumnToTableCell = (
   { field, title, options = {}, selection },
-  rowCount,
   selectedRows,
   setSelectedRows,
   data,
   onSelectRow,
-  classes
+  classes,
+  rowId
 ) => {
   if (selection) {
+    const selectedRowsPage = getSelectedRowsPage(data, selectedRows, rowId);
     const indeterminate =
-      isNotEmptyOrNull(selectedRows) && selectedRows.length !== rowCount;
+      isNotEmptyOrNull(selectedRowsPage) &&
+      selectedRowsPage.length !== data.length;
     const checked =
-      isNotEmptyOrNull(selectedRows) && selectedRows.length === rowCount;
+      isNotEmptyOrNull(selectedRowsPage) &&
+      selectedRowsPage.length === data.length;
     return (
       <TableCell
         key={field}
@@ -53,7 +77,13 @@ const convertColumnToTableCell = (
         <Checkbox
           indeterminate={indeterminate}
           checked={checked}
-          onClick={selectAll(data, selectedRows, setSelectedRows, onSelectRow)}
+          onClick={selectAll(
+            data,
+            selectedRows,
+            setSelectedRows,
+            onSelectRow,
+            rowId
+          )}
         />
       </TableCell>
     );
@@ -67,11 +97,11 @@ const convertColumnToTableCell = (
 
 const TableHeader = ({
   columns,
-  rowCount,
   selectedRows,
   setSelectedRows,
   data,
   onSelectRow,
+  rowId,
 }) => {
   let tableCells = null;
   const classes = headerStyles();
@@ -80,12 +110,12 @@ const TableHeader = ({
     tableCells = columns.map(column =>
       convertColumnToTableCell(
         column,
-        rowCount,
         selectedRows,
         setSelectedRows,
         data,
         onSelectRow,
-        classes
+        classes,
+        rowId
       )
     );
   }
@@ -105,11 +135,11 @@ TableHeader.defaultProps = {
 
 TableHeader.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.object).isRequired,
-  rowCount: PropTypes.number.isRequired,
   selectedRows: PropTypes.arrayOf(PropTypes.object),
   onSelectRow: PropTypes.func,
   setSelectedRows: PropTypes.func,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  rowId: PropTypes.func.isRequired,
 };
 
 export default TableHeader;

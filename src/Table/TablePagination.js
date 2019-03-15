@@ -2,13 +2,22 @@ import React, { useState } from 'react';
 import MUITablePagination from '@material-ui/core/TablePagination';
 import { paginationOptions } from './TablePropTypes';
 
-const onChangeRowsPerPage = (setRowsPerPage, setPage) => event => {
+const onChangeRowsPerPage = (
+  setRowsPerPage,
+  setPage,
+  onChangePageProp
+) => event => {
   setRowsPerPage(event.target.value);
   setPage(0);
+  onChangePageProp(event.target.value, 0);
 };
 
-const onChangePage = setPage => (event, page) => {
+const onChangePage = (setPage, onChangePageProp, rowsPerPage) => (
+  event,
+  page
+) => {
   setPage(page);
+  onChangePageProp(rowsPerPage, page);
 };
 
 const TablePagination = ({
@@ -17,6 +26,7 @@ const TablePagination = ({
   page: pageProp,
   rowCount,
   pagination,
+  onChangePage: onChangePageProp,
 }) => {
   const [rowsPerPage, setRowsPerPage] = useState(
     rowsPerPageOptions.includes(rowsPerPageProp)
@@ -31,9 +41,13 @@ const TablePagination = ({
     <MUITablePagination
       rowsPerPageOptions={rowsPerPageOptions}
       rowsPerPage={rowsPerPage}
-      onChangeRowsPerPage={onChangeRowsPerPage(setRowsPerPage, setPage)}
+      onChangeRowsPerPage={onChangeRowsPerPage(
+        setRowsPerPage,
+        setPage,
+        onChangePageProp
+      )}
       page={page}
-      onChangePage={onChangePage(setPage)}
+      onChangePage={onChangePage(setPage, onChangePageProp, rowsPerPage)}
       count={rowCount}
     />
   );
