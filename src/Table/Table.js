@@ -92,22 +92,26 @@ const Table = props => {
     page: pageProp,
   } = props;
 
-  let { rowCount } = props;
   const classes = tableStyles();
   const [data, setData] = useState([...originalData]);
   const [pageData, setPageData] = useState([]);
   const [page, setPage] = useState(pageProp);
-  const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageProp);
+  const [rowsPerPage, setRowsPerPage] = useState(
+    rowsPerPageOptions.includes(rowsPerPageProp)
+      ? rowsPerPageProp
+      : rowsPerPageOptions[0]
+  );
+  let rowCount = data.length;
 
   useEffect(() => {
     setPageData(
       data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
     );
+    rowCount = data.length;
   }, [data]);
 
   const [selectedRows, setSelectedRows] = useState([...selectedData]);
   const [tableColumns] = useState(initializeColumns(columns, options, actions));
-  rowCount = rowCount || data.length;
   const paginationOptions = {
     rowsPerPageOptions,
     rowsPerPage,
@@ -178,7 +182,7 @@ Table.defaultProps = {
   toolbarOptions: null,
   pagination: false,
   rowsPerPageOptions: [5, 15, 30],
-  rowsPerPage: 15,
+  rowsPerPage: 5,
   page: 0,
 };
 
