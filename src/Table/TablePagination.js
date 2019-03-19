@@ -1,6 +1,18 @@
 import React from 'react';
 import MUITablePagination from '@material-ui/core/TablePagination';
+import Typography from '@material-ui/core/Typography';
+import { TableCell } from '@material-ui/core';
+import { lighten } from '@material-ui/core/styles/colorManipulator';
+import { makeStyles } from '@material-ui/styles';
 import { paginationOptions } from './TablePropTypes';
+
+const styles = makeStyles(theme => ({
+  total: {
+    color: lighten(theme.palette.text.primary, 0.54),
+    width: '100%',
+    textAlign: 'right',
+  },
+}));
 
 const onChangeRowsPerPage = onChangePageProp => event => {
   onChangePageProp(event.target.value, 0);
@@ -17,11 +29,27 @@ const TablePagination = ({
   rowCount,
   pagination,
   onChangePage: onChangePageProp,
+  labelDisplayedRows,
+  labelRowsPerPage,
+  tableColumns,
 }) => {
-  if (!pagination) return null;
+  const classes = styles();
+
+  if (!pagination) {
+    return (
+      <TableCell colSpan={tableColumns.length}>
+        <Typography variant="caption" className={classes.total}>
+          Total: {rowCount}
+        </Typography>
+      </TableCell>
+    );
+  }
 
   return (
     <MUITablePagination
+      style={{ width: '100%' }}
+      labelDisplayedRows={labelDisplayedRows}
+      labelRowsPerPage={labelRowsPerPage}
       rowsPerPageOptions={rowsPerPageOptions}
       rowsPerPage={rowsPerPage}
       onChangeRowsPerPage={onChangeRowsPerPage(onChangePageProp, rowsPerPage)}

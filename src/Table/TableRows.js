@@ -67,7 +67,6 @@ const TableRows = ({
   setSelectedRows,
   onSelectRow,
   rowId,
-  rowCount,
 }) => {
   if (isEmptyOrNull(columns) || isEmptyOrNull(data)) return null;
 
@@ -91,7 +90,6 @@ const TableRows = ({
       <TableCells
         columns={columns}
         rowData={rowData}
-        rowCount={rowCount}
         selectedRows={selectedRows}
         onSelectRow={onSelectRow}
         rowId={rowId}
@@ -121,7 +119,6 @@ TableRows.propTypes = {
   selectedRows: PropTypes.arrayOf(PropTypes.object),
   onSelectRow: PropTypes.func,
   rowId: PropTypes.func.isRequired,
-  rowCount: PropTypes.number.isRequired,
 };
 
 export default TableRows;

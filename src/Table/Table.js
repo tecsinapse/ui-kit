@@ -4,6 +4,7 @@ import MUITable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import { resolveObj, isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
 import TableFooter from '@material-ui/core/TableFooter';
+import TableRow from '@material-ui/core/TableRow';
 import { tableStyles } from './tableStyle';
 import TableRowFilter from './TableRowFilter';
 import TableHeader from './TableHeader';
@@ -90,6 +91,8 @@ const Table = props => {
     rowsPerPageOptions,
     rowsPerPage: rowsPerPageProp,
     page: pageProp,
+    labelDisplayedRows,
+    labelRowsPerPage,
   } = props;
 
   const classes = tableStyles();
@@ -119,6 +122,9 @@ const Table = props => {
     rowCount,
     pagination,
     onChangePage: onChangePage(data, setPageData, setPage, setRowsPerPage),
+    labelDisplayedRows,
+    labelRowsPerPage,
+    tableColumns,
   };
 
   const someColumnHasFilter = columns.some(
@@ -157,14 +163,15 @@ const Table = props => {
             columns={tableColumns}
             data={pageData}
             rowId={rowId}
-            rowCount={rowCount}
             selectedRows={selectedRows}
             setSelectedRows={setSelectedRows}
             onSelectRow={onSelectRow}
           />
         </TableBody>
         <TableFooter>
-          <TablePagination {...paginationOptions} />
+          <TableRow>
+            <TablePagination {...paginationOptions} />
+          </TableRow>
         </TableFooter>
       </MUITable>
     </div>
@@ -181,9 +188,11 @@ Table.defaultProps = {
   actions: [],
   toolbarOptions: null,
   pagination: false,
-  rowsPerPageOptions: [5, 15, 30],
-  rowsPerPage: 5,
+  rowsPerPageOptions: [10, 20, 30],
+  rowsPerPage: 10,
   page: 0,
+  labelDisplayedRows: null,
+  labelRowsPerPage: null,
 };
 
 Table.propTypes = {
@@ -217,6 +226,8 @@ Table.propTypes = {
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
   rowsPerPage: PropTypes.number,
   page: PropTypes.number,
+  labelDisplayedRows: PropTypes.func,
+  labelRowsPerPage: PropTypes.string,
 };
 
 export default Table;

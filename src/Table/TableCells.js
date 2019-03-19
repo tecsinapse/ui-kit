@@ -14,7 +14,6 @@ const isSelected = (selectedRows, row, rowId) =>
 const convertValuesToTableCell = (
   { field, options = {}, selection, actions },
   rowData,
-  rowCount,
   rowId,
   selectedRows
 ) => {
@@ -31,6 +30,7 @@ const convertValuesToTableCell = (
         key={field}
         align="right"
         style={{
+          paddingRight: 0,
           width: actions.length < 4 ? `${actions.length * 50}px` : '50px',
         }}
       >
@@ -45,16 +45,15 @@ const convertValuesToTableCell = (
   );
 };
 
-const TableCells = ({ columns, rowData, rowId, rowCount, selectedRows }) =>
+const TableCells = ({ columns, rowData, rowId, selectedRows }) =>
   columns.map(column =>
-    convertValuesToTableCell(column, rowData, rowCount, rowId, selectedRows)
+    convertValuesToTableCell(column, rowData, rowId, selectedRows)
   );
 
 TableCells.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.object).isRequired,
   rowData: PropTypes.object.isRequired,
   rowId: PropTypes.func.isRequired,
-  rowCount: PropTypes.number.isRequired,
   selectedRows: PropTypes.arrayOf(PropTypes.object),
 };
 
