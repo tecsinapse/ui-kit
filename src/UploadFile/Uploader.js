@@ -1,8 +1,42 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { useDropzone } from 'react-dropzone';
 import PropTypes from 'prop-types';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import { makeStyles } from '@material-ui/styles';
+import { Typography } from '@material-ui/core';
 import { PreviewList } from './PreviewList';
+
+const useStyle = makeStyles({
+  root: {
+    display: 'flex',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'space-evenly',
+    alignItems: 'flex-start',
+    border: '2px dashed blue',
+  },
+  drag: {
+    borderStyle: 'dashed',
+    width: '90%',
+    height: '80%',
+    position: 'relative',
+    border: '2px dashed grey',
+    borderRadius: '6px',
+    backgroundColor: '#80808021',
+  },
+  preview: {
+    border: '2px dashed red',
+    width: '100%',
+    height: '100%',
+    overflow: 'scroll',
+  },
+  dropzoneText: {
+    position: 'absolute',
+    top: '40%',
+    left: '8%',
+    textAlign: 'center',
+  },
+});
 
 export function Uploader({
   value,
@@ -12,6 +46,8 @@ export function Uploader({
   dropzoneText,
   onChange,
 }) {
+  const classes = useStyle();
+
   const { getRootProps, getInputProps } = useDropzone({
     accept: acceptedFormat.join(','),
     maxSize: maxFileSize,
@@ -27,14 +63,19 @@ export function Uploader({
   });
 
   return (
-    <Fragment>
-      <div {...getRootProps()}>
+    <div className={classes.root}>
+      <div {...getRootProps()} className={classes.drag}>
         <input {...getInputProps()} />
-        <p> {dropzoneText} </p>
-        <CloudUploadIcon />
+
+        <div className={classes.dropzoneText}>
+          <Typography variant="Subheading">{dropzoneText}</Typography>
+          <CloudUploadIcon fontSize="large" />
+        </div>
       </div>
-      <PreviewList value={value} />
-    </Fragment>
+      <div className={classes.preview}>
+        <PreviewList value={value} />
+      </div>
+    </div>
   );
 }
 
@@ -54,8 +95,9 @@ Uploader.propTypes = {
   dropzoneText: PropTypes.string,
   onChange: PropTypes.func,
   value: PropTypes.shape({
-    _id: PropTypes.number,
+    uid: PropTypes.number,
     file: PropTypes.object,
-    upProgress: PropTypes.number,
+    completed: PropTypes.number,
+    uprate: PropTypes.number,
   }),
 };

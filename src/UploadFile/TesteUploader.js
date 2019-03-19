@@ -12,6 +12,7 @@ export function TesteUploader() {
       newCopyFile[uid] = {
         file: newCopyFile[uid].file,
         completed: newCopyFile[uid].completed + Math.random() * 10,
+        uprate: Math.random() * 10 * 1000,
       };
 
       if (newCopyFile[uid].completed >= 100) {
@@ -30,6 +31,7 @@ export function TesteUploader() {
       copyFiles[uid] = {
         file,
         completed: 0,
+        uprate: Math.random() * 10 * 1000,
       };
 
       setFiles(copyFiles);
@@ -43,6 +45,7 @@ export function TesteUploader() {
       value={files}
       dropzoneText="Arraste ou selecione seus arquivos de upload"
       onChange={onNewFiles}
+      filesLimit={10}
     />
   );
 }

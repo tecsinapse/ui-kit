@@ -1,16 +1,22 @@
 import React from 'react';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import Grid from '@material-ui/core/Grid';
+import List from '@material-ui/core/List';
+import { convertBytes } from './helper';
+
+import { UpFile } from './UpFile';
 
 export function PreviewList({ value }) {
   return (
-    <Grid container spacing={8}>
-      {Object.keys(value).map(uid => (
-        <Grid item xs={4} key={uid}>
-          <p>{value[uid].file.name}</p>
-          <LinearProgress variant="determinate" value={value[uid].completed} />
-        </Grid>
+    <List>
+      {Object.keys(value).map((uid, i) => (
+        <UpFile
+          key={uid}
+          filename={value[uid].file.name}
+          completed={value[uid].completed}
+          filesize={convertBytes(value[uid].file.size)}
+          uprate={`${convertBytes(value[uid].uprate)}/sec`}
+          divider={Object.keys(value).length !== i + 1}
+        />
       ))}
-    </Grid>
+    </List>
   );
 }
