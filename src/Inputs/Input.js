@@ -103,6 +103,7 @@ export const TextFieldComponent = ({
   shrinkLabel,
   placeholder,
   endAdornment,
+  startAdornment,
   ...input
 }) => (
   <TextField
@@ -133,6 +134,7 @@ export const TextFieldComponent = ({
         focused: classes.cssFocused,
         notchedOutline: classes.notchedOutline,
       },
+      startAdornment,
       endAdornment: (
         <GetEndAdornment
           warning={warning}
@@ -165,7 +167,9 @@ const InputUI = withStyles(inputStyles)(
     disabled,
     placeholder,
     mask,
-    helperText,
+	helperText,
+	endAdornment,
+	startAdornment,
     ...input
   }) => (
     <TextFieldComponent
@@ -182,7 +186,9 @@ const InputUI = withStyles(inputStyles)(
       warning={warning}
       success={success}
       disabled={disabled}
-      mask={mask}
+	  mask={mask}
+	  endAdornment={endAdornment}
+	  startAdornment={startAdornment}
       {...input}
     />
   )
@@ -201,6 +207,8 @@ Input.defaultProps = {
   shrinkLabel: undefined,
   placeholder: null,
   helperText: null,
+  endAdornment: null,
+  startAdornment: null,
 };
 
 const maskProp = PropTypes.oneOfType([
@@ -231,7 +239,7 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   success: PropTypes.bool,
   warning: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
@@ -239,6 +247,8 @@ Input.propTypes = {
   shrinkLabel: PropTypes.bool,
   placeholder: PropTypes.string,
   helperText: PropTypes.string,
+  endAdornment: PropTypes.object,
+  startAdornment: PropTypes.object,
 };
 
 export default Input;

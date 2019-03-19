@@ -1,0 +1,6 @@
+diff a/src/Table/Table.js b/src/Table/Table.js	(rejected hunks)
+@@ -137,2 +148,2 @@ const Table = props => {
+-			  onFilterData,
+-			  setPage,
++              onFilterData,
++              setPage
