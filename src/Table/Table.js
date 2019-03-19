@@ -191,8 +191,8 @@ Table.defaultProps = {
   rowsPerPageOptions: [10, 20, 30],
   rowsPerPage: 10,
   page: 0,
-  labelDisplayedRows: null,
-  labelRowsPerPage: null,
+  labelDisplayedRows: ({ from, to, count }) => `${from}-${to} of ${count}`,
+  labelRowsPerPage: 'Rows per page:',
 };
 
 Table.propTypes = {
