@@ -1,3 +1,37 @@
+<a name="0.0.63"></a>
+## <small>0.0.63 (2019-03-19)</small>
+
+* - Ajustado exemplos ([5cf894f](https://github.com/tecsinapse/ui-kit/commit/5cf894f))
+* - Separado componente para renderizar as linhas e celulas da tabela ([64a46e4](https://github.com/tecsinapse/ui-kit/commit/64a46e4))
+* Adding actions to table ([0cdff67](https://github.com/tecsinapse/ui-kit/commit/0cdff67))
+* Adding actions to table ([4dcc93f](https://github.com/tecsinapse/ui-kit/commit/4dcc93f))
+* Adding advanced filter to toolbar ([b038b11](https://github.com/tecsinapse/ui-kit/commit/b038b11))
+* Adding advanced filter to toolbar ([5fce6c6](https://github.com/tecsinapse/ui-kit/commit/5fce6c6))
+* Adding examples of use the FilteredTable ([b114dd0](https://github.com/tecsinapse/ui-kit/commit/b114dd0))
+* Adding pagation to table ([e70a1db](https://github.com/tecsinapse/ui-kit/commit/e70a1db))
+* Adding startAdornment and endAdornment to Input component ([7501c22](https://github.com/tecsinapse/ui-kit/commit/7501c22))
+* Adding styles to rows ([82dd0d8](https://github.com/tecsinapse/ui-kit/commit/82dd0d8))
+* Adding TableToolbar to perform actions with selected rows ([626c221](https://github.com/tecsinapse/ui-kit/commit/626c221))
+* adding wizard component ([f676731](https://github.com/tecsinapse/ui-kit/commit/f676731))
+* Adjustment in icon search aligment ([c66c697](https://github.com/tecsinapse/ui-kit/commit/c66c697))
+* Breaking table component in small files and adding feature to filter data on header ([12b2fac](https://github.com/tecsinapse/ui-kit/commit/12b2fac))
+* Code review changes ([e0c2a5d](https://github.com/tecsinapse/ui-kit/commit/e0c2a5d))
+* Code review changes ([038da2b](https://github.com/tecsinapse/ui-kit/commit/038da2b))
+* Fixe comment ([52e5f36](https://github.com/tecsinapse/ui-kit/commit/52e5f36))
+* Initial commit to create a Table component ([5e439a2](https://github.com/tecsinapse/ui-kit/commit/5e439a2))
+* Move state of pagination to table ([9d26eb1](https://github.com/tecsinapse/ui-kit/commit/9d26eb1))
+* Pagination component adjustment ([48d19f5](https://github.com/tecsinapse/ui-kit/commit/48d19f5))
+* Partial commit ([b3cab0d](https://github.com/tecsinapse/ui-kit/commit/b3cab0d))
+* Release 0.0.62 ([d22de3e](https://github.com/tecsinapse/ui-kit/commit/d22de3e))
+* Remove margin from buttons ([4ac57e3](https://github.com/tecsinapse/ui-kit/commit/4ac57e3))
+* Rename components ([01383ef](https://github.com/tecsinapse/ui-kit/commit/01383ef))
+* Resolvendo problemas com keys dos componentes ([2173dbd](https://github.com/tecsinapse/ui-kit/commit/2173dbd))
+* Selection example update ([42c345e](https://github.com/tecsinapse/ui-kit/commit/42c345e))
+* updating components ([26e4c75](https://github.com/tecsinapse/ui-kit/commit/26e4c75))
+* updating documentation and storybook ([0629eb8](https://github.com/tecsinapse/ui-kit/commit/0629eb8))
+
+
+
 <a name="0.0.62"></a>
 ## <small>0.0.62 (2019-03-08)</small>
 
