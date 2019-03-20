@@ -1,5 +1,4 @@
-export function isImage(file) {
-  const fileName = file.name || file.path;
+export function isImage(fileName) {
   const suffix = fileName.substr(fileName.indexOf('.') + 1).toLowerCase();
   if (
     suffix === 'jpg' ||

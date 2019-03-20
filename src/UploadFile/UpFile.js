@@ -9,6 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/styles';
 import Divider from '@material-ui/core/Divider';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
+import { isImage } from './helper';
 
 const useStyle = makeStyles({
   primary: {
@@ -42,6 +43,20 @@ const useStyle = makeStyles({
     justifyContent: 'space-between',
     flexBasis: '40%',
   },
+  img: {
+    height: 100,
+    width: 'initial',
+    maxWidth: '100%',
+    marginTop: 5,
+    marginRight: 10,
+    color: 'rgba(0, 0, 0, 0.87)',
+    transition: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms',
+    boxSizing: 'border-box',
+    boxShadow: 'rgba(0, 0, 0, 0.12) 0 1px 6px, rgba(0, 0, 0, 0.12) 0 1px 4px',
+    borderRadius: 2,
+    zIndex: 5,
+    opacity: 1,
+  },
 });
 
 export function UpFile({
@@ -54,15 +69,19 @@ export function UpFile({
   divider,
   setShowAlert,
   setSelectedUID,
+  data,
 }) {
   const classes = useStyle();
 
+  const img = isImage(filename) ? (
+    <img className={classes.img} alt="presentation" src={data} />
+  ) : (
+    <AttachFileIcon />
+  );
   return (
     <React.Fragment>
       <ListItem key={key}>
-        <ListItemIcon>
-          <AttachFileIcon />
-        </ListItemIcon>
+        <ListItemIcon>{img}</ListItemIcon>
         <ListItemText
           primary={
             <div className={classes.primary}>

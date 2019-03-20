@@ -10,6 +10,7 @@ export function TesteUploader() {
     const newCopyFile = copyFiles;
     const timer = setInterval(() => {
       newCopyFile[uid] = {
+        data: newCopyFile[uid].data,
         file: newCopyFile[uid].file,
         completed: newCopyFile[uid].completed + Math.random() * 10,
         uprate: Math.random() * 10 * 1000,
@@ -27,17 +28,22 @@ export function TesteUploader() {
   const onNewFiles = newFiles => {
     const copyFiles = { ...files };
     newFiles.forEach(file => {
+      const reader = new FileReader();
       const uid = uniqid();
-      copyFiles[uid] = {
-        file,
-        completed: 0,
-        uprate: Math.random() * 10 * 1000,
-        uploader: null,
+
+      // Set state after reading async the files
+      reader.onload = event => {
+        copyFiles[uid] = {
+          file,
+          data: event.target.result,
+          completed: 0,
+          uprate: Math.random() * 10 * 1000,
+          uploader: null,
+        };
+        setFiles(copyFiles);
+        DummyUploader(copyFiles, uid);
       };
-
-      setFiles(copyFiles);
-
-      DummyUploader(copyFiles, uid);
+      reader.readAsDataURL(file);
     });
   };
 

@@ -74,6 +74,7 @@ export function PreviewList({ value, onDelete }) {
               divider={Object.keys(value).length !== i + 1}
               setShowAlert={setShowAlert}
               setSelectedUID={setSelectedUID}
+              data={value[uid].data}
             />
           ))}
         </List>
