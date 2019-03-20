@@ -1,3 +1,21 @@
+<a name="0.0.71"></a>
+## <small>0.0.71 (2019-03-20)</small>
+
+* Adding CSV export option ([0662c83](https://github.com/tecsinapse/ui-kit/commit/0662c83))
+* Fixes to export csv to Firefox ([bd30f64](https://github.com/tecsinapse/ui-kit/commit/bd30f64))
+* Fixing defaultProps of table ([12d8e6d](https://github.com/tecsinapse/ui-kit/commit/12d8e6d))
+* Melhorando exemplos ([4f27db6](https://github.com/tecsinapse/ui-kit/commit/4f27db6))
+* Release 0.0.64 ([e3e5a59](https://github.com/tecsinapse/ui-kit/commit/e3e5a59))
+* Release 0.0.64 ([7cdd5d0](https://github.com/tecsinapse/ui-kit/commit/7cdd5d0))
+* Release 0.0.65 ([195a7f9](https://github.com/tecsinapse/ui-kit/commit/195a7f9))
+* Release 0.0.66 ([2593166](https://github.com/tecsinapse/ui-kit/commit/2593166))
+* Release 0.0.67 ([a1eee01](https://github.com/tecsinapse/ui-kit/commit/a1eee01))
+* Release 0.0.68 ([e58b11b](https://github.com/tecsinapse/ui-kit/commit/e58b11b))
+* Release 0.0.69 ([34a78ca](https://github.com/tecsinapse/ui-kit/commit/34a78ca))
+* Release 0.0.70 ([7ef5d44](https://github.com/tecsinapse/ui-kit/commit/7ef5d44))
+
+
+
 <a name="0.0.70"></a>
 ## <small>0.0.70 (2019-03-20)</small>
 
