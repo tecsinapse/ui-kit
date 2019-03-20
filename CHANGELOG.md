@@ -1,3 +1,13 @@
+<a name="0.0.64"></a>
+## <small>0.0.64 (2019-03-20)</small>
+
+* Adding CSV export option ([0662c83](https://github.com/tecsinapse/ui-kit/commit/0662c83))
+* Fixes to export csv to Firefox ([bd30f64](https://github.com/tecsinapse/ui-kit/commit/bd30f64))
+* Fixing defaultProps of table ([12d8e6d](https://github.com/tecsinapse/ui-kit/commit/12d8e6d))
+* Melhorando exemplos ([4f27db6](https://github.com/tecsinapse/ui-kit/commit/4f27db6))
+
+
+
 <a name="0.0.63"></a>
 ## <small>0.0.63 (2019-03-19)</small>
 
