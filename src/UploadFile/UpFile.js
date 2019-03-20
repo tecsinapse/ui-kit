@@ -46,11 +46,14 @@ const useStyle = makeStyles({
 
 export function UpFile({
   key,
+  uid,
   filename,
   completed,
   filesize,
   uprate,
   divider,
+  setShowAlert,
+  setSelectedUID,
 }) {
   const classes = useStyle();
 
@@ -67,7 +70,12 @@ export function UpFile({
                 <Typography variant="subtitle2">{filename}</Typography>
                 <Typography variant="body2">{filesize}</Typography>
               </div>
-              <IconButton onClick={/* DUMMY */ () => {}}>
+              <IconButton
+                onClick={() => {
+                  setShowAlert(true);
+                  setSelectedUID(uid);
+                }}
+              >
                 <Delete />
               </IconButton>
             </div>
@@ -76,12 +84,17 @@ export function UpFile({
             <React.Fragment>
               <LinearProgress variant="determinate" value={completed} />
               <div className={classes.info}>
-                <Typography variant="body2">{uprate}</Typography>
-                <Typography variant="body2">
-                  {completed <= 100
-                    ? `${Math.round(completed)}% done`
-                    : '100% done'}
-                </Typography>
+                {completed < 100 ? (
+                  <Typography variant="body2">{uprate}</Typography>
+                ) : (
+                  <Typography variant="body2">Completed</Typography>
+                )}
+                {completed < 100 ? (
+                  <Typography variant="body2">
+                    {' '}
+                    {`${Math.round(completed)}% done`}
+                  </Typography>
+                ) : null}
               </div>
             </React.Fragment>
           }

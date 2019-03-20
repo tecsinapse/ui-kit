@@ -45,6 +45,7 @@ export function Uploader({
   maxFileSize,
   dropzoneText,
   onChange,
+  onDelete,
 }) {
   const classes = useStyle();
 
@@ -73,7 +74,7 @@ export function Uploader({
         </div>
       </div>
       <div className={classes.preview}>
-        <PreviewList value={value} />
+        <PreviewList value={value} onDelete={onDelete} />
       </div>
     </div>
   );
