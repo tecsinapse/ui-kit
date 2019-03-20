@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/styles';
 import TableToolbarSelection from './TableToolbarSelection';
 import TableAdvancedFilters from './TableAdvancedFilters';
 import { toolbarOptionsTypes } from './TablePropTypes';
+import TableExporter from './TableExporter';
 
 const tableToolbarStyles = makeStyles(theme => ({
   toolbar: {
@@ -22,7 +23,7 @@ const tableToolbarStyles = makeStyles(theme => ({
   },
 }));
 
-const SimpleToolbar = ({ options }) => {
+const SimpleToolbar = ({ options, exportOptions = {}, data, columns }) => {
   const { title, tooltipAdvancedFilter, advancedFiltersComponent } =
     options || {};
   const classes = tableToolbarStyles();
@@ -35,6 +36,7 @@ const SimpleToolbar = ({ options }) => {
         </Typography>
       </div>
       <div className={classes.filter}>
+        <TableExporter {...exportOptions} data={data} columns={columns} />
         <TableAdvancedFilters
           tooltipAdvancedFilter={tooltipAdvancedFilter}
           advancedFiltersComponent={advancedFiltersComponent}
@@ -44,11 +46,25 @@ const SimpleToolbar = ({ options }) => {
   );
 };
 
-const TableToolbar = ({ options, selectedRows, selection }) => {
-  if (!options && !selection) return null;
+const TableToolbar = ({
+  options,
+  selectedRows,
+  selection,
+  exportOptions,
+  data,
+  columns,
+}) => {
+  if (!options && !selection && !exportOptions) return null;
 
   if (selectedRows.length === 0) {
-    return <SimpleToolbar options={options} />;
+    return (
+      <SimpleToolbar
+        options={options}
+        exportOptions={exportOptions}
+        data={data}
+        columns={columns}
+      />
+    );
   }
 
   return (
