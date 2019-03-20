@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import Checkbox from '@material-ui/core/Checkbox';
-import { resolveObj, isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
+import { isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
 import TableRowActions from './TableRowActions';
+import { resolveData } from './tableFunctions';
 
-const stringifyIfObject = value =>
-  typeof value === 'object' ? JSON.stringify(value) : value;
 const isSelected = (selectedRows, row, rowId) =>
   isNotEmptyOrNull(selectedRows) &&
   selectedRows.some(selectedRow => rowId(selectedRow) === rowId(row));
@@ -40,7 +39,7 @@ const convertValuesToTableCell = (
   }
   return (
     <TableCell key={field} align={options.numeric ? 'right' : 'left'}>
-      {stringifyIfObject(resolveObj(field, rowData))}
+      {resolveData(field, rowData)}
     </TableCell>
   );
 };

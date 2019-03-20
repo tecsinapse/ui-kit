@@ -3,9 +3,11 @@ import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
 import { Button } from '@material-ui/core';
+import { storiesOf } from '@storybook/react';
 import Table from './Table';
 import { Select } from '../Select/Select';
 import { cars } from './exampleData';
+import { GROUPS } from '../../.storybook/hierarchySeparators';
 
 const columns = [
   {
@@ -113,4 +115,7 @@ const SelectionTable = () => (
   </Paper>
 );
 
-export default SelectionTable;
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add(
+  'Selection Table',
+  SelectionTable
+);
