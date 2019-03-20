@@ -93,6 +93,7 @@ const Table = props => {
     page: pageProp,
     labelDisplayedRows,
     labelRowsPerPage,
+    exportOptions,
   } = props;
 
   const classes = tableStyles();
@@ -137,6 +138,9 @@ const Table = props => {
         options={toolbarOptions}
         selectedRows={selectedRows}
         selection={options.selection}
+        exportOptions={exportOptions}
+        data={data}
+        columns={columns}
       />
       <MUITable className={classes.table}>
         <TableHeader
@@ -193,6 +197,7 @@ Table.defaultProps = {
   page: 0,
   labelDisplayedRows: ({ from, to, count }) => `${from}-${to} of ${count}`,
   labelRowsPerPage: 'Rows per page:',
+  exportOptions: null,
 };
 
 Table.propTypes = {
@@ -228,6 +233,16 @@ Table.propTypes = {
   page: PropTypes.number,
   labelDisplayedRows: PropTypes.func,
   labelRowsPerPage: PropTypes.string,
+  exportOptions: PropTypes.shape({
+    exportFileName: PropTypes.string,
+    exportTypes: PropTypes.arrayOf(
+      PropTypes.shape({
+        type: PropTypes.oneOf(['csv']),
+        label: PropTypes.string,
+        delimeter: PropTypes.string,
+      })
+    ),
+  }),
 };
 
 export default Table;
