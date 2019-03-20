@@ -11,30 +11,45 @@ const useStyle = makeStyles({
     display: 'flex',
     width: '100%',
     height: '100%',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignItems: 'flex-start',
-    border: '2px dashed blue',
+    // border: '2px dashed blue',
   },
   drag: {
     borderStyle: 'dashed',
-    width: '90%',
-    height: '80%',
+    width: '100%',
+    height: '75%',
     position: 'relative',
     border: '2px dashed grey',
     borderRadius: '6px',
     backgroundColor: '#80808021',
+    flexBasis: '40%',
   },
   preview: {
-    border: '2px dashed red',
+    // border: '2px dashed red',
     width: '100%',
     height: '100%',
     overflow: 'scroll',
+    flexBasis: '55%',
   },
   dropzoneText: {
     position: 'absolute',
-    top: '40%',
-    left: '8%',
+    width: '100%',
+    height: '100%',
     textAlign: 'center',
+    // border: '2px dashed red',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  icon: {
+    // border: '2px dashed blue',
+    width: '100%',
+    flexBasis: '25%',
+  },
+  text: {
+    // border: '2px dashed green',
+    flexBasis: '25%',
   },
 });
 
@@ -69,8 +84,10 @@ export function Uploader({
         <input {...getInputProps()} />
 
         <div className={classes.dropzoneText}>
-          <Typography variant="Subheading">{dropzoneText}</Typography>
-          <CloudUploadIcon fontSize="large" />
+          <CloudUploadIcon fontSize="large" className={classes.icon} />
+          <Typography variant="h5" className={classes.text}>
+            {dropzoneText}
+          </Typography>
         </div>
       </div>
       <div className={classes.preview}>
@@ -85,7 +102,7 @@ Uploader.defaultProps = {
   acceptedFormat: ['image/*', 'video/*', 'application/*'],
   filesLimit: 3,
   maxFileSize: 3000000,
-  dropzoneText: 'Drag and drop an image file here or click',
+  dropzoneText: 'Drag and drop a file here or click',
   onChange: () => {},
 };
 

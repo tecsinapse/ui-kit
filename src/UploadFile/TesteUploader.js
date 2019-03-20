@@ -56,7 +56,6 @@ export function TesteUploader() {
   return (
     <Uploader
       value={files}
-      dropzoneText="Arraste ou selecione seus arquivos de upload"
       onChange={onNewFiles}
       filesLimit={10}
       onDelete={onDeleteFiles}
