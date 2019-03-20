@@ -12,11 +12,21 @@ export const exportToCSV = (fileName, columns, data, delimeter = ';') => {
   );
   dataToExport.splice(0, 0, columns.map(c => c.title).join(delimeter));
 
-  const hiddenElement = document.createElement('a');
-  hiddenElement.href = `data:text/csv;charset=utf-8,${encodeURI(
-    dataToExport.join('\n')
-  )}`;
-  hiddenElement.target = '_blank';
-  hiddenElement.download = fileName;
-  hiddenElement.click();
+  const csvData = dataToExport.join('\n');
+  const csvFile = window.URL.createObjectURL(
+    new Blob([csvData], { type: 'text/csv;charset=utf-8;' })
+  );
+
+  if (window.navigator.msSaveOrOpenBlob) {
+    window.navigator.msSaveOrOpenBlob(csvFile, fileName);
+  } else {
+    const hiddenElement = document.createElement('a');
+    hiddenElement.href = csvFile;
+    hiddenElement.target = '_blank';
+    hiddenElement.download = fileName;
+    hiddenElement.style.visibility = 'hidden';
+    document.body.appendChild(hiddenElement);
+    hiddenElement.click();
+    document.body.removeChild(hiddenElement);
+  }
 };
