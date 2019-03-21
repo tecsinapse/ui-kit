@@ -101,11 +101,16 @@ const Table = props => {
   const [data, setData] = useState([...originalData]);
   const [pageData, setPageData] = useState([]);
   const [page, setPage] = useState(pageProp);
-  const [rowsPerPage, setRowsPerPage] = useState(
-    rowsPerPageOptions.includes(rowsPerPageProp)
+
+  let initialRowsPerPage;
+  if (rowsPerPageProp !== null || pagination) {
+    initialRowsPerPage = rowsPerPageOptions.includes(rowsPerPageProp)
       ? rowsPerPageProp
-      : rowsPerPageOptions[0]
-  );
+      : rowsPerPageOptions[0];
+  } else {
+    initialRowsPerPage = originalData.length;
+  }
+  const [rowsPerPage, setRowsPerPage] = useState(initialRowsPerPage);
   let rowCount = data.length;
 
   useEffect(() => {
@@ -194,7 +199,7 @@ Table.defaultProps = {
   toolbarOptions: null,
   pagination: false,
   rowsPerPageOptions: [10, 20, 30],
-  rowsPerPage: 10,
+  rowsPerPage: null,
   page: 0,
   labelDisplayedRows: ({ from, to, count }) => `${from}-${to} of ${count}`,
   labelRowsPerPage: 'Rows per page:',
