@@ -94,6 +94,7 @@ const Table = props => {
     labelDisplayedRows,
     labelRowsPerPage,
     exportOptions,
+    classes: propClasses,
   } = props;
 
   const classes = tableStyles();
@@ -133,7 +134,7 @@ const Table = props => {
   );
 
   return (
-    <div>
+    <div className={propClasses.root}>
       <TableToolbar
         options={toolbarOptions}
         selectedRows={selectedRows}
@@ -198,6 +199,7 @@ Table.defaultProps = {
   labelDisplayedRows: ({ from, to, count }) => `${from}-${to} of ${count}`,
   labelRowsPerPage: 'Rows per page:',
   exportOptions: null,
+  classes: {},
 };
 
 Table.propTypes = {
@@ -233,6 +235,9 @@ Table.propTypes = {
   page: PropTypes.number,
   labelDisplayedRows: PropTypes.func,
   labelRowsPerPage: PropTypes.string,
+  classes: PropTypes.shape({
+    root: PropTypes.string,
+  }),
   exportOptions: PropTypes.shape({
     exportFileName: PropTypes.string,
     exportTypes: PropTypes.arrayOf(

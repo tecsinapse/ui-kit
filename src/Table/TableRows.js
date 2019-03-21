@@ -68,10 +68,10 @@ const TableRows = ({
   onSelectRow,
   rowId,
 }) => {
-  if (isEmptyOrNull(columns) || isEmptyOrNull(data)) return null;
-
-  const hasSelection = columns.some(({ selection }) => selection);
+  const hasSelection = columns || [].some(({ selection }) => selection);
   const classes = tableRowStyles(hasSelection)();
+
+  if (isEmptyOrNull(columns) || isEmptyOrNull(data)) return null;
 
   return data.map(rowData => (
     <TableRow
