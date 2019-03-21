@@ -23,7 +23,6 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter }) => {
             {options.filter && (
               <Input
                 name={field}
-                style={{ height: 35 }}
                 startAdornment={
                   <Icon path={mdiMagnify} size={1} color="#C4C4C4" />
                 }
