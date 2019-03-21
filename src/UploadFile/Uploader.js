@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import PropTypes from 'prop-types';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { makeStyles } from '@material-ui/styles';
 import { Typography } from '@material-ui/core';
 import { PreviewList } from './PreviewList';
+import { Snackbar } from '../Notifications/Snackbar';
+import { convertBytes } from './helper';
 
 const useStyle = makeStyles({
   root: {
@@ -62,6 +64,11 @@ export function Uploader({
   onChange,
   onDelete,
 }) {
+  const [snackbar, setSnackBar] = useState({
+    show: false,
+    variant: 'error',
+    msg: '',
+  });
   const classes = useStyle();
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -73,27 +80,60 @@ export function Uploader({
         onChange
       ) {
         onChange(acceptedFiles);
+      } else {
+        setSnackBar({
+          show: true,
+          variant: 'error',
+          msg: `Maximum allowed number of files exceeded. Only ${filesLimit} allowed`,
+        });
       }
-      // TODO (LIP): Define what it should happen for ignored files
+    },
+    onDropRejected: rejectedFiles => {
+      let message = '';
+      rejectedFiles.forEach(rejectedFile => {
+        message = `File ${rejectedFile.name} was rejected. `;
+        if (!acceptedFormat.includes(rejectedFile.type)) {
+          message += 'File type not supported. ';
+        }
+        if (rejectedFile.size > maxFileSize) {
+          message += `File is too big. Size limit is ${convertBytes(
+            maxFileSize
+          )}.`;
+        }
+      });
+      setSnackBar({
+        show: true,
+        variant: 'error',
+        msg: message,
+      });
     },
   });
 
   return (
-    <div className={classes.root}>
-      <div {...getRootProps()} className={classes.drag}>
-        <input {...getInputProps()} />
+    <React.Fragment>
+      <div className={classes.root}>
+        <div {...getRootProps()} className={classes.drag}>
+          <input {...getInputProps()} />
 
-        <div className={classes.dropzoneText}>
-          <CloudUploadIcon fontSize="large" className={classes.icon} />
-          <Typography variant="h5" className={classes.text}>
-            {dropzoneText}
-          </Typography>
+          <div className={classes.dropzoneText}>
+            <CloudUploadIcon fontSize="large" className={classes.icon} />
+            <Typography variant="h5" className={classes.text}>
+              {dropzoneText}
+            </Typography>
+          </div>
+        </div>
+        <div className={classes.preview}>
+          <PreviewList value={value} onDelete={onDelete} />
         </div>
       </div>
-      <div className={classes.preview}>
-        <PreviewList value={value} onDelete={onDelete} />
-      </div>
-    </div>
+      <Snackbar
+        show={snackbar.show}
+        variant={snackbar.variant}
+        onClose={() => setSnackBar({ show: false, variant: 'error' })}
+      >
+        {snackbar.msg}
+      </Snackbar>
+    </React.Fragment>
   );
 }
 

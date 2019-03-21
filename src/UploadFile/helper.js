@@ -17,7 +17,7 @@ export function convertBytes(filesize) {
   } else if (filesize >= 1000) {
     size = `${Math.round(filesize / 1000)}Kb`;
   } else {
-    size = `${filesize}bytes`;
+    size = `${Math.round(filesize)}bytes`;
   }
   return size;
 }

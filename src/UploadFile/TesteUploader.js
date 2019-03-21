@@ -6,23 +6,30 @@ import { Uploader } from './Uploader';
 export function TesteUploader() {
   const [files, setFiles] = useState({});
 
-  function DummyUploader(copyFiles, uid) {
-    const newCopyFile = copyFiles;
-    const timer = setInterval(() => {
-      newCopyFile[uid] = {
-        data: newCopyFile[uid].data,
-        file: newCopyFile[uid].file,
-        completed: newCopyFile[uid].completed + Math.random() * 10,
-        uprate: Math.random() * 10 * 1000,
-        uploader: timer,
-      };
+  function DummyUploader(uid) {
+    const timer = setInterval(
+      () =>
+        setFiles(prevFiles => {
+          const copyFiles = { ...prevFiles };
 
-      if (newCopyFile[uid].completed >= 100) {
-        clearInterval(timer);
-      }
+          if (copyFiles[uid] === null) return prevFiles;
 
-      setFiles(newCopyFile);
-    }, 800);
+          copyFiles[uid] = {
+            data: copyFiles[uid].data,
+            file: copyFiles[uid].file,
+            completed: copyFiles[uid].completed + Math.random() * 10,
+            uprate: Math.random() * 10 * 1000,
+            uploader: timer,
+          };
+
+          if (copyFiles[uid].completed >= 100) {
+            clearInterval(timer);
+          }
+
+          return copyFiles;
+        }),
+      800
+    );
   }
 
   const onNewFiles = newFiles => {
@@ -41,21 +48,21 @@ export function TesteUploader() {
           uploader: null,
         };
         setFiles(copyFiles);
-        DummyUploader(copyFiles, uid);
+        DummyUploader(uid);
       };
       reader.readAsDataURL(file);
     });
   };
 
-  const onDeleteFiles = fileIndex => {
+  const onDeleteFiles = fileUID => {
     const copyFiles = { ...files };
 
     // Note: Before update the state (excluding),
     // this example should stop the upload process (dummy here)
-    clearInterval(copyFiles[fileIndex].uploader);
+    clearInterval(copyFiles[fileUID].uploader);
 
     // Update state
-    delete copyFiles[fileIndex];
+    delete copyFiles[fileUID];
     setFiles(copyFiles);
   };
 
@@ -63,7 +70,7 @@ export function TesteUploader() {
     <Uploader
       value={files}
       onChange={onNewFiles}
-      filesLimit={10}
+      filesLimit={3}
       onDelete={onDeleteFiles}
     />
   );
