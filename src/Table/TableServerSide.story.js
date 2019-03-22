@@ -82,7 +82,7 @@ const ServerSideTable = () => {
             totalCount: filteredData.length,
           };
         }}
-        rowId={row => row.id}
+        rowId={row => row.code}
         toolbarOptions={{ title: 'Server Side Example' }}
         pagination
         exportOptions={{
