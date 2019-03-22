@@ -1,3 +1,10 @@
+<a name="0.0.94"></a>
+## <small>0.0.94 (2019-03-22)</small>
+
+* Ajustando script de release ([4f87dce](https://github.com/tecsinapse/ui-kit/commit/4f87dce))
+
+
+
 <a name="0.0.93"></a>
 ## <small>0.0.93 (2019-03-22)</small>
 
