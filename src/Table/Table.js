@@ -88,8 +88,11 @@ const Table = props => {
         selectedRows={selectedRows}
         selection={options.selection}
         exportOptions={exportOptions}
-        data={data}
+        data={isRemoteData(originalData) ? originalData : data}
+        filters={filters}
         columns={columns}
+        setLoading={setLoading}
+        rowCount={rowCount}
       />
       <MUITable className={classes.table}>
         <TableHeader
@@ -153,7 +156,10 @@ Table.propTypes = {
       }),
     })
   ).isRequired,
-  data: PropTypes.oneOf(PropTypes.arrayOf(PropTypes.object), PropTypes.func),
+  data: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.func,
+  ]),
   onFilterData: PropTypes.func,
   rowId: PropTypes.func.isRequired,
   options: PropTypes.shape({

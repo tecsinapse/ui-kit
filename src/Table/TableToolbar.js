@@ -23,7 +23,15 @@ const tableToolbarStyles = makeStyles(theme => ({
   },
 }));
 
-const SimpleToolbar = ({ options, exportOptions = {}, data, columns }) => {
+const SimpleToolbar = ({
+  options,
+  exportOptions = {},
+  data,
+  columns,
+  filters,
+  setLoading,
+  rowCount,
+}) => {
   const { title, tooltipAdvancedFilter, advancedFiltersComponent } =
     options || {};
   const classes = tableToolbarStyles();
@@ -36,7 +44,14 @@ const SimpleToolbar = ({ options, exportOptions = {}, data, columns }) => {
         </Typography>
       </div>
       <div className={classes.filter}>
-        <TableExporter {...exportOptions} data={data} columns={columns} />
+        <TableExporter
+          {...exportOptions}
+          data={data}
+          columns={columns}
+          filters={filters}
+          setLoading={setLoading}
+          rowCount={rowCount}
+        />
         <TableAdvancedFilters
           tooltipAdvancedFilter={tooltipAdvancedFilter}
           advancedFiltersComponent={advancedFiltersComponent}
@@ -53,6 +68,9 @@ const TableToolbar = ({
   exportOptions,
   data,
   columns,
+  filters,
+  setLoading,
+  rowCount,
 }) => {
   if (!options && !selection && !exportOptions) return null;
 
@@ -62,7 +80,10 @@ const TableToolbar = ({
         options={options}
         exportOptions={exportOptions}
         data={data}
+        filters={filters}
         columns={columns}
+        setLoading={setLoading}
+        rowCount={rowCount}
       />
     );
   }
