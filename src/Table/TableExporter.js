@@ -5,17 +5,17 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@mdi/react';
 import IconButton from '@material-ui/core/IconButton';
 import { mdiDownload } from '@mdi/js';
-import { exportToCSV } from './tableFunctions';
+import { exportToCSV, isRemoteData } from './tableFunctions';
 
 const defaultLabelToCSV = 'Export to CSV';
 
-const exportData = (
+const exportTo = (
   type,
   exportFileName,
   columns,
   data,
-  setAnchorEl,
-  delimeter
+  delimeter,
+  setAnchorEl
 ) => {
   if (type === 'csv') {
     exportToCSV(exportFileName, columns, data, delimeter);
@@ -23,7 +23,48 @@ const exportData = (
   setAnchorEl(null);
 };
 
-const TableExporter = ({ exportFileName, exportTypes, data, columns }) => {
+const exportData = async (
+  type,
+  exportFileName,
+  columns,
+  data,
+  setAnchorEl,
+  delimeter,
+  filters,
+  setLoading,
+  rowCount
+) => {
+  setLoading(true);
+
+  if (isRemoteData(data)) {
+    data({ ...filters, ...{ page: 0, rowsPerPage: rowCount } }).then(
+      ({ data: resultData }) => {
+        exportTo(
+          type,
+          exportFileName,
+          columns,
+          resultData,
+          delimeter,
+          setAnchorEl
+        );
+        setLoading(false);
+      }
+    );
+  } else {
+    exportTo(type, exportFileName, columns, data, delimeter, setAnchorEl);
+    setLoading(false);
+  }
+};
+
+const TableExporter = ({
+  exportFileName,
+  exportTypes,
+  data,
+  columns,
+  filters,
+  setLoading,
+  rowCount,
+}) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   if (!exportTypes || exportTypes.length === 0) return null;
@@ -48,7 +89,10 @@ const TableExporter = ({ exportFileName, exportTypes, data, columns }) => {
                 columns,
                 data,
                 setAnchorEl,
-                delimeter
+                delimeter,
+                filters,
+                setLoading,
+                rowCount
               )
             }
           >
@@ -67,7 +111,10 @@ TableExporter.defaultProps = {
 };
 
 TableExporter.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object),
+  data: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.func,
+  ]),
   exportFileName: PropTypes.string,
   exportTypes: PropTypes.arrayOf(
     PropTypes.shape({

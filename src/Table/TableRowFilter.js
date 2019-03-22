@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
@@ -6,14 +6,38 @@ import { mdiMagnify } from '@mdi/js';
 import Icon from '@mdi/react';
 import { Input } from '../Inputs/Input';
 
-const onChange = (column, onChangeFilter) => event => {
-  /*eslint-disable*/
-  column.filterValue = event.target.value;
-  onChangeFilter();
+const onChange = (onChangeFilter, setHeaderFilters) => ({ target }) => {
+  const { name } = target;
+  const { value: filterValue } = target;
+
+  setHeaderFilters(prevHeaderFilters => {
+    const newHeaderFilter = {};
+    newHeaderFilter[name] = filterValue;
+    const mergedHeaderFilters = { ...prevHeaderFilters, ...newHeaderFilter };
+
+    onChangeFilter(mergedHeaderFilters);
+
+    return mergedHeaderFilters;
+  });
+};
+
+const initialHeaderFilters = columns => {
+  const headerFilters = {};
+  columns
+    .filter(c => !c.selection && !c.actions)
+    .forEach(c => {
+      headerFilters[c.field] = '';
+    });
+  return headerFilters;
 };
 
 const TableRowFilter = ({ columns, rendered, onChangeFilter }) => {
+  const [headerFilters, setHeaderFilters] = useState(
+    initialHeaderFilters(columns)
+  );
+
   if (!rendered) return null;
+
   return (
     <TableRow>
       {columns.map(column => {
@@ -23,10 +47,11 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter }) => {
             {options.filter && (
               <Input
                 name={field}
+                value={headerFilters[field]}
                 startAdornment={
                   <Icon path={mdiMagnify} size={1} color="#C4C4C4" />
                 }
-                onChange={onChange(column, onChangeFilter)}
+                onChange={onChange(onChangeFilter, setHeaderFilters)}
               />
             )}
           </TableCell>
@@ -51,6 +76,7 @@ TableRowFilter.propTypes = {
     })
   ).isRequired,
   rendered: PropTypes.bool,
+  onChangeFilter: PropTypes.func.isRequired,
 };
 
 export default TableRowFilter;
