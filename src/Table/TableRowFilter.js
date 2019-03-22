@@ -48,7 +48,6 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter }) => {
               <Input
                 name={field}
                 value={headerFilters[field]}
-                style={{ height: 35 }}
                 startAdornment={
                   <Icon path={mdiMagnify} size={1} color="#C4C4C4" />
                 }

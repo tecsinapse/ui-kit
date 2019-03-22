@@ -37,6 +37,7 @@ const Table = props => {
     labelDisplayedRows,
     labelRowsPerPage,
     exportOptions,
+    classes: propClasses,
   } = props;
 
   const classes = tableStyles();
@@ -80,7 +81,7 @@ const Table = props => {
   );
 
   return (
-    <div>
+    <div className={propClasses.root}>
       <TableLoading loading={loading} />
       <TableToolbar
         options={toolbarOptions}
@@ -134,11 +135,12 @@ Table.defaultProps = {
   toolbarOptions: null,
   pagination: false,
   rowsPerPageOptions: [10, 20, 30],
-  rowsPerPage: 10,
+  rowsPerPage: null,
   page: 0,
   labelDisplayedRows: ({ from, to, count }) => `${from}-${to} of ${count}`,
   labelRowsPerPage: 'Rows per page:',
   exportOptions: null,
+  classes: {},
 };
 
 Table.propTypes = {
@@ -173,6 +175,9 @@ Table.propTypes = {
   page: PropTypes.number,
   labelDisplayedRows: PropTypes.func,
   labelRowsPerPage: PropTypes.string,
+  classes: PropTypes.shape({
+    root: PropTypes.string,
+  }),
   exportOptions: PropTypes.shape({
     exportFileName: PropTypes.string,
     exportTypes: PropTypes.arrayOf(
