@@ -1,4 +1,4 @@
-import { resolveObj } from '@tecsinapse/es-utils/core/object';
+import { resolveObj, isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
 
 const stringifyIfObject = value =>
   typeof value === 'object' ? JSON.stringify(value) : value;
@@ -30,3 +30,37 @@ export const exportToCSV = (fileName, columns, data, delimeter = ';') => {
     document.body.removeChild(hiddenElement);
   }
 };
+
+export const onChangeHeaderFilter = setFilters => headerFilters => {
+  setFilters(prevFilters => {
+    const newFilters = { page: 0 };
+    newFilters.headerFilters = { ...headerFilters };
+    const mergedFilters = { ...prevFilters, ...newFilters };
+    return mergedFilters;
+  });
+};
+
+export const onChangePage = setFilters => (rowsPerPage, page) => {
+  setFilters(prevFilters => ({ ...prevFilters, ...{ page, rowsPerPage } }));
+};
+
+export const initializeColumns = (tableColumns, tableOptions, actions) => {
+  const columns = [...tableColumns];
+  if (tableOptions.selection) {
+    columns.splice(0, 0, {
+      field: 'checkbox-header',
+      selection: true,
+    });
+  }
+
+  const hasActions = isNotEmptyOrNull(actions);
+  if (hasActions) {
+    columns.push({
+      field: 'actions',
+      actions,
+    });
+  }
+  return columns;
+};
+
+export const isRemoteData = data => typeof data === 'function';

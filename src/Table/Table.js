@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import MUITable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import { resolveObj, isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import { tableStyles } from './tableStyle';
@@ -12,75 +11,19 @@ import TableRows from './TableRows';
 import TableToolbar from './TableToolbar';
 import TablePagination from './TablePagination';
 import { toolbarOptionsTypes } from './TablePropTypes';
-
-const initializeColumns = (tableColumns, tableOptions, actions) => {
-  const columns = [...tableColumns];
-  if (tableOptions.selection) {
-    columns.splice(0, 0, {
-      field: 'checkbox-header',
-      selection: true,
-    });
-  }
-
-  const hasActions = isNotEmptyOrNull(actions);
-  if (hasActions) {
-    columns.push({
-      field: 'actions',
-      actions,
-    });
-  }
-  return columns;
-};
-
-const onChangeFilter = (
-  data,
-  setData,
-  columns,
-  onFilterData,
-  setPage
-) => () => {
-  let filteredData = [...data];
-
-  columns.forEach(column => {
-    filteredData = filteredData.filter(row => {
-      const valueField = resolveObj(column.field, row);
-
-      if (!column.filterValue) return true;
-
-      if (typeof valueField === 'object') {
-        return true;
-      }
-      if (typeof valueField === 'string') {
-        return valueField
-          .toLowerCase()
-          .includes(column.filterValue.toLowerCase());
-      }
-      return false;
-    });
-  });
-
-  setPage(0);
-  setData(filteredData);
-
-  if (onFilterData) {
-    onFilterData(filteredData);
-  }
-};
-
-const onChangePage = (data, setPageData, setPage, setRowsPerPage) => (
-  rowsPerPage,
-  page
-) => {
-  setPage(page);
-  setRowsPerPage(rowsPerPage);
-  setPageData(data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage));
-};
+import TableLoading from './TableLoading';
+import {
+  onChangeHeaderFilter,
+  onChangePage,
+  initializeColumns,
+  isRemoteData,
+} from './tableFunctions';
+import { useInitialData, useUpdatePageData, useUpdateData } from './tableHooks';
 
 const Table = props => {
   const {
     data: originalData,
     columns,
-    onFilterData,
     options,
     selectedData,
     rowId,
@@ -97,32 +40,36 @@ const Table = props => {
   } = props;
 
   const classes = tableStyles();
-  const [data, setData] = useState([...originalData]);
+  const [rowCount, setRowCount] = useState(0);
+  const [data, setData] = useState([]);
   const [pageData, setPageData] = useState([]);
-  const [page, setPage] = useState(pageProp);
-  const [rowsPerPage, setRowsPerPage] = useState(
-    rowsPerPageOptions.includes(rowsPerPageProp)
-      ? rowsPerPageProp
-      : rowsPerPageOptions[0]
-  );
-  let rowCount = data.length;
-
-  useEffect(() => {
-    setPageData(
-      data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-    );
-    rowCount = data.length;
-  }, [data]);
-
   const [selectedRows, setSelectedRows] = useState([...selectedData]);
   const [tableColumns] = useState(initializeColumns(columns, options, actions));
+  const [loading, setLoading] = useState(false);
+  const [filters, setFilters] = useState(() => {
+    const headerFilters = {};
+    const rowsPerPage = rowsPerPageOptions.includes(rowsPerPageProp)
+      ? rowsPerPageProp
+      : rowsPerPageOptions[0];
+
+    return {
+      headerFilters,
+      page: pageProp,
+      rowsPerPage,
+    };
+  });
+
+  useInitialData(originalData, setData);
+  useUpdateData(originalData, setLoading, setData, filters, setRowCount);
+  useUpdatePageData(isRemoteData(originalData), data, setPageData, filters);
+
   const paginationOptions = {
     rowsPerPageOptions,
-    rowsPerPage,
-    page,
+    rowsPerPage: filters.rowsPerPage,
+    page: filters.page,
     rowCount,
     pagination,
-    onChangePage: onChangePage(data, setPageData, setPage, setRowsPerPage),
+    onChangePage: onChangePage(setFilters),
     labelDisplayedRows,
     labelRowsPerPage,
     tableColumns,
@@ -134,6 +81,7 @@ const Table = props => {
 
   return (
     <div>
+      <TableLoading loading={loading} />
       <TableToolbar
         options={toolbarOptions}
         selectedRows={selectedRows}
@@ -155,13 +103,7 @@ const Table = props => {
           <TableRowFilter
             rendered={someColumnHasFilter}
             columns={tableColumns}
-            onChangeFilter={onChangeFilter(
-              originalData,
-              setData,
-              tableColumns,
-              onFilterData,
-              setPage
-            )}
+            onChangeFilter={onChangeHeaderFilter(setFilters)}
           />
           <TableRows
             columns={tableColumns}
@@ -188,7 +130,6 @@ Table.defaultProps = {
   options: {},
   selectedData: [],
   onSelectRow: null,
-  rowCount: null,
   actions: [],
   toolbarOptions: null,
   pagination: false,
@@ -210,7 +151,7 @@ Table.propTypes = {
       }),
     })
   ).isRequired,
-  data: PropTypes.arrayOf(PropTypes.object),
+  data: PropTypes.oneOf(PropTypes.arrayOf(PropTypes.object), PropTypes.func),
   onFilterData: PropTypes.func,
   rowId: PropTypes.func.isRequired,
   options: PropTypes.shape({
@@ -218,7 +159,6 @@ Table.propTypes = {
   }),
   selectedData: PropTypes.arrayOf(PropTypes.object),
   onSelectRow: PropTypes.func,
-  rowCount: PropTypes.number,
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       tooltip: PropTypes.string,
