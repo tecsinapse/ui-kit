@@ -1,3 +1,13 @@
+<a name="0.0.73"></a>
+## <small>0.0.73 (2019-03-22)</small>
+
+* Solving hook conditional call and adding class api on table ([63bb692](https://github.com/tecsinapse/ui-kit/commit/63bb692))
+* Solving hook conditional call and adding class api on table - parenthesis ([c83f5b1](https://github.com/tecsinapse/ui-kit/commit/c83f5b1))
+* solving page props ([464a5d9](https://github.com/tecsinapse/ui-kit/commit/464a5d9))
+* Solving page size on paginated/non paginated table ([beefd37](https://github.com/tecsinapse/ui-kit/commit/beefd37))
+
+
+
 <a name="0.0.72"></a>
 ## <small>0.0.72 (2019-03-20)</small>
 
