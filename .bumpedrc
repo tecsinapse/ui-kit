@@ -18,4 +18,4 @@ plugins:
       command: 'git tag $newVersion && git push origin master && git push origin master --tags'
     Publishing to NPM:
       plugin: bumped-terminal
-      command: yarn build && yarn publish
+      command: yarn build && npm publish
