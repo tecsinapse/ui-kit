@@ -1,3 +1,11 @@
+<a name="0.0.83"></a>
+## <small>0.0.83 (2019-03-22)</small>
+
+* Ajustando release script ([1af40b7](https://github.com/tecsinapse/ui-kit/commit/1af40b7))
+* v0.0.82 ([eea59fd](https://github.com/tecsinapse/ui-kit/commit/eea59fd))
+
+
+
 <a name="0.0.81"></a>
 ## <small>0.0.81 (2019-03-22)</small>
 
