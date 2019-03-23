@@ -1,3 +1,10 @@
+<a name="0.0.95"></a>
+## <small>0.0.95 (2019-03-23)</small>
+
+* Adding custom render prop to columns ([3b4c119](https://github.com/tecsinapse/ui-kit/commit/3b4c119))
+
+
+
 <a name="0.0.94"></a>
 ## <small>0.0.94 (2019-03-22)</small>
 
