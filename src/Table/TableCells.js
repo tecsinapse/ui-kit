@@ -11,7 +11,7 @@ const isSelected = (selectedRows, row, rowId) =>
   selectedRows.some(selectedRow => rowId(selectedRow) === rowId(row));
 
 const convertValuesToTableCell = (
-  { field, options = {}, selection, actions },
+  { field, options = {}, selection, actions, customRender },
   rowData,
   rowId,
   selectedRows
@@ -39,7 +39,7 @@ const convertValuesToTableCell = (
   }
   return (
     <TableCell key={field} align={options.numeric ? 'right' : 'left'}>
-      {resolveData(field, rowData)}
+      {customRender ? customRender(rowData) : resolveData(field, rowData)}
     </TableCell>
   );
 };

@@ -154,6 +154,7 @@ Table.propTypes = {
       options: PropTypes.shape({
         filter: PropTypes.bool,
       }),
+      customRender: PropTypes.func,
     })
   ).isRequired,
   data: PropTypes.oneOfType([
