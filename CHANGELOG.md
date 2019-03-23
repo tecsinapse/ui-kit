@@ -1,3 +1,21 @@
+<a name="0.0.94"></a>
+## <small>0.0.94 (2019-03-22)</small>
+
+* Ajustando script de release ([4f87dce](https://github.com/tecsinapse/ui-kit/commit/4f87dce))
+
+
+
+<a name="0.0.93"></a>
+## <small>0.0.93 (2019-03-22)</small>
+
+* Adding graphql-hooks to table server side example ([17ddddd](https://github.com/tecsinapse/ui-kit/commit/17ddddd))
+* Created TableLoading component ([20016f9](https://github.com/tecsinapse/ui-kit/commit/20016f9))
+* Fixing rowId ([5580fd8](https://github.com/tecsinapse/ui-kit/commit/5580fd8))
+* Solving the problem with the CSV export on TableServerSide ([7fd5051](https://github.com/tecsinapse/ui-kit/commit/7fd5051))
+* Table server side ([1d851fb](https://github.com/tecsinapse/ui-kit/commit/1d851fb))
+
+
+
 <a name="0.0.92"></a>
 ## <small>0.0.92 (2019-03-22)</small>
 
