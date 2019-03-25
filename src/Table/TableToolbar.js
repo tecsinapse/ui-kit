@@ -32,8 +32,12 @@ const SimpleToolbar = ({
   setLoading,
   rowCount,
 }) => {
-  const { title, tooltipAdvancedFilter, advancedFiltersComponent } =
-    options || {};
+  const {
+    title,
+    tooltipAdvancedFilter,
+    advancedFiltersComponent,
+    advancedFilters,
+  } = options || {};
   const classes = tableToolbarStyles();
 
   return (
@@ -55,6 +59,7 @@ const SimpleToolbar = ({
         <TableAdvancedFilters
           tooltipAdvancedFilter={tooltipAdvancedFilter}
           advancedFiltersComponent={advancedFiltersComponent}
+          advancedFilters={advancedFilters}
         />
       </div>
     </Toolbar>

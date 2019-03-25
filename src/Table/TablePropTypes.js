@@ -15,6 +15,35 @@ export const toolbarOptionsTypes = PropTypes.shape({
       onClick: PropTypes.func.isRequired,
     })
   ),
+  advancedFilters: PropTypes.shape({
+    applyFiltersLabel: PropTypes.string,
+    filters: PropTypes.arrayOf(
+      PropTypes.shape({
+        group: PropTypes.string,
+        type: PropTypes.oneOf([
+          'input',
+          'select',
+          'multi-select',
+          'date',
+          'time',
+          'date-time',
+        ]),
+        name: PropTypes.string,
+        label: PropTypes.string,
+        options: PropTypes.arrayOf(
+          PropTypes.shape({
+            value: PropTypes.any,
+            label: PropTypes.string,
+            disabled: PropTypes.bool,
+          })
+        ),
+        value: PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.arrayOf(PropTypes.string),
+        ]),
+      })
+    ),
+  }),
 });
 
 export const paginationOptions = {
