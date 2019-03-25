@@ -1,3 +1,11 @@
+<a name="0.0.96"></a>
+## <small>0.0.96 (2019-03-25)</small>
+
+* Fixing problem with no pagination table ([bbf5212](https://github.com/tecsinapse/ui-kit/commit/bbf5212))
+* Release 0.0.95 ([0a5c2c4](https://github.com/tecsinapse/ui-kit/commit/0a5c2c4))
+
+
+
 <a name="0.0.95"></a>
 ## <small>0.0.95 (2019-03-25)</small>
 
