@@ -49,9 +49,13 @@ const Table = props => {
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState(() => {
     const headerFilters = {};
-    const rowsPerPage = rowsPerPageOptions.includes(rowsPerPageProp)
-      ? rowsPerPageProp
-      : rowsPerPageOptions[0];
+    let rowsPerPage = null;
+
+    if (pagination) {
+      rowsPerPage = rowsPerPageOptions.includes(rowsPerPageProp)
+        ? rowsPerPageProp
+        : rowsPerPageOptions[0];
+    }
 
     return {
       headerFilters,

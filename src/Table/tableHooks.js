@@ -61,7 +61,7 @@ export const useUpdatePageData = (
   { page, rowsPerPage }
 ) => {
   useEffect(() => {
-    if (isRemote) {
+    if (isRemote || !rowsPerPage || rowsPerPage === 0) {
       setPageData(data);
     } else {
       setPageData(
