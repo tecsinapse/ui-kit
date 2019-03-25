@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import uniqid from 'uniqid';
 import { setInterval, clearInterval } from 'timers';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog';
 import { Uploader } from './Uploader';
+import { PreviewList } from './PreviewList';
 
 export function TesteUploader() {
   const [files, setFiles] = useState({});
+  const [open, setOpen] = useState(false);
 
   function DummyUploader(uid) {
     const timer = setInterval(
@@ -33,6 +37,7 @@ export function TesteUploader() {
   }
 
   const onNewFiles = newFiles => {
+    setOpen(true);
     const copyFiles = { ...files };
     newFiles.forEach(file => {
       const reader = new FileReader();
@@ -67,11 +72,16 @@ export function TesteUploader() {
   };
 
   return (
-    <Uploader
-      value={files}
-      onChange={onNewFiles}
-      filesLimit={3}
-      onDelete={onDeleteFiles}
-    />
+    <React.Fragment>
+      <Uploader value={files} onChange={onNewFiles} filesLimit={3} />
+      <Dialog
+        onClose={() => setOpen(false)}
+        open={open}
+        aria-labelledby="simple-dialog-title"
+      >
+        <DialogTitle id="simple-dialog-title">Upload Files</DialogTitle>
+        <PreviewList value={files} onDelete={onDeleteFiles} />
+      </Dialog>
+    </React.Fragment>
   );
 }

@@ -3,6 +3,7 @@ import List from '@material-ui/core/List';
 import { Typography } from '@material-ui/core';
 import FeedbackOutlined from '@material-ui/icons/FeedbackOutlined';
 import { makeStyles } from '@material-ui/styles';
+import PropTypes from 'prop-types';
 import { convertBytes } from './helper';
 import { ConfirmationAlert } from '../Alerts/ConfirmationAlert';
 import { UpFile } from './UpFile';
@@ -17,9 +18,10 @@ const useStyle = makeStyles({
     flexDirection: 'column',
   },
   icon: {
-    width: '100%',
-    height: '100%',
+    width: '50%',
+    height: '50%',
     flexBasis: '20%',
+    alignItems: 'center',
   },
   text: {
     width: '100%',
@@ -82,3 +84,16 @@ export function PreviewList({ value, onDelete }) {
     </React.Fragment>
   );
 }
+
+PreviewList.defaultProps = {
+  value: {},
+};
+
+PreviewList.propTypes = {
+  value: PropTypes.shape({
+    uid: PropTypes.number,
+    file: PropTypes.object,
+    completed: PropTypes.number,
+    uprate: PropTypes.number,
+  }),
+};

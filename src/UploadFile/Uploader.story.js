@@ -15,7 +15,13 @@ storiesOf(`Uploader`, module)
       <List>
         <UpFile
           filename="bla.png"
-          completed={40}
+          completed={99}
+          filesize="10MB"
+          uprate="1Mb/s"
+        />
+        <UpFile
+          filename="bla.png"
+          completed={100}
           filesize="10MB"
           uprate="1Mb/s"
         />

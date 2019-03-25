@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { makeStyles } from '@material-ui/styles';
 import { Typography } from '@material-ui/core';
-import { PreviewList } from './PreviewList';
 import { Snackbar } from '../Notifications/Snackbar';
 import { convertBytes } from './helper';
+import { Button } from '../Buttons/Button';
 
 const useStyle = makeStyles({
   root: {
@@ -18,14 +18,18 @@ const useStyle = makeStyles({
     // border: '2px dashed blue',
   },
   drag: {
-    borderStyle: 'dashed',
+    // borderStyle: 'dashed',
     width: '100%',
-    height: '75%',
+    height: '100%',
     position: 'relative',
-    border: '2px dashed grey',
-    borderRadius: '6px',
-    backgroundColor: '#80808021',
-    flexBasis: '40%',
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
+    // border: '2px dashed grey',
+    // borderRadius: '6px',
+    // backgroundColor: '#80808021',
+    // flexBasis: '40%',
   },
   preview: {
     // border: '2px dashed red',
@@ -35,23 +39,39 @@ const useStyle = makeStyles({
     flexBasis: '55%',
   },
   dropzoneText: {
-    position: 'absolute',
+    // border: '2px dashed red',
     width: '100%',
     height: '100%',
-    textAlign: 'center',
-    // border: '2px dashed red',
     display: 'flex',
+    textAlign: 'center',
     flexDirection: 'column',
     justifyContent: 'center',
+    // border: '2px dashed red',
+
+    // flexBasis: '25%',
   },
   icon: {
     // border: '2px dashed blue',
-    width: '100%',
-    flexBasis: '25%',
+    alignSelf: 'center',
+
+    height: '60%',
+    width: '60%',
+    // flexBasis: '25%',
   },
-  text: {
+  textDiv: {
+    width: '50%',
+    height: '50%',
+    alignSelf: 'center',
     // border: '2px dashed green',
-    flexBasis: '25%',
+    display: 'flex',
+    textAlign: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  button: {
+    // border: '2px dashed blue',
+    width: '25%',
+    alignSelf: 'center',
   },
 });
 
@@ -60,9 +80,9 @@ export function Uploader({
   acceptedFormat,
   filesLimit,
   maxFileSize,
-  dropzoneText,
+  dropzoneLabel,
+  dropzoneButtonLabel,
   onChange,
-  onDelete,
 }) {
   const [snackbar, setSnackBar] = useState({
     show: false,
@@ -71,7 +91,7 @@ export function Uploader({
   });
   const classes = useStyle();
 
-  const { getRootProps, getInputProps } = useDropzone({
+  const { getRootProps, getInputProps, open } = useDropzone({
     accept: acceptedFormat.join(','),
     maxSize: maxFileSize,
     onDrop: acceptedFiles => {
@@ -109,23 +129,46 @@ export function Uploader({
     },
   });
 
+  const rootProps = getRootProps({
+    // Disable click and keydown behavior
+    onClick: event => event.stopPropagation(),
+    onKeyDown: event => {
+      if (event.keyCode === 32 || event.keyCode === 13) {
+        event.stopPropagation();
+      }
+    },
+  });
   return (
     <React.Fragment>
-      <div className={classes.root}>
-        <div {...getRootProps()} className={classes.drag}>
-          <input {...getInputProps()} />
-
-          <div className={classes.dropzoneText}>
-            <CloudUploadIcon fontSize="large" className={classes.icon} />
-            <Typography variant="h5" className={classes.text}>
-              {dropzoneText}
+      <div {...rootProps} className={classes.drag}>
+        <input {...getInputProps()} />
+        <div className={classes.dropzoneText}>
+          <div className={classes.textDiv}>
+            <CloudUploadIcon
+              fontSize="large"
+              color="primary"
+              className={classes.icon}
+            />
+            <Typography
+              variant="h5"
+              className={classes.text}
+              color="textSecondary"
+            >
+              {dropzoneLabel}
             </Typography>
           </div>
-        </div>
-        <div className={classes.preview}>
-          <PreviewList value={value} onDelete={onDelete} />
+
+          <Button
+            variant="secondary"
+            size="large"
+            onClick={open}
+            className={classes.button}
+          >
+            {dropzoneButtonLabel}
+          </Button>
         </div>
       </div>
+
       <Snackbar
         show={snackbar.show}
         variant={snackbar.variant}
@@ -142,7 +185,8 @@ Uploader.defaultProps = {
   acceptedFormat: ['image/*', 'video/*', 'application/*'],
   filesLimit: 3,
   maxFileSize: 3000000,
-  dropzoneText: 'Drag and drop a file here or click',
+  dropzoneLabel: 'Drag and drop a file',
+  dropzoneButtonLabel: 'Select File',
   onChange: () => {},
 };
 
@@ -150,7 +194,8 @@ Uploader.propTypes = {
   acceptedFormat: PropTypes.array,
   filesLimit: PropTypes.number,
   maxFileSize: PropTypes.number,
-  dropzoneText: PropTypes.string,
+  dropzoneLabel: PropTypes.string,
+  dropzoneButtonLabel: PropTypes.string,
   onChange: PropTypes.func,
   value: PropTypes.shape({
     uid: PropTypes.number,
