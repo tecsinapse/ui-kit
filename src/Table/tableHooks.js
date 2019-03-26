@@ -7,7 +7,7 @@ export const useInitialData = (data, setData) => {
     if (!isRemoteData(data)) {
       setData([...data]);
     }
-  }, []);
+  }, [data]);
 };
 
 export const useUpdateData = (
