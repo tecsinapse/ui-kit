@@ -1,3 +1,10 @@
+<a name="0.0.99"></a>
+## <small>0.0.99 (2019-03-26)</small>
+
+* adjusting api and snackbar ([8714453](https://github.com/tecsinapse/ui-kit/commit/8714453))
+
+
+
 <a name="0.0.98"></a>
 ## <small>0.0.98 (2019-03-26)</small>
 
