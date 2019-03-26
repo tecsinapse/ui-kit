@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 import { resolveObj } from '@tecsinapse/es-utils/core/object';
 import { isRemoteData } from './tableFunctions';
 
-export const useInitialData = (data, setData) => {
+export const useInitialData = (originalData, setData) => {
   useEffect(() => {
-    if (!isRemoteData(data)) {
-      setData([...data]);
+    if (!isRemoteData(originalData)) {
+      setData([...originalData]);
     }
-  }, [data]);
+  }, [originalData]);
 };
 
 export const useUpdateData = (
