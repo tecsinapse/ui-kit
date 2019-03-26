@@ -29,6 +29,7 @@ const SimpleToolbar = ({
   data,
   columns,
   filters,
+  setFilters,
   setLoading,
   rowCount,
 }) => {
@@ -36,7 +37,7 @@ const SimpleToolbar = ({
     title,
     tooltipAdvancedFilter,
     advancedFiltersComponent,
-    advancedFilters,
+    advancedFiltersOptions,
   } = options || {};
   const classes = tableToolbarStyles();
 
@@ -59,7 +60,9 @@ const SimpleToolbar = ({
         <TableAdvancedFilters
           tooltipAdvancedFilter={tooltipAdvancedFilter}
           advancedFiltersComponent={advancedFiltersComponent}
-          advancedFilters={advancedFilters}
+          advancedFiltersOptions={advancedFiltersOptions}
+          setFilters={setFilters}
+          filters={filters}
         />
       </div>
     </Toolbar>
@@ -74,6 +77,7 @@ const TableToolbar = ({
   data,
   columns,
   filters,
+  setFilters,
   setLoading,
   rowCount,
 }) => {
@@ -86,6 +90,7 @@ const TableToolbar = ({
         exportOptions={exportOptions}
         data={data}
         filters={filters}
+        setFilters={setFilters}
         columns={columns}
         setLoading={setLoading}
         rowCount={rowCount}

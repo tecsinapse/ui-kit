@@ -64,3 +64,44 @@ export const initializeColumns = (tableColumns, tableOptions, actions) => {
 };
 
 export const isRemoteData = data => typeof data === 'function';
+
+export const initializeFilters = (
+  pagination,
+  rowsPerPageOptions,
+  rowsPerPageProp,
+  pageProp,
+  { advancedFiltersOptions }
+) => {
+  const headerFilters = {};
+  const advancedFilters = {};
+  let rowsPerPage = null;
+
+  if (pagination) {
+    rowsPerPage = rowsPerPageOptions.includes(rowsPerPageProp)
+      ? rowsPerPageProp
+      : rowsPerPageOptions[0];
+  }
+
+  if (advancedFiltersOptions) {
+    advancedFiltersOptions.filters.forEach(
+      ({ type, value: filterValue, name }) => {
+        let value = '';
+
+        if (filterValue) {
+          value = filterValue;
+        } else if (type === 'multi-select') {
+          value = [];
+        }
+
+        advancedFilters[name] = value;
+      }
+    );
+  }
+
+  return {
+    headerFilters,
+    advancedFilters,
+    page: pageProp,
+    rowsPerPage,
+  };
+};

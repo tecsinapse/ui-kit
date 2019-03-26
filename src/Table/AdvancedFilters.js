@@ -1,0 +1,137 @@
+import React, { useState } from 'react';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import Button from '@material-ui/core/Button';
+import { Input } from '../Inputs/Input';
+import { Select } from '../Select/Select';
+
+const onChangeFilter = (setAdvancedFilters, name, value) => {
+  setAdvancedFilters(prevAdvancedFilters => {
+    const newAdvancedFilters = { ...prevAdvancedFilters };
+    newAdvancedFilters[name] = value;
+    return newAdvancedFilters;
+  });
+};
+
+const mapFilterOptionToInput = (
+  { type, name, label, options },
+  setAdvancedFilters,
+  advancedFilters
+) => {
+  if (type === 'input' || type === 'date' || type === 'time') {
+    return (
+      <Input
+        key={name}
+        name={name}
+        value={advancedFilters[name]}
+        label={label}
+        mask={type === 'date' || type === 'time' ? type : null}
+        onChange={event =>
+          onChangeFilter(setAdvancedFilters, name, event.target.value)
+        }
+      />
+    );
+  }
+  if (type === 'select' || type === 'multi-select') {
+    return (
+      <Select
+        key={name}
+        options={options}
+        value={advancedFilters[name]}
+        label={label}
+        isMulti={type === 'multi-select'}
+        onChange={value => onChangeFilter(setAdvancedFilters, name, value)}
+      />
+    );
+  }
+  return null;
+};
+
+const Filters = ({
+  filtersOptions,
+  setAdvancedFilters,
+  advancedFilters,
+  filtersGroup,
+}) => {
+  const filtersByGroup = {};
+
+  if (filtersGroup && filtersGroup.length > 0) {
+    filtersGroup.forEach(group => {
+      filtersByGroup[group.name] = {
+        label: group.label,
+        filters: filtersOptions.filter(filter => filter.group === group.name),
+      };
+    });
+  }
+
+  filtersByGroup['no-group'] = {
+    label: '',
+    filters: filtersOptions.filter(filter => !filter.group),
+  };
+
+  return Object.keys(filtersByGroup).map(key => {
+    const group = filtersByGroup[key];
+    return [
+      <Divider key={`divider-${key}`} />,
+      <div style={{ padding: '20px' }}>
+        <Typography variant="subtitle2">{group.label}</Typography>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-around',
+          }}
+        >
+          {group.filters.map(filter =>
+            mapFilterOptionToInput(filter, setAdvancedFilters, advancedFilters)
+          )}
+        </div>
+      </div>,
+    ];
+  });
+};
+
+const AdvancedFilters = ({
+  tooltipAdvancedFilter,
+  advancedFiltersOptions,
+  onApplyFilter,
+  filters,
+}) => {
+  const {
+    applyFiltersLabel,
+    filters: filtersOptions,
+    filtersGroup,
+  } = advancedFiltersOptions;
+  const [advancedFilters, setAdvancedFilters] = useState({
+    ...filters.advancedFilters,
+  });
+
+  return (
+    <div>
+      <div style={{ height: '50px', padding: '20px' }}>
+        <Typography variant="h6" id="tableTitle">
+          {tooltipAdvancedFilter || 'Advanced Filters'}
+        </Typography>
+      </div>
+      <Filters
+        filtersOptions={filtersOptions}
+        setAdvancedFilters={setAdvancedFilters}
+        advancedFilters={advancedFilters}
+        filtersGroup={filtersGroup}
+      />
+      <Divider />
+      <div style={{ height: '70px' }}>
+        <Button
+          onClick={() => onApplyFilter(advancedFilters)}
+          variant="text"
+          style={{ width: '100%', borderRadius: 0, top: '25%' }}
+          color="primary"
+        >
+          {applyFiltersLabel || 'Apply Filters'}
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export default AdvancedFilters;

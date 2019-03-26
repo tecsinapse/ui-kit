@@ -80,13 +80,72 @@ const AdvancedFiltersTable = () => {
         rowId={row => row.code}
         toolbarOptions={{
           title: 'Advanced Filters Example',
-          advancedFilters: {
+          advancedFiltersOptions: {
             applyFiltersLabel: 'Aplicar Filtros',
+            filtersGroup: [
+              {
+                name: 'period',
+                label: 'Period',
+              },
+              {
+                name: 'country',
+                label: 'Country',
+              },
+            ],
             filters: [
+              {
+                label: 'First date',
+                type: 'date',
+                name: 'first_date',
+                group: 'period',
+              },
+              {
+                label: 'Last date',
+                type: 'date',
+                name: 'last_date',
+                group: 'period',
+              },
               {
                 label: 'Country',
                 type: 'input',
                 name: 'country',
+                group: 'country',
+              },
+              {
+                label: 'Continent',
+                type: 'multi-select',
+                name: 'continent',
+                group: 'country',
+                options: [
+                  {
+                    label: 'Africa',
+                    value: 'Africa',
+                  },
+                  {
+                    label: 'Antarctica',
+                    value: 'Antarctica',
+                  },
+                  {
+                    label: 'Asia',
+                    value: 'Asia',
+                  },
+                  {
+                    label: 'Europe',
+                    value: 'Europe',
+                  },
+                  {
+                    label: 'North America',
+                    value: 'North America',
+                  },
+                  {
+                    label: 'Oceania',
+                    value: 'Oceania',
+                  },
+                  {
+                    label: 'South America',
+                    value: 'South America',
+                  },
+                ],
               },
             ],
           },

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
 import FilterIcon from '@material-ui/icons/FilterList';
 import Tooltip from '@material-ui/core/Tooltip';
 import Popover from '@material-ui/core/Popover';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/styles';
+import AdvancedFilters from './AdvancedFilters';
 
 const styles = makeStyles(theme => ({
   advancedFiltersContent: {
@@ -19,37 +17,21 @@ const styles = makeStyles(theme => ({
   },
 }));
 
-const AdvancedFilters = ({ tooltipAdvancedFilter, advancedFilters }) => {
-  const { applyFiltersLabel } = advancedFilters;
-  return (
-    <div>
-      <div style={{ height: '70px', padding: '20px' }}>
-        <Typography variant="h6" id="tableTitle">
-          {tooltipAdvancedFilter || 'Advanced Filters'}
-        </Typography>
-      </div>
-      <Divider />
-      <div style={{ height: '70px' }}>
-        <Button
-          variant="text"
-          style={{ width: '100%', borderRadius: 0, top: '25%' }}
-          color="primary"
-        >
-          {applyFiltersLabel || 'Apply Filters'}
-        </Button>
-      </div>
-    </div>
-  );
+const onApplyFilter = (setAnchorEl, setFilters) => advancedFilters => {
+  setFilters(prevFilters => ({ ...prevFilters, advancedFilters }));
+  setAnchorEl(null);
 };
 
 const TableAdvancedFilters = ({
   tooltipAdvancedFilter,
   advancedFiltersComponent,
-  advancedFilters,
+  advancedFiltersOptions,
+  setFilters,
+  filters,
 }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
-  if (!advancedFiltersComponent && !advancedFilters) return null;
+  if (!advancedFiltersComponent && !advancedFiltersOptions) return null;
 
   const classes = styles();
   const open = Boolean(anchorEl);
@@ -77,8 +59,11 @@ const TableAdvancedFilters = ({
         <div className={classes.advancedFiltersContent}>
           {advancedFiltersComponent || (
             <AdvancedFilters
-              advancedFilters={advancedFilters}
+              advancedFiltersOptions={advancedFiltersOptions}
               tooltipAdvancedFilter={tooltipAdvancedFilter}
+              onApplyFilter={onApplyFilter(setAnchorEl, setFilters)}
+              setFilters={setFilters}
+              filters={filters}
             />
           )}
         </div>

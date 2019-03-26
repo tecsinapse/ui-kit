@@ -17,6 +17,7 @@ import {
   onChangePage,
   initializeColumns,
   isRemoteData,
+  initializeFilters,
 } from './tableFunctions';
 import { useInitialData, useUpdatePageData, useUpdateData } from './tableHooks';
 
@@ -47,22 +48,15 @@ const Table = props => {
   const [selectedRows, setSelectedRows] = useState([...selectedData]);
   const [tableColumns] = useState(initializeColumns(columns, options, actions));
   const [loading, setLoading] = useState(false);
-  const [filters, setFilters] = useState(() => {
-    const headerFilters = {};
-    let rowsPerPage = null;
-
-    if (pagination) {
-      rowsPerPage = rowsPerPageOptions.includes(rowsPerPageProp)
-        ? rowsPerPageProp
-        : rowsPerPageOptions[0];
-    }
-
-    return {
-      headerFilters,
-      page: pageProp,
-      rowsPerPage,
-    };
-  });
+  const [filters, setFilters] = useState(() =>
+    initializeFilters(
+      pagination,
+      rowsPerPageOptions,
+      rowsPerPageProp,
+      pageProp,
+      toolbarOptions || {}
+    )
+  );
 
   useInitialData(originalData, setData);
   useUpdateData(originalData, setLoading, setData, filters, setRowCount);
@@ -94,6 +88,7 @@ const Table = props => {
         exportOptions={exportOptions}
         data={isRemoteData(originalData) ? originalData : data}
         filters={filters}
+        setFilters={setFilters}
         columns={columns}
         setLoading={setLoading}
         rowCount={rowCount}

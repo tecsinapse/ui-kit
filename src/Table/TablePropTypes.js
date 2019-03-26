@@ -15,8 +15,15 @@ export const toolbarOptionsTypes = PropTypes.shape({
       onClick: PropTypes.func.isRequired,
     })
   ),
-  advancedFilters: PropTypes.shape({
+  advancedFiltersOptions: PropTypes.shape({
     applyFiltersLabel: PropTypes.string,
+    applyFilters: PropTypes.func,
+    filtersGroup: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+      })
+    ),
     filters: PropTypes.arrayOf(
       PropTypes.shape({
         group: PropTypes.string,
@@ -26,10 +33,9 @@ export const toolbarOptionsTypes = PropTypes.shape({
           'multi-select',
           'date',
           'time',
-          'date-time',
-        ]),
-        name: PropTypes.string,
-        label: PropTypes.string,
+        ]).isRequired,
+        name: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
         options: PropTypes.arrayOf(
           PropTypes.shape({
             value: PropTypes.any,
@@ -37,10 +43,7 @@ export const toolbarOptionsTypes = PropTypes.shape({
             disabled: PropTypes.bool,
           })
         ),
-        value: PropTypes.oneOfType([
-          PropTypes.string,
-          PropTypes.arrayOf(PropTypes.string),
-        ]),
+        value: PropTypes.any,
       })
     ),
   }),
