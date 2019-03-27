@@ -1,3 +1,10 @@
+<a name="0.0.108"></a>
+## <small>0.0.108 (2019-03-27)</small>
+
+* add forceCollapseActions ([bed74d0](https://github.com/tecsinapse/ui-kit/commit/bed74d0))
+
+
+
 <a name="0.0.107"></a>
 ## <small>0.0.107 (2019-03-27)</small>
 
