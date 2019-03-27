@@ -1,3 +1,10 @@
+<a name="0.0.101"></a>
+## <small>0.0.101 (2019-03-27)</small>
+
+* adding conformToMask function on masks ([51d744d](https://github.com/tecsinapse/ui-kit/commit/51d744d))
+
+
+
 <a name="0.0.100"></a>
 ## <small>0.0.100 (2019-03-26)</small>
 
