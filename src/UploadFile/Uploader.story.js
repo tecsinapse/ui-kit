@@ -5,12 +5,12 @@ import { TesteUploader } from './TesteUploader';
 import { UpFile } from './UpFile';
 
 storiesOf(`Uploader`, module)
-  .add('uploader simple', () => (
+  .add('uploader drag', () => (
     <div style={{ width: '700px', height: '400px' }}>
       <TesteUploader />
     </div>
   ))
-  .add('bla', () => (
+  .add('list example', () => (
     <div style={{ width: '450px', height: '300px' }}>
       <List>
         <UpFile
@@ -34,5 +34,10 @@ storiesOf(`Uploader`, module)
           error="File type not supported"
         />
       </List>
+    </div>
+  ))
+  .add('uploader form', () => (
+    <div style={{ width: '800px', height: '400px' }}>
+      <TesteUploader type="form" />
     </div>
   ));
