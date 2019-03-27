@@ -1,3 +1,11 @@
+<a name="0.0.100"></a>
+## <small>0.0.100 (2019-03-26)</small>
+
+* changing name to be more clear about what date it is about ([c41a77d](https://github.com/tecsinapse/ui-kit/commit/c41a77d))
+* solving table not reflecting date change after initial render ([2877b57](https://github.com/tecsinapse/ui-kit/commit/2877b57))
+
+
+
 <a name="0.0.99"></a>
 ## <small>0.0.99 (2019-03-26)</small>
 
