@@ -103,7 +103,9 @@ export function TesteUploader() {
         aria-labelledby="simple-dialog-title"
       >
         <DialogTitle id="simple-dialog-title">Upload Files</DialogTitle>
-        <PreviewList value={files} onDelete={onDeleteFiles} />
+        <div style={{ width: '450px' }}>
+          <PreviewList value={files} onDelete={onDeleteFiles} />
+        </div>
       </Dialog>
     </React.Fragment>
   );

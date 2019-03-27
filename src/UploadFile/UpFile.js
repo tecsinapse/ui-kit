@@ -27,24 +27,28 @@ const useStyle = makeStyles({
     alignItems: 'center',
     justifyContent: 'space-between',
     // border: '2px dashed blue',
-    width: '110%',
+    width: '100%',
     maxHeight: '10%',
   },
   info: {
     // border: '2px dashed red',
-    maxWidth: '100%',
+    maxWidth: '80%',
     display: 'flex',
     alignItems: 'baseline',
     flex: '2 1 auto',
     flexWrap: 'wrap',
   },
   img: {
-    maxWidth: '45px',
-    maxHeight: '45px',
-    // width: '45px',
-    // height: '45px',
+    maxWidth: '50px',
+    maxHeight: '50px',
     // border: '2px dashed green',
-    position: 'relative',
+    display: 'block',
+  },
+  thumbnail: {
+    width: '50px',
+    height: '50px',
+    display: 'flex',
+    justifyContent: 'center',
   },
   loading: {
     borderRadius: '0px 0px 5px 5px ',
@@ -60,6 +64,10 @@ const useStyle = makeStyles({
     alignItems: 'center',
     // border: '2px dashed blue',
     width: '100%',
+  },
+  name: {
+    // border: '2px dashed green',
+    maxWidth: '70%',
   },
 });
 
@@ -82,12 +90,14 @@ export function UpFile({
   return (
     <React.Fragment>
       <ListItem key={uid} className={error ? classes.itemError : classes.item}>
-        {img ? <ListItemIcon>{img}</ListItemIcon> : null}
+        {img ? (
+          <ListItemIcon className={classes.thumbnail}>{img}</ListItemIcon>
+        ) : null}
         <ListItemText
           primary={
             <div className={classes.primary}>
               <div className={classes.info}>
-                <Typography variant="subtitle2" noWrap>
+                <Typography variant="subtitle2" noWrap className={classes.name}>
                   {filename}
                 </Typography>
                 <Typography

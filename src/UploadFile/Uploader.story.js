@@ -11,16 +11,16 @@ storiesOf(`Uploader`, module)
     </div>
   ))
   .add('bla', () => (
-    <div style={{ width: '400px', height: '300px' }}>
+    <div style={{ width: '450px', height: '300px' }}>
       <List>
         <UpFile
-          filename="bla.png"
+          filename="bla111111111111111111111111111111.png"
           completed={99}
           filesize="10MB"
           uprate="1Mb/s"
         />
         <UpFile
-          filename="bla1.png"
+          filename="bla111111111111111111.png"
           completed={100}
           filesize="10MB"
           uprate="1Mb/s"
