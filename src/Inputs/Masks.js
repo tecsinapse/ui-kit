@@ -1,5 +1,5 @@
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
-import { conformToMask as coreConformToMask } from 'text-mask-core';
+import { conformToMask as coreConformToMask } from 'text-mask-core/dist/textMaskCore';
 
 export const CEP_MASK = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
