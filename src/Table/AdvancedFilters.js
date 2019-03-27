@@ -1,9 +1,38 @@
 import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import { Input } from '../Inputs/Input';
 import { Select } from '../Select/Select';
+
+const filterStyles = makeStyles(theme => ({
+  group: {
+    padding: '20px',
+  },
+  filterContainer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  filter: {
+    padding: '2px',
+  },
+}));
+
+const advancedFilterStyles = makeStyles(theme => ({
+  title: {
+    height: '50px',
+    padding: '20px',
+  },
+  panelButton: {
+    height: '70px',
+  },
+  button: {
+    width: '100%',
+    borderRadius: 0,
+    top: '25%',
+  },
+}));
 
 const onChangeFilter = (setAdvancedFilters, name, value) => {
   setAdvancedFilters(prevAdvancedFilters => {
@@ -54,6 +83,7 @@ const Filters = ({
   filtersGroup,
 }) => {
   const filtersByGroup = {};
+  const classes = filterStyles();
 
   if (filtersGroup && filtersGroup.length > 0) {
     filtersGroup.forEach(group => {
@@ -71,20 +101,23 @@ const Filters = ({
 
   return Object.keys(filtersByGroup).map(key => {
     const group = filtersByGroup[key];
+
+    if (!group.filters || group.filters.length === 0) return null;
+
     return [
       <Divider key={`divider-${key}`} />,
-      <div style={{ padding: '20px' }}>
+      <div key={`group-${key}`} className={classes.group}>
         <Typography variant="subtitle2">{group.label}</Typography>
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-          }}
-        >
-          {group.filters.map(filter =>
-            mapFilterOptionToInput(filter, setAdvancedFilters, advancedFilters)
-          )}
+        <div className={classes.filterContainer}>
+          {group.filters.map(filter => (
+            <div className={classes.filter}>
+              {mapFilterOptionToInput(
+                filter,
+                setAdvancedFilters,
+                advancedFilters
+              )}
+            </div>
+          ))}
         </div>
       </div>,
     ];
@@ -105,10 +138,11 @@ const AdvancedFilters = ({
   const [advancedFilters, setAdvancedFilters] = useState({
     ...filters.advancedFilters,
   });
+  const classes = advancedFilterStyles();
 
   return (
     <div>
-      <div style={{ height: '50px', padding: '20px' }}>
+      <div className={classes.title}>
         <Typography variant="h6" id="tableTitle">
           {tooltipAdvancedFilter || 'Advanced Filters'}
         </Typography>
@@ -120,11 +154,11 @@ const AdvancedFilters = ({
         filtersGroup={filtersGroup}
       />
       <Divider />
-      <div style={{ height: '70px' }}>
+      <div className={classes.panelButton}>
         <Button
           onClick={() => onApplyFilter(advancedFilters)}
           variant="text"
-          style={{ width: '100%', borderRadius: 0, top: '25%' }}
+          className={classes.button}
           color="primary"
         >
           {applyFiltersLabel || 'Apply Filters'}
