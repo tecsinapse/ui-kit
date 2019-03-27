@@ -95,11 +95,8 @@ export function Uploader({
     accept: acceptedFormat.join(','),
     maxSize: maxFileSize,
     onDrop: acceptedFiles => {
-      if (
-        acceptedFiles.length + Object.keys(value).length <= filesLimit &&
-        onChange
-      ) {
-        onChange(acceptedFiles);
+      if (acceptedFiles.length + Object.keys(value).length <= filesLimit) {
+        if (onChange) onChange(acceptedFiles);
       } else {
         setSnackBar({
           show: true,
@@ -110,22 +107,25 @@ export function Uploader({
     },
     onDropRejected: rejectedFiles => {
       let message = '';
+      const errorFile = [];
       rejectedFiles.forEach(rejectedFile => {
-        message = `File ${rejectedFile.name} was rejected. `;
+        let messageFile = '';
+        message += `${rejectedFile.name} failed. `;
         if (!acceptedFormat.includes(rejectedFile.type)) {
-          message += 'File type not supported. ';
+          messageFile += 'File type not supported. ';
         }
         if (rejectedFile.size > maxFileSize) {
-          message += `File is too big. Size limit is ${convertBytes(
-            maxFileSize
-          )}.`;
+          messageFile += `Size limit ${convertBytes(maxFileSize)}.`;
         }
+        if (messageFile === '') messageFile = 'Undefined error';
+        errorFile.push({ file: rejectedFile, error: messageFile });
       });
       setSnackBar({
         show: true,
         variant: 'error',
         msg: message,
       });
+      if (onChange && errorFile.length > 0) onChange(errorFile);
     },
   });
 
@@ -202,5 +202,6 @@ Uploader.propTypes = {
     file: PropTypes.object,
     completed: PropTypes.number,
     uprate: PropTypes.number,
+    error: PropTypes.string,
   }),
 };

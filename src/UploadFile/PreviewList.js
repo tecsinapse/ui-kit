@@ -30,6 +30,10 @@ const useStyle = makeStyles({
     flexBasis: '55%',
     textAlign: 'center',
   },
+  list: {
+    marginLeft: '5%',
+    marginRight: '5%',
+  },
 });
 
 export function PreviewList({ value, onDelete }) {
@@ -64,19 +68,18 @@ export function PreviewList({ value, onDelete }) {
           </Typography>
         </div>
       ) : (
-        <List>
+        <List className={classes.list}>
           {Object.keys(value).map((uid, i) => (
             <UpFile
-              key={uid}
               uid={uid}
               filename={value[uid].file.name}
               completed={value[uid].completed}
               filesize={convertBytes(value[uid].file.size)}
-              uprate={`${convertBytes(value[uid].uprate)}/sec`}
               divider={Object.keys(value).length !== i + 1}
               setShowAlert={setShowAlert}
               setSelectedUID={setSelectedUID}
               data={value[uid].data}
+              error={value[uid].error}
             />
           ))}
         </List>
@@ -95,5 +98,6 @@ PreviewList.propTypes = {
     file: PropTypes.object,
     completed: PropTypes.number,
     uprate: PropTypes.number,
+    error: PropTypes.string,
   }),
 };

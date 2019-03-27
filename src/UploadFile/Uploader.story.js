@@ -20,10 +20,18 @@ storiesOf(`Uploader`, module)
           uprate="1Mb/s"
         />
         <UpFile
-          filename="bla.png"
+          filename="bla1.png"
           completed={100}
           filesize="10MB"
           uprate="1Mb/s"
+          data="https://weeblytutorials.com/wp-content/uploads/2017/04/Weebly-blogs-example.png"
+        />
+        <UpFile
+          filename="bla2.png"
+          completed={10}
+          filesize="10MB"
+          uprate="1Mb/s"
+          error="File type not supported"
         />
       </List>
     </div>
