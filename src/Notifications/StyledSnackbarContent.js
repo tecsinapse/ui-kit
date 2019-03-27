@@ -1,4 +1,3 @@
-import { withStyles } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
@@ -9,8 +8,9 @@ import WarningIcon from '@material-ui/icons/Warning';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { makeStyles } from '@material-ui/styles';
 import { defaultGrey } from '../colors';
-import { globalStyle } from '../globalStyle';
+import { buttonStyle } from '../Buttons/Button';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -19,44 +19,47 @@ const variantIcon = {
   info: InfoIcon,
 };
 
-const styles = theme => ({
-  success: {
-    ...globalStyle.buttonColorSuccess,
+const useStyles = makeStyles(theme => ({
+  successSnack: {
+    ...buttonStyle.buttonColorSuccess,
   },
-  error: {
-    ...globalStyle.buttonColorThird,
+  errorSnack: {
+    ...buttonStyle.buttonColorError,
   },
-  info: {
+  infoSnack: {
     backgroundColor: defaultGrey,
   },
-  warning: {
-    ...globalStyle.buttonColorSecundary,
+  warningSnack: {
+    ...buttonStyle.buttonColorWarning,
   },
-  icon: {
+  iconSnack: {
     fontSize: 20,
   },
-  iconVariant: {
+  iconVariantSnack: {
     opacity: 0.9,
     marginRight: theme.spacing.unit,
   },
-  message: {
+  messageSnack: {
     display: 'flex',
     alignItems: 'center',
   },
-  disabled: {},
-});
+  disabledSnack: {},
+}));
 
-function StyledSnackbarContentUI(props) {
-  const { classes, className, message, onClose, variant, ...other } = props;
+export function StyledSnackbarContent(props) {
+  const { className, message, onClose, variant } = props;
+  const classes = useStyles();
   const Icon = variantIcon[variant];
 
   return (
     <SnackbarContent
-      className={classNames(classes[variant], className)}
+      className={classNames(classes[`${variant}Snack`], className)}
       aria-describedby="client-snackbar"
       message={
-        <span id="client-snackbar" className={classes.message}>
-          <Icon className={classNames(classes.icon, classes.iconVariant)} />
+        <span id="client-snackbar" className={classes.messageSnack}>
+          <Icon
+            className={classNames(classes.iconSnack, classes.iconVariantSnack)}
+          />
           {message}
         </span>
       }
@@ -65,28 +68,20 @@ function StyledSnackbarContentUI(props) {
           key="close"
           aria-label="Close"
           color="inherit"
-          className={classes.close}
           onClick={onClose}
         >
-          <CloseIcon className={classes.icon} />
+          <CloseIcon className={classes.iconSnack} />
         </IconButton>,
       ]}
-      {...other}
     />
   );
 }
 
-export const StyledSnackbarContent = withStyles(styles)(
-  StyledSnackbarContentUI
-);
-
-StyledSnackbarContentUI.defaultProps = {
+StyledSnackbarContent.defaultProps = {
   message: '',
   onClose: () => {},
 };
-StyledSnackbarContentUI.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  classes: PropTypes.object.isRequired,
+StyledSnackbarContent.propTypes = {
   message: PropTypes.node,
   onClose: PropTypes.func,
   variant: PropTypes.oneOf(['success', 'warning', 'error']).isRequired,

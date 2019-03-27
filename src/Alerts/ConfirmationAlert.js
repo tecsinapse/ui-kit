@@ -41,7 +41,7 @@ ConfirmationAlert.propTypes = {
   proceed: PropTypes.func.isRequired,
   dismiss: PropTypes.func.isRequired,
   cancel: PropTypes.func.isRequired,
-  text: PropTypes.string,
+  text: PropTypes.object,
   cancelButtonText: PropTypes.string,
   confirmButtonText: PropTypes.string,
 };

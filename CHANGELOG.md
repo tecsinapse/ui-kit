@@ -1,3 +1,78 @@
+<a name="0.0.100"></a>
+## <small>0.0.100 (2019-03-26)</small>
+
+* changing name to be more clear about what date it is about ([c41a77d](https://github.com/tecsinapse/ui-kit/commit/c41a77d))
+* solving table not reflecting date change after initial render ([2877b57](https://github.com/tecsinapse/ui-kit/commit/2877b57))
+
+
+
+<a name="0.0.99"></a>
+## <small>0.0.99 (2019-03-26)</small>
+
+* adjusting api and snackbar ([8714453](https://github.com/tecsinapse/ui-kit/commit/8714453))
+
+
+
+<a name="0.0.98"></a>
+## <small>0.0.98 (2019-03-26)</small>
+
+* Adding custom render prop to columns ([3b4c119](https://github.com/tecsinapse/ui-kit/commit/3b4c119))
+* Adding graphql-hooks to table server side example ([17ddddd](https://github.com/tecsinapse/ui-kit/commit/17ddddd))
+* adjusting api and snackbar ([7c70614](https://github.com/tecsinapse/ui-kit/commit/7c70614))
+* Ajustando release script ([1af40b7](https://github.com/tecsinapse/ui-kit/commit/1af40b7))
+* Ajustando script de release ([4f87dce](https://github.com/tecsinapse/ui-kit/commit/4f87dce))
+* Created TableLoading component ([20016f9](https://github.com/tecsinapse/ui-kit/commit/20016f9))
+* Fixing problem with no pagination table ([bbf5212](https://github.com/tecsinapse/ui-kit/commit/bbf5212))
+* Fixing rowId ([5580fd8](https://github.com/tecsinapse/ui-kit/commit/5580fd8))
+* Release 0.0.73 ([e6ac36b](https://github.com/tecsinapse/ui-kit/commit/e6ac36b))
+* Release 0.0.74 ([ead2b08](https://github.com/tecsinapse/ui-kit/commit/ead2b08))
+* Release 0.0.75 ([de3c1e1](https://github.com/tecsinapse/ui-kit/commit/de3c1e1))
+* Release 0.0.76 ([e3bbc9a](https://github.com/tecsinapse/ui-kit/commit/e3bbc9a))
+* Release 0.0.77 ([1ecdfa1](https://github.com/tecsinapse/ui-kit/commit/1ecdfa1))
+* Release 0.0.78 ([a39efa9](https://github.com/tecsinapse/ui-kit/commit/a39efa9))
+* Release 0.0.79 ([99fdebe](https://github.com/tecsinapse/ui-kit/commit/99fdebe))
+* Release 0.0.80 ([94f42d6](https://github.com/tecsinapse/ui-kit/commit/94f42d6))
+* Release 0.0.81 ([dce331b](https://github.com/tecsinapse/ui-kit/commit/dce331b))
+* Release 0.0.83 ([2224958](https://github.com/tecsinapse/ui-kit/commit/2224958))
+* Release 0.0.84 ([70b4bb3](https://github.com/tecsinapse/ui-kit/commit/70b4bb3))
+* Release 0.0.85 ([212b6ba](https://github.com/tecsinapse/ui-kit/commit/212b6ba))
+* Release 0.0.86 ([07ba1eb](https://github.com/tecsinapse/ui-kit/commit/07ba1eb))
+* Release 0.0.87 ([27e9611](https://github.com/tecsinapse/ui-kit/commit/27e9611))
+* Release 0.0.88 ([46d04ed](https://github.com/tecsinapse/ui-kit/commit/46d04ed))
+* Release 0.0.89 ([ebd2560](https://github.com/tecsinapse/ui-kit/commit/ebd2560))
+* Release 0.0.90 ([d1344d6](https://github.com/tecsinapse/ui-kit/commit/d1344d6))
+* Release 0.0.91 ([474a1db](https://github.com/tecsinapse/ui-kit/commit/474a1db))
+* Release 0.0.92 ([0b62fb1](https://github.com/tecsinapse/ui-kit/commit/0b62fb1))
+* Release 0.0.93 ([783633f](https://github.com/tecsinapse/ui-kit/commit/783633f))
+* Release 0.0.94 ([9db882a](https://github.com/tecsinapse/ui-kit/commit/9db882a))
+* Release 0.0.95 ([0a5c2c4](https://github.com/tecsinapse/ui-kit/commit/0a5c2c4))
+* Release 0.0.95 ([b416476](https://github.com/tecsinapse/ui-kit/commit/b416476))
+* Release 0.0.96 ([d40eb54](https://github.com/tecsinapse/ui-kit/commit/d40eb54))
+* Release 0.0.97 ([a4f89b3](https://github.com/tecsinapse/ui-kit/commit/a4f89b3))
+* Solving hook conditional call and adding class api on table ([63bb692](https://github.com/tecsinapse/ui-kit/commit/63bb692))
+* Solving hook conditional call and adding class api on table - parenthesis ([c83f5b1](https://github.com/tecsinapse/ui-kit/commit/c83f5b1))
+* solving page props ([464a5d9](https://github.com/tecsinapse/ui-kit/commit/464a5d9))
+* Solving page size on paginated/non paginated table ([beefd37](https://github.com/tecsinapse/ui-kit/commit/beefd37))
+* Solving the problem with the CSV export on TableServerSide ([7fd5051](https://github.com/tecsinapse/ui-kit/commit/7fd5051))
+* Table server side ([1d851fb](https://github.com/tecsinapse/ui-kit/commit/1d851fb))
+* v0.0.82 ([eea59fd](https://github.com/tecsinapse/ui-kit/commit/eea59fd))
+
+
+
+<a name="0.0.97"></a>
+## <small>0.0.97 (2019-03-26)</small>
+
+
+
+
+<a name="0.0.96"></a>
+## <small>0.0.96 (2019-03-25)</small>
+
+* Fixing problem with no pagination table ([bbf5212](https://github.com/tecsinapse/ui-kit/commit/bbf5212))
+* Release 0.0.95 ([0a5c2c4](https://github.com/tecsinapse/ui-kit/commit/0a5c2c4))
+
+
+
 <a name="0.0.95"></a>
 ## <small>0.0.95 (2019-03-25)</small>
 
