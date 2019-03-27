@@ -14,7 +14,8 @@ const convertValuesToTableCell = (
   { field, options = {}, selection, actions, customRender },
   rowData,
   rowId,
-  selectedRows
+  selectedRows,
+  forceCollapseActions
 ) => {
   if (selection) {
     return (
@@ -30,10 +31,18 @@ const convertValuesToTableCell = (
         align="right"
         style={{
           paddingRight: 0,
-          width: actions.length < 4 ? `${actions.length * 50}px` : '50px',
+          width:
+            forceCollapseActions || actions.length >= 4
+              ? '50px'
+              : `${actions.length * 50}px`,
         }}
       >
-        <TableRowActions actions={actions} row={rowData} rowId={rowId} />
+        <TableRowActions
+          actions={actions}
+          row={rowData}
+          rowId={rowId}
+          forceCollapseActions={forceCollapseActions}
+        />
       </TableCell>
     );
   }
@@ -44,9 +53,21 @@ const convertValuesToTableCell = (
   );
 };
 
-const TableCells = ({ columns, rowData, rowId, selectedRows }) =>
+const TableCells = ({
+  columns,
+  rowData,
+  rowId,
+  selectedRows,
+  forceCollapseActions,
+}) =>
   columns.map(column =>
-    convertValuesToTableCell(column, rowData, rowId, selectedRows)
+    convertValuesToTableCell(
+      column,
+      rowData,
+      rowId,
+      selectedRows,
+      forceCollapseActions
+    )
   );
 
 TableCells.propTypes = {
@@ -54,6 +75,7 @@ TableCells.propTypes = {
   rowData: PropTypes.object.isRequired,
   rowId: PropTypes.func.isRequired,
   selectedRows: PropTypes.arrayOf(PropTypes.object),
+  forceCollapseActions: PropTypes.bool,
 };
 
 export default TableCells;
