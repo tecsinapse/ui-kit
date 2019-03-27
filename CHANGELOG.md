@@ -1,3 +1,10 @@
+<a name="0.0.107"></a>
+## <small>0.0.107 (2019-03-27)</small>
+
+* solving rollup exports ([86f489b](https://github.com/tecsinapse/ui-kit/commit/86f489b))
+
+
+
 <a name="0.0.106"></a>
 ## <small>0.0.106 (2019-03-27)</small>
 
