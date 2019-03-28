@@ -89,6 +89,7 @@ export function PreviewList({ value, onDelete }) {
 
 PreviewList.defaultProps = {
   value: {},
+  onDelete: () => {},
 };
 
 PreviewList.propTypes = {
@@ -99,4 +100,5 @@ PreviewList.propTypes = {
     uprate: PropTypes.number,
     error: PropTypes.string,
   }),
+  onDelete: PropTypes.func,
 };

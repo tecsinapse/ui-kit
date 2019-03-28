@@ -3,9 +3,9 @@ import uniqid from 'uniqid';
 import { setInterval, clearInterval } from 'timers';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
-import { Typography } from '@material-ui/core';
 import { Uploader } from './Uploader';
 import { PreviewList } from './PreviewList';
+import { FormUploader } from './FormUploader';
 
 export function TesteUploader({ type }) {
   const [files, setFiles] = useState({});
@@ -112,37 +112,12 @@ export function TesteUploader({ type }) {
           </Dialog>
         </React.Fragment>
       ) : (
-        <React.Fragment>
-          <div
-            style={{
-              display: 'flex',
-              width: '100%',
-              height: '100%',
-              alignItems: 'stretch',
-            }}
-          >
-            <div
-              style={{
-                flexBasis: '50%',
-                flexShrink: '1',
-                width: '500px',
-              }}
-            >
-              <Uploader value={files} onChange={onNewFiles} filesLimit={3} />
-            </div>
-
-            <div
-              style={{
-                flexBasis: '50%',
-              }}
-            >
-              <Typography variant="h5">Upload Files</Typography>
-              <div style={{ width: '450px' }}>
-                <PreviewList value={files} onDelete={onDeleteFiles} />
-              </div>
-            </div>
-          </div>
-        </React.Fragment>
+        <FormUploader
+          value={files}
+          onChange={onNewFiles}
+          filesLimit={3}
+          onDelete={onDeleteFiles}
+        />
       )}
     </React.Fragment>
   );
