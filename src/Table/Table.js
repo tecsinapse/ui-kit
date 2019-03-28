@@ -18,7 +18,12 @@ import {
   initializeColumns,
   isRemoteData,
 } from './tableFunctions';
-import { useInitialData, useUpdatePageData, useUpdateData } from './tableHooks';
+import {
+  useInitialData,
+  useUpdatePageData,
+  useUpdateData,
+  useInitialCheckboxData,
+} from './tableHooks';
 
 const Table = props => {
   const {
@@ -45,7 +50,7 @@ const Table = props => {
   const [rowCount, setRowCount] = useState(0);
   const [data, setData] = useState([]);
   const [pageData, setPageData] = useState([]);
-  const [selectedRows, setSelectedRows] = useState([...selectedData]);
+  const [selectedRows, setSelectedRows] = useState([]);
   const [tableColumns] = useState(initializeColumns(columns, options, actions));
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState(() => {
@@ -66,6 +71,7 @@ const Table = props => {
   });
 
   useInitialData(originalData, setData);
+  useInitialCheckboxData(selectedData, setSelectedRows);
   useUpdateData(originalData, setLoading, setData, filters, setRowCount);
   useUpdatePageData(isRemoteData(originalData), data, setPageData, filters);
 

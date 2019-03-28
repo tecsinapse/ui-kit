@@ -9,6 +9,13 @@ export const useInitialData = (originalData, setData) => {
     }
   }, [originalData]);
 };
+export const useInitialCheckboxData = (selectedData, setSelectedRows) => {
+  useEffect(() => {
+    if (selectedData) {
+      setSelectedRows(selectedData);
+    }
+  }, [selectedData]);
+};
 
 export const useUpdateData = (
   data,
