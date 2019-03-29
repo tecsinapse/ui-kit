@@ -1,3 +1,14 @@
+<a name="0.0.109"></a>
+## <small>0.0.109 (2019-03-29)</small>
+
+* Adding advanced filters ([bbfdb70](https://github.com/tecsinapse/ui-kit/commit/bbfdb70))
+* Adding checkbox filter to advanced filters ([ed68b58](https://github.com/tecsinapse/ui-kit/commit/ed68b58))
+* Adjusting style and adding classes ([71bf5c5](https://github.com/tecsinapse/ui-kit/commit/71bf5c5))
+* First version of advanced filters ([2f1d58c](https://github.com/tecsinapse/ui-kit/commit/2f1d58c))
+* Initial commit ([a334484](https://github.com/tecsinapse/ui-kit/commit/a334484))
+
+
+
 <a name="0.0.108"></a>
 ## <small>0.0.108 (2019-03-27)</small>
 
