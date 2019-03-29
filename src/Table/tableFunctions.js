@@ -91,6 +91,8 @@ export const initializeFilters = (
           value = filterValue;
         } else if (type === 'multi-select') {
           value = [];
+        } else if (type === 'checkbox') {
+          value = false;
         }
 
         advancedFilters[name] = value;

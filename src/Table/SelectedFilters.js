@@ -73,7 +73,7 @@ const CardFilter = ({ title, selectedValues }) => {
         <div className={classes.popover}>
           {selectedValues.map(value => (
             <div key={value} className={classes.chipContainer}>
-              <Chip label={value} className={classes.chip} />
+              <Chip label={`${value}`} className={classes.chip} />
             </div>
           ))}
         </div>
@@ -91,7 +91,7 @@ const SelectedFilters = ({ advancedFilters, filters }) => {
 
   advancedFilters.filters.forEach(({ name, label }) => {
     const value = filters.advancedFilters[name];
-    if (value && value.length > 0) {
+    if ((value && value.length > 0) || (typeof value === 'boolean' && value)) {
       selectedFilters.push({
         name,
         label,

@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Input } from '../Inputs/Input';
 import { Select } from '../Select/Select';
 
@@ -70,6 +72,22 @@ const mapFilterOptionToInput = (
         label={label}
         isMulti={type === 'multi-select'}
         onChange={value => onChangeFilter(setAdvancedFilters, name, value)}
+      />
+    );
+  }
+  if (type === 'checkbox') {
+    return (
+      <FormControlLabel
+        control={
+          <Checkbox
+            key={name}
+            onChange={event =>
+              onChangeFilter(setAdvancedFilters, name, event.target.checked)
+            }
+            checked={advancedFilters[name]}
+          />
+        }
+        label={label}
       />
     );
   }

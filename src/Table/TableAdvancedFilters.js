@@ -94,6 +94,7 @@ TableAdvancedFilters.propTypes = {
           'multi-select',
           'date',
           'time',
+          'checkbox',
         ]).isRequired,
         name: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,

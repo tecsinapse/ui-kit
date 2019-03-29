@@ -148,6 +148,11 @@ const AdvancedFiltersTable = () => {
                   },
                 ],
               },
+              {
+                label: 'Active',
+                type: 'checkbox',
+                name: 'active',
+              },
             ],
           },
         }}
