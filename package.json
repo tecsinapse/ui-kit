@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
-  "version": "0.0.100",
+  "version": "0.0.108",
   "browser": "dist/index.js",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
@@ -64,6 +64,7 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "storybook-addon-smart-knobs": "^4.1.0",
     "text-mask-addons": "^3.8.0",
+    "text-mask-core": "^5.1.2",
     "typeface-roboto": "^0.0.54"
   },
   "files": [

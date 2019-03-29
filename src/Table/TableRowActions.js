@@ -22,7 +22,7 @@ const Action = ({ action, row, setAnchorEl }) => {
   return button;
 };
 
-const TableRowActions = ({ actions, row }) => {
+const TableRowActions = ({ actions, row, forceCollapseActions }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const actionButtons = actions.map((action, index) => (
@@ -37,7 +37,7 @@ const TableRowActions = ({ actions, row }) => {
   ));
   const open = Boolean(anchorEl);
 
-  if (actions.length < 4) {
+  if (actions.length < 4 && !forceCollapseActions) {
     return actionButtons;
   }
 
@@ -71,6 +71,7 @@ const TableRowActions = ({ actions, row }) => {
 
 TableRowActions.defaultProps = {
   row: null,
+  forceCollapseActions: false,
 };
 
 TableRowActions.propTypes = {
@@ -82,6 +83,7 @@ TableRowActions.propTypes = {
     })
   ).isRequired,
   row: PropTypes.object,
+  forceCollapseActions: PropTypes.bool,
 };
 
 export default TableRowActions;

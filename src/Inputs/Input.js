@@ -14,6 +14,7 @@ import {
   CPF_MASK,
   CURRENCY_MASK,
   DATE_MASK,
+  maskConfig,
   PHONE_MASK,
   PLATE_MASK,
   TIME_MASK,
@@ -80,10 +81,9 @@ const TextMaskCustom = props => {
         inputRef(ref ? ref.inputElement : null);
       }}
       mask={inputMask}
-      placeholderChar={'\u2000'}
       pipe={pipeFunc}
       showMask
-      guide={false}
+      {...maskConfig}
     />
   );
 };
@@ -167,9 +167,9 @@ const InputUI = withStyles(inputStyles)(
     disabled,
     placeholder,
     mask,
-	helperText,
-	endAdornment,
-	startAdornment,
+    helperText,
+    endAdornment,
+    startAdornment,
     ...input
   }) => (
     <TextFieldComponent
@@ -186,9 +186,9 @@ const InputUI = withStyles(inputStyles)(
       warning={warning}
       success={success}
       disabled={disabled}
-	  mask={mask}
-	  endAdornment={endAdornment}
-	  startAdornment={startAdornment}
+      mask={mask}
+      endAdornment={endAdornment}
+      startAdornment={startAdornment}
       {...input}
     />
   )

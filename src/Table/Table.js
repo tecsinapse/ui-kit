@@ -39,6 +39,7 @@ const Table = props => {
     labelRowsPerPage,
     exportOptions,
     classes: propClasses,
+    forceCollapseActions,
   } = props;
 
   const classes = tableStyles();
@@ -110,6 +111,7 @@ const Table = props => {
           />
           <TableRows
             columns={tableColumns}
+            forceCollapseActions={forceCollapseActions}
             data={pageData}
             rowId={rowId}
             selectedRows={selectedRows}

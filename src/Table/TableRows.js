@@ -67,6 +67,7 @@ const TableRows = ({
   setSelectedRows,
   onSelectRow,
   rowId,
+  forceCollapseActions,
 }) => {
   const hasSelection = (columns || []).some(({ selection }) => selection);
   const classes = tableRowStyles(hasSelection)();
@@ -93,6 +94,7 @@ const TableRows = ({
         selectedRows={selectedRows}
         onSelectRow={onSelectRow}
         rowId={rowId}
+        forceCollapseActions={forceCollapseActions}
       />
     </TableRow>
   ));
@@ -102,6 +104,7 @@ TableRows.defaultProps = {
   columns: [],
   data: [],
   selectedRows: [],
+  forceCollapseActions: false,
 };
 
 TableRows.propTypes = {
@@ -119,6 +122,7 @@ TableRows.propTypes = {
   selectedRows: PropTypes.arrayOf(PropTypes.object),
   onSelectRow: PropTypes.func,
   rowId: PropTypes.func.isRequired,
+  forceCollapseActions: PropTypes.bool,
 };
 
 export default TableRows;
