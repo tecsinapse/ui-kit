@@ -4,7 +4,6 @@ export const toolbarOptionsTypes = PropTypes.shape({
   title: PropTypes.string,
   selectedLabel: PropTypes.func,
   tooltipAdvancedFilter: PropTypes.string,
-  advancedFiltersComponent: PropTypes.object,
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string.isRequired,
@@ -15,7 +14,8 @@ export const toolbarOptionsTypes = PropTypes.shape({
       onClick: PropTypes.func.isRequired,
     })
   ),
-  advancedFiltersOptions: PropTypes.shape({
+  advancedFilters: PropTypes.shape({
+    selectedFiltersLabel: PropTypes.string,
     applyFiltersLabel: PropTypes.string,
     applyFilters: PropTypes.func,
     filtersGroup: PropTypes.arrayOf(

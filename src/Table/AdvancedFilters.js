@@ -110,7 +110,7 @@ const Filters = ({
         <Typography variant="subtitle2">{group.label}</Typography>
         <div className={classes.filterContainer}>
           {group.filters.map(filter => (
-            <div className={classes.filter}>
+            <div key={`filter-${filter.name}`} className={classes.filter}>
               {mapFilterOptionToInput(
                 filter,
                 setAdvancedFilters,
@@ -126,7 +126,7 @@ const Filters = ({
 
 const AdvancedFilters = ({
   tooltipAdvancedFilter,
-  advancedFiltersOptions,
+  advancedFilters: advancedFiltersProp,
   onApplyFilter,
   filters,
 }) => {
@@ -134,7 +134,7 @@ const AdvancedFilters = ({
     applyFiltersLabel,
     filters: filtersOptions,
     filtersGroup,
-  } = advancedFiltersOptions;
+  } = advancedFiltersProp;
   const [advancedFilters, setAdvancedFilters] = useState({
     ...filters.advancedFilters,
   });

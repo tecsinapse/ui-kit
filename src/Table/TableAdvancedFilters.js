@@ -24,14 +24,13 @@ const onApplyFilter = (setAnchorEl, setFilters) => advancedFilters => {
 
 const TableAdvancedFilters = ({
   tooltipAdvancedFilter,
-  advancedFiltersComponent,
-  advancedFiltersOptions,
+  advancedFilters,
   setFilters,
   filters,
 }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
-  if (!advancedFiltersComponent && !advancedFiltersOptions) return null;
+  if (!advancedFilters) return null;
 
   const classes = styles();
   const open = Boolean(anchorEl);
@@ -57,15 +56,13 @@ const TableAdvancedFilters = ({
         }}
       >
         <div className={classes.advancedFiltersContent}>
-          {advancedFiltersComponent || (
-            <AdvancedFilters
-              advancedFiltersOptions={advancedFiltersOptions}
-              tooltipAdvancedFilter={tooltipAdvancedFilter}
-              onApplyFilter={onApplyFilter(setAnchorEl, setFilters)}
-              setFilters={setFilters}
-              filters={filters}
-            />
-          )}
+          <AdvancedFilters
+            advancedFilters={advancedFilters}
+            tooltipAdvancedFilter={tooltipAdvancedFilter}
+            onApplyFilter={onApplyFilter(setAnchorEl, setFilters)}
+            setFilters={setFilters}
+            filters={filters}
+          />
         </div>
       </Popover>
     </React.Fragment>
@@ -74,14 +71,20 @@ const TableAdvancedFilters = ({
 
 TableAdvancedFilters.defaultProps = {
   tooltipAdvancedFilter: null,
-  advancedFiltersComponent: null,
   advancedFilters: null,
 };
 
 TableAdvancedFilters.propTypes = {
   tooltipAdvancedFilter: PropTypes.string,
-  advancedFiltersComponent: PropTypes.object,
   advancedFilters: PropTypes.shape({
+    applyFiltersLabel: PropTypes.string,
+    applyFilters: PropTypes.func,
+    filtersGroup: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+      })
+    ),
     filters: PropTypes.arrayOf(
       PropTypes.shape({
         group: PropTypes.string,
@@ -91,10 +94,9 @@ TableAdvancedFilters.propTypes = {
           'multi-select',
           'date',
           'time',
-          'date-time',
-        ]),
-        name: PropTypes.string,
-        label: PropTypes.string,
+        ]).isRequired,
+        name: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
         options: PropTypes.arrayOf(
           PropTypes.shape({
             value: PropTypes.any,
@@ -102,10 +104,7 @@ TableAdvancedFilters.propTypes = {
             disabled: PropTypes.bool,
           })
         ),
-        value: PropTypes.oneOfType([
-          PropTypes.string,
-          PropTypes.arrayOf(PropTypes.string),
-        ]),
+        value: PropTypes.any,
       })
     ),
   }),

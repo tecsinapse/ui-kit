@@ -70,7 +70,7 @@ export const initializeFilters = (
   rowsPerPageOptions,
   rowsPerPageProp,
   pageProp,
-  { advancedFiltersOptions }
+  { advancedFilters: advancedFiltersProp }
 ) => {
   const headerFilters = {};
   const advancedFilters = {};
@@ -82,8 +82,8 @@ export const initializeFilters = (
       : rowsPerPageOptions[0];
   }
 
-  if (advancedFiltersOptions) {
-    advancedFiltersOptions.filters.forEach(
+  if (advancedFiltersProp) {
+    advancedFiltersProp.filters.forEach(
       ({ type, value: filterValue, name }) => {
         let value = '';
 

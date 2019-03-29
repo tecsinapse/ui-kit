@@ -80,7 +80,8 @@ const AdvancedFiltersTable = () => {
         rowId={row => row.code}
         toolbarOptions={{
           title: 'Advanced Filters Example',
-          advancedFiltersOptions: {
+          advancedFilters: {
+            selectedFiltersLabel: 'Filtros Ativos',
             applyFiltersLabel: 'Aplicar Filtros',
             filtersGroup: [
               {
