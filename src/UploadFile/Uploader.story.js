@@ -37,7 +37,7 @@ storiesOf(`Uploader`, module)
     </div>
   ))
   .add('uploader form', () => (
-    <div style={{ width: '800px', height: '400px' }}>
+    <div style={{ width: '1000px', height: '600px' }}>
       <TesteUploader type="form" />
     </div>
   ));

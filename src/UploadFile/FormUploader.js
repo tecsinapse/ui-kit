@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography } from '@material-ui/core';
 import { Uploader } from './Uploader';
 import { PreviewList } from './PreviewList';
 
@@ -21,14 +20,15 @@ export function FormUploader({
         display: 'flex',
         width: '100%',
         height: '100%',
-        alignItems: 'stretch',
+        overflow: 'hidden',
       }}
     >
       <div
         style={{
-          flexBasis: '50%',
-          flexShrink: '1',
-          width: '500px',
+          borderRadius: '2px',
+          border: '1px dashed #80808070',
+          backgroundColor: '#8080801c',
+          minWidth: '50%',
         }}
       >
         <Uploader
@@ -42,15 +42,17 @@ export function FormUploader({
           subtitle={subtitle}
         />
       </div>
+
       <div
         style={{
-          flexBasis: '50%',
+          marginLeft: '3%',
+          width: '47%',
+          overflow: 'hidden',
+          display: 'flex',
+          flexDirection: 'column',
         }}
       >
-        <Typography variant="h5">Upload Files</Typography>
-        <div style={{ width: '450px' }}>
-          <PreviewList value={value} onDelete={onDelete} />
-        </div>
+        <PreviewList value={value} onDelete={onDelete} />
       </div>
     </div>
   );
@@ -59,7 +61,7 @@ export function FormUploader({
 FormUploader.defaultProps = {
   value: {},
   acceptedFormat: ['image/*', 'video/*', 'application/*'],
-  filesLimit: 3,
+  filesLimit: 10,
   maxFileSize: 3000000,
   title: 'Drag and drop a file',
   buttonLabel: 'Upload Files',

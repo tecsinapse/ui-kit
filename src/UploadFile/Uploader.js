@@ -19,7 +19,7 @@ const useStyle = makeStyles({
     justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
-    // border: '2px dashed grey',
+    // border: '2px dashed blue',
     // borderRadius: '6px',
     // backgroundColor: '#80808021',
     // flexBasis: '40%',
@@ -35,18 +35,18 @@ const useStyle = makeStyles({
     // flexBasis: '25%',
   },
   icon: {
-    // border: '2px dashed blue',
+    // /border: '2px dashed blue',
     alignSelf: 'center',
     height: '60%',
     width: '60%',
     // flexBasis: '25%',
   },
   textDiv: {
-    alignSelf: 'center',
     // border: '2px dashed green',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
+    flexBasis: '40%',
   },
   button: {
     // border: '2px dashed blue',
@@ -54,10 +54,11 @@ const useStyle = makeStyles({
     width: '55%',
   },
   divider: {
-    width: '15%',
+    width: '25%',
     alignSelf: 'center',
     marginBottom: '4%',
-    marginTop: '2%',
+    marginTop: '1%',
+    // border: '1px dashed blue',
   },
   buttonDiv: {
     alignSelf: 'center',

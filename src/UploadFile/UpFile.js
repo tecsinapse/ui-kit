@@ -15,12 +15,17 @@ const useStyle = makeStyles({
   item: {
     backgroundColor: '#8080801c',
     borderRadius: '5px 5px 0px 0px ',
-    marginTop: '5%',
+    minHeight: '55px',
+    marginTop: '3%',
+    padding: '0px',
+    // border: '2px dashed blue',
   },
   itemError: {
     backgroundColor: '#ff00004d',
     borderRadius: '5px 5px 0px 0px ',
-    marginTop: '5%',
+    minHeight: '55px',
+    marginTop: '3%',
+    padding: '0px',
   },
   primary: {
     display: 'flex',
@@ -31,22 +36,23 @@ const useStyle = makeStyles({
     maxHeight: '10%',
   },
   info: {
+    maxWidth: '100%',
     // border: '2px dashed red',
-    maxWidth: '80%',
     display: 'flex',
     alignItems: 'baseline',
     flex: '2 1 auto',
     flexWrap: 'wrap',
   },
   img: {
-    maxWidth: '50px',
-    maxHeight: '50px',
+    maxWidth: '40px',
+    maxHeight: '40px',
     // border: '2px dashed green',
     display: 'block',
   },
   thumbnail: {
-    width: '50px',
-    height: '50px',
+    // border: '2px dashed green',
+    width: '40px',
+    height: '40px',
     display: 'flex',
     justifyContent: 'center',
   },
@@ -67,7 +73,7 @@ const useStyle = makeStyles({
   },
   name: {
     // border: '2px dashed green',
-    maxWidth: '70%',
+    maxWidth: '60%',
   },
 });
 
@@ -120,17 +126,18 @@ export function UpFile({
                   </div>
                 ) : null}
               </div>
-              <IconButton
-                onClick={() => {
-                  setShowAlert(true);
-                  setSelectedUID(uid);
-                }}
-              >
-                <Clear />
-              </IconButton>
             </div>
           }
         />
+        <IconButton
+          onClick={() => {
+            setShowAlert(true);
+            setSelectedUID(uid);
+          }}
+          style={{ padding: '0px' }}
+        >
+          <Clear fontSize="small" />
+        </IconButton>
       </ListItem>
       {
         <LinearProgress
