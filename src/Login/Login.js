@@ -7,6 +7,7 @@ import { Typography } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Button } from '../Buttons/Button';
+import Tecsinapese from './tecsinapse.svg';
 
 const useStyle = makeStyles(theme => ({
   root: {
@@ -148,7 +149,11 @@ export const Login = ({
         <Typography variant="caption" color="textSecondary">
           {footerLabel}
         </Typography>
-        <img src={footerImg} alt="logo footer" className={classes.footerImg} />
+        {footerImg ? (
+          { footerImg }
+        ) : (
+          <Tecsinapese className={classes.footerImg} />
+        )}
       </div>
     </Paper>
   );
@@ -164,8 +169,7 @@ Login.defaultProps = {
   rememberLabel: 'Lembrar de mim',
   onClick: () => {},
   footerLabel: 'POWERED BY',
-  footerImg:
-    'https://www.tecsinapse.com.br/wp-content/themes/TecSinapse/assets/images/tecsinapse.svg',
+  footerImg: null,
 };
 
 Login.propTypes = {
@@ -178,5 +182,5 @@ Login.propTypes = {
   rememberLabel: PropTypes.string,
   onClick: PropTypes.func,
   footerLabel: PropTypes.string,
-  footerImg: PropTypes.string,
+  footerImg: PropTypes.object,
 };
