@@ -8,6 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Button } from '../Buttons/Button';
 import Tecsinapese from './tecsinapse.svg';
+import { defaultGreyDisabled } from '../colors';
 
 const useStyle = makeStyles(theme => ({
   root: {
@@ -41,7 +42,7 @@ const useStyle = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     flexBasis: '12%',
-    backgroundColor: '#8080801f',
+    backgroundColor: defaultGreyDisabled,
   },
   logo: {
     flexBasis: '20%',
