@@ -1,3 +1,10 @@
+<a name="0.0.110"></a>
+## <small>0.0.110 (2019-04-02)</small>
+
+* selected date updating table on reload ([9fc271b](https://github.com/tecsinapse/ui-kit/commit/9fc271b))
+
+
+
 <a name="0.0.109"></a>
 ## <small>0.0.109 (2019-03-29)</small>
 
