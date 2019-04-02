@@ -91,7 +91,7 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
         </div>
       )}
 
-      <CircularProgress className={classes.progress} size={60} />
+      <CircularProgress className={classes.progress} />
 
       <div className={classes.carouselDiv}>
         <Paper elevation={0} className={classes.carouselWrapper}>
