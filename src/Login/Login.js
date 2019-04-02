@@ -87,25 +87,25 @@ export const Login = ({
 
   return (
     <Paper className={classes.root}>
-      {headerImages && headerImages.length > 0 ? (
+      {headerImages && headerImages.length > 0 && (
         <div className={classes.imgHeader}>
           {headerImages.map(src => (
             <img src={src} alt="logo" className={classes.logo} />
           ))}
         </div>
-      ) : null}
+      )}
 
-      {headerImages && headerImages.length > 0 ? <Divider /> : null}
+      {headerImages && headerImages.length > 0 && <Divider />}
 
       <div className={classes.content}>
-        {headerText || subheaderText ? (
+        {headerText && subheaderText && (
           <div className={classes.header}>
             <Typography variant="h5">{headerText}</Typography>
             <Typography variant="body2" color="textSecondary">
               {subheaderText}
             </Typography>
           </div>
-        ) : null}
+        )}
 
         <div className={classes.inputData}>
           {children}
