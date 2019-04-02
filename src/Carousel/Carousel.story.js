@@ -1,9 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { GROUPS } from '../../.storybook/hierarchySeparators';
 import Slide from './Slide';
 import { AutoRotatingCarousel } from './AutoRotatingCarousel';
 
-storiesOf(`Carousel`, module)
+storiesOf(`${GROUPS.COMPONENTS}|Carousel`, module)
   .add('carousel single', () => (
     <div style={{ width: '700px', height: '400px' }}>
       <AutoRotatingCarousel>
