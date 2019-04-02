@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import uniqid from 'uniqid';
 import { setInterval, clearInterval } from 'timers';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import { Uploader } from './Uploader';
 import { PreviewList } from './PreviewList';
@@ -105,8 +104,9 @@ export function TesteUploader({ type }) {
             open={open}
             aria-labelledby="simple-dialog-title"
           >
-            <DialogTitle id="simple-dialog-title">Upload Files</DialogTitle>
-            <PreviewList value={files} onDelete={onDeleteFiles} />
+            <div style={{ width: '450px', height: '340px' }}>
+              <PreviewList value={files} onDelete={onDeleteFiles} />
+            </div>
           </Dialog>
         </React.Fragment>
       ) : (
