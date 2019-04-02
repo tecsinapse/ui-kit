@@ -7,10 +7,12 @@ import TableToolbarSelection from './TableToolbarSelection';
 import TableAdvancedFilters from './TableAdvancedFilters';
 import { toolbarOptionsTypes } from './TablePropTypes';
 import TableExporter from './TableExporter';
+import SelectedFilters from './SelectedFilters';
 
 const tableToolbarStyles = makeStyles(theme => ({
   toolbar: {
     paddingRight: theme.spacing.unit,
+    height: '65px',
   },
   title: {
     width: '100%',
@@ -29,35 +31,40 @@ const SimpleToolbar = ({
   data,
   columns,
   filters,
+  setFilters,
   setLoading,
   rowCount,
 }) => {
-  const { title, tooltipAdvancedFilter, advancedFiltersComponent } =
-    options || {};
+  const { title, tooltipAdvancedFilter, advancedFilters } = options || {};
   const classes = tableToolbarStyles();
 
   return (
-    <Toolbar className={classes.toolbar}>
-      <div className={classes.title}>
-        <Typography variant="h6" id="tableTitle">
-          {title}
-        </Typography>
-      </div>
-      <div className={classes.filter}>
-        <TableExporter
-          {...exportOptions}
-          data={data}
-          columns={columns}
-          filters={filters}
-          setLoading={setLoading}
-          rowCount={rowCount}
-        />
-        <TableAdvancedFilters
-          tooltipAdvancedFilter={tooltipAdvancedFilter}
-          advancedFiltersComponent={advancedFiltersComponent}
-        />
-      </div>
-    </Toolbar>
+    <div>
+      <Toolbar className={classes.toolbar}>
+        <div className={classes.title}>
+          <Typography variant="h6" id="tableTitle">
+            {title}
+          </Typography>
+        </div>
+        <div className={classes.filter}>
+          <TableExporter
+            {...exportOptions}
+            data={data}
+            columns={columns}
+            filters={filters}
+            setLoading={setLoading}
+            rowCount={rowCount}
+          />
+          <TableAdvancedFilters
+            tooltipAdvancedFilter={tooltipAdvancedFilter}
+            advancedFilters={advancedFilters}
+            setFilters={setFilters}
+            filters={filters}
+          />
+        </div>
+      </Toolbar>
+      <SelectedFilters advancedFilters={advancedFilters} filters={filters} />
+    </div>
   );
 };
 
@@ -69,6 +76,7 @@ const TableToolbar = ({
   data,
   columns,
   filters,
+  setFilters,
   setLoading,
   rowCount,
 }) => {
@@ -81,6 +89,7 @@ const TableToolbar = ({
         exportOptions={exportOptions}
         data={data}
         filters={filters}
+        setFilters={setFilters}
         columns={columns}
         setLoading={setLoading}
         rowCount={rowCount}
