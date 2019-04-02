@@ -19,10 +19,10 @@ const useStyle = makeStyles({
   title: {
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    color: '#fff',
+    color: 'white',
   },
   subtitle: {
-    color: '#fff',
+    color: 'white',
   },
   titleImage: {
     alignSelf: 'flex-end',
@@ -63,7 +63,7 @@ function Slide({
           {<img src={titleImage} alt="" />}
         </div>
         <div className={classes.titleDiv}>
-          <Typography variant="title" className={classes.title}>
+          <Typography variant="h6" className={classes.title}>
             {title}
           </Typography>
           <Typography variant="subtitle1" className={classes.subtitle}>
