@@ -63,7 +63,7 @@ const useStyle = makeStyles(theme => ({
   submit: {
     marginRight: '40%',
   },
-  esqueceu: {
+  forgot: {
     alignSelf: 'center',
   },
 }));
@@ -80,6 +80,7 @@ export const Login = ({
   children,
   footerLabel,
   footerImg,
+  forgoPasswordLabel,
 }) => {
   const [remember, setRemember] = useState(false);
 
@@ -110,7 +111,7 @@ export const Login = ({
         <div className={classes.inputData}>
           {children}
 
-          {rememberBox || forgotPasswordComponent ? (
+          {rememberBox && forgotPasswordComponent && (
             <div className={classes.extra}>
               <FormControlLabel
                 control={
@@ -125,15 +126,15 @@ export const Login = ({
                 }
               />
               <Typography
-                className={classes.esqueceu}
+                className={classes.forgot}
                 variant="subtitle2"
                 color="secondary"
                 component={forgotPasswordComponent}
               >
-                Esqueceu a senha?
+                {forgoPasswordLabel}
               </Typography>
             </div>
-          ) : null}
+          )}
         </div>
 
         <Button
@@ -171,6 +172,7 @@ Login.defaultProps = {
   onClick: () => {},
   footerLabel: 'POWERED BY',
   footerImg: null,
+  forgoPasswordLabel: 'Esqueceu a senha?',
 };
 
 Login.propTypes = {
@@ -184,4 +186,5 @@ Login.propTypes = {
   onClick: PropTypes.func,
   footerLabel: PropTypes.string,
   footerImg: PropTypes.object,
+  forgoPasswordLabel: PropTypes.string,
 };
