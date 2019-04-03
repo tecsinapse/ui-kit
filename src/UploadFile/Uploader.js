@@ -87,7 +87,8 @@ export function Uploader({
   maxFileSize,
   title,
   buttonLabel,
-  onChange,
+  onAccept,
+  onReject,
   subtitle,
 }) {
   const [snackbar, setSnackBar] = useState({
@@ -101,14 +102,28 @@ export function Uploader({
     accept: acceptedFormat.join(','),
     maxSize: maxFileSize,
     onDrop: acceptedFiles => {
-      if (acceptedFiles.length + Object.keys(value).length <= filesLimit) {
-        if (onChange) onChange(acceptedFiles);
+      // The limit only counts uploading file (no error and no completed)
+      if (
+        acceptedFiles.length +
+          Object.keys(value).filter(
+            i => !value[i].error && !(value[i].completed >= 100)
+          ).length <=
+        filesLimit
+      ) {
+        if (onAccept) onAccept(acceptedFiles);
       } else {
         setSnackBar({
           show: true,
           variant: 'error',
           msg: `Maximum allowed number of files exceeded. Only ${filesLimit} allowed`,
         });
+        if (onReject)
+          onReject(
+            acceptedFiles.map(file => ({
+              file,
+              error: 'Maximum allowed number of files',
+            }))
+          );
       }
     },
     onDropRejected: rejectedFiles => {
@@ -131,7 +146,7 @@ export function Uploader({
         variant: 'error',
         msg: message,
       });
-      if (onChange && errorFile.length > 0) onChange(errorFile);
+      if (onReject && errorFile.length > 0) onReject(errorFile);
     },
   });
 
@@ -203,7 +218,8 @@ Uploader.defaultProps = {
   maxFileSize: 3000000,
   title: 'Drag and drop a file',
   buttonLabel: 'Upload Files',
-  onChange: () => {},
+  onAccept: null,
+  onReject: null,
   subtitle: 'or click on the button',
 };
 
@@ -214,7 +230,8 @@ Uploader.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   buttonLabel: PropTypes.string,
-  onChange: PropTypes.func,
+  onAccept: PropTypes.func,
+  onReject: PropTypes.func,
   value: PropTypes.shape({
     uid: PropTypes.number,
     file: PropTypes.object,

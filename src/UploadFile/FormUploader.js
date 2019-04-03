@@ -11,7 +11,8 @@ export function FormUploader({
   title,
   buttonLabel,
   subtitle,
-  onChange,
+  onAccept,
+  onReject,
   onDelete,
 }) {
   return (
@@ -38,7 +39,8 @@ export function FormUploader({
           maxFileSize={maxFileSize}
           title={title}
           buttonLabel={buttonLabel}
-          onChange={onChange}
+          onAccept={onAccept}
+          onReject={onReject}
           subtitle={subtitle}
         />
       </div>
@@ -61,12 +63,13 @@ export function FormUploader({
 FormUploader.defaultProps = {
   value: {},
   acceptedFormat: ['image/*', 'video/*', 'application/*'],
-  filesLimit: 10,
+  filesLimit: 3,
   maxFileSize: 3000000,
   title: 'Drag and drop a file',
   buttonLabel: 'Upload Files',
   subtitle: 'or click on the button',
-  onChange: null,
+  onAccept: null,
+  onReject: null,
   onDelete: null,
 };
 
@@ -84,6 +87,7 @@ FormUploader.propTypes = {
     uprate: PropTypes.number,
     error: PropTypes.string,
   }),
-  onChange: PropTypes.func,
+  onAccept: PropTypes.func,
+  onReject: PropTypes.func,
   onDelete: PropTypes.func,
 };

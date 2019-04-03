@@ -17,7 +17,8 @@ const useStyle = makeStyles({
     borderRadius: '5px 5px 0px 0px ',
     minHeight: '55px',
     marginTop: '3%',
-    padding: '0px',
+    paddingBottom: '5px',
+    paddingTop: '5px',
     // border: '2px dashed blue',
   },
   itemError: {
@@ -26,6 +27,8 @@ const useStyle = makeStyles({
     minHeight: '55px',
     marginTop: '3%',
     padding: '0px',
+    paddingBottom: '5px',
+    paddingTop: '5px',
   },
   primary: {
     display: 'flex',

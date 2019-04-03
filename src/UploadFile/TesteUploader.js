@@ -48,37 +48,50 @@ export function TesteUploader({ type }) {
     );
   }
 
-  const onNewFiles = newFiles => {
+  const onAccept = newFiles => {
     setOpen(true);
     const copyFiles = { ...files };
-    newFiles.forEach(fileObj => {
-      let f = null;
-      let e = null;
-      if (fileObj.error) {
-        f = fileObj.file;
-        e = fileObj.error;
-      } else {
-        f = fileObj;
-      }
+    newFiles.forEach(file => {
       const reader = new FileReader();
       const uid = uniqid();
 
       // Set state after reading async the files
       reader.onload = event => {
         copyFiles[uid] = {
-          file: f,
+          file,
           data: event.target.result,
           completed: 0,
           uploader: null,
-          error: e,
+          error: null,
         };
         setFiles(copyFiles);
 
         // Dummy uploader update the file upload values and fake a
         // a error when it has added more than 2 files
-        if (!e) DummyUploader(uid, Object.keys(copyFiles).length > 2);
+        DummyUploader(uid, Object.keys(copyFiles).length > 2);
       };
-      reader.readAsDataURL(f);
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const onReject = newFiles => {
+    setOpen(true);
+    const copyFiles = { ...files };
+    newFiles.forEach(fileObj => {
+      const uid = uniqid();
+
+      copyFiles[uid] = {
+        file: fileObj.file,
+        data: null,
+        completed: 0,
+        uploader: null,
+        error: fileObj.error,
+      };
+      setFiles(copyFiles);
+
+      // Dummy uploader update the file upload values and fake a
+      // a error when it has added more than 2 files
+      // if (!fileObj.error) DummyUploader(uid, Object.keys(copyFiles).length > 2);
     });
   };
 
@@ -98,7 +111,12 @@ export function TesteUploader({ type }) {
     <React.Fragment>
       {type !== 'form' ? (
         <React.Fragment>
-          <Uploader value={files} onChange={onNewFiles} filesLimit={3} />
+          <Uploader
+            value={files}
+            onAccept={onAccept}
+            onReject={onReject}
+            filesLimit={3}
+          />
           <Dialog
             onClose={() => setOpen(false)}
             open={open}
@@ -112,7 +130,8 @@ export function TesteUploader({ type }) {
       ) : (
         <FormUploader
           value={files}
-          onChange={onNewFiles}
+          onAccept={onAccept}
+          onReject={onReject}
           onDelete={onDeleteFiles}
         />
       )}
