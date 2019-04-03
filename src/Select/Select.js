@@ -155,7 +155,7 @@ export const SelectUnstyled = ({
       key={key}
       error={!!error}
       fullWidth={fullWidth}
-      style={{ minWidth: '200px' }}
+      style={{ minWidth: '600px' }}
     >
       <ReactSelect {...selectProps} />
       {error && <FormHelperText>{error}</FormHelperText>}
