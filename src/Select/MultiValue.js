@@ -12,18 +12,25 @@ export function MultiValue({ children, selectProps, removeProps, isFocused }) {
       : children;
   return (
     <SizeMe>
-      {({ size }) => (
-        // console.log(size);
-        <Chip
-          tabIndex={-1}
-          label={label}
-          className={classNames(selectProps.childrenClasses.chip, {
-            [selectProps.childrenClasses.chipFocused]: isFocused,
-          })}
-          onDelete={removeProps.onClick}
-          deleteIcon={<CancelIcon {...removeProps} />}
-        />
-      )}
+      {({ size }) => {
+        const copyOptionSize = { ...selectProps.optionSize };
+        if (Math.ceil(size.width) !== copyOptionSize[label]) {
+          copyOptionSize[label] = Math.ceil(size.width);
+          selectProps.setOptionSize(copyOptionSize);
+        }
+
+        return (
+          <Chip
+            tabIndex={-1}
+            label={label}
+            className={classNames(selectProps.childrenClasses.chip, {
+              [selectProps.childrenClasses.chipFocused]: isFocused,
+            })}
+            onDelete={removeProps.onClick}
+            deleteIcon={<CancelIcon {...removeProps} />}
+          />
+        );
+      }}
     </SizeMe>
   );
 }

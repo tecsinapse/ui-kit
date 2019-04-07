@@ -40,6 +40,9 @@ export const SelectUnstyled = ({
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [allSelected, setAllSelected] = useState(false);
+  const [optionSize, setOptionSize] = useState({});
+  const [containerSize, setContainerSize] = useState(0);
+
   let { variant } = rest;
 
   const theme = useTheme();
@@ -133,6 +136,10 @@ export const SelectUnstyled = ({
       setAllSelected(!allSelected);
     },
     ...rest,
+    optionSize,
+    setOptionSize,
+    containerSize,
+    setContainerSize,
   };
 
   const selectProps =
@@ -155,7 +162,7 @@ export const SelectUnstyled = ({
       key={key}
       error={!!error}
       fullWidth={fullWidth}
-      style={{ minWidth: '600px' }}
+      style={{ minWidth: '250px' }}
     >
       <ReactSelect {...selectProps} />
       {error && <FormHelperText>{error}</FormHelperText>}
