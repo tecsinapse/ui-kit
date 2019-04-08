@@ -28,7 +28,7 @@ export function FormUploader({
         style={{
           borderRadius: '2px',
           border: '1px dashed #80808070',
-          backgroundColor: '#8080801c',
+          backgroundColor: '#f7f7f7',
           minWidth: '50%',
         }}
       >

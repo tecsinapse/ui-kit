@@ -13,7 +13,7 @@ import { isImage } from './helper';
 
 const useStyle = makeStyles({
   item: {
-    backgroundColor: '#8080801c',
+    backgroundColor: '#f7f7f7',
     borderRadius: '5px 5px 0px 0px ',
     minHeight: '55px',
     marginTop: '3%',
@@ -22,7 +22,7 @@ const useStyle = makeStyles({
     // border: '2px dashed blue',
   },
   itemError: {
-    backgroundColor: '#ff00004d',
+    backgroundColor: '#ffb1b1',
     borderRadius: '5px 5px 0px 0px ',
     minHeight: '55px',
     marginTop: '3%',
@@ -63,10 +63,13 @@ const useStyle = makeStyles({
     borderRadius: '0px 0px 5px 5px ',
   },
   barCompleted: {
-    backgroundColor: '#22b5228c',
+    backgroundColor: '#4caf50',
   },
   barError: {
-    backgroundColor: '#ff00004d',
+    backgroundColor: '#e6433f',
+  },
+  barError2: {
+    backgroundColor: '#ffb1b1',
   },
   errorDiv: {
     display: 'flex',
@@ -151,7 +154,7 @@ export function UpFile({
             error
               ? {
                   bar1Determinate: classes.barError,
-                  determinate: classes.barError,
+                  determinate: classes.barError2,
                 }
               : {
                   bar1Determinate:

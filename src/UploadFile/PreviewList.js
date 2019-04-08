@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import List from '@material-ui/core/List';
 import { Typography } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
-import InsertDriveFile from '@material-ui/icons/InsertDriveFile';
+import { mdiFileUpload } from '@mdi/js';
+import Icon from '@mdi/react';
 import { makeStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import { convertBytes } from './helper';
@@ -23,7 +24,7 @@ const useStyle = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    backgroundColor: '#8080801c',
+    backgroundColor: '#f7f7f7',
     height: '200px',
     width: '200px',
     borderRadius: '50%',
@@ -35,12 +36,15 @@ const useStyle = makeStyles({
     textAlign: 'center',
   },
   list: {},
+  unavailableColor: {
+    color: '#cacacb',
+  },
   iconColor: {
-    color: '#61616152',
+    backgroundColor: '#f7f7f7',
   },
 });
 
-export function PreviewList({ value, onDelete, listLabel }) {
+export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
   const [showAlert, setShowAlert] = useState(false);
   const [selectedUID, setSelectedUID] = useState('');
 
@@ -67,20 +71,23 @@ export function PreviewList({ value, onDelete, listLabel }) {
       {Object.keys(value).length <= 0 ? (
         <div className={classes.root}>
           <div className={classes.circle}>
-            <InsertDriveFile
-              fontSize="large"
-              className={classes.icon}
-              classes={{ colorSecondary: classes.iconColor }}
-            />
-            <Typography variant="h5" color="primary" className={classes.text}>
-              Upload Files
+            <Icon path={mdiFileUpload} size={2} className={classes.iconColor} />
+
+            <Typography
+              variant="h5"
+              color="primary"
+              className={classes.text}
+              classes={{ colorPrimary: classes.unavailableColor }}
+            >
+              {listLabel}
             </Typography>
             <Typography
               variant="body2"
               color="primary"
               className={classes.text}
+              classes={{ colorPrimary: classes.unavailableColor }}
             >
-              Appear Here
+              {noFileBottomLabel}
             </Typography>
           </div>
         </div>
@@ -115,6 +122,7 @@ PreviewList.defaultProps = {
   value: {},
   onDelete: () => {},
   listLabel: 'Upload Files',
+  noFileBottomLabel: 'Appear Here',
 };
 
 PreviewList.propTypes = {
@@ -127,4 +135,5 @@ PreviewList.propTypes = {
   }),
   onDelete: PropTypes.func,
   listLabel: PropTypes.string,
+  noFileBottomLabel: PropTypes.string,
 };
