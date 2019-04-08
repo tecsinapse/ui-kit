@@ -34,10 +34,7 @@ const useStyle = makeStyles({
   text: {
     textAlign: 'center',
   },
-  list: {
-    marginLeft: '5%',
-    marginRight: '5%',
-  },
+  list: {},
   iconColor: {
     color: '#61616152',
   },

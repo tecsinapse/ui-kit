@@ -26,7 +26,6 @@ const useStyle = makeStyles({
     borderRadius: '5px 5px 0px 0px ',
     minHeight: '55px',
     marginTop: '3%',
-    padding: '0px',
     paddingBottom: '5px',
     paddingTop: '5px',
   },
@@ -58,6 +57,7 @@ const useStyle = makeStyles({
     height: '40px',
     display: 'flex',
     justifyContent: 'center',
+    marginRight: '0px',
   },
   loading: {
     borderRadius: '0px 0px 5px 5px ',
@@ -118,7 +118,7 @@ export function UpFile({
                 </Typography>
                 {error ? (
                   <div className={classes.errorDiv}>
-                    <ErrorOutlineOutlined />
+                    <ErrorOutlineOutlined fontSize="small" />
                     <Typography
                       variant="caption"
                       style={{ marginLeft: '2%' }}
