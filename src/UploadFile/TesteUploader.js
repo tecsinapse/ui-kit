@@ -122,7 +122,14 @@ export function TesteUploader({ type }) {
             open={open}
             aria-labelledby="simple-dialog-title"
           >
-            <div style={{ width: '450px', height: '340px' }}>
+            <div
+              style={{
+                width: '450px',
+                height: '340px',
+                paddingLeft: '10px',
+                paddingRight: '10px',
+              }}
+            >
               <PreviewList value={files} onDelete={onDeleteFiles} />
             </div>
           </Dialog>

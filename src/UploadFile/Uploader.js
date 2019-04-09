@@ -37,8 +37,8 @@ const useStyle = makeStyles({
   icon: {
     // /border: '2px dashed blue',
     alignSelf: 'center',
-    height: '60%',
-    width: '60%',
+    height: '80%',
+    width: '80%',
     // flexBasis: '25%',
   },
   textDiv: {
@@ -190,7 +190,6 @@ export function Uploader({
             </Typography>
             <Button
               variant="secondary"
-              size="large"
               onClick={open}
               className={classes.button}
             >
