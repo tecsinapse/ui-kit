@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { convertBytes } from './helper';
 import { ConfirmationAlert } from '../Alerts/ConfirmationAlert';
 import { UpFile } from './UpFile';
+import { Snackbar } from '../Notifications/Snackbar';
 
 const useStyle = makeStyles({
   root: {
@@ -47,6 +48,11 @@ const useStyle = makeStyles({
 export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
   const [showAlert, setShowAlert] = useState(false);
   const [selectedUID, setSelectedUID] = useState('');
+  const [snackbar, setSnackBar] = useState({
+    show: false,
+    variant: 'success',
+    msg: '',
+  });
 
   const classes = useStyle();
 
@@ -55,6 +61,11 @@ export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
       <ConfirmationAlert
         show={showAlert}
         proceed={() => {
+          setSnackBar({
+            show: true,
+            variant: 'warning',
+            msg: `File removed from upload list`,
+          });
           setShowAlert(false);
           onDelete(selectedUID);
         }}
@@ -67,6 +78,13 @@ export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
           setSelectedUID('');
         }}
       />
+      <Snackbar
+        show={snackbar.show}
+        variant={snackbar.variant}
+        onClose={() => setSnackBar({ show: false, variant: 'success' })}
+      >
+        {snackbar.msg}
+      </Snackbar>
 
       {Object.keys(value).length <= 0 ? (
         <div className={classes.root}>
@@ -108,6 +126,7 @@ export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
                   setSelectedUID={setSelectedUID}
                   data={value[uid].data}
                   error={value[uid].error}
+                  setSnackBar={setSnackBar}
                 />
               ))}
             </List>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { Typography } from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -92,13 +92,36 @@ export function UpFile({
   setSelectedUID,
   data,
   error,
+  setSnackBar,
 }) {
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [isError, setIsError] = useState(false);
+
   const classes = useStyle();
+
+  if (completed >= 100 && !isCompleted) {
+    setSnackBar({
+      show: true,
+      variant: 'success',
+      msg: `${filename} uploaded successfully`,
+    });
+    setIsCompleted(true);
+  }
+
+  if (error && !isError) {
+    setSnackBar({
+      show: true,
+      variant: 'error',
+      msg: `${filename} error: ${error}`,
+    });
+    setIsError(true);
+  }
 
   const img =
     isImage(filename) && data ? (
       <img alt="presentation" src={data} className={classes.img} />
     ) : null;
+
   return (
     <React.Fragment>
       <ListItem key={uid} className={error ? classes.itemError : classes.item}>
