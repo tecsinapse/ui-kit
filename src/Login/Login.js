@@ -116,6 +116,7 @@ export const Login = ({
               <FormControlLabel
                 control={
                   <Checkbox
+                    name="rememberMe"
                     checked={remember}
                     onChange={() => setRemember(oldRemember => !oldRemember)}
                     color="default"
