@@ -1,3 +1,10 @@
+<a name="0.0.116"></a>
+## <small>0.0.116 (2019-04-10)</small>
+
+* change forgot password api ([31f1666](https://github.com/tecsinapse/ui-kit/commit/31f1666))
+
+
+
 <a name="0.0.115"></a>
 ## <small>0.0.115 (2019-04-10)</small>
 
