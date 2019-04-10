@@ -1,3 +1,10 @@
+<a name="0.0.112"></a>
+## <small>0.0.112 (2019-04-10)</small>
+
+* Adding the possibility to render or not an action by a the condition ([6add5fe](https://github.com/tecsinapse/ui-kit/commit/6add5fe))
+
+
+
 <a name="0.0.111"></a>
 ## <small>0.0.111 (2019-04-03)</small>
 
