@@ -1,3 +1,10 @@
+<a name="0.0.114"></a>
+## <small>0.0.114 (2019-04-10)</small>
+
+* typo ([c601b80](https://github.com/tecsinapse/ui-kit/commit/c601b80))
+
+
+
 <a name="0.0.113"></a>
 ## <small>0.0.113 (2019-04-10)</small>
 
