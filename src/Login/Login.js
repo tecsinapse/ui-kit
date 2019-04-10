@@ -73,14 +73,13 @@ export const Login = ({
   headerText,
   subheaderText,
   rememberBox,
-  forgotPasswordComponent,
+  forgotPassword,
   buttonLabel,
   rememberLabel,
   onClick,
   children,
   footerLabel,
   footerImg,
-  forgotPasswordLabel,
 }) => {
   const [remember, setRemember] = useState(false);
 
@@ -111,7 +110,7 @@ export const Login = ({
         <div className={classes.inputData}>
           {children}
 
-          {rememberBox && forgotPasswordComponent && (
+          {rememberBox && forgotPassword && forgotPassword.component && (
             <div className={classes.extra}>
               <FormControlLabel
                 control={
@@ -130,9 +129,10 @@ export const Login = ({
                 className={classes.forgot}
                 variant="subtitle2"
                 color="secondary"
-                component={forgotPasswordComponent}
+                component={forgotPassword.component}
+                {...forgotPassword.props}
               >
-                {forgotPasswordLabel}
+                {forgotPassword.label}
               </Typography>
             </div>
           )}
@@ -167,7 +167,7 @@ Login.defaultProps = {
   headerText: null,
   subheaderText: null,
   rememberBox: true,
-  forgotPasswordComponent: null,
+  forgotPassword: null,
   buttonLabel: 'Acessar o Sistema',
   rememberLabel: 'Lembrar de mim',
   onClick: () => {},
@@ -181,7 +181,11 @@ Login.propTypes = {
   headerText: PropTypes.string,
   subheaderText: PropTypes.string,
   rememberBox: PropTypes.bool,
-  forgotPasswordComponent: PropTypes.node,
+  forgotPassword: PropTypes.shape({
+    component: PropTypes.node,
+    props: PropTypes.object,
+    label: PropTypes.string,
+  }),
   buttonLabel: PropTypes.string,
   rememberLabel: PropTypes.string,
   onClick: PropTypes.func,
