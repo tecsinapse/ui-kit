@@ -109,9 +109,8 @@ export const Login = ({
 
         <div className={classes.inputData}>
           {children}
-
-          {rememberBox && forgotPassword && forgotPassword.component && (
-            <div className={classes.extra}>
+          <div className={classes.extra}>
+            {rememberBox && (
               <FormControlLabel
                 control={
                   <Checkbox
@@ -125,6 +124,8 @@ export const Login = ({
                   <Typography color="textSecondary">{rememberLabel}</Typography>
                 }
               />
+            )}
+            {forgotPassword && forgotPassword.component && (
               <Typography
                 className={classes.forgot}
                 variant="subtitle2"
@@ -134,8 +135,8 @@ export const Login = ({
               >
                 {forgotPassword.label}
               </Typography>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         <Button
@@ -173,7 +174,6 @@ Login.defaultProps = {
   onClick: () => {},
   footerLabel: 'POWERED BY',
   footerImg: null,
-  forgotPasswordLabel: 'Esqueceu a senha?',
 };
 
 Login.propTypes = {
@@ -191,5 +191,4 @@ Login.propTypes = {
   onClick: PropTypes.func,
   footerLabel: PropTypes.string,
   footerImg: PropTypes.object,
-  forgotPasswordLabel: PropTypes.string,
 };
