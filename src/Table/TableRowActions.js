@@ -25,16 +25,18 @@ const Action = ({ action, row, setAnchorEl }) => {
 const TableRowActions = ({ actions, row, forceCollapseActions }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const actionButtons = actions.map((action, index) => (
-    <Action
-      // Commented rule of no-array-index-key because in the array of actions this is not necessary
-      // eslint-disable-next-line
-      key={`action-${index}`}
-      action={action}
-      row={row}
-      setAnchorEl={setAnchorEl}
-    />
-  ));
+  const actionButtons = actions
+    .filter(action => !action.visible || action.visible(row))
+    .map((action, index) => (
+      <Action
+        // Commented rule of no-array-index-key because in the array of actions this is not necessary
+        // eslint-disable-next-line
+        key={`action-${index}`}
+        action={action}
+        row={row}
+        setAnchorEl={setAnchorEl}
+      />
+    ));
   const open = Boolean(anchorEl);
 
   if (actions.length < 4 && !forceCollapseActions) {
@@ -80,6 +82,7 @@ TableRowActions.propTypes = {
       tooltip: PropTypes.string,
       icon: PropTypes.object,
       onClick: PropTypes.func,
+      visible: PropTypes.func,
     })
   ).isRequired,
   row: PropTypes.object,
