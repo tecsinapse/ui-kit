@@ -1,3 +1,10 @@
+<a name="0.0.113"></a>
+## <small>0.0.113 (2019-04-10)</small>
+
+* rememberMe name on form ([0095a1b](https://github.com/tecsinapse/ui-kit/commit/0095a1b))
+
+
+
 <a name="0.0.112"></a>
 ## <small>0.0.112 (2019-04-10)</small>
 
