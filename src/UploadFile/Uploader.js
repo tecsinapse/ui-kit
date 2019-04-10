@@ -51,7 +51,7 @@ const useStyle = makeStyles({
   button: {
     // border: '2px dashed blue',
     alignSelf: 'center',
-    width: '55%',
+    width: '70%',
   },
   divider: {
     width: '25%',

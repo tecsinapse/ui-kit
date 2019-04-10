@@ -6,7 +6,7 @@ import { Uploader } from './Uploader';
 import { PreviewList } from './PreviewList';
 import { FormUploader } from './FormUploader';
 
-export function TesteUploader({ type }) {
+export function TesteUploader({ type, variant }) {
   const [files, setFiles] = useState({});
   const [open, setOpen] = useState(false);
 
@@ -140,6 +140,7 @@ export function TesteUploader({ type }) {
           onAccept={onAccept}
           onReject={onReject}
           onDelete={onDeleteFiles}
+          variant={variant}
         />
       )}
     </React.Fragment>
