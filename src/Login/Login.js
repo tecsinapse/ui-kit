@@ -80,7 +80,7 @@ export const Login = ({
   children,
   footerLabel,
   footerImg,
-  forgoPasswordLabel,
+  forgotPasswordLabel,
 }) => {
   const [remember, setRemember] = useState(false);
 
@@ -132,7 +132,7 @@ export const Login = ({
                 color="secondary"
                 component={forgotPasswordComponent}
               >
-                {forgoPasswordLabel}
+                {forgotPasswordLabel}
               </Typography>
             </div>
           )}
@@ -173,7 +173,7 @@ Login.defaultProps = {
   onClick: () => {},
   footerLabel: 'POWERED BY',
   footerImg: null,
-  forgoPasswordLabel: 'Esqueceu a senha?',
+  forgotPasswordLabel: 'Esqueceu a senha?',
 };
 
 Login.propTypes = {
@@ -187,5 +187,5 @@ Login.propTypes = {
   onClick: PropTypes.func,
   footerLabel: PropTypes.string,
   footerImg: PropTypes.object,
-  forgoPasswordLabel: PropTypes.string,
+  forgotPasswordLabel: PropTypes.string,
 };
