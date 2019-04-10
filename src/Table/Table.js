@@ -180,6 +180,7 @@ Table.propTypes = {
       tooltip: PropTypes.string,
       icon: PropTypes.object,
       onClick: PropTypes.func,
+      visible: PropTypes.func,
     })
   ),
   toolbarOptions: toolbarOptionsTypes,

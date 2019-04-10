@@ -1,3 +1,21 @@
+<a name="0.0.112"></a>
+## <small>0.0.112 (2019-04-10)</small>
+
+* Adding the possibility to render or not an action by a the condition ([6add5fe](https://github.com/tecsinapse/ui-kit/commit/6add5fe))
+
+
+
+<a name="0.0.111"></a>
+## <small>0.0.111 (2019-04-03)</small>
+
+* Add component login with recover too ([5467197](https://github.com/tecsinapse/ui-kit/commit/5467197))
+* Add grey from global colors ([0a3b2d8](https://github.com/tecsinapse/ui-kit/commit/0a3b2d8))
+* Add tecsinapse logo as svg ([f176986](https://github.com/tecsinapse/ui-kit/commit/f176986))
+* Export esqueceu props label ([f00b37c](https://github.com/tecsinapse/ui-kit/commit/f00b37c))
+* Remove ternary for null ([7fab58b](https://github.com/tecsinapse/ui-kit/commit/7fab58b))
+
+
+
 <a name="0.0.110"></a>
 ## <small>0.0.110 (2019-04-02)</small>
 
