@@ -69,7 +69,7 @@ export const inputStyles = theme => ({
     marginRight: theme.spacing.unit / 2,
   },
   adornedMarginEnd: {
-    paddingRight: `${theme.spacing.unit}px !important`,
+    paddingRight: `0px !important`,
   },
   inputRoot: {
     paddingRight: theme.spacing.unit / 3,

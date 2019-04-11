@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Lock from '@material-ui/icons/Lock';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import IconButton from '@material-ui/core/IconButton';
 import { Login } from './Login';
 import { Input } from '../Inputs/Input';
 
@@ -36,7 +37,12 @@ storiesOf(`Login`, module)
           style={{ width: '100%' }}
           type="password"
           startAdornment={<Lock />}
-          endAdornment={<VisibilityOff />}
+          endAdornmentMargin={false}
+          endAdornment={
+            <IconButton>
+              <VisibilityOff />
+            </IconButton>
+          }
         />
       </Login>
     </div>
