@@ -45,8 +45,7 @@ const useStyle = makeStyles(theme => ({
     backgroundColor: defaultGreyDisabled,
   },
   logo: {
-    flexBasis: '20%',
-    width: '10%',
+    height: '80%',
   },
   footerImg: {
     flexBasis: '30%',
