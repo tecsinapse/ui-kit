@@ -1,3 +1,10 @@
+<a name="0.0.121"></a>
+## <small>0.0.121 (2019-04-11)</small>
+
+* logo width on login ([aa816cb](https://github.com/tecsinapse/ui-kit/commit/aa816cb))
+
+
+
 <a name="0.0.120"></a>
 ## <small>0.0.120 (2019-04-11)</small>
 
