@@ -1,3 +1,10 @@
+<a name="0.0.117"></a>
+## <small>0.0.117 (2019-04-11)</small>
+
+* standartizing login and input margin and padding with addornments ([51e99f7](https://github.com/tecsinapse/ui-kit/commit/51e99f7))
+
+
+
 <a name="0.0.116"></a>
 ## <small>0.0.116 (2019-04-10)</small>
 
