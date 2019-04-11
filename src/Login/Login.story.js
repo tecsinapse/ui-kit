@@ -31,6 +31,11 @@ storiesOf(`Login`, module)
               </InputAdornment>
             ),
           }}
+          InputLabelProps={{
+            style: {
+              color: '#000',
+            },
+          }}
         />
         <Input
           name="login_senha"
@@ -48,6 +53,11 @@ storiesOf(`Login`, module)
                 <VisibilityOff />
               </InputAdornment>
             ),
+          }}
+          InputLabelProps={{
+            style: {
+              color: '#000',
+            },
           }}
         />
       </Login>
