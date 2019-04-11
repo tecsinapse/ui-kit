@@ -133,6 +133,9 @@ export const TextFieldComponent = ({
         ),
         focused: classes.cssFocused,
         notchedOutline: classes.notchedOutline,
+        inputAdornedStart: classes.adornedMarginLeft,
+        inputAdornedEnd: classes.adornedMarginRight,
+        adornedEnd: classes.adornedMarginEnd,
       },
       startAdornment,
       endAdornment: (

@@ -1,10 +1,22 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Input } from './Input';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 
 storiesOf(`${GROUPS.FORMS}|Input`, module)
   .add('input', () => <Input name="a" label="Placeholder" />)
+  .add('input with addornment', () => (
+    <Input name="a" label="Placeholder" endAdornment={<AccountCircle />} />
+  ))
+  .add('input with both addornment', () => (
+    <Input
+      name="a"
+      label="Placeholder"
+      endAdornment={<AccountCircle />}
+      startAdornment={<AccountCircle />}
+    />
+  ))
   .add('input invalid', () => (
     <Input
       name="a"
