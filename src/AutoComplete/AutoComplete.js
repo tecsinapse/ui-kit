@@ -12,11 +12,13 @@ import { Input } from '../Inputs/Input';
 
 const styles = makeStyles(theme => ({
   root: {
+    display: 'flex',
+    flexDirection: 'column',
     width: '100%',
   },
   paper: {
-    maxHeight: '200px',
-    overflow: 'scroll',
+    maxHeight: '100px',
+    overflowY: 'auto',
   },
   chipContainer: {
     width: '100%',
@@ -125,14 +127,7 @@ const AutoComplete = ({
   const open = Boolean(anchorEl);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-      }}
-      ref={setContainerRef}
-    >
+    <div className={classes.root} ref={setContainerRef}>
       <Input
         name="inputValue"
         value={inputValue}
@@ -156,7 +151,10 @@ const AutoComplete = ({
       <Popper
         open={open}
         anchorEl={anchorEl}
-        style={{ width: containerRef ? containerRef.offsetWidth - 7 : null }}
+        style={{
+          width: containerRef ? containerRef.offsetWidth : null,
+          marginLeft: '20px',
+        }}
       >
         <Paper className={classes.paper} {...paperProps}>
           <ClickAwayListener
