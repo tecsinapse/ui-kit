@@ -1,3 +1,13 @@
+<a name="0.0.122"></a>
+## <small>0.0.122 (2019-04-12)</small>
+
+* [#114910] Criar componente de autocomplete ([2824801](https://github.com/tecsinapse/ui-kit/commit/2824801)), closes [#114910](https://github.com/tecsinapse/ui-kit/issues/114910)
+* Adjusting CSS ([4fdd501](https://github.com/tecsinapse/ui-kit/commit/4fdd501))
+* Adjusting escape to close suggestions ([b181b92](https://github.com/tecsinapse/ui-kit/commit/b181b92))
+* Initial commit ([8937b72](https://github.com/tecsinapse/ui-kit/commit/8937b72))
+
+
+
 <a name="0.0.121"></a>
 ## <small>0.0.121 (2019-04-11)</small>
 
