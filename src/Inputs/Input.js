@@ -14,6 +14,7 @@ import {
   CPF_MASK,
   CURRENCY_MASK,
   DATE_MASK,
+  maskConfig,
   PHONE_MASK,
   PLATE_MASK,
   TIME_MASK,
@@ -80,10 +81,9 @@ const TextMaskCustom = props => {
         inputRef(ref ? ref.inputElement : null);
       }}
       mask={inputMask}
-      placeholderChar={'\u2000'}
       pipe={pipeFunc}
       showMask
-      guide={false}
+      {...maskConfig}
     />
   );
 };
@@ -103,6 +103,8 @@ export const TextFieldComponent = ({
   shrinkLabel,
   placeholder,
   endAdornment,
+  endAdornmentMargin = true,
+  startAdornment,
   ...input
 }) => (
   <TextField
@@ -132,12 +134,17 @@ export const TextFieldComponent = ({
         ),
         focused: classes.cssFocused,
         notchedOutline: classes.notchedOutline,
+        inputAdornedStart: classes.adornedMarginLeft,
+        inputAdornedEnd: classes.adornedMarginRight,
+        adornedEnd: classes.adornedMarginEnd,
       },
+      startAdornment,
       endAdornment: (
         <GetEndAdornment
           warning={warning}
           error={error}
           success={success}
+          endAdornmentMargin={endAdornmentMargin}
           endAdornment={endAdornment}
         />
       ),
@@ -166,6 +173,8 @@ const InputUI = withStyles(inputStyles)(
     placeholder,
     mask,
     helperText,
+    endAdornment,
+    startAdornment,
     ...input
   }) => (
     <TextFieldComponent
@@ -183,6 +192,8 @@ const InputUI = withStyles(inputStyles)(
       success={success}
       disabled={disabled}
       mask={mask}
+      endAdornment={endAdornment}
+      startAdornment={startAdornment}
       {...input}
     />
   )
@@ -201,6 +212,9 @@ Input.defaultProps = {
   shrinkLabel: undefined,
   placeholder: null,
   helperText: null,
+  endAdornment: null,
+  endAdornmentMargin: true,
+  startAdornment: null,
 };
 
 const maskProp = PropTypes.oneOfType([
@@ -231,7 +245,7 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   success: PropTypes.bool,
   warning: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
@@ -239,6 +253,9 @@ Input.propTypes = {
   shrinkLabel: PropTypes.bool,
   placeholder: PropTypes.string,
   helperText: PropTypes.string,
+  endAdornment: PropTypes.object,
+  endAdornmentMargin: PropTypes.bool,
+  startAdornment: PropTypes.object,
 };
 
 export default Input;
