@@ -17,7 +17,7 @@ const styles = makeStyles(theme => ({
     width: '100%',
   },
   paper: {
-    maxHeight: '100px',
+    maxHeight: '200px',
     overflowY: 'auto',
   },
   chipContainer: {
@@ -74,9 +74,16 @@ const handleSuggestionsKeyDown = (
   }
 };
 
-const handleInputKeyDown = suggestionsRef => event => {
+const handleInputKeyDown = (
+  setAnchorEl,
+  setSuggestionsRef,
+  suggestionsRef
+) => event => {
   if (event.key === 'ArrowDown' && suggestionsRef) {
     suggestionsRef.focus();
+  }
+  if (event.key === 'Escape') {
+    handleCloseSuggestions(setAnchorEl, setSuggestionsRef)();
   }
 };
 
@@ -131,7 +138,11 @@ const AutoComplete = ({
       <Input
         name="inputValue"
         value={inputValue}
-        onKeyDown={handleInputKeyDown(suggestionsRef)}
+        onKeyDown={handleInputKeyDown(
+          setAnchorEl,
+          setSuggestionsRef,
+          suggestionsRef
+        )}
         onChange={handleInputChange(
           setInputValue,
           options,
