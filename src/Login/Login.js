@@ -8,7 +8,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Button } from '../Buttons/Button';
 import Tecsinapese from './tecsinapse.svg';
-import { defaultGreyDisabled } from '../colors';
 
 const useStyle = makeStyles(theme => ({
   root: {
@@ -32,7 +31,6 @@ const useStyle = makeStyles(theme => ({
     height: '60%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-around',
     marginLeft: '5%',
     marginRight: '5%',
   },
@@ -42,7 +40,7 @@ const useStyle = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     flexBasis: '12%',
-    backgroundColor: defaultGreyDisabled,
+    backgroundColor: '#f7f7f7',
   },
   logo: {
     flexBasis: '20%',
@@ -54,17 +52,29 @@ const useStyle = makeStyles(theme => ({
   },
   inputData: {
     alignSelf: 'stretch',
+    marginTop: '20px',
   },
   extra: {
     display: 'flex',
     alignItems: 'stretch',
     justifyContent: 'space-between',
+    marginTop: '20px',
   },
   submit: {
-    marginRight: '40%',
+    marginTop: '30px',
+    marginBottom: '30px',
   },
   forgot: {
     alignSelf: 'center',
+  },
+  colorForgot: {
+    color: '#f99f1f',
+  },
+  header: {
+    marginTop: '30px',
+  },
+  formControlLabelCheck: {
+    height: '20px',
   },
 }));
 
@@ -109,11 +119,14 @@ export const Login = ({
 
         <div className={classes.inputData}>
           {children}
-          <div className={classes.extra}>
-            {rememberBox && (
+
+          {rememberBox && (
+            <div className={classes.extra}>
               <FormControlLabel
+                className={classes.formControlLabelCheck}
                 control={
                   <Checkbox
+                    style={{ width: '21px', height: '21px' }}
                     name="rememberMe"
                     checked={remember}
                     onChange={() => setRemember(oldRemember => !oldRemember)}
@@ -124,29 +137,32 @@ export const Login = ({
                   <Typography color="textSecondary">{rememberLabel}</Typography>
                 }
               />
-            )}
-            {forgotPassword && forgotPassword.component && (
-              <Typography
-                className={classes.forgot}
-                variant="subtitle2"
-                color="secondary"
-                component={forgotPassword.component}
-                {...forgotPassword.props}
-              >
-                {forgotPassword.label}
-              </Typography>
-            )}
-          </div>
-        </div>
 
-        <Button
-          size="large"
-          className={classes.submit}
-          variant="primary"
-          onClick={() => (rememberBox ? onClick(remember) : onClick())}
-        >
-          {buttonLabel}
-        </Button>
+              {forgotPassword && forgotPassword.component && (
+                <Typography
+                  className={classes.forgot}
+                  variant="subtitle2"
+                  color="textSecondary"
+                  component={forgotPassword.component}
+                  classes={{
+                    colorTextSecondary: classes.colorForgot,
+                  }}
+                  {...forgotPassword.props}
+                >
+                  {forgotPassword.label}
+                </Typography>
+              )}
+            </div>
+          )}
+          <Button
+            size="large"
+            className={classes.submit}
+            variant="primary"
+            onClick={() => (rememberBox ? onClick(remember) : onClick())}
+          >
+            {buttonLabel}
+          </Button>
+        </div>
       </div>
       <Divider />
       <div className={classes.footer}>
@@ -167,7 +183,7 @@ Login.defaultProps = {
   headerImages: [],
   headerText: null,
   subheaderText: null,
-  rememberBox: true,
+  rememberBox: false,
   forgotPassword: null,
   buttonLabel: 'Acessar o Sistema',
   rememberLabel: 'Lembrar de mim',
