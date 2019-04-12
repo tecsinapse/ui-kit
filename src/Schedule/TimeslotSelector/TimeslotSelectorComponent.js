@@ -8,8 +8,7 @@ export class TimeslotSelectorComponent extends React.Component {
   constructor(props) {
     super(props);
     const {
-      defaultSelectAllPerson,
-      personsAvailabilities,
+      personsEmailSelected,
       defaultDuration,
       dialog,
       closeOnHandleSchedule,
@@ -18,9 +17,7 @@ export class TimeslotSelectorComponent extends React.Component {
       otherProps: otherPropsDefault,
     } = this.props;
     this.state = {
-      selectedPerson: defaultSelectAllPerson
-        ? personsAvailabilities.map(person => person.email)
-        : [],
+      selectedPerson: personsEmailSelected || [],
       selectedDuration: defaultDuration,
       otherProps: otherPropsDefault || {},
     };
@@ -51,7 +48,7 @@ export class TimeslotSelectorComponent extends React.Component {
 
   render() {
     const { beforeSteps, labels, cancelDialog } = this.props;
-
+    const { selectedPerson, selectedDuration, otherProps } = this.state;
     const steps = [];
 
     if (beforeSteps && beforeSteps.length >= 1) {
@@ -65,9 +62,9 @@ export class TimeslotSelectorComponent extends React.Component {
       component: props => (
         <Step1
           key={props.key}
-          selectedPerson={props.selectedPerson}
+          selectedPerson={selectedPerson}
           setSelectedPerson={props.setSelectedPerson}
-          selectedDuration={props.selectedDuration}
+          selectedDuration={selectedDuration}
           setSelectedDuration={props.setSelectedDuration}
           personsAvailabilities={props.personsAvailabilities}
           durations={props.durations}
@@ -88,8 +85,8 @@ export class TimeslotSelectorComponent extends React.Component {
       component: props => (
         <Step2
           key={props.key}
-          selectedPerson={props.selectedPerson}
-          selectedDuration={props.selectedDuration}
+          selectedPerson={selectedPerson}
+          selectedDuration={selectedDuration}
           personsAvailabilities={props.personsAvailabilities}
           classes={props.classes}
           labels={props.labels}
@@ -103,7 +100,6 @@ export class TimeslotSelectorComponent extends React.Component {
       ),
     });
 
-    const { selectedPerson, selectedDuration, otherProps } = this.state;
     const props = {
       ...this.props,
       selectedPerson,

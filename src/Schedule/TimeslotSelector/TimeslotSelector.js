@@ -50,7 +50,6 @@ TimeslotSelector.defaultProps = {
   other: {},
   locale: 'pt-BR',
   defaultDuration: undefined,
-  defaultSelectAllPerson: false,
   dialog: false,
   openOpened: false,
   onWeekChange: {},
@@ -58,16 +57,17 @@ TimeslotSelector.defaultProps = {
   cancelDialog: undefined,
   beforeSteps: undefined,
   otherProps: undefined,
+  personsEmailSelected: [],
 };
 
 TimeslotSelector.propTypes = {
   labels: PropTypes.object,
   personsAvailabilities: PropTypes.arrayOf(PropTypes.object).isRequired,
+  personsEmailSelected: PropTypes.arrayOf(PropTypes.string),
   locale: PropTypes.string,
   other: PropTypes.object,
   durations: PropTypes.arrayOf(PropTypes.number).isRequired,
   defaultDuration: PropTypes.number,
-  defaultSelectAllPerson: PropTypes.bool,
   dialog: PropTypes.bool,
   openOpened: PropTypes.bool,
   onHandleSchedule: PropTypes.func.isRequired,

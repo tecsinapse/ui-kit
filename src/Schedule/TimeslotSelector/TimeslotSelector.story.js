@@ -12,6 +12,8 @@ import { Button } from '../..';
 
 const personsAvailabilities = require('../../../test/resources/availabilities.json');
 
+const personsEmailSelected = personsAvailabilities.map(p => p.email);
+
 const onHandleScheduleTest = selected => {
   alert(
     `Usuário: ${selected.email}\nData: ${selected.date}\nHora: ${
@@ -55,9 +57,9 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       personsAvailabilities={personsAvailabilities}
       durations={[15, 20, 30]}
       defaultDuration={20}
-      defaultSelectAllPerson
       onWeekChange={obj => console.log(obj)}
       onHandleSchedule={onHandleScheduleTest}
+      personsEmailSelected={personsEmailSelected}
     />
   ))
   .add('Modal TimeslotSelector', () => (
@@ -67,12 +69,12 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
         personsAvailabilities={personsAvailabilities}
         durations={[15, 20, 30]}
         defaultDuration={20}
-        defaultSelectAllPerson
         dialog
         openOpened
         onWeekChange={obj => console.log(obj)}
         onHandleSchedule={onHandleScheduleTest}
         onCloseDialog={() => {}}
+        personsEmailSelected={personsEmailSelected}
       />
     </div>
   ))
@@ -83,8 +85,8 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       personsAvailabilities={personsAvailabilities}
       durations={[15, 20, 30]}
       defaultDuration={20}
-      defaultSelectAllPerson
       onWeekChange={obj => console.log(obj)}
       onHandleSchedule={onHandleScheduleTest}
+      personsEmailSelected={personsEmailSelected}
     />
   ));
