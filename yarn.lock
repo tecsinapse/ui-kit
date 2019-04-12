@@ -1821,7 +1821,7 @@
     "@svgr/plugin-svgo" "^4.0.3"
     loader-utils "^1.1.0"
 
-"@tecsinapse/es-utils@0.0.96":
+"@tecsinapse/es-utils@^0.0.96":
   version "0.0.96"
   resolved "https://registry.yarnpkg.com/@tecsinapse/es-utils/-/es-utils-0.0.96.tgz#0f6f95d4f199268aebc1406fe29631d92267a162"
   integrity sha512-LIovbyH5ecXcid1cmejNe2Edtjp81FyUPQZMa7RGNKN/jgyDFuqEVVWZxDACCdqT0dx28pYWCsc7613i8D++Rg==

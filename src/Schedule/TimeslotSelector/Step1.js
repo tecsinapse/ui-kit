@@ -68,7 +68,7 @@ export const Step1 = ({
       >
         {callCancel && (
           <Grid item>
-            <Button variant="third" onClick={callCancel}>
+            <Button variant="error" onClick={callCancel}>
               {labels.buttonLabelCancel}
             </Button>
           </Grid>

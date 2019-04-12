@@ -7,20 +7,61 @@ import PropTypes from 'prop-types';
 import { timeslotSelectorStyles } from './TimeslotSelectorStyles';
 
 import { defaultLabels } from './data-types';
-import { TimeslotSelectorComponent } from './TimeslotSelectorComponent';
+import TimeslotSelectorComponent from './TimeslotSelectorComponent';
 
 class TimeslotSelector extends React.Component {
   constructor(props) {
     super(props);
-    const { openOpened } = this.props;
+    const {
+      openOpened,
+      personsEmailSelected,
+      defaultDuration,
+      otherProps: otherPropsDefault,
+    } = this.props;
+
     this.state = {
       dlgOpen: openOpened,
+      selectedPerson: personsEmailSelected || [],
+      selectedDuration: defaultDuration,
+      otherProps: otherPropsDefault || {},
+    };
+    this.changeSelectedPerson = selectedPerson => {
+      this.setState({ selectedPerson: [...selectedPerson] });
+    };
+
+    this.changeSelectedDuration = selectedDuration => {
+      this.setState({ selectedDuration });
+    };
+
+    this.changeOtherProps = (name, value) => {
+      const { otherProps } = this.state;
+      otherProps[name] = value;
+      this.setState({ otherProps: { ...otherProps } });
     };
   }
 
+  componentWillReceiveProps(nextProps, nextContext) {
+    const { personsEmailSelected: personsEmailSelectedPrev } = this.props;
+    const { personsEmailSelected } = nextProps;
+    if (personsEmailSelectedPrev !== personsEmailSelected) {
+      this.setState({ selectedPerson: personsEmailSelected });
+    }
+  }
+
   render() {
-    const { dialog, classes } = this.props;
-    const { dlgOpen } = this.state;
+    const {
+      dialog,
+      classes,
+      labels,
+      personsAvailabilities,
+      durations,
+    } = this.props;
+    const {
+      dlgOpen,
+      selectedPerson,
+      selectedDuration,
+      otherProps,
+    } = this.state;
     if (dialog) {
       return (
         <Dialog
@@ -36,12 +77,34 @@ class TimeslotSelector extends React.Component {
               {...this.props}
               classes={classes}
               setDlgOpen={value => this.setState({ dlgOpen: value })}
+              selectedPerson={selectedPerson}
+              selectedDuration={selectedDuration}
+              otherProps={otherProps}
+              setSelectedPerson={this.changeSelectedPerson}
+              setSelectedDuration={this.changeSelectedDuration}
+              changeOtherProps={this.changeOtherProps}
+              labels={labels}
+              personsAvailabilities={personsAvailabilities}
             />
           </DialogContent>
         </Dialog>
       );
     }
-    return <TimeslotSelectorComponent classes={classes} {...this.props} />;
+    return (
+      <TimeslotSelectorComponent
+        {...this.props}
+        classes={classes}
+        selectedPerson={selectedPerson}
+        selectedDuration={selectedDuration}
+        otherProps={otherProps}
+        setSelectedPerson={this.changeSelectedPerson}
+        setSelectedDuration={this.changeSelectedDuration}
+        changeOtherProps={this.changeOtherProps}
+        labels={labels}
+        personsAvailabilities={personsAvailabilities}
+        durations={durations}
+      />
+    );
   }
 }
 
