@@ -34,6 +34,7 @@ export const labelClass = ({ success, error, warning }) => {
 const StyledFlexDiv = styled('div')(({ theme, endAdornmentMargin }) => ({
   display: 'flex',
   alignItems: 'center',
+  boxShadow: 'none !important',
   marginRight: endAdornmentMargin ? theme.spacing.unit : 0,
 }));
 const TypographyStyled = styled(Typography)(({ theme }) => ({
