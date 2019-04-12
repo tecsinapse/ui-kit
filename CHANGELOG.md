@@ -1,3 +1,10 @@
+<a name="0.0.123"></a>
+## <small>0.0.123 (2019-04-12)</small>
+
+* no shadow on addornment ([3ebc73c](https://github.com/tecsinapse/ui-kit/commit/3ebc73c))
+
+
+
 <a name="0.0.122"></a>
 ## <small>0.0.122 (2019-04-12)</small>
 
