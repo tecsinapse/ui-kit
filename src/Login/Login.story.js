@@ -33,11 +33,6 @@ const InputPassword = () => {
           </IconButton>
         ),
       }}
-      InputLabelProps={{
-        style: {
-          color: '#000',
-        },
-      }}
     />
   );
 };
@@ -70,11 +65,6 @@ storiesOf(`Login`, module)
                 <AccountCircle />
               </InputAdornment>
             ),
-          }}
-          InputLabelProps={{
-            style: {
-              color: '#000',
-            },
           }}
         />
 

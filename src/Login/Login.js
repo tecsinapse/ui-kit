@@ -7,9 +7,10 @@ import { Typography } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Button } from '../Buttons/Button';
-import Tecsinapese from './tecsinapse.svg';
+import Poweredby from './poweredby.svg';
+import { defaultGreyLight3 } from '../colors';
 
-const useStyle = makeStyles(theme => ({
+const useStyle = makeStyles(({ spacing }) => ({
   root: {
     width: '100%',
     height: '100%',
@@ -40,41 +41,37 @@ const useStyle = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     flexBasis: '12%',
-    backgroundColor: '#f7f7f7',
+    backgroundColor: defaultGreyLight3,
   },
   logo: {
     flexBasis: '20%',
     width: '10%',
   },
   footerImg: {
-    flexBasis: '30%',
-    width: '25%',
+    flexBasis: '40%',
   },
   inputData: {
     alignSelf: 'stretch',
-    marginTop: '20px',
+    marginTop: spacing.unit,
   },
   extra: {
     display: 'flex',
     alignItems: 'stretch',
     justifyContent: 'space-between',
-    marginTop: '20px',
+    marginTop: spacing.unit,
   },
   submit: {
-    marginTop: '30px',
-    marginBottom: '30px',
+    marginTop: spacing.unit * 2,
+    marginBottom: spacing.unit * 2,
   },
   forgot: {
     alignSelf: 'center',
   },
-  colorForgot: {
-    color: '#f99f1f',
-  },
   header: {
-    marginTop: '30px',
+    marginTop: spacing.unit * 2,
   },
   formControlLabelCheck: {
-    height: '20px',
+    height: spacing.unit,
   },
 }));
 
@@ -88,7 +85,6 @@ export const Login = ({
   rememberLabel,
   onClick,
   children,
-  footerLabel,
   footerImg,
 }) => {
   const [remember, setRemember] = useState(false);
@@ -142,11 +138,8 @@ export const Login = ({
                 <Typography
                   className={classes.forgot}
                   variant="subtitle2"
-                  color="textSecondary"
+                  color="secondary"
                   component={forgotPassword.component}
-                  classes={{
-                    colorTextSecondary: classes.colorForgot,
-                  }}
                   {...forgotPassword.props}
                 >
                   {forgotPassword.label}
@@ -166,13 +159,10 @@ export const Login = ({
       </div>
       <Divider />
       <div className={classes.footer}>
-        <Typography variant="caption" color="textSecondary">
-          {footerLabel}
-        </Typography>
         {footerImg ? (
           { footerImg }
         ) : (
-          <Tecsinapese className={classes.footerImg} />
+          <Poweredby className={classes.footerImg} />
         )}
       </div>
     </Paper>
@@ -188,7 +178,6 @@ Login.defaultProps = {
   buttonLabel: 'Acessar o Sistema',
   rememberLabel: 'Lembrar de mim',
   onClick: () => {},
-  footerLabel: 'POWERED BY',
   footerImg: null,
 };
 
@@ -205,6 +194,5 @@ Login.propTypes = {
   buttonLabel: PropTypes.string,
   rememberLabel: PropTypes.string,
   onClick: PropTypes.func,
-  footerLabel: PropTypes.string,
   footerImg: PropTypes.object,
 };
