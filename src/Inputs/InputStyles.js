@@ -62,6 +62,15 @@ export const stylesWarning = {
 };
 
 export const inputStyles = theme => ({
+  adornedMarginLeft: {
+    marginLeft: theme.spacing.unit / 2,
+  },
+  adornedMarginRight: {
+    marginRight: theme.spacing.unit / 2,
+  },
+  adornedMarginEnd: {
+    paddingRight: `0px !important`,
+  },
   inputRoot: {
     paddingRight: theme.spacing.unit / 3,
   },
