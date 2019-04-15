@@ -119,8 +119,8 @@ export const Login = ({
         <div className={classes.inputData}>
           {children}
 
-          {rememberBox && (
-            <div className={classes.extra}>
+          <div className={classes.extra}>
+            {rememberBox && (
               <FormControlLabel
                 className={classes.formControlLabelCheck}
                 control={
@@ -136,20 +136,19 @@ export const Login = ({
                   <Typography color="textSecondary">{rememberLabel}</Typography>
                 }
               />
-
-              {forgotPassword && forgotPassword.component && (
-                <Typography
-                  className={classes.forgot}
-                  variant="subtitle2"
-                  color="secondary"
-                  component={forgotPassword.component}
-                  {...forgotPassword.props}
-                >
-                  {forgotPassword.label}
-                </Typography>
-              )}
-            </div>
-          )}
+            )}
+            {forgotPassword && forgotPassword.component && (
+              <Typography
+                className={classes.forgot}
+                variant="subtitle2"
+                color="secondary"
+                component={forgotPassword.component}
+                {...forgotPassword.props}
+              >
+                {forgotPassword.label}
+              </Typography>
+            )}
+          </div>
           <Button
             size="large"
             className={classes.submit}
