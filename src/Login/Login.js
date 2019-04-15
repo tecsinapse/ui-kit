@@ -55,7 +55,7 @@ const useStyle = makeStyles(({ spacing }) => ({
   },
   extra: {
     display: 'flex',
-    alignItems: 'stretch',
+    alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: spacing.unit,
   },
@@ -71,6 +71,10 @@ const useStyle = makeStyles(({ spacing }) => ({
   },
   formControlLabelCheck: {
     height: spacing.unit,
+  },
+  checkbox: {
+    width: spacing.unit * 2,
+    height: spacing.unit * 2,
   },
 }));
 
@@ -121,7 +125,7 @@ export const Login = ({
                 className={classes.formControlLabelCheck}
                 control={
                   <Checkbox
-                    style={{ width: '21px', height: '21px' }}
+                    className={classes.checkbox}
                     name="rememberMe"
                     checked={remember}
                     onChange={() => setRemember(oldRemember => !oldRemember)}
