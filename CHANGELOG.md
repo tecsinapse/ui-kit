@@ -1,3 +1,13 @@
+<a name="0.0.124"></a>
+## <small>0.0.124 (2019-04-15)</small>
+
+* Add color to placeholder ([00fb058](https://github.com/tecsinapse/ui-kit/commit/00fb058))
+* Add design improvements ([4ead104](https://github.com/tecsinapse/ui-kit/commit/4ead104))
+* no inline styles ([57679dc](https://github.com/tecsinapse/ui-kit/commit/57679dc))
+* Use theme spacing, fix footer image ([1eb00c3](https://github.com/tecsinapse/ui-kit/commit/1eb00c3))
+
+
+
 <a name="0.0.123"></a>
 ## <small>0.0.123 (2019-04-12)</small>
 
