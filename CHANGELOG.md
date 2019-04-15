@@ -1,3 +1,10 @@
+<a name="0.0.125"></a>
+## <small>0.0.125 (2019-04-15)</small>
+
+* reverting modification on rememberBox login ([4632261](https://github.com/tecsinapse/ui-kit/commit/4632261))
+
+
+
 <a name="0.0.124"></a>
 ## <small>0.0.124 (2019-04-15)</small>
 
