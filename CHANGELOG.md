@@ -1,3 +1,54 @@
+<a name="0.0.123"></a>
+## <small>0.0.123 (2019-04-12)</small>
+
+* no shadow on addornment ([3ebc73c](https://github.com/tecsinapse/ui-kit/commit/3ebc73c))
+
+
+
+<a name="0.0.122"></a>
+## <small>0.0.122 (2019-04-12)</small>
+
+* [#114910] Criar componente de autocomplete ([2824801](https://github.com/tecsinapse/ui-kit/commit/2824801)), closes [#114910](https://github.com/tecsinapse/ui-kit/issues/114910)
+* Adjusting CSS ([4fdd501](https://github.com/tecsinapse/ui-kit/commit/4fdd501))
+* Adjusting escape to close suggestions ([b181b92](https://github.com/tecsinapse/ui-kit/commit/b181b92))
+* Initial commit ([8937b72](https://github.com/tecsinapse/ui-kit/commit/8937b72))
+
+
+
+<a name="0.0.121"></a>
+## <small>0.0.121 (2019-04-11)</small>
+
+* logo width on login ([aa816cb](https://github.com/tecsinapse/ui-kit/commit/aa816cb))
+
+
+
+<a name="0.0.120"></a>
+## <small>0.0.120 (2019-04-11)</small>
+
+* logo width on login ([2ef76d5](https://github.com/tecsinapse/ui-kit/commit/2ef76d5))
+
+
+
+<a name="0.0.119"></a>
+## <small>0.0.119 (2019-04-11)</small>
+
+
+
+
+<a name="0.0.118"></a>
+## <small>0.0.118 (2019-04-11)</small>
+
+* standartizing login and input margin and padding with addornments ([afc0fa9](https://github.com/tecsinapse/ui-kit/commit/afc0fa9))
+
+
+
+<a name="0.0.117"></a>
+## <small>0.0.117 (2019-04-11)</small>
+
+* standartizing login and input margin and padding with addornments ([51e99f7](https://github.com/tecsinapse/ui-kit/commit/51e99f7))
+
+
+
 <a name="0.0.116"></a>
 ## <small>0.0.116 (2019-04-10)</small>
 

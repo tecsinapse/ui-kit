@@ -44,8 +44,7 @@ const useStyle = makeStyles(({ spacing }) => ({
     backgroundColor: defaultGreyLight3,
   },
   logo: {
-    flexBasis: '20%',
-    width: '10%',
+    maxHeight: '80%',
   },
   footerImg: {
     flexBasis: '40%',

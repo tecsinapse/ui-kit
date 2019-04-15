@@ -31,14 +31,22 @@ export const labelClass = ({ success, error, warning }) => {
   return 'cssLabel';
 };
 
-const StyledFlexDiv = styled('div')({
+const StyledFlexDiv = styled('div')(({ theme, endAdornmentMargin }) => ({
   display: 'flex',
   alignItems: 'center',
-});
+  boxShadow: 'none !important',
+  marginRight: endAdornmentMargin ? theme.spacing.unit : 0,
+}));
 const TypographyStyled = styled(Typography)(({ theme }) => ({
   marginLeft: theme.spacing.unit / 4,
 }));
-export function GetEndAdornment({ warning, error, success, endAdornment }) {
+export function GetEndAdornment({
+  warning,
+  error,
+  success,
+  endAdornment,
+  endAdornmentMargin,
+}) {
   let stateIcon;
   if (error) {
     stateIcon = <Icon path={mdiCloseCircle} color={defaultRed} size={1} />;
@@ -51,13 +59,13 @@ export function GetEndAdornment({ warning, error, success, endAdornment }) {
   }
   if (stateIcon && endAdornment) {
     return (
-      <StyledFlexDiv>
+      <StyledFlexDiv endAdornmentMargin={endAdornmentMargin}>
         {stateIcon} <TypographyStyled>|</TypographyStyled> {endAdornment}
       </StyledFlexDiv>
     );
   }
   return (
-    <StyledFlexDiv>
+    <StyledFlexDiv endAdornmentMargin={endAdornmentMargin}>
       {stateIcon && stateIcon}
       {endAdornment && endAdornment}
     </StyledFlexDiv>
