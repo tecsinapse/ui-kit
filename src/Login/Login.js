@@ -7,10 +7,10 @@ import { Typography } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Button } from '../Buttons/Button';
-import Tecsinapese from './tecsinapse.svg';
-import { defaultGreyDisabled } from '../colors';
+import Poweredby from './poweredby.svg';
+import { defaultGreyLight3 } from '../colors';
 
-const useStyle = makeStyles(theme => ({
+const useStyle = makeStyles(({ spacing }) => ({
   root: {
     width: '100%',
     height: '100%',
@@ -32,7 +32,6 @@ const useStyle = makeStyles(theme => ({
     height: '60%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-around',
     marginLeft: '5%',
     marginRight: '5%',
   },
@@ -42,28 +41,36 @@ const useStyle = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     flexBasis: '12%',
-    backgroundColor: defaultGreyDisabled,
+    backgroundColor: defaultGreyLight3,
   },
   logo: {
     maxHeight: '80%',
   },
   footerImg: {
-    flexBasis: '30%',
-    width: '25%',
+    flexBasis: '40%',
   },
   inputData: {
     alignSelf: 'stretch',
+    marginTop: spacing.unit,
   },
   extra: {
     display: 'flex',
     alignItems: 'stretch',
     justifyContent: 'space-between',
+    marginTop: spacing.unit,
   },
   submit: {
-    marginRight: '40%',
+    marginTop: spacing.unit * 2,
+    marginBottom: spacing.unit * 2,
   },
   forgot: {
     alignSelf: 'center',
+  },
+  header: {
+    marginTop: spacing.unit * 2,
+  },
+  formControlLabelCheck: {
+    height: spacing.unit,
   },
 }));
 
@@ -77,7 +84,6 @@ export const Login = ({
   rememberLabel,
   onClick,
   children,
-  footerLabel,
   footerImg,
 }) => {
   const [remember, setRemember] = useState(false);
@@ -108,11 +114,14 @@ export const Login = ({
 
         <div className={classes.inputData}>
           {children}
-          <div className={classes.extra}>
-            {rememberBox && (
+
+          {rememberBox && (
+            <div className={classes.extra}>
               <FormControlLabel
+                className={classes.formControlLabelCheck}
                 control={
                   <Checkbox
+                    style={{ width: '21px', height: '21px' }}
                     name="rememberMe"
                     checked={remember}
                     onChange={() => setRemember(oldRemember => !oldRemember)}
@@ -123,39 +132,36 @@ export const Login = ({
                   <Typography color="textSecondary">{rememberLabel}</Typography>
                 }
               />
-            )}
-            {forgotPassword && forgotPassword.component && (
-              <Typography
-                className={classes.forgot}
-                variant="subtitle2"
-                color="secondary"
-                component={forgotPassword.component}
-                {...forgotPassword.props}
-              >
-                {forgotPassword.label}
-              </Typography>
-            )}
-          </div>
-        </div>
 
-        <Button
-          size="large"
-          className={classes.submit}
-          variant="primary"
-          onClick={() => (rememberBox ? onClick(remember) : onClick())}
-        >
-          {buttonLabel}
-        </Button>
+              {forgotPassword && forgotPassword.component && (
+                <Typography
+                  className={classes.forgot}
+                  variant="subtitle2"
+                  color="secondary"
+                  component={forgotPassword.component}
+                  {...forgotPassword.props}
+                >
+                  {forgotPassword.label}
+                </Typography>
+              )}
+            </div>
+          )}
+          <Button
+            size="large"
+            className={classes.submit}
+            variant="primary"
+            onClick={() => (rememberBox ? onClick(remember) : onClick())}
+          >
+            {buttonLabel}
+          </Button>
+        </div>
       </div>
       <Divider />
       <div className={classes.footer}>
-        <Typography variant="caption" color="textSecondary">
-          {footerLabel}
-        </Typography>
         {footerImg ? (
           { footerImg }
         ) : (
-          <Tecsinapese className={classes.footerImg} />
+          <Poweredby className={classes.footerImg} />
         )}
       </div>
     </Paper>
@@ -166,12 +172,11 @@ Login.defaultProps = {
   headerImages: [],
   headerText: null,
   subheaderText: null,
-  rememberBox: true,
+  rememberBox: false,
   forgotPassword: null,
   buttonLabel: 'Acessar o Sistema',
   rememberLabel: 'Lembrar de mim',
   onClick: () => {},
-  footerLabel: 'POWERED BY',
   footerImg: null,
 };
 
@@ -188,6 +193,5 @@ Login.propTypes = {
   buttonLabel: PropTypes.string,
   rememberLabel: PropTypes.string,
   onClick: PropTypes.func,
-  footerLabel: PropTypes.string,
   footerImg: PropTypes.object,
 };
