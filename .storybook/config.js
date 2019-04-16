@@ -1,3 +1,4 @@
+import './InstallStyles';
 import { configure, addDecorator } from '@storybook/react';
 import React from 'react';
 import { setDefaults, withInfo } from '@storybook/addon-info';
@@ -6,8 +7,6 @@ import { setOptions } from '@storybook/addon-options';
 import { withSmartKnobs } from 'storybook-addon-smart-knobs';
 import { GraphQLClient, ClientContext } from 'graphql-hooks';
 import { ThemeProvider } from '../src/ThemeProvider';
-
-import './InstallStyles';
 
 const client = new GraphQLClient({
   url: 'https://countries.trevorblades.com/',
