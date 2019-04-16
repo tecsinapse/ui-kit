@@ -1,3 +1,10 @@
+<a name="0.0.129"></a>
+## <small>0.0.129 (2019-04-16)</small>
+
+* solving storybook style error ([5778256](https://github.com/tecsinapse/ui-kit/commit/5778256))
+
+
+
 <a name="0.0.128"></a>
 ## <small>0.0.128 (2019-04-16)</small>
 
