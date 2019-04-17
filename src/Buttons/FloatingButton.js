@@ -2,31 +2,37 @@ import { Add } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Fab from '@material-ui/core/Fab';
-import { styleByProps } from './buttonStyleByProp';
-import { buttonStyle } from './Button';
+import classNames from 'classnames';
+import { makeStyles } from '@material-ui/styles';
+import { buttonClassNameDefinition, buttonStyle } from './Button';
 
-const styles = {
+const useStyles = makeStyles(theme => ({
+  ...buttonStyle(theme),
   button: {
     position: 'fixed',
     bottom: 80,
     right: 30,
     borderRadius: '50%',
   },
+}));
+export const FloatingButton = ({ children, disabled, variant, onClick }) => {
+  const classes = useStyles();
+  return (
+    <Fab
+      aria-label="add"
+      disabled={disabled}
+      onClick={onClick}
+      color={
+        ['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined
+      }
+      className={classNames(
+        buttonClassNameDefinition(classes, disabled, false, variant)
+      )}
+    >
+      {children || <Add />}
+    </Fab>
+  );
 };
-export const FloatingButton = ({ children, disabled, variant, onClick }) => (
-  <Fab
-    aria-label="add"
-    disabled={disabled}
-    onClick={onClick}
-    color={['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined}
-    style={{
-      ...styles.button,
-      ...styleByProps({ buttonStyle, variant, disabled }),
-    }}
-  >
-    {children || <Add />}
-  </Fab>
-);
 FloatingButton.defaultProps = {
   disabled: false,
   variant: 'success',

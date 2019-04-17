@@ -1,3 +1,48 @@
+<a name="0.0.129"></a>
+## <small>0.0.129 (2019-04-16)</small>
+
+* solving storybook style error ([5778256](https://github.com/tecsinapse/ui-kit/commit/5778256))
+
+
+
+<a name="0.0.128"></a>
+## <small>0.0.128 (2019-04-16)</small>
+
+* refactor button to css styles ([d2893d0](https://github.com/tecsinapse/ui-kit/commit/d2893d0))
+
+
+
+<a name="0.0.127"></a>
+## <small>0.0.127 (2019-04-16)</small>
+
+* adding folder breadcrumb component ([7fc5d02](https://github.com/tecsinapse/ui-kit/commit/7fc5d02))
+* forgot password align on right when no rememberbox ([a684bfe](https://github.com/tecsinapse/ui-kit/commit/a684bfe))
+
+
+
+<a name="0.0.126"></a>
+## <small>0.0.126 (2019-04-15)</small>
+
+
+
+
+<a name="0.0.125"></a>
+## <small>0.0.125 (2019-04-15)</small>
+
+* reverting modification on rememberBox login ([4632261](https://github.com/tecsinapse/ui-kit/commit/4632261))
+
+
+
+<a name="0.0.124"></a>
+## <small>0.0.124 (2019-04-15)</small>
+
+* Add color to placeholder ([00fb058](https://github.com/tecsinapse/ui-kit/commit/00fb058))
+* Add design improvements ([4ead104](https://github.com/tecsinapse/ui-kit/commit/4ead104))
+* no inline styles ([57679dc](https://github.com/tecsinapse/ui-kit/commit/57679dc))
+* Use theme spacing, fix footer image ([1eb00c3](https://github.com/tecsinapse/ui-kit/commit/1eb00c3))
+
+
+
 <a name="0.0.123"></a>
 ## <small>0.0.123 (2019-04-12)</small>
 

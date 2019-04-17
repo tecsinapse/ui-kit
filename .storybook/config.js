@@ -1,5 +1,5 @@
-import { configure, addDecorator } from '@storybook/react';
 import './InstallStyles.js';
+import { configure, addDecorator } from '@storybook/react';
 import React from 'react';
 import ThemeProvider from '../src/ThemeProvider';
 import { setDefaults } from '@storybook/addon-info';
@@ -7,11 +7,11 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { setOptions } from '@storybook/addon-options';
 import { withInfo } from '@storybook/addon-info';
 import { withSmartKnobs } from 'storybook-addon-smart-knobs';
-import { GraphQLClient, ClientContext } from 'graphql-hooks'
+import { GraphQLClient, ClientContext } from 'graphql-hooks';
 
 const client = new GraphQLClient({
-	url: 'https://countries.trevorblades.com/'
-  });
+  url: 'https://countries.trevorblades.com/',
+});
 
 setOptions({
   hierarchySeparator: /\//,
@@ -21,7 +21,7 @@ setOptions({
 });
 
 const withGraphqlClientProvider = storyFn => (
-	<ClientContext.Provider value={client}>{storyFn()}</ClientContext.Provider>
+  <ClientContext.Provider value={client}>{storyFn()}</ClientContext.Provider>
 );
 
 const withThemeProvider = storyFn => (
