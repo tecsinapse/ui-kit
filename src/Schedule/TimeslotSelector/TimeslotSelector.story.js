@@ -75,6 +75,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
         onHandleSchedule={onHandleScheduleTest}
         onCloseDialog={() => {}}
         personsEmailSelected={personsEmailSelected}
+        cancelDialog={() => console.log('test')}
       />
     </div>
   ))
