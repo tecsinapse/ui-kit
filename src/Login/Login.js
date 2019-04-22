@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
+import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import Divider from '@material-ui/core/Divider';
 import { Typography } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
+import classNames from 'classnames';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Button } from '../Buttons/Button';
 import Poweredby from './poweredby.svg';
 import { defaultGreyLight3 } from '../colors';
 
-const useStyle = rememberBox =>
+const useStyle = (rememberBox, backgroundImage) =>
   makeStyles(({ spacing }) => ({
     root: {
       width: '100%',
@@ -20,6 +22,9 @@ const useStyle = rememberBox =>
       flexDirection: 'column',
       justifyContent: 'space-between',
       alignItems: 'stretch',
+    },
+    rootmobile: {
+      backgroundImage: `url(${backgroundImage})`,
     },
     imgHeader: {
       display: 'flex',
@@ -41,6 +46,9 @@ const useStyle = rememberBox =>
       flexBasis: '60px',
       backgroundColor: defaultGreyLight3,
     },
+    footermobile: {
+      backgroundColor: '#fff',
+    },
     logo: {
       maxHeight: '80%',
     },
@@ -57,6 +65,9 @@ const useStyle = rememberBox =>
       justifyContent: rememberBox ? 'space-between' : 'flex-end',
       marginTop: spacing.unit,
     },
+    extramobile: {
+      flexDirection: 'column',
+    },
     submit: {
       marginTop: spacing.unit * 2,
       marginBottom: spacing.unit * 2,
@@ -64,11 +75,15 @@ const useStyle = rememberBox =>
     forgot: {
       alignSelf: 'center',
     },
+    forgotmobile: {
+      marginTop: spacing.unit * 5,
+    },
     header: {
       marginTop: spacing.unit * 2,
     },
     formControlLabelCheck: {
       height: spacing.unit,
+      alignSelf: 'flex-start',
     },
     checkbox: {
       width: spacing.unit * 2,
@@ -87,13 +102,28 @@ export const Login = ({
   onClick,
   children,
   footerImg,
+  variant,
+  backgroundImage,
 }) => {
   const [remember, setRemember] = useState(false);
 
-  const classes = useStyle(rememberBox)();
+  const classes = useStyle(rememberBox, backgroundImage)();
+
+  const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
+
+  let mobile = false;
+  if (variant === 'auto') {
+    if (matches) {
+      mobile = true;
+    }
+  } else if (variant === 'mobile') mobile = true;
 
   return (
-    <Paper className={classes.root}>
+    <Paper
+      className={classNames(classes.root, {
+        [classes.rootmobile]: mobile,
+      })}
+    >
       {headerImages && headerImages.length > 0 && (
         <div className={classes.imgHeader}>
           {headerImages.map(src => (
@@ -102,7 +132,9 @@ export const Login = ({
         </div>
       )}
 
-      {headerImages && headerImages.length > 0 && <Divider />}
+      {headerImages && headerImages.length > 0 && variant !== 'mobile' && (
+        <Divider />
+      )}
 
       <div className={classes.content}>
         {headerText && subheaderText && (
@@ -117,7 +149,11 @@ export const Login = ({
         <div className={classes.inputData}>
           {children}
 
-          <div className={classes.extra}>
+          <div
+            className={classNames(classes.extra, {
+              [classes.extramobile]: mobile,
+            })}
+          >
             {rememberBox && (
               <FormControlLabel
                 className={classes.formControlLabelCheck}
@@ -137,9 +173,11 @@ export const Login = ({
             )}
             {forgotPassword && forgotPassword.component && (
               <Typography
-                className={classes.forgot}
+                className={classNames(classes.forgot, {
+                  [classes.forgotmobile]: mobile,
+                })}
                 variant="subtitle2"
-                color="secondary"
+                color={mobile ? 'textPrimary' : 'secondary'}
                 component={forgotPassword.component}
                 {...forgotPassword.props}
               >
@@ -150,6 +188,7 @@ export const Login = ({
           <Button
             size="large"
             className={classes.submit}
+            fullWidth={mobile}
             variant="primary"
             onClick={() => (rememberBox ? onClick(remember) : onClick())}
           >
@@ -158,7 +197,11 @@ export const Login = ({
         </div>
       </div>
       <Divider />
-      <div className={classes.footer}>
+      <div
+        className={classNames(classes.footer, {
+          [classes.footermobile]: mobile,
+        })}
+      >
         {footerImg ? (
           { footerImg }
         ) : (
@@ -179,6 +222,8 @@ Login.defaultProps = {
   rememberLabel: 'Lembrar de mim',
   onClick: () => {},
   footerImg: null,
+  variant: 'auto',
+  backgroundImage: '',
 };
 
 Login.propTypes = {
@@ -195,4 +240,6 @@ Login.propTypes = {
   rememberLabel: PropTypes.string,
   onClick: PropTypes.func,
   footerImg: PropTypes.object,
+  variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
+  backgroundImage: PropTypes.string,
 };
