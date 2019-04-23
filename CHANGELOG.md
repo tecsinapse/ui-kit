@@ -1,3 +1,10 @@
+<a name="0.0.131"></a>
+## <small>0.0.131 (2019-04-23)</small>
+
+* Adding more themes ([47202e7](https://github.com/tecsinapse/ui-kit/commit/47202e7))
+
+
+
 <a name="0.0.130"></a>
 ## <small>0.0.130 (2019-04-17)</small>
 
