@@ -3,24 +3,36 @@ import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { defaultOrange, defaultRed } from './colors';
+import { defaultRed } from './colors';
 
 const themeColors = {
   orange: {
-    primary: {
-      light: '#8e8e8e',
-      main: '#616161',
-      dark: '#373737',
-      contrastText: '#ffffff',
-    },
-    secondary: {
-      main: defaultOrange,
-      contrastText: '#ffffff',
-    },
+    primary: { main: '#616161', contrastText: '#ffffff' },
+    secondary: { main: '#f99f1f', contrastText: '#ffffff' },
     error: {
       main: defaultRed,
       contrastText: '#ffffff',
     },
+  },
+  black: {
+    primary: { main: '#000000', contrastText: '#ffffff' },
+    secondary: { main: '#cd192d', contrastText: '#ffffff' },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
+  redLight: {
+    primary: { main: '#d8d8d8', light: '#ececec', contrastText: '#222121' },
+    secondary: { main: '#e20000', contrastText: '#ffffff' },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
+  green: {
+    primary: { main: '#2b6d2e', light: '#a5a8a9', contrastText: '#ffffff' },
+    secondary: { main: '#000000', contrastText: '#ffffff' },
   },
   blue: {
     primary: blue,
@@ -50,5 +62,6 @@ export function ThemeProvider({ children, variant }) {
 }
 export default ThemeProvider;
 ThemeProvider.propTypes = {
-  variant: PropTypes.oneOf(['orange', 'blue']).isRequired,
+  variant: PropTypes.oneOf(['orange', 'blue', 'black', 'redLight', 'green'])
+    .isRequired,
 };
