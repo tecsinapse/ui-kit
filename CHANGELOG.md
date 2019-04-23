@@ -1,3 +1,10 @@
+<a name="0.0.130"></a>
+## <small>0.0.130 (2019-04-17)</small>
+
+* solving login height and snackbar styled error when changing button style ([8748338](https://github.com/tecsinapse/ui-kit/commit/8748338))
+
+
+
 <a name="0.0.129"></a>
 ## <small>0.0.129 (2019-04-16)</small>
 
