@@ -43,6 +43,8 @@ export default function AppLogin() {
         variant="mobile"
         headerImages={[
           'http://www.car-brand-names.com/wp-content/uploads/2015/05/Mercedes-Benz-logo.png',
+          'http://www.car-brand-names.com/wp-content/uploads/2015/05/Mercedes-Benz-logo.png',
+          'http://www.car-brand-names.com/wp-content/uploads/2015/05/Mercedes-Benz-logo.png',
         ]}
         rememberBox
         forgotPassword={{

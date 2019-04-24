@@ -137,7 +137,7 @@ export const Login = ({
       })}
     >
       {headerImages.map(src => (
-        <img src={src} alt="logo" className={classes.logo} />
+        <img src={src} alt="logo" key={src} className={classes.logo} />
       ))}
     </div>
   );
