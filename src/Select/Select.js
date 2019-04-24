@@ -42,7 +42,7 @@ export const SelectUnstyled = ({
   const [allSelected, setAllSelected] = useState(false);
   const [yPos, setYPos] = useState(0);
   let { variant } = rest;
-  const testRef = useRef();
+  const selectRef = useRef();
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
@@ -56,7 +56,7 @@ export const SelectUnstyled = ({
   }
 
   useEffect(() => {
-    const pos = testRef.current.getBoundingClientRect();
+    const pos = selectRef.current.getBoundingClientRect();
     setYPos(pos.y);
   });
 
@@ -159,7 +159,7 @@ export const SelectUnstyled = ({
         };
 
   return (
-    <div ref={testRef}>
+    <div ref={selectRef}>
       <FormControl
         key={key}
         error={!!error}
