@@ -19,7 +19,8 @@ const options = [
   },
 ];
 
-export const SelectWrapper = props => {
+// Dummy select to show auto menu
+export const SelectWrapper3 = props => {
   const [value, setValue] = useState('a');
   return (
     <div
@@ -54,26 +55,6 @@ export const SelectWrapper = props => {
       <Input />
       <Input />
       <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-
       <Select
         value={value}
         options={options}
@@ -96,18 +77,23 @@ export const SelectWrapper = props => {
       <Input />
       <Input />
       <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
     </div>
   );
 };
+
+export const SelectWrapper = props => {
+  const [value, setValue] = useState('a');
+  return (
+    <Select
+      value={value}
+      options={options}
+      onChange={setValue}
+      label="Placeholder"
+      {...props}
+    />
+  );
+};
+
 export const SelectWrapper2 = props => {
   const [value, setValue] = useState([null]);
   return (
@@ -131,6 +117,9 @@ storiesOf(`${GROUPS.FORMS}|Select`, module)
   .add('Select Mobile', () => <SelectWrapper variant="mobile" />)
   .add('Select Mobile Multi', () => <SelectWrapper isMulti variant="mobile" />)
   .add('Select Web Multi', () => <SelectWrapper isMulti variant="web" />)
+  .add('Select Show Auto', () => (
+    <SelectWrapper3 isMulti menuPlacement="auto" variant="web" />
+  ))
   .add('Multi FullScreen auto-size not allowed select all', () => (
     <SelectWrapper isMulti variant="web" allowSelectAll={false} />
   ));

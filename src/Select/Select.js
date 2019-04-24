@@ -27,7 +27,7 @@ export const SelectUnstyled = ({
   disabled,
   placeholder,
   touched,
-  menuPlacement = 'auto',
+  menuPlacement = 'bottom',
   key,
   fullWidth,
   warning,
