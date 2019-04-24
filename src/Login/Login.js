@@ -25,6 +25,11 @@ const useStyle = (rememberBox, backgroundImage) =>
     },
     rootmobile: {
       backgroundImage: `url(${backgroundImage})`,
+      width: '100vw',
+      height: '100vh',
+      position: 'absolute',
+      left: '0',
+      top: '0',
     },
     imgHeader: {
       display: 'flex',
@@ -32,11 +37,18 @@ const useStyle = (rememberBox, backgroundImage) =>
       height: '150px',
       alignItems: 'center',
     },
+    imgHeaderMobile: {
+      flex: '1',
+    },
     content: {
       display: 'flex',
       flexDirection: 'column',
       marginLeft: '5%',
       marginRight: '5%',
+    },
+    contentMobile: {
+      alignItems: 'flex-end',
+      justifyContent: 'flex-end',
     },
     footer: {
       display: 'flex',
@@ -50,7 +62,7 @@ const useStyle = (rememberBox, backgroundImage) =>
       backgroundColor: '#fff',
     },
     logo: {
-      maxHeight: '80%',
+      maxHeight: '60%',
     },
     footerImg: {
       width: '20%',
@@ -118,96 +130,112 @@ export const Login = ({
     }
   } else if (variant === 'mobile') mobile = true;
 
-  return (
-    <Paper
-      className={classNames(classes.root, {
-        [classes.rootmobile]: mobile,
+  const headerElem = headerImages && headerImages.length > 0 && (
+    <div
+      className={classNames(classes.imgHeader, {
+        [classes.imgHeaderMobile]: mobile,
       })}
     >
-      {headerImages && headerImages.length > 0 && (
-        <div className={classes.imgHeader}>
-          {headerImages.map(src => (
-            <img src={src} alt="logo" className={classes.logo} />
-          ))}
+      {headerImages.map(src => (
+        <img src={src} alt="logo" className={classes.logo} />
+      ))}
+    </div>
+  );
+
+  const contentElem = (
+    <div
+      className={classNames(classes.content, {
+        [classes.contentMobile]: mobile,
+      })}
+    >
+      {headerText && subheaderText && (
+        <div className={classes.header}>
+          <Typography variant="h5">{headerText}</Typography>
+          <Typography variant="body2" color="textSecondary">
+            {subheaderText}
+          </Typography>
         </div>
       )}
 
-      {headerImages && headerImages.length > 0 && variant !== 'mobile' && (
-        <Divider />
-      )}
+      <div className={classes.inputData}>
+        {children}
 
-      <div className={classes.content}>
-        {headerText && subheaderText && (
-          <div className={classes.header}>
-            <Typography variant="h5">{headerText}</Typography>
-            <Typography variant="body2" color="textSecondary">
-              {subheaderText}
+        <div
+          className={classNames(classes.extra, {
+            [classes.extramobile]: mobile,
+          })}
+        >
+          {rememberBox && (
+            <FormControlLabel
+              className={classes.formControlLabelCheck}
+              control={
+                <Checkbox
+                  className={classes.checkbox}
+                  name="rememberMe"
+                  checked={remember}
+                  onChange={() => setRemember(oldRemember => !oldRemember)}
+                  color="default"
+                />
+              }
+              label={
+                <Typography color="textSecondary">{rememberLabel}</Typography>
+              }
+            />
+          )}
+          {forgotPassword && forgotPassword.component && (
+            <Typography
+              className={classNames(classes.forgot, {
+                [classes.forgotmobile]: mobile,
+              })}
+              variant="subtitle2"
+              color={mobile ? 'textPrimary' : 'secondary'}
+              component={forgotPassword.component}
+              {...forgotPassword.props}
+            >
+              {forgotPassword.label}
             </Typography>
-          </div>
-        )}
-
-        <div className={classes.inputData}>
-          {children}
-
-          <div
-            className={classNames(classes.extra, {
-              [classes.extramobile]: mobile,
-            })}
-          >
-            {rememberBox && (
-              <FormControlLabel
-                className={classes.formControlLabelCheck}
-                control={
-                  <Checkbox
-                    className={classes.checkbox}
-                    name="rememberMe"
-                    checked={remember}
-                    onChange={() => setRemember(oldRemember => !oldRemember)}
-                    color="default"
-                  />
-                }
-                label={
-                  <Typography color="textSecondary">{rememberLabel}</Typography>
-                }
-              />
-            )}
-            {forgotPassword && forgotPassword.component && (
-              <Typography
-                className={classNames(classes.forgot, {
-                  [classes.forgotmobile]: mobile,
-                })}
-                variant="subtitle2"
-                color={mobile ? 'textPrimary' : 'secondary'}
-                component={forgotPassword.component}
-                {...forgotPassword.props}
-              >
-                {forgotPassword.label}
-              </Typography>
-            )}
-          </div>
-          <Button
-            size="large"
-            className={classes.submit}
-            fullWidth={mobile}
-            variant="primary"
-            onClick={() => (rememberBox ? onClick(remember) : onClick())}
-          >
-            {buttonLabel}
-          </Button>
+          )}
         </div>
+        <Button
+          size="large"
+          className={classes.submit}
+          fullWidth={mobile}
+          variant="primary"
+          onClick={() => (rememberBox ? onClick(remember) : onClick())}
+        >
+          {buttonLabel}
+        </Button>
       </div>
+    </div>
+  );
+
+  const footerElem = (
+    <div
+      className={classNames(classes.footer, {
+        [classes.footermobile]: mobile,
+      })}
+    >
+      {footerImg ? { footerImg } : <Poweredby className={classes.footerImg} />}
+    </div>
+  );
+
+  if (mobile)
+    return (
+      <div className={classNames(classes.root, classes.rootmobile)}>
+        {headerElem}
+        {contentElem}
+        <Divider />
+        {footerElem}
+      </div>
+    );
+
+  return (
+    <Paper className={classes.root}>
+      {headerElem}
+      {headerElem && <Divider />}
+      {contentElem}
       <Divider />
-      <div
-        className={classNames(classes.footer, {
-          [classes.footermobile]: mobile,
-        })}
-      >
-        {footerImg ? (
-          { footerImg }
-        ) : (
-          <Poweredby className={classes.footerImg} />
-        )}
-      </div>
+      {footerElem}
     </Paper>
   );
 };
@@ -243,3 +271,5 @@ Login.propTypes = {
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
   backgroundImage: PropTypes.string,
 };
+
+export default Login;
