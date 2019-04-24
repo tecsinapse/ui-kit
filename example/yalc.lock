@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "@tecsinapse/ui-kit": {
+      "signature": "d468b0712c081a67fb9602fa7a995d99",
+      "file": true
+    }
+  }
+}

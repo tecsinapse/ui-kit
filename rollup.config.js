@@ -48,6 +48,9 @@ export default [
         namedExports: {
           'node_modules/@material-ui/core/colors/index.js': ['grey'],
           'node_modules/text-mask-core/dist/textMaskCore.js': ['conformToMask'],
+          'node_modules/@material-ui/core/useMediaQuery/index.js': [
+            'unstable_useMediaQuery',
+          ],
         },
       }),
 
