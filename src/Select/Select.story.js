@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Select } from './Select';
+import { Input } from '../Inputs/Input';
 
 const options = [
   {
@@ -21,13 +22,90 @@ const options = [
 export const SelectWrapper = props => {
   const [value, setValue] = useState('a');
   return (
-    <Select
-      value={value}
-      options={options}
-      onChange={setValue}
-      label="Placeholder"
-      {...props}
-    />
+    <div
+      style={{ display: 'flex', flexDirection: 'column', overflow: 'scroll' }}
+    >
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+
+      <Select
+        value={value}
+        options={options}
+        onChange={setValue}
+        label="Placeholder"
+        {...props}
+      />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+    </div>
   );
 };
 export const SelectWrapper2 = props => {
