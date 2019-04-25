@@ -50,7 +50,7 @@ export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
   const [selectedUID, setSelectedUID] = useState('');
   const [snackbar, setSnackBar] = useState({
     show: false,
-    variant: 'success',
+    variant: 'error',
     msg: '',
   });
 
@@ -81,7 +81,12 @@ export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
       <Snackbar
         show={snackbar.show}
         variant={snackbar.variant}
-        onClose={() => setSnackBar({ show: false, variant: 'success' })}
+        onClose={() =>
+          setSnackBar(prevSnack => ({
+            show: false,
+            variant: prevSnack.variant,
+          }))
+        }
       >
         {snackbar.msg}
       </Snackbar>
