@@ -52,6 +52,9 @@ export function FormUploader({
   onReject,
   onDelete,
   variant,
+  headerLabel,
+  noFileTopLabel,
+  noFileBottomLabel,
 }) {
   const classes = useStyle();
 
@@ -93,7 +96,13 @@ export function FormUploader({
           [classes.previewmobile]: mobile,
         })}
       >
-        <PreviewList value={value} onDelete={onDelete} />
+        <PreviewList
+          value={value}
+          onDelete={onDelete}
+          headerLabel={headerLabel}
+          noFileBottomLabel={noFileBottomLabel}
+          noFileTopLabel={noFileTopLabel}
+        />
       </div>
     </div>
   );
@@ -111,6 +120,9 @@ FormUploader.defaultProps = {
   onReject: null,
   onDelete: null,
   variant: 'auto',
+  headerLabel: 'Uploading Files',
+  noFileTopLabel: 'Upload Files',
+  noFileBottomLabel: 'Appear Here',
 };
 
 FormUploader.propTypes = {
@@ -131,4 +143,7 @@ FormUploader.propTypes = {
   onReject: PropTypes.func,
   onDelete: PropTypes.func,
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
+  headerLabel: PropTypes.string,
+  noFileBottomLabel: PropTypes.string,
+  noFileTopLabel: PropTypes.string,
 };
