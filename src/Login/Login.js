@@ -63,11 +63,13 @@ const useStyle = (rememberBox, backgroundImage) =>
     },
     logo: {
       height: 'auto',
-      width: '50%',
+      maxWidth: '100%',
     },
     logoContainer: {
       display: 'block',
       textAlign: 'center',
+      marginLeft: spacing.unit / 2,
+      marginRight: spacing.unit / 2,
     },
     footerImg: {
       width: '20%',

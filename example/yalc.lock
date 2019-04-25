@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "@tecsinapse/ui-kit": {
-      "signature": "7658bc597a2242c82e32513bb4be6b89",
+      "signature": "07bb71aff4ffbcca1e7a17970225f0c9",
       "file": true
     }
   }
