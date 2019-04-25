@@ -206,6 +206,7 @@ export function Uploader({
           setSnackBar(prevSnack => ({
             show: false,
             variant: prevSnack.variant,
+            msg: prevSnack.msg,
           }))
         }
       >

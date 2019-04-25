@@ -85,6 +85,7 @@ export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
           setSnackBar(prevSnack => ({
             show: false,
             variant: prevSnack.variant,
+            msg: prevSnack.msg,
           }))
         }
       >
