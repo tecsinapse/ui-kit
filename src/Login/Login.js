@@ -62,7 +62,12 @@ const useStyle = (rememberBox, backgroundImage) =>
       backgroundColor: '#fff',
     },
     logo: {
-      maxHeight: '60%',
+      height: 'auto',
+      width: '50%',
+    },
+    logoContainer: {
+      display: 'block',
+      textAlign: 'center',
     },
     footerImg: {
       width: '20%',
@@ -137,7 +142,9 @@ export const Login = ({
       })}
     >
       {headerImages.map(src => (
-        <img src={src} alt="logo" key={src} className={classes.logo} />
+        <div className={classes.logoContainer}>
+          <img src={src} alt="logo" key={src} className={classes.logo} />
+        </div>
       ))}
     </div>
   );
