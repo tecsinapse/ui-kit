@@ -1,7 +1,8 @@
 import { Button as MaterialButton, CircularProgress } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { styleByProps } from './buttonStyleByProp';
+import classNames from 'classnames';
+import { makeStyles } from '@material-ui/styles';
 import {
   defaultGreen,
   defaultGrey,
@@ -9,7 +10,12 @@ import {
   defaultRed,
 } from '../colors';
 
-export const buttonStyle = {
+export const buttonStyle = ({ spacing }) => ({
+  buttonSpan: {
+    '& > :first-child': {
+      marginRight: spacing.unit * 0.5,
+    },
+  },
   disabled: {
     backgroundColor: defaultGrey,
     color: 'white',
@@ -17,16 +23,35 @@ export const buttonStyle = {
   buttonColorSuccess: {
     backgroundColor: defaultGreen,
     color: 'white',
+    '&:hover': {
+      backgroundColor: defaultGreen,
+    },
   },
   buttonColorWarning: {
     backgroundColor: defaultOrange,
     color: 'white',
+    '&:hover': {
+      backgroundColor: defaultOrange,
+    },
   },
   buttonColorError: {
     backgroundColor: defaultRed,
     color: 'white',
+    '&:hover': {
+      backgroundColor: defaultRed,
+    },
   },
-};
+});
+export function buttonClassNameDefinition(classes, disabled, margin, variant) {
+  return {
+    [classes.disabled]: disabled,
+    [classes.marginTop]: margin,
+    [classes.buttonColorSuccess]: variant === 'success',
+    [classes.buttonColorWarning]: variant === 'warning',
+    [classes.buttonColorError]: variant === 'error',
+  };
+}
+const useStyles = makeStyles(buttonStyle);
 
 export const Button = ({
   submitting,
@@ -37,21 +62,34 @@ export const Button = ({
   type,
   size = 'medium',
   children,
+  className,
   ...props
-}) => (
-  <MaterialButton
-    type={type}
-    variant="contained"
-    style={styleByProps({ buttonStyle, disabled, variant, margin })}
-    color={['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined}
-    fullWidth={fullWidth}
-    disabled={disabled || submitting}
-    size={size}
-    {...props}
-  >
-    {submitting && <CircularProgress size={20} />} {children}
-  </MaterialButton>
-);
+}) => {
+  const classes = useStyles();
+  const classdef = buttonClassNameDefinition(
+    classes,
+    disabled,
+    margin,
+    variant
+  );
+  return (
+    <MaterialButton
+      type={type}
+      variant="contained"
+      classes={{ label: classes.buttonSpan }}
+      className={classNames(className, classdef)}
+      color={
+        ['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined
+      }
+      fullWidth={fullWidth}
+      disabled={disabled || submitting}
+      size={size}
+      {...props}
+    >
+      {submitting && <CircularProgress size={20} />} {children}
+    </MaterialButton>
+  );
+};
 
 Button.defaultProps = {
   submitting: false,

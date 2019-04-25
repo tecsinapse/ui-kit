@@ -9,4 +9,5 @@ export const defaultOrangeDarker = '#cd6e0d';
 export const defaultGrey = grey[700];
 export const defaultGreyLight = grey[500];
 export const defaultGreyLight2 = grey[600];
+export const defaultGreyLight3 = '#f7f7f7';
 export const defaultGreyDisabled = grey[400];
