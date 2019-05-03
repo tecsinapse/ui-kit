@@ -31,6 +31,7 @@
     "@storybook/react": "^5.0.1",
     "@tecsinapse/es-utils": "^0.0.96",
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.1.4",
+    "@tinymce/tinymce-react": "^3.0.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.5",
