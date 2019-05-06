@@ -121,6 +121,7 @@ TimeslotSelector.defaultProps = {
   beforeSteps: undefined,
   otherProps: undefined,
   selectedDate: '',
+  selectedTime: '',
   personsEmailSelected: [],
 };
 
@@ -140,6 +141,7 @@ TimeslotSelector.propTypes = {
   closeOnHandleSchedule: PropTypes.bool,
   otherProps: PropTypes.object,
   selectedDate: PropTypes.string,
+  selectedTime: PropTypes.string,
   beforeSteps: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,

@@ -58,6 +58,7 @@ export const Step2 = ({
   callPreviousStep,
   callCancel,
   selectedDate,
+  selectedTime,
   otherProps,
 }) => {
   const [defaultDate, setSelectedDate] = useState(
@@ -70,6 +71,26 @@ export const Step2 = ({
     defaultDate,
     selectedDuration
   );
+
+  if (
+    selectedPerson &&
+    selectedPerson.length === 1 &&
+    selectedDate &&
+    selectedTime
+  ) {
+    const person = timeSlotsByPerson[selectedPerson[0]];
+    const timeSlot = person.timeSlots;
+    const personTime = timeSlot.find(tm => tm === selectedTime);
+    if (personTime && !selectedPersonTimeSlot) {
+      setSelectedPersonTimeSlot({
+        date: defaultDate.toISODate(),
+        time: personTime,
+        email: person.email,
+        duration: selectedDuration,
+        otherProps,
+      });
+    }
+  }
 
   const handleDayChange = day => {
     setSelectedDate(day);
@@ -187,6 +208,7 @@ Step2.defaultProps = {
   callCancel: undefined,
   otherProps: undefined,
   selectedDate: '',
+  selectedTime: '',
 };
 
 Step2.propTypes = {
@@ -196,5 +218,6 @@ Step2.propTypes = {
   callPreviousStep: PropTypes.func.isRequired,
   callCancel: PropTypes.func,
   selectedDate: PropTypes.string,
+  selectedTime: PropTypes.string,
   otherProps: PropTypes.object,
 };

@@ -14,6 +14,7 @@ const personsAvailabilities = require('../../../test/resources/availabilities.js
 
 const personsEmailSelected = ['ricardo.almeida@example.com.br'];
 const selectedDate = '2019-02-12';
+const selectedTime = '08:00';
 
 const onHandleScheduleTest = selected => {
   alert(
@@ -60,6 +61,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       onWeekChange={obj => console.log(obj)}
       onHandleSchedule={onHandleScheduleTest}
       personsEmailSelected={personsEmailSelected}
+      selectedTime={selectedTime}
       selectedDate={selectedDate}
     />
   ))

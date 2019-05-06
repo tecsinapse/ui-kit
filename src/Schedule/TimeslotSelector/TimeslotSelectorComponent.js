@@ -76,6 +76,7 @@ class TimeslotSelectorComponent extends React.Component {
           selectedPerson={props.selectedPerson}
           selectedDuration={props.selectedDuration}
           selectedDate={props.selectedDate}
+          selectedTime={props.selectedTime}
           personsAvailabilities={props.personsAvailabilities}
           classes={props.classes}
           labels={props.labels}
@@ -112,7 +113,8 @@ TimeslotSelectorComponent.defaultProps = {
   otherProps: undefined,
   selectedPerson: [],
   selectedDuration: undefined,
-  selectedDate: undefined,
+  selectedDate: '',
+  selectedTime: '',
 };
 
 TimeslotSelectorComponent.propTypes = {
@@ -132,6 +134,7 @@ TimeslotSelectorComponent.propTypes = {
   selectedPerson: PropTypes.arrayOf(PropTypes.string),
   selectedDuration: PropTypes.string,
   selectedDate: PropTypes.string,
+  selectedTime: PropTypes.string,
 };
 
 export default TimeslotSelectorComponent;
