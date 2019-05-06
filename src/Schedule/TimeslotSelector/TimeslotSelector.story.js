@@ -14,13 +14,16 @@ const personsAvailabilities = require('../../../test/resources/availabilities.js
 
 const personsEmailSelected = personsAvailabilities.map(p => p.email);
 
+const selectedEmailPerson = 'ricardo.almeida@example.com.br';
+const selectedDate = '2019-02-12';
+const selectedTime = '08:00';
+
 const onHandleScheduleTest = selected => {
   alert(
     `Usuário: ${selected.email}\nData: ${selected.date}\nHora: ${
       selected.time
     }\n`
   );
-  console.log(selected);
 };
 
 const style = {
@@ -55,11 +58,14 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
     <TimeslotSelector
       style={style}
       personsAvailabilities={personsAvailabilities}
+      selectedEmailPerson={selectedEmailPerson}
       durations={[15, 20, 30]}
       defaultDuration={20}
       onWeekChange={obj => console.log(obj)}
       onHandleSchedule={onHandleScheduleTest}
       personsEmailSelected={personsEmailSelected}
+      selectedTime={selectedTime}
+      selectedDate={selectedDate}
     />
   ))
   .add('Modal TimeslotSelector', () => (

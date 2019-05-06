@@ -49,7 +49,7 @@ const mapByPerson = (personsAvailabilities, date, duration) => {
 export const Step2 = ({
   classes,
   personsAvailabilities,
-  selectedPerson,
+  selectedPeople,
   selectedDuration,
   onHandleSchedule,
   onWeekChange,
@@ -57,18 +57,42 @@ export const Step2 = ({
   locale,
   callPreviousStep,
   callCancel,
+  selectedDate,
+  selectedTime,
+  selectedPerson,
   otherProps,
 }) => {
-  const [selectedDate, setSelectedDate] = useState(DateTime.local());
-  const [selectedPersonTimeSlot, setSelectedPersonTimeSlot] = useState(null);
+  const [defaultDate, setSelectedDate] = useState(
+    selectedDate ? DateTime.fromISO(selectedDate) : DateTime.local()
+  );
+  const [selectedPeopleTimeSlot, setSelectedPeopleTimeSlot] = useState(null);
+
   const timeSlotsByPerson = mapByPerson(
     personsAvailabilities,
-    selectedDate,
+    defaultDate,
     selectedDuration
   );
+
+  if (selectedPeople && selectedPerson && selectedDate && selectedTime) {
+    const person = timeSlotsByPerson[selectedPerson];
+    if (person) {
+      const timeSlot = person.timeSlots;
+      const personTime = timeSlot.find(tm => tm === selectedTime);
+      if (personTime && !selectedPeopleTimeSlot) {
+        setSelectedPeopleTimeSlot({
+          date: defaultDate.toISODate(),
+          time: personTime,
+          email: person.email,
+          duration: selectedDuration,
+          otherProps,
+        });
+      }
+    }
+  }
+
   const handleDayChange = day => {
     setSelectedDate(day);
-    setSelectedPersonTimeSlot(null);
+    setSelectedPeopleTimeSlot(null);
   };
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -78,7 +102,7 @@ export const Step2 = ({
         <Grid justify="center" container spacing={0}>
           <Grid item>
             <WeeklyCalendar
-              currentDate={selectedDate}
+              currentDate={defaultDate}
               onDayChange={handleDayChange}
               onWeekChange={onWeekChange}
             />
@@ -88,7 +112,7 @@ export const Step2 = ({
       <div className={classes.stepContent}>
         <div className={classes.stepContentScrolling}>
           <Grid item container direction="column" spacing={8}>
-            {selectedPerson.map(key => {
+            {selectedPeople.map(key => {
               const person = timeSlotsByPerson[key];
               return (
                 <Grid item key={person.email}>
@@ -96,15 +120,15 @@ export const Step2 = ({
                     <CardContent className={classes.availabilityCardRoot}>
                       <Typography variant="body1" color="textSecondary">
                         <b>{person.name}</b> {bull}{' '}
-                        {selectedDate
+                        {defaultDate
                           .setLocale(locale)
                           .toLocaleString(DateTime.DATE_HUGE)}
                       </Typography>
                       {person.timeSlots.length ? (
                         person.timeSlots.map(ts =>
-                          selectedPersonTimeSlot &&
-                          ts === selectedPersonTimeSlot.time &&
-                          person.email === selectedPersonTimeSlot.email ? (
+                          selectedPeopleTimeSlot &&
+                          ts === selectedPeopleTimeSlot.time &&
+                          person.email === selectedPeopleTimeSlot.email ? (
                             <Chip
                               key={ts}
                               className={classes.availabilityCardTime}
@@ -118,11 +142,10 @@ export const Step2 = ({
                               label={ts}
                               clickable
                               onClick={() =>
-                                setSelectedPersonTimeSlot({
-                                  date: selectedDate.toISODate(),
+                                setSelectedPeopleTimeSlot({
+                                  date: defaultDate.toISODate(),
                                   time: ts,
                                   email: person.email,
-                                  id: person.id,
                                   duration: selectedDuration,
                                   otherProps,
                                 })
@@ -164,9 +187,9 @@ export const Step2 = ({
           )}
           <Grid item>
             <Button
-              disabled={selectedPersonTimeSlot == null}
+              disabled={selectedPeopleTimeSlot == null}
               onClick={() =>
-                onHandleSchedule && onHandleSchedule(selectedPersonTimeSlot)
+                onHandleSchedule && onHandleSchedule(selectedPeopleTimeSlot)
               }
             >
               {labels.buttonLabelSchedule}
@@ -182,6 +205,9 @@ Step2.defaultProps = {
   onWeekChange: {},
   callCancel: undefined,
   otherProps: undefined,
+  selectedDate: '',
+  selectedTime: '',
+  selectedPerson: '',
 };
 
 Step2.propTypes = {
@@ -190,5 +216,8 @@ Step2.propTypes = {
   onWeekChange: PropTypes.func,
   callPreviousStep: PropTypes.func.isRequired,
   callCancel: PropTypes.func,
+  selectedDate: PropTypes.string,
+  selectedTime: PropTypes.string,
+  selectedPerson: PropTypes.string,
   otherProps: PropTypes.object,
 };

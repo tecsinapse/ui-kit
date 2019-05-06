@@ -21,12 +21,12 @@ class TimeslotSelector extends React.Component {
 
     this.state = {
       dlgOpen: openOpened,
-      selectedPerson: personsEmailSelected || [],
+      selectedPeople: personsEmailSelected || [],
       selectedDuration: defaultDuration,
       otherProps: otherPropsDefault || {},
     };
-    this.changeSelectedPerson = selectedPerson => {
-      this.setState({ selectedPerson: [...selectedPerson] });
+    this.changeSelectedPeople = selectedPeople => {
+      this.setState({ selectedPeople: [...selectedPeople] });
     };
 
     this.changeSelectedDuration = selectedDuration => {
@@ -44,7 +44,7 @@ class TimeslotSelector extends React.Component {
     const { personsEmailSelected: personsEmailSelectedPrev } = this.props;
     const { personsEmailSelected } = nextProps;
     if (personsEmailSelectedPrev !== personsEmailSelected) {
-      this.setState({ selectedPerson: personsEmailSelected });
+      this.setState({ selectedPeople: personsEmailSelected });
     }
   }
 
@@ -55,10 +55,11 @@ class TimeslotSelector extends React.Component {
       labels,
       personsAvailabilities,
       durations,
+      selectedEmailPerson,
     } = this.props;
     const {
       dlgOpen,
-      selectedPerson,
+      selectedPeople,
       selectedDuration,
       otherProps,
     } = this.state;
@@ -77,10 +78,10 @@ class TimeslotSelector extends React.Component {
               {...this.props}
               classes={classes}
               setDlgOpen={value => this.setState({ dlgOpen: value })}
-              selectedPerson={selectedPerson}
+              selectedPeople={selectedPeople}
               selectedDuration={selectedDuration}
               otherProps={otherProps}
-              setSelectedPerson={this.changeSelectedPerson}
+              setSelectedPeople={this.changeSelectedPeople}
               setSelectedDuration={this.changeSelectedDuration}
               changeOtherProps={this.changeOtherProps}
               labels={labels}
@@ -94,15 +95,16 @@ class TimeslotSelector extends React.Component {
       <TimeslotSelectorComponent
         {...this.props}
         classes={classes}
-        selectedPerson={selectedPerson}
+        selectedPeople={selectedPeople}
         selectedDuration={selectedDuration}
         otherProps={otherProps}
-        setSelectedPerson={this.changeSelectedPerson}
+        setSelectedPeople={this.changeSelectedPeople}
         setSelectedDuration={this.changeSelectedDuration}
         changeOtherProps={this.changeOtherProps}
         labels={labels}
         personsAvailabilities={personsAvailabilities}
         durations={durations}
+        selectedPerson={selectedEmailPerson}
       />
     );
   }
@@ -120,13 +122,17 @@ TimeslotSelector.defaultProps = {
   cancelDialog: undefined,
   beforeSteps: undefined,
   otherProps: undefined,
+  selectedDate: '',
+  selectedTime: '',
   personsEmailSelected: [],
+  selectedEmailPerson: '',
 };
 
 TimeslotSelector.propTypes = {
   labels: PropTypes.object,
   personsAvailabilities: PropTypes.arrayOf(PropTypes.object).isRequired,
   personsEmailSelected: PropTypes.arrayOf(PropTypes.string),
+  selectedEmailPerson: PropTypes.string,
   locale: PropTypes.string,
   other: PropTypes.object,
   durations: PropTypes.arrayOf(PropTypes.number).isRequired,
@@ -138,6 +144,8 @@ TimeslotSelector.propTypes = {
   onWeekChange: PropTypes.func,
   closeOnHandleSchedule: PropTypes.bool,
   otherProps: PropTypes.object,
+  selectedDate: PropTypes.string,
+  selectedTime: PropTypes.string,
   beforeSteps: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
