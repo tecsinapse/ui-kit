@@ -21,12 +21,12 @@ class TimeslotSelector extends React.Component {
 
     this.state = {
       dlgOpen: openOpened,
-      selectedPerson: personsEmailSelected || [],
+      selectedPeople: personsEmailSelected || [],
       selectedDuration: defaultDuration,
       otherProps: otherPropsDefault || {},
     };
-    this.changeSelectedPerson = selectedPerson => {
-      this.setState({ selectedPerson: [...selectedPerson] });
+    this.changeSelectedPeople = selectedPeople => {
+      this.setState({ selectedPeople: [...selectedPeople] });
     };
 
     this.changeSelectedDuration = selectedDuration => {
@@ -44,7 +44,7 @@ class TimeslotSelector extends React.Component {
     const { personsEmailSelected: personsEmailSelectedPrev } = this.props;
     const { personsEmailSelected } = nextProps;
     if (personsEmailSelectedPrev !== personsEmailSelected) {
-      this.setState({ selectedPerson: personsEmailSelected });
+      this.setState({ selectedPeople: personsEmailSelected });
     }
   }
 
@@ -58,7 +58,7 @@ class TimeslotSelector extends React.Component {
     } = this.props;
     const {
       dlgOpen,
-      selectedPerson,
+      selectedPeople,
       selectedDuration,
       otherProps,
     } = this.state;
@@ -77,10 +77,10 @@ class TimeslotSelector extends React.Component {
               {...this.props}
               classes={classes}
               setDlgOpen={value => this.setState({ dlgOpen: value })}
-              selectedPerson={selectedPerson}
+              selectedPeople={selectedPeople}
               selectedDuration={selectedDuration}
               otherProps={otherProps}
-              setSelectedPerson={this.changeSelectedPerson}
+              setSelectedPeople={this.changeSelectedPeople}
               setSelectedDuration={this.changeSelectedDuration}
               changeOtherProps={this.changeOtherProps}
               labels={labels}
@@ -94,10 +94,10 @@ class TimeslotSelector extends React.Component {
       <TimeslotSelectorComponent
         {...this.props}
         classes={classes}
-        selectedPerson={selectedPerson}
+        selectedPeople={selectedPeople}
         selectedDuration={selectedDuration}
         otherProps={otherProps}
-        setSelectedPerson={this.changeSelectedPerson}
+        setSelectedPeople={this.changeSelectedPeople}
         setSelectedDuration={this.changeSelectedDuration}
         changeOtherProps={this.changeOtherProps}
         labels={labels}

@@ -13,8 +13,8 @@ import { Button } from '../../Buttons/Button';
 export const Step1 = ({
   classes,
   personsAvailabilities,
-  selectedPerson,
-  setSelectedPerson,
+  selectedPeople,
+  setSelectedPeople,
   selectedDuration,
   setSelectedDuration,
   durations,
@@ -35,12 +35,12 @@ export const Step1 = ({
     <div>
       <Select
         itensMaxLenght={3}
-        value={selectedPerson}
+        value={selectedPeople}
         options={persons}
         isMulti
         variant="web"
         fullWidth
-        onChange={setSelectedPerson}
+        onChange={setSelectedPeople}
       />
       <Grid container justify="center">
         <RadioGroup

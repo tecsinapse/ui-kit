@@ -30,10 +30,10 @@ class TimeslotSelectorComponent extends React.Component {
       beforeSteps,
       labels,
       cancelDialog,
-      selectedPerson,
+      selectedPeople,
       selectedDuration,
       otherProps,
-      setSelectedPerson,
+      setSelectedPeople,
       setSelectedDuration,
       changeOtherProps,
     } = this.props;
@@ -50,8 +50,8 @@ class TimeslotSelectorComponent extends React.Component {
       component: props => (
         <Step1
           key={props.key}
-          selectedPerson={props.selectedPerson}
-          setSelectedPerson={props.setSelectedPerson}
+          selectedPeople={props.selectedPeople}
+          setSelectedPeople={props.setSelectedPeople}
           selectedDuration={props.selectedDuration}
           setSelectedDuration={props.setSelectedDuration}
           personsAvailabilities={props.personsAvailabilities}
@@ -73,7 +73,7 @@ class TimeslotSelectorComponent extends React.Component {
       component: props => (
         <Step2
           key={props.key}
-          selectedPerson={props.selectedPerson}
+          selectedPeople={props.selectedPeople}
           selectedDuration={props.selectedDuration}
           selectedDate={props.selectedDate}
           selectedTime={props.selectedTime}
@@ -92,11 +92,11 @@ class TimeslotSelectorComponent extends React.Component {
 
     const props = {
       ...this.props,
-      selectedPerson,
+      selectedPeople,
       selectedDuration,
       otherProps,
       onHandleSchedule: this.internalOnHandleSchedule,
-      setSelectedPerson,
+      setSelectedPeople,
       setSelectedDuration,
       changeOtherProps,
       callCancel: cancelDialog,
@@ -111,7 +111,7 @@ TimeslotSelectorComponent.defaultProps = {
   cancelDialog: undefined,
   changeOtherProps: undefined,
   otherProps: undefined,
-  selectedPerson: [],
+  selectedPeople: [],
   selectedDuration: undefined,
   selectedDate: '',
   selectedTime: '',
@@ -121,7 +121,7 @@ TimeslotSelectorComponent.propTypes = {
   dialog: PropTypes.bool.isRequired,
   closeOnHandleSchedule: PropTypes.func.isRequired,
   onHandleSchedule: PropTypes.func.isRequired,
-  setSelectedPerson: PropTypes.func.isRequired,
+  setSelectedPeople: PropTypes.func.isRequired,
   setSelectedDuration: PropTypes.func.isRequired,
   labels: PropTypes.arrayOf(PropTypes.object).isRequired,
   personsAvailabilities: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -131,7 +131,7 @@ TimeslotSelectorComponent.propTypes = {
   cancelDialog: PropTypes.func,
   changeOtherProps: PropTypes.func,
   otherProps: PropTypes.object,
-  selectedPerson: PropTypes.arrayOf(PropTypes.string),
+  selectedPeople: PropTypes.arrayOf(PropTypes.string),
   selectedDuration: PropTypes.string,
   selectedDate: PropTypes.string,
   selectedTime: PropTypes.string,
