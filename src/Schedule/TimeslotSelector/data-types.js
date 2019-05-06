@@ -34,7 +34,7 @@ TimeslotData.propTypes = {
   companies: PropTypes.arrayOf(Company),
   persons: PropTypes.arrayOf(Person),
   slotDurations: PropTypes.arrayOf(PropTypes.number),
-  selectedPeople: PropTypes.arrayOf(Person),
+  selectedPerson: PropTypes.objectOf(Person),
   selectedDate: PropTypes.object,
   selectedTime: PropTypes.object,
   selectedSlotDuration: PropTypes.number,

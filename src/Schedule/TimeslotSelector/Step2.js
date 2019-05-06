@@ -59,6 +59,7 @@ export const Step2 = ({
   callCancel,
   selectedDate,
   selectedTime,
+  selectedPerson,
   otherProps,
 }) => {
   const [defaultDate, setSelectedDate] = useState(
@@ -72,23 +73,20 @@ export const Step2 = ({
     selectedDuration
   );
 
-  if (
-    selectedPeople &&
-    selectedPeople.length === 1 &&
-    selectedDate &&
-    selectedTime
-  ) {
-    const person = timeSlotsByPerson[selectedPeople[0]];
-    const timeSlot = person.timeSlots;
-    const personTime = timeSlot.find(tm => tm === selectedTime);
-    if (personTime && !selectedPeopleTimeSlot) {
-      setSelectedPeopleTimeSlot({
-        date: defaultDate.toISODate(),
-        time: personTime,
-        email: person.email,
-        duration: selectedDuration,
-        otherProps,
-      });
+  if (selectedPeople && selectedPerson && selectedDate && selectedTime) {
+    const person = timeSlotsByPerson[selectedPerson];
+    if (person) {
+      const timeSlot = person.timeSlots;
+      const personTime = timeSlot.find(tm => tm === selectedTime);
+      if (personTime && !selectedPeopleTimeSlot) {
+        setSelectedPeopleTimeSlot({
+          date: defaultDate.toISODate(),
+          time: personTime,
+          email: person.email,
+          duration: selectedDuration,
+          otherProps,
+        });
+      }
     }
   }
 
@@ -209,6 +207,7 @@ Step2.defaultProps = {
   otherProps: undefined,
   selectedDate: '',
   selectedTime: '',
+  selectedPerson: '',
 };
 
 Step2.propTypes = {
@@ -219,5 +218,6 @@ Step2.propTypes = {
   callCancel: PropTypes.func,
   selectedDate: PropTypes.string,
   selectedTime: PropTypes.string,
+  selectedPerson: PropTypes.string,
   otherProps: PropTypes.object,
 };

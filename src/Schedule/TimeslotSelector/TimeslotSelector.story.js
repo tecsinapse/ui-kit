@@ -12,7 +12,9 @@ import { Button } from '../..';
 
 const personsAvailabilities = require('../../../test/resources/availabilities.json');
 
-const personsEmailSelected = ['ricardo.almeida@example.com.br'];
+const personsEmailSelected = personsAvailabilities.map(p => p.email);
+
+const selectedEmailPerson = 'ricardo.almeida@example.com.br';
 const selectedDate = '2019-02-12';
 const selectedTime = '08:00';
 
@@ -56,6 +58,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
     <TimeslotSelector
       style={style}
       personsAvailabilities={personsAvailabilities}
+      selectedEmailPerson={selectedEmailPerson}
       durations={[15, 20, 30]}
       defaultDuration={20}
       onWeekChange={obj => console.log(obj)}

@@ -115,6 +115,7 @@ TimeslotSelectorComponent.defaultProps = {
   selectedDuration: undefined,
   selectedDate: '',
   selectedTime: '',
+  selectedPerson: '',
 };
 
 TimeslotSelectorComponent.propTypes = {
@@ -132,6 +133,7 @@ TimeslotSelectorComponent.propTypes = {
   changeOtherProps: PropTypes.func,
   otherProps: PropTypes.object,
   selectedPeople: PropTypes.arrayOf(PropTypes.string),
+  selectedPerson: PropTypes.string,
   selectedDuration: PropTypes.string,
   selectedDate: PropTypes.string,
   selectedTime: PropTypes.string,

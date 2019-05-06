@@ -55,6 +55,7 @@ class TimeslotSelector extends React.Component {
       labels,
       personsAvailabilities,
       durations,
+      selectedEmailPerson,
     } = this.props;
     const {
       dlgOpen,
@@ -103,6 +104,7 @@ class TimeslotSelector extends React.Component {
         labels={labels}
         personsAvailabilities={personsAvailabilities}
         durations={durations}
+        selectedPerson={selectedEmailPerson}
       />
     );
   }
@@ -123,12 +125,14 @@ TimeslotSelector.defaultProps = {
   selectedDate: '',
   selectedTime: '',
   personsEmailSelected: [],
+  selectedEmailPerson: '',
 };
 
 TimeslotSelector.propTypes = {
   labels: PropTypes.object,
   personsAvailabilities: PropTypes.arrayOf(PropTypes.object).isRequired,
   personsEmailSelected: PropTypes.arrayOf(PropTypes.string),
+  selectedEmailPerson: PropTypes.string,
   locale: PropTypes.string,
   other: PropTypes.object,
   durations: PropTypes.arrayOf(PropTypes.number).isRequired,
