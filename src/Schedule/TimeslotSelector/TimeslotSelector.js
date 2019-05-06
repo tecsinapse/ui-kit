@@ -120,6 +120,7 @@ TimeslotSelector.defaultProps = {
   cancelDialog: undefined,
   beforeSteps: undefined,
   otherProps: undefined,
+  selectedDate: '',
   personsEmailSelected: [],
 };
 
@@ -138,6 +139,7 @@ TimeslotSelector.propTypes = {
   onWeekChange: PropTypes.func,
   closeOnHandleSchedule: PropTypes.bool,
   otherProps: PropTypes.object,
+  selectedDate: PropTypes.string,
   beforeSteps: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,

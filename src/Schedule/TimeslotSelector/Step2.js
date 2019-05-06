@@ -57,15 +57,20 @@ export const Step2 = ({
   locale,
   callPreviousStep,
   callCancel,
+  selectedDate,
   otherProps,
 }) => {
-  const [selectedDate, setSelectedDate] = useState(DateTime.local());
+  const [defaultDate, setSelectedDate] = useState(
+    selectedDate ? DateTime.fromISO(selectedDate) : DateTime.local()
+  );
   const [selectedPersonTimeSlot, setSelectedPersonTimeSlot] = useState(null);
+
   const timeSlotsByPerson = mapByPerson(
     personsAvailabilities,
-    selectedDate,
+    defaultDate,
     selectedDuration
   );
+
   const handleDayChange = day => {
     setSelectedDate(day);
     setSelectedPersonTimeSlot(null);
@@ -78,7 +83,7 @@ export const Step2 = ({
         <Grid justify="center" container spacing={0}>
           <Grid item>
             <WeeklyCalendar
-              currentDate={selectedDate}
+              currentDate={defaultDate}
               onDayChange={handleDayChange}
               onWeekChange={onWeekChange}
             />
@@ -96,7 +101,7 @@ export const Step2 = ({
                     <CardContent className={classes.availabilityCardRoot}>
                       <Typography variant="body1" color="textSecondary">
                         <b>{person.name}</b> {bull}{' '}
-                        {selectedDate
+                        {defaultDate
                           .setLocale(locale)
                           .toLocaleString(DateTime.DATE_HUGE)}
                       </Typography>
@@ -119,10 +124,9 @@ export const Step2 = ({
                               clickable
                               onClick={() =>
                                 setSelectedPersonTimeSlot({
-                                  date: selectedDate.toISODate(),
+                                  date: defaultDate.toISODate(),
                                   time: ts,
                                   email: person.email,
-                                  id: person.id,
                                   duration: selectedDuration,
                                   otherProps,
                                 })
@@ -182,6 +186,7 @@ Step2.defaultProps = {
   onWeekChange: {},
   callCancel: undefined,
   otherProps: undefined,
+  selectedDate: '',
 };
 
 Step2.propTypes = {
@@ -190,5 +195,6 @@ Step2.propTypes = {
   onWeekChange: PropTypes.func,
   callPreviousStep: PropTypes.func.isRequired,
   callCancel: PropTypes.func,
+  selectedDate: PropTypes.string,
   otherProps: PropTypes.object,
 };

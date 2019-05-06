@@ -12,7 +12,8 @@ import { Button } from '../..';
 
 const personsAvailabilities = require('../../../test/resources/availabilities.json');
 
-const personsEmailSelected = personsAvailabilities.map(p => p.email);
+const personsEmailSelected = ['ricardo.almeida@example.com.br'];
+const selectedDate = '2019-02-12';
 
 const onHandleScheduleTest = selected => {
   alert(
@@ -20,7 +21,6 @@ const onHandleScheduleTest = selected => {
       selected.time
     }\n`
   );
-  console.log(selected);
 };
 
 const style = {
@@ -60,6 +60,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       onWeekChange={obj => console.log(obj)}
       onHandleSchedule={onHandleScheduleTest}
       personsEmailSelected={personsEmailSelected}
+      selectedDate={selectedDate}
     />
   ))
   .add('Modal TimeslotSelector', () => (
