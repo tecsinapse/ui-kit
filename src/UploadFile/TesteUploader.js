@@ -6,7 +6,7 @@ import { Uploader } from './Uploader';
 import { PreviewList } from './PreviewList';
 import { FormUploader } from './FormUploader';
 
-export function TesteUploader({ type, variant }) {
+export function TesteUploader({ type, variant, silent = false, inputRef }) {
   const [files, setFiles] = useState({});
   const [open, setOpen] = useState(false);
 
@@ -116,6 +116,8 @@ export function TesteUploader({ type, variant }) {
             onAccept={onAccept}
             onReject={onReject}
             filesLimit={3}
+            silent={silent}
+            inputRef={silent ? inputRef : undefined}
           />
           <Dialog
             onClose={() => setOpen(false)}

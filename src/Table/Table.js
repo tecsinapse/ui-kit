@@ -45,6 +45,7 @@ const Table = props => {
     exportOptions,
     classes: propClasses,
     forceCollapseActions,
+    onRowClick,
   } = props;
 
   const classes = tableStyles();
@@ -120,6 +121,7 @@ const Table = props => {
             forceCollapseActions={forceCollapseActions}
             data={pageData}
             rowId={rowId}
+            onRowClick={onRowClick}
             selectedRows={selectedRows}
             setSelectedRows={setSelectedRows}
             onSelectRow={onSelectRow}
@@ -141,6 +143,7 @@ Table.defaultProps = {
   options: {},
   selectedData: [],
   onSelectRow: null,
+  onRowClick: null,
   actions: [],
   toolbarOptions: null,
   pagination: false,
@@ -175,6 +178,7 @@ Table.propTypes = {
   }),
   selectedData: PropTypes.arrayOf(PropTypes.object),
   onSelectRow: PropTypes.func,
+  onRowClick: PropTypes.func,
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       tooltip: PropTypes.string,

@@ -78,6 +78,9 @@ const useStyle = makeStyles({
   iconColor: {
     color: '#61616152',
   },
+  hidden: {
+    visibility: 'hidden',
+  },
 });
 
 export function Uploader({
@@ -90,6 +93,8 @@ export function Uploader({
   onAccept,
   onReject,
   subtitle,
+  inputRef,
+  silent,
 }) {
   const [snackbar, setSnackBar] = useState({
     show: false,
@@ -161,44 +166,48 @@ export function Uploader({
   });
   return (
     <React.Fragment>
-      <div {...rootProps} className={classes.root}>
-        <input {...getInputProps()} />
-        <div className={classes.dropzone}>
-          <div className={classes.textDiv}>
-            <CloudUploadIcon
-              fontSize="large"
-              color="primary"
-              className={classes.icon}
-              classes={{ colorPrimary: classes.iconColor }}
-            />
-            <Typography variant="h5" color="textSecondary">
-              {title}
-            </Typography>
-          </div>
+      {silent ? (
+        <input {...getInputProps()} ref={inputRef} className={classes.hidden} />
+      ) : (
+        <div {...rootProps} className={classes.root}>
+          <input {...getInputProps()} />
+          <div className={classes.dropzone}>
+            <div className={classes.textDiv}>
+              <CloudUploadIcon
+                fontSize="large"
+                color="primary"
+                className={classes.icon}
+                classes={{ colorPrimary: classes.iconColor }}
+              />
+              <Typography variant="h5" color="textSecondary">
+                {title}
+              </Typography>
+            </div>
 
-          <div className={classes.divider}>
-            <Divider variant="middle" />
-          </div>
+            <div className={classes.divider}>
+              <Divider variant="middle" />
+            </div>
 
-          <div className={classes.buttonDiv}>
-            <Typography
-              variant="body2"
-              className={classes.text}
-              color="textSecondary"
-            >
-              {subtitle}
-            </Typography>
-            <Button
-              variant="secondary"
-              onClick={open}
-              className={classes.button}
-            >
-              <CloudUploadIcon className={classes.buttonIcon} />
-              {buttonLabel}
-            </Button>
+            <div className={classes.buttonDiv}>
+              <Typography
+                variant="body2"
+                className={classes.text}
+                color="textSecondary"
+              >
+                {subtitle}
+              </Typography>
+              <Button
+                variant="secondary"
+                onClick={open}
+                className={classes.button}
+              >
+                <CloudUploadIcon className={classes.buttonIcon} />
+                {buttonLabel}
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
       <Snackbar
         show={snackbar.show}
         variant={snackbar.variant}
@@ -220,6 +229,8 @@ Uploader.defaultProps = {
   onAccept: null,
   onReject: null,
   subtitle: 'or click on the button',
+  silent: false,
+  inputRef: undefined,
 };
 
 Uploader.propTypes = {
@@ -231,6 +242,8 @@ Uploader.propTypes = {
   buttonLabel: PropTypes.string,
   onAccept: PropTypes.func,
   onReject: PropTypes.func,
+  inputRef: PropTypes.object,
+  silent: PropTypes.bool,
   value: PropTypes.shape({
     uid: PropTypes.number,
     file: PropTypes.object,

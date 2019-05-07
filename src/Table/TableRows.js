@@ -26,10 +26,15 @@ const onClick = (
   rowData,
   hasSelection,
   onSelectRow,
+  onRowClick,
   selectedRows,
   setSelectedRows,
   rowId
 ) => event => {
+  if (onRowClick) {
+    onRowClick(rowData);
+    return;
+  }
   if (!hasSelection) return;
 
   let checked = false;
@@ -67,10 +72,11 @@ const TableRows = ({
   setSelectedRows,
   onSelectRow,
   rowId,
+  onRowClick,
   forceCollapseActions,
 }) => {
   const hasSelection = (columns || []).some(({ selection }) => selection);
-  const classes = tableRowStyles(hasSelection)();
+  const classes = tableRowStyles(hasSelection || !!onRowClick)();
 
   if (isEmptyOrNull(columns) || isEmptyOrNull(data)) return null;
 
@@ -83,6 +89,7 @@ const TableRows = ({
         rowData,
         hasSelection,
         onSelectRow,
+        onRowClick,
         selectedRows,
         setSelectedRows,
         rowId
