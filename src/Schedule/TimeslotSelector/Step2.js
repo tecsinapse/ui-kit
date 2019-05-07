@@ -77,7 +77,7 @@ export const Step2 = ({
     selectedPeople &&
     selectedPerson &&
     selectedDate &&
-    selectedDate === defaultDate.toISODate() &&
+    selectedDate.toISODate() === defaultDate.toISODate() &&
     selectedTime
   ) {
     const person = timeSlotsByPerson[selectedPerson];
