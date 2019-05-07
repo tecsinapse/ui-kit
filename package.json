@@ -128,6 +128,7 @@
     "react-virtualized": "^9.21.0",
     "react-window": "^1.5.1",
     "text-mask-addons": "^3.8.0",
+    "@tinymce/tinymce-react": "^3.0.1",
     "typeface-roboto": "^0.0.54"
   },
   "sideEffects": false
