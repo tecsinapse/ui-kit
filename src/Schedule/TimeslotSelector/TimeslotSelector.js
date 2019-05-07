@@ -86,6 +86,7 @@ class TimeslotSelector extends React.Component {
               changeOtherProps={this.changeOtherProps}
               labels={labels}
               personsAvailabilities={personsAvailabilities}
+              selectedPerson={selectedEmailPerson}
             />
           </DialogContent>
         </Dialog>
