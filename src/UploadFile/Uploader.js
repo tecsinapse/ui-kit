@@ -211,7 +211,13 @@ export function Uploader({
       <Snackbar
         show={snackbar.show}
         variant={snackbar.variant}
-        onClose={() => setSnackBar({ show: false, variant: 'error' })}
+        onClose={() =>
+          setSnackBar(prevSnack => ({
+            show: false,
+            variant: prevSnack.variant,
+            msg: prevSnack.msg,
+          }))
+        }
       >
         {snackbar.msg}
       </Snackbar>

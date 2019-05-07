@@ -45,12 +45,18 @@ const useStyle = makeStyles({
   },
 });
 
-export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
+export function PreviewList({
+  value,
+  onDelete,
+  headerLabel,
+  noFileTopLabel,
+  noFileBottomLabel,
+}) {
   const [showAlert, setShowAlert] = useState(false);
   const [selectedUID, setSelectedUID] = useState('');
   const [snackbar, setSnackBar] = useState({
     show: false,
-    variant: 'success',
+    variant: 'error',
     msg: '',
   });
 
@@ -81,7 +87,13 @@ export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
       <Snackbar
         show={snackbar.show}
         variant={snackbar.variant}
-        onClose={() => setSnackBar({ show: false, variant: 'success' })}
+        onClose={() =>
+          setSnackBar(prevSnack => ({
+            show: false,
+            variant: prevSnack.variant,
+            msg: prevSnack.msg,
+          }))
+        }
       >
         {snackbar.msg}
       </Snackbar>
@@ -97,7 +109,7 @@ export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
               className={classes.text}
               classes={{ colorPrimary: classes.unavailableColor }}
             >
-              {listLabel}
+              {noFileTopLabel}
             </Typography>
             <Typography
               variant="body2"
@@ -111,8 +123,12 @@ export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
         </div>
       ) : (
         <React.Fragment>
-          <Typography variant="h6">{listLabel}</Typography>
-          <Divider style={{ marginTop: '2%' }} />
+          {headerLabel && (
+            <div>
+              <Typography variant="h6">{headerLabel}</Typography>
+              <Divider style={{ marginTop: '2%' }} />
+            </div>
+          )}
           <div style={{ overflow: 'scroll' }}>
             <List className={classes.list}>
               {Object.keys(value).map((uid, i) => (
@@ -140,7 +156,8 @@ export function PreviewList({ value, onDelete, listLabel, noFileBottomLabel }) {
 PreviewList.defaultProps = {
   value: {},
   onDelete: () => {},
-  listLabel: 'Upload Files',
+  headerLabel: null,
+  noFileTopLabel: 'Upload Files',
   noFileBottomLabel: 'Appear Here',
 };
 
@@ -153,6 +170,7 @@ PreviewList.propTypes = {
     error: PropTypes.string,
   }),
   onDelete: PropTypes.func,
-  listLabel: PropTypes.string,
+  headerLabel: PropTypes.string,
   noFileBottomLabel: PropTypes.string,
+  noFileTopLabel: PropTypes.string,
 };

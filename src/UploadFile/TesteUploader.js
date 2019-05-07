@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import uniqid from 'uniqid';
 import { setInterval, clearInterval } from 'timers';
 import Dialog from '@material-ui/core/Dialog';
+// import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+// import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import { Uploader } from './Uploader';
 import { PreviewList } from './PreviewList';
 import { FormUploader } from './FormUploader';
@@ -124,16 +128,10 @@ export function TesteUploader({ type, variant, silent = false, inputRef }) {
             open={open}
             aria-labelledby="simple-dialog-title"
           >
-            <div
-              style={{
-                width: '450px',
-                height: '340px',
-                paddingLeft: '10px',
-                paddingRight: '10px',
-              }}
-            >
+            <DialogTitle id="form-dialog-title">Uploading Files</DialogTitle>
+            <DialogContent>
               <PreviewList value={files} onDelete={onDeleteFiles} />
-            </div>
+            </DialogContent>
           </Dialog>
         </React.Fragment>
       ) : (
