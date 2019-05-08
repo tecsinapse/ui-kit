@@ -48,6 +48,7 @@
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "react-select": "^2.4.2",
+    "react-sizeme": "^2.5.2",
     "react-test-renderer": "^16.6.0",
     "react-text-mask": "^5.4.3",
     "react-virtualized": "^9.21.0",

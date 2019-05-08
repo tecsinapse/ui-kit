@@ -7,15 +7,15 @@ import { Input } from '../Inputs/Input';
 const options = [
   {
     value: 'a',
-    label: 'Option A',
+    label: 'A',
   },
   {
     value: 'b',
-    label: 'Option B',
+    label: 'BBBBBB',
   },
   {
     value: 'c',
-    label: 'Option C',
+    label: 'CCCCCCCCCC',
   },
 ];
 

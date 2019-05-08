@@ -40,6 +40,9 @@ export const SelectUnstyled = ({
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [allSelected, setAllSelected] = useState(false);
+  const [optionSize, setOptionSize] = useState({});
+  const [containerSize, setContainerSize] = useState(0);
+
   const [yPos, setYPos] = useState(0);
   let { variant } = rest;
   const selectRef = useRef();
@@ -141,6 +144,10 @@ export const SelectUnstyled = ({
       setAllSelected(!allSelected);
     },
     ...rest,
+    optionSize,
+    setOptionSize,
+    containerSize,
+    setContainerSize,
   };
 
   const selectProps =
