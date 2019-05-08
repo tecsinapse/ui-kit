@@ -20,6 +20,15 @@ const useStyle = makeStyles({
     height: '100%',
     width: '100%',
   },
+  scrollHiddenBar: {
+    overflowY: 'scroll',
+    scrollbarWidth: 'none',
+    '-ms-overflow-style': 'none',
+    '&::-webkit-scrollbar': {
+      width: 0,
+      height: 0,
+    },
+  },
   circle: {
     display: 'flex',
     justifyContent: 'center',
@@ -129,7 +138,7 @@ export function PreviewList({
               <Divider style={{ marginTop: '2%' }} />
             </div>
           )}
-          <div style={{ overflow: 'scroll' }}>
+          <div className={classes.scrollHiddenBar}>
             <List className={classes.list}>
               {Object.keys(value).map((uid, i) => (
                 <UpFile
