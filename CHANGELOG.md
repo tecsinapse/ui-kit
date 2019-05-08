@@ -1,3 +1,15 @@
+<a name="0.0.132"></a>
+## <small>0.0.132 (2019-05-08)</small>
+
+* Add auto mode to select ([74bb9a6](https://github.com/tecsinapse/ui-kit/commit/74bb9a6))
+* Add css to rest chip element ([5c682b5](https://github.com/tecsinapse/ui-kit/commit/5c682b5))
+* Add state to save sizeMe information and calculate space ([947603b](https://github.com/tecsinapse/ui-kit/commit/947603b))
+* Improve ref name ([3acdd07](https://github.com/tecsinapse/ui-kit/commit/3acdd07))
+* Revert the storybook example and create a simple one to show auto ([75d38c4](https://github.com/tecsinapse/ui-kit/commit/75d38c4))
+* Test to fix with sizeme ([fcbeafb](https://github.com/tecsinapse/ui-kit/commit/fcbeafb))
+
+
+
 <a name="0.0.131"></a>
 ## <small>0.0.131 (2019-04-23)</small>
 
