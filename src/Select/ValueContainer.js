@@ -66,7 +66,12 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
               className={selectProps.childrenClasses.multiValueContainer}
             >
               {childrensToPrint}
-              {restSize > 0 && <Chip label={`+${restSize}`} />}
+              {restSize > 0 && (
+                <Chip
+                  className={selectProps.childrenClasses.chip}
+                  label={`+${restSize}`}
+                />
+              )}
               {React.cloneElement(children[1])}
             </components.ValueContainer>
           );
