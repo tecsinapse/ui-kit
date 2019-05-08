@@ -103,6 +103,7 @@ export const TextFieldComponent = ({
   shrinkLabel,
   placeholder,
   endAdornment,
+  endAdornmentMargin = true,
   startAdornment,
   ...input
 }) => (
@@ -133,6 +134,9 @@ export const TextFieldComponent = ({
         ),
         focused: classes.cssFocused,
         notchedOutline: classes.notchedOutline,
+        inputAdornedStart: classes.adornedMarginLeft,
+        inputAdornedEnd: classes.adornedMarginRight,
+        adornedEnd: classes.adornedMarginEnd,
       },
       startAdornment,
       endAdornment: (
@@ -140,6 +144,7 @@ export const TextFieldComponent = ({
           warning={warning}
           error={error}
           success={success}
+          endAdornmentMargin={endAdornmentMargin}
           endAdornment={endAdornment}
         />
       ),
@@ -208,6 +213,7 @@ Input.defaultProps = {
   placeholder: null,
   helperText: null,
   endAdornment: null,
+  endAdornmentMargin: true,
   startAdornment: null,
 };
 
@@ -248,6 +254,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   helperText: PropTypes.string,
   endAdornment: PropTypes.object,
+  endAdornmentMargin: PropTypes.bool,
   startAdornment: PropTypes.object,
 };
 

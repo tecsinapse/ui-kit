@@ -1,9 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import Icon from '@mdi/react';
 
 import { action } from '@storybook/addon-actions';
 
 import DeleteIcon from '@material-ui/icons/Delete';
+import { mdiFolderPlus } from '@mdi/js';
 import { Button } from './Button';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { IconButton } from './IconButton';
@@ -31,6 +33,12 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
   .add('primary button', () => (
     <Button variant="primary" onClick={action('onClick')}>
       Smart Button
+    </Button>
+  ))
+  .add('primary button', () => (
+    <Button variant="primary">
+      <Icon path={mdiFolderPlus} size={1} color="white" />
+      Nova Pasta
     </Button>
   ))
   .add('secondary button', () => (

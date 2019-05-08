@@ -1,5 +1,5 @@
 import { Tooltip, withStyles } from '@material-ui/core';
-import React, { Fragment, useState } from 'react';
+import React, { useEffect, useRef, Fragment, useState } from 'react';
 import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/core/object';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
@@ -43,7 +43,9 @@ export const SelectUnstyled = ({
   const [optionSize, setOptionSize] = useState({});
   const [containerSize, setContainerSize] = useState(0);
 
+  const [yPos, setYPos] = useState(0);
   let { variant } = rest;
+  const selectRef = useRef();
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
@@ -55,6 +57,11 @@ export const SelectUnstyled = ({
       variant = 'web';
     }
   }
+
+  useEffect(() => {
+    const pos = selectRef.current.getBoundingClientRect();
+    setYPos(pos.y);
+  });
 
   const flattenChildren = childrenIn =>
     childrenIn
@@ -73,6 +80,7 @@ export const SelectUnstyled = ({
       : flattenChildren(children);
 
   const defaultProps = {
+    yPos,
     selectPromptMessage,
     isMulti,
     menuIsOpen,
@@ -158,15 +166,17 @@ export const SelectUnstyled = ({
         };
 
   return (
-    <FormControl
-      key={key}
-      error={!!error}
-      fullWidth={fullWidth}
-      style={{ minWidth: '250px' }}
-    >
-      <ReactSelect {...selectProps} />
-      {error && <FormHelperText>{error}</FormHelperText>}
-    </FormControl>
+    <div ref={selectRef}>
+      <FormControl
+        key={key}
+        error={!!error}
+        fullWidth={fullWidth}
+        style={{ minWidth: '200px' }}
+      >
+        <ReactSelect {...selectProps} />
+        {error && <FormHelperText>{error}</FormHelperText>}
+      </FormControl>
+    </div>
   );
 };
 

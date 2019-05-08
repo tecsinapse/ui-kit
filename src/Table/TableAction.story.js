@@ -61,6 +61,7 @@ const actions = [
       // eslint-disable-next-line no-alert
       alert(JSON.stringify(rowData));
     },
+    visible: rowData => rowData.brand === 'BMW',
   },
 ];
 
