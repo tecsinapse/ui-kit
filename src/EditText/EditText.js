@@ -1,4 +1,10 @@
 import React from 'react';
+import 'tinymce/tinymce';
+import 'tinymce/themes/silver/theme';
+import 'tinymce/plugins/paste';
+import 'tinymce/plugins/link';
+import 'tinymce/plugins/code';
+import 'tinymce/plugins/image';
 import { Editor } from '@tinymce/tinymce-react';
 import { makeStyles } from '@material-ui/styles';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -39,6 +45,7 @@ export const EditText = ({
             paste_data_images: true,
             images_upload_url: uploadURL,
             automatic_uploads: true,
+            skin_url: '/',
           }}
           onChange={onChange}
           textareaName={name}
