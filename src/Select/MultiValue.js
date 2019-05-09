@@ -11,10 +11,10 @@ export function MultiValue({ children, selectProps, removeProps, isFocused }) {
       ? `${children.slice(0, maxLenghtOption)}...`
       : children;
   return (
-    <SizeMe>
+    <SizeMe noPlaceholder>
       {({ size }) => {
         const copyOptionSize = { ...selectProps.optionSize };
-        if (Math.ceil(size.width) !== copyOptionSize[label]) {
+        if (size.width && Math.ceil(size.width) && !copyOptionSize[label]) {
           copyOptionSize[label] = Math.ceil(size.width);
           selectProps.setOptionSize(copyOptionSize);
         }
