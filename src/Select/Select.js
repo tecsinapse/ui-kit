@@ -8,10 +8,12 @@ import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMe
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import { Help } from '@material-ui/icons';
+import { SizeMe } from 'react-sizeme';
 import { selectInputStyle } from './SelectInputStyle';
 import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';
 import { selectCustomWebComponents } from './SelectCustomWebComponents';
 import { inputStyles } from '../Inputs/InputStyles';
+import { calculateValuesSizes } from './CalculateOptionsWidth';
 
 export const SelectUnstyled = ({
   value,
@@ -40,7 +42,6 @@ export const SelectUnstyled = ({
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [allSelected, setAllSelected] = useState(false);
-  const [optionSize, setOptionSize] = useState({});
   const [containerSize, setContainerSize] = useState(0);
 
   const [yPos, setYPos] = useState(0);
@@ -144,8 +145,6 @@ export const SelectUnstyled = ({
       setAllSelected(!allSelected);
     },
     ...rest,
-    optionSize,
-    setOptionSize,
     containerSize,
     setContainerSize,
   };
@@ -165,6 +164,7 @@ export const SelectUnstyled = ({
           ...defaultProps,
         };
 
+  const valuesWidth = calculateValuesSizes(selectProps.options);
   return (
     <div ref={selectRef}>
       <FormControl
@@ -173,7 +173,15 @@ export const SelectUnstyled = ({
         fullWidth={fullWidth}
         style={{ minWidth: '200px' }}
       >
-        <ReactSelect {...selectProps} />
+        <SizeMe noPlaceholder>
+          {({ size }) => (
+            <ReactSelect
+              {...selectProps}
+              valuesWidth={valuesWidth}
+              selectSize={size}
+            />
+          )}
+        </SizeMe>
         {error && <FormHelperText>{error}</FormHelperText>}
       </FormControl>
     </div>

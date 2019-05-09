@@ -21,7 +21,7 @@ const options = [
 
 // Dummy select to show auto menu
 export const SelectWrapper3 = props => {
-  const [value, setValue] = useState('a');
+  const [multiValue, setMultiValue] = useState(['a', 'b', 'c']);
   return (
     <div
       style={{ display: 'flex', flexDirection: 'column', overflow: 'scroll' }}
@@ -56,9 +56,9 @@ export const SelectWrapper3 = props => {
       <Input />
       <Input />
       <Select
-        value={value}
+        value={multiValue}
         options={options}
-        onChange={setValue}
+        onChange={setMultiValue}
         label="Placeholder"
         {...props}
       />
