@@ -1,3 +1,11 @@
+<a name="0.0.133"></a>
+## <small>0.0.133 (2019-05-09)</small>
+
+* multiselect autocalculate bug ([7a0f66a](https://github.com/tecsinapse/ui-kit/commit/7a0f66a))
+* multiselect now calculating size of text by heuristics ([fa8aac0](https://github.com/tecsinapse/ui-kit/commit/fa8aac0))
+
+
+
 <a name="0.0.132"></a>
 ## <small>0.0.132 (2019-05-08)</small>
 
