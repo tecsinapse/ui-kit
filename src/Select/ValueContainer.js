@@ -27,9 +27,9 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
     else free = selectProps.containerSize;
 
     // discount (+1) chip from free space and margin
-    free -= 50;
+    free -= 45;
     // discount right controllers from free space
-    free -= 85;
+    free -= 100;
     const childList = children && children[0];
     const itensMaxLenght =
       childList instanceof Array && childList.reduce
