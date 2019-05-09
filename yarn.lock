@@ -13301,6 +13301,11 @@ tinycolor2@^1.4.1:
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
   integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
 
+tinymce-i18n@^19.4.15:
+  version "19.4.15"
+  resolved "https://registry.yarnpkg.com/tinymce-i18n/-/tinymce-i18n-19.4.15.tgz#37219a4f5cb20cd807597141a628b66f9658b730"
+  integrity sha512-v3w0ooxPd0ZU2pVh5UDVVXaGR2nfSh+zbU2dNTFjtYLE+QdJebOcDXPBgrLelymM3qFPBz+lHHu2c5el2ZKheA==
+
 tinymce@^5.0.4:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-5.0.4.tgz#4f398ee977b487ef16aeda188b0d981bae536eb6"
