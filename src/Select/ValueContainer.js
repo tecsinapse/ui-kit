@@ -27,7 +27,7 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
     else free = selectProps.containerSize;
 
     // discount (+1) chip from free space and margin
-    free -= 40;
+    free -= 50;
     // discount right controllers from free space
     free -= 85;
     const childList = children && children[0];
