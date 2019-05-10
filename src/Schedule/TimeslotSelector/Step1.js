@@ -82,9 +82,7 @@ export const Step1 = ({
         )}
         {callNextStep && (
           <Grid item>
-            <Button onClick={callNextStep} variant="secondary">
-              {labels.buttonLabelNext}
-            </Button>
+            <Button onClick={callNextStep}>{labels.buttonLabelNext}</Button>
           </Grid>
         )}
       </Grid>
