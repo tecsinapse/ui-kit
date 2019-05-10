@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useImperativeHandle, forwardRef } from 'react';
 import { useDropzone } from 'react-dropzone';
 import PropTypes from 'prop-types';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
@@ -83,147 +83,161 @@ const useStyle = makeStyles({
   },
 });
 
-export function Uploader({
-  value,
-  acceptedFormat,
-  filesLimit,
-  maxFileSize,
-  title,
-  buttonLabel,
-  onAccept,
-  onReject,
-  subtitle,
-  inputRef,
-  silent,
-}) {
-  const [snackbar, setSnackBar] = useState({
-    show: false,
-    variant: 'error',
-    msg: '',
-  });
-  const classes = useStyle();
+export const Uploader = forwardRef(
+  (
+    {
+      value,
+      acceptedFormat,
+      filesLimit,
+      maxFileSize,
+      title,
+      buttonLabel,
+      onAccept,
+      onReject,
+      subtitle,
+      silent,
+    },
+    ref
+  ) => {
+    const [snackbar, setSnackBar] = useState({
+      show: false,
+      variant: 'error',
+      msg: '',
+    });
+    const classes = useStyle();
 
-  const { getRootProps, getInputProps, open } = useDropzone({
-    accept: acceptedFormat.join(','),
-    maxSize: maxFileSize,
-    onDrop: acceptedFiles => {
-      // The limit only counts uploading file (no error and no completed)
-      if (
-        acceptedFiles.length +
-          Object.keys(value).filter(
-            i => !value[i].error && !(value[i].completed >= 100)
-          ).length <=
-        filesLimit
-      ) {
-        if (onAccept) onAccept(acceptedFiles);
-      } else {
+    const { getRootProps, getInputProps, open } = useDropzone({
+      noClick: true,
+      noKeyboard: true,
+      accept: acceptedFormat.join(','),
+      maxSize: maxFileSize,
+      onDrop: acceptedFiles => {
+        // The limit only counts uploading file (no error and no completed)
+        if (
+          acceptedFiles.length +
+            Object.keys(value).filter(
+              i => !value[i].error && !(value[i].completed >= 100)
+            ).length <=
+          filesLimit
+        ) {
+          if (onAccept) onAccept(acceptedFiles);
+        } else {
+          setSnackBar({
+            show: true,
+            variant: 'error',
+            msg: `Maximum allowed number of files exceeded. Only ${filesLimit} allowed`,
+          });
+          if (onReject)
+            onReject(
+              acceptedFiles.map(file => ({
+                file,
+                error: 'Maximum allowed number of files',
+              }))
+            );
+        }
+      },
+      onDropRejected: rejectedFiles => {
+        let message = '';
+        const errorFile = [];
+        rejectedFiles.forEach(rejectedFile => {
+          let messageFile = '';
+          message += `${rejectedFile.name} failed. `;
+          if (!acceptedFormat.includes(rejectedFile.type)) {
+            messageFile += 'File type not supported. ';
+          }
+          if (rejectedFile.size > maxFileSize) {
+            messageFile += `Size limit ${convertBytes(maxFileSize)}.`;
+          }
+          if (messageFile === '') messageFile = 'Undefined error';
+          errorFile.push({ file: rejectedFile, error: messageFile });
+        });
         setSnackBar({
           show: true,
           variant: 'error',
-          msg: `Maximum allowed number of files exceeded. Only ${filesLimit} allowed`,
+          msg: message,
         });
-        if (onReject)
-          onReject(
-            acceptedFiles.map(file => ({
-              file,
-              error: 'Maximum allowed number of files',
-            }))
-          );
-      }
-    },
-    onDropRejected: rejectedFiles => {
-      let message = '';
-      const errorFile = [];
-      rejectedFiles.forEach(rejectedFile => {
-        let messageFile = '';
-        message += `${rejectedFile.name} failed. `;
-        if (!acceptedFormat.includes(rejectedFile.type)) {
-          messageFile += 'File type not supported. ';
+        if (onReject && errorFile.length > 0) onReject(errorFile);
+      },
+    });
+
+    const rootProps = getRootProps({
+      // Disable click and keydown behavior
+      onClick: event => event.stopPropagation(),
+      onKeyDown: event => {
+        if (event.keyCode === 32 || event.keyCode === 13) {
+          event.stopPropagation();
         }
-        if (rejectedFile.size > maxFileSize) {
-          messageFile += `Size limit ${convertBytes(maxFileSize)}.`;
-        }
-        if (messageFile === '') messageFile = 'Undefined error';
-        errorFile.push({ file: rejectedFile, error: messageFile });
-      });
-      setSnackBar({
-        show: true,
-        variant: 'error',
-        msg: message,
-      });
-      if (onReject && errorFile.length > 0) onReject(errorFile);
-    },
-  });
+      },
+    });
 
-  const rootProps = getRootProps({
-    // Disable click and keydown behavior
-    onClick: event => event.stopPropagation(),
-    onKeyDown: event => {
-      if (event.keyCode === 32 || event.keyCode === 13) {
-        event.stopPropagation();
-      }
-    },
-  });
-  return (
-    <React.Fragment>
-      {silent ? (
-        <input {...getInputProps()} ref={inputRef} className={classes.hidden} />
-      ) : (
-        <div {...rootProps} className={classes.root}>
-          <input {...getInputProps()} />
-          <div className={classes.dropzone}>
-            <div className={classes.textDiv}>
-              <CloudUploadIcon
-                fontSize="large"
-                color="primary"
-                className={classes.icon}
-                classes={{ colorPrimary: classes.iconColor }}
-              />
-              <Typography variant="h5" color="textSecondary">
-                {title}
-              </Typography>
-            </div>
+    useImperativeHandle(ref, () => ({
+      open,
+    }));
 
-            <div className={classes.divider}>
-              <Divider variant="middle" />
-            </div>
+    return (
+      <React.Fragment>
+        {silent ? (
+          <div ref={ref}>
+            <input {...getInputProps()} className={classes.hidden} />
+          </div>
+        ) : (
+          <div {...rootProps} className={classes.root}>
+            <input {...getInputProps()} />
+            <div className={classes.dropzone}>
+              <div className={classes.textDiv}>
+                <CloudUploadIcon
+                  fontSize="large"
+                  color="primary"
+                  className={classes.icon}
+                  classes={{ colorPrimary: classes.iconColor }}
+                />
+                <Typography variant="h5" color="textSecondary">
+                  {title}
+                </Typography>
+              </div>
 
-            <div className={classes.buttonDiv}>
-              <Typography
-                variant="body2"
-                className={classes.text}
-                color="textSecondary"
-              >
-                {subtitle}
-              </Typography>
-              <Button
-                variant="secondary"
-                onClick={open}
-                className={classes.button}
-              >
-                <CloudUploadIcon className={classes.buttonIcon} />
-                {buttonLabel}
-              </Button>
+              <div className={classes.divider}>
+                <Divider variant="middle" />
+              </div>
+
+              <div className={classes.buttonDiv}>
+                <Typography
+                  variant="body2"
+                  className={classes.text}
+                  color="textSecondary"
+                >
+                  {subtitle}
+                </Typography>
+                <Button
+                  variant="secondary"
+                  onClick={open}
+                  className={classes.button}
+                  ref={ref}
+                >
+                  <CloudUploadIcon className={classes.buttonIcon} />
+                  {buttonLabel}
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-      <Snackbar
-        show={snackbar.show}
-        variant={snackbar.variant}
-        onClose={() =>
-          setSnackBar(prevSnack => ({
-            show: false,
-            variant: prevSnack.variant,
-            msg: prevSnack.msg,
-          }))
-        }
-      >
-        {snackbar.msg}
-      </Snackbar>
-    </React.Fragment>
-  );
-}
+        )}
+        <Snackbar
+          show={snackbar.show}
+          variant={snackbar.variant}
+          onClose={() =>
+            setSnackBar(prevSnack => ({
+              show: false,
+              variant: prevSnack.variant,
+              msg: prevSnack.msg,
+            }))
+          }
+        >
+          {snackbar.msg}
+        </Snackbar>
+      </React.Fragment>
+    );
+  }
+);
 
 Uploader.defaultProps = {
   value: {},

@@ -152,6 +152,7 @@ export function PreviewList({
                   data={value[uid].data}
                   error={value[uid].error}
                   setSnackBar={setSnackBar}
+                  key={uid}
                 />
               ))}
             </List>
