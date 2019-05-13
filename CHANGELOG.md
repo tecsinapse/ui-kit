@@ -1,3 +1,11 @@
+<a name="0.0.135"></a>
+## <small>0.0.135 (2019-05-09)</small>
+
+* adjusting right spacing discount for heuristic ([b8be395](https://github.com/tecsinapse/ui-kit/commit/b8be395))
+* adjusting right spacing discount for heuristic ([ecec579](https://github.com/tecsinapse/ui-kit/commit/ecec579))
+
+
+
 <a name="0.0.134"></a>
 ## <small>0.0.134 (2019-05-09)</small>
 
