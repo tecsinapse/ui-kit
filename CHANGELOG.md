@@ -1,3 +1,17 @@
+<a name="0.0.137"></a>
+## <small>0.0.137 (2019-05-13)</small>
+
+* Add ckeditor ([1e2925c](https://github.com/tecsinapse/ui-kit/commit/1e2925c))
+* Add error ([0b8bc78](https://github.com/tecsinapse/ui-kit/commit/0b8bc78))
+* Add lang support ([b43c700](https://github.com/tecsinapse/ui-kit/commit/b43c700))
+* Add prop to lang and show menu ([80ec31a](https://github.com/tecsinapse/ui-kit/commit/80ec31a))
+* Add skin prop ([5cd3c56](https://github.com/tecsinapse/ui-kit/commit/5cd3c56))
+* Add tiny and refactor edit component ([e255126](https://github.com/tecsinapse/ui-kit/commit/e255126))
+* Fix tiny editor locally ([69dddf3](https://github.com/tecsinapse/ui-kit/commit/69dddf3))
+* Remove ckeditor and set prop as undefined ([d4fd0d7](https://github.com/tecsinapse/ui-kit/commit/d4fd0d7))
+
+
+
 <a name="0.0.136"></a>
 ## <small>0.0.136 (2019-05-13)</small>
 
