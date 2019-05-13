@@ -24,8 +24,8 @@ const Action = ({ action, row, vertical, setAnchorEl }) => {
     if (onClick) {
       onClick(row, event);
       setAnchorEl(null);
-      event.stopPropagation();
     }
+    event.stopPropagation();
   };
   const button = vertical ? (
     <Fragment>
@@ -96,7 +96,11 @@ const TableRowActions = ({
   return (
     <React.Fragment>
       <IconButton
-        onClick={event => setAnchorEl(event.currentTarget)}
+        onClick={event => {
+          event.preventDefault();
+          event.stopPropagation();
+          setAnchorEl(event.currentTarget);
+        }}
         aria-owns={open ? 'simple-popper' : undefined}
         aria-haspopup="true"
       >
@@ -105,7 +109,11 @@ const TableRowActions = ({
       <Popover
         open={open}
         anchorEl={anchorEl}
-        onClose={() => setAnchorEl(null)}
+        onClose={event => {
+          event.preventDefault();
+          event.stopPropagation();
+          setAnchorEl(null);
+        }}
         anchorOrigin={{
           vertical: 'top',
           horizontal: 'left',
