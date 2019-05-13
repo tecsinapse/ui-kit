@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
-  "version": "0.0.123",
+  "version": "0.0.136",
   "browser": "dist/index.js",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
@@ -35,8 +35,8 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-inline-react-svg": "^1.0.1",
     "classnames": "^2.2.6",
-    "docz": "^0.13.7",
-    "docz-theme-default": "^0.13.7",
+    "docz": "^1.0.0-rc.8",
+    "docz-theme-default": "^1.0.0-rc.8",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "git-dirty": "^1.0.2",
@@ -48,7 +48,9 @@
     "prop-types": "^15.6.2",
     "react": "16.8.4",
     "react-dom": "16.8.4",
+    "react-dropzone": "^10.0.2",
     "react-select": "^2.4.2",
+    "react-sizeme": "^2.5.2",
     "react-test-renderer": "^16.6.0",
     "react-text-mask": "^5.4.3",
     "react-virtualized": "^9.21.0",
@@ -68,7 +70,8 @@
     "text-mask-core": "^5.1.2",
     "tinymce": "^5.0.4",
     "tinymce-i18n": "^19.4.15",
-    "typeface-roboto": "^0.0.54"
+    "typeface-roboto": "^0.0.54",
+    "uniqid": "^5.0.3"
   },
   "files": [
     "build",

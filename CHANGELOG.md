@@ -1,3 +1,138 @@
+<a name="0.0.136"></a>
+## <small>0.0.136 (2019-05-13)</small>
+
+* actions prevent propagation ([cb7da4f](https://github.com/tecsinapse/ui-kit/commit/cb7da4f))
+* Add base API to component ([d3abc73](https://github.com/tecsinapse/ui-kit/commit/d3abc73))
+* Add delete action (WIP: bug with more than one) ([20437ce](https://github.com/tecsinapse/ui-kit/commit/20437ce))
+* Add error to component ([d34e25d](https://github.com/tecsinapse/ui-kit/commit/d34e25d))
+* Add form component ([101c4cf](https://github.com/tecsinapse/ui-kit/commit/101c4cf))
+* Add initial state and improve layout ([3d97259](https://github.com/tecsinapse/ui-kit/commit/3d97259))
+* Add initial web/mobile responsive ([185cb9c](https://github.com/tecsinapse/ui-kit/commit/185cb9c))
+* Add preview basic, componenet of preview list upfile, improve example and fix uploader boxes ([ed1cde9](https://github.com/tecsinapse/ui-kit/commit/ed1cde9))
+* Add preview of image ([b22a2e1](https://github.com/tecsinapse/ui-kit/commit/b22a2e1))
+* Add status initial and improve item space ([ddc8e4e](https://github.com/tecsinapse/ui-kit/commit/ddc8e4e))
+* Add test component ([a3462db](https://github.com/tecsinapse/ui-kit/commit/a3462db))
+* Add uploader docz and break docz ([adf848e](https://github.com/tecsinapse/ui-kit/commit/adf848e))
+* Export a formuploader and update story with it ([09e4f08](https://github.com/tecsinapse/ui-kit/commit/09e4f08))
+* Fix API and style ([553503f](https://github.com/tecsinapse/ui-kit/commit/553503f))
+* Fix breaking desing with big text and add thumbnail ([cb6e558](https://github.com/tecsinapse/ui-kit/commit/cb6e558))
+* Fix bugs number, delete and snackbar ([5c2a727](https://github.com/tecsinapse/ui-kit/commit/5c2a727))
+* Fix colors ([910a83b](https://github.com/tecsinapse/ui-kit/commit/910a83b))
+* Fix open silent mode same files and preview key list ([8cc945a](https://github.com/tecsinapse/ui-kit/commit/8cc945a))
+* Fix snackbar keep msg onClose ([f0376f8](https://github.com/tecsinapse/ui-kit/commit/f0376f8))
+* Fix snackbar onclose method ([8bde203](https://github.com/tecsinapse/ui-kit/commit/8bde203))
+* Four by each ([4ecf57b](https://github.com/tecsinapse/ui-kit/commit/4ecf57b))
+* Implement preview list ([137341a](https://github.com/tecsinapse/ui-kit/commit/137341a))
+* Implement uploader ([743cc79](https://github.com/tecsinapse/ui-kit/commit/743cc79))
+* Improve design of drag/drop component ([3c51afd](https://github.com/tecsinapse/ui-kit/commit/3c51afd))
+* Improve Uploader Story ([51ed4ba](https://github.com/tecsinapse/ui-kit/commit/51ed4ba))
+* Initial files ([5465918](https://github.com/tecsinapse/ui-kit/commit/5465918))
+* Refactor dialog to use material-ui dialog utils ([b50266f](https://github.com/tecsinapse/ui-kit/commit/b50266f))
+* Remove margin and decrease error icon ([6db6861](https://github.com/tecsinapse/ui-kit/commit/6db6861))
+* Remove useless example ([2f1d4f1](https://github.com/tecsinapse/ui-kit/commit/2f1d4f1))
+* Separate components, update drag with button and upgrade list item design ([7864a15](https://github.com/tecsinapse/ui-kit/commit/7864a15))
+* Several fix to work example ([ec98101](https://github.com/tecsinapse/ui-kit/commit/ec98101))
+* Snackbar exclud/error/add item ([c768ed9](https://github.com/tecsinapse/ui-kit/commit/c768ed9))
+* typo ([45e34da](https://github.com/tecsinapse/ui-kit/commit/45e34da))
+* Uploader silent ([6b4433b](https://github.com/tecsinapse/ui-kit/commit/6b4433b))
+* Uploader silent and table adjustments ([d16969f](https://github.com/tecsinapse/ui-kit/commit/d16969f))
+* vertical actions on table ([888d345](https://github.com/tecsinapse/ui-kit/commit/888d345))
+
+
+
+<a name="0.0.135"></a>
+## <small>0.0.135 (2019-05-09)</small>
+
+* adjusting right spacing discount for heuristic ([b8be395](https://github.com/tecsinapse/ui-kit/commit/b8be395))
+* adjusting right spacing discount for heuristic ([ecec579](https://github.com/tecsinapse/ui-kit/commit/ecec579))
+
+
+
+<a name="0.0.134"></a>
+## <small>0.0.134 (2019-05-09)</small>
+
+
+
+
+<a name="0.0.133"></a>
+## <small>0.0.133 (2019-05-09)</small>
+
+* multiselect autocalculate bug ([7a0f66a](https://github.com/tecsinapse/ui-kit/commit/7a0f66a))
+* multiselect now calculating size of text by heuristics ([fa8aac0](https://github.com/tecsinapse/ui-kit/commit/fa8aac0))
+
+
+
+<a name="0.0.132"></a>
+## <small>0.0.132 (2019-05-08)</small>
+
+* Add auto mode to select ([74bb9a6](https://github.com/tecsinapse/ui-kit/commit/74bb9a6))
+* Add css to rest chip element ([5c682b5](https://github.com/tecsinapse/ui-kit/commit/5c682b5))
+* Add state to save sizeMe information and calculate space ([947603b](https://github.com/tecsinapse/ui-kit/commit/947603b))
+* Improve ref name ([3acdd07](https://github.com/tecsinapse/ui-kit/commit/3acdd07))
+* Revert the storybook example and create a simple one to show auto ([75d38c4](https://github.com/tecsinapse/ui-kit/commit/75d38c4))
+* Test to fix with sizeme ([fcbeafb](https://github.com/tecsinapse/ui-kit/commit/fcbeafb))
+
+
+
+<a name="0.0.131"></a>
+## <small>0.0.131 (2019-04-23)</small>
+
+* Adding more themes ([47202e7](https://github.com/tecsinapse/ui-kit/commit/47202e7))
+
+
+
+<a name="0.0.130"></a>
+## <small>0.0.130 (2019-04-17)</small>
+
+* solving login height and snackbar styled error when changing button style ([8748338](https://github.com/tecsinapse/ui-kit/commit/8748338))
+
+
+
+<a name="0.0.129"></a>
+## <small>0.0.129 (2019-04-16)</small>
+
+* solving storybook style error ([5778256](https://github.com/tecsinapse/ui-kit/commit/5778256))
+
+
+
+<a name="0.0.128"></a>
+## <small>0.0.128 (2019-04-16)</small>
+
+* refactor button to css styles ([d2893d0](https://github.com/tecsinapse/ui-kit/commit/d2893d0))
+
+
+
+<a name="0.0.127"></a>
+## <small>0.0.127 (2019-04-16)</small>
+
+* adding folder breadcrumb component ([7fc5d02](https://github.com/tecsinapse/ui-kit/commit/7fc5d02))
+* forgot password align on right when no rememberbox ([a684bfe](https://github.com/tecsinapse/ui-kit/commit/a684bfe))
+
+
+
+<a name="0.0.126"></a>
+## <small>0.0.126 (2019-04-15)</small>
+
+
+
+
+<a name="0.0.125"></a>
+## <small>0.0.125 (2019-04-15)</small>
+
+* reverting modification on rememberBox login ([4632261](https://github.com/tecsinapse/ui-kit/commit/4632261))
+
+
+
+<a name="0.0.124"></a>
+## <small>0.0.124 (2019-04-15)</small>
+
+* Add color to placeholder ([00fb058](https://github.com/tecsinapse/ui-kit/commit/00fb058))
+* Add design improvements ([4ead104](https://github.com/tecsinapse/ui-kit/commit/4ead104))
+* no inline styles ([57679dc](https://github.com/tecsinapse/ui-kit/commit/57679dc))
+* Use theme spacing, fix footer image ([1eb00c3](https://github.com/tecsinapse/ui-kit/commit/1eb00c3))
+
+
+
 <a name="0.0.123"></a>
 ## <small>0.0.123 (2019-04-12)</small>
 

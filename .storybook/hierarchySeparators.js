@@ -4,6 +4,7 @@ export const GROUPS = {
   DIVIDERS: 'Dividers',
   LOADINGS: 'Loadings',
   MENU: 'Menu',
+  FILES: 'Files',
   ALERTS: 'Alerts',
   GRID: 'Grid',
   FORMS: 'Forms',

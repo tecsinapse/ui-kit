@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
-import { AppBar as MaterialAppBar } from '@material-ui/core';
+import { AppBar as MaterialAppBar, CircularProgress } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -44,10 +44,10 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     backgroundColor: palette.primary.light,
   },
   link: {
-    color: `${palette.common.white} !important`,
+    color: `${palette.primary.contrastText} !important`,
   },
   separator: {
-    color: 'white',
+    color: palette.primary.contrastText,
   },
 }));
 
@@ -60,8 +60,10 @@ export const AppBar = ({
   rightIcons,
   className,
   breadcrumbs = [],
+  loadingBreadcrumbs = false,
 }) => {
   const classes = useStyles();
+  const theme = useTheme();
   return (
     <div className={className}>
       <MaterialAppBar className={classes.appBar}>
@@ -71,7 +73,11 @@ export const AppBar = ({
             aria-label="Abrir menu"
             onClick={menuOnClick}
           >
-            <Icon path={mdiMenu} color="white" size={1} />
+            <Icon
+              path={mdiMenu}
+              color={theme.palette.primary.contrastText}
+              size={1}
+            />
           </IconButton>
           {leftIcons}
           <div className={classes.grow}>
@@ -84,38 +90,42 @@ export const AppBar = ({
           {rightIcons}
         </Toolbar>
         <div className={classes.paperBreadcrumb}>
-          <Breadcrumbs
-            classes={{ root: classes.breadcrumb }}
-            separator={
-              <NavigateNextIcon
-                fontSize="small"
-                className={classes.separator}
-              />
-            }
-            arial-label="Breadcrumb"
-          >
-            {breadcrumbs.map((current, index, arr) =>
-              index === arr.length - 1 ? (
-                <Typography
-                  key={current.title}
-                  color="textPrimary"
-                  variant="subtitle2"
-                >
-                  {current.title}
-                </Typography>
-              ) : (
-                <Link
-                  key={current.title}
-                  component={current.component}
-                  variant="subtitle2"
-                  classes={{ root: classes.link }}
-                  {...current.componentProps}
-                >
-                  {current.title}
-                </Link>
-              )
-            )}
-          </Breadcrumbs>
+          {loadingBreadcrumbs ? (
+            <CircularProgress size={10} />
+          ) : (
+            <Breadcrumbs
+              classes={{ root: classes.breadcrumb }}
+              separator={
+                <NavigateNextIcon
+                  fontSize="small"
+                  className={classes.separator}
+                />
+              }
+              arial-label="Breadcrumb"
+            >
+              {breadcrumbs.map((current, index, arr) =>
+                index === arr.length - 1 ? (
+                  <Typography
+                    key={current.title}
+                    color="secondary"
+                    variant="subtitle2"
+                  >
+                    {current.title}
+                  </Typography>
+                ) : (
+                  <Link
+                    key={current.title}
+                    component={current.component}
+                    variant="subtitle2"
+                    classes={{ root: classes.link }}
+                    {...current.componentProps}
+                  >
+                    {current.title}
+                  </Link>
+                )
+              )}
+            </Breadcrumbs>
+          )}
         </div>
       </MaterialAppBar>
     </div>
@@ -129,6 +139,7 @@ AppBar.defaultProps = {
   menuOnClick: null,
   leftIcons: null,
   rightIcons: null,
+  loadingBreadcrumbs: false,
 };
 const breadcrumb = PropTypes.shape({
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
@@ -144,5 +155,6 @@ AppBar.propTypes = {
   leftIcons: PropTypes.object,
   rightIcons: PropTypes.object,
   breadcrumbs: PropTypes.arrayOf(breadcrumb).isRequired,
+  loadingBreadcrumbs: PropTypes.bool,
 };
 export default AppBar;
