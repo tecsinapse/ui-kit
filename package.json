@@ -29,6 +29,7 @@
     "@storybook/react": "^5.0.1",
     "@tecsinapse/es-utils": "^0.0.96",
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.1.4",
+    "@tinymce/tinymce-react": "^3.0.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.5",
@@ -67,6 +68,8 @@
     "storybook-addon-smart-knobs": "^4.1.0",
     "text-mask-addons": "^3.8.0",
     "text-mask-core": "^5.1.2",
+    "tinymce": "^5.0.4",
+    "tinymce-i18n": "^19.4.15",
     "typeface-roboto": "^0.0.54",
     "uniqid": "^5.0.3"
   },
@@ -81,7 +84,7 @@
     "dev": "rollup -c -w",
     "docz:build": "docz build -d docs/docz/ --base='/ui-kit/docz/' ",
     "docz:dev": "docz dev",
-    "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook": "start-storybook -p 9001 -c .storybook -s ./storybook-public",
     "storybook:build": "build-storybook -c .storybook -o docs/storybook/",
     "test": "NODE_ENV=test jest test/"
   },
@@ -119,6 +122,7 @@
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
     "@tecsinapse/es-utils": "0.0.96",
+    "@tinymce/tinymce-react": "^3.0.1",
     "classnames": "^2.2.6",
     "material-ui-search-bar": "1.0.0-beta.13",
     "memoize-one": "^5.0.0",
