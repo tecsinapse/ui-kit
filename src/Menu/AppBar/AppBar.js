@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
 import { AppBar as MaterialAppBar, CircularProgress } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -44,10 +44,10 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     backgroundColor: palette.primary.light,
   },
   link: {
-    color: `${palette.common.white} !important`,
+    color: `${palette.primary.contrastText} !important`,
   },
   separator: {
-    color: 'white',
+    color: palette.primary.contrastText,
   },
 }));
 
@@ -63,6 +63,7 @@ export const AppBar = ({
   loadingBreadcrumbs = false,
 }) => {
   const classes = useStyles();
+  const theme = useTheme();
   return (
     <div className={className}>
       <MaterialAppBar className={classes.appBar}>
@@ -72,7 +73,11 @@ export const AppBar = ({
             aria-label="Abrir menu"
             onClick={menuOnClick}
           >
-            <Icon path={mdiMenu} color="white" size={1} />
+            <Icon
+              path={mdiMenu}
+              color={theme.palette.primary.contrastText}
+              size={1}
+            />
           </IconButton>
           {leftIcons}
           <div className={classes.grow}>
@@ -102,7 +107,7 @@ export const AppBar = ({
                 index === arr.length - 1 ? (
                   <Typography
                     key={current.title}
-                    color="textPrimary"
+                    color="secondary"
                     variant="subtitle2"
                   >
                     {current.title}

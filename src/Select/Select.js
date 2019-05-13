@@ -1,5 +1,5 @@
 import { Tooltip, withStyles } from '@material-ui/core';
-import React, { Fragment, useState } from 'react';
+import React, { useEffect, useRef, Fragment, useState } from 'react';
 import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/core/object';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
@@ -8,10 +8,12 @@ import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMe
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import { Help } from '@material-ui/icons';
+import { SizeMe } from 'react-sizeme';
 import { selectInputStyle } from './SelectInputStyle';
 import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';
 import { selectCustomWebComponents } from './SelectCustomWebComponents';
 import { inputStyles } from '../Inputs/InputStyles';
+import { calculateValuesSizes } from './CalculateOptionsWidth';
 
 export const SelectUnstyled = ({
   value,
@@ -40,7 +42,11 @@ export const SelectUnstyled = ({
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [allSelected, setAllSelected] = useState(false);
+  const [containerSize, setContainerSize] = useState(0);
+
+  const [yPos, setYPos] = useState(0);
   let { variant } = rest;
+  const selectRef = useRef();
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
@@ -52,6 +58,11 @@ export const SelectUnstyled = ({
       variant = 'web';
     }
   }
+
+  useEffect(() => {
+    const pos = selectRef.current.getBoundingClientRect();
+    setYPos(pos.y);
+  });
 
   const flattenChildren = childrenIn =>
     childrenIn
@@ -70,6 +81,7 @@ export const SelectUnstyled = ({
       : flattenChildren(children);
 
   const defaultProps = {
+    yPos,
     selectPromptMessage,
     isMulti,
     menuIsOpen,
@@ -133,6 +145,8 @@ export const SelectUnstyled = ({
       setAllSelected(!allSelected);
     },
     ...rest,
+    containerSize,
+    setContainerSize,
   };
 
   const selectProps =
@@ -150,16 +164,27 @@ export const SelectUnstyled = ({
           ...defaultProps,
         };
 
+  const valuesWidth = calculateValuesSizes(selectProps.options);
   return (
-    <FormControl
-      key={key}
-      error={!!error}
-      fullWidth={fullWidth}
-      style={{ minWidth: '200px' }}
-    >
-      <ReactSelect {...selectProps} />
-      {error && <FormHelperText>{error}</FormHelperText>}
-    </FormControl>
+    <div ref={selectRef}>
+      <FormControl
+        key={key}
+        error={!!error}
+        fullWidth={fullWidth}
+        style={{ minWidth: '200px' }}
+      >
+        <SizeMe noPlaceholder>
+          {({ size }) => (
+            <ReactSelect
+              {...selectProps}
+              valuesWidth={valuesWidth}
+              selectSize={size}
+            />
+          )}
+        </SizeMe>
+        {error && <FormHelperText>{error}</FormHelperText>}
+      </FormControl>
+    </div>
   );
 };
 

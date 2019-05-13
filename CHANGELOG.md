@@ -1,3 +1,43 @@
+<a name="0.0.134"></a>
+## <small>0.0.134 (2019-05-09)</small>
+
+
+
+
+<a name="0.0.133"></a>
+## <small>0.0.133 (2019-05-09)</small>
+
+* multiselect autocalculate bug ([7a0f66a](https://github.com/tecsinapse/ui-kit/commit/7a0f66a))
+* multiselect now calculating size of text by heuristics ([fa8aac0](https://github.com/tecsinapse/ui-kit/commit/fa8aac0))
+
+
+
+<a name="0.0.132"></a>
+## <small>0.0.132 (2019-05-08)</small>
+
+* Add auto mode to select ([74bb9a6](https://github.com/tecsinapse/ui-kit/commit/74bb9a6))
+* Add css to rest chip element ([5c682b5](https://github.com/tecsinapse/ui-kit/commit/5c682b5))
+* Add state to save sizeMe information and calculate space ([947603b](https://github.com/tecsinapse/ui-kit/commit/947603b))
+* Improve ref name ([3acdd07](https://github.com/tecsinapse/ui-kit/commit/3acdd07))
+* Revert the storybook example and create a simple one to show auto ([75d38c4](https://github.com/tecsinapse/ui-kit/commit/75d38c4))
+* Test to fix with sizeme ([fcbeafb](https://github.com/tecsinapse/ui-kit/commit/fcbeafb))
+
+
+
+<a name="0.0.131"></a>
+## <small>0.0.131 (2019-04-23)</small>
+
+* Adding more themes ([47202e7](https://github.com/tecsinapse/ui-kit/commit/47202e7))
+
+
+
+<a name="0.0.130"></a>
+## <small>0.0.130 (2019-04-17)</small>
+
+* solving login height and snackbar styled error when changing button style ([8748338](https://github.com/tecsinapse/ui-kit/commit/8748338))
+
+
+
 <a name="0.0.129"></a>
 ## <small>0.0.129 (2019-04-16)</small>
 
