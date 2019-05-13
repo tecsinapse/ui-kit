@@ -1,3 +1,45 @@
+<a name="0.0.136"></a>
+## <small>0.0.136 (2019-05-13)</small>
+
+* actions prevent propagation ([cb7da4f](https://github.com/tecsinapse/ui-kit/commit/cb7da4f))
+* Add base API to component ([d3abc73](https://github.com/tecsinapse/ui-kit/commit/d3abc73))
+* Add delete action (WIP: bug with more than one) ([20437ce](https://github.com/tecsinapse/ui-kit/commit/20437ce))
+* Add error to component ([d34e25d](https://github.com/tecsinapse/ui-kit/commit/d34e25d))
+* Add form component ([101c4cf](https://github.com/tecsinapse/ui-kit/commit/101c4cf))
+* Add initial state and improve layout ([3d97259](https://github.com/tecsinapse/ui-kit/commit/3d97259))
+* Add initial web/mobile responsive ([185cb9c](https://github.com/tecsinapse/ui-kit/commit/185cb9c))
+* Add preview basic, componenet of preview list upfile, improve example and fix uploader boxes ([ed1cde9](https://github.com/tecsinapse/ui-kit/commit/ed1cde9))
+* Add preview of image ([b22a2e1](https://github.com/tecsinapse/ui-kit/commit/b22a2e1))
+* Add status initial and improve item space ([ddc8e4e](https://github.com/tecsinapse/ui-kit/commit/ddc8e4e))
+* Add test component ([a3462db](https://github.com/tecsinapse/ui-kit/commit/a3462db))
+* Add uploader docz and break docz ([adf848e](https://github.com/tecsinapse/ui-kit/commit/adf848e))
+* Export a formuploader and update story with it ([09e4f08](https://github.com/tecsinapse/ui-kit/commit/09e4f08))
+* Fix API and style ([553503f](https://github.com/tecsinapse/ui-kit/commit/553503f))
+* Fix breaking desing with big text and add thumbnail ([cb6e558](https://github.com/tecsinapse/ui-kit/commit/cb6e558))
+* Fix bugs number, delete and snackbar ([5c2a727](https://github.com/tecsinapse/ui-kit/commit/5c2a727))
+* Fix colors ([910a83b](https://github.com/tecsinapse/ui-kit/commit/910a83b))
+* Fix open silent mode same files and preview key list ([8cc945a](https://github.com/tecsinapse/ui-kit/commit/8cc945a))
+* Fix snackbar keep msg onClose ([f0376f8](https://github.com/tecsinapse/ui-kit/commit/f0376f8))
+* Fix snackbar onclose method ([8bde203](https://github.com/tecsinapse/ui-kit/commit/8bde203))
+* Four by each ([4ecf57b](https://github.com/tecsinapse/ui-kit/commit/4ecf57b))
+* Implement preview list ([137341a](https://github.com/tecsinapse/ui-kit/commit/137341a))
+* Implement uploader ([743cc79](https://github.com/tecsinapse/ui-kit/commit/743cc79))
+* Improve design of drag/drop component ([3c51afd](https://github.com/tecsinapse/ui-kit/commit/3c51afd))
+* Improve Uploader Story ([51ed4ba](https://github.com/tecsinapse/ui-kit/commit/51ed4ba))
+* Initial files ([5465918](https://github.com/tecsinapse/ui-kit/commit/5465918))
+* Refactor dialog to use material-ui dialog utils ([b50266f](https://github.com/tecsinapse/ui-kit/commit/b50266f))
+* Remove margin and decrease error icon ([6db6861](https://github.com/tecsinapse/ui-kit/commit/6db6861))
+* Remove useless example ([2f1d4f1](https://github.com/tecsinapse/ui-kit/commit/2f1d4f1))
+* Separate components, update drag with button and upgrade list item design ([7864a15](https://github.com/tecsinapse/ui-kit/commit/7864a15))
+* Several fix to work example ([ec98101](https://github.com/tecsinapse/ui-kit/commit/ec98101))
+* Snackbar exclud/error/add item ([c768ed9](https://github.com/tecsinapse/ui-kit/commit/c768ed9))
+* typo ([45e34da](https://github.com/tecsinapse/ui-kit/commit/45e34da))
+* Uploader silent ([6b4433b](https://github.com/tecsinapse/ui-kit/commit/6b4433b))
+* Uploader silent and table adjustments ([d16969f](https://github.com/tecsinapse/ui-kit/commit/d16969f))
+* vertical actions on table ([888d345](https://github.com/tecsinapse/ui-kit/commit/888d345))
+
+
+
 <a name="0.0.135"></a>
 ## <small>0.0.135 (2019-05-09)</small>
 
