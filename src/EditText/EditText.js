@@ -69,12 +69,12 @@ export const EditText = ({
 EditText.defaultProps = {
   onChange: null,
   initialValue: '',
-  uploadURL: 'http://127.0.0.1',
+  uploadURL: undefined,
   disabled: false,
   error: '',
   language: 'pt',
   showMenu: false,
-  uploadFunc: null,
+  uploadFunc: undefined,
   hasImage: true,
   skinUrl: '',
 };
