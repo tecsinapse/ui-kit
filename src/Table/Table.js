@@ -45,6 +45,7 @@ const Table = props => {
     exportOptions,
     classes: propClasses,
     forceCollapseActions,
+    verticalActions,
     onRowClick,
   } = props;
 
@@ -119,6 +120,7 @@ const Table = props => {
           <TableRows
             columns={tableColumns}
             forceCollapseActions={forceCollapseActions}
+            verticalActions={verticalActions}
             data={pageData}
             rowId={rowId}
             onRowClick={onRowClick}
@@ -145,6 +147,7 @@ Table.defaultProps = {
   onSelectRow: null,
   onRowClick: null,
   actions: [],
+  verticalActions: false,
   toolbarOptions: null,
   pagination: false,
   rowsPerPageOptions: [10, 20, 30],
@@ -172,6 +175,7 @@ Table.propTypes = {
     PropTypes.func,
   ]),
   onFilterData: PropTypes.func,
+  verticalActions: PropTypes.bool,
   rowId: PropTypes.func.isRequired,
   options: PropTypes.shape({
     selection: PropTypes.bool,
@@ -185,6 +189,9 @@ Table.propTypes = {
       icon: PropTypes.object,
       onClick: PropTypes.func,
       visible: PropTypes.func,
+      labelColor: PropTypes.string,
+      label: PropTypes.string,
+      bottomDivider: PropTypes.bool,
     })
   ),
   toolbarOptions: toolbarOptionsTypes,

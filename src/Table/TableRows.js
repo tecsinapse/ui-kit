@@ -74,6 +74,7 @@ const TableRows = ({
   rowId,
   onRowClick,
   forceCollapseActions,
+  verticalActions,
 }) => {
   const hasSelection = (columns || []).some(({ selection }) => selection);
   const classes = tableRowStyles(hasSelection || !!onRowClick)();
@@ -102,6 +103,7 @@ const TableRows = ({
         onSelectRow={onSelectRow}
         rowId={rowId}
         forceCollapseActions={forceCollapseActions}
+        verticalActions={verticalActions}
       />
     </TableRow>
   ));

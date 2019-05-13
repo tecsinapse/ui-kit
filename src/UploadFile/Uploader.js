@@ -170,7 +170,7 @@ export function Uploader({
         <input {...getInputProps()} ref={inputRef} className={classes.hidden} />
       ) : (
         <div {...rootProps} className={classes.root}>
-          <input {...getInputProps()} />
+          <input {...getInputProps()} ref={inputRef} />
           <div className={classes.dropzone}>
             <div className={classes.textDiv}>
               <CloudUploadIcon
