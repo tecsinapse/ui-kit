@@ -32,6 +32,9 @@ export const EditText = ({
   name,
   language,
   showMenu,
+  uploadFunc,
+  hasImage,
+  skinUrl,
 }) => {
   const classes = useStyle();
 
@@ -42,15 +45,17 @@ export const EditText = ({
           disabled={disabled}
           initialValue={initialValue}
           init={{
-            plugins: 'link image code paste',
-            toolbar:
-              'paste | undo redo | bold italic | alignleft aligncenter alignright | code | image',
-            paste_data_images: true,
+            plugins: hasImage ? 'link image code paste' : 'link code paste',
+            toolbar: hasImage
+              ? 'paste | undo redo | bold italic | alignleft aligncenter alignright | code | image'
+              : 'paste | undo redo | bold italic | alignleft aligncenter alignright | code',
+            paste_data_images: hasImage,
             images_upload_url: uploadURL,
             automatic_uploads: true,
-            skin_url: '/',
+            skin_url: skinUrl || '/',
             language: language === 'pt' ? 'pt_BR' : language,
             menubar: showMenu,
+            images_upload_handler: uploadFunc,
           }}
           onChange={onChange}
           textareaName={name}
@@ -69,6 +74,9 @@ EditText.defaultProps = {
   error: '',
   language: 'pt',
   showMenu: false,
+  uploadFunc: null,
+  hasImage: true,
+  skinUrl: '',
 };
 
 EditText.propTypes = {
@@ -79,5 +87,8 @@ EditText.propTypes = {
   error: PropTypes.string,
   language: PropTypes.oneOf(['pt', 'en', 'es']),
   showMenu: PropTypes.bool,
+  uploadFunc: PropTypes.func,
+  hasImage: PropTypes.bool,
+  skinUrl: PropTypes.string,
 };
 export default EditText;
