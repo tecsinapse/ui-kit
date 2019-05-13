@@ -4,11 +4,17 @@ import { TesteUploader } from './TesteUploader';
 import { Button } from '../Buttons/Button';
 
 const SilentUploadExample = () => {
-  const ref = useRef();
+  const fancyRef = useRef();
   return (
     <div>
-      <Button onClick={() => ref.current.click()}>Upload</Button>
-      <TesteUploader silent inputRef={ref} />
+      <Button
+        onClick={() => {
+          fancyRef.current.open();
+        }}
+      >
+        Upload
+      </Button>
+      <TesteUploader silent ref={fancyRef} />
     </div>
   );
 };
