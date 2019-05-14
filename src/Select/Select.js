@@ -160,7 +160,9 @@ export const SelectUnstyled = ({
         }
       : {
           menuPlacement,
+          menuPortalTarget: document.body,
           components: selectCustomWebComponents,
+          styles: { menuPortal: base => ({ ...base, zIndex: 9999 }) },
           ...defaultProps,
         };
 

@@ -12,8 +12,11 @@ export const MenuWeb = ({
   let menuPlacementAux = menuPlacement;
 
   if (menuPlacementAux === 'auto') {
-    if (selectProps.yPos > window.innerHeight / 2) menuPlacementAux = 'top';
-    else menuPlacementAux = 'bottom';
+    if (selectProps.yPos > window.innerHeight / 2) {
+      menuPlacementAux = 'top';
+    } else {
+      menuPlacementAux = 'bottom';
+    }
   }
 
   const style = {
