@@ -38,6 +38,7 @@ export const SelectUnstyled = ({
   isMulti = false,
   allowSelectAll = true,
   selectPromptMessage = 'Selecione',
+  portal,
   ...rest
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -160,9 +161,11 @@ export const SelectUnstyled = ({
         }
       : {
           menuPlacement,
-          menuPortalTarget: document.body,
+          ...(portal && {
+            styles: { menuPortal: base => ({ ...base, zIndex: 9999 }) },
+            menuPortalTarget: document.body,
+          }),
           components: selectCustomWebComponents,
-          styles: { menuPortal: base => ({ ...base, zIndex: 9999 }) },
           ...defaultProps,
         };
 
@@ -193,6 +196,7 @@ export const SelectUnstyled = ({
 SelectUnstyled.defaultProps = {
   allowSelectAll: true,
   fullWidth: false,
+  portal: false,
   variant: 'auto',
   success: false,
   warning: false,
@@ -214,6 +218,7 @@ SelectUnstyled.propTypes = {
   isMulti: PropTypes.bool,
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
   touched: PropTypes.bool,
+  portal: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,
   options: PropTypes.arrayOf(
