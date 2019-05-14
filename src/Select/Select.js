@@ -8,6 +8,8 @@ import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMe
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import { Help } from '@material-ui/icons';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+
 import { SizeMe } from 'react-sizeme';
 import { selectInputStyle } from './SelectInputStyle';
 import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';
@@ -138,7 +140,6 @@ export const SelectUnstyled = ({
       if (onBlur) {
         onBlur(event);
       }
-      selectProps.setMenuIsOpen(false);
     },
     selectAll: event => {
       onChange(!allSelected ? options.map(c => c.value) : []);
@@ -171,17 +172,19 @@ export const SelectUnstyled = ({
         key={key}
         error={!!error}
         fullWidth={fullWidth}
-        style={{ minWidth: '200px' }}
+        style={{ minWidth: '250px' }}
       >
-        <SizeMe noPlaceholder>
-          {({ size }) => (
-            <ReactSelect
-              {...selectProps}
-              valuesWidth={valuesWidth}
-              selectSize={size}
-            />
-          )}
-        </SizeMe>
+        <ClickAwayListener onClickAway={() => setMenuIsOpen(false)}>
+          <SizeMe noPlaceholder>
+            {({ size }) => (
+              <ReactSelect
+                {...selectProps}
+                valuesWidth={valuesWidth}
+                selectSize={size}
+              />
+            )}
+          </SizeMe>
+        </ClickAwayListener>
         {error && <FormHelperText>{error}</FormHelperText>}
       </FormControl>
     </div>
