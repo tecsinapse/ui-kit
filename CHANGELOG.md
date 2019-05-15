@@ -1,3 +1,24 @@
+<a name="0.0.140"></a>
+## <small>0.0.140 (2019-05-15)</small>
+
+* Fix add placeholder ([63c4c4a](https://github.com/tecsinapse/ui-kit/commit/63c4c4a))
+* Return to onBlur solution and fix it ([bb53985](https://github.com/tecsinapse/ui-kit/commit/bb53985))
+* Revert "Clickaway to fix close on react-select" ([5cc6ebd](https://github.com/tecsinapse/ui-kit/commit/5cc6ebd))
+* using react-select for positioning menu component ([1e6c608](https://github.com/tecsinapse/ui-kit/commit/1e6c608))
+* using react-select for positioning menu component ([e4d8d6e](https://github.com/tecsinapse/ui-kit/commit/e4d8d6e))
+
+
+
+<a name="0.0.139"></a>
+## <small>0.0.139 (2019-05-15)</small>
+
+* [#116222] Ajustes no layout dos filtros avancados ([b163ac1](https://github.com/tecsinapse/ui-kit/commit/b163ac1)), closes [#116222](https://github.com/tecsinapse/ui-kit/issues/116222)
+* [#116222] Ajustes no layout dos filtros avancados ([73020bd](https://github.com/tecsinapse/ui-kit/commit/73020bd)), closes [#116222](https://github.com/tecsinapse/ui-kit/issues/116222)
+* Clickaway to fix close on react-select ([5769c32](https://github.com/tecsinapse/ui-kit/commit/5769c32))
+* usage with dialogs ([d5fee0f](https://github.com/tecsinapse/ui-kit/commit/d5fee0f))
+
+
+
 <a name="0.0.138"></a>
 ## <small>0.0.138 (2019-05-14)</small>
 
