@@ -1,3 +1,10 @@
+<a name="0.0.138"></a>
+## <small>0.0.138 (2019-05-14)</small>
+
+* folder breadcrumbs with link support ([1c9c2d8](https://github.com/tecsinapse/ui-kit/commit/1c9c2d8))
+
+
+
 <a name="0.0.137"></a>
 ## <small>0.0.137 (2019-05-13)</small>
 

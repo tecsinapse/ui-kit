@@ -4,5 +4,18 @@ import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { FolderBreadcrumb } from './FolderBreadcrumb';
 
 storiesOf(`${GROUPS.FILES}|FolderBreadcrumb`, module).add('simple', () => (
-  <FolderBreadcrumb breadcrumbs={['BMW', 'BMW - Manutenção', 'Instalações']} />
+  <FolderBreadcrumb
+    breadcrumbs={[
+      'BMW',
+      'BMW - Manutenção',
+      'Instalações',
+      {
+        title: 'Usuário',
+        component: 'a',
+        componentProps: {
+          href: 'http://google.com.br',
+        },
+      },
+    ]}
+  />
 ));
