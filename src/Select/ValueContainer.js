@@ -1,30 +1,23 @@
 import React from 'react';
 import { components } from 'react-select';
-import Chip from '@material-ui/core/Chip';
+import { MultiValue } from './MultiValue';
 
 export function ValueContainer({ selectProps, children, getValue, ...props }) {
   const { length } = getValue();
 
   if (selectProps.isMulti) {
-    if (length === 0) {
-      return (
-        <components.ValueContainer
-          {...props}
-          className={selectProps.childrenClasses.multiValueContainer}
-        >
-          {children}
-        </components.ValueContainer>
-      );
-    }
     let free = selectProps.selectSize ? selectProps.selectSize.width : 0;
 
     // When it hasn't render yet, it can't stimate the container width,
     // so it suppose all space (initial state only). After statimating it,
     // it will save on state variable and always use it as total space
-    if (isNaN(free) || free === 0) free = window.innerWidth;
-    else if (selectProps.containerSize === 0)
+    if (isNaN(free) || free === 0) {
+      free = window.innerWidth;
+    } else if (selectProps.containerSize === 0) {
       selectProps.setContainerSize(free);
-    else free = selectProps.containerSize;
+    } else {
+      free = selectProps.containerSize;
+    }
 
     // discount (+1) chip from free space and margin
     free -= 45;
@@ -59,10 +52,7 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
       >
         {childrensToPrint}
         {restSize > 0 && (
-          <Chip
-            className={selectProps.childrenClasses.chip}
-            label={`+${restSize}`}
-          />
+          <MultiValue selectProps={selectProps}>{`+${restSize}`}</MultiValue>
         )}
         {React.cloneElement(children[1])}
       </components.ValueContainer>
