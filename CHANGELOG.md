@@ -1,3 +1,13 @@
+<a name="0.0.139"></a>
+## <small>0.0.139 (2019-05-15)</small>
+
+* [#116222] Ajustes no layout dos filtros avancados ([b163ac1](https://github.com/tecsinapse/ui-kit/commit/b163ac1)), closes [#116222](https://github.com/tecsinapse/ui-kit/issues/116222)
+* [#116222] Ajustes no layout dos filtros avancados ([73020bd](https://github.com/tecsinapse/ui-kit/commit/73020bd)), closes [#116222](https://github.com/tecsinapse/ui-kit/issues/116222)
+* Clickaway to fix close on react-select ([5769c32](https://github.com/tecsinapse/ui-kit/commit/5769c32))
+* usage with dialogs ([d5fee0f](https://github.com/tecsinapse/ui-kit/commit/d5fee0f))
+
+
+
 <a name="0.0.138"></a>
 ## <small>0.0.138 (2019-05-14)</small>
 
