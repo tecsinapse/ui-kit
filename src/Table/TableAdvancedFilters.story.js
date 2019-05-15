@@ -69,11 +69,11 @@ const AdvancedFiltersTable = () => (
           filtersGroup: [
             {
               name: 'period',
-              // label: 'Period',
+              label: 'Period',
             },
             {
               name: 'country',
-              // label: 'Country',
+              label: 'Country',
             },
           ],
           filters: [
