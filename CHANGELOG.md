@@ -1,3 +1,10 @@
+<a name="0.0.141"></a>
+## <small>0.0.141 (2019-05-15)</small>
+
+* [#116234] Criar componente de Passoword ([44b68c8](https://github.com/tecsinapse/ui-kit/commit/44b68c8)), closes [#116234](https://github.com/tecsinapse/ui-kit/issues/116234)
+
+
+
 <a name="0.0.140"></a>
 ## <small>0.0.140 (2019-05-15)</small>
 
