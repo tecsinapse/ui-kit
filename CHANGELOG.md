@@ -1,3 +1,14 @@
+<a name="0.0.140"></a>
+## <small>0.0.140 (2019-05-15)</small>
+
+* Fix add placeholder ([63c4c4a](https://github.com/tecsinapse/ui-kit/commit/63c4c4a))
+* Return to onBlur solution and fix it ([bb53985](https://github.com/tecsinapse/ui-kit/commit/bb53985))
+* Revert "Clickaway to fix close on react-select" ([5cc6ebd](https://github.com/tecsinapse/ui-kit/commit/5cc6ebd))
+* using react-select for positioning menu component ([1e6c608](https://github.com/tecsinapse/ui-kit/commit/1e6c608))
+* using react-select for positioning menu component ([e4d8d6e](https://github.com/tecsinapse/ui-kit/commit/e4d8d6e))
+
+
+
 <a name="0.0.139"></a>
 ## <small>0.0.139 (2019-05-15)</small>
 
