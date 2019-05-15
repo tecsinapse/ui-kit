@@ -41,7 +41,7 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
     const childrensToPrint =
       childList instanceof Array && childList.slice
         ? childList.slice(0, itensMaxLenght)
-        : childList && childList[0];
+        : childList;
 
     const restSize = length - itensMaxLenght;
 
