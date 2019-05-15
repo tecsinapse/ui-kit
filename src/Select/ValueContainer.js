@@ -20,7 +20,7 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
     }
 
     // discount (+1) chip from free space and margin
-    free -= 45;
+    free -= 60;
     // discount right controllers from free space
     free -= 100;
     const childList = children && children[0];
