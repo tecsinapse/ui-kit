@@ -21,7 +21,7 @@ export const toolbarOptionsTypes = PropTypes.shape({
     filtersGroup: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
+        label: PropTypes.string,
       })
     ),
     filters: PropTypes.arrayOf(
@@ -47,6 +47,8 @@ export const toolbarOptionsTypes = PropTypes.shape({
         value: PropTypes.any,
       })
     ),
+    maxWidth: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
+    maxHeight: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
   }),
 });
 
