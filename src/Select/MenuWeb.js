@@ -9,13 +9,24 @@ export const MenuWeb = ({
   innerProps,
   children,
 }) => {
+  let menuPlacementAux = menuPlacement;
+
+  if (menuPlacementAux === 'auto') {
+    if (selectProps.yPos > window.innerHeight / 2) {
+      menuPlacementAux = 'top';
+    } else {
+      menuPlacementAux = 'bottom';
+    }
+  }
+
   const style = {
-    ...(menuPlacement === 'bottom'
+    ...(menuPlacementAux === 'bottom'
       ? { marginTop: theme.spacing.unit }
       : { bottom: 35 }),
     zIndex: 999999,
     overflow: 'visible',
   };
+
   return (
     <Paper
       square

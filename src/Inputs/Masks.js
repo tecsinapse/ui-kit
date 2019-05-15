@@ -1,7 +1,16 @@
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
+import { conformToMask as coreConformToMask } from 'text-mask-core/dist/textMaskCore';
 
 export const CEP_MASK = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
+export function conformToMask(text, mask) {
+  const result = coreConformToMask(text, mask, maskConfig);
+  return result.conformedValue;
+}
+export const maskConfig = {
+  guide: false,
+  placeholderChar: '\u2000',
+};
 export const PHONE_MASK = [
   '(',
   /[1-9]/,

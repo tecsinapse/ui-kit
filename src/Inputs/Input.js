@@ -3,26 +3,24 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField/TextField';
 import MaskedInput from 'react-text-mask';
+import classNames from 'classnames';
 import { inputStyles } from './InputStyles';
 import {
-  PHONE_MASK,
   CELL_MASK,
+  CELL_PHONE_MASK,
+  CEP_MASK,
+  CNPJ_MASK,
+  CPF_CNPJ_MASK,
   CPF_MASK,
   CURRENCY_MASK,
-  CNPJ_MASK,
-  PLATE_MASK,
-  CELL_PHONE_MASK,
-  CPF_CNPJ_MASK,
   DATE_MASK,
+  maskConfig,
+  PHONE_MASK,
+  PLATE_MASK,
   TIME_MASK,
-  CEP_MASK,
 } from './Masks';
 
-import {
-  getEndAdornmentIcon,
-  labelClass,
-  outlinedInputClass,
-} from './styleUtils';
+import { GetEndAdornment, labelClass, outlinedInputClass } from './styleUtils';
 
 const TextMaskCustom = props => {
   const { inputRef, mask, ...other } = props;
@@ -83,10 +81,9 @@ const TextMaskCustom = props => {
         inputRef(ref ? ref.inputElement : null);
       }}
       mask={inputMask}
-      placeholderChar={'\u2000'}
       pipe={pipeFunc}
       showMask
-      guide={false}
+      {...maskConfig}
     />
   );
 };
@@ -105,6 +102,9 @@ export const TextFieldComponent = ({
   mask,
   shrinkLabel,
   placeholder,
+  endAdornment,
+  endAdornmentMargin = true,
+  startAdornment,
   ...input
 }) => (
   <TextField
@@ -116,7 +116,7 @@ export const TextFieldComponent = ({
     onChange={onChange}
     InputLabelProps={{
       classes: {
-        root: classes[labelClass({ warning, error, success })],
+        root: classNames(classes[labelClass({ warning, error, success })]),
         focused: classes.cssFocused,
       },
       shrink: shrinkLabel,
@@ -128,11 +128,26 @@ export const TextFieldComponent = ({
       },
       className: classes.input,
       classes: {
-        root: classes[outlinedInputClass({ warning, error, success })],
+        root: classNames(
+          classes[outlinedInputClass({ warning, error, success })],
+          classes.inputRoot
+        ),
         focused: classes.cssFocused,
         notchedOutline: classes.notchedOutline,
+        inputAdornedStart: classes.adornedMarginLeft,
+        inputAdornedEnd: classes.adornedMarginRight,
+        adornedEnd: classes.adornedMarginEnd,
       },
-      endAdornment: getEndAdornmentIcon({ warning, error, success }),
+      startAdornment,
+      endAdornment: (
+        <GetEndAdornment
+          warning={warning}
+          error={error}
+          success={success}
+          endAdornmentMargin={endAdornmentMargin}
+          endAdornment={endAdornment}
+        />
+      ),
     }}
     margin="dense"
     value={value}
@@ -157,11 +172,15 @@ const InputUI = withStyles(inputStyles)(
     disabled,
     placeholder,
     mask,
+    helperText,
+    endAdornment,
+    startAdornment,
     ...input
   }) => (
     <TextFieldComponent
       key={key}
       error={!!error}
+      helperText={error || helperText}
       fullWidth={fullWidth}
       classes={classes}
       label={label}
@@ -173,6 +192,8 @@ const InputUI = withStyles(inputStyles)(
       success={success}
       disabled={disabled}
       mask={mask}
+      endAdornment={endAdornment}
+      startAdornment={startAdornment}
       {...input}
     />
   )
@@ -186,10 +207,14 @@ Input.defaultProps = {
   disabled: false,
   label: null,
   onChange: null,
-  error: false,
+  error: undefined,
   mask: null,
   shrinkLabel: undefined,
   placeholder: null,
+  helperText: null,
+  endAdornment: null,
+  endAdornmentMargin: true,
+  startAdornment: null,
 };
 
 const maskProp = PropTypes.oneOfType([
@@ -220,13 +245,17 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   success: PropTypes.bool,
   warning: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   mask: maskProp,
   shrinkLabel: PropTypes.bool,
   placeholder: PropTypes.string,
+  helperText: PropTypes.string,
+  endAdornment: PropTypes.object,
+  endAdornmentMargin: PropTypes.bool,
+  startAdornment: PropTypes.object,
 };
 
 export default Input;

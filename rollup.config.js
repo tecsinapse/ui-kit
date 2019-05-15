@@ -27,6 +27,12 @@ export default [
           '@material-ui/core': 'material-ui',
           '@material-ui/icons': 'material-ui',
           classnames: 'cn',
+          '@material-ui/styles': 'styles',
+          '@mdi/js': 'js',
+          '@mdi/react': 'Icon',
+          'react-text-mask': 'MaskedInput',
+          'material-ui-search-bar': 'SearchBar',
+          '@tinymce/tinymce-react': 'tinymceReact',
         },
       },
     ],
@@ -47,10 +53,25 @@ export default [
       commonjs({
         namedExports: {
           'node_modules/@material-ui/core/colors/index.js': ['grey'],
+          'node_modules/text-mask-core/dist/textMaskCore.js': ['conformToMask'],
+          'node_modules/prop-types/index.js': [
+            'string',
+            'bool',
+            'array',
+            'func',
+            'oneOfType',
+            'object',
+          ],
         },
       }),
 
       filesize(),
     ],
+    onwarn(warning, warn) {
+      // skip certain warnings
+      if (warning.code === 'THIS_IS_UNDEFINED') return;
+      // Use default for everything else
+      warn(warning);
+    },
   },
 ];

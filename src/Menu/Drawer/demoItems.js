@@ -1,33 +1,42 @@
-import Link from '@material-ui/core/Link';
-
 export const demoItems = [
   {
-    title: 'Portal',
+    title: '1. Portal',
     children: [
-      { title: 'a', children: [{ title: () => 'b' }, { title: 'c' }] },
       {
-        title: 'd',
+        title: '1.1 Comunicados',
         children: [
-          {
-            title: 'e',
-            children: [
-              { title: 'f', component: Link, componentProps: { to: '/test' } },
-            ],
-          },
-          { title: 'h' },
+          { title: '1.1.1. Meus Comunicados' },
+          { title: '1.1.2 Criar' },
         ],
+      },
+      {
+        title: '1.2 Usuários',
+      },
+      {
+        title: '1.3 Relatórios',
       },
     ],
   },
   {
-    title: 'CRM',
+    title: '2. Aftersales',
     children: [
-      { title: 'Dados de Integração DMS' },
-      { title: 'g', selected: true },
-      { title: 'h' },
-      { title: 'j' },
-      { title: 'l' },
-      { title: 'm' },
+      {
+        title: '2.1 Ordem de Serviço',
+      },
+      {
+        title: '2.2 Relatórios',
+      },
+    ],
+  },
+  {
+    title: '3. Emplacar',
+    children: [
+      {
+        title: '3.1 Relatório Gerencial',
+      },
+      {
+        title: '3.2 Outros Relatórios',
+      },
     ],
   },
 ];

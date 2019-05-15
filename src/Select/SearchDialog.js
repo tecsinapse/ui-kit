@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import {IconButton} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles';
-import {ArrowBackIos, Search} from '@material-ui/icons';
+import React, { useState } from 'react';
+import { IconButton } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import { ArrowBackIos, Search } from '@material-ui/icons';
 import SearchBar from 'material-ui-search-bar';
 import Dialog from '@material-ui/core/Dialog';
 import Paper from '@material-ui/core/Paper';
@@ -80,7 +80,7 @@ export const NoItemsSearchDialog = withStyles(typeStyles)(
 
 export const SearchTextContext = React.createContext(null);
 export const SearchDialog = withStyles(tabStyles)(
-  ({ classes, children, label, setMenuIsOpen }) => {
+  ({ classes, children, label, setMenuIsOpen, selectPromptMessage }) => {
     const [textSearch, setTextSearch] = useState('');
     return (
       <Dialog
@@ -102,7 +102,7 @@ export const SearchDialog = withStyles(tabStyles)(
               root: [classes.searchBar, classes.noPaddingRight].join(' '),
               searchContainer: classes.searchBarContainer,
             }}
-            placeholder={`Selecione: ${label}...`}
+            placeholder={`${selectPromptMessage}: ${label}...`}
             value={textSearch}
             onCancelSearch={() => setTextSearch('')}
             onChange={newValue => setTextSearch(newValue)}
