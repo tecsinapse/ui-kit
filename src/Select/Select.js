@@ -208,6 +208,7 @@ SelectUnstyled.defaultProps = {
   error: null,
   touched: false,
   selectPromptMessage: 'Selecione',
+  selectAllMessage: 'Selecionar todos',
 };
 SelectUnstyled.propTypes = {
   allowSelectAll: PropTypes.bool,
@@ -231,6 +232,7 @@ SelectUnstyled.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   selectPromptMessage: PropTypes.string,
+  selectAllMessage: PropTypes.string,
 };
 
 export default SelectUnstyled;
