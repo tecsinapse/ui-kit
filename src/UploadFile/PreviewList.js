@@ -21,6 +21,7 @@ const useStyle = makeStyles({
     width: '100%',
   },
   scrollHiddenBar: {
+    maxHeight: 300,
     overflowY: 'scroll',
     scrollbarWidth: 'none',
     '-ms-overflow-style': 'none',
@@ -60,6 +61,7 @@ export function PreviewList({
   headerLabel,
   noFileTopLabel,
   noFileBottomLabel,
+  messages,
 }) {
   const [showAlert, setShowAlert] = useState(false);
   const [selectedUID, setSelectedUID] = useState('');
@@ -68,7 +70,7 @@ export function PreviewList({
     variant: 'error',
     msg: '',
   });
-
+  const { fileRemovedMessage } = messages;
   const classes = useStyle();
 
   return (
@@ -79,7 +81,7 @@ export function PreviewList({
           setSnackBar({
             show: true,
             variant: 'warning',
-            msg: `File removed from upload list`,
+            msg: fileRemovedMessage,
           });
           setShowAlert(false);
           onDelete(selectedUID);
@@ -152,6 +154,7 @@ export function PreviewList({
                   data={value[uid].data}
                   error={value[uid].error}
                   setSnackBar={setSnackBar}
+                  messages={messages}
                   key={uid}
                 />
               ))}
@@ -169,6 +172,12 @@ PreviewList.defaultProps = {
   headerLabel: null,
   noFileTopLabel: 'Upload Files',
   noFileBottomLabel: 'Appear Here',
+  messages: {
+    fileRemovedMessage: 'File removed from upload list',
+    fileUploadedSucessfullyMessage: filename =>
+      `${filename} uploaded successfully`,
+    fileErroedMessage: (filename, error) => `${filename} error: ${error}`,
+  },
 };
 
 PreviewList.propTypes = {
@@ -183,4 +192,9 @@ PreviewList.propTypes = {
   headerLabel: PropTypes.string,
   noFileBottomLabel: PropTypes.string,
   noFileTopLabel: PropTypes.string,
+  messages: PropTypes.shape({
+    fileRemovedMessage: PropTypes.string,
+    fileUploadedSucessfullyMessage: PropTypes.func,
+    fileErroedMessage: PropTypes.func,
+  }),
 };

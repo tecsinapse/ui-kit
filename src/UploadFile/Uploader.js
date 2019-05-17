@@ -77,12 +77,20 @@ export const Uploader = forwardRef(
       acceptedFormat,
       filesLimit,
       maxFileSize,
-      title,
-      buttonLabel,
       onAccept,
       onReject,
-      subtitle,
       silent,
+      messages: {
+        title,
+        buttonLabel,
+        subtitle,
+        maximumFileLimitMessage,
+        maximumFileNumberMessage,
+        filenameFailedMessage,
+        filetypeNotSupportedMessage,
+        sizeLimitErrorMessage,
+        undefinedErrorMessage,
+      },
     },
     ref
   ) => {
@@ -114,13 +122,13 @@ export const Uploader = forwardRef(
           setSnackBar({
             show: true,
             variant: 'error',
-            msg: `Maximum allowed number of files exceeded. Only ${filesLimit} allowed`,
+            msg: maximumFileLimitMessage(filesLimit),
           });
           if (onReject) {
             onReject(
               acceptedFiles.map(file => ({
                 file,
-                error: 'Maximum allowed number of files',
+                error: maximumFileNumberMessage,
               }))
             );
           }
@@ -131,15 +139,15 @@ export const Uploader = forwardRef(
         const errorFile = [];
         rejectedFiles.forEach(rejectedFile => {
           let messageFile = '';
-          message += `${rejectedFile.name} failed. `;
+          message += filenameFailedMessage(rejectedFile.name);
           if (!acceptedFormat.includes(rejectedFile.type)) {
-            messageFile += 'File type not supported. ';
+            messageFile += filetypeNotSupportedMessage;
           }
           if (rejectedFile.size > maxFileSize) {
-            messageFile += `Size limit ${convertBytes(maxFileSize)}.`;
+            messageFile += sizeLimitErrorMessage(convertBytes(maxFileSize));
           }
           if (messageFile === '') {
-            messageFile = 'Undefined error';
+            messageFile = undefinedErrorMessage;
           }
           errorFile.push({ file: rejectedFile, error: messageFile });
         });
@@ -178,7 +186,7 @@ export const Uploader = forwardRef(
           <div {...rootProps} className={classes.root}>
             <input {...getInputProps()} />
             <div className={classes.dropzone}>
-              <div className={classes.textDiv}>
+              <div className={classes.textDiv} ref={ref}>
                 <CloudUploadIcon
                   fontSize="large"
                   color="primary"
@@ -206,7 +214,6 @@ export const Uploader = forwardRef(
                   variant="secondary"
                   onClick={open}
                   className={classes.button}
-                  ref={ref}
                 >
                   <CloudUploadIcon className={classes.buttonIcon} />
                   {buttonLabel}
@@ -238,11 +245,21 @@ Uploader.defaultProps = {
   acceptedFormat: ['image/*', 'video/*', 'application/*'],
   filesLimit: 3,
   maxFileSize: 3000000,
-  title: 'Drag and drop a file',
-  buttonLabel: 'Upload Files',
   onAccept: null,
   onReject: null,
-  subtitle: 'or click on the button',
+  messages: {
+    maximumFileLimitMessage: limit =>
+      `Maximum allowed number of files exceeded. Only ${limit} allowed`,
+    maximumFileNumberMessage: 'Maximum allowed number of files',
+    filenameFailedMessage: name => `${name} failed. `,
+    filetypeNotSupportedMessage: 'File type not supported. ',
+    sizeLimitErrorMessage: size => `Size limit ${size}.`,
+    undefinedErrorMessage: 'Undefined error',
+    title: 'Drag and drop a file',
+    buttonLabel: 'Upload Files',
+    subtitle: 'or click on the button',
+  },
+
   silent: false,
 };
 
@@ -250,9 +267,6 @@ Uploader.propTypes = {
   acceptedFormat: PropTypes.array,
   filesLimit: PropTypes.number,
   maxFileSize: PropTypes.number,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  buttonLabel: PropTypes.string,
   onAccept: PropTypes.func,
   onReject: PropTypes.func,
   silent: PropTypes.bool,
@@ -262,5 +276,15 @@ Uploader.propTypes = {
     completed: PropTypes.number,
     uprate: PropTypes.number,
     error: PropTypes.string,
+  }),
+  messages: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    buttonLabel: PropTypes.string,
+    filetypeNotSupportedMessage: PropTypes.string,
+    undefinedErrorMessage: PropTypes.string,
+    maximumFileLimitMessage: PropTypes.func,
+    filenameFailedMessage: PropTypes.func,
+    sizeLimitErrorMessage: PropTypes.func,
   }),
 };
