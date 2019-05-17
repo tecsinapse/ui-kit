@@ -1,3 +1,11 @@
+<a name="0.0.142"></a>
+## <small>0.0.142 (2019-05-17)</small>
+
+* i18n on select all message - select component ([a1130f4](https://github.com/tecsinapse/ui-kit/commit/a1130f4))
+* i18n on uploader and ref props ([aee18f9](https://github.com/tecsinapse/ui-kit/commit/aee18f9))
+
+
+
 <a name="0.0.141"></a>
 ## <small>0.0.141 (2019-05-15)</small>
 
