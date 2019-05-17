@@ -16,6 +16,10 @@ export default function Carousel({ children, autoplay, ...other }) {
   return autoplay ? (
     <VirtualizeAutoPlaySwipeViews {...other} slideRenderer={slideRenderer} />
   ) : (
-    <VirtualizeSwipeViews {...other} slideRenderer={slideRenderer} />
+    <VirtualizeSwipeViews
+      {...other}
+      slideRenderer={slideRenderer}
+      style={{ backgroundColor: 'rgba(0, 0, 0, 0.54)' }}
+    />
   );
 }

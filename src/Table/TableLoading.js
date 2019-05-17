@@ -19,7 +19,9 @@ export const styles = makeStyles(theme => ({
 }));
 
 const TableLoading = ({ loading }) => {
-  if (!loading) return null;
+  if (!loading) {
+    return null;
+  }
 
   const classes = styles();
 

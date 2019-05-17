@@ -88,7 +88,9 @@ const handleInputKeyDown = (
 };
 
 const handleDeleteChip = (value, onDeleteItem, inputRef) => () => {
-  if (!onDeleteItem) return;
+  if (!onDeleteItem) {
+    return;
+  }
   onDeleteItem(value);
   inputRef.focus();
 };
@@ -101,7 +103,9 @@ const handleOnClickItem = (
   setSuggestionsRef,
   inputValue
 ) => () => {
-  if (!onSelectItem) return;
+  if (!onSelectItem) {
+    return;
+  }
   onSelectItem(suggestion);
   handleCloseSuggestions(setAnchorEl, setSuggestionsRef)();
   inputValue('');

@@ -80,7 +80,9 @@ const TableToolbar = ({
   setLoading,
   rowCount,
 }) => {
-  if (!options && !selection && !exportOptions) return null;
+  if (!options && !selection && !exportOptions) {
+    return null;
+  }
 
   if (selectedRows.length === 0) {
     return (

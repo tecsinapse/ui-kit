@@ -108,20 +108,23 @@ export const Uploader = forwardRef(
             ).length <=
           filesLimit
         ) {
-          if (onAccept) onAccept(acceptedFiles);
+          if (onAccept) {
+            onAccept(acceptedFiles);
+          }
         } else {
           setSnackBar({
             show: true,
             variant: 'error',
             msg: `Maximum allowed number of files exceeded. Only ${filesLimit} allowed`,
           });
-          if (onReject)
+          if (onReject) {
             onReject(
               acceptedFiles.map(file => ({
                 file,
                 error: 'Maximum allowed number of files',
               }))
             );
+          }
         }
       },
       onDropRejected: rejectedFiles => {
@@ -136,7 +139,9 @@ export const Uploader = forwardRef(
           if (rejectedFile.size > maxFileSize) {
             messageFile += `Size limit ${convertBytes(maxFileSize)}.`;
           }
-          if (messageFile === '') messageFile = 'Undefined error';
+          if (messageFile === '') {
+            messageFile = 'Undefined error';
+          }
           errorFile.push({ file: rejectedFile, error: messageFile });
         });
         setSnackBar({
@@ -144,7 +149,9 @@ export const Uploader = forwardRef(
           variant: 'error',
           msg: message,
         });
-        if (onReject && errorFile.length > 0) onReject(errorFile);
+        if (onReject && errorFile.length > 0) {
+          onReject(errorFile);
+        }
       },
     });
 

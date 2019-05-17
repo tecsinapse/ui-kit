@@ -35,7 +35,9 @@ const onClick = (
     onRowClick(rowData);
     return;
   }
-  if (!hasSelection) return;
+  if (!hasSelection) {
+    return;
+  }
 
   let checked = false;
 
@@ -79,7 +81,9 @@ const TableRows = ({
   const hasSelection = (columns || []).some(({ selection }) => selection);
   const classes = tableRowStyles(hasSelection || !!onRowClick)();
 
-  if (isEmptyOrNull(columns) || isEmptyOrNull(data)) return null;
+  if (isEmptyOrNull(columns) || isEmptyOrNull(data)) {
+    return null;
+  }
 
   return data.map(rowData => (
     <TableRow

@@ -9459,6 +9459,13 @@ material-colors@^1.2.1:
   resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
   integrity sha512-6qE4B9deFBIa9YSpOc9O0Sgc43zTeVYbgDT5veRKSlB2+ZuHNoVVxA1L/ckMUayV9Ay9y7Z/SZCLcGteW9i7bg==
 
+material-ui-dots@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/material-ui-dots/-/material-ui-dots-2.0.0.tgz#abba82dec58bc8e779ebea25591329c8bbb80a81"
+  integrity sha512-mxDIxcdavZvL9NviHGq7KLpEJiF6uA6N+a26zn1X+2zmDqBiPuR4n9mhYT2r6+t7jvXErZvOhki5irdEDo492w==
+  dependencies:
+    prop-types "^15.5.10"
+
 material-ui-search-bar@1.0.0-beta.13:
   version "1.0.0-beta.13"
   resolved "https://registry.yarnpkg.com/material-ui-search-bar/-/material-ui-search-bar-1.0.0-beta.13.tgz#08c246431666f91c3ca52df78987b86352783ee1"

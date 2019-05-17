@@ -2,19 +2,28 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
+import className from 'classnames';
+import { Button } from '../Buttons/Button';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles(theme => ({
   root: {
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
     position: 'relative',
   },
+  rootMobile: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
   titleDiv: {
     textOverflow: 'ellipsis',
     overflow: 'hidden',
     flexBasis: '50%',
     flexGrow: 1,
+  },
+  titleDivMobile: {
+    marginLeft: theme.spacing.unit,
   },
   title: {
     textTransform: 'uppercase',
@@ -23,6 +32,8 @@ const useStyle = makeStyles({
   },
   subtitle: {
     color: 'white',
+    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
   },
   titleImage: {
     alignSelf: 'flex-end',
@@ -34,7 +45,10 @@ const useStyle = makeStyles({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-});
+  imageBackground: {
+    width: '100%',
+  },
+}));
 
 function Slide({
   backgroundImage,
@@ -42,33 +56,60 @@ function Slide({
   title,
   subtitle,
   link,
+  mobile,
   ...other
 }) {
   const classes = useStyle();
 
   return (
     <div
-      className={classes.root}
-      onClick={() => (link ? window.open(link) : null)}
-      onKeyPress={() => null}
+      className={className(classes.root, {
+        [classes.rootMobile]: mobile,
+      })}
+      onClick={!mobile ? () => (link ? window.open(link) : null) : undefined}
+      onKeyPress={!mobile ? () => null : undefined}
     >
       <img
         src={backgroundImage}
         alt=""
         title="image"
-        style={{ width: '100%' }}
+        className={classes.imageBackground}
       />
       <div className={classes.info}>
-        <div className={classes.titleImage}>
-          {<img src={titleImage} alt="" />}
-        </div>
-        <div className={classes.titleDiv}>
-          <Typography variant="h6" className={classes.title}>
+        {!mobile && (
+          <div className={classes.titleImage}>
+            {<img src={titleImage} alt="" />}
+          </div>
+        )}
+        <div
+          className={className(classes.titleDiv, {
+            [classes.titleDivMobile]: mobile,
+          })}
+        >
+          <Typography
+            variant="subtitle2"
+            className={classes.title}
+            color="textPrimary"
+          >
             {title}
           </Typography>
-          <Typography variant="subtitle1" className={classes.subtitle}>
+          <Typography
+            variant="caption"
+            color="inherit"
+            className={classes.subtitle}
+          >
             {subtitle}
           </Typography>
+          {mobile && (
+            <Button
+              onClick={() => (link ? window.open(link) : null)}
+              className={classes.button}
+              size="small"
+            >
+              {' '}
+              SABER MAIS{' '}
+            </Button>
+          )}
         </div>
       </div>
     </div>
@@ -80,6 +121,7 @@ Slide.defaultProps = {
   title: '',
   subtitle: '',
   link: '',
+  mobile: false,
 };
 
 Slide.propTypes = {
@@ -103,6 +145,10 @@ Slide.propTypes = {
    * Link to redirect when click on component
    */
   link: PropTypes.string,
+  /**
+   * Boolean informing if the component should be rendered in a mobile way
+   */
+  mobile: PropTypes.bool,
 };
 
 export default Slide;

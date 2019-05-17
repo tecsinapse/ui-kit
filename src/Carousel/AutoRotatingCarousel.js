@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
+import Dots from 'material-ui-dots';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import Fab from '@material-ui/core/Fab';
+import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 import classNames from 'classnames';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { grey } from '@material-ui/core/colors';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Carousel from './Carousel';
+import { modulo } from './util';
 
 const useStyle = makeStyles(theme => ({
   content: {
@@ -58,12 +61,39 @@ const useStyle = makeStyles(theme => ({
     width: '100%',
     height: '100%',
   },
+  dots: {
+    paddingTop: 36,
+    margin: '0 auto',
+    top: '80%',
+    left: '50%',
+    position: 'absolute',
+    zIndex: 1,
+  },
+  dotsMobile: {
+    paddingTop: 0,
+  },
 }));
 
-export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
+export const AutoRotatingCarousel = ({
+  autoplay,
+  children,
+  interval,
+  variant,
+}) => {
   const classes = useStyle();
   const hasMultipleChildren = children.length != null;
   const [slideIndex, setSlideIndex] = useState(0);
+
+  const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
+
+  let mobile = false;
+  if (variant === 'auto') {
+    if (matches) {
+      mobile = true;
+    }
+  } else if (variant === 'mobile') {
+    mobile = true;
+  }
 
   const carousel = (
     <Carousel
@@ -74,13 +104,15 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
       onChangeIndex={newIndex => setSlideIndex(newIndex)}
       slideClassName={classes.slide}
     >
-      {React.Children.map(children, c => React.cloneElement(c))}
+      {React.Children.map(children, c =>
+        React.cloneElement(c, { mobile }, null)
+      )}
     </Carousel>
   );
 
   return (
     <div className={classes.content}>
-      {hasMultipleChildren && (
+      {hasMultipleChildren && !mobile && (
         <div>
           <Fab
             className={classNames(classes.arrow, classes.arrowLeft)}
@@ -90,7 +122,16 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
           </Fab>
         </div>
       )}
-
+      {hasMultipleChildren && mobile && (
+        <Dots
+          count={children.length}
+          index={modulo(slideIndex, children.length)}
+          className={classNames(classes.dots, {
+            [classes.dotsMobile]: mobile,
+          })}
+          onDotClick={slideIndexNew => setSlideIndex(slideIndexNew)}
+        />
+      )}
       <CircularProgress className={classes.progress} />
 
       <div className={classes.carouselDiv}>
@@ -99,7 +140,7 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
         </Paper>
       </div>
 
-      {hasMultipleChildren && (
+      {hasMultipleChildren && !mobile && (
         <div>
           <Fab
             className={classNames(classes.arrow, classes.arrowRight)}
@@ -116,6 +157,7 @@ export const AutoRotatingCarousel = ({ autoplay, children, interval }) => {
 AutoRotatingCarousel.defaultProps = {
   autoplay: false,
   interval: 5000,
+  variant: 'auto',
 };
 
 AutoRotatingCarousel.propTypes = {
@@ -123,6 +165,7 @@ AutoRotatingCarousel.propTypes = {
   autoplay: PropTypes.bool,
   /** Delay between auto play transitions (in ms). */
   interval: PropTypes.number,
+  variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
 };
 
 export default AutoRotatingCarousel;

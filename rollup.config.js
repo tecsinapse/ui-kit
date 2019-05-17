@@ -69,7 +69,9 @@ export default [
     ],
     onwarn(warning, warn) {
       // skip certain warnings
-      if (warning.code === 'THIS_IS_UNDEFINED') return;
+      if (warning.code === 'THIS_IS_UNDEFINED') {
+        return;
+      }
       // Use default for everything else
       warn(warning);
     },

@@ -36,7 +36,9 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter }) => {
     initialHeaderFilters(columns)
   );
 
-  if (!rendered) return null;
+  if (!rendered) {
+    return null;
+  }
 
   return (
     <TableRow>

@@ -21,10 +21,13 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
     // When it hasn't render yet, it can't stimate the container width,
     // so it suppose all space (initial state only). After statimating it,
     // it will save on state variable and always use it as total space
-    if (isNaN(free) || free === 0) free = window.innerWidth;
-    else if (selectProps.containerSize === 0)
+    if (isNaN(free) || free === 0) {
+      free = window.innerWidth;
+    } else if (selectProps.containerSize === 0) {
       selectProps.setContainerSize(free);
-    else free = selectProps.containerSize;
+    } else {
+      free = selectProps.containerSize;
+    }
 
     // discount (+1) chip from free space and margin
     free -= 45;
