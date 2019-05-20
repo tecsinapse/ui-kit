@@ -14,8 +14,8 @@ export function MultiValue({ children, selectProps, removeProps, isFocused }) {
       className={classNames(selectProps.childrenClasses.chip, {
         [selectProps.childrenClasses.chipFocused]: isFocused,
       })}
-      onDelete={removeProps.onClick}
-      deleteIcon={<CancelIcon {...removeProps} />}
+      onDelete={removeProps ? removeProps.onClick : undefined}
+      deleteIcon={removeProps ? <CancelIcon {...removeProps} /> : undefined}
     />
   );
 }

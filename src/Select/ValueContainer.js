@@ -1,21 +1,11 @@
 import React from 'react';
 import { components } from 'react-select';
-import Chip from '@material-ui/core/Chip';
+import { MultiValue } from './MultiValue';
 
 export function ValueContainer({ selectProps, children, getValue, ...props }) {
   const { length } = getValue();
 
   if (selectProps.isMulti) {
-    if (length === 0) {
-      return (
-        <components.ValueContainer
-          {...props}
-          className={selectProps.childrenClasses.multiValueContainer}
-        >
-          {children}
-        </components.ValueContainer>
-      );
-    }
     let free = selectProps.selectSize ? selectProps.selectSize.width : 0;
 
     // When it hasn't render yet, it can't stimate the container width,
@@ -30,7 +20,7 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
     }
 
     // discount (+1) chip from free space and margin
-    free -= 45;
+    free -= 60;
     // discount right controllers from free space
     free -= 100;
     const childList = children && children[0];
@@ -51,7 +41,7 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
     const childrensToPrint =
       childList instanceof Array && childList.slice
         ? childList.slice(0, itensMaxLenght)
-        : childList && childList[0];
+        : childList;
 
     const restSize = length - itensMaxLenght;
 
@@ -62,10 +52,7 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
       >
         {childrensToPrint}
         {restSize > 0 && (
-          <Chip
-            className={selectProps.childrenClasses.chip}
-            label={`+${restSize}`}
-          />
+          <MultiValue selectProps={selectProps}>{`+${restSize}`}</MultiValue>
         )}
         {React.cloneElement(children[1])}
       </components.ValueContainer>

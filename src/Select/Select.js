@@ -8,8 +8,6 @@ import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMe
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import { Help } from '@material-ui/icons';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-
 import { SizeMe } from 'react-sizeme';
 import { selectInputStyle } from './SelectInputStyle';
 import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';
@@ -40,6 +38,7 @@ export const SelectUnstyled = ({
   isMulti = false,
   allowSelectAll = true,
   selectPromptMessage = 'Selecione',
+  portal,
   ...rest
 }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -140,6 +139,7 @@ export const SelectUnstyled = ({
       if (onBlur) {
         onBlur(event);
       }
+      setMenuIsOpen(false);
     },
     selectAll: event => {
       onChange(!allSelected ? options.map(c => c.value) : []);
@@ -161,9 +161,11 @@ export const SelectUnstyled = ({
         }
       : {
           menuPlacement,
-          menuPortalTarget: document.body,
+          ...(portal && {
+            styles: { menuPortal: base => ({ ...base, zIndex: 9999 }) },
+            menuPortalTarget: document.body,
+          }),
           components: selectCustomWebComponents,
-          styles: { menuPortal: base => ({ ...base, zIndex: 9999 }) },
           ...defaultProps,
         };
 
@@ -174,19 +176,17 @@ export const SelectUnstyled = ({
         key={key}
         error={!!error}
         fullWidth={fullWidth}
-        style={{ minWidth: '250px' }}
+        style={{ minWidth: '200px' }}
       >
-        <ClickAwayListener onClickAway={() => setMenuIsOpen(false)}>
-          <SizeMe noPlaceholder>
-            {({ size }) => (
-              <ReactSelect
-                {...selectProps}
-                valuesWidth={valuesWidth}
-                selectSize={size}
-              />
-            )}
-          </SizeMe>
-        </ClickAwayListener>
+        <SizeMe noPlaceholder>
+          {({ size }) => (
+            <ReactSelect
+              {...selectProps}
+              valuesWidth={valuesWidth}
+              selectSize={size}
+            />
+          )}
+        </SizeMe>
         {error && <FormHelperText>{error}</FormHelperText>}
       </FormControl>
     </div>
@@ -196,6 +196,7 @@ export const SelectUnstyled = ({
 SelectUnstyled.defaultProps = {
   allowSelectAll: true,
   fullWidth: false,
+  portal: false,
   variant: 'auto',
   success: false,
   warning: false,
@@ -207,6 +208,7 @@ SelectUnstyled.defaultProps = {
   error: null,
   touched: false,
   selectPromptMessage: 'Selecione',
+  selectAllMessage: 'Selecionar todos',
 };
 SelectUnstyled.propTypes = {
   allowSelectAll: PropTypes.bool,
@@ -217,6 +219,7 @@ SelectUnstyled.propTypes = {
   isMulti: PropTypes.bool,
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
   touched: PropTypes.bool,
+  portal: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,
   options: PropTypes.arrayOf(
@@ -229,6 +232,7 @@ SelectUnstyled.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   selectPromptMessage: PropTypes.string,
+  selectAllMessage: PropTypes.string,
 };
 
 export default SelectUnstyled;
