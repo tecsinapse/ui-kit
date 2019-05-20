@@ -89,7 +89,11 @@ const TableRowActions = ({
   );
   const open = Boolean(anchorEl);
 
-  if (actions.length < 4 && !forceCollapseActions && !verticalActions) {
+  const returnEmpty = actionButtons.length === 0;
+  if (
+    returnEmpty ||
+    (actions.length < 4 && !forceCollapseActions && !verticalActions)
+  ) {
     return actionButtons;
   }
 
