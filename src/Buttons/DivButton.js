@@ -19,12 +19,7 @@ const useStyle = makeStyles({
   },
 });
 
-export const DivButton = ({
-  children,
-  infoText,
-  numberOfNotification,
-  onClick,
-}) => {
+export const DivButton = ({ children, infoText, notifyNumber, onClick }) => {
   const classes = useStyle();
 
   return (
@@ -32,7 +27,7 @@ export const DivButton = ({
       {children}
       <div>
         <Badge
-          badgeContent={numberOfNotification}
+          badgeContent={notifyNumber}
           color="error"
           classes={{ badge: classes.badgeNotification }}
         >
@@ -48,12 +43,12 @@ export const DivButton = ({
 
 DivButton.defaultProps = {
   infoText: '',
-  numberOfNotification: undefined,
+  notifyNumber: undefined,
   onClick: undefined,
 };
 
 DivButton.propTypes = {
   infoText: PropTypes.string,
-  numberOfNotification: PropTypes.number,
+  notifyNumber: PropTypes.number,
   onClick: PropTypes.func,
 };
