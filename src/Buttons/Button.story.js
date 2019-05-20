@@ -69,7 +69,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
       <DivButton
         onClick={action('onClick')}
         infoText="COMUNICADOS"
-        notifyNumber={2}
+        notifyNumber={0}
       >
         <FileCopyRounded fontSize="large" />
       </DivButton>

@@ -43,12 +43,11 @@ export const DivButton = ({ children, infoText, notifyNumber, onClick }) => {
 
 DivButton.defaultProps = {
   infoText: '',
-  notifyNumber: undefined,
-  onClick: undefined,
+  notifyNumber: 0,
 };
 
 DivButton.propTypes = {
   infoText: PropTypes.string,
   notifyNumber: PropTypes.number,
-  onClick: PropTypes.func,
 };
+export default DivButton;

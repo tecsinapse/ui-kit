@@ -1,6 +1,7 @@
 export * from './Buttons/Button';
 export * from './Buttons/FloatingButton';
 export * from './Buttons/IconButton';
+export * from './Buttons/DivButton';
 export * from './Alerts/ConfirmationAlert';
 export * from './Divider/Divider';
 export * from './GroupedInput/GroupedInput';
