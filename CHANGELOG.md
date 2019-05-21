@@ -1,3 +1,10 @@
+<a name="0.0.144"></a>
+## <small>0.0.144 (2019-05-21)</small>
+
+* layout and folder bradcrumb adjustments ([533f30f](https://github.com/tecsinapse/ui-kit/commit/533f30f))
+
+
+
 <a name="0.0.143"></a>
 ## <small>0.0.143 (2019-05-20)</small>
 
