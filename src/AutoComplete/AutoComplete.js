@@ -88,7 +88,9 @@ const handleInputKeyDown = (
 };
 
 const handleDeleteChip = (value, onDeleteItem, inputRef) => () => {
-  if (!onDeleteItem) return;
+  if (!onDeleteItem) {
+    return;
+  }
   onDeleteItem(value);
   inputRef.focus();
 };
@@ -101,7 +103,9 @@ const handleOnClickItem = (
   setSuggestionsRef,
   inputValue
 ) => () => {
-  if (!onSelectItem) return;
+  if (!onSelectItem) {
+    return;
+  }
   onSelectItem(suggestion);
   handleCloseSuggestions(setAnchorEl, setSuggestionsRef)();
   inputValue('');
@@ -116,6 +120,7 @@ const handleCloseSuggestions = (setAnchorEl, setSuggestionsRef) => () => {
 const AutoComplete = ({
   inputProps,
   paperProps,
+  containerProps,
   itemProps,
   values,
   onDeleteItem,
@@ -134,7 +139,7 @@ const AutoComplete = ({
   const open = Boolean(anchorEl);
 
   return (
-    <div className={classes.root} ref={setContainerRef}>
+    <div className={classes.root} ref={setContainerRef} {...containerProps}>
       <Input
         name="inputValue"
         value={inputValue}
@@ -165,6 +170,10 @@ const AutoComplete = ({
         style={{
           width: containerRef ? containerRef.offsetWidth : null,
           marginLeft: '20px',
+          zIndex:
+            containerRef && containerRef.style
+              ? containerRef.style.zIndex
+              : null,
         }}
       >
         <Paper className={classes.paper} {...paperProps}>
