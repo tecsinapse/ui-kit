@@ -10,25 +10,35 @@ import classname from 'classnames';
 import { defaultGreyLight2 } from '../colors';
 import { breadcrumb } from '../Menu/AppBar/AppBar';
 
-const useStyles = makeStyles(({ palette, spacing }) => ({
-  marginLeft: {
-    marginLeft: `${spacing.unit / 2}px !important`,
-  },
-  breadcrumb: { display: 'flex !important' },
-  link: {
-    color: `black !important`,
-  },
-  noMarginLeft: {
-    marginLeft: '0px !important',
-  },
-  separator: {
-    color: defaultGreyLight2,
-  },
-  flex: { display: 'flex', '& > :last-child': { marginLeft: spacing.unit } },
-}));
+const useStyles = (light, dense) =>
+  makeStyles(({ palette, spacing }) => ({
+    marginLeft: {
+      marginLeft: `${spacing.unit / 2}px !important`,
+    },
+    breadcrumb: { display: 'flex !important' },
+    link: {
+      color: `${light ? defaultGreyLight2 : 'black'} !important`,
+    },
+    noMarginLeft: {
+      marginLeft: '0px !important',
+    },
+    separator: {
+      color: defaultGreyLight2,
+    },
+    flex: {
+      display: 'flex',
+      '& > :last-child': {
+        marginLeft: dense ? spacing.unit / 2 : spacing.unit,
+      },
+    },
+  }));
 
-export const FolderBreadcrumb = ({ breadcrumbs }) => {
-  const classes = useStyles();
+export const FolderBreadcrumb = ({
+  breadcrumbs,
+  light = false,
+  dense = false,
+}) => {
+  const classes = useStyles(light, dense)();
   return (
     <Breadcrumbs
       classes={{ root: classes.breadcrumb }}
