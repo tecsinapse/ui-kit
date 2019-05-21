@@ -1,3 +1,12 @@
+<a name="0.0.148"></a>
+## <small>0.0.148 (2019-05-21)</small>
+
+* add disable breadcrumb and support button api on emptyState ([979e9b3](https://github.com/tecsinapse/ui-kit/commit/979e9b3))
+* Fix zIndex on modals ([59dfdc2](https://github.com/tecsinapse/ui-kit/commit/59dfdc2))
+* Fixed zIndex value on Popper ([7f10d2e](https://github.com/tecsinapse/ui-kit/commit/7f10d2e))
+
+
+
 <a name="0.0.147"></a>
 ## <small>0.0.147 (2019-05-21)</small>
 
