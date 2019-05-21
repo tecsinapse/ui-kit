@@ -14,3 +14,5 @@ export * from './Menu/Drawer/Drawer';
 export * from './Notifications/Snackbar';
 export * from './ThemeProvider';
 export * from './EditText/EditText';
+export * from './Carousel/AutoRotatingCarousel';
+export * from './Carousel/Slide';

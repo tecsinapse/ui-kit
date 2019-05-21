@@ -31,7 +31,7 @@ export const DivButton = ({ children, infoText, notifyNumber, onClick }) => {
           color="error"
           classes={{ badge: classes.badgeNotification }}
         >
-          <Typography variant="h6" color="primary">
+          <Typography variant="h6" color="textPrimary">
             {infoText}
           </Typography>
         </Badge>

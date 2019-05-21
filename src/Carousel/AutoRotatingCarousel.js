@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
 import Dots from 'material-ui-dots';
-import { makeStyles, useTheme } from '@material-ui/styles';
+// import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import Fab from '@material-ui/core/Fab';
-import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 import classNames from 'classnames';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { grey } from '@material-ui/core/colors';
 import CircularProgress from '@material-ui/core/CircularProgress';
+// import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
+
 import Carousel from './Carousel';
 import { modulo } from './util';
 
@@ -79,12 +81,14 @@ export const AutoRotatingCarousel = ({
   children,
   interval,
   variant,
+  square,
 }) => {
   const classes = useStyle();
   const hasMultipleChildren = children.length != null;
   const [slideIndex, setSlideIndex] = useState(0);
 
-  const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
+  // const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
+  const matches = true;
 
   let mobile = false;
   if (variant === 'auto') {
@@ -135,7 +139,11 @@ export const AutoRotatingCarousel = ({
       <CircularProgress className={classes.progress} />
 
       <div className={classes.carouselDiv}>
-        <Paper elevation={0} className={classes.carouselWrapper}>
+        <Paper
+          elevation={0}
+          className={classes.carouselWrapper}
+          square={square}
+        >
           {carousel}
         </Paper>
       </div>
@@ -158,6 +166,7 @@ AutoRotatingCarousel.defaultProps = {
   autoplay: false,
   interval: 5000,
   variant: 'auto',
+  square: true,
 };
 
 AutoRotatingCarousel.propTypes = {
@@ -166,6 +175,7 @@ AutoRotatingCarousel.propTypes = {
   /** Delay between auto play transitions (in ms). */
   interval: PropTypes.number,
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
+  square: PropTypes.bool,
 };
 
 export default AutoRotatingCarousel;

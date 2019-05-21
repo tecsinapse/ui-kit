@@ -50,7 +50,7 @@ const useStyle = makeStyles(theme => ({
   },
 }));
 
-function Slide({
+export const Slide = ({
   backgroundImage,
   titleImage,
   title,
@@ -58,7 +58,7 @@ function Slide({
   link,
   mobile,
   ...other
-}) {
+}) => {
   const classes = useStyle();
 
   return (
@@ -114,7 +114,7 @@ function Slide({
       </div>
     </div>
   );
-}
+};
 
 Slide.defaultProps = {
   titleImage: '',
@@ -150,5 +150,4 @@ Slide.propTypes = {
    */
   mobile: PropTypes.bool,
 };
-
 export default Slide;
