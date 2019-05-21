@@ -1,3 +1,10 @@
+<a name="0.0.147"></a>
+## <small>0.0.147 (2019-05-21)</small>
+
+* fix hooks issues on tableLoading ([5cfdbaf](https://github.com/tecsinapse/ui-kit/commit/5cfdbaf))
+
+
+
 <a name="0.0.146"></a>
 ## <small>0.0.146 (2019-05-21)</small>
 
