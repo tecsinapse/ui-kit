@@ -120,7 +120,6 @@ const handleCloseSuggestions = (setAnchorEl, setSuggestionsRef) => () => {
 const AutoComplete = ({
   inputProps,
   paperProps,
-  containerProps,
   itemProps,
   values,
   onDeleteItem,
@@ -139,7 +138,7 @@ const AutoComplete = ({
   const open = Boolean(anchorEl);
 
   return (
-    <div className={classes.root} ref={setContainerRef} {...containerProps}>
+    <div className={classes.root} ref={setContainerRef}>
       <Input
         name="inputValue"
         value={inputValue}
@@ -170,10 +169,7 @@ const AutoComplete = ({
         style={{
           width: containerRef ? containerRef.offsetWidth : null,
           marginLeft: '20px',
-          zIndex:
-            containerRef && containerRef.style
-              ? containerRef.style.zIndex
-              : null,
+          zIndex: 1500,
         }}
       >
         <Paper className={classes.paper} {...paperProps}>
