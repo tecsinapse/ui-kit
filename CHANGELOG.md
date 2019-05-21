@@ -1,3 +1,10 @@
+<a name="0.0.145"></a>
+## <small>0.0.145 (2019-05-21)</small>
+
+* update table on filter function change ([629ad58](https://github.com/tecsinapse/ui-kit/commit/629ad58))
+
+
+
 <a name="0.0.144"></a>
 ## <small>0.0.144 (2019-05-21)</small>
 
