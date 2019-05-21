@@ -37,6 +37,7 @@ export const EmptyState = withStyles(styles)(
     message,
     noConnectionTitle,
     offlineMessage,
+    children,
   }) => {
     const messagemTitulo =
       titleMessage ||
@@ -53,6 +54,7 @@ export const EmptyState = withStyles(styles)(
           <Typography variant="body2" gutterBottom>
             {navigator.onLine ? message : offlineMessage}
           </Typography>
+          {children}
         </div>
       </div>
     );
@@ -70,8 +72,8 @@ EmptyState.defaultProps = {
 };
 EmptyState.propTypes = {
   IconComponent: PropTypes.func,
-  titleMessage: PropTypes.string,
-  message: PropTypes.string,
-  noConnectionTitle: PropTypes.string,
-  offlineMessage: PropTypes.string,
+  titleMessage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  message: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  noConnectionTitle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  offlineMessage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };

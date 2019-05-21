@@ -61,6 +61,7 @@ export const AppBar = ({
   className,
   breadcrumbs = [],
   loadingBreadcrumbs = false,
+  disableBreadcrumb,
 }) => {
   const classes = useStyles();
   const theme = useTheme();
@@ -89,44 +90,46 @@ export const AppBar = ({
           </div>
           {rightIcons}
         </Toolbar>
-        <div className={classes.paperBreadcrumb}>
-          {loadingBreadcrumbs ? (
-            <CircularProgress size={10} />
-          ) : (
-            <Breadcrumbs
-              classes={{ root: classes.breadcrumb }}
-              separator={
-                <NavigateNextIcon
-                  fontSize="small"
-                  className={classes.separator}
-                />
-              }
-              arial-label="Breadcrumb"
-            >
-              {breadcrumbs.map((current, index, arr) =>
-                index === arr.length - 1 ? (
-                  <Typography
-                    key={current.title}
-                    color="secondary"
-                    variant="subtitle2"
-                  >
-                    {current.title}
-                  </Typography>
-                ) : (
-                  <Link
-                    key={current.title}
-                    component={current.component}
-                    variant="subtitle2"
-                    classes={{ root: classes.link }}
-                    {...current.componentProps}
-                  >
-                    {current.title}
-                  </Link>
-                )
-              )}
-            </Breadcrumbs>
-          )}
-        </div>
+        {!disableBreadcrumb && (
+          <div className={classes.paperBreadcrumb}>
+            {loadingBreadcrumbs ? (
+              <CircularProgress size={10} />
+            ) : (
+              <Breadcrumbs
+                classes={{ root: classes.breadcrumb }}
+                separator={
+                  <NavigateNextIcon
+                    fontSize="small"
+                    className={classes.separator}
+                  />
+                }
+                arial-label="Breadcrumb"
+              >
+                {breadcrumbs.map((current, index, arr) =>
+                  index === arr.length - 1 ? (
+                    <Typography
+                      key={current.title}
+                      color="secondary"
+                      variant="subtitle2"
+                    >
+                      {current.title}
+                    </Typography>
+                  ) : (
+                    <Link
+                      key={current.title}
+                      component={current.component}
+                      variant="subtitle2"
+                      classes={{ root: classes.link }}
+                      {...current.componentProps}
+                    >
+                      {current.title}
+                    </Link>
+                  )
+                )}
+              </Breadcrumbs>
+            )}
+          </div>
+        )}
       </MaterialAppBar>
     </div>
   );
@@ -139,6 +142,7 @@ AppBar.defaultProps = {
   menuOnClick: null,
   leftIcons: null,
   rightIcons: null,
+  disableBreadcrumb: false,
   loadingBreadcrumbs: false,
 };
 export const breadcrumb = PropTypes.shape({
@@ -156,5 +160,6 @@ AppBar.propTypes = {
   rightIcons: PropTypes.object,
   breadcrumbs: PropTypes.arrayOf(breadcrumb).isRequired,
   loadingBreadcrumbs: PropTypes.bool,
+  disableBreadcrumb: PropTypes.bool,
 };
 export default AppBar;
