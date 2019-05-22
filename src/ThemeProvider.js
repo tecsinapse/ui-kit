@@ -57,13 +57,11 @@ const theme = variant =>
     },
     palette: { ...themeColors[variant] },
   });
-function ThemeProvider({ children, variant }) {
+export function ThemeProvider({ children, variant }) {
   return <MuiThemeProvider theme={theme(variant)}>{children}</MuiThemeProvider>;
 }
-
+export default ThemeProvider;
 ThemeProvider.propTypes = {
   variant: PropTypes.oneOf(['orange', 'blue', 'black', 'redLight', 'green'])
     .isRequired,
 };
-
-export default ThemeProvider;

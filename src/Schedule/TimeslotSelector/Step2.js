@@ -222,7 +222,7 @@ Step2.propTypes = {
   onWeekChange: PropTypes.func,
   callPreviousStep: PropTypes.func.isRequired,
   callCancel: PropTypes.func,
-  selectedDate: PropTypes.string,
+  selectedDate: PropTypes.object,
   selectedTime: PropTypes.string,
   selectedPerson: PropTypes.string,
   otherProps: PropTypes.object,
