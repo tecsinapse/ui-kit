@@ -17,6 +17,9 @@ const useStyle = makeStyles({
     top: '50%',
     right: -15,
   },
+  textColor: {
+    color: '#787879 !important',
+  },
 });
 
 export const DivButton = ({ children, infoText, notifyNumber, onClick }) => {
@@ -31,7 +34,11 @@ export const DivButton = ({ children, infoText, notifyNumber, onClick }) => {
           color="error"
           classes={{ badge: classes.badgeNotification }}
         >
-          <Typography variant="h6" color="textPrimary">
+          <Typography
+            variant="h6"
+            color="textPrimary"
+            classes={{ colorTextPrimary: classes.textColor }}
+          >
             {infoText}
           </Typography>
         </Badge>

@@ -62,6 +62,9 @@ export default [
             'oneOfType',
             'object',
           ],
+          'node_modules/@material-ui/core/useMediaQuery/index.js': [
+            'unstable_useMediaQuery',
+          ],
         },
       }),
 

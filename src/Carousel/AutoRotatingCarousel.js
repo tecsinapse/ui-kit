@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
 import Dots from 'material-ui-dots';
-// import { makeStyles, useTheme } from '@material-ui/styles';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
+// import { makeStyles } from '@material-ui/styles';
 import Fab from '@material-ui/core/Fab';
 import classNames from 'classnames';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { grey } from '@material-ui/core/colors';
 import CircularProgress from '@material-ui/core/CircularProgress';
-// import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
+import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 
 import Carousel from './Carousel';
 import { modulo } from './util';
@@ -87,8 +87,8 @@ export const AutoRotatingCarousel = ({
   const hasMultipleChildren = children.length != null;
   const [slideIndex, setSlideIndex] = useState(0);
 
-  // const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
-  const matches = true;
+  const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
+  // const matches = true;
 
   let mobile = false;
   if (variant === 'auto') {

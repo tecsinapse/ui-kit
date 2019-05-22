@@ -86,18 +86,10 @@ export const Slide = ({
             [classes.titleDivMobile]: mobile,
           })}
         >
-          <Typography
-            variant="subtitle2"
-            className={classes.title}
-            color="textPrimary"
-          >
+          <Typography variant="subtitle2" className={classes.title}>
             {title}
           </Typography>
-          <Typography
-            variant="caption"
-            color="inherit"
-            className={classes.subtitle}
-          >
+          <Typography variant="caption" className={classes.subtitle}>
             {subtitle}
           </Typography>
           {mobile && (
