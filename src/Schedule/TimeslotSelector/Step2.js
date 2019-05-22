@@ -36,10 +36,11 @@ const generateTimeSlots = (personAvailabilities, date, duration) => {
 const mapByPerson = (personsAvailabilities, date, duration) => {
   const map = [];
   personsAvailabilities.forEach(pa => {
+    const slotDuration = duration % 15 === 0 ? 15 : duration;
     map[pa.email] = {
       name: pa.name,
       email: pa.email,
-      timeSlots: generateTimeSlots(pa, date, duration),
+      timeSlots: generateTimeSlots(pa, date, slotDuration),
     };
   });
 
@@ -72,12 +73,11 @@ export const Step2 = ({
     defaultDate,
     selectedDuration
   );
-
   if (
     selectedPeople &&
     selectedPerson &&
     selectedDate &&
-    selectedDate.toISODate() === defaultDate.toISODate() &&
+    selectedDate === defaultDate.toISODate() &&
     selectedTime
   ) {
     const person = timeSlotsByPerson[selectedPerson];
