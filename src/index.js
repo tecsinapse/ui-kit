@@ -11,6 +11,7 @@ export * from './Menu/AppBar/AppBar';
 export * from './Menu/Drawer/Drawer';
 export * from './Notifications/Snackbar';
 export * from './ThemeProvider';
+export * from './EditText/EditText';
 export * from './Select/Select';
 export * from './Loading/index';
 export * from './Calendar/index';

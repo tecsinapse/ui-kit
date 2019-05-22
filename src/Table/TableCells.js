@@ -15,7 +15,8 @@ const convertValuesToTableCell = (
   rowData,
   rowId,
   selectedRows,
-  forceCollapseActions
+  forceCollapseActions,
+  verticalActions
 ) => {
   if (selection) {
     return (
@@ -41,6 +42,7 @@ const convertValuesToTableCell = (
           actions={actions}
           row={rowData}
           rowId={rowId}
+          verticalActions={verticalActions}
           forceCollapseActions={forceCollapseActions}
         />
       </TableCell>
@@ -59,6 +61,7 @@ const TableCells = ({
   rowId,
   selectedRows,
   forceCollapseActions,
+  verticalActions,
 }) =>
   columns.map(column =>
     convertValuesToTableCell(
@@ -66,7 +69,8 @@ const TableCells = ({
       rowData,
       rowId,
       selectedRows,
-      forceCollapseActions
+      forceCollapseActions,
+      verticalActions
     )
   );
 

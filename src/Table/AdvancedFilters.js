@@ -15,6 +15,7 @@ const filterStyles = makeStyles(theme => ({
   filterContainer: {
     display: 'flex',
     flexWrap: 'wrap',
+    alignItems: 'center',
   },
   filter: {
     padding: '2px',
@@ -78,8 +79,10 @@ const mapFilterOptionToInput = (
   if (type === 'checkbox') {
     return (
       <FormControlLabel
+        style={{ marginTop: 3 }}
         control={
           <Checkbox
+            style={{ paddingRight: 5 }}
             key={name}
             onChange={event =>
               onChangeFilter(setAdvancedFilters, name, event.target.checked)
@@ -120,7 +123,9 @@ const Filters = ({
   return Object.keys(filtersByGroup).map(key => {
     const group = filtersByGroup[key];
 
-    if (!group.filters || group.filters.length === 0) return null;
+    if (!group.filters || group.filters.length === 0) {
+      return null;
+    }
 
     return [
       <Divider key={`divider-${key}`} />,

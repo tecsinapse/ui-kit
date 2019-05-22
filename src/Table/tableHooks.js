@@ -43,7 +43,9 @@ export const useUpdateData = (
         filteredData = filteredData.filter(row => {
           const valueField = resolveObj(field, row);
 
-          if (!filterValue) return true;
+          if (!filterValue) {
+            return true;
+          }
 
           if (typeof valueField === 'object') {
             return true;
@@ -58,7 +60,7 @@ export const useUpdateData = (
       setData(filteredData);
       setLoading(false);
     }
-  }, [filters]);
+  }, [filters, data]);
 };
 
 export const useUpdatePageData = (

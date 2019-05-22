@@ -36,3 +36,66 @@ export const cars = [
     price: '21700000',
   },
 ];
+
+export const countries = [
+  {
+    name: 'Andorra',
+    code: 'AD',
+    continent: {
+      name: 'Europa',
+    },
+    languages: [
+      {
+        name: 'ca',
+        code: 'ca',
+      },
+    ],
+  },
+  {
+    name: 'United Arab Emirates',
+    code: 'AE',
+    continent: {
+      name: 'Asia',
+    },
+    languages: [
+      {
+        name: 'ar',
+        code: 'ar',
+      },
+    ],
+  },
+  {
+    name: 'Afghanistan',
+    code: 'AF',
+    continent: {
+      name: 'Asia',
+    },
+    languages: [
+      {
+        name: 'ps',
+        code: 'ps',
+      },
+      {
+        name: 'uz',
+        code: 'uz',
+      },
+      {
+        name: 'tk',
+        code: 'tk',
+      },
+    ],
+  },
+  {
+    name: 'Brazil',
+    code: 'BR',
+    continent: {
+      name: 'South America',
+    },
+    languages: [
+      {
+        name: 'pt',
+        code: 'pt',
+      },
+    ],
+  },
+];

@@ -24,13 +24,10 @@ const useStyle = rememberBox =>
     imgHeader: {
       display: 'flex',
       justifyContent: 'space-evenly',
+      height: '150px',
       alignItems: 'center',
-      flexBasis: '28%',
-      height: '30%',
     },
     content: {
-      flexBasis: '60%',
-      height: '60%',
       display: 'flex',
       flexDirection: 'column',
       marginLeft: '5%',
@@ -41,7 +38,7 @@ const useStyle = rememberBox =>
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      flexBasis: '12%',
+      flexBasis: '60px',
       backgroundColor: defaultGreyLight3,
     },
     logo: {

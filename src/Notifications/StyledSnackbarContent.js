@@ -9,8 +9,12 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { defaultGrey } from '../colors';
-import { buttonStyle } from '../Buttons/Button';
+import {
+  defaultGreen,
+  defaultGrey,
+  defaultOrange,
+  defaultRed,
+} from '../colors';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -21,16 +25,20 @@ const variantIcon = {
 
 const useStyles = makeStyles(theme => ({
   successSnack: {
-    ...buttonStyle.buttonColorSuccess,
+    backgroundColor: defaultGreen,
+    color: 'white',
   },
   errorSnack: {
-    ...buttonStyle.buttonColorError,
+    backgroundColor: defaultRed,
+    color: 'white',
   },
   infoSnack: {
     backgroundColor: defaultGrey,
+    color: 'white',
   },
   warningSnack: {
-    ...buttonStyle.buttonColorWarning,
+    backgroundColor: defaultOrange,
+    color: 'white',
   },
   iconSnack: {
     fontSize: 20,

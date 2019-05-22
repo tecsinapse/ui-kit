@@ -88,7 +88,9 @@ const handleInputKeyDown = (
 };
 
 const handleDeleteChip = (value, onDeleteItem, inputRef) => () => {
-  if (!onDeleteItem) return;
+  if (!onDeleteItem) {
+    return;
+  }
   onDeleteItem(value);
   inputRef.focus();
 };
@@ -101,7 +103,9 @@ const handleOnClickItem = (
   setSuggestionsRef,
   inputValue
 ) => () => {
-  if (!onSelectItem) return;
+  if (!onSelectItem) {
+    return;
+  }
   onSelectItem(suggestion);
   handleCloseSuggestions(setAnchorEl, setSuggestionsRef)();
   inputValue('');
@@ -165,6 +169,7 @@ const AutoComplete = ({
         style={{
           width: containerRef ? containerRef.offsetWidth : null,
           marginLeft: '20px',
+          zIndex: 1500,
         }}
       >
         <Paper className={classes.paper} {...paperProps}>

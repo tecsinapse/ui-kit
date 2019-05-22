@@ -4,18 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import FilterIcon from '@material-ui/icons/FilterList';
 import Tooltip from '@material-ui/core/Tooltip';
 import Popover from '@material-ui/core/Popover';
-import { makeStyles } from '@material-ui/styles';
 import AdvancedFilters from './AdvancedFilters';
-
-const styles = makeStyles(theme => ({
-  advancedFiltersContent: {
-    // padding: theme.spacing.unit,
-  },
-  popover: {
-    maxWidth: '700px',
-    maxHeight: '400px',
-  },
-}));
 
 const onApplyFilter = (setAnchorEl, setFilters) => advancedFilters => {
   setFilters(prevFilters => ({ ...prevFilters, advancedFilters }));
@@ -30,10 +19,17 @@ const TableAdvancedFilters = ({
 }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
-  if (!advancedFilters) return null;
+  if (!advancedFilters) {
+    return null;
+  }
 
-  const classes = styles();
   const open = Boolean(anchorEl);
+  const { maxHeight = '100%', maxWidth = '700px' } = advancedFilters;
+
+  const maxSizeAdvancedFilters = {
+    maxHeight,
+    maxWidth,
+  };
 
   return (
     <React.Fragment>
@@ -55,7 +51,7 @@ const TableAdvancedFilters = ({
           horizontal: 'right',
         }}
       >
-        <div className={classes.advancedFiltersContent}>
+        <div style={maxSizeAdvancedFilters}>
           <AdvancedFilters
             advancedFilters={advancedFilters}
             tooltipAdvancedFilter={tooltipAdvancedFilter}
@@ -82,7 +78,7 @@ TableAdvancedFilters.propTypes = {
     filtersGroup: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
+        label: PropTypes.string,
       })
     ),
     filters: PropTypes.arrayOf(

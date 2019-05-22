@@ -8,6 +8,7 @@ import { storiesOf } from '@storybook/react';
 import Table from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { defaultRed } from '../colors';
 
 const columns = [
   {
@@ -75,8 +76,35 @@ const ActionTable = () => (
     />
   </Paper>
 );
-
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add(
-  'Action Table',
-  ActionTable
+const ActionTableVertical = () => (
+  <Paper style={{ width: 1000 }}>
+    <Table
+      columns={columns}
+      data={cars}
+      verticalActions
+      rowId={row => row.id}
+      actions={[
+        {
+          label: 'Mail',
+          onClick: rowData => {
+            // eslint-disable-next-line
+            console.log(JSON.stringify(rowData));
+          },
+          bottomDivider: true,
+        },
+        {
+          labelColor: defaultRed,
+          label: 'Search item',
+          onClick: rowData => {
+            // eslint-disable-next-line no-alert
+            alert(JSON.stringify(rowData));
+          },
+        },
+      ]}
+    />
+  </Paper>
 );
+
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .add('Action Table', ActionTable)
+  .add('Action Table Vertical', ActionTableVertical);
