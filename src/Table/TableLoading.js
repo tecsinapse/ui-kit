@@ -19,11 +19,10 @@ export const styles = makeStyles(theme => ({
 }));
 
 const TableLoading = ({ loading }) => {
+  const classes = styles();
   if (!loading) {
     return null;
   }
-
-  const classes = styles();
 
   return (
     <div className={classes.loadingPanel}>

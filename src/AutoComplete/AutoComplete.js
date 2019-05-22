@@ -169,6 +169,7 @@ const AutoComplete = ({
         style={{
           width: containerRef ? containerRef.offsetWidth : null,
           marginLeft: '20px',
+          zIndex: 1500,
         }}
       >
         <Paper className={classes.paper} {...paperProps}>

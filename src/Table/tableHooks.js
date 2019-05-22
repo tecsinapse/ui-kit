@@ -60,7 +60,7 @@ export const useUpdateData = (
       setData(filteredData);
       setLoading(false);
     }
-  }, [filters]);
+  }, [filters, data]);
 };
 
 export const useUpdatePageData = (

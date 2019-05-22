@@ -1,3 +1,39 @@
+<a name="0.0.148"></a>
+## <small>0.0.148 (2019-05-21)</small>
+
+* add disable breadcrumb and support button api on emptyState ([979e9b3](https://github.com/tecsinapse/ui-kit/commit/979e9b3))
+* Fix zIndex on modals ([59dfdc2](https://github.com/tecsinapse/ui-kit/commit/59dfdc2))
+* Fixed zIndex value on Popper ([7f10d2e](https://github.com/tecsinapse/ui-kit/commit/7f10d2e))
+
+
+
+<a name="0.0.147"></a>
+## <small>0.0.147 (2019-05-21)</small>
+
+* fix hooks issues on tableLoading ([5cfdbaf](https://github.com/tecsinapse/ui-kit/commit/5cfdbaf))
+
+
+
+<a name="0.0.146"></a>
+## <small>0.0.146 (2019-05-21)</small>
+
+
+
+
+<a name="0.0.145"></a>
+## <small>0.0.145 (2019-05-21)</small>
+
+* update table on filter function change ([629ad58](https://github.com/tecsinapse/ui-kit/commit/629ad58))
+
+
+
+<a name="0.0.144"></a>
+## <small>0.0.144 (2019-05-21)</small>
+
+* layout and folder bradcrumb adjustments ([533f30f](https://github.com/tecsinapse/ui-kit/commit/533f30f))
+
+
+
 <a name="0.0.143"></a>
 ## <small>0.0.143 (2019-05-20)</small>
 
