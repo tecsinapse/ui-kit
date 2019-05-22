@@ -23,11 +23,12 @@ const generateTimeSlots = (personAvailabilities, date, duration) => {
   dateTimeSlots[0].forEach(dateTs => {
     let timeSlot = DateTime.fromISO(dateTs.start);
     const endTime = DateTime.fromISO(dateTs.end);
+    const slotDuration = duration % 15 === 0 ? 15 : duration;
     while (timeSlot < endTime) {
       if (timeSlot.plus({ minutes: duration }) <= endTime) {
         timeSlots.push(timeSlot.toLocaleString(DateTime.TIME_24_SIMPLE));
       }
-      timeSlot = timeSlot.plus({ minutes: duration });
+      timeSlot = timeSlot.plus({ minutes: slotDuration });
     }
   });
   return timeSlots;
@@ -36,11 +37,10 @@ const generateTimeSlots = (personAvailabilities, date, duration) => {
 const mapByPerson = (personsAvailabilities, date, duration) => {
   const map = [];
   personsAvailabilities.forEach(pa => {
-    const slotDuration = duration % 15 === 0 ? 15 : duration;
     map[pa.email] = {
       name: pa.name,
       email: pa.email,
-      timeSlots: generateTimeSlots(pa, date, slotDuration),
+      timeSlots: generateTimeSlots(pa, date, duration),
     };
   });
 

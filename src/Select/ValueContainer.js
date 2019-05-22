@@ -25,7 +25,8 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
     free -= 100;
     const childList = children && children[0];
     const itensMaxLenght =
-      childList instanceof Array && childList.reduce
+      selectProps.itensMaxLenght ||
+      (childList instanceof Array && childList.reduce
         ? childList.reduce((current, child) => {
             let newUsed = current;
             if (selectProps.valuesWidth[child.props.children] <= free) {
@@ -36,7 +37,7 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
             }
             return newUsed;
           }, 0)
-        : 0;
+        : 0);
 
     const childrensToPrint =
       childList instanceof Array && childList.slice
