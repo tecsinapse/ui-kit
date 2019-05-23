@@ -2,8 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Typography } from '@material-ui/core';
-import ArrowForwardIos from '@material-ui/icons/ArrowForwardIos';
 import Badge from '@material-ui/core/Badge';
+import ButtonBase from '@material-ui/core/ButtonBase';
+import { mdiChevronRight } from '@mdi/js';
+import Icon from '@mdi/react';
+import { defaultGreyLight2 } from '../colors';
 
 const useStyle = makeStyles({
   root: {
@@ -18,15 +21,15 @@ const useStyle = makeStyles({
     right: -15,
   },
   textColor: {
-    color: '#787879 !important',
+    color: `${defaultGreyLight2} !important`,
   },
 });
 
-export const DivButton = ({ children, infoText, notifyNumber, onClick }) => {
+export const DivButton = ({ children, infoText, notifyNumber, ...props }) => {
   const classes = useStyle();
 
   return (
-    <div onClick={onClick} onKeyPress={() => {}} className={classes.root}>
+    <ButtonBase focusRipple className={classes.root} {...props}>
       {children}
       <div>
         <Badge
@@ -43,8 +46,8 @@ export const DivButton = ({ children, infoText, notifyNumber, onClick }) => {
           </Typography>
         </Badge>
       </div>
-      <ArrowForwardIos />
-    </div>
+      <Icon path={mdiChevronRight} size={3 / 2} color={defaultGreyLight2} />
+    </ButtonBase>
   );
 };
 

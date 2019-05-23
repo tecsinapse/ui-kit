@@ -63,7 +63,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
       style={{
         width: '100vw',
         height: '160px',
-        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        backgroundColor: '#e0e0e0',
       }}
     >
       <DivButton
