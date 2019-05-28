@@ -19,7 +19,9 @@ export default function Carousel({ children, autoplay, ...other }) {
     <VirtualizeSwipeViews
       {...other}
       slideRenderer={slideRenderer}
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.54)' }}
+      style={{ backgroundColor: 'black', height: '100%' }}
+      slideStyle={{ height: '100%' }}
+      containerStyle={{ height: '100%' }}
     />
   );
 }
