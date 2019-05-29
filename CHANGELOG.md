@@ -1,3 +1,10 @@
+<a name="0.0.151"></a>
+## <small>0.0.151 (2019-05-29)</small>
+
+* add table toolbar hide option ([5bb816d](https://github.com/tecsinapse/ui-kit/commit/5bb816d))
+
+
+
 <a name="0.0.150"></a>
 ## <small>0.0.150 (2019-05-29)</small>
 
