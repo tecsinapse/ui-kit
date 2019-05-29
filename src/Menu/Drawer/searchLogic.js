@@ -1,4 +1,5 @@
 import { flatten } from '@tecsinapse/es-utils/core/object/index';
+import { accentFold } from './StringUtils';
 
 export function selectedTitlesTree(items) {
   if (!items) {
@@ -31,7 +32,9 @@ export function searchLogic(items, searchText, subtitle = '') {
         )
       );
     } else if (
-      item.title.toLowerCase().indexOf(searchText.toLowerCase()) >= 0 &&
+      accentFold(item.title.toLowerCase()).indexOf(
+        accentFold(searchText.toLowerCase())
+      ) >= 0 &&
       subtitle
     ) {
       found.push({
@@ -46,7 +49,9 @@ export function searchLogic(items, searchText, subtitle = '') {
 }
 
 export function normalizeFunctionItems(oldItems) {
-  if (!oldItems) return null;
+  if (!oldItems) {
+    return null;
+  }
   const items = [];
   for (const oldItem of oldItems) {
     const item = {
