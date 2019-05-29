@@ -34,6 +34,7 @@ export const ListHeader = ({
   title,
   subtitle,
   productName,
+  searchBarPlaceholder = 'O que você busca?',
 }) => {
   const classes = useStyles();
   return (
@@ -48,7 +49,7 @@ export const ListHeader = ({
         className={classNames(classes.flexColumn, classes.noPadding)}
       >
         <SearchBar
-          placeholder="O que você busca?"
+          placeholder={searchBarPlaceholder}
           className={classes.searchBar}
           value={search}
           onChange={setSearch}
