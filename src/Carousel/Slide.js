@@ -145,7 +145,7 @@ export const Slide = ({
               className={classes.button}
               size="small"
             >
-              {` ${buttonMobileName} `}
+              {buttonMobileName}
             </Button>
           )}
         </div>
