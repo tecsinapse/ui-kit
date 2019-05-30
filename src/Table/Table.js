@@ -47,6 +47,7 @@ const Table = props => {
     forceCollapseActions,
     verticalActions,
     onRowClick,
+    tableToolbarHide,
   } = props;
 
   const classes = tableStyles();
@@ -101,6 +102,7 @@ const Table = props => {
         columns={columns}
         setLoading={setLoading}
         rowCount={rowCount}
+        tableToolbarHide={tableToolbarHide}
       />
       <MUITable className={classes.table}>
         <TableHeader
@@ -146,6 +148,7 @@ Table.defaultProps = {
   selectedData: [],
   onSelectRow: null,
   onRowClick: null,
+  tableToolbarHide: false,
   actions: [],
   verticalActions: false,
   toolbarOptions: null,
@@ -196,6 +199,7 @@ Table.propTypes = {
   ),
   toolbarOptions: toolbarOptionsTypes,
   pagination: PropTypes.bool,
+  tableToolbarHide: PropTypes.bool,
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
   rowsPerPage: PropTypes.number,
   page: PropTypes.number,

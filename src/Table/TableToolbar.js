@@ -79,7 +79,11 @@ const TableToolbar = ({
   setFilters,
   setLoading,
   rowCount,
+  tableToolbarHide = false,
 }) => {
+  if (tableToolbarHide) {
+    return null;
+  }
   if (!options && !selection && !exportOptions) {
     return null;
   }
@@ -107,12 +111,14 @@ const TableToolbar = ({
 TableToolbar.defaultProps = {
   selectedRows: [],
   selection: false,
+  tableToolbarHide: false,
   options: null,
 };
 
 TableToolbar.propTypes = {
   selectedRows: PropTypes.arrayOf(PropTypes.object),
   selection: PropTypes.bool,
+  tableToolbarHide: PropTypes.bool,
   options: toolbarOptionsTypes,
 };
 

@@ -1,3 +1,25 @@
+<a name="0.0.151"></a>
+## <small>0.0.151 (2019-05-29)</small>
+
+* add table toolbar hide option ([5bb816d](https://github.com/tecsinapse/ui-kit/commit/5bb816d))
+
+
+
+<a name="0.0.150"></a>
+## <small>0.0.150 (2019-05-29)</small>
+
+* search bar placeholder ([98e6a3e](https://github.com/tecsinapse/ui-kit/commit/98e6a3e))
+
+
+
+<a name="0.0.149"></a>
+## <small>0.0.149 (2019-05-29)</small>
+
+* Accent folding for search logic on drawer ([9403ca8](https://github.com/tecsinapse/ui-kit/commit/9403ca8))
+* Accent folding for search logic on drawer ([6959ee5](https://github.com/tecsinapse/ui-kit/commit/6959ee5))
+
+
+
 <a name="0.0.148"></a>
 ## <small>0.0.148 (2019-05-21)</small>
 
