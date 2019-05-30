@@ -65,7 +65,9 @@ export function FormUploader({
     if (matches) {
       mobile = true;
     }
-  } else if (variant === 'mobile') mobile = true;
+  } else if (variant === 'mobile') {
+    mobile = true;
+  }
 
   return (
     <div

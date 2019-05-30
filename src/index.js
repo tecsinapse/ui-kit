@@ -1,6 +1,7 @@
 export * from './Buttons/Button';
 export * from './Buttons/FloatingButton';
 export * from './Buttons/IconButton';
+export * from './Buttons/DivButton';
 export * from './Alerts/ConfirmationAlert';
 export * from './Divider/Divider';
 export * from './GroupedInput/GroupedInput';
@@ -13,3 +14,5 @@ export * from './Menu/Drawer/Drawer';
 export * from './Notifications/Snackbar';
 export * from './ThemeProvider';
 export * from './EditText/EditText';
+export * from './Carousel/AutoRotatingCarousel';
+export * from './Carousel/Slide';

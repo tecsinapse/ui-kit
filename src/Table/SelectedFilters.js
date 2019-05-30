@@ -83,7 +83,9 @@ const CardFilter = ({ title, selectedValues }) => {
 };
 
 const SelectedFilters = ({ advancedFilters, filters }) => {
-  if (!advancedFilters) return null;
+  if (!advancedFilters) {
+    return null;
+  }
 
   const classes = styles();
   const selectedFilters = [];
