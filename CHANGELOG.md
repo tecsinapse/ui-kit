@@ -1,3 +1,10 @@
+<a name="0.0.153"></a>
+## <small>0.0.153 (2019-05-30)</small>
+
+* app bar header adjustments ([6b2efaf](https://github.com/tecsinapse/ui-kit/commit/6b2efaf))
+
+
+
 <a name="0.0.152"></a>
 ## <small>0.0.152 (2019-05-30)</small>
 
