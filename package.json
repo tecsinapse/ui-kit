@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
-  "version": "0.0.151",
+  "version": "0.0.152",
   "browser": "dist/index.js",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
@@ -119,7 +119,6 @@
   },
   "peerDependencies": {
     "@material-ui/core": "^3.9.1",
-    "material-ui-dots": "^2.0.0",
     "@material-ui/icons": "^3.0.2",
     "@material-ui/styles": "^3.0.0-alpha.10",
     "@mdi/js": "^3.0.39",
@@ -127,6 +126,7 @@
     "@tecsinapse/es-utils": "0.0.96",
     "@tinymce/tinymce-react": "^3.0.1",
     "classnames": "^2.2.6",
+    "material-ui-dots": "^2.0.0",
     "material-ui-search-bar": "1.0.0-beta.13",
     "memoize-one": "^5.0.0",
     "react": ">= 16.3.x",

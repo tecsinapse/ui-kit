@@ -1,3 +1,35 @@
+<a name="0.0.152"></a>
+## <small>0.0.152 (2019-05-30)</small>
+
+* Add base files defining the API ([f92a68a](https://github.com/tecsinapse/ui-kit/commit/f92a68a))
+* Add div button ([95b7c79](https://github.com/tecsinapse/ui-kit/commit/95b7c79))
+* Add dots, improve slide readbility and fix eslint ([707c4c1](https://github.com/tecsinapse/ui-kit/commit/707c4c1))
+* Add hook state to the carousel and update story ([8eac1a1](https://github.com/tecsinapse/ui-kit/commit/8eac1a1))
+* Add link to carousel slides ([1111b77](https://github.com/tecsinapse/ui-kit/commit/1111b77))
+* Add loading gif ([68b3145](https://github.com/tecsinapse/ui-kit/commit/68b3145))
+* Add normalize theme to magical numbers and improve story ([afb2ab7](https://github.com/tecsinapse/ui-kit/commit/afb2ab7))
+* Add peer deps ([47f6cc9](https://github.com/tecsinapse/ui-kit/commit/47f6cc9))
+* Add to export carousel and add square prop ([e50edf5](https://github.com/tecsinapse/ui-kit/commit/e50edf5))
+* Arrow appear/disapper with numbe of slides ([387d424](https://github.com/tecsinapse/ui-kit/commit/387d424))
+* Clean code ([fcca35a](https://github.com/tecsinapse/ui-kit/commit/fcca35a))
+* Fix button name of slide ([0ecb41a](https://github.com/tecsinapse/ui-kit/commit/0ecb41a))
+* Fix general stuffs ([67b2ea2](https://github.com/tecsinapse/ui-kit/commit/67b2ea2))
+* Fix general stuffs ([3b2bd1a](https://github.com/tecsinapse/ui-kit/commit/3b2bd1a))
+* Fix image fit and add support to load/error background image ([c07f510](https://github.com/tecsinapse/ui-kit/commit/c07f510))
+* Fix notifyNumber ([42067d6](https://github.com/tecsinapse/ui-kit/commit/42067d6))
+* Fix proptypes ([c570c5c](https://github.com/tecsinapse/ui-kit/commit/c570c5c))
+* Fix rollup to build carousel with mediaQuery ([2116847](https://github.com/tecsinapse/ui-kit/commit/2116847))
+* Fix story typo and old image ([bc80dad](https://github.com/tecsinapse/ui-kit/commit/bc80dad))
+* Fix text overflow ([ed872cd](https://github.com/tecsinapse/ui-kit/commit/ed872cd))
+* Fix title/sub ([0efd0c5](https://github.com/tecsinapse/ui-kit/commit/0efd0c5))
+* Initial elements location ([cdf0e43](https://github.com/tecsinapse/ui-kit/commit/cdf0e43))
+* Make Autorotating fit to space given ([120f120](https://github.com/tecsinapse/ui-kit/commit/120f120))
+* Replace div button for base button ([0ad84b8](https://github.com/tecsinapse/ui-kit/commit/0ad84b8))
+* Size normal loading ([617f0ee](https://github.com/tecsinapse/ui-kit/commit/617f0ee))
+* Story carousel inside component tab ([f2da1c7](https://github.com/tecsinapse/ui-kit/commit/f2da1c7))
+
+
+
 <a name="0.0.151"></a>
 ## <small>0.0.151 (2019-05-29)</small>
 
