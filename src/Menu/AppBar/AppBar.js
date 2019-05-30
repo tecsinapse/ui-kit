@@ -27,6 +27,7 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     flexGrow: 1,
     display: 'flex',
     flexDirection: 'row',
+    marginLeft: spacing.unit,
   },
   appBar: {
     display: 'flex',
@@ -48,6 +49,9 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
   },
   separator: {
     color: palette.primary.contrastText,
+  },
+  marginRightPattern: {
+    marginRight: spacing.unit,
   },
 }));
 
@@ -73,6 +77,7 @@ export const AppBar = ({
             color="inherit"
             aria-label="Abrir menu"
             onClick={menuOnClick}
+            className={classes.marginRightPattern}
           >
             <Icon
               path={mdiMenu}
