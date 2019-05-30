@@ -56,7 +56,6 @@ const useStyle = makeStyles(theme => ({
     height: '100%',
   },
   dots: {
-    paddingTop: 36,
     margin: '0 auto',
     top: '85%',
     left: '50%',
@@ -77,7 +76,7 @@ export const AutoRotatingCarousel = ({
   square,
 }) => {
   const classes = useStyle();
-  const hasMultipleChildren = children.length != null;
+  const hasMultipleChildren = React.Children.count(children) > 1;
   const [slideIndex, setSlideIndex] = useState(0);
 
   const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
