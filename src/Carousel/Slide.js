@@ -176,7 +176,7 @@ Slide.defaultProps = {
   buttonComponent: 'Link',
   buttonProps: {},
   link: '',
-  linkTarget: 'self',
+  linkTarget: '_self',
   mobile: false,
 };
 
