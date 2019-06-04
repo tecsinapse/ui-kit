@@ -16,8 +16,11 @@ storiesOf(`${GROUPS.COMPONENTS}|Carousel`, module)
           subtitleVariant="subtitle2"
           backgroundImage="https://ak6.picdn.net/shutterstock/videos/21643606/thumb/1.jpg"
           buttonTitle="ACESSAR HELPTEC"
-          buttonLink="https://helpdesk.portaltecsinapse.com.br/"
-          target="blank"
+          buttonComponent="a"
+          buttonProps={{
+            href: 'https://helpdesk.portaltecsinapse.com.br/',
+            target: '_blank',
+          }}
         />
       </AutoRotatingCarousel>
     </div>
@@ -27,17 +30,17 @@ storiesOf(`${GROUPS.COMPONENTS}|Carousel`, module)
       <AutoRotatingCarousel autoplay>
         <Slide
           link="http://www.google.com.br"
+          linkTarget="_blank"
+          backgroundImage="https://www.sokolovelaw.com/wp-content/uploads/automotive-mechanics.jpg"
           title="Relatório de Manuntenção BMW 2019"
           subtitle="Já estão disponíveis todos os relatórios de manuntenção de 2019 com todas as informações técnicas de recall"
-          backgroundImage="https://www.sokolovelaw.com/wp-content/uploads/automotive-mechanics.jpg"
-          target="blank"
         />
         <Slide
           link="http://www.google.com.br"
+          linkTarget="_blank"
+          backgroundImage="https://autonesian.com/wp-content/uploads/2017/02/astra-autoprima-bmw-2-700x400.jpg"
           title="Comitê Geral Seleciona Integrantes"
           subtitle="O comitê geral elegeu os novos membros para o Premium Selection"
-          backgroundImage="https://autonesian.com/wp-content/uploads/2017/02/astra-autoprima-bmw-2-700x400.jpg"
-          target="blank"
         />
       </AutoRotatingCarousel>
     </div>
@@ -47,17 +50,17 @@ storiesOf(`${GROUPS.COMPONENTS}|Carousel`, module)
       <AutoRotatingCarousel variant="mobile">
         <Slide
           link="http://www.google.com.br"
+          linkTarget="blank"
+          backgroundImage="http://b.static.trunity.net/files/299501_299600/299598/vertical-farming-chris-jacobs.jpg"
           title="Relatório de Manuntenção BMW 2019"
           subtitle="Já estão disponíveis todos os relatórios de manuntenção de 2019 com todas as informações técnicas de recall"
-          backgroundImage="http://b.static.trunity.net/files/299501_299600/299598/vertical-farming-chris-jacobs.jpg"
-          target="blank"
         />
         <Slide
           link="http://www.google.com.br"
+          linkTarget="blank"
+          backgroundImage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmUxJNtEYiYWD1z2-cCmBdhG4ODYGuZhEJISBcTJTcTg9UIeX7"
           title="Comitê Geral Seleciona Integrantes"
           subtitle="O comitê geral elegeu os novos membros para o Premium Selection"
-          backgroundImage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmUxJNtEYiYWD1z2-cCmBdhG4ODYGuZhEJISBcTJTcTg9UIeX7"
-          target="blank"
         />
       </AutoRotatingCarousel>
     </div>
