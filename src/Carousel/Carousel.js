@@ -14,7 +14,13 @@ const carouselSlideRenderer = children => ({ index, key }) =>
 export default function Carousel({ children, autoplay, ...other }) {
   const slideRenderer = carouselSlideRenderer(children);
   return autoplay ? (
-    <VirtualizeAutoPlaySwipeViews {...other} slideRenderer={slideRenderer} />
+    <VirtualizeAutoPlaySwipeViews
+      {...other}
+      slideRenderer={slideRenderer}
+      style={{ backgroundColor: 'black', height: '100%' }}
+      slideStyle={{ height: '100%' }}
+      containerStyle={{ height: '100%' }}
+    />
   ) : (
     <VirtualizeSwipeViews
       {...other}

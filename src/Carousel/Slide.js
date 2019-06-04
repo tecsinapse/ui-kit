@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import className from 'classnames';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { mdiFileImage } from '@mdi/js';
+import { mdiImageOff } from '@mdi/js';
 import Icon from '@mdi/react';
+import { Tooltip } from '@material-ui/core';
 import { Button } from '../Buttons/Button';
 
 const useStyle = makeStyles(theme => ({
@@ -21,6 +22,9 @@ const useStyle = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
+  cursorPointer: {
+    cursor: 'pointer',
+  },
   titleDiv: {
     textOverflow: 'ellipsis',
     overflow: 'hidden',
@@ -31,22 +35,20 @@ const useStyle = makeStyles(theme => ({
     marginLeft: theme.spacing.unit,
   },
   title: {
-    textTransform: 'uppercase',
     fontWeight: 'bold',
-    color: 'white',
   },
   subtitle: {
     color: 'white',
-    marginTop: theme.spacing.unit,
     marginBottom: theme.spacing.unit,
-  },
-  titleImage: {
-    alignSelf: 'flex-end',
+    fontSize: '80%',
   },
   info: {
     position: 'absolute',
+    margin: theme.spacing.unit,
+    right: theme.spacing.unit,
+    left: theme.spacing.unit,
+    bottom: theme.spacing.unit,
     display: 'flex',
-    width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
@@ -73,12 +75,17 @@ const useStyle = makeStyles(theme => ({
 
 export const Slide = ({
   backgroundImage,
-  titleImage,
   title,
+  titleVariant,
+  titleColor,
   subtitle,
+  subtitleVariant,
+  buttonTitle,
+  buttonLink,
+  buttonTooltip,
   link,
   mobile,
-  buttonMobileName,
+  target,
 }) => {
   const [showLoad, setShowLoad] = useState(true);
   const [showError, setShowError] = useState(false);
@@ -89,13 +96,18 @@ export const Slide = ({
     <div
       className={className(classes.root, {
         [classes.rootMobile]: mobile,
+        [classes.cursorPointer]: !mobile && link,
       })}
-      onClick={!mobile ? () => (link ? window.open(link) : null) : undefined}
+      onClick={
+        !mobile
+          ? () => (link ? window.open(link, '_'.concat(target)) : null)
+          : undefined
+      }
       onKeyPress={!mobile ? () => null : undefined}
     >
       {showError && (
         <Icon
-          path={mdiFileImage}
+          path={mdiImageOff}
           size={4}
           color="white"
           className={classes.erroImage}
@@ -105,7 +117,6 @@ export const Slide = ({
       <img
         src={backgroundImage}
         alt=""
-        title="image"
         className={classes.imageBackground}
         onLoad={e => {
           e.stopPropagation();
@@ -123,30 +134,32 @@ export const Slide = ({
       />
 
       <div className={classes.info}>
-        {!mobile && (
-          <div className={classes.titleImage}>
-            {<img src={titleImage} alt="" />}
-          </div>
-        )}
         <div
           className={className(classes.titleDiv, {
             [classes.titleDivMobile]: mobile,
           })}
         >
-          <Typography variant="subtitle2" className={classes.title}>
-            {title}
-          </Typography>
-          <Typography variant="caption" className={classes.subtitle}>
-            {subtitle}
-          </Typography>
-          {mobile && (
-            <Button
-              onClick={() => (link ? window.open(link) : null)}
-              className={classes.button}
-              size="small"
-            >
-              {buttonMobileName}
-            </Button>
+          <Typography
+            variant={titleVariant}
+            style={{ color: titleColor }}
+            className={classes.title}
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
+          <Typography
+            variant={subtitleVariant}
+            className={classes.subtitle}
+            dangerouslySetInnerHTML={{ __html: subtitle }}
+          />
+          {buttonLink && !link && (
+            <Tooltip title={buttonTooltip} placement="right">
+              <Button
+                onClick={() => window.open(buttonLink, '_'.concat(target))}
+                className={classes.button}
+                size="small"
+              >
+                {buttonTitle}
+              </Button>
+            </Tooltip>
           )}
         </div>
       </div>
@@ -155,12 +168,17 @@ export const Slide = ({
 };
 
 Slide.defaultProps = {
-  titleImage: '',
   title: '',
+  titleVariant: 'h4',
+  titleColor: 'white',
   subtitle: '',
+  subtitleVariant: 'subtitle1',
+  buttonTitle: 'SABER MAIS',
+  buttonLink: undefined,
+  buttonTooltip: '',
   link: '',
   mobile: false,
-  buttonMobileName: 'SABER MAIS',
+  target: 'self',
 };
 
 Slide.propTypes = {
@@ -169,19 +187,39 @@ Slide.propTypes = {
    */
   backgroundImage: PropTypes.string.isRequired,
   /**
-   * Image path to display along with the title
-   */
-  titleImage: PropTypes.string,
-  /**
    * Title of the slide.
    */
   title: PropTypes.string,
+  /**
+   * Title variant style of the slide.
+   */
+  titleVariant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  /**
+   * Title color style of the slide.
+   */
+  titleColor: PropTypes.string,
   /**
    * Subtitle of the slide.
    */
   subtitle: PropTypes.string,
   /**
-   * Link to redirect when click on component
+   * Subtitle variant style of the slide.
+   */
+  subtitleVariant: PropTypes.oneOf(['subtitle1', 'subtitle2']),
+  /**
+   * Name to appear in the button.
+   */
+  buttonTitle: PropTypes.string,
+  /**
+   * Link to redirect when click on button.
+   */
+  buttonLink: PropTypes.string,
+  /**
+   * Tooltip title for the button.
+   */
+  buttonTooltip: PropTypes.string,
+  /**
+   * Link to redirect when click on slide.
    */
   link: PropTypes.string,
   /**
@@ -189,8 +227,9 @@ Slide.propTypes = {
    */
   mobile: PropTypes.bool,
   /**
-   * Name to appear in the button
+   * Target attribute specifies where to open the link.
    */
-  buttonMobileName: PropTypes.string,
+  target: PropTypes.oneOf(['blank', 'self', 'parent', 'top']),
 };
+
 export default Slide;
