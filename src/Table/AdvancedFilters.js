@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import className from 'classnames';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -19,6 +20,9 @@ const filterStyles = makeStyles(theme => ({
   },
   filter: {
     padding: '2px',
+  },
+  fullWidth: {
+    width: '100%',
   },
 }));
 
@@ -61,6 +65,7 @@ const mapFilterOptionToInput = (
         onChange={event =>
           onChangeFilter(setAdvancedFilters, name, event.target.value)
         }
+        fullWidth
       />
     );
   }
@@ -73,6 +78,7 @@ const mapFilterOptionToInput = (
         label={label}
         isMulti={type === 'multi-select'}
         onChange={value => onChangeFilter(setAdvancedFilters, name, value)}
+        fullWidth
       />
     );
   }
@@ -133,7 +139,12 @@ const Filters = ({
         <Typography variant="subtitle2">{group.label}</Typography>
         <div className={classes.filterContainer}>
           {group.filters.map(filter => (
-            <div key={`filter-${filter.name}`} className={classes.filter}>
+            <div
+              key={`filter-${filter.name}`}
+              className={className(classes.filter, {
+                [classes.fullWidth]: filter.fullWidth,
+              })}
+            >
               {mapFilterOptionToInput(
                 filter,
                 setAdvancedFilters,

@@ -24,8 +24,13 @@ const useStyle = makeStyles(theme => ({
     width: 4 * theme.spacing.unit,
     height: 4 * theme.spacing.unit,
     zIndex: 1,
-    top: '50%',
+    top: '45%',
     position: 'absolute',
+    opacity: 0.2,
+    transition: 'opacity 2s',
+    '&:hover': {
+      opacity: 1,
+    },
   },
   arrowLeft: {
     left: 2 * theme.spacing.unit,
