@@ -48,6 +48,7 @@ const Table = props => {
     verticalActions,
     onRowClick,
     tableToolbarHide,
+    id,
   } = props;
 
   const classes = tableStyles();
@@ -89,7 +90,7 @@ const Table = props => {
   );
 
   return (
-    <div className={propClasses.root}>
+    <div className={propClasses.root} id={id}>
       <TableLoading loading={loading} />
       <TableToolbar
         options={toolbarOptions}
@@ -159,6 +160,7 @@ Table.defaultProps = {
   labelDisplayedRows: ({ from, to, count }) => `${from}-${to} of ${count}`,
   labelRowsPerPage: 'Rows per page:',
   exportOptions: null,
+  id: null,
   classes: {},
 };
 
@@ -186,6 +188,7 @@ Table.propTypes = {
   selectedData: PropTypes.arrayOf(PropTypes.object),
   onSelectRow: PropTypes.func,
   onRowClick: PropTypes.func,
+  id: PropTypes.string,
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       tooltip: PropTypes.string,
