@@ -1,3 +1,19 @@
+<a name="0.0.154"></a>
+## <small>0.0.154 (2019-06-04)</small>
+
+* [#112049] - Carrossel ([d7dbaa0](https://github.com/tecsinapse/ui-kit/commit/d7dbaa0)), closes [#112049](https://github.com/tecsinapse/ui-kit/issues/112049)
+* [#112049] - Carrossel ([70dbd87](https://github.com/tecsinapse/ui-kit/commit/70dbd87)), closes [#112049](https://github.com/tecsinapse/ui-kit/issues/112049)
+* [#112049] - Carrossel ([21caaf6](https://github.com/tecsinapse/ui-kit/commit/21caaf6)), closes [#112049](https://github.com/tecsinapse/ui-kit/issues/112049)
+
+
+
+<a name="0.0.153"></a>
+## <small>0.0.153 (2019-05-30)</small>
+
+* app bar header adjustments ([6b2efaf](https://github.com/tecsinapse/ui-kit/commit/6b2efaf))
+
+
+
 <a name="0.0.152"></a>
 ## <small>0.0.152 (2019-05-30)</small>
 
