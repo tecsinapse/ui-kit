@@ -1,3 +1,10 @@
+<a name="0.0.155"></a>
+## <small>0.0.155 (2019-06-05)</small>
+
+* adding id to table ([6f2ca3e](https://github.com/tecsinapse/ui-kit/commit/6f2ca3e))
+
+
+
 <a name="0.0.154"></a>
 ## <small>0.0.154 (2019-06-04)</small>
 
