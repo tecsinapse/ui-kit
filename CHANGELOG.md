@@ -1,3 +1,10 @@
+<a name="0.0.158"></a>
+## <small>0.0.158 (2019-06-06)</small>
+
+* No blinking on select ([f8a90e5](https://github.com/tecsinapse/ui-kit/commit/f8a90e5))
+
+
+
 <a name="0.0.157"></a>
 ## <small>0.0.157 (2019-06-06)</small>
 
