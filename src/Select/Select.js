@@ -176,7 +176,7 @@ export const SelectUnstyled = ({
         key={key}
         error={!!error}
         fullWidth={fullWidth}
-        style={{ minWidth: '200px', zIndex: 9999 }}
+        style={{ minWidth: '200px' }}
       >
         <SizeMe noPlaceholder>
           {({ size }) => (
