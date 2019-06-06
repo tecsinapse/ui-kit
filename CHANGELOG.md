@@ -1,3 +1,10 @@
+<a name="0.0.156"></a>
+## <small>0.0.156 (2019-06-06)</small>
+
+* Ajuste zIndex do Select ([5c45fa1](https://github.com/tecsinapse/ui-kit/commit/5c45fa1))
+
+
+
 <a name="0.0.155"></a>
 ## <small>0.0.155 (2019-06-05)</small>
 
