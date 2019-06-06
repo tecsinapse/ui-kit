@@ -33,6 +33,8 @@ export default [
           'react-text-mask': 'MaskedInput',
           'material-ui-search-bar': 'SearchBar',
           '@tinymce/tinymce-react': 'tinymceReact',
+          'react-swipeable-views': 'SwipeableViews',
+          'material-ui-dots': 'Dots',
         },
       },
     ],
@@ -61,10 +63,11 @@ export default [
             'func',
             'oneOfType',
             'object',
+            'element',
+            'elementType',
           ],
-          'node_modules/@material-ui/core/useMediaQuery/index.js': [
-            'unstable_useMediaQuery',
-          ],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+          'node_modules/react-is/index.js': ['ForwardRef'],
         },
       }),
 
