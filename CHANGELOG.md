@@ -1,3 +1,11 @@
+<a name="0.0.159"></a>
+## <small>0.0.159 (2019-06-06)</small>
+
+* adding className to drawer ([7c26ab2](https://github.com/tecsinapse/ui-kit/commit/7c26ab2))
+* adding id to drawer ([5d90b59](https://github.com/tecsinapse/ui-kit/commit/5d90b59))
+
+
+
 <a name="0.0.158"></a>
 ## <small>0.0.158 (2019-06-06)</small>
 
