@@ -21,7 +21,7 @@ export function calculateValuesSizes(values) {
     const { label: optionValue } = value;
     const label = getLabelSliced(optionValue);
     const textWidth = getTextWidth(label, '0.8125rem Roboto');
-    map[label] = textWidth + 24 + 24;
+    map[optionValue] = textWidth + 24 + 24;
   }
   return map;
 }
