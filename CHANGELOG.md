@@ -1,3 +1,10 @@
+<a name="0.0.157"></a>
+## <small>0.0.157 (2019-06-06)</small>
+
+* Wrong id on map of widths, was using ellipsed for select ([3f5674c](https://github.com/tecsinapse/ui-kit/commit/3f5674c))
+
+
+
 <a name="0.0.156"></a>
 ## <small>0.0.156 (2019-06-06)</small>
 
