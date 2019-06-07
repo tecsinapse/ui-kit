@@ -5,6 +5,7 @@ import 'tinymce/plugins/paste';
 import 'tinymce/plugins/link';
 import 'tinymce/plugins/code';
 import 'tinymce/plugins/image';
+import 'tinymce/plugins/lists';
 import 'tinymce-i18n/langs/pt_BR';
 import { Editor } from '@tinymce/tinymce-react';
 import { makeStyles } from '@material-ui/styles';
@@ -35,8 +36,38 @@ export const EditText = ({
   uploadFunc,
   hasImage,
   skinUrl,
+  toolbarDrawer,
+  variant,
 }) => {
   const classes = useStyle();
+
+  const plugins = ['link', 'code', 'paste', 'lists'];
+
+  if (hasImage) {
+    plugins.push('image');
+  }
+
+  const toolbar = {
+    simple: [
+      'paste',
+      'undo redo',
+      'fontselect fontsizeselect forecolor',
+      'bold italic',
+      'alignleft aligncenter alignright alignjustify',
+      'image',
+    ],
+    advanced: [
+      'copy cut paste',
+      'undo redo',
+      'fontselect fontsizeselect forecolor',
+      'bold italic underline strikethrough subscript superscript',
+      'alignleft aligncenter alignright alignjustify',
+      'link unlink image',
+      'bullist numlist',
+      'outdent indent',
+      'code',
+    ],
+  };
 
   return (
     <div className={classes.root}>
@@ -45,10 +76,9 @@ export const EditText = ({
           disabled={disabled}
           initialValue={initialValue}
           init={{
-            plugins: hasImage ? 'link image code paste' : 'link code paste',
-            toolbar: hasImage
-              ? 'paste | undo redo | bold italic | alignleft aligncenter alignright | code | image'
-              : 'paste | undo redo | bold italic | alignleft aligncenter alignright | code',
+            plugins: plugins.join(' '),
+            toolbar_drawer: toolbarDrawer,
+            toolbar: toolbar[variant].join('|'),
             paste_data_images: hasImage,
             images_upload_url: uploadURL,
             automatic_uploads: true,
@@ -56,6 +86,7 @@ export const EditText = ({
             language: language === 'pt' ? 'pt_BR' : language,
             menubar: showMenu,
             images_upload_handler: uploadFunc,
+            branding: false,
           }}
           onChange={onChange}
           textareaName={name}
@@ -75,8 +106,10 @@ EditText.defaultProps = {
   language: 'pt',
   showMenu: false,
   uploadFunc: undefined,
-  hasImage: true,
+  hasImage: false,
   skinUrl: '',
+  toolbarDrawer: '',
+  variant: 'simple',
 };
 
 EditText.propTypes = {
@@ -90,5 +123,8 @@ EditText.propTypes = {
   uploadFunc: PropTypes.func,
   hasImage: PropTypes.bool,
   skinUrl: PropTypes.string,
+  toolbarDrawer: PropTypes.oneOf(['', 'floating', 'sliding']),
+  variant: PropTypes.oneOf(['simple', 'advanced']),
 };
+
 export default EditText;
