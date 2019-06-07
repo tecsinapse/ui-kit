@@ -17,24 +17,24 @@ const useStyles = makeStyles(({ spacing }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginTop: spacing.unit / 2,
-    marginBottom: spacing.unit / 2,
+    marginTop: spacing(0.5),
+    marginBottom: spacing(0.5),
   },
   marginLeft: {
-    marginLeft: spacing.unit,
+    marginLeft: spacing(1),
   },
   paddingCropped: {
-    padding: spacing.unit / 4,
+    padding: spacing(0.25),
   },
   input: {
     flexGrow: 1,
-    margin: spacing.unit / 1.5,
+    margin: spacing(0.6666666666666666),
   },
   flexPadding: {
-    padding: spacing.unit / 2,
+    padding: spacing(0.5),
   },
   empty: {
-    marginBottom: spacing.unit / 2,
+    marginBottom: spacing(0.5),
   },
   errorLabel: {
     color: defaultRed,

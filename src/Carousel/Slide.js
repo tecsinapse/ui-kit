@@ -32,7 +32,7 @@ const useStyle = ({ titleColor }) =>
       flexGrow: 1,
     },
     titleDivMobile: {
-      marginLeft: theme.spacing.unit,
+      marginLeft: theme.spacing(1),
     },
     title: {
       fontWeight: 'bold',
@@ -40,15 +40,15 @@ const useStyle = ({ titleColor }) =>
     },
     subtitle: {
       color: 'white',
-      marginBottom: theme.spacing.unit,
+      marginBottom: theme.spacing(1),
       fontSize: '80%',
     },
     info: {
       position: 'absolute',
-      margin: theme.spacing.unit,
-      right: theme.spacing.unit,
-      left: theme.spacing.unit,
-      bottom: theme.spacing.unit,
+      margin: theme.spacing(1),
+      right: theme.spacing(1),
+      left: theme.spacing(1),
+      bottom: theme.spacing(1),
       display: 'flex',
       justifyContent: 'flex-end',
       alignItems: 'center',

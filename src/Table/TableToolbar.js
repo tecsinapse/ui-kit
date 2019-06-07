@@ -11,7 +11,7 @@ import SelectedFilters from './SelectedFilters';
 
 const tableToolbarStyles = makeStyles(theme => ({
   toolbar: {
-    paddingRight: theme.spacing.unit,
+    paddingRight: theme.spacing(1),
     height: '65px',
   },
   title: {

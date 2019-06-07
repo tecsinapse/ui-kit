@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/styles';
 
 const styles = makeStyles(theme => ({
   container: {
-    padding: theme.spacing.unit,
+    padding: theme.spacing(1),
     display: 'flex',
     flexWrap: 'wrap',
     backgroundColor: '#F7F7F7',
@@ -19,14 +19,14 @@ const styles = makeStyles(theme => ({
     paddingTop: '6px',
   },
   card: {
-    marginLeft: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
     padding: '5px',
   },
 }));
 
 const cardStyles = makeStyles(theme => ({
   card: {
-    marginLeft: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
     padding: '5px',
     cursor: 'pointer',
   },

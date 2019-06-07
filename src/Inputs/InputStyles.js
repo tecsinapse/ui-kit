@@ -63,16 +63,16 @@ export const stylesWarning = {
 
 export const inputStyles = theme => ({
   adornedMarginLeft: {
-    marginLeft: theme.spacing.unit / 2,
+    marginLeft: theme.spacing(0.5),
   },
   adornedMarginRight: {
-    marginRight: theme.spacing.unit / 2,
+    marginRight: theme.spacing(0.5),
   },
   adornedMarginEnd: {
     paddingRight: `0px !important`,
   },
   inputRoot: {
-    paddingRight: theme.spacing.unit / 3,
+    paddingRight: theme.spacing(0.3333333333333333),
   },
   cssOutlinedInput: {
     '&$cssFocused $notchedOutline': {

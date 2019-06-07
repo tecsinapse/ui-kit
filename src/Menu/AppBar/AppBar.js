@@ -16,18 +16,18 @@ import { DefaultProductTypography } from '../DefaultProductTypography';
 
 const useStyles = makeStyles(({ palette, spacing }) => ({
   marginLeft: {
-    marginLeft: `${spacing.unit / 2}px !important`,
+    marginLeft: `${spacing(0.5)}px !important`,
   },
   toolbar: {
-    paddingLeft: spacing.unit,
-    paddingRight: spacing.unit,
+    paddingLeft: spacing(1),
+    paddingRight: spacing(1),
     display: 'flex',
   },
   grow: {
     flexGrow: 1,
     display: 'flex',
     flexDirection: 'row',
-    marginLeft: spacing.unit,
+    marginLeft: spacing(1),
   },
   appBar: {
     display: 'flex',
@@ -38,10 +38,10 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
   breadcrumb: { display: 'flex !important' },
   paperBreadcrumb: {
     display: 'flex',
-    height: spacing.unit * 3,
+    height: spacing(3),
     borderTop: '1px solid white',
-    paddingLeft: spacing.unit * 2,
-    paddingRight: spacing.unit,
+    paddingLeft: spacing(2),
+    paddingRight: spacing(1),
     backgroundColor: palette.primary.light,
   },
   link: {
@@ -51,7 +51,7 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     color: palette.primary.contrastText,
   },
   marginRightPattern: {
-    marginRight: spacing.unit,
+    marginRight: spacing(1),
   },
 }));
 

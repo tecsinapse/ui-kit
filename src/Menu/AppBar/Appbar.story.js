@@ -23,10 +23,10 @@ const useStyles = makeStyles(({ spacing }) => ({
   flex: {
     alignItems: 'center',
     display: 'flex',
-    padding: spacing.unit,
+    padding: spacing(1),
   },
   image: {
-    maxWidth: spacing.unit * 6,
+    maxWidth: spacing(6),
   },
 }));
 const ExampleAppBar = () => {

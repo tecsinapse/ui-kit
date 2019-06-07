@@ -12,7 +12,7 @@ const selectionStyles = makeStyles(theme => ({
   toolbar: {
     color: theme.palette.secondary.main,
     backgroundColor: lighten(theme.palette.secondary.light, 0.8),
-    paddingRight: theme.spacing.unit,
+    paddingRight: theme.spacing(1),
   },
   title: {
     width: '100%',

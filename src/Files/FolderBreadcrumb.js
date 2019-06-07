@@ -11,9 +11,9 @@ import { defaultGreyLight2 } from '../colors';
 import { breadcrumb } from '../Menu/AppBar/AppBar';
 
 const useStyles = (light, dense) =>
-  makeStyles(({ palette, spacing }) => ({
+  makeStyles(theme  => ({
     marginLeft: {
-      marginLeft: `${spacing.unit / 2}px !important`,
+      marginLeft: `${theme.spacing(0.5)}px !important`,
     },
     breadcrumb: { display: 'flex !important' },
     link: {
@@ -28,7 +28,7 @@ const useStyles = (light, dense) =>
     flex: {
       display: 'flex',
       '& > :last-child': {
-        marginLeft: dense ? spacing.unit / 2 : spacing.unit,
+        marginLeft: dense ? theme.spacing(0.5) : theme.spacing(1),
       },
     },
   }));

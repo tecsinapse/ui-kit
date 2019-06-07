@@ -11,7 +11,7 @@ import Poweredby from './poweredby.svg';
 import { defaultGreyLight3 } from '../colors';
 
 const useStyle = rememberBox =>
-  makeStyles(({ spacing }) => ({
+  makeStyles(theme => ({
     root: {
       width: '100%',
       height: '100%',
@@ -49,30 +49,30 @@ const useStyle = rememberBox =>
     },
     inputData: {
       alignSelf: 'stretch',
-      marginTop: spacing.unit,
+      marginTop: theme.spacing(1),
     },
     extra: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: rememberBox ? 'space-between' : 'flex-end',
-      marginTop: spacing.unit,
+      marginTop: theme.spacing(1),
     },
     submit: {
-      marginTop: spacing.unit * 2,
-      marginBottom: spacing.unit * 2,
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(2),
     },
     forgot: {
       alignSelf: 'center',
     },
     header: {
-      marginTop: spacing.unit * 2,
+      marginTop: theme.spacing(2),
     },
     formControlLabelCheck: {
-      height: spacing.unit,
+      height: theme.spacing(1),
     },
     checkbox: {
-      width: spacing.unit * 2,
-      height: spacing.unit * 2,
+      width: theme.spacing(2),
+      height: theme.spacing(2),
     },
   }));
 

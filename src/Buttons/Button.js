@@ -13,7 +13,7 @@ import {
 export const buttonStyle = ({ spacing }) => ({
   buttonSpan: {
     '& > :first-child': {
-      marginRight: spacing.unit * 0.5,
+      marginRight: spacing(0.5),
     },
   },
   disabled: {
