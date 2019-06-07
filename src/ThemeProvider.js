@@ -9,30 +9,42 @@ const themeColors = {
   orange: {
     primary: { main: '#616161', contrastText: '#ffffff' },
     secondary: { main: '#f99f1f', contrastText: '#ffffff' },
+    menu: {
+      breadcrumbContrastText: '#ffffff',
+    },
     error: {
       main: defaultRed,
       contrastText: '#ffffff',
     },
   },
   black: {
-    primary: { main: '#000000', contrastText: '#ffffff' },
-    secondary: { main: '#cd192d', contrastText: '#ffffff' },
+    primary: { main: '#000000', light: '#323232', contrastText: '#ffffff' },
+    secondary: { main: '#e31c1c', contrastText: '#ffffff' },
+    menu: {
+      breadcrumbContrastText: '#ffffff',
+    },
     error: {
       main: defaultRed,
       contrastText: '#ffffff',
     },
   },
   redLight: {
-    primary: { main: '#d8d8d8', light: '#ececec', contrastText: '#222121' },
+    primary: { main: '#2a2a2a', light: '#cbcbcb', contrastText: '#ffffff' },
     secondary: { main: '#e20000', contrastText: '#ffffff' },
+    menu: {
+      breadcrumbContrastText: '#000',
+    },
     error: {
       main: defaultRed,
       contrastText: '#ffffff',
     },
   },
   green: {
-    primary: { main: '#2b6d2e', light: '#a5a8a9', contrastText: '#ffffff' },
+    primary: { main: '#0b6836', light: '#989ea5', contrastText: '#ffffff' },
     secondary: { main: '#000000', contrastText: '#ffffff' },
+    menu: {
+      breadcrumbContrastText: '#ffffff',
+    },
   },
   blue: {
     primary: blue,

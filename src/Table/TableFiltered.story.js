@@ -18,6 +18,7 @@ const columns = [
     field: 'model.name',
     options: {
       filter: true,
+      select: true,
     },
   },
   {
@@ -25,7 +26,6 @@ const columns = [
     field: 'model.year',
     options: {
       filter: true,
-      numeric: true,
     },
   },
 ];

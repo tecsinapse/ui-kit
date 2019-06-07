@@ -29,6 +29,9 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     flexDirection: 'row',
     marginLeft: spacing.unit,
   },
+  boldFont: {
+    fontWeight: 700,
+  },
   appBar: {
     display: 'flex',
     flexGrow: 0,
@@ -45,10 +48,10 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     backgroundColor: palette.primary.light,
   },
   link: {
-    color: `${palette.primary.contrastText} !important`,
+    color: `${palette.menu.breadcrumbContrastText} !important`,
   },
   separator: {
-    color: palette.primary.contrastText,
+    color: palette.menu.breadcrumbContrastText,
   },
   marginRightPattern: {
     marginRight: spacing.unit,
@@ -71,7 +74,7 @@ export const AppBar = ({
   const theme = useTheme();
   return (
     <div className={className}>
-      <MaterialAppBar className={classes.appBar}>
+      <MaterialAppBar className={classes.appBar} elevation={0}>
         <Toolbar disableGutters className={classes.toolbar}>
           <IconButton
             color="inherit"
@@ -115,6 +118,7 @@ export const AppBar = ({
                     <Typography
                       key={current.title}
                       color="secondary"
+                      className={classes.boldFont}
                       variant="subtitle2"
                     >
                       {current.title}
