@@ -83,6 +83,7 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, pageData }) => {
                 selectPromptMessage={selectPromptMessage}
                 selectAllMessage={selectAllMessage}
                 value={filterValue}
+                fullWidth
                 options={selectOptions || []}
                 menuPlacement="auto"
                 onChange={value =>
