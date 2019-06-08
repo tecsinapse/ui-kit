@@ -1,3 +1,10 @@
+<a name="0.0.161"></a>
+## <small>0.0.161 (2019-06-08)</small>
+
+* organizing theme globals ([4f56ee8](https://github.com/tecsinapse/ui-kit/commit/4f56ee8))
+
+
+
 <a name="0.0.160"></a>
 ## <small>0.0.160 (2019-06-07)</small>
 
