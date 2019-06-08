@@ -14,7 +14,7 @@ import Icon from '@mdi/react';
 import Link from '@material-ui/core/Link';
 import { DefaultProductTypography } from '../DefaultProductTypography';
 
-const useStyles = makeStyles(({ palette, spacing }) => ({
+const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   marginLeft: {
     marginLeft: `${spacing.unit / 2}px !important`,
   },
@@ -48,10 +48,10 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     backgroundColor: palette.primary.light,
   },
   link: {
-    color: `${palette.menu.breadcrumbContrastText} !important`,
+    color: `${menuGlobal.breadcrumbContrastText} !important`,
   },
   separator: {
-    color: palette.menu.breadcrumbContrastText,
+    color: menuGlobal.breadcrumbContrastText,
   },
   marginRightPattern: {
     marginRight: spacing.unit,
