@@ -1,3 +1,11 @@
+<a name="0.0.160"></a>
+## <small>0.0.160 (2019-06-07)</small>
+
+* - Inclusão de algumas opções avançadas no EditText ([1277123](https://github.com/tecsinapse/ui-kit/commit/1277123))
+* Better colors on theming and adding select - "selector" - for filter option on table and locale prov ([dc72450](https://github.com/tecsinapse/ui-kit/commit/dc72450))
+
+
+
 <a name="0.0.159"></a>
 ## <small>0.0.159 (2019-06-06)</small>
 
