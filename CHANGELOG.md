@@ -1,3 +1,10 @@
+<a name="0.0.163"></a>
+## <small>0.0.163 (2019-06-10)</small>
+
+* Removind umd build, and standartizing icon import from ui-kit. Reducing bundle size. ([e26fa42](https://github.com/tecsinapse/ui-kit/commit/e26fa42))
+
+
+
 <a name="0.0.162"></a>
 ## <small>0.0.162 (2019-06-10)</small>
 
