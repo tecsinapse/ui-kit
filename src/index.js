@@ -16,3 +16,4 @@ export { ThemeProvider } from './ThemeProvider';
 export { EditText } from './EditText/EditText';
 export { AutoRotatingCarousel } from './Carousel/AutoRotatingCarousel';
 export { Slide } from './Carousel/Slide';
+export { Login } from './Login/Login';
