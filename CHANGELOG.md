@@ -1,3 +1,11 @@
+<a name="0.0.162"></a>
+## <small>0.0.162 (2019-06-10)</small>
+
+* full width on quick select table row filter ([ee28afe](https://github.com/tecsinapse/ui-kit/commit/ee28afe))
+* make export right ([922230b](https://github.com/tecsinapse/ui-kit/commit/922230b))
+
+
+
 <a name="0.0.161"></a>
 ## <small>0.0.161 (2019-06-08)</small>
 
