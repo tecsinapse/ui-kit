@@ -9,7 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import classNames from 'classnames';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Button } from '../Buttons/Button';
-import Poweredby from './poweredby.svg';
+import PoweredBy from './PoweredBy';
 import { defaultGreyLight3 } from '../colors';
 
 const useStyle = (rememberBox, backgroundImage) =>
@@ -51,12 +51,16 @@ const useStyle = (rememberBox, backgroundImage) =>
       justifyContent: 'flex-end',
       paddingRight: spacing.unit,
     },
+    footerImage: {
+      maxHeight: '60%',
+    },
     footer: {
+      borderTop: `solid 1px rgba(0, 0, 0, 0.12)`,
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      flexBasis: '60px',
+      height: '60px',
       backgroundColor: defaultGreyLight3,
     },
     footermobile: {
@@ -241,8 +245,13 @@ export const Login = ({
         [classes.footermobile]: mobile,
       })}
     >
-      <Divider className={classes.strechSelf} />
-      {footerImg ? { footerImg } : <Poweredby className={classes.footerImg} />}
+      <div className={classes.footerImage}>
+        {footerImg ? (
+          { footerImg }
+        ) : (
+          <PoweredBy className={classes.footerImg} />
+        )}
+      </div>
     </div>
   );
 
