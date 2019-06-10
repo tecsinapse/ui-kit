@@ -16,7 +16,7 @@ const InputPassword = () => {
     <Input
       name="login_senha"
       label="Senha"
-      style={{ width: '100%' }}
+      style={{ width: '100%', backgroundColor: '#fff' }}
       type={showPassword ? 'text' : 'password'}
       InputProps={{
         startAdornment: (
@@ -39,7 +39,7 @@ const InputPassword = () => {
 
 storiesOf(`Login`, module)
   .add('Login', () => (
-    <div style={{ width: '400px' }}>
+    <div style={{ width: '400px', height: '600px' }}>
       <Login
         headerImages={[
           'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4ad36332-03b9-4804-aad7-acc8455a1109/d48akz6-bb4a60bd-8220-476e-9fee-c8f65085e898.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzRhZDM2MzMyLTAzYjktNDgwNC1hYWQ3LWFjYzg0NTVhMTEwOVwvZDQ4YWt6Ni1iYjRhNjBiZC04MjIwLTQ3NmUtOWZlZS1jOGY2NTA4NWU4OTgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.rejvDZj50hUOu5A2mcPaHLwjtTe4mUbbd32mOm9aPzQ',
