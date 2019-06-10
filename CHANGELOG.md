@@ -1,3 +1,19 @@
+<a name="0.0.164"></a>
+## <small>0.0.164 (2019-06-10)</small>
+
+* Adapt exmaple to use login-mobile using yalc ([dde0445](https://github.com/tecsinapse/ui-kit/commit/dde0445))
+* Add margin to log header ([94be785](https://github.com/tecsinapse/ui-kit/commit/94be785))
+* Add mobile prop support ([62d29a6](https://github.com/tecsinapse/ui-kit/commit/62d29a6))
+* Add support for mobile (tested by example not storybook) ([5a8656a](https://github.com/tecsinapse/ui-kit/commit/5a8656a))
+* Fix overflox space with several header images ([edb1d56](https://github.com/tecsinapse/ui-kit/commit/edb1d56))
+* Fix some general bugs ([50c1810](https://github.com/tecsinapse/ui-kit/commit/50c1810))
+* Login component adjustments ([ae639ca](https://github.com/tecsinapse/ui-kit/commit/ae639ca))
+* login screen adjustments ([6eaa19a](https://github.com/tecsinapse/ui-kit/commit/6eaa19a))
+* remove yalc example from project ([03074af](https://github.com/tecsinapse/ui-kit/commit/03074af))
+* wrong divider on login footer ([e62cc15](https://github.com/tecsinapse/ui-kit/commit/e62cc15))
+
+
+
 <a name="0.0.163"></a>
 ## <small>0.0.163 (2019-06-10)</small>
 
