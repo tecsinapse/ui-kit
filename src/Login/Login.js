@@ -25,6 +25,7 @@ const useStyle = (rememberBox, backgroundImage) =>
     },
     rootmobile: {
       backgroundImage: `url(${backgroundImage})`,
+      display: 'flex',
       width: '100vw',
       height: '100vh',
       position: 'absolute',
@@ -34,21 +35,21 @@ const useStyle = (rememberBox, backgroundImage) =>
     imgHeader: {
       display: 'flex',
       justifyContent: 'space-evenly',
-      height: '150px',
+      flexBasis: '150px',
       alignItems: 'center',
-    },
-    imgHeaderMobile: {
-      flex: '1',
     },
     content: {
       display: 'flex',
       flexDirection: 'column',
+      alignItems: 'center',
       marginLeft: '5%',
       marginRight: '5%',
+      paddingRight: spacing.unit,
     },
     contentMobile: {
-      alignItems: 'flex-end',
+      alignItems: 'center',
       justifyContent: 'flex-end',
+      paddingRight: spacing.unit,
     },
     footer: {
       display: 'flex',
@@ -98,12 +99,15 @@ const useStyle = (rememberBox, backgroundImage) =>
       alignSelf: 'center',
     },
     forgotmobile: {
-      marginTop: spacing.unit * 5,
+      marginTop: spacing.unit,
     },
     header: {
       marginTop: spacing.unit * 2,
     },
     formControlLabelCheck: {
+      height: spacing.unit,
+    },
+    formControlLabelCheckMobile: {
       height: spacing.unit,
       alignSelf: 'flex-start',
     },
@@ -162,12 +166,18 @@ export const Login = ({
         [classes.contentMobile]: mobile,
       })}
     >
-      {headerText && subheaderText && (
+      {headerText && (
         <div className={classes.header}>
-          <Typography variant="h5">{headerText}</Typography>
-          <Typography variant="body2" color="textSecondary">
-            {subheaderText}
-          </Typography>
+          {typeof headerText === 'string' ? (
+            <Typography variant="h5">{headerText}</Typography>
+          ) : (
+            headerText
+          )}
+          {subheaderText && (
+            <Typography variant="body2" color="textSecondary">
+              {subheaderText}
+            </Typography>
+          )}
         </div>
       )}
 
@@ -181,7 +191,9 @@ export const Login = ({
         >
           {rememberBox && (
             <FormControlLabel
-              className={classes.formControlLabelCheck}
+              className={classNames(classes.formControlLabelCheck, {
+                [classes.formControlLabelCheckMobile]: mobile,
+              })}
               control={
                 <Checkbox
                   className={classes.checkbox}
