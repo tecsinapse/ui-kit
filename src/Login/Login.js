@@ -61,6 +61,9 @@ const useStyle = (rememberBox, backgroundImage) =>
     footermobile: {
       backgroundColor: '#fff',
     },
+    strechSelf: {
+      alignSelf: 'stretch',
+    },
     logo: {
       height: 'auto',
       maxWidth: '100%',
@@ -226,6 +229,7 @@ export const Login = ({
         [classes.footermobile]: mobile,
       })}
     >
+      <Divider className={classes.strechSelf} />
       {footerImg ? { footerImg } : <Poweredby className={classes.footerImg} />}
     </div>
   );
@@ -235,7 +239,6 @@ export const Login = ({
       <div className={classNames(classes.root, classes.rootmobile)}>
         {headerElem}
         {contentElem}
-        <Divider />
         {footerElem}
       </div>
     );
@@ -246,7 +249,6 @@ export const Login = ({
       {headerElem}
       {headerElem && <Divider />}
       {contentElem}
-      <Divider />
       {footerElem}
     </Paper>
   );
