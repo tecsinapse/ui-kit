@@ -51,7 +51,7 @@
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "react-dropzone": "^10.0.2",
-    "react-select": "^2.4.2",
+    "react-select": "^2.4.4",
     "react-sizeme": "^2.5.2",
     "react-swipeable-views": "^0.13.1",
     "react-test-renderer": "^16.6.0",

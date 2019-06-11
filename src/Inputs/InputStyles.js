@@ -72,7 +72,7 @@ export const inputStyles = theme => ({
     paddingRight: `0px !important`,
   },
   inputRoot: {
-    paddingRight: theme.spacing(0.3333333333333333),
+    paddingRight: theme.spacing(0.5),
   },
   cssOutlinedInput: {
     '&$cssFocused $notchedOutline': {

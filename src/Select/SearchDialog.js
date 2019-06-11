@@ -28,8 +28,8 @@ const tabStyles = theme => ({
     minHeight: 56,
   },
   helper: {
-    borderLeft: `2px solid ${theme.palette.divider}`,
-    padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+    // borderLeft: `2px solid ${theme.palette.divider}`,
+    // padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
   },
   searchBar: {
     flexGrow: '1',

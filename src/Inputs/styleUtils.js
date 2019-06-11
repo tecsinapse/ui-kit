@@ -38,7 +38,7 @@ const StyledFlexDiv = styled('div')(({ theme, endAdornmentMargin }) => ({
   marginRight: endAdornmentMargin ? theme.spacing(1) : 0,
 }));
 const TypographyStyled = styled(Typography)(({ theme }) => ({
-  marginLeft: theme.spacing(0.25),
+  marginLeft: theme.spacing(1 / 3),
 }));
 export function GetEndAdornment({
   warning,

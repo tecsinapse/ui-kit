@@ -4,7 +4,7 @@ import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/core/object';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import { useTheme } from '@material-ui/styles';
-import useMediaQuery  from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import { Help } from '@material-ui/icons';
