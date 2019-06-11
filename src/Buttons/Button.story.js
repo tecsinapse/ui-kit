@@ -1,5 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import {muiTheme} from 'storybook-addon-material-ui';
+import { createMuiTheme } from '@material-ui/core/styles';
 import Icon from '@mdi/react';
 
 import { action } from '@storybook/addon-actions';
@@ -14,6 +16,7 @@ import { FloatingButton } from './FloatingButton';
 import { DivButton } from './DivButton';
 
 storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
+  .addDecorator(muiTheme(createMuiTheme({spacing: 1})))
   .add('button', () => (
     <Button onClick={action('onClick')}>Smart Button</Button>
   ))

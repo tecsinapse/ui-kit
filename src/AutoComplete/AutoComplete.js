@@ -168,7 +168,7 @@ const AutoComplete = ({
         anchorEl={anchorEl}
         style={{
           width: containerRef ? containerRef.offsetWidth : null,
-          marginLeft: '20px',
+          marginLeft: '3px',
           zIndex: 1500,
         }}
       >

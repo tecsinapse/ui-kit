@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import {muiTheme} from 'storybook-addon-material-ui';
+import { createMuiTheme } from '@material-ui/core/styles';
 import { useManualQuery } from 'graphql-hooks';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import AutoComplete from './AutoComplete';
@@ -48,6 +50,8 @@ const AutoCompleteExample = () => {
   );
 };
 
-storiesOf(`${GROUPS.FORMS}|Autocomplete`, module).add('Autocomplete', () => (
+storiesOf(`${GROUPS.FORMS}|Autocomplete`, module)
+.addDecorator(muiTheme(createMuiTheme({spacing: 1})))
+.add('Autocomplete', () => (
   <AutoCompleteExample />
 ));

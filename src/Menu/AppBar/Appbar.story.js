@@ -1,8 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import {muiTheme} from 'storybook-addon-material-ui';
+import { createMuiTheme } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import { mdiOneUp, mdiShieldHalfFull, mdiTurtle } from '@mdi/js';
-
 import Icon from '@mdi/react';
 import { makeStyles, styled, useTheme } from '@material-ui/styles';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
@@ -87,6 +88,7 @@ const ExampleAppBar = () => {
   );
 };
 storiesOf(`${GROUPS.MENU}|AppBar`, module)
+  .addDecorator(muiTheme(createMuiTheme({spacing: 1})))
   .add('AppBar', () => <ExampleAppBar />)
   .add('Styled AppBar', () => (
     <StyledAppBar

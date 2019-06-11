@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import {muiTheme} from 'storybook-addon-material-ui';
+import { createMuiTheme } from '@material-ui/core/styles';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Select } from './Select';
 import { Input } from '../Inputs/Input';
@@ -110,6 +112,7 @@ export const SelectWrapper2 = props => {
 };
 
 storiesOf(`${GROUPS.FORMS}|Select`, module)
+  .addDecorator(muiTheme(createMuiTheme({spacing: 1})))
   .add('Select Auto Detect', () => <SelectWrapper />)
   .add('Select No Value', () => <SelectWrapper2 />)
   .add('Select No Value Multi', () => <SelectWrapper2 isMulti />)

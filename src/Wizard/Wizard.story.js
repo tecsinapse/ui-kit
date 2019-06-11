@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import {muiTheme} from 'storybook-addon-material-ui';
+import { createMuiTheme } from '@material-ui/core/styles';
 import { Step } from '@material-ui/core';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Wizard } from './Wizard';
@@ -29,6 +31,8 @@ const WizardWrapper = () => {
   );
 };
 
-storiesOf(`${GROUPS.FORMS}|Wizard`, module).add('wizard 2 steps', () => (
+storiesOf(`${GROUPS.FORMS}|Wizard`, module)
+.addDecorator(muiTheme(createMuiTheme({spacing: 1})))
+.add('wizard 2 steps', () => (
   <WizardWrapper />
 ));

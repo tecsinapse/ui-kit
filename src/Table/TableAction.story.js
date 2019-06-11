@@ -5,6 +5,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import MailIcon from '@material-ui/icons/Mail';
 import DeleteIcon from '@material-ui/icons/DeleteForever';
 import { storiesOf } from '@storybook/react';
+import {muiTheme} from 'storybook-addon-material-ui';
+import { createMuiTheme } from '@material-ui/core/styles';
 import Table from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
@@ -106,5 +108,6 @@ const ActionTableVertical = () => (
 );
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .addDecorator(muiTheme(createMuiTheme({spacing: 1})))
   .add('Action Table', ActionTable)
   .add('Action Table Vertical', ActionTableVertical);
