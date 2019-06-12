@@ -40,7 +40,6 @@ const Table = props => {
     rowsPerPageOptions,
     rowsPerPage: rowsPerPageProp,
     page: pageProp,
-    labelDisplayedRows,
     exportOptions,
     classes: propClasses,
     forceCollapseActions,
@@ -79,7 +78,6 @@ const Table = props => {
     rowCount,
     pagination,
     onChangePage: onChangePage(setFilters),
-    labelDisplayedRows,
     tableColumns,
   };
 
@@ -156,7 +154,6 @@ Table.defaultProps = {
   rowsPerPageOptions: [10, 20, 30],
   rowsPerPage: null,
   page: 0,
-  labelDisplayedRows: ({ from, to, count }) => `${from}-${to} of ${count}`,
   exportOptions: null,
   id: null,
   classes: {},
@@ -204,7 +201,6 @@ Table.propTypes = {
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
   rowsPerPage: PropTypes.number,
   page: PropTypes.number,
-  labelDisplayedRows: PropTypes.func,
   classes: PropTypes.shape({
     root: PropTypes.string,
   }),

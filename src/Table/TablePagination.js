@@ -30,12 +30,11 @@ const TablePagination = ({
   rowCount,
   pagination,
   onChangePage: onChangePageProp,
-  labelDisplayedRows,
   tableColumns,
 }) => {
   const classes = styles();
   const {
-    Table: { labelRowsPerPage },
+    Table: { labelRowsPerPage, labelDisplayedRows },
   } = useContext(LocaleContext);
 
   if (!pagination) {
