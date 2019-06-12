@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import MUITablePagination from '@material-ui/core/TablePagination';
 import Typography from '@material-ui/core/Typography';
 import { TableCell } from '@material-ui/core';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import { makeStyles } from '@material-ui/styles';
 import { paginationOptions } from './TablePropTypes';
+import { LocaleContext } from '../LocaleProvider';
 
 const styles = makeStyles(theme => ({
   total: {
@@ -30,10 +31,12 @@ const TablePagination = ({
   pagination,
   onChangePage: onChangePageProp,
   labelDisplayedRows,
-  labelRowsPerPage,
   tableColumns,
 }) => {
   const classes = styles();
+  const {
+    Table: { labelRowsPerPage },
+  } = useContext(LocaleContext);
 
   if (!pagination) {
     return (
@@ -49,8 +52,8 @@ const TablePagination = ({
     <MUITablePagination
       style={{ width: '100%' }}
       labelDisplayedRows={labelDisplayedRows}
-      labelRowsPerPage={labelRowsPerPage}
       rowsPerPageOptions={rowsPerPageOptions}
+      labelRowsPerPage={labelRowsPerPage}
       rowsPerPage={rowsPerPage}
       onChangeRowsPerPage={onChangeRowsPerPage(onChangePageProp, rowsPerPage)}
       page={page}

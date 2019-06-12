@@ -3,6 +3,15 @@ import React from 'react';
 export const LocaleContext = React.createContext({
   selectPromptMessage: 'Selecione',
   selectAllMessage: 'Selecionar todos',
+  Wizard: {
+    stepText: 'Step',
+    backText: 'Voltar',
+    nextText: 'AVANÇAR',
+    finishText: 'FINALIZAR',
+  },
+  Table: {
+    labelRowsPerPage: 'Linhas por página:',
+  },
 });
 
 export function LocaleProvider({ messages, children }) {
