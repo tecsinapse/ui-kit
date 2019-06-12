@@ -1,3 +1,11 @@
+<a name="0.0.168"></a>
+## <small>0.0.168 (2019-06-12)</small>
+
+* Advanced filter translation from locale provider ([ae33730](https://github.com/tecsinapse/ui-kit/commit/ae33730))
+* remove green from select placeholder ([06fdc77](https://github.com/tecsinapse/ui-kit/commit/06fdc77))
+
+
+
 <a name="0.0.167"></a>
 ## <small>0.0.167 (2019-06-12)</small>
 
