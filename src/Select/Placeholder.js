@@ -4,7 +4,9 @@ import React from 'react';
 export const Placeholder = ({ selectProps, innerProps }) => (
   <Typography
     color={
-      selectProps.meta.error && selectProps.meta.touched ? 'error' : 'primary'
+      selectProps.meta.error && selectProps.meta.touched
+        ? 'error'
+        : 'textPrimary'
     }
     variant="subtitle1"
     component="p"
