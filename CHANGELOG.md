@@ -1,3 +1,10 @@
+<a name="0.0.165"></a>
+## <small>0.0.165 (2019-06-12)</small>
+
+* - Inclusão da variant default para o botão com cor cinza escuro ([e5477df](https://github.com/tecsinapse/ui-kit/commit/e5477df))
+
+
+
 <a name="0.0.164"></a>
 ## <small>0.0.164 (2019-06-10)</small>
 

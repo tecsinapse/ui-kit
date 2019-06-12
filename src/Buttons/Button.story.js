@@ -17,6 +17,11 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
   .add('button', () => (
     <Button onClick={action('onClick')}>Smart Button</Button>
   ))
+  .add('default button', () => (
+    <Button variant="default" onClick={action('onClick')}>
+      Smart Button
+    </Button>
+  ))
   .add('success button', () => (
     <Button variant="success" onClick={action('onClick')}>
       Smart Button
