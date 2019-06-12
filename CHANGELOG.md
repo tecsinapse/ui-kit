@@ -1,3 +1,10 @@
+<a name="0.0.166"></a>
+## <small>0.0.166 (2019-06-12)</small>
+
+* locale solution for table and wizard + corrections ([6ef91f2](https://github.com/tecsinapse/ui-kit/commit/6ef91f2))
+
+
+
 <a name="0.0.165"></a>
 ## <small>0.0.165 (2019-06-12)</small>
 
