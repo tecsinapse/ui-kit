@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -8,6 +8,7 @@ import TableAdvancedFilters from './TableAdvancedFilters';
 import { toolbarOptionsTypes } from './TablePropTypes';
 import TableExporter from './TableExporter';
 import SelectedFilters from './SelectedFilters';
+import { LocaleContext } from '../LocaleProvider';
 
 const tableToolbarStyles = makeStyles(theme => ({
   toolbar: {
@@ -35,8 +36,11 @@ const SimpleToolbar = ({
   setLoading,
   rowCount,
 }) => {
-  const { title, tooltipAdvancedFilter, advancedFilters } = options || {};
+  const { title, advancedFilters } = options || {};
   const classes = tableToolbarStyles();
+  const {
+    Table: { tooltipAdvancedFilter },
+  } = useContext(LocaleContext);
 
   return (
     <div>

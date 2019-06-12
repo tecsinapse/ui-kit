@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 export const toolbarOptionsTypes = PropTypes.shape({
   title: PropTypes.string,
   selectedLabel: PropTypes.func,
-  tooltipAdvancedFilter: PropTypes.string,
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string.isRequired,
@@ -15,8 +14,6 @@ export const toolbarOptionsTypes = PropTypes.shape({
     })
   ),
   advancedFilters: PropTypes.shape({
-    selectedFiltersLabel: PropTypes.string,
-    applyFiltersLabel: PropTypes.string,
     applyFilters: PropTypes.func,
     filtersGroup: PropTypes.arrayOf(
       PropTypes.shape({

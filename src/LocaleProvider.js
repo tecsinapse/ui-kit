@@ -12,6 +12,9 @@ export const LocaleContext = React.createContext({
   Table: {
     labelRowsPerPage: 'Linhas por página:',
     labelDisplayedRows: ({ from, to, count }) => `${from}-${to} de ${count}`,
+    tooltipAdvancedFilter: 'Filtros Avançados',
+    applyFiltersLabel: 'Aplicar Filtros',
+    selectedFiltersLabel: 'Filtros Selecionados',
   },
 });
 
