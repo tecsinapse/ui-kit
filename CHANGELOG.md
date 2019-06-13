@@ -1,3 +1,12 @@
+<a name="0.0.169"></a>
+## <small>0.0.169 (2019-06-13)</small>
+
+* - Ajuste renderização TableHeader ([467c148](https://github.com/tecsinapse/ui-kit/commit/467c148))
+* - Ajuste renderização TableHeader ([fa6156a](https://github.com/tecsinapse/ui-kit/commit/fa6156a))
+* - Esconder linha de filtros selecionados da tabela quando está vazio ([2eb1794](https://github.com/tecsinapse/ui-kit/commit/2eb1794))
+
+
+
 <a name="0.0.168"></a>
 ## <small>0.0.168 (2019-06-12)</small>
 
