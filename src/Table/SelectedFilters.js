@@ -107,7 +107,7 @@ const SelectedFilters = ({ advancedFilters, filters }) => {
   });
 
   if (selectedFilters.length === 0) {
-    return null;
+    return <Divider variant="solid" />;
   }
 
   return (
