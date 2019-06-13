@@ -1,3 +1,13 @@
+<a name="0.0.170"></a>
+## <small>0.0.170 (2019-06-13)</small>
+
+* - Inclusão do EmptyState para a Table ([b4d2dda](https://github.com/tecsinapse/ui-kit/commit/b4d2dda))
+* - Inclusão do EmptyState para a Table ([b2faa95](https://github.com/tecsinapse/ui-kit/commit/b2faa95))
+* - Inclusão do EmptyState para a Table ([f473502](https://github.com/tecsinapse/ui-kit/commit/f473502))
+* - Inclusão do EmptyState para a Table ([84f3fb3](https://github.com/tecsinapse/ui-kit/commit/84f3fb3))
+
+
+
 <a name="0.0.169"></a>
 ## <small>0.0.169 (2019-06-13)</small>
 
