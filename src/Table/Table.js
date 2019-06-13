@@ -13,17 +13,17 @@ import TablePagination from './TablePagination';
 import { toolbarOptionsTypes } from './TablePropTypes';
 import TableLoading from './TableLoading';
 import {
+  initializeColumns,
+  initializeFilters,
+  isRemoteData,
   onChangeHeaderFilter,
   onChangePage,
-  initializeColumns,
-  isRemoteData,
-  initializeFilters,
 } from './tableFunctions';
 import {
-  useInitialData,
-  useUpdatePageData,
-  useUpdateData,
   useInitialCheckboxData,
+  useInitialData,
+  useUpdateData,
+  useUpdatePageData,
 } from './tableHooks';
 
 const Table = props => {
@@ -47,6 +47,8 @@ const Table = props => {
     onRowClick,
     tableToolbarHide,
     tableHeaderHide,
+    emptyStateTitle,
+    emptyStateMessage,
     id,
   } = props;
 
@@ -129,6 +131,8 @@ const Table = props => {
             selectedRows={selectedRows}
             setSelectedRows={setSelectedRows}
             onSelectRow={onSelectRow}
+            emptyStateTitle={emptyStateTitle}
+            emptyStateMessage={emptyStateMessage}
           />
         </TableBody>
         <TableFooter>
@@ -158,6 +162,8 @@ Table.defaultProps = {
   rowsPerPage: null,
   page: 0,
   exportOptions: null,
+  emptyStateTitle: 'Nada por aqui',
+  emptyStateMessage: 'Não existem dados para exibição.',
   id: null,
   classes: {},
 };
@@ -205,6 +211,8 @@ Table.propTypes = {
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
   rowsPerPage: PropTypes.number,
   page: PropTypes.number,
+  emptyStateTitle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  emptyStateMessage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   classes: PropTypes.shape({
     root: PropTypes.string,
   }),
