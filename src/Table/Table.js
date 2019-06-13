@@ -46,6 +46,7 @@ const Table = props => {
     verticalActions,
     onRowClick,
     tableToolbarHide,
+    tableHeaderHide,
     id,
   } = props;
 
@@ -109,6 +110,7 @@ const Table = props => {
           data={pageData}
           onSelectRow={onSelectRow}
           rowId={rowId}
+          tableHeaderHide={tableHeaderHide}
         />
         <TableBody>
           <TableRowFilter
@@ -147,6 +149,7 @@ Table.defaultProps = {
   onSelectRow: null,
   onRowClick: null,
   tableToolbarHide: false,
+  tableHeaderHide: false,
   actions: [],
   verticalActions: false,
   toolbarOptions: null,
@@ -198,6 +201,7 @@ Table.propTypes = {
   toolbarOptions: toolbarOptionsTypes,
   pagination: PropTypes.bool,
   tableToolbarHide: PropTypes.bool,
+  tableHeaderHide: PropTypes.bool,
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
   rowsPerPage: PropTypes.number,
   page: PropTypes.number,

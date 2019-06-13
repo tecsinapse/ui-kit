@@ -102,7 +102,12 @@ const TableHeader = ({
   data,
   onSelectRow,
   rowId,
+  tableHeaderHide,
 }) => {
+  if (tableHeaderHide) {
+    return null;
+  }
+
   let tableCells = null;
   const classes = headerStyles();
 
@@ -131,6 +136,7 @@ TableHeader.defaultProps = {
   selectedRows: null,
   onSelectRow: null,
   setSelectedRows: null,
+  tableHeaderHide: false,
 };
 
 TableHeader.propTypes = {
@@ -138,6 +144,7 @@ TableHeader.propTypes = {
   selectedRows: PropTypes.arrayOf(PropTypes.object),
   onSelectRow: PropTypes.func,
   setSelectedRows: PropTypes.func,
+  tableHeaderHide: PropTypes.bool,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   rowId: PropTypes.func.isRequired,
 };
