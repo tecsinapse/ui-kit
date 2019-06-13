@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import {
@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import { VisibilityOff } from '@material-ui/icons';
 import TableCells from './TableCells';
 import { EmptyStateWrapper } from '../Layout/EmptyState';
+import { LocaleContext } from '../LocaleProvider';
 
 const tableRowStyles = hasSelection =>
   makeStyles(theme => ({
@@ -80,11 +81,13 @@ const TableRows = ({
   onRowClick,
   forceCollapseActions,
   verticalActions,
-  emptyStateTitle,
-  emptyStateMessage,
 }) => {
   const hasSelection = (columns || []).some(({ selection }) => selection);
   const classes = tableRowStyles(hasSelection || !!onRowClick)();
+
+  const {
+    Table: { emptyStateTitle, emptyStateMessage },
+  } = useContext(LocaleContext);
 
   if (isEmptyOrNull(columns)) {
     return null;
@@ -137,8 +140,6 @@ TableRows.defaultProps = {
   data: [],
   selectedRows: [],
   forceCollapseActions: false,
-  emptyStateTitle: null,
-  emptyStateMessage: null,
 };
 
 TableRows.propTypes = {
@@ -157,8 +158,6 @@ TableRows.propTypes = {
   onSelectRow: PropTypes.func,
   rowId: PropTypes.func.isRequired,
   forceCollapseActions: PropTypes.bool,
-  emptyStateTitle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  emptyStateMessage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };
 
 export default TableRows;
