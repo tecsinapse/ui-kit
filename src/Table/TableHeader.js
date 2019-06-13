@@ -104,8 +104,13 @@ const TableHeader = ({
   rowId,
   tableHeaderHide,
 }) => {
-  let tableCells = null;
   const classes = headerStyles();
+
+  if (tableHeaderHide) {
+    return null;
+  }
+
+  let tableCells = null;
 
   if (columns && columns.length > 0) {
     tableCells = columns.map(column =>
@@ -119,10 +124,6 @@ const TableHeader = ({
         rowId
       )
     );
-  }
-
-  if (tableHeaderHide) {
-    return null;
   }
 
   return (
