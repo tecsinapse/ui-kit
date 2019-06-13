@@ -106,6 +106,10 @@ const SelectedFilters = ({ advancedFilters, filters }) => {
     }
   });
 
+  if (selectedFilters.length === 0) {
+    return null;
+  }
+
   return (
     <React.Fragment>
       <Divider />
