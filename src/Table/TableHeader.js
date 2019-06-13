@@ -104,10 +104,6 @@ const TableHeader = ({
   rowId,
   tableHeaderHide,
 }) => {
-  if (tableHeaderHide) {
-    return null;
-  }
-
   let tableCells = null;
   const classes = headerStyles();
 
@@ -123,6 +119,10 @@ const TableHeader = ({
         rowId
       )
     );
+  }
+
+  if (tableHeaderHide) {
+    return null;
   }
 
   return (
