@@ -15,6 +15,8 @@ export const LocaleContext = React.createContext({
     tooltipAdvancedFilter: 'Filtros Avançados',
     applyFiltersLabel: 'Aplicar Filtros',
     selectedFiltersLabel: 'Filtros Selecionados',
+    emptyStateTitle: 'Nada por aqui',
+    emptyStateMessage: 'Não existem dados para exibição.',
   },
 });
 

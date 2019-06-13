@@ -13,17 +13,17 @@ import TablePagination from './TablePagination';
 import { toolbarOptionsTypes } from './TablePropTypes';
 import TableLoading from './TableLoading';
 import {
+  initializeColumns,
+  initializeFilters,
+  isRemoteData,
   onChangeHeaderFilter,
   onChangePage,
-  initializeColumns,
-  isRemoteData,
-  initializeFilters,
 } from './tableFunctions';
 import {
-  useInitialData,
-  useUpdatePageData,
-  useUpdateData,
   useInitialCheckboxData,
+  useInitialData,
+  useUpdateData,
+  useUpdatePageData,
 } from './tableHooks';
 
 const Table = props => {
