@@ -1,3 +1,10 @@
+<a name="0.0.171"></a>
+## <small>0.0.171 (2019-06-14)</small>
+
+* loading screen fix ([a346231](https://github.com/tecsinapse/ui-kit/commit/a346231))
+
+
+
 <a name="0.0.170"></a>
 ## <small>0.0.170 (2019-06-13)</small>
 
