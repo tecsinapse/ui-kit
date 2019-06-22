@@ -33,4 +33,8 @@ const WizardWrapper = () => {
 
 storiesOf(`${GROUPS.FORMS}|Wizard`, module)
   .addDecorator(muiTheme(createMuiTheme({ spacing: 12 })))
-  .add('wizard 2 steps', () => <WizardWrapper />);
+  .add('wizard 2 steps', () => (
+    <div style={{ width: 800 }}>
+      <WizardWrapper />
+    </div>
+  ));
