@@ -1,7 +1,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
-import {muiTheme} from 'storybook-addon-material-ui';
+import { muiTheme } from 'storybook-addon-material-ui';
 import { createMuiTheme } from '@material-ui/core/styles';
 import Table from './Table';
 import { cars } from './exampleData';
@@ -32,8 +32,5 @@ const SimpleTable = () => (
 );
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
-.addDecorator(muiTheme(createMuiTheme({spacing: 1})))
-.add(
-  'Simple Table',
-  SimpleTable
-);
+  .addDecorator(muiTheme(createMuiTheme({ spacing: 12 })))
+  .add('Simple Table', SimpleTable);

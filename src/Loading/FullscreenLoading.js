@@ -25,8 +25,8 @@ const styles = {
       borderTopColor: 'transparent',
       borderWidth: 4,
       borderRadius: '50%',
-      W: 'spin .8s linear infinite',
-      animation: 'spin .8s linear infinite',
+      WebkitAnimation: '$spin .8s linear infinite',
+      animation: '$spin .8s linear infinite',
     },
   },
   '@keyframes spin': {

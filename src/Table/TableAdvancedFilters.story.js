@@ -1,7 +1,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
-import {muiTheme} from 'storybook-addon-material-ui';
+import { muiTheme } from 'storybook-addon-material-ui';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { resolveObj } from '@tecsinapse/es-utils/core/object';
 import Table from './Table';
@@ -147,8 +147,5 @@ const AdvancedFiltersTable = () => (
 );
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
-.addDecorator(muiTheme(createMuiTheme({spacing: 1})))
-.add(
-  'Advanced Filters Table',
-  () => <AdvancedFiltersTable />
-);
+  .addDecorator(muiTheme(createMuiTheme({ spacing: 12 })))
+  .add('Advanced Filters Table', () => <AdvancedFiltersTable />);
