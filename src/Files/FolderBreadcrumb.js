@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Folder from '@material-ui/icons/Folder';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
@@ -11,7 +11,7 @@ import { defaultGreyLight2 } from '../colors';
 import { breadcrumb } from '../Menu/AppBar/AppBar';
 
 const useStyles = (light, dense) =>
-  makeStyles(theme  => ({
+  makeStyles(theme => ({
     marginLeft: {
       marginLeft: `${theme.spacing(0.5)}px !important`,
     },
