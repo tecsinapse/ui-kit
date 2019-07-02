@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { ThemeProvider } from '@material-ui/styles';
-
-import { muiTheme } from 'storybook-addon-material-ui';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Select } from './Select';
 import { Input } from '../Inputs/Input';
@@ -113,15 +109,8 @@ export const SelectWrapper2 = props => {
   );
 };
 
-const bla = createMuiTheme({ spacing: 12 });
-
 storiesOf(`${GROUPS.FORMS}|Select`, module)
-  .addDecorator(muiTheme(createMuiTheme({ spacing: 12 })))
-  .add('Select Auto Detect', () => (
-    <ThemeProvider theme={bla}>
-      <SelectWrapper />
-    </ThemeProvider>
-  ))
+  .add('Select Auto Detect', () => <SelectWrapper />)
   .add('Select No Value', () => <SelectWrapper2 />)
   .add('Select No Value Multi', () => <SelectWrapper2 isMulti />)
   .add('Select Web', () => <SelectWrapper variant="web" />)

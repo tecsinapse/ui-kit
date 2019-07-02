@@ -1,8 +1,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
-import { muiTheme } from 'storybook-addon-material-ui';
-import { createMuiTheme } from '@material-ui/core/styles';
+
 import Table from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
@@ -45,6 +44,7 @@ const CustomRenderTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
-  .addDecorator(muiTheme(createMuiTheme({ spacing: 12 })))
-  .add('Custom Render Table', () => <CustomRenderTable />);
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add(
+  'Custom Render Table',
+  () => <CustomRenderTable />
+);

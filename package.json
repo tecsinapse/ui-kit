@@ -76,7 +76,6 @@
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^3.4.0",
-    "storybook-addon-material-ui": "^0.9.0-alpha.19",
     "storybook-addon-smart-knobs": "^4.1.2",
     "text-mask-addons": "^3.8.0",
     "text-mask-core": "^5.1.2",

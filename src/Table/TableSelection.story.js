@@ -3,8 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
 import { storiesOf } from '@storybook/react';
-import { muiTheme } from 'storybook-addon-material-ui';
-import { createMuiTheme } from '@material-ui/core/styles';
+
 import Table from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
@@ -79,6 +78,7 @@ const SelectionTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
-  .addDecorator(muiTheme(createMuiTheme({ spacing: 12 })))
-  .add('Selection Table', SelectionTable);
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add(
+  'Selection Table',
+  SelectionTable
+);

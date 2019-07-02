@@ -2,8 +2,7 @@ import 'date-fns';
 import ptBRLocale from 'date-fns/locale/pt-BR';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { muiTheme } from 'storybook-addon-material-ui';
-import { createMuiTheme } from '@material-ui/core/styles';
+
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 // import {ColorPicker as ColorPickerBla} from 'material-ui-color-picker';
@@ -51,7 +50,6 @@ const TimePickerStory = () => {
 };
 
 storiesOf(`${GROUPS.FORMS}|Picker`, module)
-  .addDecorator(muiTheme(createMuiTheme({ spacing: 12 })))
   .add('Date Picker', () => <DatePickerStory />)
   .add('Color Picker', () => (
     <ColorPicker

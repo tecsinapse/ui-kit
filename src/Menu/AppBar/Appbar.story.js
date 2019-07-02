@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { muiTheme } from 'storybook-addon-material-ui';
-import { createMuiTheme } from '@material-ui/core/styles';
+
 import IconButton from '@material-ui/core/IconButton';
 import { mdiOneUp, mdiShieldHalfFull, mdiTurtle } from '@mdi/js';
 import Icon from '@mdi/react';
@@ -88,7 +87,6 @@ const ExampleAppBar = () => {
   );
 };
 storiesOf(`${GROUPS.MENU}|AppBar`, module)
-  .addDecorator(muiTheme(createMuiTheme({ spacing: 12 })))
   .add('AppBar', () => <ExampleAppBar />)
   .add('Styled AppBar', () => (
     <StyledAppBar

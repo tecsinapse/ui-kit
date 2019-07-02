@@ -1,8 +1,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
-import { muiTheme } from 'storybook-addon-material-ui';
-import { createMuiTheme } from '@material-ui/core/styles';
+
 import Table from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 
@@ -60,6 +59,7 @@ const PaginationTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
-  .addDecorator(muiTheme(createMuiTheme({ spacing: 12 })))
-  .add('Pagination Table', PaginationTable);
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add(
+  'Pagination Table',
+  PaginationTable
+);

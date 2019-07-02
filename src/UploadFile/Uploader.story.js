@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { storiesOf } from '@storybook/react';
-import { muiTheme } from 'storybook-addon-material-ui';
-import { createMuiTheme } from '@material-ui/core/styles';
+
 import { TesteUploader } from './TesteUploader';
 import { Button } from '../Buttons/Button';
 
@@ -21,7 +20,6 @@ const SilentUploadExample = () => {
   );
 };
 storiesOf(`Uploader`, module)
-  .addDecorator(muiTheme(createMuiTheme({ spacing: 12 })))
   .add('uploader drag', () => (
     <div style={{ width: '700px', height: '400px' }}>
       <TesteUploader />

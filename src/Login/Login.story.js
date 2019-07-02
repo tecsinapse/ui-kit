@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { muiTheme } from 'storybook-addon-material-ui';
-import { createMuiTheme } from '@material-ui/core/styles';
+
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Lock from '@material-ui/icons/Lock';
 import Visibility from '@material-ui/icons/Visibility';
@@ -40,7 +39,6 @@ const InputPassword = () => {
 };
 
 storiesOf(`Login`, module)
-  .addDecorator(muiTheme(createMuiTheme({ spacing: 12 })))
   .add('Login', () => (
     <div style={{ width: '400px' }}>
       <Login
