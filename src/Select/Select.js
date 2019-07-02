@@ -41,8 +41,9 @@ export const SelectUnstyled = ({
   portal,
   ...rest
 }) => {
+  const valuesAllSelected = isMulti && value && value.length === options.length;
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [allSelected, setAllSelected] = useState(false);
+  const [allSelected, setAllSelected] = useState(valuesAllSelected);
   const [containerSize, setContainerSize] = useState(0);
 
   const [yPos, setYPos] = useState(0);

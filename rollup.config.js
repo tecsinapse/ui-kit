@@ -53,8 +53,10 @@ export default [
         browser: true,
       }),
       commonjs({
+        include: 'node_modules/**',
         namedExports: {
           'node_modules/@material-ui/core/colors/index.js': ['grey'],
+          'node_modules/react-sizeme/dist/react-sizeme.js': ['SizeMe'],
           'node_modules/text-mask-core/dist/textMaskCore.js': ['conformToMask'],
           'node_modules/prop-types/index.js': [
             'string',

@@ -11,6 +11,8 @@ export const GROUPS = {
   LAYOUT: 'Layout',
   TYPOGRAPHY: 'Typography',
   ICONS: 'Icons',
+  CALENDAR: 'Calendar',
+  SCHEDULE: 'Schedule',
 };
 
 export const OPTIONS = {
