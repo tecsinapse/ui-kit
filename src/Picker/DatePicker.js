@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { IconButton } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
-
 import clsx from 'clsx';
 import isSameDay from 'date-fns/isSameDay';
 import formatDate from 'date-fns/format';
@@ -17,6 +17,7 @@ const useStyle = makeStyles(theme => ({
     position: 'relative',
   },
   day: {
+    padding: 0,
     width: 36,
     height: 36,
     fontSize: theme.typography.caption.fontSize,
@@ -57,7 +58,8 @@ export const DatePicker = ({
   label,
   onChange,
   format,
-  variant,
+  keyboardPicker,
+  inputVariant,
   pointedDates,
   ...props
 }) => {
@@ -74,9 +76,11 @@ export const DatePicker = ({
     });
 
     return (
-      <div>
+      <div role="presentation">
         <IconButton className={dayClassName}>
-          <span> {formatDate(date, 'd')} </span>
+          <span>
+            <Typography variant="body2">{formatDate(date, 'd')} </Typography>
+          </span>
           {isPointed && (
             <Badge
               color="primary"
@@ -94,7 +98,7 @@ export const DatePicker = ({
     );
   };
 
-  return variant === 'keyboard' ? (
+  return keyboardPicker ? (
     <KeyboardDatePicker
       format={format}
       id={id}
@@ -105,6 +109,10 @@ export const DatePicker = ({
         'aria-label': 'change date',
       }}
       renderDay={pointedDates.length > 0 ? renderPointedDay : undefined}
+      inputVariant={inputVariant}
+      todayLabel="HOJE"
+      okLabel="Filtra"
+      cancelLabel="Cancelar"
       {...props}
     />
   ) : (
@@ -115,6 +123,10 @@ export const DatePicker = ({
       value={selectedDate}
       onChange={onChange}
       renderDay={pointedDates.length > 0 ? renderPointedDay : undefined}
+      inputVariant={inputVariant}
+      todayLabel="HOJE"
+      okLabel="Filtra"
+      cancelLabel="Cancelar"
       {...props}
     />
   );
@@ -125,8 +137,9 @@ DatePicker.defaultProps = {
   id: 'datepicker-id',
   onChange: () => {},
   format: undefined,
-  variant: '',
+  keyboardPicker: false,
   pointedDates: [],
+  inputVariant: 'outlined',
 };
 
 DatePicker.propTypes = {
@@ -135,7 +148,8 @@ DatePicker.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func,
   format: PropTypes.string,
-  variant: PropTypes.oneOf(['keyboard']),
+  keyboardPicker: PropTypes.bool,
   pointedDates: PropTypes.arrayOf(Date),
+  inputVariant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
 };
 export default DatePicker;

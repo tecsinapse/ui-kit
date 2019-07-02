@@ -26,6 +26,11 @@ const DatePickerStory = () => {
         format="dd/MM/yyyy"
         pointedDates={[new Date('08/02/2014'), new Date('09/02/2014')]}
       />
+      <DatePicker
+        selectedDate={selectedDate}
+        onChange={date => setSelectedDate(date)}
+        format="dd/MM/yyyy"
+      />
     </MuiPickersUtilsProvider>
   );
 };
