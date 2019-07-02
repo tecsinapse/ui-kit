@@ -22,7 +22,8 @@ const useStyle = makeStyles(theme => ({
     height: 36,
     fontSize: theme.typography.caption.fontSize,
     margin: '0 2px',
-    color: 'inherit',
+    color: theme.palette.text.primary,
+    fontWeight: theme.typography.fontWeightMedium,
   },
   customDayHighlight: {
     position: 'absolute',
@@ -35,13 +36,18 @@ const useStyle = makeStyles(theme => ({
   },
   nonCurrentMonthDay: {
     color: theme.palette.text.disabled,
+    pointerEvents: 'none',
   },
   highlightNonCurrentMonthDay: {
     color: '#676767',
   },
   highlight: {
     background: theme.palette.primary.main,
-    color: theme.palette.common.white,
+    color: theme.palette.primary.contrastText,
+    fontWeight: theme.typography.fontWeightMedium,
+    '&:hover': {
+      backgroundColor: theme.palette.primary.main,
+    },
   },
   badge: {
     position: 'absolute',
@@ -79,7 +85,9 @@ export const DatePicker = ({
       <div role="presentation">
         <IconButton className={dayClassName}>
           <span>
-            <Typography variant="body2">{formatDate(date, 'd')} </Typography>
+            <Typography variant="body2" color="inherit">
+              {formatDate(date, 'd')}{' '}
+            </Typography>
           </span>
           {isPointed && (
             <Badge
