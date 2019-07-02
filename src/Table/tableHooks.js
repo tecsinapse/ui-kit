@@ -2,19 +2,21 @@ import { useEffect } from 'react';
 import { resolveObj } from '@tecsinapse/es-utils/core/object';
 import { isRemoteData } from './tableFunctions';
 
+export const INCLUDE_MATCH_CONST = 'INCLUDE';
+export const EXACT_MATCH_CONST = 'EXACT';
 export const useInitialData = (originalData, setData) => {
   useEffect(() => {
     if (!isRemoteData(originalData)) {
       setData([...originalData]);
     }
-  }, [originalData]);
+  }, [originalData, setData]);
 };
 export const useInitialCheckboxData = (selectedData, setSelectedRows) => {
   useEffect(() => {
     if (selectedData) {
       setSelectedRows(selectedData);
     }
-  }, [selectedData]);
+  }, [selectedData, setSelectedRows]);
 };
 
 export const useUpdateData = (
@@ -38,7 +40,7 @@ export const useUpdateData = (
       const { headerFilters } = filters;
 
       Object.keys(headerFilters).forEach(field => {
-        const filterValue = headerFilters[field];
+        const { value: filterValue, matchType } = headerFilters[field];
 
         filteredData = filteredData.filter(row => {
           const valueField = resolveObj(field, row);
@@ -51,6 +53,9 @@ export const useUpdateData = (
             return true;
           }
           if (typeof valueField === 'string') {
+            if (matchType === EXACT_MATCH_CONST) {
+              return valueField === filterValue;
+            }
             return valueField.toLowerCase().includes(filterValue.toLowerCase());
           }
           return false;
@@ -60,7 +65,7 @@ export const useUpdateData = (
       setData(filteredData);
       setLoading(false);
     }
-  }, [filters, data]);
+  }, [filters, data, setLoading, setTotalCount, setData]);
 };
 
 export const useUpdatePageData = (
@@ -77,5 +82,5 @@ export const useUpdatePageData = (
         data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
       );
     }
-  }, [data]);
+  }, [data, isRemote, page, rowsPerPage, setPageData]);
 };

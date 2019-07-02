@@ -1,3 +1,112 @@
+<a name="0.0.171"></a>
+## <small>0.0.171 (2019-06-14)</small>
+
+* loading screen fix ([a346231](https://github.com/tecsinapse/ui-kit/commit/a346231))
+
+
+
+<a name="0.0.170"></a>
+## <small>0.0.170 (2019-06-13)</small>
+
+* - Inclusão do EmptyState para a Table ([b4d2dda](https://github.com/tecsinapse/ui-kit/commit/b4d2dda))
+* - Inclusão do EmptyState para a Table ([b2faa95](https://github.com/tecsinapse/ui-kit/commit/b2faa95))
+* - Inclusão do EmptyState para a Table ([f473502](https://github.com/tecsinapse/ui-kit/commit/f473502))
+* - Inclusão do EmptyState para a Table ([84f3fb3](https://github.com/tecsinapse/ui-kit/commit/84f3fb3))
+
+
+
+<a name="0.0.169"></a>
+## <small>0.0.169 (2019-06-13)</small>
+
+* - Ajuste renderização TableHeader ([467c148](https://github.com/tecsinapse/ui-kit/commit/467c148))
+* - Ajuste renderização TableHeader ([fa6156a](https://github.com/tecsinapse/ui-kit/commit/fa6156a))
+* - Esconder linha de filtros selecionados da tabela quando está vazio ([2eb1794](https://github.com/tecsinapse/ui-kit/commit/2eb1794))
+
+
+
+<a name="0.0.168"></a>
+## <small>0.0.168 (2019-06-12)</small>
+
+* Advanced filter translation from locale provider ([ae33730](https://github.com/tecsinapse/ui-kit/commit/ae33730))
+* remove green from select placeholder ([06fdc77](https://github.com/tecsinapse/ui-kit/commit/06fdc77))
+
+
+
+<a name="0.0.167"></a>
+## <small>0.0.167 (2019-06-12)</small>
+
+* locale solution for table ([61432d0](https://github.com/tecsinapse/ui-kit/commit/61432d0))
+
+
+
+<a name="0.0.166"></a>
+## <small>0.0.166 (2019-06-12)</small>
+
+* locale solution for table and wizard + corrections ([6ef91f2](https://github.com/tecsinapse/ui-kit/commit/6ef91f2))
+
+
+
+<a name="0.0.165"></a>
+## <small>0.0.165 (2019-06-12)</small>
+
+* - Inclusão da variant default para o botão com cor cinza escuro ([e5477df](https://github.com/tecsinapse/ui-kit/commit/e5477df))
+
+
+
+<a name="0.0.164"></a>
+## <small>0.0.164 (2019-06-10)</small>
+
+* Adapt exmaple to use login-mobile using yalc ([dde0445](https://github.com/tecsinapse/ui-kit/commit/dde0445))
+* Add margin to log header ([94be785](https://github.com/tecsinapse/ui-kit/commit/94be785))
+* Add mobile prop support ([62d29a6](https://github.com/tecsinapse/ui-kit/commit/62d29a6))
+* Add support for mobile (tested by example not storybook) ([5a8656a](https://github.com/tecsinapse/ui-kit/commit/5a8656a))
+* Fix overflox space with several header images ([edb1d56](https://github.com/tecsinapse/ui-kit/commit/edb1d56))
+* Fix some general bugs ([50c1810](https://github.com/tecsinapse/ui-kit/commit/50c1810))
+* Login component adjustments ([ae639ca](https://github.com/tecsinapse/ui-kit/commit/ae639ca))
+* login screen adjustments ([6eaa19a](https://github.com/tecsinapse/ui-kit/commit/6eaa19a))
+* remove yalc example from project ([03074af](https://github.com/tecsinapse/ui-kit/commit/03074af))
+* wrong divider on login footer ([e62cc15](https://github.com/tecsinapse/ui-kit/commit/e62cc15))
+
+
+
+<a name="0.0.163"></a>
+## <small>0.0.163 (2019-06-10)</small>
+
+* Removind umd build, and standartizing icon import from ui-kit. Reducing bundle size. ([e26fa42](https://github.com/tecsinapse/ui-kit/commit/e26fa42))
+
+
+
+<a name="0.0.162"></a>
+## <small>0.0.162 (2019-06-10)</small>
+
+* full width on quick select table row filter ([ee28afe](https://github.com/tecsinapse/ui-kit/commit/ee28afe))
+* make export right ([922230b](https://github.com/tecsinapse/ui-kit/commit/922230b))
+
+
+
+<a name="0.0.161"></a>
+## <small>0.0.161 (2019-06-08)</small>
+
+* organizing theme globals ([4f56ee8](https://github.com/tecsinapse/ui-kit/commit/4f56ee8))
+
+
+
+<a name="0.0.160"></a>
+## <small>0.0.160 (2019-06-07)</small>
+
+* - Inclusão de algumas opções avançadas no EditText ([1277123](https://github.com/tecsinapse/ui-kit/commit/1277123))
+* Better colors on theming and adding select - "selector" - for filter option on table and locale prov ([dc72450](https://github.com/tecsinapse/ui-kit/commit/dc72450))
+
+
+
+<a name="0.0.159"></a>
+## <small>0.0.159 (2019-06-06)</small>
+
+* adding className to drawer ([7c26ab2](https://github.com/tecsinapse/ui-kit/commit/7c26ab2))
+* adding id to drawer ([5d90b59](https://github.com/tecsinapse/ui-kit/commit/5d90b59))
+
+
+
 <a name="0.0.158"></a>
 ## <small>0.0.158 (2019-06-06)</small>
 

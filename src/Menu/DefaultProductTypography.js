@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles(theme => ({
   marginLeft: {
     marginLeft: `${theme.spacing(0.5)}px !important`,
+    fontWeight: 900,
   },
   flexRow: {
     display: 'flex',

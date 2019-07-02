@@ -1,7 +1,8 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography/Typography';
-import { FolderOpen, SignalWifiOff } from '@material-ui/icons';
+import FolderOpen from '@material-ui/icons/FolderOpen';
+import SignalWifiOff from '@material-ui/icons/SignalWifiOff';
 import PropTypes from 'prop-types';
 
 const styles = {

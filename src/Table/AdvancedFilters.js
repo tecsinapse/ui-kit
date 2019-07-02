@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import className from 'classnames';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
@@ -8,6 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Input } from '../Inputs/Input';
 import { Select } from '../Select/Select';
+import { LocaleContext } from '../LocaleProvider';
 
 const filterStyles = makeStyles(theme => ({
   group: {
@@ -159,26 +160,24 @@ const Filters = ({
 };
 
 const AdvancedFilters = ({
-  tooltipAdvancedFilter,
   advancedFilters: advancedFiltersProp,
   onApplyFilter,
   filters,
 }) => {
-  const {
-    applyFiltersLabel,
-    filters: filtersOptions,
-    filtersGroup,
-  } = advancedFiltersProp;
+  const { filters: filtersOptions, filtersGroup } = advancedFiltersProp;
   const [advancedFilters, setAdvancedFilters] = useState({
     ...filters.advancedFilters,
   });
+  const {
+    Table: { tooltipAdvancedFilter, applyFiltersLabel },
+  } = useContext(LocaleContext);
   const classes = advancedFilterStyles();
 
   return (
     <div>
       <div className={classes.title}>
         <Typography variant="h6" id="tableTitle">
-          {tooltipAdvancedFilter || 'Advanced Filters'}
+          {tooltipAdvancedFilter}
         </Typography>
       </div>
       <Filters
@@ -195,7 +194,7 @@ const AdvancedFilters = ({
           className={classes.button}
           color="primary"
         >
-          {applyFiltersLabel || 'Apply Filters'}
+          {applyFiltersLabel}
         </Button>
       </div>
     </div>

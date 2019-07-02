@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import StepLabel from '@material-ui/core/StepLabel';
 import Step from '@material-ui/core/Step';
@@ -8,6 +8,7 @@ import { Typography } from '@material-ui/core';
 import classNames from 'classnames';
 import { defaultGreen, defaultRed } from '../colors';
 import { Button } from '../Buttons/Button';
+import { LocaleContext } from '../LocaleProvider';
 
 const useStyles = makeStyles(theme => ({
   margin: {
@@ -37,7 +38,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'white',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   stepLabels: {
@@ -56,6 +57,9 @@ export const Wizard = ({
 }) => {
   const currentStep = React.Children.toArray(children)[activeStep];
   const [error, setError] = useState(false);
+  const {
+    Wizard: { finishText, nextText, backText, stepText },
+  } = useContext(LocaleContext);
 
   const innerClasses = useStyles();
   const nextStep = async increment => {
@@ -83,7 +87,11 @@ export const Wizard = ({
                   optional={
                     error &&
                     activeStep === index && (
-                      <Typography variant="caption" color="error">
+                      <Typography
+                        variant="caption"
+                        color="error"
+                        align="center"
+                      >
                         {error}
                       </Typography>
                     )
@@ -108,7 +116,10 @@ export const Wizard = ({
       </div>
       <div className={classNames(innerClasses.wizardFooter, classes.footer)}>
         <div className={innerClasses.stepLabels}>
-          <Typography variant="button">Step {activeStep + 1}:</Typography>&nbsp;
+          <Typography variant="button">
+            {stepText} {activeStep + 1}:
+          </Typography>
+          &nbsp;
           <Typography>
             {currentStep.props.warningText && currentStep.props.warningText}
           </Typography>
@@ -118,27 +129,29 @@ export const Wizard = ({
             <Button
               size="large"
               type="button"
+              variant="default"
               submitting={isSubmitting}
               className={innerClasses.margin}
               onClick={() => {
                 nextStep(-1);
               }}
             >
-              VOLTAR
+              {backText}
             </Button>
           )}
           <Button
             size="large"
             type="button"
             submitting={isSubmitting}
+            variant={error ? 'error' : 'success'}
             className={innerClasses.margin}
             onClick={() => {
               nextStep(+1);
             }}
           >
             {activeStep < React.Children.count(children) - 1
-              ? 'AVANÇAR'
-              : 'FINALIZAR'}
+              ? nextText
+              : finishText}
           </Button>
         </div>
       </div>

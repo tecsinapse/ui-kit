@@ -36,8 +36,8 @@ const handleInputChange = (
   setAnchorEl,
   setLoading,
   setSuggestions,
-  setSuggestionsRef,
-  setError
+  setSuggestionsError,
+  setSuggestionsRef
 ) => ({ target, currentTarget }) => {
   setInputValue(target.value);
   if (target.value) {
@@ -51,11 +51,11 @@ const handleInputChange = (
           setLoading(false);
           setSuggestions(suggestions);
           setAnchorEl(currentTarget);
-          setError(null);
+          setSuggestionsError(null);
         })
         .catch(({ message }) => {
           setLoading(false);
-          setError(message);
+          setSuggestionsError(message);
         });
     }, 500);
   } else {
@@ -125,6 +125,7 @@ const AutoComplete = ({
   onDeleteItem,
   onSelectItem,
   options,
+  error,
 }) => {
   const classes = styles();
   const [inputValue, setInputValue] = useState('');
@@ -133,8 +134,8 @@ const AutoComplete = ({
   const [suggestions, setSuggestions] = useState(null);
   const [containerRef, setContainerRef] = useState(null);
   const [inputRef, setInputRef] = useState(null);
+  const [suggestionsError, setSuggestionsError] = useState(null);
   const [suggestionsRef, setSuggestionsRef] = useState(null);
-  const [error, setError] = useState(null);
   const open = Boolean(anchorEl);
 
   return (
@@ -153,12 +154,12 @@ const AutoComplete = ({
           setAnchorEl,
           setLoading,
           setSuggestions,
-          setSuggestionsRef,
-          setError
+          setSuggestionsError,
+          setSuggestionsRef
         )}
         {...inputProps}
         inputRef={setInputRef}
-        error={error}
+        error={suggestionsError || error}
         endAdornment={
           loading ? <CircularProgress size={25} thickness={2} /> : null
         }

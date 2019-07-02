@@ -1,5 +1,5 @@
 import { components } from 'react-select';
-import { ArrowDropDown } from '@material-ui/icons';
+import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 import React from 'react';
 
 export const DropdownIndicator = props =>

@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { FormHelperText, Typography } from '@material-ui/core';
-import { Add } from '@material-ui/icons';
+import Add from '@material-ui/icons/Add';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

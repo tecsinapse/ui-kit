@@ -20,6 +20,13 @@ export const buttonStyle = ({ spacing }) => ({
     backgroundColor: defaultGrey,
     color: 'white',
   },
+  buttonColorDefault: {
+    backgroundColor: defaultGrey,
+    color: 'white',
+    '&:hover': {
+      backgroundColor: defaultGrey,
+    },
+  },
   buttonColorSuccess: {
     backgroundColor: defaultGreen,
     color: 'white',
@@ -46,6 +53,7 @@ export function buttonClassNameDefinition(classes, disabled, margin, variant) {
   return {
     [classes.disabled]: disabled,
     [classes.marginTop]: margin,
+    [classes.buttonColorDefault]: variant === 'default',
     [classes.buttonColorSuccess]: variant === 'success',
     [classes.buttonColorWarning]: variant === 'warning',
     [classes.buttonColorError]: variant === 'error',
@@ -102,6 +110,7 @@ Button.defaultProps = {
 };
 Button.propTypes = {
   variant: PropTypes.oneOf([
+    'default',
     'success',
     'warning',
     'error',

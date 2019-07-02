@@ -14,7 +14,7 @@ import Icon from '@mdi/react';
 import Link from '@material-ui/core/Link';
 import { DefaultProductTypography } from '../DefaultProductTypography';
 
-const useStyles = makeStyles(({ palette, spacing }) => ({
+const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   marginLeft: {
     marginLeft: `${spacing(0.5)}px !important`,
   },
@@ -28,6 +28,9 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     display: 'flex',
     flexDirection: 'row',
     marginLeft: spacing(1),
+  },
+  boldFont: {
+    fontWeight: 700,
   },
   appBar: {
     display: 'flex',
@@ -45,10 +48,10 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     backgroundColor: palette.primary.light,
   },
   link: {
-    color: `${palette.primary.contrastText} !important`,
+    color: `${menuGlobal.breadcrumbContrastText} !important`,
   },
   separator: {
-    color: palette.primary.contrastText,
+    color: menuGlobal.breadcrumbContrastText,
   },
   marginRightPattern: {
     marginRight: spacing(1),
@@ -71,7 +74,7 @@ export const AppBar = ({
   const theme = useTheme();
   return (
     <div className={className}>
-      <MaterialAppBar className={classes.appBar}>
+      <MaterialAppBar className={classes.appBar} elevation={0}>
         <Toolbar disableGutters className={classes.toolbar}>
           <IconButton
             color="inherit"
@@ -115,6 +118,7 @@ export const AppBar = ({
                     <Typography
                       key={current.title}
                       color="secondary"
+                      className={classes.boldFont}
                       variant="subtitle2"
                     >
                       {current.title}

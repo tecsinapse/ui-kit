@@ -7,7 +7,7 @@ import { useTheme } from '@material-ui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
-import { Help } from '@material-ui/icons';
+import Help from '@material-ui/icons/Help';
 import { SizeMe } from 'react-sizeme';
 import { selectInputStyle } from './SelectInputStyle';
 import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';
@@ -64,7 +64,7 @@ export const SelectUnstyled = ({
   useEffect(() => {
     const pos = selectRef.current.getBoundingClientRect();
     setYPos(pos.y);
-  });
+  }, []);
 
   const flattenChildren = childrenIn =>
     childrenIn

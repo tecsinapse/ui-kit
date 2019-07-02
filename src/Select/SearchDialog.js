@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { IconButton } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { ArrowBackIos, Search } from '@material-ui/icons';
+import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
+import Search from '@material-ui/icons/Search';
 import SearchBar from 'material-ui-search-bar';
 import Dialog from '@material-ui/core/Dialog';
 import Paper from '@material-ui/core/Paper';
