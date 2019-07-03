@@ -1,3 +1,12 @@
+<a name="0.0.172"></a>
+## <small>0.0.172 (2019-07-03)</small>
+
+* [#117051] - Gestão de conteúdo da home: Carrossel ([b496f0e](https://github.com/tecsinapse/ui-kit/commit/b496f0e)), closes [#117051](https://github.com/tecsinapse/ui-kit/issues/117051)
+* [#117051] - Gestão de conteúdo da home: Carrossel ([a410944](https://github.com/tecsinapse/ui-kit/commit/a410944)), closes [#117051](https://github.com/tecsinapse/ui-kit/issues/117051)
+* Fix mobile version ([8cfb37d](https://github.com/tecsinapse/ui-kit/commit/8cfb37d))
+
+
+
 <a name="0.0.171"></a>
 ## <small>0.0.171 (2019-06-14)</small>
 
