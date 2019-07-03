@@ -36,11 +36,13 @@ const useStyle = makeStyles(theme => ({
   },
   title: {
     fontWeight: 'bold',
+    lineHeight: 1,
+    marginBottom: 10,
   },
   subtitle: {
     color: 'white',
     marginBottom: theme.spacing.unit,
-    fontSize: '80%',
+    lineHeight: 1,
   },
   info: {
     position: 'absolute',
