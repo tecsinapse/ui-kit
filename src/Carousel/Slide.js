@@ -6,84 +6,87 @@ import className from 'classnames';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { mdiImageOff } from '@mdi/js';
 import Icon from '@mdi/react';
+import { Link } from '@material-ui/core';
+import { isEmptyOrNull } from '@tecsinapse/es-utils/core/object';
 import { Button } from '../Buttons/Button';
 
-const useStyle = ({ titleColor }) =>
-  makeStyles(theme => ({
-    root: {
-      display: 'flex',
-      justifyContent: 'flex-end',
-      alignItems: 'flex-end',
-      position: 'relative',
-      width: '100%',
-      height: '100%',
-    },
-    rootMobile: {
-      alignItems: 'center',
-      justifyContent: 'space-around',
-    },
-    cursorPointer: {
-      cursor: 'pointer',
-    },
-    titleDiv: {
-      textOverflow: 'ellipsis',
-      overflow: 'hidden',
-      flexBasis: '50%',
-      flexGrow: 1,
-    },
-    titleDivMobile: {
-      marginLeft: theme.spacing.unit,
-    },
-    title: {
-      fontWeight: 'bold',
-      color: titleColor,
-    },
-    subtitle: {
-      color: 'white',
-      marginBottom: theme.spacing.unit,
-      fontSize: '80%',
-    },
-    info: {
-      position: 'absolute',
-      margin: theme.spacing.unit,
-      right: theme.spacing.unit,
-      left: theme.spacing.unit,
-      bottom: theme.spacing.unit,
-      display: 'flex',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-    },
-    imageBackground: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      opacity: '0.4',
-    },
-    progress: {
-      zIndex: -1,
-      top: '50%',
-      left: '50%',
-      position: 'absolute',
-    },
-    erroImage: {
-      opacity: '0.4',
-      top: '50%',
-      left: '50%',
-      position: 'absolute',
-      transform: 'translate(-50%, -50%)',
-    },
-  }));
+const useStyle = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    position: 'relative',
+    width: '100%',
+    height: '100%',
+  },
+  rootMobile: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  cursorPointer: {
+    cursor: 'pointer',
+  },
+  titleDiv: {
+    textOverflow: 'ellipsis',
+  },
+  title: {
+    fontWeight: 'bold',
+    lineHeight: 1,
+    marginBottom: 10,
+  },
+  subtitle: {
+    color: 'white',
+    lineHeight: 1,
+  },
+  subtitleDesktop: {
+    marginBottom: theme.spacing.unit,
+  },
+  subtitleMobile: {
+    marginBottom: theme.spacing.unit * 2,
+  },
+  infoDesktop: {
+    position: 'absolute',
+    margin: theme.spacing.unit,
+    right: theme.spacing.unit,
+    left: theme.spacing.unit,
+    bottom: theme.spacing.unit * 2,
+  },
+  infoMobile: {
+    position: 'absolute',
+    margin: 0,
+    right: theme.spacing.unit,
+    left: theme.spacing.unit * 2,
+  },
+  imageBackground: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    opacity: '0.4',
+  },
+  progress: {
+    zIndex: -1,
+    top: '50%',
+    left: '50%',
+    position: 'absolute',
+  },
+  erroImage: {
+    opacity: '0.4',
+    top: '50%',
+    left: '50%',
+    position: 'absolute',
+    transform: 'translate(-50%, -50%)',
+  },
+}));
 
 export const Slide = ({
   backgroundImage,
   title,
-  titleVariant,
+  titleSize,
   titleColor,
   subtitle,
-  subtitleVariant,
+  subtitleSize,
+  subtitleColor,
   buttonTitle,
-  buttonComponent,
-  buttonProps,
   link,
   linkTarget,
   mobile,
@@ -91,17 +94,18 @@ export const Slide = ({
   const [showLoad, setShowLoad] = useState(true);
   const [showError, setShowError] = useState(false);
 
-  const classes = useStyle({ titleColor })();
+  const classes = useStyle();
 
   return (
     <div
       className={className(classes.root, {
         [classes.rootMobile]: mobile,
-        [classes.cursorPointer]: !mobile && link,
+        [classes.cursorPointer]: !mobile && isEmptyOrNull(buttonTitle),
       })}
       onClick={
         !mobile
-          ? () => (link ? window.open(link, linkTarget) : null)
+          ? () =>
+              isEmptyOrNull(buttonTitle) ? window.open(link, linkTarget) : null
           : undefined
       }
       onKeyPress={!mobile ? () => null : undefined}
@@ -116,7 +120,7 @@ export const Slide = ({
       )}
       {showLoad && <CircularProgress className={classes.progress} />}
       <img
-        src={backgroundImage}
+        src={backgroundImage || ''}
         alt=""
         className={classes.imageBackground}
         onLoad={e => {
@@ -134,31 +138,46 @@ export const Slide = ({
         }}
       />
 
-      <div className={classes.info}>
-        <div
-          className={className(classes.titleDiv, {
-            [classes.titleDivMobile]: mobile,
-          })}
-        >
+      <div
+        className={className(
+          {},
+          {
+            [classes.infoMobile]: mobile,
+            [classes.infoDesktop]: !mobile,
+          }
+        )}
+      >
+        <div className={classes.titleDiv}>
           <Typography
-            variant={titleVariant}
             className={classes.title}
+            style={{
+              color: titleColor,
+              fontSize: mobile ? titleSize * 0.5 : titleSize,
+            }}
             dangerouslySetInnerHTML={{ __html: title }}
           />
           <Typography
-            variant={subtitleVariant}
-            className={classes.subtitle}
+            className={className(classes.subtitle, {
+              [classes.subtitleMobile]: mobile,
+              [classes.subtitleDesktop]: !mobile,
+            })}
+            style={{
+              color: subtitleColor,
+              fontSize: mobile ? subtitleSize * 0.95 : subtitleSize,
+            }}
             dangerouslySetInnerHTML={{ __html: subtitle }}
           />
-          {!link && (
-            <Button
-              component={buttonComponent}
+          {!isEmptyOrNull(buttonTitle) && (
+            <Link
+              component={Button}
               className={classes.button}
-              size="small"
-              {...buttonProps}
+              underline="none"
+              target={linkTarget}
+              href={link}
+              size={mobile ? 'large' : undefined}
             >
               {buttonTitle}
-            </Button>
+            </Link>
           )}
         </div>
       </div>
@@ -167,14 +186,14 @@ export const Slide = ({
 };
 
 Slide.defaultProps = {
+  backgroundImage: '',
   title: '',
-  titleVariant: 'h4',
+  titleSize: 40,
   titleColor: 'white',
   subtitle: '',
-  subtitleVariant: 'subtitle1',
-  buttonTitle: 'SABER MAIS',
-  buttonComponent: 'Link',
-  buttonProps: {},
+  subtitleSize: 14,
+  subtitleColor: 'white',
+  buttonTitle: '',
   link: '',
   linkTarget: '_self',
   mobile: false,
@@ -184,15 +203,15 @@ Slide.propTypes = {
   /**
    * Image path to display on background.
    */
-  backgroundImage: PropTypes.string.isRequired,
+  backgroundImage: PropTypes.string,
   /**
    * Title of the slide.
    */
   title: PropTypes.string,
   /**
-   * Title variant style of the slide.
+   * Title font size of the slide.
    */
-  titleVariant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  titleSize: PropTypes.number,
   /**
    * Title color style of the slide.
    */
@@ -202,23 +221,19 @@ Slide.propTypes = {
    */
   subtitle: PropTypes.string,
   /**
-   * Subtitle variant style of the slide.
+   * Subtitle color style of the slide.
    */
-  subtitleVariant: PropTypes.oneOf(['subtitle1', 'subtitle2']),
+  subtitleColor: PropTypes.string,
+  /**
+   * Subtitle font size of the slide.
+   */
+  subtitleSize: PropTypes.number,
   /**
    * Name to appear in the button.
    */
   buttonTitle: PropTypes.string,
   /**
-   * Component for button.
-   */
-  buttonComponent: PropTypes.object,
-  /**
-   * Component props for button.
-   */
-  buttonProps: PropTypes.object,
-  /**
-   * Link to redirect when click on slide.
+   * Link to redirect when click on button or slide.
    */
   link: PropTypes.string,
   /**
