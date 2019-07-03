@@ -49,6 +49,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Carousel`, module)
           backgroundImage="http://b.static.trunity.net/files/299501_299600/299598/vertical-farming-chris-jacobs.jpg"
           title="Relatório de Manuntenção BMW"
           subtitle="Já estão disponíveis todos os relatórios de manuntenção de 2019."
+          buttonTitle="SAIBA MAIS"
         />
         <Slide
           link="http://www.tecsinapse.com.br"

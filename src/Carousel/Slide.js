@@ -28,11 +28,6 @@ const useStyle = makeStyles(theme => ({
   },
   titleDiv: {
     textOverflow: 'ellipsis',
-    flexBasis: '50%',
-    flexGrow: 1,
-  },
-  titleDivMobile: {
-    marginLeft: theme.spacing.unit,
   },
   title: {
     fontWeight: 'bold',
@@ -41,18 +36,26 @@ const useStyle = makeStyles(theme => ({
   },
   subtitle: {
     color: 'white',
-    marginBottom: theme.spacing.unit,
     lineHeight: 1,
   },
-  info: {
+  subtitleDesktop: {
+    marginBottom: theme.spacing.unit,
+  },
+  subtitleMobile: {
+    marginBottom: theme.spacing.unit * 2,
+  },
+  infoDesktop: {
     position: 'absolute',
     margin: theme.spacing.unit,
     right: theme.spacing.unit,
     left: theme.spacing.unit,
     bottom: theme.spacing.unit * 2,
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+  },
+  infoMobile: {
+    position: 'absolute',
+    margin: 0,
+    right: theme.spacing.unit,
+    left: theme.spacing.unit * 2,
   },
   imageBackground: {
     width: '100%',
@@ -135,20 +138,33 @@ export const Slide = ({
         }}
       />
 
-      <div className={classes.info}>
-        <div
-          className={className(classes.titleDiv, {
-            [classes.titleDivMobile]: mobile,
-          })}
-        >
+      <div
+        className={className(
+          {},
+          {
+            [classes.infoMobile]: mobile,
+            [classes.infoDesktop]: !mobile,
+          }
+        )}
+      >
+        <div className={classes.titleDiv}>
           <Typography
             className={classes.title}
-            style={{ color: titleColor, fontSize: titleSize }}
+            style={{
+              color: titleColor,
+              fontSize: mobile ? titleSize * 0.5 : titleSize,
+            }}
             dangerouslySetInnerHTML={{ __html: title }}
           />
           <Typography
-            className={classes.subtitle}
-            style={{ color: subtitleColor, fontSize: subtitleSize }}
+            className={className(classes.subtitle, {
+              [classes.subtitleMobile]: mobile,
+              [classes.subtitleDesktop]: !mobile,
+            })}
+            style={{
+              color: subtitleColor,
+              fontSize: mobile ? subtitleSize * 0.95 : subtitleSize,
+            }}
             dangerouslySetInnerHTML={{ __html: subtitle }}
           />
           {!isEmptyOrNull(buttonTitle) && (
@@ -158,6 +174,7 @@ export const Slide = ({
               underline="none"
               target={linkTarget}
               href={link}
+              size={mobile ? 'large' : undefined}
             >
               {buttonTitle}
             </Link>
