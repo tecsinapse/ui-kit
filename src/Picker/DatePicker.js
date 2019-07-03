@@ -116,7 +116,7 @@ export const DatePicker = ({
       KeyboardButtonProps={{
         'aria-label': 'change date',
       }}
-      renderDay={pointedDates.length > 0 ? renderPointedDay : undefined}
+      renderDay={renderPointedDay}
       inputVariant={inputVariant}
       todayLabel="HOJE"
       okLabel="Filtra"
@@ -130,7 +130,7 @@ export const DatePicker = ({
       label={label}
       value={selectedDate}
       onChange={onChange}
-      renderDay={pointedDates.length > 0 ? renderPointedDay : undefined}
+      renderDay={renderPointedDay}
       inputVariant={inputVariant}
       todayLabel="HOJE"
       okLabel="Filtra"
