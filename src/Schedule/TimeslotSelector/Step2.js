@@ -26,7 +26,13 @@ const generateTimeSlots = (personAvailabilities, date, duration) => {
     const slotDuration = duration % 15 === 0 ? 15 : duration;
     while (timeSlot < endTime) {
       if (timeSlot.plus({ minutes: duration }) <= endTime) {
-        timeSlots.push(timeSlot.toLocaleString(DateTime.TIME_24_SIMPLE));
+        timeSlots.push(
+          timeSlot.toLocaleString({
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+          })
+        );
       }
       timeSlot = timeSlot.plus({ minutes: slotDuration });
     }
