@@ -148,10 +148,11 @@ DatePicker.defaultProps = {
   keyboardPicker: false,
   pointedDates: [],
   inputVariant: 'outlined',
+  selectedDate: undefined,
 };
 
 DatePicker.propTypes = {
-  selectedDate: PropTypes.object.isRequired,
+  selectedDate: PropTypes.object,
   id: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
