@@ -18,11 +18,15 @@ const columns = [
   {
     title: 'Brand',
     field: 'brand',
+    options: {
+      export: true,
+    },
   },
   {
     title: 'Model',
     field: 'model.name',
     options: {
+      export: true,
       filter: true,
     },
   },
@@ -30,15 +34,28 @@ const columns = [
     title: 'Year',
     field: 'model.year',
     options: {
+      export: true,
       numeric: true,
     },
+  },
+  {
+    title: 'Price',
+    field: 'price',
+    options: {
+      exportOnly: true,
+      export: true,
+    },
+    customRender: ({ price }) =>
+      price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }),
   },
 ];
 
 const cars = [];
 
 for (let index = 0; index < 70; index++) {
-  cars.push(createCar(index, 'BMW', `BMW ${index + 1}`, 2018, 30000000));
+  cars.push(
+    createCar(index, 'BMW', `BMW ${index + 1}`, 2018, 3 * (index + 10))
+  );
 }
 
 const tableOptions = {

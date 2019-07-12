@@ -108,7 +108,7 @@ const TableExporter = ({
 
 TableExporter.defaultProps = {
   data: [],
-  exportFileName: 'table_exporter.csv',
+  exportFileName: 'table_exporter',
   exportTypes: [],
 };
 

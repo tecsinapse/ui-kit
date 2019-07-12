@@ -116,7 +116,7 @@ const Table = props => {
           <TableRowFilter
             rendered={someColumnHasFilter}
             columns={tableColumns}
-            pageData={originalData}
+            data={originalData}
             onChangeFilter={onChangeHeaderFilter(setFilters)}
           />
           <TableRows
@@ -168,7 +168,10 @@ Table.propTypes = {
       title: PropTypes.string,
       field: PropTypes.string.isRequired,
       options: PropTypes.shape({
+        export: PropTypes.bool,
+        exportOnly: PropTypes.bool,
         filter: PropTypes.bool,
+        numeric: PropTypes.bool,
       }),
       customRender: PropTypes.func,
     })

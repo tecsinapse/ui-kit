@@ -1,9 +1,6 @@
 import { useEffect } from 'react';
-import { resolveObj } from '@tecsinapse/es-utils/core/object';
-import { isRemoteData } from './tableFunctions';
+import { applyHeaderFilters, isRemoteData } from './tableFunctions';
 
-export const INCLUDE_MATCH_CONST = 'INCLUDE';
-export const EXACT_MATCH_CONST = 'EXACT';
 export const useInitialData = (originalData, setData) => {
   useEffect(() => {
     if (!isRemoteData(originalData)) {
@@ -36,31 +33,7 @@ export const useUpdateData = (
         setLoading(false);
       });
     } else {
-      let filteredData = [...data];
-      const { headerFilters } = filters;
-
-      Object.keys(headerFilters).forEach(field => {
-        const { value: filterValue, matchType } = headerFilters[field];
-
-        filteredData = filteredData.filter(row => {
-          const valueField = resolveObj(field, row);
-
-          if (!filterValue) {
-            return true;
-          }
-
-          if (typeof valueField === 'object') {
-            return true;
-          }
-          if (typeof valueField === 'string') {
-            if (matchType === EXACT_MATCH_CONST) {
-              return valueField === filterValue;
-            }
-            return valueField.toLowerCase().includes(filterValue.toLowerCase());
-          }
-          return false;
-        });
-      });
+      const filteredData = applyHeaderFilters(data, filters);
       setTotalCount(filteredData.length);
       setData(filteredData);
       setLoading(false);

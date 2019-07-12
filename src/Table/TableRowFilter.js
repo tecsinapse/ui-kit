@@ -7,7 +7,11 @@ import Icon from '@mdi/react';
 import { resolveObj } from '@tecsinapse/es-utils/core/object';
 import { Input } from '../Inputs/Input';
 import { Select } from '../Select/Select';
-import { EXACT_MATCH_CONST, INCLUDE_MATCH_CONST } from './tableHooks';
+import {
+  isRemoteData,
+  EXACT_MATCH_CONST,
+  INCLUDE_MATCH_CONST,
+} from './tableFunctions';
 import { LocaleContext } from '../LocaleProvider';
 
 const onChange = (onChangeFilter, setHeaderFilters) => ({ target }) => {
@@ -38,10 +42,11 @@ const initialHeaderFilters = columns => {
   return headerFilters;
 };
 
-const TableRowFilter = ({ columns, rendered, onChangeFilter, pageData }) => {
+const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
   const [headerFilters, setHeaderFilters] = useState(
     initialHeaderFilters(columns)
   );
+
   const { selectPromptMessage, selectAllMessage } = useContext(LocaleContext);
 
   if (!rendered) {
@@ -52,19 +57,27 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, pageData }) => {
     <TableRow>
       {columns.map(column => {
         const { title, field, options = {} } = column || {};
+
         const {
+          exportOnly = false,
           select = false,
           filter = false,
           selectOptions: selectOptionsProps,
         } = options;
+
+        if (exportOnly) {
+          return null;
+        }
+
         let selectOptions;
-        if (select && !selectOptionsProps) {
-          selectOptions = [
-            ...new Set(pageData.map(o => resolveObj(field, o))),
-          ].map(value => ({
-            value,
-            label: value,
-          }));
+
+        if (select && !selectOptionsProps && !isRemoteData(data)) {
+          selectOptions = [...new Set(data.map(o => resolveObj(field, o)))].map(
+            value => ({
+              value,
+              label: value,
+            })
+          );
         } else {
           selectOptions = [...(selectOptionsProps || [])];
         }
@@ -125,7 +138,12 @@ TableRowFilter.propTypes = {
       title: PropTypes.string,
       field: PropTypes.string,
       options: PropTypes.shape({
+        export: PropTypes.bool,
+        exportOnly: PropTypes.bool,
         filter: PropTypes.bool,
+        numeric: PropTypes.bool,
+        selectOptions: PropTypes.arrayOf(PropTypes.object),
+        select: PropTypes.bool,
       }),
     })
   ).isRequired,

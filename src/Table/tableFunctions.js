@@ -1,4 +1,7 @@
-import { resolveObj, isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
+import { isNotEmptyOrNull, resolveObj } from '@tecsinapse/es-utils/core/object';
+
+export const INCLUDE_MATCH_CONST = 'INCLUDE';
+export const EXACT_MATCH_CONST = 'EXACT';
 
 const stringifyIfObject = value =>
   typeof value === 'object' ? JSON.stringify(value) : value;
@@ -7,23 +10,34 @@ export const resolveData = (field, data) =>
   stringifyIfObject(resolveObj(field, data));
 
 export const exportToCSV = (fileName, columns, data, delimeter = ';') => {
+  let fileNameWithExt = fileName;
+
+  if (!fileNameWithExt.endsWith('.csv')) {
+    fileNameWithExt = fileNameWithExt.concat('.csv');
+  }
+
+  const exportedColumns = columns.filter(({ options = {} }) => options.export);
+
   const dataToExport = data.map(d =>
-    columns.map(c => resolveData(c.field, d)).join(delimeter)
+    exportedColumns
+      .filter(({ options = {} }) => options.export)
+      .map(c => (c.customRender ? c.customRender(d) : resolveData(c.field, d)))
+      .join(delimeter)
   );
-  dataToExport.splice(0, 0, columns.map(c => c.title).join(delimeter));
+  dataToExport.splice(0, 0, exportedColumns.map(c => c.title).join(delimeter));
 
   const csvData = dataToExport.join('\n');
   const csvFile = window.URL.createObjectURL(
-    new Blob([csvData], { type: 'text/csv;charset=utf-8;' })
+    new Blob(['\ufeff', csvData], { type: 'text/csv;charset=utf-8;' })
   );
 
   if (window.navigator.msSaveOrOpenBlob) {
-    window.navigator.msSaveOrOpenBlob(csvFile, fileName);
+    window.navigator.msSaveOrOpenBlob(csvFile, fileNameWithExt);
   } else {
     const hiddenElement = document.createElement('a');
     hiddenElement.href = csvFile;
     hiddenElement.target = '_blank';
-    hiddenElement.download = fileName;
+    hiddenElement.download = fileNameWithExt;
     hiddenElement.style.visibility = 'hidden';
     document.body.appendChild(hiddenElement);
     hiddenElement.click();
@@ -106,4 +120,34 @@ export const initializeFilters = (
     page: pageProp,
     rowsPerPage,
   };
+};
+
+export const applyHeaderFilters = (data, filters) => {
+  const { headerFilters } = filters;
+  let filteredData = [...data];
+
+  Object.keys(headerFilters).forEach(field => {
+    const { value: filterValue, matchType } = headerFilters[field];
+
+    filteredData = filteredData.filter(row => {
+      const valueField = resolveObj(field, row);
+
+      if (!filterValue) {
+        return true;
+      }
+
+      if (typeof valueField === 'object') {
+        return true;
+      }
+      if (typeof valueField === 'string') {
+        if (matchType === EXACT_MATCH_CONST) {
+          return valueField === filterValue;
+        }
+        return valueField.toLowerCase().includes(filterValue.toLowerCase());
+      }
+      return false;
+    });
+  });
+
+  return filteredData;
 };

@@ -60,6 +60,10 @@ const convertColumnToTableCell = (
   classes,
   rowId
 ) => {
+  if (options.exportOnly) {
+    return null;
+  }
+
   if (selection) {
     const selectedRowsPage = getSelectedRowsPage(data, selectedRows, rowId);
     const indeterminate =

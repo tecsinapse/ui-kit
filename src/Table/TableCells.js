@@ -18,6 +18,10 @@ const convertValuesToTableCell = (
   forceCollapseActions,
   verticalActions
 ) => {
+  if (options.exportOnly) {
+    return null;
+  }
+
   if (selection) {
     return (
       <TableCell key={field} padding="checkbox">
