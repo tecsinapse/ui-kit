@@ -4,7 +4,7 @@ import { makeStyles, useTheme } from '@material-ui/styles';
 import { AppBar as MaterialAppBar } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
+import Input from '@material-ui/core/Input';
 
 import { mdiMagnify, mdiFilterVariant, mdiClose } from '@mdi/js';
 
@@ -49,37 +49,74 @@ const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   },
 }));
 
-export const AppBarSearch = ({ leftIcons, onChange }) => {
+export const AppBarSearch = ({
+  leftIcons,
+  onChange,
+  onRequestSearch,
+  onSearchMode,
+  onCancelSearchMode,
+  placeholder,
+}) => {
   const classes = useStyles();
   const theme = useTheme();
   const [searchMode, setSearchMode] = useState(false);
+  const [value, setCustomValue] = useState();
 
   return (
     <div className={classes.root}>
       <MaterialAppBar className={classes.appBar} elevation={0}>
         <Toolbar disableGutters className={classes.toolbar}>
-          {!searchMode && <div className={classes.leftIcons}>{leftIcons}</div>}
-
-          <IconButton
-            color="inherit"
-            aria-label="Abrir menu"
-            onClick={() => setSearchMode(true)}
-            className={classes.marginRightPattern}
-          >
-            <Icon
-              path={mdiMagnify}
-              color={theme.palette.primary.contrastText}
-              size={1}
-            />
-          </IconButton>
-
-          {searchMode && (
+          {!searchMode ? (
             <React.Fragment>
-              <InputBase
+              <div className={classes.leftIcons}>{leftIcons}</div>
+
+              <IconButton
+                color="inherit"
+                aria-label="Abrir menu"
+                onClick={() => {
+                  setSearchMode(true);
+                  if (onSearchMode) {
+                    onSearchMode();
+                  }
+                }}
+                className={classes.marginRightPattern}
+              >
+                <Icon
+                  path={mdiMagnify}
+                  color={theme.palette.primary.contrastText}
+                  size={1}
+                />
+              </IconButton>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <Icon
+                path={mdiMagnify}
+                color={theme.palette.primary.contrastText}
+                size={1}
+              />
+
+              <Input
                 className={classes.input}
-                placeholder="Buscar por nome"
-                inputProps={{ 'aria-label': 'Buscar por nome' }}
+                placeholder={placeholder}
+                inputProps={{ 'aria-label': placeholder }}
+                value={value}
+                onChange={e => {
+                  setCustomValue(e.target.value);
+                  if (onChange) {
+                    onChange(e.target.value);
+                  }
+                }}
+                onKeyUp={e => {
+                  if (
+                    (e.charCode === 13 || e.key === 'Enter') &&
+                    onRequestSearch
+                  ) {
+                    onRequestSearch(value);
+                  }
+                }}
                 autoFocus
+                disableUnderline
               />
               <div className={classes.searchRightIcons}>
                 <IconButton
@@ -97,7 +134,12 @@ export const AppBarSearch = ({ leftIcons, onChange }) => {
                 <IconButton
                   color="inherit"
                   aria-label="Close search"
-                  onClick={() => setSearchMode(false)}
+                  onClick={() => {
+                    setSearchMode(false);
+                    if (onCancelSearchMode) {
+                      onCancelSearchMode();
+                    }
+                  }}
                   className={classes.filters}
                 >
                   <Icon
@@ -117,9 +159,24 @@ export const AppBarSearch = ({ leftIcons, onChange }) => {
 
 AppBarSearch.defaultProps = {
   leftIcons: null,
+  onChange: undefined,
+  onRequestSearch: undefined,
+  onSearchMode: undefined,
+  onCancelSearchMode: undefined,
+  placeholder: 'Buscar por nome',
 };
 
 AppBarSearch.propTypes = {
   leftIcons: PropTypes.object,
+  /** Fired when the text value changes. */
+  onChange: PropTypes.func,
+  /** Fired when the search icon is clicked. */
+  onRequestSearch: PropTypes.func,
+  /** Sets placeholder text for the embedded text field. */
+  placeholder: PropTypes.string,
+  /** Fired when the bar enters in the search mdoe */
+  onSearchMode: PropTypes.func,
+  /** Fired when the bar leaves the search mode */
+  onCancelSearchMode: PropTypes.func,
 };
 export default AppBarSearch;
