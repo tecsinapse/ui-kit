@@ -60,7 +60,7 @@ export const AppBarSearch = ({
   const classes = useStyles();
   const theme = useTheme();
   const [searchMode, setSearchMode] = useState(false);
-  const [value, setCustomValue] = useState();
+  const [value, setCustomValue] = useState('');
 
   return (
     <div className={classes.root}>
