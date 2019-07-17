@@ -97,6 +97,7 @@ TableAdvancedFilters.propTypes = {
           })
         ),
         value: PropTypes.any,
+        fullWidth: PropTypes.bool,
       })
     ),
   }),

@@ -60,6 +60,12 @@ const convertColumnToTableCell = (
   classes,
   rowId
 ) => {
+  const { visible = true } = options;
+
+  if (!visible) {
+    return null;
+  }
+
   if (selection) {
     const selectedRowsPage = getSelectedRowsPage(data, selectedRows, rowId);
     const indeterminate =
