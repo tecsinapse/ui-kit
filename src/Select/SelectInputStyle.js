@@ -59,7 +59,7 @@ export const selectInputStyle = theme => ({
     width: '100%',
   },
   divider: {
-    height: theme.spacing(1),
+    height: theme.spacing(2),
   },
   select: {
     zIndex: 2,

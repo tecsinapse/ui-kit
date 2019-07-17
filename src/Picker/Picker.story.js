@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react';
 
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-// import {ColorPicker as ColorPickerBla} from 'material-ui-color-picker';
 
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DatePicker } from './DatePicker';
