@@ -95,8 +95,15 @@ const SelectedFilters = ({ advancedFilters, filters }) => {
 
   const selectedFilters = [];
 
-  advancedFilters.filters.forEach(({ name, label }) => {
-    const value = filters.advancedFilters[name];
+  advancedFilters.filters.forEach(({ name, label, options }) => {
+    let value = filters.advancedFilters[name];
+
+    if (options && options.length > 0 && value.length > 0) {
+      value = options
+        .filter(option => value.indexOf(option.value) > -1)
+        .map(option => option.label);
+    }
+
     if ((value && value.length > 0) || (typeof value === 'boolean' && value)) {
       selectedFilters.push({
         name,
@@ -107,7 +114,7 @@ const SelectedFilters = ({ advancedFilters, filters }) => {
   });
 
   if (selectedFilters.length === 0) {
-    return <Divider />;
+    return null;
   }
 
   return (

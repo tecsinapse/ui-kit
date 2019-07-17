@@ -22,23 +22,32 @@ const columns = [
   {
     title: 'Model',
     field: 'model.name',
-    options: {
-      filter: true,
-    },
   },
   {
     title: 'Year',
     field: 'model.year',
     options: {
+      export: false,
       numeric: true,
     },
+  },
+  {
+    title: 'Price',
+    field: 'price',
+    options: {
+      visible: false,
+    },
+    customRender: ({ price }) =>
+      price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }),
   },
 ];
 
 const cars = [];
 
 for (let index = 0; index < 70; index++) {
-  cars.push(createCar(index, 'BMW', `BMW ${index + 1}`, 2018, 30000000));
+  cars.push(
+    createCar(index, 'BMW', `BMW ${index + 1}`, 2018, 3 * (index + 10))
+  );
 }
 
 const tableOptions = {

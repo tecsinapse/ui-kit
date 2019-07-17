@@ -62,7 +62,7 @@ export const selectInputStyle = theme => ({
     height: theme.spacing.unit * 2,
   },
   select: {
-    zIndex: 2,
+    // nothing here
   },
   flex: {
     display: 'flex',
