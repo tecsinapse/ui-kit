@@ -134,6 +134,7 @@
     "@material-ui/lab": "^3.0.0-alpha.30",
     "@material-ui/pickers": "^3.1.2",
     "@material-ui/styles": "^4.0.0-rc.0",
+    "@material-ui/codemod": "^4.0.2",
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
     "@tecsinapse/es-utils": "0.0.96",

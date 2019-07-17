@@ -1,13 +1,12 @@
-import './InstallStyles';
 import { configure, addDecorator } from '@storybook/react';
 import React from 'react';
-import { setDefaults } from '@storybook/addon-info';
+import { setDefaults, withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { setOptions } from '@storybook/addon-options';
-import { withInfo } from '@storybook/addon-info';
+
 import { withSmartKnobs } from 'storybook-addon-smart-knobs';
 import { GraphQLClient, ClientContext } from 'graphql-hooks';
-import ThemeProvider from '../src/ThemeProvider';
+import { ThemeProvider } from '../src/ThemeProvider';
 
 const client = new GraphQLClient({
   url: 'https://countries.trevorblades.com/',
@@ -34,16 +33,16 @@ setDefaults({
 });
 
 const withStoryStyles = storyFn => (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-      }}
-    >
-      {storyFn()}
-    </div>
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+    }}
+  >
+    {storyFn()}
+  </div>
 );
 
 function loadStories() {
