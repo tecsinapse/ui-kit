@@ -24,14 +24,14 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(1),
   },
   paddingCropped: {
-    padding: theme.spacing(1 / 3),
+    padding: theme.spacing(1 / 4),
   },
   input: {
     flexGrow: 1,
-    margin: theme.spacing(7 / 12),
+    margin: theme.spacing(2 / 3),
   },
   flexPadding: {
-    padding: theme.spacing(7 / 12),
+    padding: theme.spacing(0.5),
   },
   empty: {
     marginBottom: theme.spacing(0.5),
