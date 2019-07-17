@@ -1,15 +1,12 @@
 import 'date-fns';
-import ptBRLocale from 'date-fns/locale/pt-BR';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
-import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DatePicker } from './DatePicker';
 import { TimePicker } from './TimePicker';
 import { ColorPicker } from './ColorPicker';
+import { PickersProvider } from './PickersProvider';
 
 const DatePickerStory = () => {
   const [selectedDate, setSelectedDate] = React.useState(
@@ -17,13 +14,13 @@ const DatePickerStory = () => {
   );
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptBRLocale}>
+    <PickersProvider>
       <DatePicker
         selectedDate={selectedDate}
         onChange={date => setSelectedDate(date)}
         format="dd/MM/yyyy"
       />
-    </MuiPickersUtilsProvider>
+    </PickersProvider>
   );
 };
 
@@ -33,12 +30,12 @@ const TimePickerStory = () => {
   );
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptBRLocale}>
+    <PickersProvider>
       <TimePicker
         selectedTime={selectedTime}
         onChange={time => setSelecteTime(time)}
       />
-    </MuiPickersUtilsProvider>
+    </PickersProvider>
   );
 };
 

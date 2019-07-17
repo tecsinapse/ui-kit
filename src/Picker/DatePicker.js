@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { IconButton } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
@@ -11,6 +11,8 @@ import {
   KeyboardDatePicker,
   DatePicker as DatePickerExt,
 } from '@material-ui/pickers';
+import { Input } from '../Inputs/Input';
+import { LocaleContext } from '../LocaleProvider';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {
@@ -70,6 +72,9 @@ export const DatePicker = ({
   ...props
 }) => {
   const classes = useStyle();
+  const {
+    Picker: { todayLabel, okLabel, cancelLabel, clearLabel },
+  } = useContext(LocaleContext);
 
   const renderPointedDay = (date, selectedDateRender, dayInCurrentMonth) => {
     const isPointed =
@@ -118,9 +123,11 @@ export const DatePicker = ({
       }}
       renderDay={renderPointedDay}
       inputVariant={inputVariant}
-      todayLabel="HOJE"
-      okLabel="Filtra"
-      cancelLabel="Cancelar"
+      todayLabel={todayLabel}
+      okLabel={okLabel}
+      cancelLabel={cancelLabel}
+      clearLabel={clearLabel}
+      TextFieldComponent={Input}
       {...props}
     />
   ) : (
@@ -132,9 +139,11 @@ export const DatePicker = ({
       onChange={onChange}
       renderDay={renderPointedDay}
       inputVariant={inputVariant}
-      todayLabel="HOJE"
-      okLabel="Filtra"
-      cancelLabel="Cancelar"
+      todayLabel={todayLabel}
+      okLabel={okLabel}
+      cancelLabel={cancelLabel}
+      clearLabel={clearLabel}
+      TextFieldComponent={Input}
       {...props}
     />
   );
