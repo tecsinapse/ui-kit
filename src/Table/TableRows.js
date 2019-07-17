@@ -148,10 +148,7 @@ TableRows.propTypes = {
       title: PropTypes.string,
       field: PropTypes.string,
       options: PropTypes.shape({
-        export: PropTypes.bool,
-        exportOnly: PropTypes.bool,
         filter: PropTypes.bool,
-        numeric: PropTypes.bool,
       }),
     })
   ).isRequired,

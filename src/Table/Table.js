@@ -168,10 +168,7 @@ Table.propTypes = {
       title: PropTypes.string,
       field: PropTypes.string.isRequired,
       options: PropTypes.shape({
-        export: PropTypes.bool,
-        exportOnly: PropTypes.bool,
         filter: PropTypes.bool,
-        numeric: PropTypes.bool,
       }),
       customRender: PropTypes.func,
     })

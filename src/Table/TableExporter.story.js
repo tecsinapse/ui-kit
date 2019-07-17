@@ -18,23 +18,16 @@ const columns = [
   {
     title: 'Brand',
     field: 'brand',
-    options: {
-      export: true,
-    },
   },
   {
     title: 'Model',
     field: 'model.name',
-    options: {
-      export: true,
-      filter: true,
-    },
   },
   {
     title: 'Year',
     field: 'model.year',
     options: {
-      export: true,
+      export: false,
       numeric: true,
     },
   },
@@ -42,8 +35,7 @@ const columns = [
     title: 'Price',
     field: 'price',
     options: {
-      exportOnly: true,
-      export: true,
+      visible: false,
     },
     customRender: ({ price }) =>
       price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }),

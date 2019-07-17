@@ -12,7 +12,6 @@ const columns = [
     field: 'name',
     options: {
       filter: true,
-      export: true,
     },
   },
   {
@@ -20,7 +19,6 @@ const columns = [
     field: 'code',
     options: {
       filter: true,
-      export: true,
     },
   },
   {
@@ -28,7 +26,6 @@ const columns = [
     field: 'continent.name',
     options: {
       filter: true,
-      export: true,
     },
   },
 ];

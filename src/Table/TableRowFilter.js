@@ -59,13 +59,13 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
         const { title, field, options = {} } = column || {};
 
         const {
-          exportOnly = false,
+          visible = true,
           select = false,
           filter = false,
           selectOptions: selectOptionsProps,
         } = options;
 
-        if (exportOnly) {
+        if (!visible) {
           return null;
         }
 
@@ -138,12 +138,7 @@ TableRowFilter.propTypes = {
       title: PropTypes.string,
       field: PropTypes.string,
       options: PropTypes.shape({
-        export: PropTypes.bool,
-        exportOnly: PropTypes.bool,
         filter: PropTypes.bool,
-        numeric: PropTypes.bool,
-        selectOptions: PropTypes.arrayOf(PropTypes.object),
-        select: PropTypes.bool,
       }),
     })
   ).isRequired,

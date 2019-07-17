@@ -51,7 +51,7 @@ const onChangeFilter = (setAdvancedFilters, name, value) => {
 };
 
 const mapFilterOptionToInput = (
-  { type, name, label, portal = true, options },
+  { type, name, label, options },
   setAdvancedFilters,
   advancedFilters
 ) => {
@@ -79,7 +79,7 @@ const mapFilterOptionToInput = (
         label={label}
         isMulti={type === 'multi-select'}
         onChange={value => onChangeFilter(setAdvancedFilters, name, value)}
-        portal={portal}
+        portal
         fullWidth
       />
     );

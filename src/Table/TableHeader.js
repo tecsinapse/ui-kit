@@ -60,7 +60,9 @@ const convertColumnToTableCell = (
   classes,
   rowId
 ) => {
-  if (options.exportOnly) {
+  const { visible = true } = options;
+
+  if (!visible) {
     return null;
   }
 

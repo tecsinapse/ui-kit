@@ -16,11 +16,12 @@ export const exportToCSV = (fileName, columns, data, delimeter = ';') => {
     fileNameWithExt = fileNameWithExt.concat('.csv');
   }
 
-  const exportedColumns = columns.filter(({ options = {} }) => options.export);
+  const exportedColumns = columns.filter(
+    ({ options = {} }) => options.export === undefined || options.export
+  );
 
   const dataToExport = data.map(d =>
     exportedColumns
-      .filter(({ options = {} }) => options.export)
       .map(c => (c.customRender ? c.customRender(d) : resolveData(c.field, d)))
       .join(delimeter)
   );

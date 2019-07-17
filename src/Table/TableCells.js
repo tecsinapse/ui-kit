@@ -18,7 +18,9 @@ const convertValuesToTableCell = (
   forceCollapseActions,
   verticalActions
 ) => {
-  if (options.exportOnly) {
+  const { visible = true } = options;
+
+  if (!visible) {
     return null;
   }
 
