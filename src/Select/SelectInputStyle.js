@@ -14,6 +14,7 @@ export const selectInputStyle = theme => ({
   inputMultilineDense: {
     paddingTop: '0px !important',
     paddingBottom: '0px !important',
+    height: '40px',
   },
   inputNormal: {
     display: 'flex',
