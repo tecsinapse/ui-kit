@@ -100,13 +100,13 @@ export const DatePicker = ({
     const isFirstDay = isSameDay(start, 'day');
     const isLastDay = isSameDay(end, 'day');
 
-    const wrapperClassName = clsx({
+    const wrapperClassName = classNames({
       [classes2.highlight]: dayIsBetween,
       [classes2.firstHighlight]: isFirstDay,
       [classes2.endHighlight]: isLastDay,
     });
 
-    const dayClassName = clsx(classes2.day, {
+    const dayClassName = classNames(classes2.day, {
       [classes2.nonCurrentMonthDay]: !dayInCurrentMonth,
       [classes2.highlightNonCurrentMonthDay]:
         !dayInCurrentMonth && dayIsBetween,

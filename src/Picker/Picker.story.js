@@ -20,6 +20,7 @@ const DatePickerStory = () => {
         selectedDate={selectedDate}
         onChange={date => setSelectedDate(date)}
         format="dd/MM/yyyy"
+        name="datetimepicker"
       />
     </PickersProvider>
   );
@@ -37,6 +38,7 @@ const WeeklyDatePickerStory = () => {
         selectedDate={selectedDate}
         onChange={date => setSelectedDate(date)}
         format="dd/MM/yyyy"
+        name="datetimepicker"
       />
     </PickersProvider>
   );
@@ -52,21 +54,23 @@ const TimePickerStory = () => {
       <TimePicker
         selectedTime={selectedTime}
         onChange={time => setSelecteTime(time)}
+        name="datetimepicker"
       />
     </PickersProvider>
   );
 };
 
 const DateTimePickerStory = () => {
-  const [selectedTime, setSelecteTime] = React.useState(
+  const [selectedDateTime, setSelecteDatetime] = React.useState(
     new Date('2014-08-18T21:11:54')
   );
 
   return (
     <PickersProvider>
       <DateTimePicker
-        selectedTime={selectedTime}
-        onChange={time => setSelecteTime(time)}
+        selectedDateTime={selectedDateTime}
+        onChange={dateTime => setSelecteDatetime(dateTime)}
+        name="datetimepicker"
       />
     </PickersProvider>
   );
@@ -80,6 +84,7 @@ storiesOf(`${GROUPS.FORMS}|Picker`, module)
     <ColorPicker
       name="color"
       defaultValue="#000"
+      label="Color Picker"
       // value={this.state.color} - for controlled component
       // onChange={color => console.log(color)}
     />

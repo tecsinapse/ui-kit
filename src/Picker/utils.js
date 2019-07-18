@@ -1,7 +1,4 @@
 // TODO: Add mais libs para dar facilidade de uso
-// import dayjs, { Dayjs } from 'dayjs';
-// import moment, { Moment } from 'moment';
-import { DateTime } from 'luxon';
 
 export function makeJSDateObject(date) {
   // if (date instanceof dayjs) {
@@ -12,7 +9,7 @@ export function makeJSDateObject(date) {
   //   return (date as Moment).clone().toDate();
   // }
 
-  if (date instanceof DateTime) {
+  if (date && typeof date.toJSDate === 'function') {
     return date.toJSDate();
   }
 
