@@ -1,3 +1,13 @@
+<a name="0.0.175"></a>
+## <small>0.0.175 (2019-07-18)</small>
+
+* - Retirada da parametrização 'portal' das opções de filtro avançado, deixando fixo quando for o comp ([4c851e7](https://github.com/tecsinapse/ui-kit/commit/4c851e7))
+* Ajuste de select sobreposto no advanced filter ([5b009b6](https://github.com/tecsinapse/ui-kit/commit/5b009b6))
+* Ajuste na story TableServerSide para contemplar exportação dos dados ([d7bb793](https://github.com/tecsinapse/ui-kit/commit/d7bb793))
+* Ajustes de exportação, filtros avançados e filtros de cabeçalho ([b099c13](https://github.com/tecsinapse/ui-kit/commit/b099c13))
+
+
+
 <a name="0.0.174"></a>
 ## <small>0.0.174 (2019-07-05)</small>
 
