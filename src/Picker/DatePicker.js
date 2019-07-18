@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/styles';
 import { IconButton } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
-import clsx from 'clsx';
+import classNames from 'classnames';
 import isSameDay from 'date-fns/isSameDay';
 import formatDate from 'date-fns/format';
 import PropTypes from 'prop-types';
@@ -81,7 +81,7 @@ export const DatePicker = ({
       pointedDates.find(pointDate => isSameDay(pointDate, date)) !== undefined;
     const isSelected = isSameDay(date, selectedDateRender);
 
-    const dayClassName = clsx(classes.day, {
+    const dayClassName = classNames(classes.day, {
       [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
       [classes.highlight]: isSelected,
     });
