@@ -22,7 +22,10 @@ export const Drawer = ({
   onClose,
   title,
   subtitle,
+  searchBarPlaceholder,
   productName,
+  id,
+  className,
 }) => {
   const items = normalizeFunctionItems(oldItems);
   const [search, setSearch] = useState('');
@@ -31,13 +34,14 @@ export const Drawer = ({
     searchResults = searchLogic(items, search);
   }
   return (
-    <MuiDrawer open={open} onClose={onClose}>
+    <MuiDrawer open={open} onClose={onClose} id={id} className={className}>
       <StyledDiv>
         <div>
           <ListHeader
             search={search}
             setSearch={setSearch}
             title={title}
+            searchBarPlaceholder={searchBarPlaceholder}
             subtitle={subtitle}
             productName={productName}
           />
@@ -59,7 +63,11 @@ export const Drawer = ({
   );
 };
 
-Drawer.defaultProps = {};
+Drawer.defaultProps = {
+  searchBarPlaceholder: 'O que você busca?',
+  id: undefined,
+  className: undefined,
+};
 const menuItemShape = PropTypes.shape({
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   component: PropTypes.object,
@@ -71,8 +79,11 @@ Drawer.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  className: PropTypes.string,
   subtitle: PropTypes.string.isRequired,
   productName: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(menuItemShape).isRequired,
+  searchBarPlaceholder: PropTypes.string,
 };
 export default Drawer;

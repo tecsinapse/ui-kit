@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Icon from '@mdi/react';
 
 import { action } from '@storybook/addon-actions';
+import FileCopyRounded from '@material-ui/icons/FileCopyRounded';
 
 import DeleteIcon from '@material-ui/icons/Delete';
 import { mdiFolderPlus } from '@mdi/js';
@@ -10,10 +11,16 @@ import { Button } from './Button';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { IconButton } from './IconButton';
 import { FloatingButton } from './FloatingButton';
+import { DivButton } from './DivButton';
 
 storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
   .add('button', () => (
     <Button onClick={action('onClick')}>Smart Button</Button>
+  ))
+  .add('default button', () => (
+    <Button variant="default" onClick={action('onClick')}>
+      Smart Button
+    </Button>
   ))
   .add('success button', () => (
     <Button variant="success" onClick={action('onClick')}>
@@ -55,4 +62,21 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
     <FloatingButton onClick={action('onClick')}>
       <DeleteIcon />
     </FloatingButton>
+  ))
+  .add('div button', () => (
+    <div
+      style={{
+        width: '100vw',
+        height: '160px',
+        backgroundColor: '#e0e0e0',
+      }}
+    >
+      <DivButton
+        onClick={action('onClick')}
+        infoText="COMUNICADOS"
+        notifyNumber={0}
+      >
+        <FileCopyRounded fontSize="large" />
+      </DivButton>
+    </div>
   ));

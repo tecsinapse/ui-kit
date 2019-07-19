@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
 import FilterIcon from '@material-ui/icons/FilterList';
 import Tooltip from '@material-ui/core/Tooltip';
 import Popover from '@material-ui/core/Popover';
 import AdvancedFilters from './AdvancedFilters';
+import { LocaleContext } from '../LocaleProvider';
 
 const onApplyFilter = (setAnchorEl, setFilters) => advancedFilters => {
   setFilters(prevFilters => ({ ...prevFilters, advancedFilters }));
   setAnchorEl(null);
 };
 
-const TableAdvancedFilters = ({
-  tooltipAdvancedFilter,
-  advancedFilters,
-  setFilters,
-  filters,
-}) => {
+const TableAdvancedFilters = ({ advancedFilters, setFilters, filters }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const {
+    Table: { tooltipAdvancedFilter },
+  } = useContext(LocaleContext);
 
   if (!advancedFilters) {
     return null;
@@ -33,7 +32,7 @@ const TableAdvancedFilters = ({
 
   return (
     <React.Fragment>
-      <Tooltip title={tooltipAdvancedFilter || 'Advanced Filters'}>
+      <Tooltip title={tooltipAdvancedFilter}>
         <IconButton onClick={event => setAnchorEl(event.currentTarget)}>
           <FilterIcon />
         </IconButton>
@@ -54,7 +53,6 @@ const TableAdvancedFilters = ({
         <div style={maxSizeAdvancedFilters}>
           <AdvancedFilters
             advancedFilters={advancedFilters}
-            tooltipAdvancedFilter={tooltipAdvancedFilter}
             onApplyFilter={onApplyFilter(setAnchorEl, setFilters)}
             setFilters={setFilters}
             filters={filters}
@@ -66,14 +64,11 @@ const TableAdvancedFilters = ({
 };
 
 TableAdvancedFilters.defaultProps = {
-  tooltipAdvancedFilter: null,
   advancedFilters: null,
 };
 
 TableAdvancedFilters.propTypes = {
-  tooltipAdvancedFilter: PropTypes.string,
   advancedFilters: PropTypes.shape({
-    applyFiltersLabel: PropTypes.string,
     applyFilters: PropTypes.func,
     filtersGroup: PropTypes.arrayOf(
       PropTypes.shape({
@@ -102,6 +97,7 @@ TableAdvancedFilters.propTypes = {
           })
         ),
         value: PropTypes.any,
+        fullWidth: PropTypes.bool,
       })
     ),
   }),

@@ -14,7 +14,7 @@ import Icon from '@mdi/react';
 import Link from '@material-ui/core/Link';
 import { DefaultProductTypography } from '../DefaultProductTypography';
 
-const useStyles = makeStyles(({ palette, spacing }) => ({
+const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   marginLeft: {
     marginLeft: `${spacing.unit / 2}px !important`,
   },
@@ -27,6 +27,10 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     flexGrow: 1,
     display: 'flex',
     flexDirection: 'row',
+    marginLeft: spacing.unit,
+  },
+  boldFont: {
+    fontWeight: 700,
   },
   appBar: {
     display: 'flex',
@@ -44,10 +48,13 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     backgroundColor: palette.primary.light,
   },
   link: {
-    color: `${palette.primary.contrastText} !important`,
+    color: `${menuGlobal.breadcrumbContrastText} !important`,
   },
   separator: {
-    color: palette.primary.contrastText,
+    color: menuGlobal.breadcrumbContrastText,
+  },
+  marginRightPattern: {
+    marginRight: spacing.unit,
   },
 }));
 
@@ -67,12 +74,13 @@ export const AppBar = ({
   const theme = useTheme();
   return (
     <div className={className}>
-      <MaterialAppBar className={classes.appBar}>
+      <MaterialAppBar className={classes.appBar} elevation={0}>
         <Toolbar disableGutters className={classes.toolbar}>
           <IconButton
             color="inherit"
             aria-label="Abrir menu"
             onClick={menuOnClick}
+            className={classes.marginRightPattern}
           >
             <Icon
               path={mdiMenu}
@@ -110,6 +118,7 @@ export const AppBar = ({
                     <Typography
                       key={current.title}
                       color="secondary"
+                      className={classes.boldFont}
                       variant="subtitle2"
                     >
                       {current.title}

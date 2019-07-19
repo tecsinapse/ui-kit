@@ -7,7 +7,7 @@ import { useTheme } from '@material-ui/styles';
 import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
-import { Help } from '@material-ui/icons';
+import Help from '@material-ui/icons/Help';
 import { SizeMe } from 'react-sizeme';
 import { selectInputStyle } from './SelectInputStyle';
 import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';

@@ -30,5 +30,7 @@ const WizardWrapper = () => {
 };
 
 storiesOf(`${GROUPS.FORMS}|Wizard`, module).add('wizard 2 steps', () => (
-  <WizardWrapper />
+  <div style={{ width: 800 }}>
+    <WizardWrapper />
+  </div>
 ));

@@ -13,17 +13,17 @@ import TablePagination from './TablePagination';
 import { toolbarOptionsTypes } from './TablePropTypes';
 import TableLoading from './TableLoading';
 import {
+  initializeColumns,
+  initializeFilters,
+  isRemoteData,
   onChangeHeaderFilter,
   onChangePage,
-  initializeColumns,
-  isRemoteData,
-  initializeFilters,
 } from './tableFunctions';
 import {
-  useInitialData,
-  useUpdatePageData,
-  useUpdateData,
   useInitialCheckboxData,
+  useInitialData,
+  useUpdateData,
+  useUpdatePageData,
 } from './tableHooks';
 
 const Table = props => {
@@ -40,13 +40,14 @@ const Table = props => {
     rowsPerPageOptions,
     rowsPerPage: rowsPerPageProp,
     page: pageProp,
-    labelDisplayedRows,
-    labelRowsPerPage,
     exportOptions,
     classes: propClasses,
     forceCollapseActions,
     verticalActions,
     onRowClick,
+    tableToolbarHide,
+    tableHeaderHide,
+    id,
   } = props;
 
   const classes = tableStyles();
@@ -78,8 +79,6 @@ const Table = props => {
     rowCount,
     pagination,
     onChangePage: onChangePage(setFilters),
-    labelDisplayedRows,
-    labelRowsPerPage,
     tableColumns,
   };
 
@@ -88,7 +87,7 @@ const Table = props => {
   );
 
   return (
-    <div className={propClasses.root}>
+    <div className={propClasses.root} id={id}>
       <TableLoading loading={loading} />
       <TableToolbar
         options={toolbarOptions}
@@ -101,6 +100,7 @@ const Table = props => {
         columns={columns}
         setLoading={setLoading}
         rowCount={rowCount}
+        tableToolbarHide={tableToolbarHide}
       />
       <MUITable className={classes.table}>
         <TableHeader
@@ -110,11 +110,13 @@ const Table = props => {
           data={pageData}
           onSelectRow={onSelectRow}
           rowId={rowId}
+          tableHeaderHide={tableHeaderHide}
         />
         <TableBody>
           <TableRowFilter
             rendered={someColumnHasFilter}
             columns={tableColumns}
+            data={originalData}
             onChangeFilter={onChangeHeaderFilter(setFilters)}
           />
           <TableRows
@@ -146,6 +148,8 @@ Table.defaultProps = {
   selectedData: [],
   onSelectRow: null,
   onRowClick: null,
+  tableToolbarHide: false,
+  tableHeaderHide: false,
   actions: [],
   verticalActions: false,
   toolbarOptions: null,
@@ -153,9 +157,8 @@ Table.defaultProps = {
   rowsPerPageOptions: [10, 20, 30],
   rowsPerPage: null,
   page: 0,
-  labelDisplayedRows: ({ from, to, count }) => `${from}-${to} of ${count}`,
-  labelRowsPerPage: 'Rows per page:',
   exportOptions: null,
+  id: null,
   classes: {},
 };
 
@@ -183,6 +186,7 @@ Table.propTypes = {
   selectedData: PropTypes.arrayOf(PropTypes.object),
   onSelectRow: PropTypes.func,
   onRowClick: PropTypes.func,
+  id: PropTypes.string,
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       tooltip: PropTypes.string,
@@ -196,11 +200,11 @@ Table.propTypes = {
   ),
   toolbarOptions: toolbarOptionsTypes,
   pagination: PropTypes.bool,
+  tableToolbarHide: PropTypes.bool,
+  tableHeaderHide: PropTypes.bool,
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
   rowsPerPage: PropTypes.number,
   page: PropTypes.number,
-  labelDisplayedRows: PropTypes.func,
-  labelRowsPerPage: PropTypes.string,
   classes: PropTypes.shape({
     root: PropTypes.string,
   }),

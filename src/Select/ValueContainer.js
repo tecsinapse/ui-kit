@@ -9,10 +9,9 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
     let free = selectProps.selectSize ? selectProps.selectSize.width : 0;
 
     // When it hasn't render yet, it can't stimate the container width,
-    // so it suppose all space (initial state only). After statimating it,
-    // it will save on state variable and always use it as total space
+    // so it suppose no space.
     if (isNaN(free) || free === 0) {
-      free = window.innerWidth;
+      free = 0;
     } else if (selectProps.containerSize === 0) {
       selectProps.setContainerSize(free);
     } else {

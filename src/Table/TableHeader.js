@@ -60,6 +60,12 @@ const convertColumnToTableCell = (
   classes,
   rowId
 ) => {
+  const { visible = true } = options;
+
+  if (!visible) {
+    return null;
+  }
+
   if (selection) {
     const selectedRowsPage = getSelectedRowsPage(data, selectedRows, rowId);
     const indeterminate =
@@ -102,9 +108,15 @@ const TableHeader = ({
   data,
   onSelectRow,
   rowId,
+  tableHeaderHide,
 }) => {
-  let tableCells = null;
   const classes = headerStyles();
+
+  if (tableHeaderHide) {
+    return null;
+  }
+
+  let tableCells = null;
 
   if (columns && columns.length > 0) {
     tableCells = columns.map(column =>
@@ -131,6 +143,7 @@ TableHeader.defaultProps = {
   selectedRows: null,
   onSelectRow: null,
   setSelectedRows: null,
+  tableHeaderHide: false,
 };
 
 TableHeader.propTypes = {
@@ -138,6 +151,7 @@ TableHeader.propTypes = {
   selectedRows: PropTypes.arrayOf(PropTypes.object),
   onSelectRow: PropTypes.func,
   setSelectedRows: PropTypes.func,
+  tableHeaderHide: PropTypes.bool,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   rowId: PropTypes.func.isRequired,
 };

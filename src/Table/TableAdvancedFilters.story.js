@@ -64,8 +64,6 @@ const AdvancedFiltersTable = () => (
       toolbarOptions={{
         title: 'Advanced Filters Example',
         advancedFilters: {
-          selectedFiltersLabel: 'Filtros Ativos',
-          applyFiltersLabel: 'Aplicar Filtros',
           filtersGroup: [
             {
               name: 'period',

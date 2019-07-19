@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import {
   isEmptyOrNull,
   isNotEmptyOrNull,
 } from '@tecsinapse/es-utils/core/object';
+import { TableCell } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
+import { VisibilityOff } from '@material-ui/icons';
 import TableCells from './TableCells';
+import { EmptyStateWrapper } from '../Layout/EmptyState';
+import { LocaleContext } from '../LocaleProvider';
 
 const tableRowStyles = hasSelection =>
   makeStyles(theme => ({
@@ -35,7 +39,9 @@ const onClick = (
     onRowClick(rowData);
     return;
   }
-  if (!hasSelection) return;
+  if (!hasSelection) {
+    return;
+  }
 
   let checked = false;
 
@@ -79,7 +85,27 @@ const TableRows = ({
   const hasSelection = (columns || []).some(({ selection }) => selection);
   const classes = tableRowStyles(hasSelection || !!onRowClick)();
 
-  if (isEmptyOrNull(columns) || isEmptyOrNull(data)) return null;
+  const {
+    Table: { emptyStateTitle, emptyStateMessage },
+  } = useContext(LocaleContext);
+
+  if (isEmptyOrNull(columns)) {
+    return null;
+  }
+
+  if (isEmptyOrNull(data)) {
+    return (
+      <TableRow>
+        <TableCell colSpan={columns.length}>
+          <EmptyStateWrapper
+            IconComponent={VisibilityOff}
+            titleMessage={emptyStateTitle}
+            message={emptyStateMessage}
+          />
+        </TableCell>
+      </TableRow>
+    );
+  }
 
   return data.map(rowData => (
     <TableRow

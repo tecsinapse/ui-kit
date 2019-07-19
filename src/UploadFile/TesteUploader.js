@@ -21,7 +21,9 @@ export const TesteUploader = forwardRef(
           setFiles(prevFiles => {
             const copyFiles = { ...prevFiles };
 
-            if (copyFiles[uid] === null) return prevFiles;
+            if (copyFiles[uid] === null) {
+              return prevFiles;
+            }
 
             copyFiles[uid] = {
               data: copyFiles[uid].data,

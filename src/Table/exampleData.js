@@ -9,6 +9,15 @@ export const cars = [
     price: '29000000',
   },
   {
+    id: 500,
+    brand: 'BMW',
+    model: {
+      name: 'X55',
+      year: '2018',
+    },
+    price: '29000000',
+  },
+  {
     id: 2,
     brand: 'AUDI',
     model: {

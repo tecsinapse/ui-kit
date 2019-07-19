@@ -1,3 +1,241 @@
+<a name="0.0.175"></a>
+## <small>0.0.175 (2019-07-18)</small>
+
+* - Retirada da parametrização 'portal' das opções de filtro avançado, deixando fixo quando for o comp ([4c851e7](https://github.com/tecsinapse/ui-kit/commit/4c851e7))
+* Ajuste de select sobreposto no advanced filter ([5b009b6](https://github.com/tecsinapse/ui-kit/commit/5b009b6))
+* Ajuste na story TableServerSide para contemplar exportação dos dados ([d7bb793](https://github.com/tecsinapse/ui-kit/commit/d7bb793))
+* Ajustes de exportação, filtros avançados e filtros de cabeçalho ([b099c13](https://github.com/tecsinapse/ui-kit/commit/b099c13))
+
+
+
+<a name="0.0.174"></a>
+## <small>0.0.174 (2019-07-05)</small>
+
+
+
+
+<a name="0.0.173"></a>
+## <small>0.0.173 (2019-07-03)</small>
+
+
+
+
+<a name="0.0.172"></a>
+## <small>0.0.172 (2019-07-03)</small>
+
+* [#117051] - Gestão de conteúdo da home: Carrossel ([b496f0e](https://github.com/tecsinapse/ui-kit/commit/b496f0e)), closes [#117051](https://github.com/tecsinapse/ui-kit/issues/117051)
+* [#117051] - Gestão de conteúdo da home: Carrossel ([a410944](https://github.com/tecsinapse/ui-kit/commit/a410944)), closes [#117051](https://github.com/tecsinapse/ui-kit/issues/117051)
+* Fix mobile version ([8cfb37d](https://github.com/tecsinapse/ui-kit/commit/8cfb37d))
+
+
+
+<a name="0.0.171"></a>
+## <small>0.0.171 (2019-06-14)</small>
+
+* loading screen fix ([a346231](https://github.com/tecsinapse/ui-kit/commit/a346231))
+
+
+
+<a name="0.0.170"></a>
+## <small>0.0.170 (2019-06-13)</small>
+
+* - Inclusão do EmptyState para a Table ([b4d2dda](https://github.com/tecsinapse/ui-kit/commit/b4d2dda))
+* - Inclusão do EmptyState para a Table ([b2faa95](https://github.com/tecsinapse/ui-kit/commit/b2faa95))
+* - Inclusão do EmptyState para a Table ([f473502](https://github.com/tecsinapse/ui-kit/commit/f473502))
+* - Inclusão do EmptyState para a Table ([84f3fb3](https://github.com/tecsinapse/ui-kit/commit/84f3fb3))
+
+
+
+<a name="0.0.169"></a>
+## <small>0.0.169 (2019-06-13)</small>
+
+* - Ajuste renderização TableHeader ([467c148](https://github.com/tecsinapse/ui-kit/commit/467c148))
+* - Ajuste renderização TableHeader ([fa6156a](https://github.com/tecsinapse/ui-kit/commit/fa6156a))
+* - Esconder linha de filtros selecionados da tabela quando está vazio ([2eb1794](https://github.com/tecsinapse/ui-kit/commit/2eb1794))
+
+
+
+<a name="0.0.168"></a>
+## <small>0.0.168 (2019-06-12)</small>
+
+* Advanced filter translation from locale provider ([ae33730](https://github.com/tecsinapse/ui-kit/commit/ae33730))
+* remove green from select placeholder ([06fdc77](https://github.com/tecsinapse/ui-kit/commit/06fdc77))
+
+
+
+<a name="0.0.167"></a>
+## <small>0.0.167 (2019-06-12)</small>
+
+* locale solution for table ([61432d0](https://github.com/tecsinapse/ui-kit/commit/61432d0))
+
+
+
+<a name="0.0.166"></a>
+## <small>0.0.166 (2019-06-12)</small>
+
+* locale solution for table and wizard + corrections ([6ef91f2](https://github.com/tecsinapse/ui-kit/commit/6ef91f2))
+
+
+
+<a name="0.0.165"></a>
+## <small>0.0.165 (2019-06-12)</small>
+
+* - Inclusão da variant default para o botão com cor cinza escuro ([e5477df](https://github.com/tecsinapse/ui-kit/commit/e5477df))
+
+
+
+<a name="0.0.164"></a>
+## <small>0.0.164 (2019-06-10)</small>
+
+* Adapt exmaple to use login-mobile using yalc ([dde0445](https://github.com/tecsinapse/ui-kit/commit/dde0445))
+* Add margin to log header ([94be785](https://github.com/tecsinapse/ui-kit/commit/94be785))
+* Add mobile prop support ([62d29a6](https://github.com/tecsinapse/ui-kit/commit/62d29a6))
+* Add support for mobile (tested by example not storybook) ([5a8656a](https://github.com/tecsinapse/ui-kit/commit/5a8656a))
+* Fix overflox space with several header images ([edb1d56](https://github.com/tecsinapse/ui-kit/commit/edb1d56))
+* Fix some general bugs ([50c1810](https://github.com/tecsinapse/ui-kit/commit/50c1810))
+* Login component adjustments ([ae639ca](https://github.com/tecsinapse/ui-kit/commit/ae639ca))
+* login screen adjustments ([6eaa19a](https://github.com/tecsinapse/ui-kit/commit/6eaa19a))
+* remove yalc example from project ([03074af](https://github.com/tecsinapse/ui-kit/commit/03074af))
+* wrong divider on login footer ([e62cc15](https://github.com/tecsinapse/ui-kit/commit/e62cc15))
+
+
+
+<a name="0.0.163"></a>
+## <small>0.0.163 (2019-06-10)</small>
+
+* Removind umd build, and standartizing icon import from ui-kit. Reducing bundle size. ([e26fa42](https://github.com/tecsinapse/ui-kit/commit/e26fa42))
+
+
+
+<a name="0.0.162"></a>
+## <small>0.0.162 (2019-06-10)</small>
+
+* full width on quick select table row filter ([ee28afe](https://github.com/tecsinapse/ui-kit/commit/ee28afe))
+* make export right ([922230b](https://github.com/tecsinapse/ui-kit/commit/922230b))
+
+
+
+<a name="0.0.161"></a>
+## <small>0.0.161 (2019-06-08)</small>
+
+* organizing theme globals ([4f56ee8](https://github.com/tecsinapse/ui-kit/commit/4f56ee8))
+
+
+
+<a name="0.0.160"></a>
+## <small>0.0.160 (2019-06-07)</small>
+
+* - Inclusão de algumas opções avançadas no EditText ([1277123](https://github.com/tecsinapse/ui-kit/commit/1277123))
+* Better colors on theming and adding select - "selector" - for filter option on table and locale prov ([dc72450](https://github.com/tecsinapse/ui-kit/commit/dc72450))
+
+
+
+<a name="0.0.159"></a>
+## <small>0.0.159 (2019-06-06)</small>
+
+* adding className to drawer ([7c26ab2](https://github.com/tecsinapse/ui-kit/commit/7c26ab2))
+* adding id to drawer ([5d90b59](https://github.com/tecsinapse/ui-kit/commit/5d90b59))
+
+
+
+<a name="0.0.158"></a>
+## <small>0.0.158 (2019-06-06)</small>
+
+* No blinking on select ([f8a90e5](https://github.com/tecsinapse/ui-kit/commit/f8a90e5))
+
+
+
+<a name="0.0.157"></a>
+## <small>0.0.157 (2019-06-06)</small>
+
+* Wrong id on map of widths, was using ellipsed for select ([3f5674c](https://github.com/tecsinapse/ui-kit/commit/3f5674c))
+
+
+
+<a name="0.0.156"></a>
+## <small>0.0.156 (2019-06-06)</small>
+
+* Ajuste zIndex do Select ([5c45fa1](https://github.com/tecsinapse/ui-kit/commit/5c45fa1))
+
+
+
+<a name="0.0.155"></a>
+## <small>0.0.155 (2019-06-05)</small>
+
+* adding id to table ([6f2ca3e](https://github.com/tecsinapse/ui-kit/commit/6f2ca3e))
+
+
+
+<a name="0.0.154"></a>
+## <small>0.0.154 (2019-06-04)</small>
+
+* [#112049] - Carrossel ([d7dbaa0](https://github.com/tecsinapse/ui-kit/commit/d7dbaa0)), closes [#112049](https://github.com/tecsinapse/ui-kit/issues/112049)
+* [#112049] - Carrossel ([70dbd87](https://github.com/tecsinapse/ui-kit/commit/70dbd87)), closes [#112049](https://github.com/tecsinapse/ui-kit/issues/112049)
+* [#112049] - Carrossel ([21caaf6](https://github.com/tecsinapse/ui-kit/commit/21caaf6)), closes [#112049](https://github.com/tecsinapse/ui-kit/issues/112049)
+
+
+
+<a name="0.0.153"></a>
+## <small>0.0.153 (2019-05-30)</small>
+
+* app bar header adjustments ([6b2efaf](https://github.com/tecsinapse/ui-kit/commit/6b2efaf))
+
+
+
+<a name="0.0.152"></a>
+## <small>0.0.152 (2019-05-30)</small>
+
+* Add base files defining the API ([f92a68a](https://github.com/tecsinapse/ui-kit/commit/f92a68a))
+* Add div button ([95b7c79](https://github.com/tecsinapse/ui-kit/commit/95b7c79))
+* Add dots, improve slide readbility and fix eslint ([707c4c1](https://github.com/tecsinapse/ui-kit/commit/707c4c1))
+* Add hook state to the carousel and update story ([8eac1a1](https://github.com/tecsinapse/ui-kit/commit/8eac1a1))
+* Add link to carousel slides ([1111b77](https://github.com/tecsinapse/ui-kit/commit/1111b77))
+* Add loading gif ([68b3145](https://github.com/tecsinapse/ui-kit/commit/68b3145))
+* Add normalize theme to magical numbers and improve story ([afb2ab7](https://github.com/tecsinapse/ui-kit/commit/afb2ab7))
+* Add peer deps ([47f6cc9](https://github.com/tecsinapse/ui-kit/commit/47f6cc9))
+* Add to export carousel and add square prop ([e50edf5](https://github.com/tecsinapse/ui-kit/commit/e50edf5))
+* Arrow appear/disapper with numbe of slides ([387d424](https://github.com/tecsinapse/ui-kit/commit/387d424))
+* Clean code ([fcca35a](https://github.com/tecsinapse/ui-kit/commit/fcca35a))
+* Fix button name of slide ([0ecb41a](https://github.com/tecsinapse/ui-kit/commit/0ecb41a))
+* Fix general stuffs ([67b2ea2](https://github.com/tecsinapse/ui-kit/commit/67b2ea2))
+* Fix general stuffs ([3b2bd1a](https://github.com/tecsinapse/ui-kit/commit/3b2bd1a))
+* Fix image fit and add support to load/error background image ([c07f510](https://github.com/tecsinapse/ui-kit/commit/c07f510))
+* Fix notifyNumber ([42067d6](https://github.com/tecsinapse/ui-kit/commit/42067d6))
+* Fix proptypes ([c570c5c](https://github.com/tecsinapse/ui-kit/commit/c570c5c))
+* Fix rollup to build carousel with mediaQuery ([2116847](https://github.com/tecsinapse/ui-kit/commit/2116847))
+* Fix story typo and old image ([bc80dad](https://github.com/tecsinapse/ui-kit/commit/bc80dad))
+* Fix text overflow ([ed872cd](https://github.com/tecsinapse/ui-kit/commit/ed872cd))
+* Fix title/sub ([0efd0c5](https://github.com/tecsinapse/ui-kit/commit/0efd0c5))
+* Initial elements location ([cdf0e43](https://github.com/tecsinapse/ui-kit/commit/cdf0e43))
+* Make Autorotating fit to space given ([120f120](https://github.com/tecsinapse/ui-kit/commit/120f120))
+* Replace div button for base button ([0ad84b8](https://github.com/tecsinapse/ui-kit/commit/0ad84b8))
+* Size normal loading ([617f0ee](https://github.com/tecsinapse/ui-kit/commit/617f0ee))
+* Story carousel inside component tab ([f2da1c7](https://github.com/tecsinapse/ui-kit/commit/f2da1c7))
+
+
+
+<a name="0.0.151"></a>
+## <small>0.0.151 (2019-05-29)</small>
+
+* add table toolbar hide option ([5bb816d](https://github.com/tecsinapse/ui-kit/commit/5bb816d))
+
+
+
+<a name="0.0.150"></a>
+## <small>0.0.150 (2019-05-29)</small>
+
+* search bar placeholder ([98e6a3e](https://github.com/tecsinapse/ui-kit/commit/98e6a3e))
+
+
+
+<a name="0.0.149"></a>
+## <small>0.0.149 (2019-05-29)</small>
+
+* Accent folding for search logic on drawer ([9403ca8](https://github.com/tecsinapse/ui-kit/commit/9403ca8))
+* Accent folding for search logic on drawer ([6959ee5](https://github.com/tecsinapse/ui-kit/commit/6959ee5))
+
+
+
 <a name="0.0.148"></a>
 ## <small>0.0.148 (2019-05-21)</small>
 

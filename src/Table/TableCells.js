@@ -18,6 +18,12 @@ const convertValuesToTableCell = (
   forceCollapseActions,
   verticalActions
 ) => {
+  const { visible = true } = options;
+
+  if (!visible) {
+    return null;
+  }
+
   if (selection) {
     return (
       <TableCell key={field} padding="checkbox">

@@ -1,4 +1,4 @@
-import autoExternal from 'rollup-plugin-auto-external';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import commonjs from 'rollup-plugin-commonjs';
 import localResolve from 'rollup-plugin-local-resolve';
 
@@ -13,38 +13,22 @@ export default [
   {
     input: 'src/index.js',
     output: [
-      { file: pkg.main, name: pkg.name, format: 'cjs' },
       {
-        file: pkg.browser,
+        file: pkg.main,
         name: pkg.name,
-        format: 'umd',
-        globals: {
-          react: 'React',
-          'react-router': 'Link',
-          'react-transition-group': 'ReactTransitionGroup',
-          'styled-component': 'styled',
-          'bootstrap-styled': 'Jumbotron',
-          '@material-ui/core': 'material-ui',
-          '@material-ui/icons': 'material-ui',
-          classnames: 'cn',
-          '@material-ui/styles': 'styles',
-          '@mdi/js': 'js',
-          '@mdi/react': 'Icon',
-          'react-text-mask': 'MaskedInput',
-          'material-ui-search-bar': 'SearchBar',
-          '@tinymce/tinymce-react': 'tinymceReact',
-        },
+        format: 'cjs',
+        sourcemap: true,
       },
     ],
 
     plugins: [
+      peerDepsExternal(),
       builtins(),
       babel({
         exclude: ['node_modules/**'],
         extensions: ['.js'],
       }),
       localResolve(),
-      autoExternal(),
       resolve({
         jsnext: true,
         main: true,
@@ -54,6 +38,7 @@ export default [
         include: 'node_modules/**',
         namedExports: {
           'node_modules/@material-ui/core/colors/index.js': ['grey'],
+          'node_modules/@material-ui/core/styles/index.js': ['createMuiTheme', 'withStyles'],
           'node_modules/text-mask-core/dist/textMaskCore.js': ['conformToMask'],
           'node_modules/prop-types/index.js': [
             'string',
@@ -63,7 +48,6 @@ export default [
             'oneOfType',
             'object',
           ],
-          'node_modules/@material-ui/core/styles/index.js': ['withStyles'],
           'node_modules/react-sizeme/dist/react-sizeme.js': ['SizeMe'],
           'node_modules/@material-ui/core/useMediaQuery/index.js': [
             'unstable_useMediaQuery',
@@ -79,7 +63,9 @@ export default [
     ],
     onwarn(warning, warn) {
       // skip certain warnings
-      if (warning.code === 'THIS_IS_UNDEFINED') return;
+      if (warning.code === 'THIS_IS_UNDEFINED') {
+        return;
+      }
       // Use default for everything else
       warn(warning);
     },

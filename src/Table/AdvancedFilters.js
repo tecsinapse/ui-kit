@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import className from 'classnames';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -7,6 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Input } from '../Inputs/Input';
 import { Select } from '../Select/Select';
+import { LocaleContext } from '../LocaleProvider';
 
 const filterStyles = makeStyles(theme => ({
   group: {
@@ -19,6 +21,9 @@ const filterStyles = makeStyles(theme => ({
   },
   filter: {
     padding: '2px',
+  },
+  fullWidth: {
+    width: '100%',
   },
 }));
 
@@ -61,6 +66,7 @@ const mapFilterOptionToInput = (
         onChange={event =>
           onChangeFilter(setAdvancedFilters, name, event.target.value)
         }
+        fullWidth
       />
     );
   }
@@ -73,6 +79,8 @@ const mapFilterOptionToInput = (
         label={label}
         isMulti={type === 'multi-select'}
         onChange={value => onChangeFilter(setAdvancedFilters, name, value)}
+        portal
+        fullWidth
       />
     );
   }
@@ -133,7 +141,12 @@ const Filters = ({
         <Typography variant="subtitle2">{group.label}</Typography>
         <div className={classes.filterContainer}>
           {group.filters.map(filter => (
-            <div key={`filter-${filter.name}`} className={classes.filter}>
+            <div
+              key={`filter-${filter.name}`}
+              className={className(classes.filter, {
+                [classes.fullWidth]: filter.fullWidth,
+              })}
+            >
               {mapFilterOptionToInput(
                 filter,
                 setAdvancedFilters,
@@ -148,26 +161,24 @@ const Filters = ({
 };
 
 const AdvancedFilters = ({
-  tooltipAdvancedFilter,
   advancedFilters: advancedFiltersProp,
   onApplyFilter,
   filters,
 }) => {
-  const {
-    applyFiltersLabel,
-    filters: filtersOptions,
-    filtersGroup,
-  } = advancedFiltersProp;
+  const { filters: filtersOptions, filtersGroup } = advancedFiltersProp;
   const [advancedFilters, setAdvancedFilters] = useState({
     ...filters.advancedFilters,
   });
+  const {
+    Table: { tooltipAdvancedFilter, applyFiltersLabel },
+  } = useContext(LocaleContext);
   const classes = advancedFilterStyles();
 
   return (
     <div>
       <div className={classes.title}>
         <Typography variant="h6" id="tableTitle">
-          {tooltipAdvancedFilter || 'Advanced Filters'}
+          {tooltipAdvancedFilter}
         </Typography>
       </div>
       <Filters
@@ -184,7 +195,7 @@ const AdvancedFilters = ({
           className={classes.button}
           color="primary"
         >
-          {applyFiltersLabel || 'Apply Filters'}
+          {applyFiltersLabel}
         </Button>
       </div>
     </div>

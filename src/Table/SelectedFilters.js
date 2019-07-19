@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
 import Popover from '@material-ui/core/Popover';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/styles';
+import { LocaleContext } from '../LocaleProvider';
 
 const styles = makeStyles(theme => ({
   container: {
@@ -83,14 +84,26 @@ const CardFilter = ({ title, selectedValues }) => {
 };
 
 const SelectedFilters = ({ advancedFilters, filters }) => {
-  if (!advancedFilters) return null;
-
   const classes = styles();
-  const selectedFilters = [];
-  const { selectedFiltersLabel } = advancedFilters;
+  const {
+    Table: { selectedFiltersLabel },
+  } = useContext(LocaleContext);
 
-  advancedFilters.filters.forEach(({ name, label }) => {
-    const value = filters.advancedFilters[name];
+  if (!advancedFilters) {
+    return null;
+  }
+
+  const selectedFilters = [];
+
+  advancedFilters.filters.forEach(({ name, label, options }) => {
+    let value = filters.advancedFilters[name];
+
+    if (options && options.length > 0 && value.length > 0) {
+      value = options
+        .filter(option => value.indexOf(option.value) > -1)
+        .map(option => option.label);
+    }
+
     if ((value && value.length > 0) || (typeof value === 'boolean' && value)) {
       selectedFilters.push({
         name,
@@ -100,12 +113,16 @@ const SelectedFilters = ({ advancedFilters, filters }) => {
     }
   });
 
+  if (selectedFilters.length === 0) {
+    return null;
+  }
+
   return (
     <React.Fragment>
       <Divider />
       <div className={classes.container}>
         <Typography variant="subtitle2" className={classes.title}>
-          {selectedFiltersLabel || 'Selected Filters'}:
+          {selectedFiltersLabel}:
         </Typography>
         {selectedFilters.map(({ name, label, values }) => (
           <CardFilter key={name} title={label} selectedValues={values} />

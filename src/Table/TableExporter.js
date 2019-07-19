@@ -67,7 +67,9 @@ const TableExporter = ({
 }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
-  if (!exportTypes || exportTypes.length === 0) return null;
+  if (!exportTypes || exportTypes.length === 0) {
+    return null;
+  }
 
   return (
     <React.Fragment>
@@ -106,7 +108,7 @@ const TableExporter = ({
 
 TableExporter.defaultProps = {
   data: [],
-  exportFileName: 'table_exporter.csv',
+  exportFileName: 'table_exporter',
   exportTypes: [],
 };
 
