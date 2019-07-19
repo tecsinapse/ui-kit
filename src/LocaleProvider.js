@@ -24,6 +24,12 @@ export const LocaleContext = React.createContext({
     cancelLabel: 'Cancelar',
     clearLabel: 'Limpar',
   },
+  AppBar: {
+    filterLabel: 'Filtro',
+    closeSearch: 'Fechar Busca',
+    openSearch: 'Abrir Busca',
+    openMenu: 'Abrir Menu',
+  },
 });
 
 export function LocaleProvider({ messages, children }) {

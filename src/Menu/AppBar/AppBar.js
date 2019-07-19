@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
@@ -12,6 +12,7 @@ import Link from '@material-ui/core/Link';
 import Input from '@material-ui/core/Input';
 import { mdiMagnify, mdiFilterVariant, mdiClose, mdiMenu } from '@mdi/js';
 import { DefaultProductTypography } from '../DefaultProductTypography';
+import { LocaleContext } from '../../LocaleProvider';
 
 const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   marginLeft: {
@@ -87,6 +88,9 @@ export const AppBar = ({
   const theme = useTheme();
   const [searchMode, setSearchMode] = useState(false);
   const [value, setCustomValue] = useState('');
+  const {
+    AppBar: { filterLabel, closeSearch, openSearch, openMenu },
+  } = useContext(LocaleContext);
 
   return (
     <div className={className}>
@@ -128,7 +132,7 @@ export const AppBar = ({
               <div className={classes.searchRightIcons}>
                 <IconButton
                   color="inherit"
-                  aria-label="Filtros"
+                  aria-label={filterLabel}
                   onClick={() => {}}
                   className={classes.filters}
                 >
@@ -140,7 +144,7 @@ export const AppBar = ({
                 </IconButton>
                 <IconButton
                   color="inherit"
-                  aria-label="Close search"
+                  aria-label={closeSearch}
                   onClick={() => {
                     setSearchMode(false);
                     setCustomValue('');
@@ -163,7 +167,7 @@ export const AppBar = ({
               {menuBar && (
                 <IconButton
                   color="inherit"
-                  aria-label="Abrir menu"
+                  aria-label={openMenu}
                   onClick={menuOnClick}
                   className={classes.marginRightPattern}
                 >
@@ -190,7 +194,7 @@ export const AppBar = ({
               {searchBar && (
                 <IconButton
                   color="inherit"
-                  aria-label="Abrir menu"
+                  aria-label={openSearch}
                   onClick={() => {
                     setSearchMode(true);
                     if (onSearchMode) {
