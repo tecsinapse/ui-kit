@@ -1,3 +1,14 @@
+<a name="1.0.1"></a>
+## <small>1.0.1 (2019-07-19)</small>
+
+* Add appbar search ([94a1761](https://github.com/tecsinapse/ui-kit/commit/94a1761))
+* Add locale to aria-labels ([3e1a7ff](https://github.com/tecsinapse/ui-kit/commit/3e1a7ff))
+* Add props to handle appbarsearch info ([731b9d8](https://github.com/tecsinapse/ui-kit/commit/731b9d8))
+* Fix init value state of input ([38ee974](https://github.com/tecsinapse/ui-kit/commit/38ee974))
+* Remove component AppBarSearch and merge it function inside AppBar ([cd9a2e4](https://github.com/tecsinapse/ui-kit/commit/cd9a2e4))
+
+
+
 <a name="1.0.0"></a>
 ## 1.0.0 (2019-07-19)
 
