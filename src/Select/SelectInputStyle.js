@@ -14,6 +14,7 @@ export const selectInputStyle = theme => ({
   inputMultilineDense: {
     paddingTop: '0px !important',
     paddingBottom: '0px !important',
+    height: '40px',
   },
   inputNormal: {
     display: 'flex',
@@ -59,10 +60,10 @@ export const selectInputStyle = theme => ({
     width: '100%',
   },
   divider: {
-    height: theme.spacing(1),
+    height: theme.spacing(2),
   },
   select: {
-    zIndex: 2,
+    // nothing here
   },
   flex: {
     display: 'flex',

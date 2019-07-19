@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     display: 'flex !important',
     // Material v4 inserts a fixed height to InputBase breaking the select style
     // See: https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/InputBase/InputBase.js#L81
-    height: '100%',
+    height: '1.75em',
   },
 });
 

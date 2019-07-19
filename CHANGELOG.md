@@ -1,3 +1,108 @@
+<a name="1.0.0"></a>
+## 1.0.0 (2019-07-19)
+
+* [#111004] Criar componente em Principal: geração de timeslots de acordo com as disponibilidades de c ([e9bf6d3](https://github.com/tecsinapse/ui-kit/commit/e9bf6d3)), closes [#111004](https://github.com/tecsinapse/ui-kit/issues/111004)
+* [#111004] Criar componente em Principal: seleção de horário para pessoa ([dee009b](https://github.com/tecsinapse/ui-kit/commit/dee009b)), closes [#111004](https://github.com/tecsinapse/ui-kit/issues/111004)
+* [#115266] DRSUL CAXIAS DO SUL  330- Horário não disponível na agenda mesmo não havendo atendimento ([979045e](https://github.com/tecsinapse/ui-kit/commit/979045e)), closes [#115266](https://github.com/tecsinapse/ui-kit/issues/115266)
+* [#115578] Botão "Agendar" que abre a modal de agendamento não traz os dados do agendamento anterior. ([3c35cb4](https://github.com/tecsinapse/ui-kit/commit/3c35cb4)), closes [#115578](https://github.com/tecsinapse/ui-kit/issues/115578)
+* [#115578] Botão "Agendar" que abre a modal de agendamento não traz os dados do agendamento anterior. ([d914d93](https://github.com/tecsinapse/ui-kit/commit/d914d93)), closes [#115578](https://github.com/tecsinapse/ui-kit/issues/115578)
+* [#115578] Botão "Agendar" que abre a modal de agendamento não traz os dados do agendamento anterior. ([b7afdb4](https://github.com/tecsinapse/ui-kit/commit/b7afdb4)), closes [#115578](https://github.com/tecsinapse/ui-kit/issues/115578)
+* [#115578] Botão "Agendar" que abre a modal de agendamento não traz os dados do agendamento anterior. ([a72dab0](https://github.com/tecsinapse/ui-kit/commit/a72dab0)), closes [#115578](https://github.com/tecsinapse/ui-kit/issues/115578)
+* [#115578] Botão "Agendar" que abre a modal de agendamento não traz os dados do agendamento anterior. ([95cc14d](https://github.com/tecsinapse/ui-kit/commit/95cc14d)), closes [#115578](https://github.com/tecsinapse/ui-kit/issues/115578)
+* [#115578] Botão "Agendar" que abre a modal de agendamento não traz os dados do agendamento anterior. ([a7bba32](https://github.com/tecsinapse/ui-kit/commit/a7bba32)), closes [#115578](https://github.com/tecsinapse/ui-kit/issues/115578)
+* [#115578] Botão "Agendar" que abre a modal de agendamento não traz os dados do agendamento anterior. ([fafb81c](https://github.com/tecsinapse/ui-kit/commit/fafb81c)), closes [#115578](https://github.com/tecsinapse/ui-kit/issues/115578)
+* [#116017] Correção nos componentes do agendamento ([a14f990](https://github.com/tecsinapse/ui-kit/commit/a14f990)), closes [#116017](https://github.com/tecsinapse/ui-kit/issues/116017)
+* [#118618] DRSUL Caxias do Sul -330 - Sistema está perdendo os dados do agendamento ([5a5ed46](https://github.com/tecsinapse/ui-kit/commit/5a5ed46)), closes [#118618](https://github.com/tecsinapse/ui-kit/issues/118618)
+* Add ColorPicker and improve other pickers ([dc75595](https://github.com/tecsinapse/ui-kit/commit/dc75595))
+* Add point date support ([7088e7d](https://github.com/tecsinapse/ui-kit/commit/7088e7d))
+* Add theme spacing to all stories ([9b258ba](https://github.com/tecsinapse/ui-kit/commit/9b258ba))
+* Added ([dd9034a](https://github.com/tecsinapse/ui-kit/commit/dd9034a))
+* ajusta calculo do timeSlot ([64c7d01](https://github.com/tecsinapse/ui-kit/commit/64c7d01))
+* Ajusta nome de propriedade que mudou no JSON ([0a37615](https://github.com/tecsinapse/ui-kit/commit/0a37615))
+* Ajuste para receber pré-steps no componente. ([c6664e5](https://github.com/tecsinapse/ui-kit/commit/c6664e5))
+* Ajuste para receber pré-steps no componente. ([67d4cf4](https://github.com/tecsinapse/ui-kit/commit/67d4cf4))
+* Ajuste para receber pré-steps no componente. ([702a3a6](https://github.com/tecsinapse/ui-kit/commit/702a3a6))
+* Ajustes build quebrado. ([8dfa06e](https://github.com/tecsinapse/ui-kit/commit/8dfa06e))
+* Ajustes cores ([28fd665](https://github.com/tecsinapse/ui-kit/commit/28fd665))
+* Ajustes seleção de users ([898b697](https://github.com/tecsinapse/ui-kit/commit/898b697))
+* Ajustes seleção de users ([3d9a55f](https://github.com/tecsinapse/ui-kit/commit/3d9a55f))
+* back space 12 and fixing select ([8a727db](https://github.com/tecsinapse/ui-kit/commit/8a727db))
+* Create a availability schedule #11 ([65f84a9](https://github.com/tecsinapse/ui-kit/commit/65f84a9)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([bd6458a](https://github.com/tecsinapse/ui-kit/commit/bd6458a)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([2014646](https://github.com/tecsinapse/ui-kit/commit/2014646)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([b27a0d9](https://github.com/tecsinapse/ui-kit/commit/b27a0d9)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([ed9f99c](https://github.com/tecsinapse/ui-kit/commit/ed9f99c)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([b774ac8](https://github.com/tecsinapse/ui-kit/commit/b774ac8)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([177240b](https://github.com/tecsinapse/ui-kit/commit/177240b)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([9993e6c](https://github.com/tecsinapse/ui-kit/commit/9993e6c)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([3c0bc8a](https://github.com/tecsinapse/ui-kit/commit/3c0bc8a)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([d832c54](https://github.com/tecsinapse/ui-kit/commit/d832c54)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([a28faa6](https://github.com/tecsinapse/ui-kit/commit/a28faa6)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([d489e67](https://github.com/tecsinapse/ui-kit/commit/d489e67)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([eeddc7d](https://github.com/tecsinapse/ui-kit/commit/eeddc7d)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([805bdc1](https://github.com/tecsinapse/ui-kit/commit/805bdc1)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([d022429](https://github.com/tecsinapse/ui-kit/commit/d022429)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([0bc1ebc](https://github.com/tecsinapse/ui-kit/commit/0bc1ebc)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([95e4a95](https://github.com/tecsinapse/ui-kit/commit/95e4a95)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([1b9febb](https://github.com/tecsinapse/ui-kit/commit/1b9febb)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([6dc1a05](https://github.com/tecsinapse/ui-kit/commit/6dc1a05)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([62b7111](https://github.com/tecsinapse/ui-kit/commit/62b7111)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([a0eea58](https://github.com/tecsinapse/ui-kit/commit/a0eea58)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create a availability schedule #11 ([0c623bb](https://github.com/tecsinapse/ui-kit/commit/0c623bb)), closes [#11](https://github.com/tecsinapse/ui-kit/issues/11)
+* Create date and time picker ([2f9115b](https://github.com/tecsinapse/ui-kit/commit/2f9115b))
+* Create provider picker and fix some picker locale ([4960572](https://github.com/tecsinapse/ui-kit/commit/4960572))
+* create TimeslotSelector component ([ff853d7](https://github.com/tecsinapse/ui-kit/commit/ff853d7))
+* Create Weekly Calendar Component #6 ([1692f7a](https://github.com/tecsinapse/ui-kit/commit/1692f7a)), closes [#6](https://github.com/tecsinapse/ui-kit/issues/6)
+* Create Weekly Calendar Component #6 ([bb15540](https://github.com/tecsinapse/ui-kit/commit/bb15540)), closes [#6](https://github.com/tecsinapse/ui-kit/issues/6)
+* Create Weekly Calendar Component #6 ([1e0932e](https://github.com/tecsinapse/ui-kit/commit/1e0932e)), closes [#6](https://github.com/tecsinapse/ui-kit/issues/6)
+* Fix build docz ([7323420](https://github.com/tecsinapse/ui-kit/commit/7323420))
+* Fix general stuff ([ba66d75](https://github.com/tecsinapse/ui-kit/commit/ba66d75))
+* Fix no pointer event to day out month ([00ebee5](https://github.com/tecsinapse/ui-kit/commit/00ebee5))
+* Fix package.json ([4f9b161](https://github.com/tecsinapse/ui-kit/commit/4f9b161))
+* Fix pickers ([b6442b3](https://github.com/tecsinapse/ui-kit/commit/b6442b3))
+* Fix select style removing fixed height ([8c1dc18](https://github.com/tecsinapse/ui-kit/commit/8c1dc18))
+* Fix select to follow height of ui-kit inputs style ([6d415ac](https://github.com/tecsinapse/ui-kit/commit/6d415ac))
+* Fix spacing migration ([d1aa6bd](https://github.com/tecsinapse/ui-kit/commit/d1aa6bd))
+* Fix style when rendering days ([96d1848](https://github.com/tecsinapse/ui-kit/commit/96d1848))
+* Fix theme provider ([67a78f9](https://github.com/tecsinapse/ui-kit/commit/67a78f9))
+* Fração de slots em 15 minutos ([ae35dc5](https://github.com/tecsinapse/ui-kit/commit/ae35dc5))
+* Fração de slots em 15 minutos ([7855f18](https://github.com/tecsinapse/ui-kit/commit/7855f18))
+* Fração de slots em 15 minutos ([25aefbc](https://github.com/tecsinapse/ui-kit/commit/25aefbc))
+* Fração de slots em 15 minutos ([4bfa8a7](https://github.com/tecsinapse/ui-kit/commit/4bfa8a7))
+* Grouped input story wouldn't remove items ([d9a7c9f](https://github.com/tecsinapse/ui-kit/commit/d9a7c9f))
+* migration to material ui v4 ([1a11834](https://github.com/tecsinapse/ui-kit/commit/1a11834))
+* Radio Group fix on step1 timeslotselector ([8a074b1](https://github.com/tecsinapse/ui-kit/commit/8a074b1))
+* Remove clsx ([c8a6da1](https://github.com/tecsinapse/ui-kit/commit/c8a6da1))
+* Remove comments ([74fb0c2](https://github.com/tecsinapse/ui-kit/commit/74fb0c2))
+* Remove required of selected date ([3055989](https://github.com/tecsinapse/ui-kit/commit/3055989))
+* Remove storybook-material dep ([3cd5fb6](https://github.com/tecsinapse/ui-kit/commit/3cd5fb6))
+* Replace space to 12 as before ([0ce4bb6](https://github.com/tecsinapse/ui-kit/commit/0ce4bb6))
+* Replace theme spacing ([a8bfff9](https://github.com/tecsinapse/ui-kit/commit/a8bfff9))
+* Selecionar a opção todos se os value tiver a mesma quantidade de options. ([e1d2cce](https://github.com/tecsinapse/ui-kit/commit/e1d2cce))
+* solving storybook style error ([62d3edb](https://github.com/tecsinapse/ui-kit/commit/62d3edb))
+* Update node on travis ci ([f5ede1d](https://github.com/tecsinapse/ui-kit/commit/f5ede1d))
+* Update packge to material 4.0 ([b31fcea](https://github.com/tecsinapse/ui-kit/commit/b31fcea))
+* Use breadcrubs from core instead of lab ([1c800f8](https://github.com/tecsinapse/ui-kit/commit/1c800f8))
+* Wizard back to its size ([c8be0b2](https://github.com/tecsinapse/ui-kit/commit/c8be0b2))
+
+
+
+<a name="0.0.175"></a>
+## <small>0.0.175 (2019-07-18)</small>
+
+* - Retirada da parametrização 'portal' das opções de filtro avançado, deixando fixo quando for o comp ([4c851e7](https://github.com/tecsinapse/ui-kit/commit/4c851e7))
+* Ajuste de select sobreposto no advanced filter ([5b009b6](https://github.com/tecsinapse/ui-kit/commit/5b009b6))
+* Ajuste na story TableServerSide para contemplar exportação dos dados ([d7bb793](https://github.com/tecsinapse/ui-kit/commit/d7bb793))
+* Ajustes de exportação, filtros avançados e filtros de cabeçalho ([b099c13](https://github.com/tecsinapse/ui-kit/commit/b099c13))
+
+
+
+<a name="0.0.174"></a>
+## <small>0.0.174 (2019-07-05)</small>
+
+
+
+
 <a name="0.0.173"></a>
 ## <small>0.0.173 (2019-07-03)</small>
 

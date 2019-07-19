@@ -23,8 +23,9 @@ function GroupedWrapper({ empty, error }) {
       }}
       remove={index => {
         setValues(v => {
-          v.splice(index, 1);
-          return v;
+          const newArray = [...v];
+          newArray.splice(index, 1);
+          return newArray;
         });
       }}
       push={() => setValues(v => [...v, ''])}

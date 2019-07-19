@@ -5,7 +5,7 @@ import { FormControlLabel, Radio } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 
-import RadioGroup from '@material-ui/core/es/RadioGroup/RadioGroup';
+import RadioGroup from '@material-ui/core/RadioGroup';
 
 import { Select } from '../../Select/Select';
 import { Button } from '../../Buttons/Button';

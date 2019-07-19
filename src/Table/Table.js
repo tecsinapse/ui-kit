@@ -116,7 +116,7 @@ const Table = props => {
           <TableRowFilter
             rendered={someColumnHasFilter}
             columns={tableColumns}
-            pageData={originalData}
+            data={originalData}
             onChangeFilter={onChangeHeaderFilter(setFilters)}
           />
           <TableRows

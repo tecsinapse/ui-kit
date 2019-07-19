@@ -26,7 +26,13 @@ const generateTimeSlots = (personAvailabilities, date, duration) => {
     const slotDuration = duration % 15 === 0 ? 15 : duration;
     while (timeSlot < endTime) {
       if (timeSlot.plus({ minutes: duration }) <= endTime) {
-        timeSlots.push(timeSlot.toLocaleString(DateTime.TIME_24_SIMPLE));
+        timeSlots.push(
+          timeSlot.toLocaleString({
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+          })
+        );
       }
       timeSlot = timeSlot.plus({ minutes: slotDuration });
     }
@@ -117,7 +123,7 @@ export const Step2 = ({
       </div>
       <div className={classes.stepContent}>
         <div className={classes.stepContentScrolling}>
-          <Grid item container direction="column" spacing={8}>
+          <Grid item container direction="column" spacing={2}>
             {selectedPeople.map(key => {
               const person = timeSlotsByPerson[key];
               return (
@@ -173,7 +179,7 @@ export const Step2 = ({
         </div>
       </div>
       <div className={classes.stepButtons}>
-        <Grid container alignContent="flex-end" justify="center" spacing={8}>
+        <Grid container alignContent="flex-end" justify="center" spacing={2}>
           <Grid item xs={12}>
             <Divider variant="middle" />
           </Grid>

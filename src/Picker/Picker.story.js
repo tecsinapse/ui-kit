@@ -1,16 +1,13 @@
 import 'date-fns';
-import ptBRLocale from 'date-fns/locale/pt-BR';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
-import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-// import {ColorPicker as ColorPickerBla} from 'material-ui-color-picker';
 
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DatePicker } from './DatePicker';
 import { TimePicker } from './TimePicker';
 import { ColorPicker } from './ColorPicker';
+import { PickersProvider } from './PickersProvider';
+import { DateTimePicker } from './DateTimePicker';
 
 const DatePickerStory = () => {
   const [selectedDate, setSelectedDate] = React.useState(
@@ -18,13 +15,32 @@ const DatePickerStory = () => {
   );
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptBRLocale}>
+    <PickersProvider>
       <DatePicker
         selectedDate={selectedDate}
         onChange={date => setSelectedDate(date)}
         format="dd/MM/yyyy"
+        name="datetimepicker"
       />
-    </MuiPickersUtilsProvider>
+    </PickersProvider>
+  );
+};
+
+const WeeklyDatePickerStory = () => {
+  const [selectedDate, setSelectedDate] = React.useState(
+    new Date('2014-08-18T21:11:54')
+  );
+
+  return (
+    <PickersProvider>
+      <DatePicker
+        weekly
+        selectedDate={selectedDate}
+        onChange={date => setSelectedDate(date)}
+        format="dd/MM/yyyy"
+        name="datetimepicker"
+      />
+    </PickersProvider>
   );
 };
 
@@ -34,21 +50,41 @@ const TimePickerStory = () => {
   );
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptBRLocale}>
+    <PickersProvider>
       <TimePicker
         selectedTime={selectedTime}
         onChange={time => setSelecteTime(time)}
+        name="datetimepicker"
       />
-    </MuiPickersUtilsProvider>
+    </PickersProvider>
+  );
+};
+
+const DateTimePickerStory = () => {
+  const [selectedDateTime, setSelecteDatetime] = React.useState(
+    new Date('2014-08-18T21:11:54')
+  );
+
+  return (
+    <PickersProvider>
+      <DateTimePicker
+        selectedDateTime={selectedDateTime}
+        onChange={dateTime => setSelecteDatetime(dateTime)}
+        name="datetimepicker"
+      />
+    </PickersProvider>
   );
 };
 
 storiesOf(`${GROUPS.FORMS}|Picker`, module)
   .add('Date Picker', () => <DatePickerStory />)
+  .add('Date Time Picker', () => <DateTimePickerStory />)
+  .add('Weekly Date Picker', () => <WeeklyDatePickerStory />)
   .add('Color Picker', () => (
     <ColorPicker
       name="color"
       defaultValue="#000"
+      label="Color Picker"
       // value={this.state.color} - for controlled component
       // onChange={color => console.log(color)}
     />
