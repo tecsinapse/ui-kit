@@ -49,9 +49,7 @@ const theme = variant => {
     typography: {
       useNextVariants: true,
     },
-    spacing: {
-      unit: 12,
-    },
+    spacing: 12,
     overrides: {
       MuiCollapse: {
         entered: {

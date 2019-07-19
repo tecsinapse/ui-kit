@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+
 import { EditText } from './EditText';
 
 storiesOf(`EditText`, module).add('EditText', () => (

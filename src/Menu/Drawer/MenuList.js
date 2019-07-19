@@ -6,7 +6,7 @@ import { selectedTitlesTree } from './searchLogic';
 
 const useStyles = makeStyles(theme => ({
   parentList: {
-    width: theme.spacing.unit * 25,
+    width: theme.spacing(25),
   },
 }));
 export const MenuList = ({ closeDrawer, items, depth = 0, showAsOpen }) => {

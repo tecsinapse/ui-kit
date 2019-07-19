@@ -20,11 +20,11 @@ const useStyles = makeStyles(({ spacing }) => ({
     flexGrow: '1',
     boxShadow: 'none !important',
     width: '100%',
-    height: spacing.unit * 5,
+    height: spacing(5),
     borderRadius: 0,
     backgroundColor: grey[100],
-    paddingTop: spacing.unit / 2,
-    paddingBottom: spacing.unit / 2,
+    paddingTop: spacing(0.5),
+    paddingBottom: spacing(0.5),
   },
 }));
 

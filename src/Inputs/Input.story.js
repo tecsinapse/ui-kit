@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Input } from './Input';
 import { GROUPS } from '../../.storybook/hierarchySeparators';

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Folder from '@material-ui/icons/Folder';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
@@ -11,9 +11,9 @@ import { defaultGreyLight2 } from '../colors';
 import { breadcrumb } from '../Menu/AppBar/AppBar';
 
 const useStyles = (light, dense) =>
-  makeStyles(({ palette, spacing }) => ({
+  makeStyles(theme => ({
     marginLeft: {
-      marginLeft: `${spacing.unit / 2}px !important`,
+      marginLeft: `${theme.spacing(0.5)}px !important`,
     },
     breadcrumb: { display: 'flex !important' },
     link: {
@@ -28,7 +28,7 @@ const useStyles = (light, dense) =>
     flex: {
       display: 'flex',
       '& > :last-child': {
-        marginLeft: dense ? spacing.unit / 2 : spacing.unit,
+        marginLeft: dense ? theme.spacing(0.5) : theme.spacing(1),
       },
     },
   }));

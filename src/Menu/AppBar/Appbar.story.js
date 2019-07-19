@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+
 import IconButton from '@material-ui/core/IconButton';
 import { mdiOneUp, mdiShieldHalfFull, mdiTurtle } from '@mdi/js';
-
 import Icon from '@mdi/react';
 import { makeStyles, styled, useTheme } from '@material-ui/styles';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
@@ -23,10 +23,10 @@ const useStyles = makeStyles(({ spacing }) => ({
   flex: {
     alignItems: 'center',
     display: 'flex',
-    padding: spacing.unit,
+    padding: spacing(1),
   },
   image: {
-    maxWidth: spacing.unit * 6,
+    maxWidth: spacing(6),
   },
 }));
 const ExampleAppBar = () => {

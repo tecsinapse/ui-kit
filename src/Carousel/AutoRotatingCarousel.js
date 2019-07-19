@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { grey } from '@material-ui/core/colors';
-import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
+import useMediaQuery  from '@material-ui/core/useMediaQuery';
 
 import Carousel from './Carousel';
 import { modulo } from './util';
@@ -21,8 +21,8 @@ const useStyle = makeStyles(theme => ({
     display: 'flex',
   },
   arrow: {
-    width: 4 * theme.spacing.unit,
-    height: 4 * theme.spacing.unit,
+    width: 4 * theme.spacing(1),
+    height: 4 * theme.spacing(1),
     zIndex: 1,
     top: '45%',
     position: 'absolute',
@@ -33,10 +33,10 @@ const useStyle = makeStyles(theme => ({
     },
   },
   arrowLeft: {
-    left: 2 * theme.spacing.unit,
+    left: 2 * theme.spacing(1),
   },
   arrowRight: {
-    right: 2 * theme.spacing.unit,
+    right: 2 * theme.spacing(1),
   },
   arrowIcon: {
     color: grey[700],

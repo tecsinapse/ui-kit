@@ -6,14 +6,14 @@ export const useInitialData = (originalData, setData) => {
     if (!isRemoteData(originalData)) {
       setData([...originalData]);
     }
-  }, [originalData]);
+  }, [originalData, setData]);
 };
 export const useInitialCheckboxData = (selectedData, setSelectedRows) => {
   useEffect(() => {
     if (selectedData) {
       setSelectedRows(selectedData);
     }
-  }, [selectedData]);
+  }, [selectedData, setSelectedRows]);
 };
 
 export const useUpdateData = (
@@ -38,7 +38,7 @@ export const useUpdateData = (
       setData(filteredData);
       setLoading(false);
     }
-  }, [filters, data]);
+  }, [filters, data, setLoading, setTotalCount, setData]);
 };
 
 export const useUpdatePageData = (
@@ -55,5 +55,5 @@ export const useUpdatePageData = (
         data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
       );
     }
-  }, [data]);
+  }, [data, isRemote, page, rowsPerPage, setPageData]);
 };

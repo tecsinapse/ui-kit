@@ -4,7 +4,7 @@ import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/core/object';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import { useTheme } from '@material-ui/styles';
-import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import Help from '@material-ui/icons/Help';
@@ -41,8 +41,9 @@ export const SelectUnstyled = ({
   portal,
   ...rest
 }) => {
+  const valuesAllSelected = isMulti && value && value.length === options.length;
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [allSelected, setAllSelected] = useState(false);
+  const [allSelected, setAllSelected] = useState(valuesAllSelected);
   const [containerSize, setContainerSize] = useState(0);
 
   const [yPos, setYPos] = useState(0);
@@ -63,7 +64,7 @@ export const SelectUnstyled = ({
   useEffect(() => {
     const pos = selectRef.current.getBoundingClientRect();
     setYPos(pos.y);
-  });
+  }, []);
 
   const flattenChildren = childrenIn =>
     childrenIn

@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Slide } from './Slide';
 import { AutoRotatingCarousel } from './AutoRotatingCarousel';
@@ -14,7 +15,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Carousel`, module)
           subtitle="Com novos recursos e design mais atrativo e fácil de usar. Aproveite as novidades!<br/>Dúvidas? Acesse a Central de Relacionamentos, HelpTec."
           backgroundImage="https://ak6.picdn.net/shutterstock/videos/21643606/thumb/1.jpg"
           buttonTitle="ACESSAR HELPTEC"
-          link="https://helpdesk.portaltecsinapse.com.br/"
+          link="https://www.tecsinapse.com.br/"
           linkTarget="_blank"
         />
       </AutoRotatingCarousel>

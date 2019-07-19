@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+
 import Icon from '@mdi/react';
 
 import { action } from '@storybook/addon-actions';

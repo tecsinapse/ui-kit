@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Lock from '@material-ui/icons/Lock';
 import Visibility from '@material-ui/icons/Visibility';

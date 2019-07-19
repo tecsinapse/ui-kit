@@ -28,10 +28,7 @@ const tabStyles = theme => ({
     alignItems: 'center',
     minHeight: 56,
   },
-  helper: {
-    borderLeft: `2px solid ${theme.palette.divider}`,
-    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`,
-  },
+  helper: {},
   searchBar: {
     flexGrow: '1',
     paddingRight: 0,

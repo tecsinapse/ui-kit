@@ -9,6 +9,7 @@ export function MultiValue({ children, selectProps, removeProps, isFocused }) {
 
   return (
     <Chip
+      size="small"
       tabIndex={-1}
       label={label}
       className={classNames(selectProps.childrenClasses.chip, {

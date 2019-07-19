@@ -12,34 +12,35 @@ import { Button } from '../Buttons/Button';
 import { IconButton } from '../Buttons/IconButton';
 import { defaultRed } from '../colors';
 
-const useStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(theme => ({
   flex: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    marginTop: spacing.unit / 2,
-    marginBottom: spacing.unit / 2,
+    marginTop: theme.spacing(0.5),
+    marginBottom: theme.spacing(0.5),
   },
   marginLeft: {
-    marginLeft: spacing.unit,
+    marginLeft: theme.spacing(1),
   },
   paddingCropped: {
-    padding: spacing.unit / 4,
+    padding: theme.spacing(1 / 4),
   },
   input: {
     flexGrow: 1,
-    margin: spacing.unit / 1.5,
+    margin: theme.spacing(2 / 3),
   },
   flexPadding: {
-    padding: spacing.unit / 2,
+    padding: theme.spacing(0.5),
   },
   empty: {
-    marginBottom: spacing.unit / 2,
+    marginBottom: theme.spacing(0.5),
   },
   errorLabel: {
     color: defaultRed,
   },
 }));
+
 export const GroupedInput = ({
   name,
   values = [],
@@ -53,7 +54,7 @@ export const GroupedInput = ({
   mask,
   onBlur,
   label,
-  spacing = 8,
+  spacing = 1,
   xs = 4,
   sm,
 }) => {
@@ -133,7 +134,7 @@ GroupedInput.defaultProps = {
   error: null,
   success: [],
   warnings: [],
-  spacing: 8,
+  spacing: 1,
   xs: 4,
   sm: undefined,
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+
 import { Step } from '@material-ui/core';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Wizard } from './Wizard';

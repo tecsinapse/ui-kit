@@ -39,23 +39,23 @@ const useStyle = makeStyles(theme => ({
     lineHeight: 1,
   },
   subtitleDesktop: {
-    marginBottom: theme.spacing.unit,
+    marginBottom: theme.spacing(1),
   },
   subtitleMobile: {
-    marginBottom: theme.spacing.unit * 2,
+    marginBottom: theme.spacing(2),
   },
   infoDesktop: {
     position: 'absolute',
-    margin: theme.spacing.unit,
-    right: theme.spacing.unit,
-    left: theme.spacing.unit,
-    bottom: theme.spacing.unit * 2,
+    margin: theme.spacing(1),
+    right: theme.spacing(1),
+    left: theme.spacing(1),
+    bottom: theme.spacing(2),
   },
   infoMobile: {
     position: 'absolute',
     margin: 0,
-    right: theme.spacing.unit,
-    left: theme.spacing.unit * 2,
+    right: theme.spacing(1),
+    left: theme.spacing(2),
   },
   imageBackground: {
     width: '100%',

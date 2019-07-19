@@ -16,6 +16,24 @@ export default [
       {
         file: pkg.main,
         name: pkg.name,
+        globals: {
+          react: 'React',
+          'react-router': 'Link',
+          'react-transition-group': 'ReactTransitionGroup',
+          'styled-component': 'styled',
+          'bootstrap-styled': 'Jumbotron',
+          '@material-ui/core': 'material-ui',
+          '@material-ui/icons': 'material-ui',
+          classnames: 'cn',
+          '@material-ui/styles': 'styles',
+          '@mdi/js': 'js',
+          '@mdi/react': 'Icon',
+          'react-text-mask': 'MaskedInput',
+          'material-ui-search-bar': 'SearchBar',
+          '@tinymce/tinymce-react': 'tinymceReact',
+          'react-swipeable-views': 'SwipeableViews',
+          'material-ui-dots': 'Dots',
+        },
         format: 'cjs',
         sourcemap: true,
       },
@@ -35,8 +53,10 @@ export default [
         browser: true,
       }),
       commonjs({
+        include: 'node_modules/**',
         namedExports: {
           'node_modules/@material-ui/core/colors/index.js': ['grey'],
+          'node_modules/react-sizeme/dist/react-sizeme.js': ['SizeMe'],
           'node_modules/@material-ui/core/styles/index.js': ['createMuiTheme'],
           'node_modules/text-mask-core/dist/textMaskCore.js': ['conformToMask'],
           'node_modules/prop-types/index.js': [
@@ -46,10 +66,11 @@ export default [
             'func',
             'oneOfType',
             'object',
+            'element',
+            'elementType',
           ],
-          'node_modules/@material-ui/core/useMediaQuery/index.js': [
-            'unstable_useMediaQuery',
-          ],
+          'node_modules/react-dom/index.js': ['findDOMNode'],
+          'node_modules/react-is/index.js': ['ForwardRef'],
         },
       }),
 

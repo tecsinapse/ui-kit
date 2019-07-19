@@ -1,6 +1,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
+
 import { resolveObj } from '@tecsinapse/es-utils/core/object';
 import Table from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';

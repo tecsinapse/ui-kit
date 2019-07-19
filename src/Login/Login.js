@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
-import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import Divider from '@material-ui/core/Divider';
 import { Typography } from '@material-ui/core';
@@ -44,12 +44,12 @@ const useStyle = (rememberBox, backgroundImage) =>
       alignItems: 'center',
       marginLeft: '5%',
       marginRight: '5%',
-      paddingRight: spacing.unit,
+      paddingRight: spacing(1),
     },
     contentMobile: {
       alignItems: 'center',
       justifyContent: 'flex-end',
-      paddingRight: spacing.unit,
+      paddingRight: spacing(1),
     },
     footerImage: {
       maxHeight: '60%',
@@ -76,28 +76,28 @@ const useStyle = (rememberBox, backgroundImage) =>
     logoContainer: {
       display: 'block',
       textAlign: 'center',
-      marginLeft: spacing.unit / 2,
-      marginRight: spacing.unit / 2,
+      marginLeft: spacing(0.5),
+      marginRight: spacing(0.5),
     },
     footerImg: {
       width: '20%',
     },
     inputData: {
       alignSelf: 'stretch',
-      marginTop: spacing.unit,
+      marginTop: spacing(1),
     },
     extra: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: rememberBox ? 'space-between' : 'flex-end',
-      marginTop: spacing.unit,
+      marginTop: spacing(1),
     },
     extramobile: {
       flexDirection: 'column',
     },
     submit: {
-      marginTop: spacing.unit * 2,
-      marginBottom: spacing.unit * 2,
+      marginTop: spacing(2),
+      marginBottom: spacing(2),
     },
     forgot: {
       alignSelf: 'center',
@@ -106,18 +106,18 @@ const useStyle = (rememberBox, backgroundImage) =>
       marginTop: spacing.unit,
     },
     header: {
-      marginTop: spacing.unit * 2,
+      marginTop: spacing(2),
     },
     formControlLabelCheck: {
-      height: spacing.unit,
+      height: spacing(1),
     },
     formControlLabelCheckMobile: {
       height: spacing.unit,
       alignSelf: 'flex-start',
     },
     checkbox: {
-      width: spacing.unit * 2,
-      height: spacing.unit * 2,
+      width: spacing(2),
+      height: spacing(2),
     },
   }));
 

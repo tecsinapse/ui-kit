@@ -35,10 +35,10 @@ const StyledFlexDiv = styled('div')(({ theme, endAdornmentMargin }) => ({
   display: 'flex',
   alignItems: 'center',
   boxShadow: 'none !important',
-  marginRight: endAdornmentMargin ? theme.spacing.unit : 0,
+  marginRight: endAdornmentMargin ? theme.spacing(1) : 0,
 }));
 const TypographyStyled = styled(Typography)(({ theme }) => ({
-  marginLeft: theme.spacing.unit / 4,
+  marginLeft: theme.spacing(1 / 3),
 }));
 export function GetEndAdornment({
   warning,

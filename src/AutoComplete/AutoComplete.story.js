@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+
 import { useManualQuery } from 'graphql-hooks';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import AutoComplete from './AutoComplete';

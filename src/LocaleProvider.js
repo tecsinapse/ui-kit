@@ -18,6 +18,12 @@ export const LocaleContext = React.createContext({
     emptyStateTitle: 'Nada por aqui',
     emptyStateMessage: 'Não existem dados para exibição.',
   },
+  Picker: {
+    todayLabel: 'HOJE',
+    okLabel: 'Filtrar',
+    cancelLabel: 'Cancelar',
+    clearLabel: 'Limpar',
+  },
 });
 
 export function LocaleProvider({ messages, children }) {

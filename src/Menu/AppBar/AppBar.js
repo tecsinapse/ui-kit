@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/styles';
-import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import { AppBar as MaterialAppBar, CircularProgress } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -16,18 +16,18 @@ import { DefaultProductTypography } from '../DefaultProductTypography';
 
 const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   marginLeft: {
-    marginLeft: `${spacing.unit / 2}px !important`,
+    marginLeft: `${spacing(0.5)}px !important`,
   },
   toolbar: {
-    paddingLeft: spacing.unit,
-    paddingRight: spacing.unit,
+    paddingLeft: spacing(1),
+    paddingRight: spacing(1),
     display: 'flex',
   },
   grow: {
     flexGrow: 1,
     display: 'flex',
     flexDirection: 'row',
-    marginLeft: spacing.unit,
+    marginLeft: spacing(1),
   },
   boldFont: {
     fontWeight: 700,
@@ -41,10 +41,10 @@ const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   breadcrumb: { display: 'flex !important' },
   paperBreadcrumb: {
     display: 'flex',
-    height: spacing.unit * 3,
+    height: spacing(3),
     borderTop: '1px solid white',
-    paddingLeft: spacing.unit * 2,
-    paddingRight: spacing.unit,
+    paddingLeft: spacing(2),
+    paddingRight: spacing(1),
     backgroundColor: palette.primary.light,
   },
   link: {
@@ -54,7 +54,7 @@ const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
     color: menuGlobal.breadcrumbContrastText,
   },
   marginRightPattern: {
-    marginRight: spacing.unit,
+    marginRight: spacing(1),
   },
 }));
 
