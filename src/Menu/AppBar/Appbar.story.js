@@ -14,6 +14,7 @@ const StyledAppBar = styled(AppBar)({
   left: 0,
   right: 0,
 });
+
 const useStyles = makeStyles(({ spacing }) => ({
   div: {
     backgroundColor: 'white',
@@ -27,6 +28,7 @@ const useStyles = makeStyles(({ spacing }) => ({
   },
   image: {
     maxWidth: spacing(6),
+    marginRight: spacing(2),
   },
 }));
 const ExampleAppBar = () => {
@@ -86,6 +88,27 @@ const ExampleAppBar = () => {
     />
   );
 };
+
+const ExampleAppBarSearch = () => {
+  const classes = useStyles();
+  return (
+    <StyledAppBar
+      leftIcons={
+        <div style={{ display: 'flex' }}>
+          <img
+            src="https://www.tecsinapse.com.br/wp-content/themes/TecSinapse/assets/images/tecsinapse.svg"
+            className={classes.image}
+            alt="logo"
+          />
+        </div>
+      }
+      menuBar={false}
+      searchBar
+      disableBreadcrumb
+    />
+  );
+};
+
 storiesOf(`${GROUPS.MENU}|AppBar`, module)
   .add('AppBar', () => <ExampleAppBar />)
   .add('Styled AppBar', () => (
@@ -128,4 +151,5 @@ storiesOf(`${GROUPS.MENU}|AppBar`, module)
         </div>
       }
     />
-  ));
+  ))
+  .add('Search AppBar Mobile', () => <ExampleAppBarSearch />);

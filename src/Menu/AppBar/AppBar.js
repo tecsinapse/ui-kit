@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
@@ -6,13 +6,13 @@ import { AppBar as MaterialAppBar, CircularProgress } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-
-import { mdiMenu } from '@mdi/js';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-
 import Icon from '@mdi/react';
 import Link from '@material-ui/core/Link';
+import Input from '@material-ui/core/Input';
+import { mdiMagnify, mdiFilterVariant, mdiClose, mdiMenu } from '@mdi/js';
 import { DefaultProductTypography } from '../DefaultProductTypography';
+import { LocaleContext } from '../../LocaleProvider';
 
 const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   marginLeft: {
@@ -56,6 +56,13 @@ const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   marginRightPattern: {
     marginRight: spacing(1),
   },
+  input: {
+    marginLeft: spacing(1),
+    flex: 1,
+  },
+  inputColor: {
+    color: palette.primary.contrastText,
+  },
 }));
 
 export const AppBar = ({
@@ -69,34 +76,142 @@ export const AppBar = ({
   breadcrumbs = [],
   loadingBreadcrumbs = false,
   disableBreadcrumb,
+  onChange,
+  onRequestSearch,
+  onSearchMode,
+  onCancelSearchMode,
+  placeholder,
+  searchBar,
+  menuBar,
 }) => {
   const classes = useStyles();
   const theme = useTheme();
+  const [searchMode, setSearchMode] = useState(false);
+  const [value, setCustomValue] = useState('');
+  const {
+    AppBar: { filterLabel, closeSearch, openSearch, openMenu },
+  } = useContext(LocaleContext);
+
   return (
     <div className={className}>
       <MaterialAppBar className={classes.appBar} elevation={0}>
         <Toolbar disableGutters className={classes.toolbar}>
-          <IconButton
-            color="inherit"
-            aria-label="Abrir menu"
-            onClick={menuOnClick}
-            className={classes.marginRightPattern}
-          >
-            <Icon
-              path={mdiMenu}
-              color={theme.palette.primary.contrastText}
-              size={1}
-            />
-          </IconButton>
-          {leftIcons}
-          <div className={classes.grow}>
-            {titleComponent ? (
-              { titleComponent }
-            ) : (
-              <DefaultProductTypography title={title} subtitle={subtitle} />
-            )}
-          </div>
-          {rightIcons}
+          {searchBar && searchMode ? (
+            <React.Fragment>
+              <Icon
+                path={mdiMagnify}
+                color={theme.palette.primary.contrastText}
+                size={1}
+              />
+
+              <Input
+                className={classes.input}
+                placeholder={placeholder}
+                inputProps={{
+                  'aria-label': placeholder,
+                  className: classes.inputColor,
+                }}
+                value={value}
+                onChange={e => {
+                  setCustomValue(e.target.value);
+                  if (onChange) {
+                    onChange(e.target.value);
+                  }
+                }}
+                onKeyUp={e => {
+                  if (
+                    (e.charCode === 13 || e.key === 'Enter') &&
+                    onRequestSearch
+                  ) {
+                    onRequestSearch(value);
+                  }
+                }}
+                autoFocus
+                disableUnderline
+              />
+              <div className={classes.searchRightIcons}>
+                <IconButton
+                  color="inherit"
+                  aria-label={filterLabel}
+                  onClick={() => {}}
+                  className={classes.filters}
+                >
+                  <Icon
+                    path={mdiFilterVariant}
+                    color={theme.palette.primary.contrastText}
+                    size={1}
+                  />
+                </IconButton>
+                <IconButton
+                  color="inherit"
+                  aria-label={closeSearch}
+                  onClick={() => {
+                    setSearchMode(false);
+                    setCustomValue('');
+                    if (onCancelSearchMode) {
+                      onCancelSearchMode();
+                    }
+                  }}
+                  className={classes.filters}
+                >
+                  <Icon
+                    path={mdiClose}
+                    color={theme.palette.primary.contrastText}
+                    size={1}
+                  />
+                </IconButton>
+              </div>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              {menuBar && (
+                <IconButton
+                  color="inherit"
+                  aria-label={openMenu}
+                  onClick={menuOnClick}
+                  className={classes.marginRightPattern}
+                >
+                  <Icon
+                    path={mdiMenu}
+                    color={theme.palette.primary.contrastText}
+                    size={1}
+                  />
+                </IconButton>
+              )}
+
+              {leftIcons}
+
+              <div className={classes.grow}>
+                {titleComponent ? (
+                  { titleComponent }
+                ) : (
+                  <DefaultProductTypography title={title} subtitle={subtitle} />
+                )}
+              </div>
+
+              {rightIcons}
+
+              {searchBar && (
+                <IconButton
+                  color="inherit"
+                  aria-label={openSearch}
+                  onClick={() => {
+                    setSearchMode(true);
+                    if (onSearchMode) {
+                      onSearchMode();
+                    }
+                  }}
+                  className={classes.marginRightPattern}
+                >
+                  <Icon
+                    path={mdiMagnify}
+                    color={theme.palette.primary.contrastText}
+                    size={1}
+                  />
+                </IconButton>
+              )}
+            </React.Fragment>
+          )}
         </Toolbar>
         {!disableBreadcrumb && (
           <div className={classes.paperBreadcrumb}>
@@ -153,6 +268,13 @@ AppBar.defaultProps = {
   rightIcons: null,
   disableBreadcrumb: false,
   loadingBreadcrumbs: false,
+  onChange: undefined,
+  onRequestSearch: undefined,
+  onSearchMode: undefined,
+  onCancelSearchMode: undefined,
+  placeholder: 'Buscar por nome',
+  searchBar: false,
+  menuBar: true,
 };
 export const breadcrumb = PropTypes.shape({
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
@@ -170,5 +292,17 @@ AppBar.propTypes = {
   breadcrumbs: PropTypes.arrayOf(breadcrumb).isRequired,
   loadingBreadcrumbs: PropTypes.bool,
   disableBreadcrumb: PropTypes.bool,
+  searchBar: PropTypes.bool,
+  menuBar: PropTypes.bool,
+  /** Fired when the text value changes. */
+  onChange: PropTypes.func,
+  /** Fired when the search icon is clicked. */
+  onRequestSearch: PropTypes.func,
+  /** Sets placeholder text for the embedded text field. */
+  placeholder: PropTypes.string,
+  /** Fired when the bar enters in the search mdoe */
+  onSearchMode: PropTypes.func,
+  /** Fired when the bar leaves the search mode */
+  onCancelSearchMode: PropTypes.func,
 };
 export default AppBar;
