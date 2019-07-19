@@ -7,7 +7,6 @@ import Icon from '@mdi/react';
 import { makeStyles, styled, useTheme } from '@material-ui/styles';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import { AppBar } from './AppBar';
-import { AppBarSearch } from './AppBarSearch';
 
 const StyledAppBar = styled(AppBar)({
   position: 'fixed',
@@ -15,6 +14,7 @@ const StyledAppBar = styled(AppBar)({
   left: 0,
   right: 0,
 });
+
 const useStyles = makeStyles(({ spacing }) => ({
   div: {
     backgroundColor: 'white',
@@ -92,7 +92,7 @@ const ExampleAppBar = () => {
 const ExampleAppBarSearch = () => {
   const classes = useStyles();
   return (
-    <AppBarSearch
+    <StyledAppBar
       leftIcons={
         <div style={{ display: 'flex' }}>
           <img
@@ -100,13 +100,11 @@ const ExampleAppBarSearch = () => {
             className={classes.image}
             alt="logo"
           />
-          <img
-            src="https://www.tecsinapse.com.br/wp-content/themes/TecSinapse/assets/images/tecsinapse.svg"
-            className={classes.image}
-            alt="logo"
-          />
         </div>
       }
+      menuBar={false}
+      searchBar
+      disableBreadcrumb
     />
   );
 };
@@ -154,4 +152,4 @@ storiesOf(`${GROUPS.MENU}|AppBar`, module)
       }
     />
   ))
-  .add('AppBarSearch', () => <ExampleAppBarSearch />);
+  .add('Search AppBar Mobile', () => <ExampleAppBarSearch />);
