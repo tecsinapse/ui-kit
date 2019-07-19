@@ -123,7 +123,7 @@ export const Step2 = ({
       </div>
       <div className={classes.stepContent}>
         <div className={classes.stepContentScrolling}>
-          <Grid item container direction="column" spacing={8}>
+          <Grid item container direction="column" spacing={2}>
             {selectedPeople.map(key => {
               const person = timeSlotsByPerson[key];
               return (
@@ -179,7 +179,7 @@ export const Step2 = ({
         </div>
       </div>
       <div className={classes.stepButtons}>
-        <Grid container alignContent="flex-end" justify="center" spacing={8}>
+        <Grid container alignContent="flex-end" justify="center" spacing={2}>
           <Grid item xs={12}>
             <Divider variant="middle" />
           </Grid>

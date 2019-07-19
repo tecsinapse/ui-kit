@@ -30,19 +30,19 @@ export const timeslotSelectorStyles = ({ palette, spacing }) => ({
     padding: '8px',
   },
   stepButtons: {
-    padding: spacing.unit,
-    spacing: spacing.unit * 2,
+    padding: `${spacing(1)}px`,
+    spacing: `${spacing(2)}px`,
     right: '0px',
     left: '0px',
     position: 'absolute',
     bottom: '0px',
   },
   availabilityCardRoot: {
-    padding: `${spacing.unit}px !important`,
-    paddingBottom: `${spacing.unit}px !important`,
+    padding: `${spacing(1)}px !important`,
+    paddingBottom: `${spacing(1)}px !important`,
   },
 
   availabilityCardTime: {
-    margin: spacing.unit / 4,
+    margin: `${spacing(1 / 4)}px`,
   },
 });
