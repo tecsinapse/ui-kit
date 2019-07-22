@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-
-import { InlineDatePicker, MuiPickersUtilsProvider } from 'material-ui-pickers';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Typography from '@material-ui/core/Typography';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import LuxonUtils from '@date-io/luxon';
 import Button from '@material-ui/core/Button';
-import {
-  weeklyCalendarStyles as useStyles,
-  muiInlineDatePicker,
-} from './WeeklyCalendarStyles';
-
-const materialTheme = createMuiTheme(muiInlineDatePicker);
+import { weeklyCalendarStyles as useStyles } from './WeeklyCalendarStyles';
+import { DatePicker } from '../Picker/DatePicker';
+import { PickersProvider } from '../Picker/PickersProvider';
 
 export const WEEK_DAYS = 7;
 
@@ -61,23 +54,32 @@ export const WeeklyCalendarComponent = ({
   useEffect(() => {
     onWeekChange(weekDays);
     setSelectedDay(weekDays[0]);
-  }, [weekDays]);
+  }, [onWeekChange, weekDays]);
 
   useEffect(() => {
     onDayChange(selectedDay);
-  }, [selectedDay]);
+  }, [onDayChange, selectedDay]);
 
   return (
     <div className={classes.root}>
-      <MuiPickersUtilsProvider utils={LuxonUtils} locale={locale}>
-        <MuiThemeProvider theme={materialTheme}>
-          <InlineDatePicker
-            value={selectedDay}
-            format="MMMM, yyyy"
-            onChange={handleWeekChange}
-          />
-        </MuiThemeProvider>
-      </MuiPickersUtilsProvider>
+      <PickersProvider>
+        <DatePicker
+          weekly
+          selectedDate={selectedDay}
+          onChange={newDate => handleWeekChange(newDate.startOf('week'))}
+          format="dd/MM/yyyy"
+          customTextFieldComponentInput={() => (
+            <Typography
+              variant="h6"
+              style={{ textAlign: 'center' }}
+              color="primary"
+            >
+              {selectedDay.toFormat('MMMM, yyyy')}
+            </Typography>
+          )}
+        />
+      </PickersProvider>
+
       <div style={{ display: 'flex' }}>
         <Button
           className={classes.cssButtonWeekChange}

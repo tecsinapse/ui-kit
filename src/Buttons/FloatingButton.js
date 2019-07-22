@@ -15,17 +15,28 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '50%',
   },
 }));
-export const FloatingButton = ({ children, disabled, variant, onClick }) => {
+export const FloatingButton = ({
+  className,
+  children,
+  disabled,
+  variantFab,
+  variant,
+  size,
+  onClick,
+}) => {
   const classes = useStyles();
   return (
     <Fab
       aria-label="add"
       disabled={disabled}
       onClick={onClick}
+      variant={variantFab}
+      size={size}
       color={
         ['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined
       }
       className={classNames(
+        className,
         buttonClassNameDefinition(classes, disabled, false, variant)
       )}
     >

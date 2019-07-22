@@ -8,9 +8,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Input } from '../Inputs/Input';
 import { Divider } from '../Divider/Divider';
-import { Button } from '../Buttons/Button';
 import { IconButton } from '../Buttons/IconButton';
 import { defaultRed } from '../colors';
+import { FloatingButton } from '..';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -70,16 +70,19 @@ export const GroupedInput = ({
         >
           {header} {!!error && '* '}
         </Typography>
-        <Button
+
+        <FloatingButton
           type="button"
-          variant="warning"
           size="small"
           className={classes.marginLeft}
           onClick={push}
+          variant="secondary"
+          variantFab="extended"
+          aria-label="Novo Campo"
         >
           <Add />
           Novo Campo
-        </Button>
+        </FloatingButton>
       </div>
       {!!error && !errorIsArray && (
         <FormHelperText className={classes.errorLabel}>{error}</FormHelperText>

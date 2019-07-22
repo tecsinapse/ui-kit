@@ -4,8 +4,6 @@ import { IconButton } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import classNames from 'classnames';
-import isSameDay from 'date-fns/isSameDay';
-import formatDate from 'date-fns/format';
 import PropTypes from 'prop-types';
 import {
   DateTimePicker as DateTimePickerExt,
@@ -65,7 +63,7 @@ export const DateTimePicker = ({
   id,
   label,
   onChange,
-  format,
+  format = 'dd/MM/yyyy HH:mm',
   keyboardPicker,
   inputVariant,
   pointedDates,
@@ -78,8 +76,9 @@ export const DateTimePicker = ({
 
   const renderPointedDay = (date, selectedDateRender, dayInCurrentMonth) => {
     const isPointed =
-      pointedDates.find(pointDate => isSameDay(pointDate, date)) !== undefined;
-    const isSelected = isSameDay(date, selectedDateRender);
+      pointedDates.find(pointDate => pointDate.hasSame(date, 'day')) !==
+      undefined;
+    const isSelected = date.hasSame(selectedDateRender, 'day');
 
     const dayClassName = classNames(classes.day, {
       [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
@@ -91,7 +90,7 @@ export const DateTimePicker = ({
         <IconButton className={dayClassName}>
           <span>
             <Typography variant="body2" color="inherit">
-              {formatDate(date, 'd')}{' '}
+              {date.toFormat('d')}{' '}
             </Typography>
           </span>
           {isPointed && (
