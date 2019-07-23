@@ -1,3 +1,11 @@
+<a name="1.0.2"></a>
+## <small>1.0.2 (2019-07-23)</small>
+
+* Updating luxon ([40aeb48](https://github.com/tecsinapse/ui-kit/commit/40aeb48))
+* Updating packages with last versions of material ui ([718d224](https://github.com/tecsinapse/ui-kit/commit/718d224))
+
+
+
 <a name="1.0.1"></a>
 ## <small>1.0.1 (2019-07-19)</small>
 
