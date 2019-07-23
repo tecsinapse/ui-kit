@@ -13,13 +13,15 @@ const useStyles = depth =>
   makeStyles(theme => ({
     item: {
       paddingLeft:
-        theme.spacing.unit * (depth >= 1 ? (depth + 1) * 1.25 : depth + 1),
+        depth >= 1
+          ? theme.spacing((depth + 1) * 1.25)
+          : theme.spacing(depth + 1),
     },
     parentItem: {
-      height: theme.spacing.unit * 5,
+      height: theme.spacing(5),
     },
     childItem: {
-      height: theme.spacing.unit * 3,
+      height: theme.spacing(3),
     },
     openItem: {
       backgroundColor: grey[Math.min(Math.max(1, depth) * 50, 100)],

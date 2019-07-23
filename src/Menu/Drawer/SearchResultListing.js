@@ -5,7 +5,7 @@ import { TitleSubtitleMenuItem } from './MenuItem';
 
 export const useStyles = makeStyles(theme => ({
   parentList: {
-    width: theme.spacing.unit * 25,
+    width: theme.spacing(25),
   },
 }));
 

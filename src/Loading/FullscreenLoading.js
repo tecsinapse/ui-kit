@@ -1,8 +1,18 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 
 const styles = {
+  '@keyframes spin': {
+    from: {
+      W: 'rotate(0deg)',
+      transform: 'rotate(0deg)',
+    },
+    to: {
+      W: 'rotate(360deg)',
+      transform: 'rotate(360deg)',
+    },
+  },
   coverspin: {
     position: 'fixed',
     width: '100%',
@@ -25,18 +35,8 @@ const styles = {
       borderTopColor: 'transparent',
       borderWidth: 4,
       borderRadius: '50%',
-      W: 'spin .8s linear infinite',
-      animation: 'spin .8s linear infinite',
-    },
-  },
-  '@keyframes spin': {
-    from: {
-      W: 'rotate(0deg)',
-      transform: 'rotate(0deg)',
-    },
-    to: {
-      W: 'rotate(360deg)',
-      transform: 'rotate(360deg)',
+      WebkitAnimation: '$spin .8s linear infinite',
+      animation: '$spin .8s linear infinite',
     },
   },
 };

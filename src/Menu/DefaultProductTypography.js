@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles(({ palette, spacing }) => ({
+const useStyles = makeStyles(theme => ({
   marginLeft: {
-    marginLeft: `${spacing.unit / 2}px !important`,
+    marginLeft: `${theme.spacing(0.5)}px !important`,
+    fontWeight: 900,
   },
   flexRow: {
     display: 'flex',

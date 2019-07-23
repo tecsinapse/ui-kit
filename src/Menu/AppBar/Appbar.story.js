@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+
 import IconButton from '@material-ui/core/IconButton';
 import { mdiOneUp, mdiShieldHalfFull, mdiTurtle } from '@mdi/js';
-
 import Icon from '@mdi/react';
-import { styled } from '@material-ui/styles';
+import { makeStyles, styled, useTheme } from '@material-ui/styles';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import { AppBar } from './AppBar';
 
@@ -14,14 +14,37 @@ const StyledAppBar = styled(AppBar)({
   left: 0,
   right: 0,
 });
-storiesOf(`${GROUPS.MENU}|AppBar`, module)
-  .add('AppBar', () => (
+
+const useStyles = makeStyles(({ spacing }) => ({
+  div: {
+    backgroundColor: 'white',
+    alignSelf: 'stretch',
+    display: 'flex',
+  },
+  flex: {
+    alignItems: 'center',
+    display: 'flex',
+    padding: spacing(1),
+  },
+  image: {
+    maxWidth: spacing(6),
+    marginRight: spacing(2),
+  },
+}));
+const ExampleAppBar = () => {
+  const theme = useTheme();
+  const classes = useStyles();
+  return (
     <AppBar
       leftIcons={
-        <div>
-          <IconButton color="inherit" aria-label="Abrir menu">
-            <Icon path={mdiShieldHalfFull} color="white" size={1} />
-          </IconButton>
+        <div className={classes.div}>
+          <div className={classes.flex}>
+            <img
+              src="https://www.tecsinapse.com.br/wp-content/themes/TecSinapse/assets/images/tecsinapse.svg"
+              className={classes.image}
+              alt="logo"
+            />
+          </div>
         </div>
       }
       title="Portal "
@@ -47,15 +70,47 @@ storiesOf(`${GROUPS.MENU}|AppBar`, module)
       rightIcons={
         <div>
           <IconButton color="inherit" aria-label="Abrir menu">
-            <Icon path={mdiOneUp} color="white" size={1} />
+            <Icon
+              path={mdiOneUp}
+              color={theme.palette.primary.contrastText}
+              size={1}
+            />
           </IconButton>
           <IconButton color="inherit" aria-label="Abrir menu">
-            <Icon path={mdiTurtle} color="white" size={1} />
+            <Icon
+              path={mdiTurtle}
+              color={theme.palette.primary.contrastText}
+              size={1}
+            />
           </IconButton>
         </div>
       }
     />
-  ))
+  );
+};
+
+const ExampleAppBarSearch = () => {
+  const classes = useStyles();
+  return (
+    <StyledAppBar
+      leftIcons={
+        <div style={{ display: 'flex' }}>
+          <img
+            src="https://www.tecsinapse.com.br/wp-content/themes/TecSinapse/assets/images/tecsinapse.svg"
+            className={classes.image}
+            alt="logo"
+          />
+        </div>
+      }
+      menuBar={false}
+      searchBar
+      disableBreadcrumb
+    />
+  );
+};
+
+storiesOf(`${GROUPS.MENU}|AppBar`, module)
+  .add('AppBar', () => <ExampleAppBar />)
   .add('Styled AppBar', () => (
     <StyledAppBar
       leftIcons={
@@ -96,4 +151,5 @@ storiesOf(`${GROUPS.MENU}|AppBar`, module)
         </div>
       }
     />
-  ));
+  ))
+  .add('Search AppBar Mobile', () => <ExampleAppBarSearch />);

@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
-import {IconButton} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles';
-import {ArrowBackIos, Search} from '@material-ui/icons';
+import React, { useState } from 'react';
+import { IconButton } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
+import Search from '@material-ui/icons/Search';
 import SearchBar from 'material-ui-search-bar';
 import Dialog from '@material-ui/core/Dialog';
 import Paper from '@material-ui/core/Paper';
@@ -27,10 +28,7 @@ const tabStyles = theme => ({
     alignItems: 'center',
     minHeight: 56,
   },
-  helper: {
-    borderLeft: `2px solid ${theme.palette.divider}`,
-    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`,
-  },
+  helper: {},
   searchBar: {
     flexGrow: '1',
     paddingRight: 0,
@@ -80,7 +78,7 @@ export const NoItemsSearchDialog = withStyles(typeStyles)(
 
 export const SearchTextContext = React.createContext(null);
 export const SearchDialog = withStyles(tabStyles)(
-  ({ classes, children, label, setMenuIsOpen }) => {
+  ({ classes, children, label, setMenuIsOpen, selectPromptMessage }) => {
     const [textSearch, setTextSearch] = useState('');
     return (
       <Dialog
@@ -102,7 +100,7 @@ export const SearchDialog = withStyles(tabStyles)(
               root: [classes.searchBar, classes.noPaddingRight].join(' '),
               searchContainer: classes.searchBarContainer,
             }}
-            placeholder={`Selecione: ${label}...`}
+            placeholder={`${selectPromptMessage}: ${label}...`}
             value={textSearch}
             onCancelSearch={() => setTextSearch('')}
             onChange={newValue => setTextSearch(newValue)}

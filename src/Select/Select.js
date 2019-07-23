@@ -1,17 +1,19 @@
 import { Tooltip, withStyles } from '@material-ui/core';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/core/object';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import { useTheme } from '@material-ui/styles';
-import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
-import { Help } from '@material-ui/icons';
+import Help from '@material-ui/icons/Help';
+import { SizeMe } from 'react-sizeme';
 import { selectInputStyle } from './SelectInputStyle';
-import { SelectCustomComponents } from './SelectCustomComponents';
+import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';
 import { selectCustomWebComponents } from './SelectCustomWebComponents';
 import { inputStyles } from '../Inputs/InputStyles';
+import { calculateValuesSizes } from './CalculateOptionsWidth';
 
 export const SelectUnstyled = ({
   value,
@@ -35,11 +37,18 @@ export const SelectUnstyled = ({
   success,
   isMulti = false,
   allowSelectAll = true,
+  selectPromptMessage = 'Selecione',
+  portal,
   ...rest
 }) => {
+  const valuesAllSelected = isMulti && value && value.length === options.length;
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [allSelected, setAllSelected] = useState(false);
+  const [allSelected, setAllSelected] = useState(valuesAllSelected);
+  const [containerSize, setContainerSize] = useState(0);
+
+  const [yPos, setYPos] = useState(0);
   let { variant } = rest;
+  const selectRef = useRef();
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
@@ -51,6 +60,11 @@ export const SelectUnstyled = ({
       variant = 'web';
     }
   }
+
+  useEffect(() => {
+    const pos = selectRef.current.getBoundingClientRect();
+    setYPos(pos.y);
+  }, []);
 
   const flattenChildren = childrenIn =>
     childrenIn
@@ -69,6 +83,8 @@ export const SelectUnstyled = ({
       : flattenChildren(children);
 
   const defaultProps = {
+    yPos,
+    selectPromptMessage,
     isMulti,
     menuIsOpen,
     setMenuIsOpen,
@@ -108,6 +124,14 @@ export const SelectUnstyled = ({
       if (setMenuIsOpen !== undefined && !isMulti) {
         setMenuIsOpen(false);
       }
+
+      if (isMulti) {
+        setAllSelected(
+          input2 instanceof Array &&
+            input2.map(c => c.value).length === map.length
+        );
+      }
+
       onChange(
         input2 instanceof Array ? input2.map(c => c.value) : input2.value
       );
@@ -116,19 +140,21 @@ export const SelectUnstyled = ({
       if (onBlur) {
         onBlur(event);
       }
-      selectProps.setMenuIsOpen(false);
+      setMenuIsOpen(false);
     },
     selectAll: event => {
       onChange(!allSelected ? options.map(c => c.value) : []);
       setAllSelected(!allSelected);
     },
     ...rest,
+    containerSize,
+    setContainerSize,
   };
 
   const selectProps =
     variant === 'mobile'
       ? {
-          components: SelectCustomComponents,
+          components: SelectMobileCustomComponents,
           menuPortalTarget: document.body,
           backspaceRemovesValue: false,
           deleteRemovesValue: false,
@@ -136,26 +162,42 @@ export const SelectUnstyled = ({
         }
       : {
           menuPlacement,
+          ...(portal && {
+            styles: { menuPortal: base => ({ ...base, zIndex: 9999 }) },
+            menuPortalTarget: document.body,
+          }),
           components: selectCustomWebComponents,
           ...defaultProps,
         };
 
+  const valuesWidth = calculateValuesSizes(selectProps.options);
   return (
-    <FormControl
-      key={key}
-      error={!!error}
-      fullWidth={fullWidth}
-      style={{ minWidth: '200px' }}
-    >
-      <ReactSelect {...selectProps} />
-      {error && <FormHelperText>{error}</FormHelperText>}
-    </FormControl>
+    <div ref={selectRef}>
+      <FormControl
+        key={key}
+        error={!!error}
+        fullWidth={fullWidth}
+        style={{ minWidth: '200px' }}
+      >
+        <SizeMe noPlaceholder>
+          {({ size }) => (
+            <ReactSelect
+              {...selectProps}
+              valuesWidth={valuesWidth}
+              selectSize={size}
+            />
+          )}
+        </SizeMe>
+        {error && <FormHelperText>{error}</FormHelperText>}
+      </FormControl>
+    </div>
   );
 };
 
 SelectUnstyled.defaultProps = {
   allowSelectAll: true,
   fullWidth: false,
+  portal: false,
   variant: 'auto',
   success: false,
   warning: false,
@@ -166,6 +208,8 @@ SelectUnstyled.defaultProps = {
   onBlur: null,
   error: null,
   touched: false,
+  selectPromptMessage: 'Selecione',
+  selectAllMessage: 'Selecionar todos',
 };
 SelectUnstyled.propTypes = {
   allowSelectAll: PropTypes.bool,
@@ -176,6 +220,7 @@ SelectUnstyled.propTypes = {
   isMulti: PropTypes.bool,
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
   touched: PropTypes.bool,
+  portal: PropTypes.bool,
   error: PropTypes.string,
   label: PropTypes.string,
   options: PropTypes.arrayOf(
@@ -187,6 +232,8 @@ SelectUnstyled.propTypes = {
   ).isRequired,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
+  selectPromptMessage: PropTypes.string,
+  selectAllMessage: PropTypes.string,
 };
 
 export default SelectUnstyled;

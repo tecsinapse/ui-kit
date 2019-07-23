@@ -8,18 +8,31 @@ export const selectInputStyle = theme => ({
   input: {
     display: 'flex',
   },
+  multiValueContainer: {
+    paddingLeft: '0px !important',
+  },
+  inputMultilineDense: {
+    paddingTop: '0px !important',
+    paddingBottom: '0px !important',
+    height: '40px',
+  },
+  inputNormal: {
+    display: 'flex',
+    paddingTop: `${theme.spacing(0.5)}px !important`,
+    paddingBottom: `${theme.spacing(0.5)}px !important`,
+  },
   dummyWrapper: {
-    display: 'none'
+    display: 'none',
   },
   valueContainer: {
     minWidth: 0,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-around',
     flexGrow: 1,
   },
   chip: {
-    margin: `${theme.spacing.unit / 2}px ${theme.spacing.unit / 4}px`,
+    margin: `${theme.spacing(0.5)}px ${theme.spacing(0.25)}px`,
   },
   chipFocused: {
     backgroundColor: emphasize(
@@ -30,7 +43,7 @@ export const selectInputStyle = theme => ({
     ),
   },
   noOptionsMessage: {
-    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`,
+    padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
   },
   singleValue: {
     fontSize: 16,
@@ -47,15 +60,15 @@ export const selectInputStyle = theme => ({
     width: '100%',
   },
   divider: {
-    height: theme.spacing.unit * 2,
+    height: theme.spacing(2),
   },
   select: {
-    paddingTop: theme.spacing.unit / 2,
+    // nothing here
   },
   flex: {
     display: 'flex',
   },
   dropdownIndicator: {
-    cursor: "pointer !important",
+    cursor: 'pointer !important',
   },
 });
