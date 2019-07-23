@@ -2,13 +2,14 @@
 /* eslint-disable no-alert */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { TextField, Typography } from '@material-ui/core';
 
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import TimeslotSelector from './TimeslotSelector';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import { Button } from '../..';
+import { Button, Input } from '../..';
 
 const personsAvailabilities = require('../../../test/resources/availabilities.json');
 
@@ -20,9 +21,7 @@ const selectedTime = '08:00';
 
 const onHandleScheduleTest = selected => {
   alert(
-    `Usuário: ${selected.email}\nData: ${selected.date}\nHora: ${
-      selected.time
-    }\n`
+    `Usuário: ${selected.email}\nData: ${selected.date}\nHora: ${selected.time}\n`
   );
 };
 
@@ -37,15 +36,18 @@ const customSteps = [
     component: ({ key, callNextStep, changeOtherProps, otherProps }) => (
       <div key={key}>
         <Typography variant="h4">Empresas</Typography>
-        <TextField
+        <Input
+          label="Empresa"
           value={otherProps.empresa}
+          fullWidth
           onChange={event =>
             changeOtherProps
               ? changeOtherProps('empresa', event.target.value)
               : () => {}
           }
         />
-        <Button onClick={callNextStep} variant="secondary">
+        <Divider style={{ margin: 8 }} />
+        <Button onClick={callNextStep} variant="secondary" s>
           Próximo
         </Button>
       </div>
@@ -73,6 +75,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       <TimeslotSelector
         style={style}
         personsAvailabilities={personsAvailabilities}
+        selectedEmailPerson={selectedEmailPerson}
         durations={[15, 20, 30]}
         defaultDuration={20}
         dialog
@@ -81,7 +84,8 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
         onHandleSchedule={onHandleScheduleTest}
         onCloseDialog={() => {}}
         personsEmailSelected={personsEmailSelected}
-        cancelDialog={() => console.log('test')}
+        selectedTime={selectedTime}
+        selectedDate={selectedDate}
       />
     </div>
   ))
@@ -95,5 +99,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       onWeekChange={obj => console.log(obj)}
       onHandleSchedule={onHandleScheduleTest}
       personsEmailSelected={personsEmailSelected}
+      selectedTime={selectedTime}
+      selectedDate={selectedDate}
     />
   ));

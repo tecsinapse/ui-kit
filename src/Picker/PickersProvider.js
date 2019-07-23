@@ -1,12 +1,9 @@
-import 'date-fns';
-import ptBRLocale from 'date-fns/locale/pt-BR';
 import React from 'react';
-
-import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import LuxonUtils from '@date-io/luxon';
 
-export const PickersProvider = ({ children }) => (
-  <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptBRLocale}>
+export const PickersProvider = ({ children, locale = 'pt-BR' }) => (
+  <MuiPickersUtilsProvider utils={LuxonUtils} locale={locale}>
     {children}
   </MuiPickersUtilsProvider>
 );

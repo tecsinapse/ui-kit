@@ -60,32 +60,29 @@ export const Step1 = ({
         </RadioGroup>
       </Grid>
       <Divider variant="middle" />
-      <Grid
-        container
-        justify="center"
-        className={classes.stepButtons}
-        spacing={16}
-      >
-        {callCancel && (
-          <Grid item>
-            <Button variant="error" onClick={callCancel}>
-              {labels.buttonLabelCancel}
-            </Button>
-          </Grid>
-        )}
-        {callPreviousStep && (
-          <Grid item>
-            <Button onClick={callPreviousStep} variant="secondary">
-              {labels.buttonLabelprevious}
-            </Button>
-          </Grid>
-        )}
-        {callNextStep && (
-          <Grid item>
-            <Button onClick={callNextStep}>{labels.buttonLabelNext}</Button>
-          </Grid>
-        )}
-      </Grid>
+      <div className={classes.stepButtons}>
+        <Grid container alignContent="flex-end" justify="center" spacing={2}>
+          {callCancel && (
+            <Grid item>
+              <Button variant="error" onClick={callCancel}>
+                {labels.buttonLabelCancel}
+              </Button>
+            </Grid>
+          )}
+          {callPreviousStep && (
+            <Grid item>
+              <Button onClick={callPreviousStep} variant="secondary">
+                {labels.buttonLabelprevious}
+              </Button>
+            </Grid>
+          )}
+          {callNextStep && (
+            <Grid item>
+              <Button onClick={callNextStep}>{labels.buttonLabelNext}</Button>
+            </Grid>
+          )}
+        </Grid>
+      </div>
     </div>
   );
 };

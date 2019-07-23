@@ -1,23 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { IconButton } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import classNames from 'classnames';
-import isSameDay from 'date-fns/isSameDay';
-import formatDate from 'date-fns/format';
 import PropTypes from 'prop-types';
 import {
   DatePicker as DatePickerExt,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import endOfWeek from 'date-fns/endOfWeek';
-import startOfWeek from 'date-fns/startOfWeek';
-import isWithinInterval from 'date-fns/isWithinInterval';
+import { isNullOrUndefined } from 'rollup-plugin-node-builtins/src/es6/util';
+import Interval from 'luxon/src/interval';
 import { Input } from '../Inputs/Input';
 import { LocaleContext } from '../LocaleProvider';
 import { useStylesWeek } from './customWeekPickerStyles';
-import { makeJSDateObject } from './utils';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {
@@ -65,6 +61,31 @@ const useStyle = makeStyles(theme => ({
   },
 }));
 
+function useCustomInput(CustomTextFieldComponentInput) {
+  const [open, setOpen] = useState(false);
+
+  if (isNullOrUndefined(CustomTextFieldComponentInput)) {
+    return {
+      customTextFieldComponent: null,
+    };
+  }
+
+  const onOpen = () => setOpen(true);
+
+  const customTextFieldComponent = () => (
+    <div onClick={onOpen} onKeyDown={() => {}}>
+      <CustomTextFieldComponentInput />
+    </div>
+  );
+
+  return {
+    open,
+    onOpen,
+    onClose: () => setOpen(false),
+    customTextFieldComponent,
+  };
+}
+
 export const DatePicker = ({
   selectedDate,
   id,
@@ -75,6 +96,7 @@ export const DatePicker = ({
   inputVariant,
   // TODO: mudar pointedDates e weekly para variant
   pointedDates,
+  customTextFieldComponentInput = null,
   weekly,
   ...props
 }) => {
@@ -84,21 +106,26 @@ export const DatePicker = ({
     Picker: { todayLabel, okLabel, cancelLabel, clearLabel },
   } = useContext(LocaleContext);
 
+  const {
+    customTextFieldComponent,
+    ...customTextFieldComponentInputProps
+  } = useCustomInput(customTextFieldComponentInput);
+
   const renderWrappedWeekDay = classes2 => (
     date,
     selectedDateRender,
     dayInCurrentMonth
   ) => {
-    const dateClone = makeJSDateObject(date);
-    const selectedDateClone = makeJSDateObject(selectedDateRender);
+    const dateClone = date;
+    const selectedDateClone = selectedDateRender;
 
-    const start = startOfWeek(selectedDateClone);
-    const end = endOfWeek(selectedDateClone);
+    const start = selectedDateClone.startOf('week');
+    const end = selectedDateClone.endOf('week');
 
-    const dayIsBetween = isWithinInterval(dateClone, { start, end });
+    const dayIsBetween = Interval.fromDateTimes(start, end).contains(dateClone);
 
-    const isFirstDay = isSameDay(start, 'day');
-    const isLastDay = isSameDay(end, 'day');
+    const isFirstDay = start.hasSame(dateClone, 'day');
+    const isLastDay = end.hasSame(dateClone, 'day');
 
     const wrapperClassName = classNames({
       [classes2.highlight]: dayIsBetween,
@@ -115,7 +142,7 @@ export const DatePicker = ({
     return (
       <div className={wrapperClassName}>
         <IconButton className={dayClassName} href="">
-          <span> {formatDate(dateClone, 'd')} </span>
+          <span> {dateClone.toFormat('d')} </span>
         </IconButton>
       </div>
     );
@@ -123,8 +150,9 @@ export const DatePicker = ({
 
   const renderPointedDay = (date, selectedDateRender, dayInCurrentMonth) => {
     const isPointed =
-      pointedDates.find(pointDate => isSameDay(pointDate, date)) !== undefined;
-    const isSelected = isSameDay(date, selectedDateRender);
+      pointedDates.find(pointDate => pointDate.hasSame(date, 'day')) !==
+      undefined;
+    const isSelected = date.hasSame(selectedDateRender, 'day');
 
     const dayClassName = classNames(classes.day, {
       [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
@@ -136,7 +164,7 @@ export const DatePicker = ({
         <IconButton className={dayClassName}>
           <span>
             <Typography variant="body2" color="inherit">
-              {formatDate(date, 'd')}{' '}
+              {date.toFormat('d')}{' '}
             </Typography>
           </span>
           {isPointed && (
@@ -172,8 +200,9 @@ export const DatePicker = ({
       okLabel={okLabel}
       cancelLabel={cancelLabel}
       clearLabel={clearLabel}
-      TextFieldComponent={Input}
+      TextFieldComponent={customTextFieldComponent || Input}
       {...props}
+      {...customTextFieldComponentInputProps}
     />
   ) : (
     <DatePickerExt
@@ -188,8 +217,9 @@ export const DatePicker = ({
       okLabel={okLabel}
       cancelLabel={cancelLabel}
       clearLabel={clearLabel}
-      TextFieldComponent={Input}
+      TextFieldComponent={customTextFieldComponent || Input}
       {...props}
+      {...customTextFieldComponentInputProps}
     />
   );
 };
