@@ -1,11 +1,11 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography/Typography';
+import { makeStyles } from '@material-ui/styles';
+import Typography from '@material-ui/core/Typography';
 import FolderOpen from '@material-ui/icons/FolderOpen';
 import SignalWifiOff from '@material-ui/icons/SignalWifiOff';
 import PropTypes from 'prop-types';
 
-const styles = {
+const useStyle = makeStyles(theme => ({
   container: {
     display: 'flex' /* establish flex container */,
     flexGrow: 1,
@@ -20,7 +20,7 @@ const styles = {
     marginTop: '10px',
     fontSize: 70,
   },
-};
+}));
 
 const mensagensTitulo = [
   'Hummmmm',
@@ -30,37 +30,37 @@ const mensagensTitulo = [
   'Nooossa',
 ];
 
-export const EmptyState = withStyles(styles)(
-  ({
-    IconComponent = FolderOpen,
-    classes,
-    titleMessage,
-    message,
-    noConnectionTitle,
-    offlineMessage,
-    children,
-  }) => {
-    const messagemTitulo =
-      titleMessage ||
-      mensagensTitulo[Math.floor(Math.random() * mensagensTitulo.length)];
-    const Icon = navigator.onLine ? IconComponent : SignalWifiOff;
-    return (
-      <div className={classes.container}>
-        <div className={classes.box}>
-          <Icon color="disabled" className={classes.icon} />
-          <Typography variant="h6" gutterBottom>
-            {navigator.onLine ? messagemTitulo : noConnectionTitle}
-            ...
-          </Typography>
-          <Typography variant="body2" gutterBottom>
-            {navigator.onLine ? message : offlineMessage}
-          </Typography>
-          {children}
-        </div>
+export const EmptyState = ({
+  IconComponent = FolderOpen,
+  titleMessage,
+  message,
+  noConnectionTitle,
+  offlineMessage,
+  children,
+}) => {
+  const classes = useStyle();
+
+  const messagemTitulo =
+    titleMessage ||
+    mensagensTitulo[Math.floor(Math.random() * mensagensTitulo.length)];
+  const Icon = navigator.onLine ? IconComponent : SignalWifiOff;
+  return (
+    <div className={classes.container}>
+      <div className={classes.box}>
+        <Icon color="disabled" className={classes.icon} />
+        <Typography variant="h6" gutterBottom>
+          {navigator.onLine ? messagemTitulo : noConnectionTitle}
+          ...
+        </Typography>
+        <Typography variant="body2" gutterBottom>
+          {navigator.onLine ? message : offlineMessage}
+        </Typography>
+        {children}
       </div>
-    );
-  }
-);
+    </div>
+  );
+};
+
 export const EmptyStateWrapper = ({ children, ...props }) =>
   children && children.length ? children : <EmptyState {...props} />;
 
