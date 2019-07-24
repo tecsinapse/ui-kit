@@ -1,3 +1,12 @@
+<a name="1.0.3"></a>
+## <small>1.0.3 (2019-07-24)</small>
+
+* Fix bug with emptystate/typography and add story for it ([57e45ee](https://github.com/tecsinapse/ui-kit/commit/57e45ee))
+* Fix storybook empty state ([9dfc4b2](https://github.com/tecsinapse/ui-kit/commit/9dfc4b2))
+* Updating Node.js ([a4caf12](https://github.com/tecsinapse/ui-kit/commit/a4caf12))
+
+
+
 <a name="1.0.2"></a>
 ## <small>1.0.2 (2019-07-23)</small>
 
