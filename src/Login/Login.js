@@ -103,7 +103,7 @@ const useStyle = (rememberBox, backgroundImage) =>
       alignSelf: 'center',
     },
     forgotmobile: {
-      marginTop: spacing.unit,
+      marginTop: spacing(1),
     },
     header: {
       marginTop: spacing(2),
@@ -112,7 +112,7 @@ const useStyle = (rememberBox, backgroundImage) =>
       height: spacing(1),
     },
     formControlLabelCheckMobile: {
-      height: spacing.unit,
+      height: spacing(1),
       alignSelf: 'flex-start',
     },
     checkbox: {
