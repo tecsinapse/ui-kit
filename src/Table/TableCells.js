@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -16,7 +17,8 @@ const convertValuesToTableCell = (
   rowId,
   selectedRows,
   forceCollapseActions,
-  verticalActions
+  verticalActions,
+  theme
 ) => {
   const { visible = true } = options;
 
@@ -37,7 +39,7 @@ const convertValuesToTableCell = (
         key={field}
         align="right"
         style={{
-          paddingRight: 0,
+          paddingRight: theme.spacing(1),
           width:
             forceCollapseActions || actions.length >= 4
               ? '50px'
@@ -68,17 +70,21 @@ const TableCells = ({
   selectedRows,
   forceCollapseActions,
   verticalActions,
-}) =>
-  columns.map(column =>
+}) => {
+  const theme = useTheme();
+
+  return columns.map(column =>
     convertValuesToTableCell(
       column,
       rowData,
       rowId,
       selectedRows,
       forceCollapseActions,
-      verticalActions
+      verticalActions,
+      theme
     )
   );
+};
 
 TableCells.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.object).isRequired,
