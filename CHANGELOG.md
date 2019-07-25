@@ -1,3 +1,15 @@
+<a name="1.0.4"></a>
+## <small>1.0.4 (2019-07-25)</small>
+
+* Bump lodash.template from 4.4.0 to 4.5.0 in /example ([a00a1df](https://github.com/tecsinapse/ui-kit/commit/a00a1df))
+* Fix bug with emptystate/typography and add story for it ([57e45ee](https://github.com/tecsinapse/ui-kit/commit/57e45ee))
+* Fix storybook empty state ([9dfc4b2](https://github.com/tecsinapse/ui-kit/commit/9dfc4b2))
+* Fix table removing extra padding on action icon ([2f4a58d](https://github.com/tecsinapse/ui-kit/commit/2f4a58d))
+* Release 1.0.3 ([61d3503](https://github.com/tecsinapse/ui-kit/commit/61d3503))
+* Updating Node.js ([a4caf12](https://github.com/tecsinapse/ui-kit/commit/a4caf12))
+
+
+
 <a name="1.0.3"></a>
 ## <small>1.0.3 (2019-07-24)</small>
 
