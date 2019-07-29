@@ -29,9 +29,7 @@ const DatePickerStory = () => {
 };
 
 const CustomLabelDatePickerStory = () => {
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date('2014-08-18T21:11:54')
-  );
+  const [selectedDate, setSelectedDate] = React.useState(DateTime.fromISO(''));
 
   return (
     <PickersProvider>
@@ -42,9 +40,7 @@ const CustomLabelDatePickerStory = () => {
         name="customdatepicker"
         customTextFieldComponentInput={() => (
           <Typography variant="h6" color="primary">
-            {DateTime.fromObject(selectedDate)
-              .setLocale('pt-BR')
-              .toFormat('MMMM, yyyy')}
+            {selectedDate.toFormat('dd/LL/yyyy')}
           </Typography>
         )}
       />
