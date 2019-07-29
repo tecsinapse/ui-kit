@@ -40,7 +40,9 @@ const CustomLabelDatePickerStory = () => {
         name="customdatepicker"
         customTextFieldComponentInput={() => (
           <Typography variant="h6" color="primary">
-            {selectedDate.toFormat('dd/LL/yyyy')}
+            {DateTime.fromObject(selectedDate)
+              .setLocale('pt-BR')
+              .toFormat('MMMM, yyyy')}
           </Typography>
         )}
       />
