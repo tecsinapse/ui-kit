@@ -22,6 +22,7 @@ const DatePickerStory = () => {
         onChange={date => setSelectedDate(date)}
         format="dd/MM/yyyy"
         name="datetimepicker"
+        pointedDates={[DateTime.fromISO('2014-08-25T09:08:34.123')]}
       />
     </PickersProvider>
   );

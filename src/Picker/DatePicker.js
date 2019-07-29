@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import DateTime from 'luxon/src/datetime';
 import {
   DatePicker as DatePickerExt,
   KeyboardDatePicker,
@@ -242,7 +243,7 @@ DatePicker.propTypes = {
   onChange: PropTypes.func,
   format: PropTypes.string,
   keyboardPicker: PropTypes.bool,
-  pointedDates: PropTypes.arrayOf(Date),
+  pointedDates: PropTypes.arrayOf(PropTypes.instanceOf(DateTime)),
   inputVariant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
 };
 export default DatePicker;
