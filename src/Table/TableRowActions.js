@@ -107,9 +107,6 @@ const TableRowActions = ({
         }}
         aria-owns={open ? 'simple-popper' : undefined}
         aria-haspopup="true"
-        style={{
-          padding: 0,
-        }}
       >
         <MoreVertIcon />
       </IconButton>

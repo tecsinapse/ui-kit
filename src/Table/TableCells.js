@@ -44,6 +44,8 @@ const convertValuesToTableCell = (
             forceCollapseActions || actions.length >= 4
               ? '50px'
               : `${actions.length * 50}px`,
+          paddingTop: 0,
+          paddingBottom: 0,
         }}
       >
         <TableRowActions
