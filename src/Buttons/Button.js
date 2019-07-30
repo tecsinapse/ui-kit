@@ -61,43 +61,49 @@ export function buttonClassNameDefinition(classes, disabled, margin, variant) {
 }
 const useStyles = makeStyles(buttonStyle);
 
-export const Button = ({
-  submitting,
-  fullWidth,
-  disabled,
-  variant,
-  margin,
-  type,
-  size = 'medium',
-  children,
-  className,
-  ...props
-}) => {
-  const classes = useStyles();
-  const classdef = buttonClassNameDefinition(
-    classes,
-    disabled,
-    margin,
-    variant
-  );
-  return (
-    <MaterialButton
-      type={type}
-      variant="contained"
-      classes={{ label: classes.buttonSpan }}
-      className={classNames(className, classdef)}
-      color={
-        ['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined
-      }
-      fullWidth={fullWidth}
-      disabled={disabled || submitting}
-      size={size}
-      {...props}
-    >
-      {submitting && <CircularProgress size={20} />} {children}
-    </MaterialButton>
-  );
-};
+export const Button = React.forwardRef(
+  (
+    {
+      submitting,
+      fullWidth,
+      disabled,
+      variant,
+      margin,
+      type,
+      size = 'medium',
+      children,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    const classes = useStyles();
+    const classdef = buttonClassNameDefinition(
+      classes,
+      disabled,
+      margin,
+      variant
+    );
+    return (
+      <MaterialButton
+        type={type}
+        variant="contained"
+        classes={{ label: classes.buttonSpan }}
+        className={classNames(className, classdef)}
+        color={
+          ['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined
+        }
+        fullWidth={fullWidth}
+        disabled={disabled || submitting}
+        size={size}
+        ref={ref}
+        {...props}
+      >
+        {submitting && <CircularProgress size={20} />} {children}
+      </MaterialButton>
+    );
+  }
+);
 
 Button.defaultProps = {
   submitting: false,
