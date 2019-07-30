@@ -19,8 +19,8 @@ export const LocaleContext = React.createContext({
     emptyStateMessage: 'Não existem dados para exibição.',
   },
   Picker: {
-    todayLabel: 'HOJE',
-    okLabel: 'Filtrar',
+    todayLabel: 'Hoje',
+    okLabel: 'Ok',
     cancelLabel: 'Cancelar',
     clearLabel: 'Limpar',
   },
