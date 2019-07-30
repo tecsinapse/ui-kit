@@ -1,7 +1,7 @@
-import {FixedSizeList as List} from "react-window";
-import React from "react";
+import { FixedSizeList as List } from 'react-window';
+import React from 'react';
 
-const selectMenuHeight = 46;
+const selectMenuHeight = 50;
 const optionsShown = 4;
 
 export const MenuListWeb = props => {
