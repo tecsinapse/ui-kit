@@ -245,7 +245,7 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   success: PropTypes.bool,
   warning: PropTypes.bool,
-  error: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,

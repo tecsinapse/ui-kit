@@ -142,7 +142,7 @@ GroupedInput.defaultProps = {
 };
 GroupedInput.propTypes = {
   name: PropTypes.string.isRequired,
-  header: PropTypes.string.isRequired,
+  header: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   label: PropTypes.string.isRequired,
   values: PropTypes.array.isRequired,
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
