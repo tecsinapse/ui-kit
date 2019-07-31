@@ -51,6 +51,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Carousel`, module)
           title="Relatório de Manuntenção BMW"
           subtitle="Já estão disponíveis todos os relatórios de manuntenção de 2019."
           buttonTitle="SAIBA MAIS"
+          mobile
         />
         <Slide
           link="http://www.tecsinapse.com.br"
@@ -58,6 +59,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Carousel`, module)
           backgroundImage="https://autonesian.com/wp-content/uploads/2017/02/astra-autoprima-bmw-2-700x400.jpg"
           title="Comitê Geral Seleciona Integrantes"
           subtitle="O comitê geral elegeu os novos membros para o Premium Selection."
+          mobile
         />
       </AutoRotatingCarousel>
     </div>
