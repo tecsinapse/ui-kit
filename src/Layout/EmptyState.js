@@ -72,7 +72,7 @@ EmptyState.defaultProps = {
   IconComponent: FolderOpen,
 };
 EmptyState.propTypes = {
-  IconComponent: PropTypes.func,
+  IconComponent: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   titleMessage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   message: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   noConnectionTitle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
