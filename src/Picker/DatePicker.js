@@ -10,6 +10,7 @@ import {
   DatePicker as DatePickerExt,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
+
 import { isNullOrUndefined } from 'rollup-plugin-node-builtins/src/es6/util';
 import Interval from 'luxon/src/interval';
 import { Input } from '../Inputs/Input';
@@ -54,8 +55,8 @@ const useStyle = makeStyles(theme => ({
     },
   },
   badge: {
-    position: 'absolute',
-    marginTop: '30%',
+    top: '105%',
+    right: '50%',
   },
   badgeNonCurrentMonth: {
     backgroundColor: theme.palette.text.disabled,
@@ -163,23 +164,25 @@ export const DatePicker = ({
     return (
       <div role="presentation">
         <IconButton className={dayClassName}>
-          <span>
-            <Typography variant="body2" color="inherit">
-              {date.toFormat('d')}{' '}
-            </Typography>
-          </span>
-          {isPointed && (
-            <Badge
-              color="primary"
-              className={classes.badge}
-              variant="dot"
-              classes={
-                !dayInCurrentMonth
-                  ? { colorPrimary: classes.badgeNonCurrentMonth }
-                  : undefined
-              }
-            />
-          )}
+          <Badge
+            color="primary"
+            variant="dot"
+            classes={
+              !dayInCurrentMonth
+                ? {
+                    colorPrimary: classes.badgeNonCurrentMonth,
+                    badge: classes.badge,
+                  }
+                : { badge: classes.badge }
+            }
+            invisible={!isPointed}
+          >
+            <span>
+              <Typography variant="body2" color="inherit">
+                {date.toFormat('d')}{' '}
+              </Typography>
+            </span>
+          </Badge>
         </IconButton>
       </div>
     );
