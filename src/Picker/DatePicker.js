@@ -5,10 +5,12 @@ import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import DateTime from 'luxon/src/datetime';
 import {
   DatePicker as DatePickerExt,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
+
 import { isNullOrUndefined } from 'rollup-plugin-node-builtins/src/es6/util';
 import Interval from 'luxon/src/interval';
 import { Input } from '../Inputs/Input';
@@ -53,8 +55,8 @@ const useStyle = makeStyles(theme => ({
     },
   },
   badge: {
-    position: 'absolute',
-    marginTop: '30%',
+    top: '105%',
+    right: '50%',
   },
   badgeNonCurrentMonth: {
     backgroundColor: theme.palette.text.disabled,
@@ -162,23 +164,25 @@ export const DatePicker = ({
     return (
       <div role="presentation">
         <IconButton className={dayClassName}>
-          <span>
-            <Typography variant="body2" color="inherit">
-              {date.toFormat('d')}{' '}
-            </Typography>
-          </span>
-          {isPointed && (
-            <Badge
-              color="primary"
-              className={classes.badge}
-              variant="dot"
-              classes={
-                !dayInCurrentMonth
-                  ? { colorPrimary: classes.badgeNonCurrentMonth }
-                  : undefined
-              }
-            />
-          )}
+          <Badge
+            color="primary"
+            variant="dot"
+            classes={
+              !dayInCurrentMonth
+                ? {
+                    colorPrimary: classes.badgeNonCurrentMonth,
+                    badge: classes.badge,
+                  }
+                : { badge: classes.badge }
+            }
+            invisible={!isPointed}
+          >
+            <span>
+              <Typography variant="body2" color="inherit">
+                {date.toFormat('d')}{' '}
+              </Typography>
+            </span>
+          </Badge>
         </IconButton>
       </div>
     );
@@ -242,7 +246,7 @@ DatePicker.propTypes = {
   onChange: PropTypes.func,
   format: PropTypes.string,
   keyboardPicker: PropTypes.bool,
-  pointedDates: PropTypes.arrayOf(Date),
+  pointedDates: PropTypes.arrayOf(PropTypes.instanceOf(DateTime)),
   inputVariant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
 };
 export default DatePicker;

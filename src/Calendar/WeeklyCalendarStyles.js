@@ -25,8 +25,7 @@ export const muiInlineDatePicker = {
 
 export const weeklyCalendarStyles = makeStyles(({ palette, spacing }) => ({
   root: {
-    padding: `${spacing.unit} ${spacing.unit * 2} ${spacing.unit /
-      3} ${spacing.unit * 1.34}`,
+    padding: spacing(1, 2, 1 / 3, 1.34),
     justifyContent: 'center',
   },
   selected: {
@@ -53,10 +52,10 @@ export const weeklyCalendarStyles = makeStyles(({ palette, spacing }) => ({
     borderColor: defaultGreyLight200,
     borderStyle: 'solid',
     borderRadius: 8,
-    margin: spacing.unit / 4,
-    padding: spacing.unit / 6,
-    paddingLeft: spacing.unit / 2,
-    paddingRight: spacing.unit / 2,
+    margin: spacing(1 / 4),
+    padding: spacing(1 / 6),
+    paddingLeft: spacing(1 / 2),
+    paddingRight: spacing(1 / 2),
   },
   weekDayLabel: {
     textTransform: 'uppercase',

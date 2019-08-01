@@ -174,7 +174,7 @@ export const Slide = ({
               underline="none"
               target={linkTarget}
               href={link}
-              size={mobile ? 'large' : undefined}
+              size={mobile ? 'small' : 'large'}
             >
               {buttonTitle}
             </Link>

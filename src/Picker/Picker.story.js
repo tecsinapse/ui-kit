@@ -22,15 +22,14 @@ const DatePickerStory = () => {
         onChange={date => setSelectedDate(date)}
         format="dd/MM/yyyy"
         name="datetimepicker"
+        pointedDates={[DateTime.fromISO('2014-08-25T09:08:34.123')]}
       />
     </PickersProvider>
   );
 };
 
 const CustomLabelDatePickerStory = () => {
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date('2014-08-18T21:11:54')
-  );
+  const [selectedDate, setSelectedDate] = React.useState(DateTime.fromISO(''));
 
   return (
     <PickersProvider>

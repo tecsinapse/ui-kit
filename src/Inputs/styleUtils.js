@@ -31,15 +31,19 @@ export const labelClass = ({ success, error, warning }) => {
   return 'cssLabel';
 };
 
-const StyledFlexDiv = styled('div')(({ theme, endAdornmentMargin }) => ({
+// Note: endadornmentmargin is passed as a string because it is added
+// as a prop of a <div>, removing the warning on console
+const StyledFlexDiv = styled('div')(({ theme, endadornmentmargin }) => ({
   display: 'flex',
   alignItems: 'center',
   boxShadow: 'none !important',
-  marginRight: endAdornmentMargin ? theme.spacing(1) : 0,
+  marginRight: endadornmentmargin === 'true' ? theme.spacing(1) : 0,
 }));
+
 const TypographyStyled = styled(Typography)(({ theme }) => ({
   marginLeft: theme.spacing(1 / 3),
 }));
+
 export function GetEndAdornment({
   warning,
   error,
@@ -59,13 +63,13 @@ export function GetEndAdornment({
   }
   if (stateIcon && endAdornment) {
     return (
-      <StyledFlexDiv endAdornmentMargin={endAdornmentMargin}>
+      <StyledFlexDiv endadornmentmargin={endAdornmentMargin.toString()}>
         {stateIcon} <TypographyStyled>|</TypographyStyled> {endAdornment}
       </StyledFlexDiv>
     );
   }
   return (
-    <StyledFlexDiv endAdornmentMargin={endAdornmentMargin}>
+    <StyledFlexDiv endadornmentmargin={endAdornmentMargin.toString()}>
       {stateIcon && stateIcon}
       {endAdornment && endAdornment}
     </StyledFlexDiv>

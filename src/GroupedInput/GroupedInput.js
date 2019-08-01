@@ -10,7 +10,7 @@ import { Input } from '../Inputs/Input';
 import { Divider } from '../Divider/Divider';
 import { IconButton } from '../Buttons/IconButton';
 import { defaultRed } from '../colors';
-import { FloatingButton } from '..';
+import { Button } from '../Buttons/Button';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -71,18 +71,17 @@ export const GroupedInput = ({
           {header} {!!error && '* '}
         </Typography>
 
-        <FloatingButton
+        <Button
           type="button"
+          variant="warning"
           size="small"
           className={classes.marginLeft}
           onClick={push}
-          variant="secondary"
-          variantFab="extended"
           aria-label="Novo Campo"
         >
           <Add />
           Novo Campo
-        </FloatingButton>
+        </Button>
       </div>
       {!!error && !errorIsArray && (
         <FormHelperText className={classes.errorLabel}>{error}</FormHelperText>
@@ -143,7 +142,7 @@ GroupedInput.defaultProps = {
 };
 GroupedInput.propTypes = {
   name: PropTypes.string.isRequired,
-  header: PropTypes.string.isRequired,
+  header: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   label: PropTypes.string.isRequired,
   values: PropTypes.array.isRequired,
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
