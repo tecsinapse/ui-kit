@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "dependencies": {},
@@ -93,10 +93,10 @@
     "dev": "rollup -c -w",
     "docz:build": "docz build -d docs/docz/ --base='/ui-kit/docz/' ",
     "docz:dev": "docz dev",
+    "start": "yarn install && yarn storybook",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./storybook-public",
     "storybook:build": "build-storybook -c .storybook -o docs/storybook/",
-    "test": "NODE_ENV=test jest test/",
-    "start": "yarn install && yarn storybook"
+    "test": "NODE_ENV=test jest test/"
   },
   "husky": {
     "hooks": {
@@ -153,5 +153,4 @@
     "typeface-roboto": "^0.0.54"
   },
   "sideEffects": false
-
 }

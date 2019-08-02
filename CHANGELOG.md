@@ -1,3 +1,29 @@
+<a name="1.0.5"></a>
+## <small>1.0.5 (2019-08-02)</small>
+
+* Add ref to button ([043c968](https://github.com/tecsinapse/ui-kit/commit/043c968))
+* Added run ([6698703](https://github.com/tecsinapse/ui-kit/commit/6698703))
+* Change datepicker default label name ([85e693b](https://github.com/tecsinapse/ui-kit/commit/85e693b))
+* DatePicker forces date props passed as a luxon type ([cae7b12](https://github.com/tecsinapse/ui-kit/commit/cae7b12))
+* Fix calendar style ([fb269d7](https://github.com/tecsinapse/ui-kit/commit/fb269d7))
+* Fix carousel button mobile ([6d7e44b](https://github.com/tecsinapse/ui-kit/commit/6d7e44b))
+* Fix datepicker warn: badge must be a parent ([45f56f9](https://github.com/tecsinapse/ui-kit/commit/45f56f9))
+* Fix EmptyState proptyopes to remove warnings ([3fa461f](https://github.com/tecsinapse/ui-kit/commit/3fa461f))
+* Fix IconButton to forward a ref (useful for ToolTips) and spacing replace ([432c9c0](https://github.com/tecsinapse/ui-kit/commit/432c9c0))
+* Fix new size of each list item ([9c182eb](https://github.com/tecsinapse/ui-kit/commit/9c182eb))
+* Fix proptypes alert to remove warnings ([7f79688](https://github.com/tecsinapse/ui-kit/commit/7f79688))
+* Fix proptypes to remove warnings ([c189c89](https://github.com/tecsinapse/ui-kit/commit/c189c89))
+* Fix story picker should use luxon date ([d946127](https://github.com/tecsinapse/ui-kit/commit/d946127))
+* Fix styled component div adding a prop to it to remove warning ([b99fbf1](https://github.com/tecsinapse/ui-kit/commit/b99fbf1))
+* Fix table action button too small ([9fd3a89](https://github.com/tecsinapse/ui-kit/commit/9fd3a89))
+* Revert button in GrouppedInput ([0a6c261](https://github.com/tecsinapse/ui-kit/commit/0a6c261))
+* Revert the format text input custom from picker ([16ee198](https://github.com/tecsinapse/ui-kit/commit/16ee198))
+* teste ([18ca83e](https://github.com/tecsinapse/ui-kit/commit/18ca83e))
+* teste git ([7ed7a84](https://github.com/tecsinapse/ui-kit/commit/7ed7a84))
+* teste git ([5c150d6](https://github.com/tecsinapse/ui-kit/commit/5c150d6))
+
+
+
 <a name="1.0.4"></a>
 ## <small>1.0.4 (2019-07-25)</small>
 
