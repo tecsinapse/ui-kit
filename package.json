@@ -135,7 +135,7 @@
     "@material-ui/styles": "^4.0.0-rc.0",
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
-    "@tecsinapse/es-utils": "0.0.96",
+    "@tecsinapse/es-utils": "5.1.0",
     "@tinymce/tinymce-react": "^3.0.1",
     "classnames": "^2.2.6",
     "luxon": "^1.11.2",
