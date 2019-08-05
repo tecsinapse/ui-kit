@@ -1,3 +1,11 @@
+<a name="1.0.6"></a>
+## <small>1.0.6 (2019-08-05)</small>
+
+* Updating es-utils ([31fc5b2](https://github.com/tecsinapse/ui-kit/commit/31fc5b2))
+* Updating es-utils ([886e106](https://github.com/tecsinapse/ui-kit/commit/886e106))
+
+
+
 <a name="1.0.5"></a>
 ## <small>1.0.5 (2019-08-02)</small>
 
