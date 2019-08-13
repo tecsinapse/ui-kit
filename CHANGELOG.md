@@ -1,3 +1,14 @@
+<a name="1.0.7"></a>
+## <small>1.0.7 (2019-08-13)</small>
+
+* Get newest fixed version of color picker and upgrade es-utils ([452750d](https://github.com/tecsinapse/ui-kit/commit/452750d))
+* Release 1.0.6 ([7fb28fa](https://github.com/tecsinapse/ui-kit/commit/7fb28fa))
+* Update package.json ([6887d4e](https://github.com/tecsinapse/ui-kit/commit/6887d4e))
+* Updating es-utils ([31fc5b2](https://github.com/tecsinapse/ui-kit/commit/31fc5b2))
+* Updating es-utils ([886e106](https://github.com/tecsinapse/ui-kit/commit/886e106))
+
+
+
 <a name="1.0.6"></a>
 ## <small>1.0.6 (2019-08-05)</small>
 
