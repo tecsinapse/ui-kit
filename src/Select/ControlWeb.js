@@ -1,13 +1,13 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Controlnput } from './Controlnput';
 
 export function ControlWeb({ selectProps, innerRef, innerProps, children }) {
   const onTouch = () => {
-    selectProps.setMenuIsOpen(true);
+    selectProps.setMenuIsOpen(!selectProps.menuIsOpen);
   };
 
   return (
-    <div
+    <div // eslint-disable-line jsx-a11y/click-events-have-key-events
       ref={innerRef}
       {...innerProps}
       style={{
