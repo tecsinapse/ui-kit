@@ -125,10 +125,15 @@ TimeslotSelectorComponent.propTypes = {
   onHandleSchedule: PropTypes.func.isRequired,
   setSelectedPeople: PropTypes.func.isRequired,
   setSelectedDuration: PropTypes.func.isRequired,
-  labels: PropTypes.arrayOf(PropTypes.object).isRequired,
+  labels: PropTypes.object.isRequired,
   personsAvailabilities: PropTypes.arrayOf(PropTypes.object).isRequired,
   durations: PropTypes.arrayOf(PropTypes.number).isRequired,
-  beforeSteps: PropTypes.func,
+  beforeSteps: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      component: PropTypes.func.isRequired,
+    })
+  ),
   setDlgOpen: PropTypes.func,
   cancelDialog: PropTypes.func,
   changeOtherProps: PropTypes.func,

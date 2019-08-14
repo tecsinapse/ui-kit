@@ -137,7 +137,7 @@ TimeslotSelector.propTypes = {
   locale: PropTypes.string,
   other: PropTypes.object,
   durations: PropTypes.arrayOf(PropTypes.number).isRequired,
-  defaultDuration: PropTypes.number,
+  defaultDuration: PropTypes.string,
   dialog: PropTypes.bool,
   openOpened: PropTypes.bool,
   onHandleSchedule: PropTypes.func.isRequired,

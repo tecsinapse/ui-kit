@@ -19,7 +19,7 @@ export const timeslotSelectorStyles = ({ palette, spacing }) => ({
     right: '0px',
     position: 'absolute',
     bottom: '73px',
-    top: '168px',
+    top: '180px',
   },
   stepContentScrolling: {
     overflowY: 'scroll',

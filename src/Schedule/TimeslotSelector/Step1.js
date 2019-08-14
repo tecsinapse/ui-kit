@@ -28,8 +28,7 @@ export const Step1 = ({
     label: person.name,
   }));
 
-  const radioDurationHandle = event =>
-    setSelectedDuration(Number(event.target.value));
+  const radioDurationHandle = event => setSelectedDuration(event.target.value);
 
   return (
     <div>
