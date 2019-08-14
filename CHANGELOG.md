@@ -1,3 +1,12 @@
+<a name="1.0.13"></a>
+## <small>1.0.13 (2019-08-14)</small>
+
+* Select: select não fecha ao clicar no icon de dropdown #40 ([0dc8d53](https://github.com/tecsinapse/ui-kit/commit/0dc8d53)), closes [#40](https://github.com/tecsinapse/ui-kit/issues/40)
+* Select: select não fecha ao clicar no icon de dropdown #40 ([33c5f15](https://github.com/tecsinapse/ui-kit/commit/33c5f15)), closes [#40](https://github.com/tecsinapse/ui-kit/issues/40)
+* Select: select não fecha ao clicar no icon de dropdown #40 ([e2779df](https://github.com/tecsinapse/ui-kit/commit/e2779df)), closes [#40](https://github.com/tecsinapse/ui-kit/issues/40)
+
+
+
 <a name="1.0.12"></a>
 ## <small>1.0.12 (2019-08-14)</small>
 
