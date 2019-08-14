@@ -1,3 +1,10 @@
+<a name="1.0.10"></a>
+## <small>1.0.10 (2019-08-14)</small>
+
+* Select: select não fecha ao clicar no icon de dropdown #40 ([89c84f0](https://github.com/tecsinapse/ui-kit/commit/89c84f0)), closes [#40](https://github.com/tecsinapse/ui-kit/issues/40)
+
+
+
 <a name="1.0.9"></a>
 ## <small>1.0.9 (2019-08-13)</small>
 
