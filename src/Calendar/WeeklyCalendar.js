@@ -52,13 +52,13 @@ export const WeeklyCalendarComponent = ({
   };
 
   useEffect(() => {
-    onWeekChange(weekDays);
+    onWeekChange && onWeekChange(weekDays);
     setSelectedDay(weekDays[0]);
-  }, [onWeekChange, weekDays]);
+  }, [weekDays]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    onDayChange(selectedDay);
-  }, [onDayChange, selectedDay]);
+    onDayChange && onDayChange(selectedDay);
+  }, [selectedDay]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={classes.root}>
