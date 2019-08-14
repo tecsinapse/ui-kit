@@ -62,7 +62,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       personsAvailabilities={personsAvailabilities}
       selectedEmailPerson={selectedEmailPerson}
       durations={[15, 20, 30]}
-      defaultDuration={20}
+      defaultDuration="20"
       onWeekChange={obj => console.log(obj)}
       onHandleSchedule={onHandleScheduleTest}
       personsEmailSelected={personsEmailSelected}
@@ -77,7 +77,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
         personsAvailabilities={personsAvailabilities}
         selectedEmailPerson={selectedEmailPerson}
         durations={[15, 20, 30]}
-        defaultDuration={20}
+        defaultDuration="20"
         dialog
         openOpened
         onWeekChange={obj => console.log(obj)}
@@ -95,7 +95,7 @@ storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
       style={style}
       personsAvailabilities={personsAvailabilities}
       durations={[15, 20, 30]}
-      defaultDuration={20}
+      defaultDuration="20"
       onWeekChange={obj => console.log(obj)}
       onHandleSchedule={onHandleScheduleTest}
       personsEmailSelected={personsEmailSelected}

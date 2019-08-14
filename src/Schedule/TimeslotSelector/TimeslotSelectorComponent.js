@@ -113,6 +113,7 @@ TimeslotSelectorComponent.defaultProps = {
   otherProps: undefined,
   selectedPeople: [],
   selectedDuration: undefined,
+  closeOnHandleSchedule: undefined,
   selectedDate: '',
   selectedTime: '',
   selectedPerson: '',
@@ -120,7 +121,7 @@ TimeslotSelectorComponent.defaultProps = {
 
 TimeslotSelectorComponent.propTypes = {
   dialog: PropTypes.bool.isRequired,
-  closeOnHandleSchedule: PropTypes.func.isRequired,
+  closeOnHandleSchedule: PropTypes.func,
   onHandleSchedule: PropTypes.func.isRequired,
   setSelectedPeople: PropTypes.func.isRequired,
   setSelectedDuration: PropTypes.func.isRequired,
