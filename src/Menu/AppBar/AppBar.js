@@ -10,7 +10,7 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Icon from '@mdi/react';
 import Link from '@material-ui/core/Link';
 import Input from '@material-ui/core/Input';
-import { mdiMagnify, mdiFilterVariant, mdiClose, mdiMenu } from '@mdi/js';
+import { mdiMagnify, mdiClose, mdiMenu } from '@mdi/js';
 import { DefaultProductTypography } from '../DefaultProductTypography';
 import { LocaleContext } from '../../LocaleProvider';
 
@@ -89,7 +89,7 @@ export const AppBar = ({
   const [searchMode, setSearchMode] = useState(false);
   const [value, setCustomValue] = useState('');
   const {
-    AppBar: { filterLabel, closeSearch, openSearch, openMenu },
+    AppBar: { closeSearch, openSearch, openMenu },
   } = useContext(LocaleContext);
 
   return (
@@ -130,18 +130,6 @@ export const AppBar = ({
                 disableUnderline
               />
               <div className={classes.searchRightIcons}>
-                <IconButton
-                  color="inherit"
-                  aria-label={filterLabel}
-                  onClick={() => {}}
-                  className={classes.filters}
-                >
-                  <Icon
-                    path={mdiFilterVariant}
-                    color={theme.palette.primary.contrastText}
-                    size={1}
-                  />
-                </IconButton>
                 <IconButton
                   color="inherit"
                   aria-label={closeSearch}
@@ -275,6 +263,7 @@ AppBar.defaultProps = {
   placeholder: 'Buscar por nome',
   searchBar: false,
   menuBar: true,
+  breadcrumbs: undefined,
 };
 export const breadcrumb = PropTypes.shape({
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
@@ -289,7 +278,7 @@ AppBar.propTypes = {
   menuOnClick: PropTypes.func,
   leftIcons: PropTypes.object,
   rightIcons: PropTypes.object,
-  breadcrumbs: PropTypes.arrayOf(breadcrumb).isRequired,
+  breadcrumbs: PropTypes.arrayOf(breadcrumb),
   loadingBreadcrumbs: PropTypes.bool,
   disableBreadcrumb: PropTypes.bool,
   searchBar: PropTypes.bool,
