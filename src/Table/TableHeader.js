@@ -4,15 +4,29 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Checkbox from '@material-ui/core/Checkbox';
+import clsx from 'clsx';
 import {
   isNotEmptyOrNull,
   isEmptyOrNull,
 } from '@tecsinapse/es-utils/core/object';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import { IconButton } from '@material-ui/core';
+import { mdiArrowUp } from '@mdi/js';
+import Icon from '@mdi/react';
 
 const headerStyles = makeStyles(theme => ({
   selectionColumn: {
     width: '7%',
+  },
+  ascending: {
+    marginLeft: 'auto',
+    transform: 'rotate(0deg)',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  descending: {
+    transform: 'rotate(180deg)',
   },
 }));
 
@@ -58,9 +72,13 @@ const convertColumnToTableCell = (
   data,
   onSelectRow,
   classes,
-  rowId
+  rowId,
+  filters,
+  onChangeSortFilter,
+  theme
 ) => {
   const { visible = true } = options;
+  const { sort = false } = options;
 
   if (!visible) {
     return null;
@@ -94,9 +112,32 @@ const convertColumnToTableCell = (
       </TableCell>
     );
   }
+
   return (
     <TableCell key={field} align={options.numeric ? 'right' : 'left'}>
-      {title}
+      {!options.numeric && title}
+      {sort && (
+        <IconButton
+          disableFocusRipple
+          disableRipple
+          onClick={() => onChangeSortFilter(field)}
+          style={{ padding: 0 }}
+          className={clsx(classes.ascending, {
+            [classes.descending]: filters.ascending === false,
+          })}
+        >
+          <Icon
+            path={mdiArrowUp}
+            color={
+              field === filters.sortField
+                ? theme.palette.text.primary
+                : theme.palette.text.disabled
+            }
+            size={1}
+          />
+        </IconButton>
+      )}
+      {options.numeric && title}
     </TableCell>
   );
 };
@@ -109,8 +150,11 @@ const TableHeader = ({
   onSelectRow,
   rowId,
   tableHeaderHide,
+  filters,
+  onChangeSortFilter,
 }) => {
   const classes = headerStyles();
+  const theme = useTheme();
 
   if (tableHeaderHide) {
     return null;
@@ -119,7 +163,7 @@ const TableHeader = ({
   let tableCells = null;
 
   if (columns && columns.length > 0) {
-    tableCells = columns.map(column =>
+    tableCells = columns.map((column, index) =>
       convertColumnToTableCell(
         column,
         selectedRows,
@@ -127,7 +171,10 @@ const TableHeader = ({
         data,
         onSelectRow,
         classes,
-        rowId
+        rowId,
+        filters,
+        onChangeSortFilter,
+        theme
       )
     );
   }
