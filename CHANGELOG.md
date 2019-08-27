@@ -1,3 +1,20 @@
+<a name="1.0.14"></a>
+## <small>1.0.14 (2019-08-27)</small>
+
+* Fix AppBar: proptype and remove unused filter icon button ([a99ce10](https://github.com/tecsinapse/ui-kit/commit/a99ce10))
+* Release 1.0.10 ([295ee04](https://github.com/tecsinapse/ui-kit/commit/295ee04))
+* Release 1.0.11 ([867e80a](https://github.com/tecsinapse/ui-kit/commit/867e80a))
+* Release 1.0.12 ([db821dc](https://github.com/tecsinapse/ui-kit/commit/db821dc))
+* Release 1.0.13 ([c13174b](https://github.com/tecsinapse/ui-kit/commit/c13174b))
+* Select: select não fecha ao clicar no icon de dropdown #40 ([0dc8d53](https://github.com/tecsinapse/ui-kit/commit/0dc8d53)), closes [#40](https://github.com/tecsinapse/ui-kit/issues/40)
+* Select: select não fecha ao clicar no icon de dropdown #40 ([33c5f15](https://github.com/tecsinapse/ui-kit/commit/33c5f15)), closes [#40](https://github.com/tecsinapse/ui-kit/issues/40)
+* Select: select não fecha ao clicar no icon de dropdown #40 ([e2779df](https://github.com/tecsinapse/ui-kit/commit/e2779df)), closes [#40](https://github.com/tecsinapse/ui-kit/issues/40)
+* Select: select não fecha ao clicar no icon de dropdown #40 ([99b37c2](https://github.com/tecsinapse/ui-kit/commit/99b37c2)), closes [#40](https://github.com/tecsinapse/ui-kit/issues/40)
+* Select: select não fecha ao clicar no icon de dropdown #40 ([a7a07ee](https://github.com/tecsinapse/ui-kit/commit/a7a07ee)), closes [#40](https://github.com/tecsinapse/ui-kit/issues/40)
+* Select: select não fecha ao clicar no icon de dropdown #40 ([89c84f0](https://github.com/tecsinapse/ui-kit/commit/89c84f0)), closes [#40](https://github.com/tecsinapse/ui-kit/issues/40)
+
+
+
 <a name="1.0.13"></a>
 ## <small>1.0.13 (2019-08-14)</small>
 
