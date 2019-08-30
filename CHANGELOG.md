@@ -1,3 +1,11 @@
+<a name="1.0.16"></a>
+## <small>1.0.16 (2019-08-30)</small>
+
+* Improvements: ([e78dc95](https://github.com/tecsinapse/ui-kit/commit/e78dc95))
+* Sort table story, sort table option and update hooks and functions ([18a0859](https://github.com/tecsinapse/ui-kit/commit/18a0859))
+
+
+
 <a name="1.0.15"></a>
 ## <small>1.0.15 (2019-08-30)</small>
 
