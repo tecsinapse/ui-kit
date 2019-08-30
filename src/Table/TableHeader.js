@@ -19,6 +19,7 @@ const headerStyles = makeStyles(theme => ({
     width: '7%',
   },
   ascending: {
+    padding: 0,
     marginLeft: 'auto',
     transform: 'rotate(0deg)',
     transition: theme.transitions.create('transform', {
@@ -121,9 +122,8 @@ const convertColumnToTableCell = (
           disableFocusRipple
           disableRipple
           onClick={() => onChangeSortFilter(field)}
-          style={{ padding: 0 }}
           className={clsx(classes.ascending, {
-            [classes.descending]: filters.ascending === false,
+            [classes.descending]: !filters.ascending,
           })}
         >
           <Icon

@@ -100,9 +100,10 @@ export const initializeFilters = (
   rowsPerPageOptions,
   rowsPerPageProp,
   pageProp,
-  { advancedFilters: advancedFiltersProp },
+  toolbarOptions = {},
   sortFuncInit
 ) => {
+  const { advancedFilters: advancedFiltersProp } = toolbarOptions;
   const headerFilters = {};
   const advancedFilters = {};
   let rowsPerPage = null;

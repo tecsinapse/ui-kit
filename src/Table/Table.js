@@ -68,7 +68,7 @@ const Table = props => {
       rowsPerPageOptions,
       rowsPerPageProp,
       pageProp,
-      toolbarOptions || {},
+      toolbarOptions,
       initializeSortFunc(sortFunc)
     )
   );
