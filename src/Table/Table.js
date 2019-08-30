@@ -18,11 +18,14 @@ import {
   isRemoteData,
   onChangeHeaderFilter,
   onChangePage,
+  onChangeSortFilter,
+  initializeSortFunc,
 } from './tableFunctions';
 import {
   useInitialCheckboxData,
   useInitialData,
-  useUpdateData,
+  useUpdateDataProp,
+  useUpdateDataRemote,
   useUpdatePageData,
 } from './tableHooks';
 
@@ -48,9 +51,11 @@ const Table = props => {
     tableToolbarHide,
     tableHeaderHide,
     id,
+    sortFunc,
   } = props;
 
   const classes = tableStyles();
+
   const [rowCount, setRowCount] = useState(0);
   const [data, setData] = useState([]);
   const [pageData, setPageData] = useState([]);
@@ -63,13 +68,18 @@ const Table = props => {
       rowsPerPageOptions,
       rowsPerPageProp,
       pageProp,
-      toolbarOptions || {}
+      toolbarOptions,
+      initializeSortFunc(sortFunc)
     )
   );
 
   useInitialData(originalData, setData);
   useInitialCheckboxData(selectedData, setSelectedRows);
-  useUpdateData(originalData, setLoading, setData, filters, setRowCount);
+
+  // Only one update data is executed, depends on type of originalData
+  useUpdateDataRemote(originalData, setLoading, setData, filters, setRowCount);
+  useUpdateDataProp(originalData, setLoading, setData, filters, setRowCount);
+
   useUpdatePageData(isRemoteData(originalData), data, setPageData, filters);
 
   const paginationOptions = {
@@ -111,6 +121,8 @@ const Table = props => {
           onSelectRow={onSelectRow}
           rowId={rowId}
           tableHeaderHide={tableHeaderHide}
+          filters={filters}
+          onChangeSortFilter={onChangeSortFilter(setFilters)}
         />
         <TableBody>
           <TableRowFilter
@@ -169,6 +181,7 @@ Table.propTypes = {
       field: PropTypes.string.isRequired,
       options: PropTypes.shape({
         filter: PropTypes.bool,
+        sort: PropTypes.bool,
       }),
       customRender: PropTypes.func,
     })
