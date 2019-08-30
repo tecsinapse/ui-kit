@@ -1,3 +1,10 @@
+<a name="1.0.15"></a>
+## <small>1.0.15 (2019-08-30)</small>
+
+* Parent control to enable it to reset app bar state according to his cycle ([f31613a](https://github.com/tecsinapse/ui-kit/commit/f31613a))
+
+
+
 <a name="1.0.14"></a>
 ## <small>1.0.14 (2019-08-27)</small>
 
