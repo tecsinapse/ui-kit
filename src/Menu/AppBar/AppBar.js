@@ -83,10 +83,11 @@ export const AppBar = ({
   placeholder,
   searchBar,
   menuBar,
+  searchMode,
+  setSearchMode,
 }) => {
   const classes = useStyles();
   const theme = useTheme();
-  const [searchMode, setSearchMode] = useState(false);
   const [value, setCustomValue] = useState('');
   const {
     AppBar: { closeSearch, openSearch, openMenu },
