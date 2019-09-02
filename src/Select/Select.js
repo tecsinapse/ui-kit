@@ -1,6 +1,6 @@
 import { Tooltip, withStyles } from '@material-ui/core';
 import React, { useEffect, useRef, Fragment, useState } from 'react';
-import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/core/object';
+import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/build';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import { useTheme } from '@material-ui/styles';

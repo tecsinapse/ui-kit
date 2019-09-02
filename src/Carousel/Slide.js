@@ -7,7 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { mdiImageOff } from '@mdi/js';
 import Icon from '@mdi/react';
 import { Link } from '@material-ui/core';
-import { isEmptyOrNull } from '@tecsinapse/es-utils/core/object';
+import { isEmptyOrNull } from '@tecsinapse/es-utils/build';
 import { Button } from '../Buttons/Button';
 
 const useStyle = makeStyles(theme => ({

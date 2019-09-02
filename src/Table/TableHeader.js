@@ -5,10 +5,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Checkbox from '@material-ui/core/Checkbox';
 import clsx from 'clsx';
-import {
-  isNotEmptyOrNull,
-  isEmptyOrNull,
-} from '@tecsinapse/es-utils/core/object';
+import { isNotEmptyOrNull, isEmptyOrNull } from '@tecsinapse/es-utils/build';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { IconButton } from '@material-ui/core';
 import { mdiArrowUp } from '@mdi/js';

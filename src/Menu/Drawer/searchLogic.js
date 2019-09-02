@@ -1,4 +1,4 @@
-import { flatten } from '@tecsinapse/es-utils/core/object/index';
+import { flatten } from '@tecsinapse/es-utils/build';
 import { accentFold } from './StringUtils';
 
 export function selectedTitlesTree(items) {
