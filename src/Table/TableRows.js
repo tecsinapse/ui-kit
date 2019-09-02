@@ -9,7 +9,7 @@ import { TableCell } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
 import { VisibilityOff } from '@material-ui/icons';
 import TableCells from './TableCells';
-import { EmptyStateWrapper } from '../Layout/EmptyState';
+import { EmptyStateWrapper } from '../EmptyState/EmptyState';
 import { LocaleContext } from '../LocaleProvider';
 
 const tableRowStyles = hasSelection =>

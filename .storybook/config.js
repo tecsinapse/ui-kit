@@ -1,11 +1,11 @@
-import { configure, addDecorator } from '@storybook/react';
+import { addDecorator, configure } from '@storybook/react';
 import React from 'react';
 import { setDefaults, withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { setOptions } from '@storybook/addon-options';
 
 import { withSmartKnobs } from 'storybook-addon-smart-knobs';
-import { GraphQLClient, ClientContext } from 'graphql-hooks';
+import { ClientContext, GraphQLClient } from 'graphql-hooks';
 import { ThemeProvider } from '../src/ThemeProvider';
 
 const client = new GraphQLClient({
@@ -35,10 +35,8 @@ setDefaults({
 const withStoryStyles = storyFn => (
   <div
     style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
       height: '100vh',
+      width: '100%',
     }}
   >
     {storyFn()}

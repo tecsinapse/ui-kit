@@ -4,8 +4,10 @@ import { storiesOf } from '@storybook/react';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Input } from './Input';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { DivFlex } from '../withFlexCenter';
 
 storiesOf(`${GROUPS.FORMS}|Input`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('input', () => <Input name="a" label="Placeholder" />)
   .add('input with addornment', () => (
     <Input name="a" label="Placeholder" endAdornment={<AccountCircle />} />

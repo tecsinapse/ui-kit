@@ -10,6 +10,7 @@ import TimeslotSelector from './TimeslotSelector';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import { Button, Input } from '../..';
+import { DivFlex } from '../../withFlexCenter';
 
 const personsAvailabilities = require('../../../test/resources/availabilities.json');
 
@@ -56,6 +57,9 @@ const customSteps = [
 ];
 
 storiesOf(`${GROUPS.SCHEDULE}|TimeslotSelector`, module)
+  .addDecorator(story => (
+    <DivFlex style={{ maxWidth: '500px', margin: '0 auto' }}>{story()}</DivFlex>
+  ))
   .add('TimeslotSelector', () => (
     <TimeslotSelector
       style={style}

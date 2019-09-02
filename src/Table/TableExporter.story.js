@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import Table from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { DivFlex } from '../withFlexCenter';
 
 const createCar = (id, brand, name, year, price) => ({
   id,
@@ -75,7 +76,6 @@ const ExporterTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add(
-  'Exporter Table',
-  ExporterTable
-);
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
+  .add('Exporter Table', ExporterTable);

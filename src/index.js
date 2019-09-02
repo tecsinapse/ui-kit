@@ -10,7 +10,7 @@ export { Input } from './Inputs/Input';
 export { FullScreenLoading } from './Loading/FullscreenLoading';
 export { AppBar } from './Menu/AppBar/AppBar';
 export { Drawer } from './Menu/Drawer/Drawer';
-export { Snackbar } from './Notifications/Snackbar';
+export { Snackbar } from './Snackbar/Snackbar';
 export { ThemeProvider } from './ThemeProvider';
 export { EditText } from './EditText/EditText';
 export { AutoRotatingCarousel } from './Carousel/AutoRotatingCarousel';

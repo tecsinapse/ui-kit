@@ -1834,9 +1834,9 @@
     loader-utils "^1.2.3"
 
 "@tecsinapse/es-utils@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/es-utils/-/es-utils-5.0.0.tgz#a312ba34448d168061ad170b4e34d3b986dc66fe"
-  integrity sha512-mBT6zK/dUjVp2a9o584FxQaH3m/gv0+/hWAREAqII5awBfINFa4jA0hoGxAeThckeao1XKyh7Bz/EXIDV0+noQ==
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/es-utils/-/es-utils-5.1.4.tgz#4b2b5d5c972dc88bbeb3be1fa56bd111db074900"
+  integrity sha512-uum0TOvKBUkzKfF2uFJjomndaYCyYLGs5oYDwOOtaNSRSN7gy5BhpdftTixbOANO6lUrRgvk36T9BRsdK9S7DQ==
   dependencies:
     accounting "^0.4.1"
     big.js latest

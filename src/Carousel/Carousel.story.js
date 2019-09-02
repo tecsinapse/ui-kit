@@ -4,8 +4,10 @@ import { storiesOf } from '@storybook/react';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Slide } from './Slide';
 import { AutoRotatingCarousel } from './AutoRotatingCarousel';
+import { DivFlex } from '../withFlexCenter';
 
 storiesOf(`${GROUPS.COMPONENTS}|Carousel`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('carousel single', () => (
     <div style={{ width: '700px', height: '400px' }}>
       <AutoRotatingCarousel>

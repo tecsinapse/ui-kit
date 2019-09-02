@@ -4,13 +4,14 @@ import { storiesOf } from '@storybook/react';
 import { useManualQuery } from 'graphql-hooks';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import AutoComplete from './AutoComplete';
+import { DivFlex } from '../withFlexCenter';
 
 const CONTINENTS_QUERY = `query continents {
 	continents {
 		code
 	  name
 	}
-  }`;
+}`;
 
 const options = fetch => async inputValue => {
   const {
@@ -49,6 +50,6 @@ const AutoCompleteExample = () => {
   );
 };
 
-storiesOf(`${GROUPS.FORMS}|Autocomplete`, module).add('Autocomplete', () => (
-  <AutoCompleteExample />
-));
+storiesOf(`${GROUPS.FORMS}|Autocomplete`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
+  .add('Autocomplete', () => <AutoCompleteExample />);

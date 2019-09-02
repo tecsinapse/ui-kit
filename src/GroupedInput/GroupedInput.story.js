@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { GroupedInput } from './GroupedInput';
+import { DivFlex } from '../withFlexCenter';
 
 function GroupedWrapper({ empty, error }) {
   const [values, setValues] = useState(empty ? [] : ['a', 'b']);
@@ -34,6 +35,7 @@ function GroupedWrapper({ empty, error }) {
 }
 
 storiesOf(`${GROUPS.FORMS}|GroupedInput`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('grouped input', () => <GroupedWrapper />)
   .add('grouped input empty', () => <GroupedWrapper empty />)
   .add('grouped input empty error', () => (

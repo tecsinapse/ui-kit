@@ -31,6 +31,7 @@ const useStyles = makeStyles(({ spacing }) => ({
     marginRight: spacing(2),
   },
 }));
+
 const ExampleAppBar = () => {
   const theme = useTheme();
   const classes = useStyles();
