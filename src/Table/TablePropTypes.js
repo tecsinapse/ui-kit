@@ -47,7 +47,7 @@ export const toolbarOptionsTypes = PropTypes.shape({
     maxWidth: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
     maxHeight: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
   }),
-});
+}).isRequired;
 
 export const paginationOptions = {
   pagination: PropTypes.bool,
