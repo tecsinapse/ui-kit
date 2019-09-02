@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Select } from './Select';
-import { Input } from '../Inputs/Input';
 import { DivFlex } from '../withFlexCenter';
 
 const options = [
@@ -27,35 +26,12 @@ export const SelectWrapper3 = props => {
     <div
       style={{ display: 'flex', flexDirection: 'column', overflow: 'scroll' }}
     >
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
+      <div
+        style={{
+          minHeight: 800,
+        }}
+      />
+
       <Select
         value={multiValue}
         options={options}
@@ -63,21 +39,11 @@ export const SelectWrapper3 = props => {
         label="Placeholder"
         {...props}
       />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
+      <div
+        style={{
+          minHeight: 1000,
+        }}
+      />
     </div>
   );
 };
@@ -119,9 +85,6 @@ storiesOf(`${GROUPS.FORMS}|Select`, module)
   .add('Select Mobile', () => <SelectWrapper variant="mobile" />)
   .add('Select Mobile Multi', () => <SelectWrapper isMulti variant="mobile" />)
   .add('Select Web Multi', () => <SelectWrapper isMulti variant="web" />)
-  .add('Select Show Auto', () => (
-    <SelectWrapper3 isMulti menuPlacement="auto" variant="web" />
-  ))
   .add('Multi FullScreen auto-size not allowed select all', () => (
     <SelectWrapper isMulti variant="web" allowSelectAll={false} />
   ));

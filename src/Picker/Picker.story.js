@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Typography from '@material-ui/core/Typography';
-import DateTime from 'luxon/src/datetime';
+import { DateTime } from 'luxon';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DatePicker } from './DatePicker';
 import { TimePicker } from './TimePicker';
@@ -108,12 +108,6 @@ storiesOf(`${GROUPS.FORMS}|Picker`, module)
   .add('Custom Text Input Date Picker', () => <CustomLabelDatePickerStory />)
   .add('Weekly Date Picker', () => <WeeklyDatePickerStory />)
   .add('Color Picker', () => (
-    <ColorPicker
-      name="color"
-      defaultValue="#000"
-      label="Color Picker"
-      // value={this.state.color} - for controlled component
-      // onChange={color => console.log(color)}
-    />
+    <ColorPicker name="color" defaultValue="#000" label="Color Picker" />
   ))
   .add('Time Picker', () => <TimePickerStory />);
