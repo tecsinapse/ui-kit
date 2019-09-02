@@ -1,3 +1,10 @@
+<a name="2.0.2"></a>
+## <small>2.0.2 (2019-09-02)</small>
+
+* yarn upgrade ([1c62e32](https://github.com/tecsinapse/ui-kit/commit/1c62e32))
+
+
+
 <a name="2.0.1"></a>
 ## <small>2.0.1 (2019-09-02)</small>
 
