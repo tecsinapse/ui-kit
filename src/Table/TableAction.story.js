@@ -10,6 +10,7 @@ import Table from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { defaultRed } from '../colors';
+import { DivFlex } from '../withFlexCenter';
 
 const columns = [
   {
@@ -107,5 +108,6 @@ const ActionTableVertical = () => (
 );
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Action Table', ActionTable)
   .add('Action Table Vertical', ActionTableVertical);

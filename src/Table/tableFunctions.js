@@ -55,6 +55,21 @@ export const onChangeHeaderFilter = setFilters => headerFilters => {
   });
 };
 
+export const onChangeSortFilter = setFilters => field => {
+  setFilters(prevFilters => {
+    const newFilters = {};
+    if (field !== prevFilters.sortField) {
+      // changing the sort column
+      newFilters.sortField = field;
+    } else {
+      // same sort column, change only order
+      newFilters.ascending = !prevFilters.ascending;
+    }
+    const mergedFilters = { ...prevFilters, ...newFilters };
+    return mergedFilters;
+  });
+};
+
 export const onChangePage = setFilters => (rowsPerPage, page) => {
   setFilters(prevFilters => ({ ...prevFilters, ...{ page, rowsPerPage } }));
 };
@@ -85,8 +100,10 @@ export const initializeFilters = (
   rowsPerPageOptions,
   rowsPerPageProp,
   pageProp,
-  { advancedFilters: advancedFiltersProp }
+  toolbarOptions = {},
+  sortFuncInit
 ) => {
+  const { advancedFilters: advancedFiltersProp } = toolbarOptions;
   const headerFilters = {};
   const advancedFilters = {};
   let rowsPerPage = null;
@@ -120,17 +137,26 @@ export const initializeFilters = (
     advancedFilters,
     page: pageProp,
     rowsPerPage,
+    ascending: true,
+    sortField: '',
+    sortFunc: sortFuncInit,
   };
 };
 
-export const applyHeaderFilters = (data, filters) => {
-  const { headerFilters } = filters;
-  let filteredData = [...data];
+export const applyHeaderFilters = (
+  data,
+  headerFilters,
+  ascending,
+  sortField,
+  sortFunc
+) => {
+  let filteredSortData = [...data];
 
+  // Filter
   Object.keys(headerFilters).forEach(field => {
     const { value: filterValue, matchType } = headerFilters[field];
 
-    filteredData = filteredData.filter(row => {
+    filteredSortData = filteredSortData.filter(row => {
       const valueField = resolveObj(field, row);
 
       if (!filterValue) {
@@ -150,5 +176,36 @@ export const applyHeaderFilters = (data, filters) => {
     });
   });
 
-  return filteredData;
+  // Sort when it has clicked in a sorted column
+  if (sortField) {
+    filteredSortData = sortFunc(filteredSortData, sortField, ascending);
+  }
+
+  return filteredSortData;
+};
+
+export const initializeSortFunc = sortFuncProp => {
+  if (sortFuncProp !== undefined) {
+    return sortFuncProp;
+  }
+
+  return (copyData, field, ascending) => {
+    const sortedArray = copyData.sort((obj1, obj2) => {
+      const value1 = resolveData(field, obj1);
+      const value2 = resolveData(field, obj2);
+      if (value1 < value2) {
+        return -1;
+      }
+      if (value1 > value2) {
+        return 1;
+      }
+      return 0;
+    });
+
+    if (ascending) {
+      return sortedArray;
+    }
+    sortedArray.reverse();
+    return sortedArray;
+  };
 };

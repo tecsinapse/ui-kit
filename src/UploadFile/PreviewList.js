@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { convertBytes } from './helper';
 import { ConfirmationAlert } from '../Alerts/ConfirmationAlert';
 import { UpFile } from './UpFile';
-import { Snackbar } from '../Notifications/Snackbar';
+import { Snackbar } from '../Snackbar/Snackbar';
 
 const useStyle = makeStyles({
   root: {

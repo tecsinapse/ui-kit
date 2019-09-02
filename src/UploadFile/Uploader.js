@@ -1,11 +1,11 @@
-import React, { useState, useImperativeHandle, forwardRef } from 'react';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import PropTypes from 'prop-types';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { makeStyles } from '@material-ui/styles';
 import { Typography } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
-import { Snackbar } from '../Notifications/Snackbar';
+import { Snackbar } from '../Snackbar/Snackbar';
 import { convertBytes } from './helper';
 import { Button } from '../Buttons/Button';
 

@@ -6,6 +6,7 @@ import { resolveObj } from '@tecsinapse/es-utils/core/object';
 import Table from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { countries } from './exampleData';
+import { DivFlex } from '../withFlexCenter';
 
 const columns = [
   {
@@ -143,7 +144,6 @@ const AdvancedFiltersTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add(
-  'Advanced Filters Table',
-  () => <AdvancedFiltersTable />
-);
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
+  .add('Advanced Filters Table', () => <AdvancedFiltersTable />);

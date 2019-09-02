@@ -7,6 +7,7 @@ import { storiesOf } from '@storybook/react';
 import Table from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { DivFlex } from '../withFlexCenter';
 
 const columns = [
   {
@@ -78,7 +79,6 @@ const SelectionTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add(
-  'Selection Table',
-  SelectionTable
-);
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
+  .add('Selection Table', SelectionTable);

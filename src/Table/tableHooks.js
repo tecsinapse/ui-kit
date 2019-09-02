@@ -16,29 +16,56 @@ export const useInitialCheckboxData = (selectedData, setSelectedRows) => {
   }, [selectedData, setSelectedRows]);
 };
 
-export const useUpdateData = (
-  data,
+export const useUpdateDataRemote = (
+  originalData,
   setLoading,
   setData,
   filters,
   setTotalCount
 ) => {
   useEffect(() => {
-    setLoading(true);
-
-    if (isRemoteData(data)) {
-      data(filters).then(({ data: resultData, totalCount }) => {
+    if (isRemoteData(originalData)) {
+      setLoading(true);
+      originalData(filters).then(({ data: resultData, totalCount }) => {
         setTotalCount(totalCount);
         setData([...resultData]);
         setLoading(false);
       });
-    } else {
-      const filteredData = applyHeaderFilters(data, filters);
+    }
+  }, [filters, originalData, setLoading, setTotalCount, setData]);
+};
+
+export const useUpdateDataProp = (
+  originalData,
+  setLoading,
+  setData,
+  { headerFilters, ascending, sortField, sortFunc },
+  setTotalCount
+) => {
+  useEffect(() => {
+    if (!isRemoteData(originalData)) {
+      setLoading(true);
+      const filteredData = applyHeaderFilters(
+        originalData,
+        headerFilters,
+        ascending,
+        sortField,
+        sortFunc
+      );
       setTotalCount(filteredData.length);
       setData(filteredData);
       setLoading(false);
     }
-  }, [filters, data, setLoading, setTotalCount, setData]);
+  }, [
+    headerFilters,
+    ascending,
+    sortField,
+    originalData,
+    setLoading,
+    setTotalCount,
+    setData,
+    sortFunc,
+  ]);
 };
 
 export const useUpdatePageData = (

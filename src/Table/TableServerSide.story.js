@@ -6,6 +6,7 @@ import { resolveObj } from '@tecsinapse/es-utils/core/object';
 import Table from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { countries } from './exampleData';
+import { DivFlex } from '../withFlexCenter';
 
 const columns = [
   {
@@ -86,6 +87,6 @@ const ServerSideTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add('Server Side Table', () => (
-  <ServerSideTable />
-));
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
+  .add('Server Side Table', () => <ServerSideTable />);

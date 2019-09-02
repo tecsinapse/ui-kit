@@ -1,3 +1,31 @@
+<a name="2.0.0"></a>
+## 2.0.0 (2019-09-02)
+
+*  - General modifications to remove docz ([62bafbd](https://github.com/tecsinapse/ui-kit/commit/62bafbd))
+* - Removing doc files ([677cc5f](https://github.com/tecsinapse/ui-kit/commit/677cc5f))
+* Ajusting some import erros and not declared deps ([c312994](https://github.com/tecsinapse/ui-kit/commit/c312994))
+* Bump eslint-utils from 1.3.1 to 1.4.2 in /example ([63ede84](https://github.com/tecsinapse/ui-kit/commit/63ede84))
+* Bump mixin-deep from 1.3.1 to 1.3.2 in /example ([bf774a9](https://github.com/tecsinapse/ui-kit/commit/bf774a9))
+* Fix Lodash ([0d19dcf](https://github.com/tecsinapse/ui-kit/commit/0d19dcf))
+* Revert "Fix Lodash" ([6e1719a](https://github.com/tecsinapse/ui-kit/commit/6e1719a))
+
+
+
+<a name="1.0.16"></a>
+## <small>1.0.16 (2019-08-30)</small>
+
+* Improvements: ([e78dc95](https://github.com/tecsinapse/ui-kit/commit/e78dc95))
+* Sort table story, sort table option and update hooks and functions ([18a0859](https://github.com/tecsinapse/ui-kit/commit/18a0859))
+
+
+
+<a name="1.0.15"></a>
+## <small>1.0.15 (2019-08-30)</small>
+
+* Parent control to enable it to reset app bar state according to his cycle ([f31613a](https://github.com/tecsinapse/ui-kit/commit/f31613a))
+
+
+
 <a name="1.0.14"></a>
 ## <small>1.0.14 (2019-08-27)</small>
 

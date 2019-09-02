@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import { TesteUploader } from './TesteUploader';
 import { Button } from '../Buttons/Button';
+import { DivFlex } from '../withFlexCenter';
 
 const SilentUploadExample = () => {
   const fancyRef = useRef();
@@ -20,6 +21,7 @@ const SilentUploadExample = () => {
   );
 };
 storiesOf(`Uploader`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('uploader drag', () => (
     <div style={{ width: '700px', height: '400px' }}>
       <TesteUploader />
