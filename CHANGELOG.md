@@ -1,3 +1,14 @@
+<a name="2.0.1"></a>
+## <small>2.0.1 (2019-09-02)</small>
+
+* - Updating utils and yarn.lock ([a1a6b80](https://github.com/tecsinapse/ui-kit/commit/a1a6b80))
+* ES-UTILS update ([bc1ed49](https://github.com/tecsinapse/ui-kit/commit/bc1ed49))
+* ES-UTILS update and fix wrong dependencies ([5e01909](https://github.com/tecsinapse/ui-kit/commit/5e01909))
+* Toolbar must be undefined when it isn't set ([b5614a0](https://github.com/tecsinapse/ui-kit/commit/b5614a0))
+* toolbarOptions as required and default as a empty object ([4a8354e](https://github.com/tecsinapse/ui-kit/commit/4a8354e))
+
+
+
 <a name="2.0.0"></a>
 ## 2.0.0 (2019-09-02)
 
