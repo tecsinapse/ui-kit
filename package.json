@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
-  "version": "1.0.16",
+  "version": "2.0.0",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "dependencies": {},
@@ -144,13 +144,13 @@
     "memoize-one": "^5.0.0",
     "react": ">= 16.3.x",
     "react-select": "^2.3.0",
+    "react-sizeme": "^2.5.2",
     "react-swipeable-views": "^0.13.1",
     "react-text-mask": "^5.4.3",
     "react-virtualized": "^9.21.0",
     "react-window": "^1.5.1",
     "text-mask-addons": "^3.8.0",
-    "typeface-roboto": "^0.0.54",
-    "react-sizeme": "^2.5.2"
+    "typeface-roboto": "^0.0.54"
   },
   "sideEffects": false
 }

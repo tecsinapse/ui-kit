@@ -1,3 +1,16 @@
+<a name="2.0.0"></a>
+## 2.0.0 (2019-09-02)
+
+*  - General modifications to remove docz ([62bafbd](https://github.com/tecsinapse/ui-kit/commit/62bafbd))
+* - Removing doc files ([677cc5f](https://github.com/tecsinapse/ui-kit/commit/677cc5f))
+* Ajusting some import erros and not declared deps ([c312994](https://github.com/tecsinapse/ui-kit/commit/c312994))
+* Bump eslint-utils from 1.3.1 to 1.4.2 in /example ([63ede84](https://github.com/tecsinapse/ui-kit/commit/63ede84))
+* Bump mixin-deep from 1.3.1 to 1.3.2 in /example ([bf774a9](https://github.com/tecsinapse/ui-kit/commit/bf774a9))
+* Fix Lodash ([0d19dcf](https://github.com/tecsinapse/ui-kit/commit/0d19dcf))
+* Revert "Fix Lodash" ([6e1719a](https://github.com/tecsinapse/ui-kit/commit/6e1719a))
+
+
+
 <a name="1.0.16"></a>
 ## <small>1.0.16 (2019-08-30)</small>
 
