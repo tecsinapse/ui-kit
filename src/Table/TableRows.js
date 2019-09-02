@@ -1,10 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
-import {
-  isEmptyOrNull,
-  isNotEmptyOrNull,
-} from '@tecsinapse/es-utils/core/object';
+import { isEmptyOrNull, isNotEmptyOrNull } from '@tecsinapse/es-utils/build';
 import { TableCell } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
 import { VisibilityOff } from '@material-ui/icons';

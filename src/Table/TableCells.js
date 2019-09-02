@@ -3,7 +3,7 @@ import { useTheme } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import Checkbox from '@material-ui/core/Checkbox';
-import { isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
+import { isNotEmptyOrNull } from '@tecsinapse/es-utils/build';
 import TableRowActions from './TableRowActions';
 import { resolveData } from './tableFunctions';
 

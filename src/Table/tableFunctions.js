@@ -1,4 +1,4 @@
-import { isNotEmptyOrNull, resolveObj } from '@tecsinapse/es-utils/core/object';
+import { isNotEmptyOrNull, resolveObj } from '@tecsinapse/es-utils/build';
 
 export const INCLUDE_MATCH_CONST = 'INCLUDE';
 export const EXACT_MATCH_CONST = 'EXACT';

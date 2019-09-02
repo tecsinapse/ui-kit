@@ -3,7 +3,7 @@ import Lock from '@material-ui/icons/Lock';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { omitDeep } from '@tecsinapse/es-utils/core/object';
+import { omitDeep } from '@tecsinapse/es-utils/build';
 import { Input } from '../Inputs/Input';
 
 const Password = props => {

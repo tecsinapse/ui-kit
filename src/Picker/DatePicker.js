@@ -12,7 +12,7 @@ import {
 } from '@material-ui/pickers';
 
 import Interval from 'luxon/src/interval';
-import { isNotUndefOrNull } from '@tecsinapse/es-utils/core/object';
+import { isNotUndefOrNull } from '@tecsinapse/es-utils/build';
 import { Input } from '../Inputs/Input';
 import { LocaleContext } from '../LocaleProvider';
 import { useStylesWeek } from './customWeekPickerStyles';
