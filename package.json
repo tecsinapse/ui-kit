@@ -91,11 +91,10 @@
     "build-all": "yarn build && yarn docz:build && yarn storybook:build",
     "build-publish": "yarn build-all && npm publish",
     "dev": "rollup -c -w",
-    "docz:build": "docz build -d docs/docz/ --base='/ui-kit/docz/' ",
     "docz:dev": "docz dev",
     "start": "yarn install && yarn storybook",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./storybook-public",
-    "storybook:build": "build-storybook -c .storybook -o docs/storybook/",
+    "storybook:build": "build-storybook -c .storybook -o docs/",
     "test": "NODE_ENV=test jest test/"
   },
   "husky": {
@@ -135,7 +134,7 @@
     "@material-ui/styles": "^4.0.0-rc.0",
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
-    "@tecsinapse/es-utils": "^5.0.0",
+    "@tecsinapse/es-utils": "^5.2.0",
     "@tinymce/tinymce-react": "^3.0.1",
     "classnames": "^2.2.6",
     "luxon": "^1.11.2",
@@ -150,7 +149,8 @@
     "react-virtualized": "^9.21.0",
     "react-window": "^1.5.1",
     "text-mask-addons": "^3.8.0",
-    "typeface-roboto": "^0.0.54"
+    "typeface-roboto": "^0.0.54",
+    "react-sizeme": "^2.5.2"
   },
   "sideEffects": false
 }

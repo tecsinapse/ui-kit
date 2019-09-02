@@ -9,6 +9,7 @@ import { TimePicker } from './TimePicker';
 import { ColorPicker } from './ColorPicker';
 import { PickersProvider } from './PickersProvider';
 import { DateTimePicker } from './DateTimePicker';
+import { DivFlex } from '../withFlexCenter';
 
 const DatePickerStory = () => {
   const [selectedDate, setSelectedDate] = React.useState(
@@ -101,6 +102,7 @@ const DateTimePickerStory = () => {
 };
 
 storiesOf(`${GROUPS.FORMS}|Picker`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Date Picker', () => <DatePickerStory />)
   .add('Date Time Picker', () => <DateTimePickerStory />)
   .add('Custom Text Input Date Picker', () => <CustomLabelDatePickerStory />)

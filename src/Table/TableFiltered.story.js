@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react';
 import Table from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { DivFlex } from '../withFlexCenter';
 
 const columns = [
   {
@@ -47,7 +48,6 @@ const FilteringTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add(
-  'Filtering Table',
-  FilteringTable
-);
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
+  .add('Filtering Table', FilteringTable);

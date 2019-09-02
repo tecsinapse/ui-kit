@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Select } from './Select';
 import { Input } from '../Inputs/Input';
+import { DivFlex } from '../withFlexCenter';
 
 const options = [
   {
@@ -110,6 +111,7 @@ export const SelectWrapper2 = props => {
 };
 
 storiesOf(`${GROUPS.FORMS}|Select`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Select Auto Detect', () => <SelectWrapper />)
   .add('Select No Value', () => <SelectWrapper2 />)
   .add('Select No Value Multi', () => <SelectWrapper2 isMulti />)

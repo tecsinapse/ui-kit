@@ -13,8 +13,10 @@ import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { IconButton } from './IconButton';
 import { FloatingButton } from './FloatingButton';
 import { DivButton } from './DivButton';
+import { DivFlex } from '../withFlexCenter';
 
 storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('button', () => (
     <Button onClick={action('onClick')}>Smart Button</Button>
   ))

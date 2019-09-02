@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react';
 import Table from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { DivFlex } from '../withFlexCenter';
 
 const columns = [
   {
@@ -44,7 +45,6 @@ const CustomRenderTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add(
-  'Custom Render Table',
-  () => <CustomRenderTable />
-);
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
+  .add('Custom Render Table', () => <CustomRenderTable />);

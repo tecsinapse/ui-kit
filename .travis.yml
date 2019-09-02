@@ -3,7 +3,6 @@ node_js:
   - 12
 script:
   - yarn storybook:build
-  - yarn docz:build
   - yarn build
 
 cache:

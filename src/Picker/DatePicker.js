@@ -11,8 +11,8 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 
-import { isNullOrUndefined } from 'rollup-plugin-node-builtins/src/es6/util';
 import Interval from 'luxon/src/interval';
+import { isNotUndefOrNull } from '@tecsinapse/es-utils/core/object';
 import { Input } from '../Inputs/Input';
 import { LocaleContext } from '../LocaleProvider';
 import { useStylesWeek } from './customWeekPickerStyles';
@@ -66,7 +66,7 @@ const useStyle = makeStyles(theme => ({
 function useCustomInput(CustomTextFieldComponentInput) {
   const [open, setOpen] = useState(false);
 
-  if (isNullOrUndefined(CustomTextFieldComponentInput)) {
+  if (!isNotUndefOrNull(CustomTextFieldComponentInput)) {
     return {
       customTextFieldComponent: null,
     };
