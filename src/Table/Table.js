@@ -164,7 +164,7 @@ Table.defaultProps = {
   tableHeaderHide: false,
   actions: [],
   verticalActions: false,
-  toolbarOptions: null,
+  toolbarOptions: undefined,
   pagination: false,
   rowsPerPageOptions: [10, 20, 30],
   rowsPerPage: null,
