@@ -150,7 +150,9 @@
     "react-virtualized": "^9.21.0",
     "react-window": "^1.5.1",
     "text-mask-addons": "^3.8.0",
-    "typeface-roboto": "^0.0.54"
+    "typeface-roboto": "^0.0.54",
+    "text-mask-core": "^5.1.2",
+    "tinymce-i18n": "^19.5.15"
   },
   "sideEffects": false
 }
