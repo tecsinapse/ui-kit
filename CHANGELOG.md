@@ -1,3 +1,10 @@
+<a name="2.0.3"></a>
+## <small>2.0.3 (2019-09-02)</small>
+
+* Updating libs and minor fix ([6df8457](https://github.com/tecsinapse/ui-kit/commit/6df8457))
+
+
+
 <a name="2.0.2"></a>
 ## <small>2.0.2 (2019-09-02)</small>
 
