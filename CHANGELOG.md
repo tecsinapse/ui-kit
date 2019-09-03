@@ -1,3 +1,10 @@
+<a name="2.0.4"></a>
+## <small>2.0.4 (2019-09-03)</small>
+
+* Missing Deps ([6b4c12b](https://github.com/tecsinapse/ui-kit/commit/6b4c12b))
+
+
+
 <a name="2.0.3"></a>
 ## <small>2.0.3 (2019-09-02)</small>
 
