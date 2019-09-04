@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import MUITable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/styles';
+
 import { tableStyles } from './tableStyle';
 import TableRowFilter from './TableRowFilter';
+import { TableMobile } from './TableMobile';
 import TableHeader from './TableHeader';
 import TableRows from './TableRows';
 import TableToolbar from './TableToolbar';
@@ -96,59 +100,78 @@ const Table = props => {
     ({ options: columnOptions = {} }) => columnOptions.filter
   );
 
+  let mobile = false;
+  const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
+  if (matches) {
+    mobile = true;
+  }
+
   return (
     <div className={propClasses.root} id={id}>
       <TableLoading loading={loading} />
-      <TableToolbar
-        options={toolbarOptions}
-        selectedRows={selectedRows}
-        selection={options.selection}
-        exportOptions={exportOptions}
-        data={isRemoteData(originalData) ? originalData : data}
-        filters={filters}
-        setFilters={setFilters}
-        columns={columns}
-        setLoading={setLoading}
-        rowCount={rowCount}
-        tableToolbarHide={tableToolbarHide}
-      />
-      <MUITable className={classes.table}>
-        <TableHeader
-          columns={tableColumns}
-          selectedRows={selectedRows}
-          setSelectedRows={setSelectedRows}
-          data={pageData}
-          onSelectRow={onSelectRow}
-          rowId={rowId}
-          tableHeaderHide={tableHeaderHide}
-          filters={filters}
-          onChangeSortFilter={onChangeSortFilter(setFilters)}
-        />
-        <TableBody>
-          <TableRowFilter
-            rendered={someColumnHasFilter}
-            columns={tableColumns}
-            data={originalData}
-            onChangeFilter={onChangeHeaderFilter(setFilters)}
-          />
-          <TableRows
-            columns={tableColumns}
-            forceCollapseActions={forceCollapseActions}
-            verticalActions={verticalActions}
-            data={pageData}
+      {mobile ? (
+        <div style={{ height: '100%', width: '100%' }}>
+          <TableMobile
+            columns={columns}
+            data={data}
             rowId={rowId}
             onRowClick={onRowClick}
-            selectedRows={selectedRows}
-            setSelectedRows={setSelectedRows}
-            onSelectRow={onSelectRow}
           />
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination {...paginationOptions} />
-          </TableRow>
-        </TableFooter>
-      </MUITable>
+        </div>
+      ) : (
+        <Fragment>
+          <TableToolbar
+            options={toolbarOptions}
+            selectedRows={selectedRows}
+            selection={options.selection}
+            exportOptions={exportOptions}
+            data={isRemoteData(originalData) ? originalData : data}
+            filters={filters}
+            setFilters={setFilters}
+            columns={columns}
+            setLoading={setLoading}
+            rowCount={rowCount}
+            tableToolbarHide={tableToolbarHide}
+          />
+          <MUITable className={classes.table}>
+            <TableHeader
+              columns={tableColumns}
+              selectedRows={selectedRows}
+              setSelectedRows={setSelectedRows}
+              data={pageData}
+              onSelectRow={onSelectRow}
+              rowId={rowId}
+              tableHeaderHide={tableHeaderHide}
+              filters={filters}
+              onChangeSortFilter={onChangeSortFilter(setFilters)}
+            />
+            <TableBody>
+              <TableRowFilter
+                rendered={someColumnHasFilter}
+                columns={tableColumns}
+                data={originalData}
+                onChangeFilter={onChangeHeaderFilter(setFilters)}
+              />
+              <TableRows
+                columns={tableColumns}
+                forceCollapseActions={forceCollapseActions}
+                verticalActions={verticalActions}
+                data={pageData}
+                rowId={rowId}
+                onRowClick={onRowClick}
+                selectedRows={selectedRows}
+                setSelectedRows={setSelectedRows}
+                onSelectRow={onSelectRow}
+              />
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination {...paginationOptions} />
+              </TableRow>
+            </TableFooter>
+          </MUITable>
+        </Fragment>
+      )}
     </div>
   );
 };
