@@ -11,7 +11,7 @@ import List from '@material-ui/core/List';
 import { Divider } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
-const Action = ({ action, row, vertical, setAnchorEl }) => {
+export const Action = ({ action, row, vertical, setAnchorEl }) => {
   const {
     icon,
     tooltip,
@@ -23,7 +23,9 @@ const Action = ({ action, row, vertical, setAnchorEl }) => {
   const onClickButton = event => {
     if (onClick) {
       onClick(row, event);
-      setAnchorEl(null);
+      if (setAnchorEl) {
+        setAnchorEl(null);
+      }
     }
     event.stopPropagation();
   };
@@ -57,7 +59,7 @@ const Action = ({ action, row, vertical, setAnchorEl }) => {
   return button;
 };
 
-function getActionButtons(actions, vertical = false, row, setAnchorEl) {
+export function getActionButtons(actions, vertical = false, row, setAnchorEl) {
   return actions
     .filter(action => !action.visible || action.visible(row))
     .map((action, index) => (

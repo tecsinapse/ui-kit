@@ -70,6 +70,21 @@ export const onChangeSortFilter = setFilters => field => {
   });
 };
 
+export const onChangeStartStopIndex = setFilters => ({
+  startIndex,
+  stopIndex,
+}) => {
+  let loadedResolver;
+  const loadedPromise = new Promise(resolve => {
+    loadedResolver = resolve;
+  });
+  setFilters(prevFilters => ({
+    ...prevFilters,
+    ...{ startIndex, stopIndex, loadedResolver },
+  }));
+  return loadedPromise;
+};
+
 export const onChangePage = setFilters => (rowsPerPage, page) => {
   setFilters(prevFilters => ({ ...prevFilters, ...{ page, rowsPerPage } }));
 };
@@ -140,6 +155,13 @@ export const initializeFilters = (
     ascending: true,
     sortField: '',
     sortFunc: sortFuncInit,
+
+    // TODO: Remove page/rowsPerPage logic to start stop index.
+    // they have the same meaning, but the start/stop is used by
+    // react-virtualized being easier to make as default than page logic
+    startIndex: 0,
+    stopIndex: rowsPerPage,
+    loadedResolver: null,
   };
 };
 

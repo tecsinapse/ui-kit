@@ -1,12 +1,19 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
+import { makeStyles } from '@material-ui/core';
 
 import { resolveObj } from '@tecsinapse/es-utils/core/object';
 import Table from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { countries } from './exampleData';
 import { DivFlex } from '../withFlexCenter';
+
+const useStyle = makeStyles(() => ({
+  rootMobile: {
+    height: '100vh',
+  },
+}));
 
 const columns = [
   {
@@ -32,60 +39,74 @@ const columns = [
   },
 ];
 
-const ServerSideTable = () => (
-  <Paper style={{ width: 800 }}>
-    <Table
-      columns={columns}
-      data={async filters => {
-        const { headerFilters, page, rowsPerPage } = filters;
+const ServerSideTable = () => {
+  const classes = useStyle();
 
-        let filteredData = [...countries];
+  return (
+    <Paper style={{ width: 800 }}>
+      <Table
+        columns={columns}
+        classes={classes}
+        data={async filters => {
+          const {
+            headerFilters,
+            page,
+            rowsPerPage,
+            startIndex,
+            stopIndex,
+            loadedResolver,
+          } = filters;
 
-        Object.keys(headerFilters).forEach(field => {
-          const filterValue = headerFilters[field];
+          let filteredData = [...countries];
 
-          filteredData = filteredData.filter(row => {
-            const valueField = resolveObj(field, row);
+          Object.keys(headerFilters).forEach(field => {
+            const filterValue = headerFilters[field];
 
-            if (!filterValue) {
-              return true;
-            }
+            filteredData = filteredData.filter(row => {
+              const valueField = resolveObj(field, row);
 
-            if (typeof valueField === 'object') {
-              return true;
-            }
-            if (typeof valueField === 'string') {
-              return valueField
-                .toLowerCase()
-                .includes(filterValue.toLowerCase());
-            }
-            return false;
+              if (!filterValue) {
+                return true;
+              }
+
+              if (typeof valueField === 'object') {
+                return true;
+              }
+              if (typeof valueField === 'string') {
+                return valueField
+                  .toLowerCase()
+                  .includes(filterValue.toLowerCase());
+              }
+              return false;
+            });
           });
-        });
-        return {
-          data: filteredData.slice(
-            page * rowsPerPage,
-            page * rowsPerPage + rowsPerPage
-          ),
-          totalCount: filteredData.length,
-        };
-      }}
-      rowId={row => row.code}
-      toolbarOptions={{ title: 'Server Side Example' }}
-      pagination
-      exportOptions={{
-        exportTypes: [
-          {
-            type: 'csv',
-          },
-        ],
-      }}
-      options={{
-        selection: true,
-      }}
-    />
-  </Paper>
-);
+          return {
+            data: filteredData.slice(
+              // It can get the slice by start/stop index or page/rowsPerPage.
+              // The first one is for mobile, while the second one is for desktop
+              loadedResolver ? startIndex : page * rowsPerPage,
+              loadedResolver ? stopIndex : page * rowsPerPage + rowsPerPage
+            ),
+            totalCount: filteredData.length,
+          };
+        }}
+        rowId={row => row.code}
+        toolbarOptions={{ title: 'Server Side Example' }}
+        pagination
+        exportOptions={{
+          exportTypes: [
+            {
+              type: 'csv',
+            },
+          ],
+        }}
+        options={{
+          selection: true,
+        }}
+      />
+    </Paper>
+  );
+};
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)

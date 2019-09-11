@@ -5,12 +5,19 @@ import SearchIcon from '@material-ui/icons/Search';
 import MailIcon from '@material-ui/icons/Mail';
 import DeleteIcon from '@material-ui/icons/DeleteForever';
 import { storiesOf } from '@storybook/react';
+import { makeStyles } from '@material-ui/core';
 
 import Table from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { defaultRed } from '../colors';
 import { DivFlex } from '../withFlexCenter';
+
+const useStyle = makeStyles(() => ({
+  rootMobile: {
+    height: '100vh',
+  },
+}));
 
 const columns = [
   {
@@ -68,46 +75,61 @@ const actions = [
   },
 ];
 
-const ActionTable = () => (
-  <Paper style={{ width: 1000 }}>
-    <Table
-      columns={columns}
-      data={cars}
-      rowId={row => row.id}
-      actions={actions}
-    />
-  </Paper>
-);
-const ActionTableVertical = () => (
-  <Paper style={{ width: 1000 }}>
-    <Table
-      columns={columns}
-      data={cars}
-      verticalActions
-      rowId={row => row.id}
-      actions={[
-        {
-          label: 'Mail',
-          onClick: rowData => {
-            // eslint-disable-next-line
-            console.log(JSON.stringify(rowData));
+const ActionTable = () => {
+  const classes = useStyle();
+
+  return (
+    <Paper style={{ width: 1000 }}>
+      <Table
+        columns={columns}
+        data={cars}
+        rowId={row => row.id}
+        actions={actions}
+        classes={classes}
+        onRowClick={rowData => {
+          // eslint-disable-next-line no-alert
+          alert(JSON.stringify(rowData));
+        }}
+      />
+    </Paper>
+  );
+};
+
+const ActionTableVertical = () => {
+  const classes = useStyle();
+
+  return (
+    <Paper style={{ width: 1000 }}>
+      <Table
+        classes={classes}
+        columns={columns}
+        data={cars}
+        verticalActions
+        rowId={row => row.id}
+        actions={[
+          {
+            label: 'Mail',
+            onClick: rowData => {
+              // eslint-disable-next-line
+              console.log(JSON.stringify(rowData));
+            },
+            bottomDivider: true,
           },
-          bottomDivider: true,
-        },
-        {
-          labelColor: defaultRed,
-          label: 'Search item',
-          onClick: rowData => {
-            // eslint-disable-next-line no-alert
-            alert(JSON.stringify(rowData));
+          {
+            labelColor: defaultRed,
+            label: 'Search item',
+            onClick: rowData => {
+              // eslint-disable-next-line no-alert
+              alert(JSON.stringify(rowData));
+            },
           },
-        },
-      ]}
-    />
-  </Paper>
-);
+        ]}
+      />
+    </Paper>
+  );
+};
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('Action Table', ActionTable)
-  .add('Action Table Vertical', ActionTableVertical);
+  .add('Action Table', () => <ActionTable />)
+  .add('Action Table Vertical', () => <ActionTableVertical />);

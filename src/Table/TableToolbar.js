@@ -35,12 +35,22 @@ const SimpleToolbar = ({
   setFilters,
   setLoading,
   rowCount,
+  mobile,
 }) => {
   const { title, advancedFilters } = options || {};
   const classes = tableToolbarStyles();
   const {
     Table: { tooltipAdvancedFilter },
   } = useContext(LocaleContext);
+  const { exportTypes } = exportOptions || {};
+
+  if (
+    !advancedFilters &&
+    !title &&
+    (!exportTypes || exportTypes.length === 0)
+  ) {
+    return null;
+  }
 
   return (
     <div>
@@ -64,6 +74,7 @@ const SimpleToolbar = ({
             advancedFilters={advancedFilters}
             setFilters={setFilters}
             filters={filters}
+            mobile={mobile}
           />
         </div>
       </Toolbar>
@@ -84,6 +95,7 @@ const TableToolbar = ({
   setLoading,
   rowCount,
   tableToolbarHide = false,
+  mobile = false,
 }) => {
   if (tableToolbarHide) {
     return null;
@@ -103,6 +115,7 @@ const TableToolbar = ({
         columns={columns}
         setLoading={setLoading}
         rowCount={rowCount}
+        mobile={mobile}
       />
     );
   }

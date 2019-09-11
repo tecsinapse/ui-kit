@@ -1,4 +1,4 @@
-import React, { useContext, createRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { isEmptyOrNull } from '@tecsinapse/es-utils/core/object';
 import { VisibilityOff } from '@material-ui/icons';
@@ -7,6 +7,7 @@ import {
   List,
   AutoSizer,
   CellMeasurerCache,
+  InfiniteLoader,
 } from 'react-virtualized';
 
 import { LocaleContext } from '../LocaleProvider';
@@ -18,8 +19,16 @@ const cache = new CellMeasurerCache({
   fixedWidth: true,
 });
 
-export const TableMobile = ({ columns, data, rowId, onRowClick }) => {
-  const listRef = createRef();
+export const TableMobile = ({
+  columns,
+  data,
+  rowId,
+  onRowClick,
+  actions,
+  rowCount,
+  onChangeStartStopIndex,
+}) => {
+  const list = useRef();
 
   const {
     Table: { emptyStateTitle, emptyStateMessage },
@@ -39,42 +48,62 @@ export const TableMobile = ({ columns, data, rowId, onRowClick }) => {
     );
   }
 
+  const isRowLoaded = ({ index }) => !!data[index];
+
   return (
-    <AutoSizer>
-      {({ width, height }) => (
-        <List
-          ref={listRef}
-          width={width}
-          height={height}
-          rowCount={data.length}
-          deferredMeasurementCache={cache}
-          rowHeight={cache.rowHeight}
-          rowRenderer={({ index, key, parent, style }) => (
-            <CellMeasurer
-              cache={cache}
-              columnIndex={0}
-              key={key}
-              parent={parent}
-              rowIndex={index}
-            >
-              <div style={style}>
-                <TableCard
-                  clearCache={() => cache.clear(index, 0)}
-                  data={data[index]}
-                  updateList={() => {
-                    listRef.current.recomputeRowHeights(index);
-                    listRef.current.forceUpdateGrid();
-                  }}
-                  onRowClick={onRowClick}
-                  rowId={rowId(data[index])}
-                  columns={columns}
-                />
-              </div>
-            </CellMeasurer>
+    <InfiniteLoader
+      isRowLoaded={isRowLoaded}
+      loadMoreRows={onChangeStartStopIndex}
+      rowCount={rowCount}
+    >
+      {({ onRowsRendered, registerChild }) => (
+        <AutoSizer>
+          {({ width, height }) => (
+            <List
+              onRowsRendered={onRowsRendered}
+              ref={ref => {
+                // InfinityLoader and TableCard need to access to the list updater
+                // TableCard is a functional ref, while InfinityLoader approaches as a class ref
+                if (ref) {
+                  registerChild(ref);
+                  list.current = ref;
+                }
+              }}
+              width={width}
+              height={height}
+              rowCount={rowCount}
+              deferredMeasurementCache={cache}
+              rowHeight={cache.rowHeight}
+              rowRenderer={({ index, key, parent, style }) => (
+                <CellMeasurer
+                  cache={cache}
+                  columnIndex={0}
+                  key={key}
+                  parent={parent}
+                  rowIndex={index}
+                >
+                  <div style={style}>
+                    <TableCard
+                      clearCache={() => cache.clear(index, 0)}
+                      data={data[index]}
+                      updateList={() => {
+                        list.current.recomputeRowHeights(index);
+                        list.current.forceUpdateGrid();
+                      }}
+                      onRowClick={onRowClick}
+                      columns={columns}
+                      actions={actions}
+                      key={key}
+                      rowId={key}
+                    />
+                  </div>
+                </CellMeasurer>
+              )}
+            />
           )}
-        />
+        </AutoSizer>
       )}
-    </AutoSizer>
+    </InfiniteLoader>
   );
 };
 

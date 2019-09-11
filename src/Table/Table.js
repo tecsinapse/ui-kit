@@ -24,6 +24,7 @@ import {
   onChangePage,
   onChangeSortFilter,
   initializeSortFunc,
+  onChangeStartStopIndex,
 } from './tableFunctions';
 import {
   useInitialCheckboxData,
@@ -56,10 +57,11 @@ const Table = props => {
     tableHeaderHide,
     id,
     sortFunc,
+    variant,
   } = props;
 
   const classes = tableStyles();
-
+  const [mobile, setMobile] = useState(false);
   const [rowCount, setRowCount] = useState(0);
   const [data, setData] = useState([]);
   const [pageData, setPageData] = useState([]);
@@ -81,7 +83,14 @@ const Table = props => {
   useInitialCheckboxData(selectedData, setSelectedRows);
 
   // Only one update data is executed, depends on type of originalData
-  useUpdateDataRemote(originalData, setLoading, setData, filters, setRowCount);
+  useUpdateDataRemote(
+    originalData,
+    setLoading,
+    setData,
+    filters,
+    setRowCount,
+    mobile
+  );
   useUpdateDataProp(originalData, setLoading, setData, filters, setRowCount);
 
   useUpdatePageData(isRemoteData(originalData), data, setPageData, filters);
@@ -100,78 +109,94 @@ const Table = props => {
     ({ options: columnOptions = {} }) => columnOptions.filter
   );
 
-  let mobile = false;
+  // Update the device
   const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
-  if (matches) {
-    mobile = true;
+  if (variant === 'auto') {
+    if (matches && !mobile) {
+      setMobile(true);
+    } else if (!matches && mobile) {
+      setMobile(false);
+    }
+  } else if (variant === 'mobile' && !mobile) {
+    setMobile(true);
+  } else if (mobile) {
+    setMobile(false);
   }
 
   return (
-    <div className={propClasses.root} id={id}>
-      <TableLoading loading={loading} />
-      {mobile ? (
-        <div style={{ height: '100%', width: '100%' }}>
-          <TableMobile
-            columns={columns}
-            data={data}
-            rowId={rowId}
-            onRowClick={onRowClick}
-          />
-        </div>
-      ) : (
-        <Fragment>
-          <TableToolbar
-            options={toolbarOptions}
-            selectedRows={selectedRows}
-            selection={options.selection}
-            exportOptions={exportOptions}
-            data={isRemoteData(originalData) ? originalData : data}
-            filters={filters}
-            setFilters={setFilters}
-            columns={columns}
-            setLoading={setLoading}
-            rowCount={rowCount}
-            tableToolbarHide={tableToolbarHide}
-          />
-          <MUITable className={classes.table}>
-            <TableHeader
-              columns={tableColumns}
-              selectedRows={selectedRows}
-              setSelectedRows={setSelectedRows}
-              data={pageData}
-              onSelectRow={onSelectRow}
-              rowId={rowId}
-              tableHeaderHide={tableHeaderHide}
-              filters={filters}
-              onChangeSortFilter={onChangeSortFilter(setFilters)}
-            />
-            <TableBody>
-              <TableRowFilter
-                rendered={someColumnHasFilter}
-                columns={tableColumns}
-                data={originalData}
-                onChangeFilter={onChangeHeaderFilter(setFilters)}
-              />
-              <TableRows
-                columns={tableColumns}
-                forceCollapseActions={forceCollapseActions}
-                verticalActions={verticalActions}
-                data={pageData}
+    <div className={mobile ? propClasses.rootMobile : propClasses.root} id={id}>
+      <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+        <TableLoading loading={loading} />
+        <TableToolbar
+          options={toolbarOptions}
+          selectedRows={selectedRows}
+          selection={options.selection}
+          exportOptions={exportOptions}
+          data={isRemoteData(originalData) ? originalData : data}
+          filters={filters}
+          setFilters={setFilters}
+          columns={columns}
+          setLoading={setLoading}
+          rowCount={rowCount}
+          tableToolbarHide={tableToolbarHide}
+          mobile={mobile}
+        />
+        {mobile ? (
+          <div style={{ flex: '1 1 auto', width: '100vw' }}>
+            <div style={{ height: '100%' }}>
+              <TableMobile
+                columns={columns}
                 rowId={rowId}
                 onRowClick={onRowClick}
+                actions={actions}
+                rowCount={rowCount}
+                data={data}
+                onChangeStartStopIndex={onChangeStartStopIndex(setFilters)}
+              />
+            </div>
+          </div>
+        ) : (
+          <Fragment>
+            <MUITable className={classes.table}>
+              <TableHeader
+                columns={tableColumns}
                 selectedRows={selectedRows}
                 setSelectedRows={setSelectedRows}
+                data={pageData}
                 onSelectRow={onSelectRow}
+                rowId={rowId}
+                tableHeaderHide={tableHeaderHide}
+                filters={filters}
+                onChangeSortFilter={onChangeSortFilter(setFilters)}
               />
-            </TableBody>
-            <TableFooter>
-              <TableRow>
-                <TablePagination {...paginationOptions} />
-              </TableRow>
-            </TableFooter>
-          </MUITable>
-        </Fragment>
-      )}
+              <TableBody>
+                <TableRowFilter
+                  rendered={someColumnHasFilter}
+                  columns={tableColumns}
+                  data={originalData}
+                  onChangeFilter={onChangeHeaderFilter(setFilters)}
+                />
+                <TableRows
+                  columns={tableColumns}
+                  forceCollapseActions={forceCollapseActions}
+                  verticalActions={verticalActions}
+                  data={pageData}
+                  rowId={rowId}
+                  onRowClick={onRowClick}
+                  selectedRows={selectedRows}
+                  setSelectedRows={setSelectedRows}
+                  onSelectRow={onSelectRow}
+                />
+              </TableBody>
+              <TableFooter>
+                <TableRow>
+                  <TablePagination {...paginationOptions} />
+                </TableRow>
+              </TableFooter>
+            </MUITable>
+          </Fragment>
+        )}
+      </div>
     </div>
   );
 };
@@ -195,6 +220,7 @@ Table.defaultProps = {
   exportOptions: null,
   id: null,
   classes: {},
+  variant: 'auto',
 };
 
 Table.propTypes = {
@@ -243,6 +269,7 @@ Table.propTypes = {
   page: PropTypes.number,
   classes: PropTypes.shape({
     root: PropTypes.string,
+    rootMobile: PropTypes.string,
   }),
   exportOptions: PropTypes.shape({
     exportFileName: PropTypes.string,
@@ -254,6 +281,7 @@ Table.propTypes = {
       })
     ),
   }),
+  variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
 };
 
 export default Table;

@@ -3,11 +3,18 @@ import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
 import { storiesOf } from '@storybook/react';
+import { makeStyles } from '@material-ui/core';
 
 import Table from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DivFlex } from '../withFlexCenter';
+
+const useStyle = makeStyles(() => ({
+  rootMobile: {
+    height: '100vh',
+  },
+}));
 
 const columns = [
   {
@@ -40,45 +47,50 @@ const onSelectRow = (selectedRows, selectedRow, checked) => {
   console.log(selectedRow);
 };
 
-const SelectionTable = () => (
-  <Paper style={{ width: 1000 }}>
-    <Table
-      columns={columns}
-      data={cars}
-      rowId={row => row.id}
-      options={tableOptions}
-      onSelectRow={onSelectRow}
-      toolbarOptions={{
-        title: 'List of Cars',
-        actions: [
-          {
-            key: 'no-icon',
-            label: 'No Icon Button',
-            onClick: selectedRows => {},
-          },
-          {
-            key: 'send',
-            label: 'Send',
-            iconRight: <SendIcon />,
-            tooltip: 'Send rows do email',
-            onClick: selectedRows =>
-              // eslint-disable-next-line
-              alert(`You have send ${selectedRows.length} row(s)`),
-          },
-          {
-            key: 'delete',
-            label: 'Delete',
-            iconLeft: <DeleteIcon />,
-            onClick: selectedRows =>
-              // eslint-disable-next-line
-              alert(`You have deleted ${selectedRows.length} row(s)`),
-          },
-        ],
-      }}
-    />
-  </Paper>
-);
+const SelectionTable = () => {
+  const classes = useStyle();
+
+  return (
+    <Paper style={{ width: 1000 }}>
+      <Table
+        columns={columns}
+        data={cars}
+        rowId={row => row.id}
+        options={tableOptions}
+        onSelectRow={onSelectRow}
+        classes={classes}
+        toolbarOptions={{
+          title: 'List of Cars',
+          actions: [
+            {
+              key: 'no-icon',
+              label: 'No Icon Button',
+              onClick: selectedRows => {},
+            },
+            {
+              key: 'send',
+              label: 'Send',
+              iconRight: <SendIcon />,
+              tooltip: 'Send rows do email',
+              onClick: selectedRows =>
+                // eslint-disable-next-line
+                alert(`You have send ${selectedRows.length} row(s)`),
+            },
+            {
+              key: 'delete',
+              label: 'Delete',
+              iconLeft: <DeleteIcon />,
+              onClick: selectedRows =>
+                // eslint-disable-next-line
+                alert(`You have deleted ${selectedRows.length} row(s)`),
+            },
+          ],
+        }}
+      />
+    </Paper>
+  );
+};
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('Selection Table', SelectionTable);
+  .add('Selection Table', () => <SelectionTable />);

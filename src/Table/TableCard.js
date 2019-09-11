@@ -1,23 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, Fragment } from 'react';
 import {
   Card,
   CardContent,
-  CardHeader,
   CardActions,
-  ButtonBase,
+  CardActionArea,
   Collapse,
   Grid,
   Typography,
+  Drawer,
+  List,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { mdiDotsVertical } from '@mdi/js';
 import Icon from '@mdi/react';
 import clsx from 'clsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
 
 import { IconButton } from '../Buttons/IconButton';
 import { Divider } from '../Divider/Divider';
 import { resolveData } from './tableFunctions';
+import { getActionButtons } from './TableRowActions';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -34,7 +37,34 @@ const useStyles = makeStyles(theme => ({
     display: 'block',
     textAlign: 'initial',
   },
+  expand: {
+    marginLeft: 'auto',
+    transform: 'rotate(0deg)',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
 }));
+
+const CardColumn = ({ title, customRender, data, field }) => (
+  <div key={field}>
+    <Typography variant="body2" color="textSecondary">
+      {title}
+    </Typography>
+    <div>
+      {customRender ? (
+        customRender(data)
+      ) : (
+        <Typography variant="subtitle2" color="textPrimary">
+          {resolveData(field, data)}
+        </Typography>
+      )}
+    </div>
+  </div>
+);
 
 export const TableCard = ({
   clearCache,
@@ -42,94 +72,150 @@ export const TableCard = ({
   data,
   columns,
   onRowClick,
+  actions,
   rowId,
 }) => {
   const [expanded, setExpanded] = useState(false);
-  const [hiddenColumn, setHiddenColumn] = useState([]);
-  const [visibleColumn, setVisibleColumn] = useState([]);
+  const [isHidden, setIsHidden] = useState(false);
+  const [openActions, setOpenActions] = useState(false);
 
   const classes = useStyles();
 
-  useEffect(() => {
-    setHiddenColumn(
-      columns.filter(({ options = {} }) => {
-        const { visible = true } = options;
-        const { hiddenCard = false } = options;
-        return visible && hiddenCard;
-      })
-    );
-
-    setVisibleColumn(
-      columns.filter(({ options = {} }) => {
-        const { visible = true } = options;
-        const { hiddenCard = false } = options;
-        return visible && !hiddenCard;
-      })
-    );
-  }, [columns, setHiddenColumn, setVisibleColumn]);
-
   return (
     <Card square className={classes.card} key={rowId}>
-      <ButtonBase
-        centerRipple
-        className={classes.cardAction}
-        onClick={() => onRowClick(data)}
+      <CardActionArea
+        disableRipple
+        onClick={() => (onRowClick ? onRowClick(data) : null)}
       >
-        <CardHeader
-          action={
-            <IconButton aria-label="actions">
-              <Icon path={mdiDotsVertical} size={1} />
-            </IconButton>
-          }
-        />
         <CardContent>
-          <Grid spacing={2} container>
-            {visibleColumn.map(({ field, customRender }) => (
-              <Grid item sm={12}>
-                {field}
-                {customRender ? customRender(data) : resolveData(field, data)}
-              </Grid>
-            ))}
-            <Collapse
-              in={expanded}
-              timeout="auto"
-              onEntered={updateList}
-              onExited={() => {
-                updateList();
-              }}
-            >
-              {hiddenColumn.map(({ field, customRender }) => (
-                <Grid item sm={12}>
-                  {field}
-                  {customRender ? customRender(data) : resolveData(field, data)}
+          <Grid spacing={1} direction="column" container>
+            {columns.map(({ title, field, customRender, options = {} }, i) => {
+              const { visible = true } = options;
+              const { hiddenCard = false } = options;
+
+              if (hiddenCard || !visible) {
+                return null;
+              }
+              return (
+                <Grid item xs={12} key={field}>
+                  <div style={{ display: 'flex' }}>
+                    <div
+                      style={{
+                        flex: '1 1 auto',
+                      }}
+                    >
+                      <CardColumn
+                        title={title}
+                        customRender={customRender}
+                        data={data}
+                        field={field}
+                      />
+                    </div>
+                    {i === 0 && isNotEmptyOrNull(actions) && (
+                      <Fragment>
+                        <div
+                          style={{
+                            flex: '0 0 auto',
+                            alignSelf: 'flex-start',
+                          }}
+                        >
+                          <IconButton
+                            aria-label="actions"
+                            style={{
+                              marginRight: '-8px',
+                              marginTop: '-8px',
+                            }}
+                            onClick={e => {
+                              e.stopPropagation();
+                              e.preventDefault();
+                              setOpenActions(true);
+                            }}
+                          >
+                            <Icon path={mdiDotsVertical} size={1} />
+                          </IconButton>
+                        </div>
+                        <Drawer
+                          anchor="bottom"
+                          open={openActions}
+                          onClose={e => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            setOpenActions(false);
+                          }}
+                        >
+                          <List disablePadding>
+                            {getActionButtons(actions, true, data)}
+                          </List>
+                        </Drawer>
+                      </Fragment>
+                    )}
+                  </div>
                 </Grid>
-              ))}
-            </Collapse>
+              );
+            })}
           </Grid>
-        </CardContent>
 
-        <Divider variant="solid" />
-
-        <CardActions style={{ padding: 'unset' }}>
-          <IconButton
-            onClick={() => {
-              clearCache();
-              setExpanded(!expanded);
+          <Collapse
+            in={expanded}
+            timeout="auto"
+            onEntered={updateList}
+            onExited={() => {
+              updateList();
             }}
-            aria-expanded={expanded}
-            aria-label="Show more"
+            style={{ marginTop: '12px' }}
           >
-            <ExpandMoreIcon
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,
+            <Grid spacing={1} direction="column" container>
+              {columns.map(({ title, field, customRender, options = {} }) => {
+                const { visible = true } = options;
+                const { hiddenCard = false } = options;
+
+                if (!hiddenCard || !visible) {
+                  return null;
+                }
+                if (!isHidden) {
+                  setIsHidden(true);
+                }
+
+                return (
+                  <Grid item xs={12} key={field}>
+                    <CardColumn
+                      title={title}
+                      customRender={customRender}
+                      data={data}
+                      field={field}
+                    />
+                  </Grid>
+                );
               })}
-            />
-            <Typography variant="button" color="textPrimary">
-              {expanded ? 'MOSTRAR MENOS' : 'MOSTRAR MAIS'}
-            </Typography>
-          </IconButton>
-        </CardActions>
-      </ButtonBase>
+            </Grid>
+          </Collapse>
+        </CardContent>
+      </CardActionArea>
+
+      {isHidden && (
+        <Fragment>
+          <Divider variant="solid" />
+          <CardActions style={{ padding: 'unset' }}>
+            <IconButton
+              onClick={() => {
+                clearCache();
+                setExpanded(!expanded);
+              }}
+              aria-expanded={expanded}
+              aria-label="Show more"
+            >
+              <ExpandMoreIcon
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded,
+                })}
+              />
+              <Typography variant="button" color="textPrimary">
+                {expanded ? 'MOSTRAR MENOS' : 'MOSTRAR MAIS'}
+              </Typography>
+            </IconButton>
+          </CardActions>
+        </Fragment>
+      )}
     </Card>
   );
 };
