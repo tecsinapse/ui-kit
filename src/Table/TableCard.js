@@ -15,7 +15,7 @@ import { mdiDotsVertical } from '@mdi/js';
 import Icon from '@mdi/react';
 import clsx from 'clsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { isNotEmptyOrNull } from '@tecsinapse/es-utils/core/object';
+import { isNotEmptyOrNull } from '@tecsinapse/es-utils/build';
 
 import { IconButton } from '../Buttons/IconButton';
 import { Divider } from '../Divider/Divider';
