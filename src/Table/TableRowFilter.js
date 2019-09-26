@@ -4,7 +4,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import { mdiMagnify } from '@mdi/js';
 import Icon from '@mdi/react';
-import { resolveObj } from '@tecsinapse/es-utils/core/object';
+import { resolveObj } from '@tecsinapse/es-utils/build';
 import { Input } from '../Inputs/Input';
 import { Select } from '../Select/Select';
 import {
