@@ -1,3 +1,11 @@
+<a name="2.0.5"></a>
+## <small>2.0.5 (2019-09-26)</small>
+
+* Removing docz from readme ([3e4b680](https://github.com/tecsinapse/ui-kit/commit/3e4b680))
+* Removing old pickers ([f9e4845](https://github.com/tecsinapse/ui-kit/commit/f9e4845))
+
+
+
 <a name="2.0.4"></a>
 ## <small>2.0.4 (2019-09-03)</small>
 
