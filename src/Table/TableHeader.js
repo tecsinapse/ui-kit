@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
@@ -25,6 +25,16 @@ const headerStyles = makeStyles(theme => ({
   },
   descending: {
     transform: 'rotate(180deg)',
+  },
+}));
+
+const sortStyles = makeStyles(() => ({
+  sortedHover: {
+    transition: 'opacity 0.25s',
+    opacity: ({ sortedActive }) => (!sortedActive ? 0 : 100),
+    '&:hover': {
+      opacity: 100,
+    },
   },
 }));
 
@@ -73,8 +83,13 @@ const convertColumnToTableCell = (
   rowId,
   filters,
   onChangeSortFilter,
-  theme
+  theme,
+  sortedColumIndex,
+  setSortedColumIndex,
+  index
 ) => {
+  const sortedActive = sortedColumIndex === index;
+  const sortClasses = sortStyles({ sortedActive });
   const { visible = true } = options;
   const { sort = false } = options;
 
@@ -118,15 +133,18 @@ const convertColumnToTableCell = (
         <IconButton
           disableFocusRipple
           disableRipple
-          onClick={() => onChangeSortFilter(field)}
-          className={clsx(classes.ascending, {
+          onClick={() => {
+            setSortedColumIndex(index);
+            return onChangeSortFilter(field);
+          }}
+          className={clsx(classes.ascending, sortClasses.sortedHover, {
             [classes.descending]: !filters.ascending,
           })}
         >
           <Icon
             path={mdiArrowUp}
             color={
-              field === filters.sortField
+              field === filters.sortField && sortedActive
                 ? theme.palette.text.primary
                 : theme.palette.text.disabled
             }
@@ -152,6 +170,7 @@ const TableHeader = ({
 }) => {
   const classes = headerStyles();
   const theme = useTheme();
+  const [sortedColumIndex, setSortedColumIndex] = useState(null);
 
   if (tableHeaderHide) {
     return null;
@@ -171,7 +190,10 @@ const TableHeader = ({
         rowId,
         filters,
         onChangeSortFilter,
-        theme
+        theme,
+        sortedColumIndex,
+        setSortedColumIndex,
+        index
       )
     );
   }

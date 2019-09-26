@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import Table from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { DivFlex } from '../withFlexCenter';
 
 const createCar = (id, brand, name, year, price) => ({
   id,
@@ -63,7 +64,6 @@ const PaginationTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add(
-  'Sort Table',
-  PaginationTable
-);
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
+  .add('Sort Table', PaginationTable);
