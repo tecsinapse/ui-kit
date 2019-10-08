@@ -1,3 +1,10 @@
+<a name="2.0.7"></a>
+## <small>2.0.7 (2019-10-08)</small>
+
+*  - Exporting Table from root ([313d635](https://github.com/tecsinapse/ui-kit/commit/313d635))
+
+
+
 <a name="2.0.6"></a>
 ## <small>2.0.6 (2019-10-08)</small>
 
