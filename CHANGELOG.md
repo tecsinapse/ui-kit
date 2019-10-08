@@ -1,3 +1,11 @@
+<a name="2.0.6"></a>
+## <small>2.0.6 (2019-10-08)</small>
+
+*  - Remove docz ([5efd4b1](https://github.com/tecsinapse/ui-kit/commit/5efd4b1))
+* Missing Docs ([f39fb72](https://github.com/tecsinapse/ui-kit/commit/f39fb72))
+
+
+
 <a name="2.0.5"></a>
 ## <small>2.0.5 (2019-09-26)</small>
 
