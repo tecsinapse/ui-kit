@@ -1,5 +1,7 @@
 # Iniciando
 
+https://travis-ci.org/tecsinapse/ui-kit.svg?branch=master
+
 ***@tecsinapse/ui-kit*** é uma biblioteca contendo diversos componentes para facilitar a vida do dev react ;)
 
 ## Get Started
