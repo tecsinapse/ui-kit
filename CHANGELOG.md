@@ -1,3 +1,10 @@
+<a name="2.0.8"></a>
+## <small>2.0.8 (2019-10-09)</small>
+
+* Add yellow theme ([d511d1a](https://github.com/tecsinapse/ui-kit/commit/d511d1a))
+
+
+
 <a name="2.0.7"></a>
 ## <small>2.0.7 (2019-10-08)</small>
 
