@@ -14,6 +14,14 @@ const themeColors = {
       contrastText: '#ffffff',
     },
   },
+  yellow: {
+    primary: { main: '#003473', contrastText: '#ffffff' },
+    secondary: { main: '#ffed00', contrastText: '#ffffff' },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
   black: {
     primary: { main: '#000000', light: '#323232', contrastText: '#ffffff' },
     secondary: { main: '#e31c1c', contrastText: '#ffffff' },
@@ -38,7 +46,6 @@ const themeColors = {
     primary: blue,
   },
 };
-
 const themeGlobals = variant => ({
   menuGlobal: {
     breadcrumbContrastText: variant === 'redLight' ? '#000000' : '#ffffff',
@@ -68,6 +75,12 @@ export function ThemeProvider({ children, variant }) {
 }
 export default ThemeProvider;
 ThemeProvider.propTypes = {
-  variant: PropTypes.oneOf(['orange', 'blue', 'black', 'redLight', 'green'])
-    .isRequired,
+  variant: PropTypes.oneOf([
+    'orange',
+    'blue',
+    'black',
+    'redLight',
+    'green',
+    'yellow',
+  ]).isRequired,
 };
