@@ -1,13 +1,20 @@
 import React from 'react';
-import { FixedWrapper, ThemeProvider } from '@livechat/ui-kit';
+import { FixedWrapper } from '@livechat/ui-kit';
 import PropTypes from 'prop-types';
 
 import Maximized from './Maximized';
 import Minimized from './Minimized';
+import ChatTheme from './ChatTheme';
 
-export const Chat = ({ messages, onMessageSend, title, messagesEndRef }) => (
+export const Chat = ({
+  messages,
+  onMessageSend,
+  title,
+  messagesEndRef,
+  onAudio,
+}) => (
   <div>
-    <ThemeProvider>
+    <ChatTheme>
       <div>
         <FixedWrapper.Root>
           <FixedWrapper.Maximized>
@@ -16,6 +23,7 @@ export const Chat = ({ messages, onMessageSend, title, messagesEndRef }) => (
               onMessageSend={onMessageSend}
               title={title}
               messagesEndRef={messagesEndRef}
+              onAudio={onAudio}
             />
           </FixedWrapper.Maximized>
           <FixedWrapper.Minimized>
@@ -23,12 +31,13 @@ export const Chat = ({ messages, onMessageSend, title, messagesEndRef }) => (
           </FixedWrapper.Minimized>
         </FixedWrapper.Root>
       </div>
-    </ThemeProvider>
+    </ChatTheme>
   </div>
 );
 
 Chat.defaultProps = {
   title: '',
+  onAudio: undefined,
 };
 
 Chat.propTypes = {
@@ -38,15 +47,15 @@ Chat.propTypes = {
       own: PropTypes.bool,
       id: PropTypes.string,
       text: PropTypes.string,
-      medias: PropTypes.arrayOf(
-        PropTypes.shape({
+      title: PropTypes.string,
+      media: PropTypes.shape({
           url: PropTypes.string,
-          mediaType: PropTypes.string,
-        })
-      ),
+          mediaType: PropTypes.oneOf(['image', 'video', 'audio', 'application']),
+      }),
     })
   ).isRequired,
   onMessageSend: PropTypes.func.isRequired,
+  onAudio: PropTypes.func,
   title: PropTypes.string,
 };
 
