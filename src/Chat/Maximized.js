@@ -28,7 +28,7 @@ import {
   Bubble,
   AddIcon,
 } from '@livechat/ui-kit';
-//import {IconButton as IconButtonMaterial} from '../Buttons/IconButton';
+// import {IconButton as IconButtonMaterial} from '../Buttons/IconButton';
 import { Typography } from '@material-ui/core';
 import {
   mdiMicrophone,

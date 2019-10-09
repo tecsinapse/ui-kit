@@ -6,7 +6,7 @@ import {Badge} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import {FloatingButton} from '../Buttons/FloatingButton';
-//import {defaultOrange} from '../colors';
+// import {defaultOrange} from '../colors';
 
 const useStyles = makeStyles(theme => ({
   margin: {
@@ -17,10 +17,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Minimized = ({ maximize }) => {
-  //const classes = useStyles();
+const Minimized = ({ maximize }) => 
+  // const classes = useStyles();
 
-  return (
+   (
   <Badge color="error" badgeContent={4}>
     <FloatingButton
       onClick={maximize}
@@ -30,6 +30,6 @@ const Minimized = ({ maximize }) => {
       <Icon path={mdiForum} size={1.25} />
     </FloatingButton>
   </Badge>
-  );
-}
+  )
+
 export default Minimized;
