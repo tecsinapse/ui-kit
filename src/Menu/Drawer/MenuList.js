@@ -9,7 +9,13 @@ const useStyles = makeStyles(theme => ({
     width: theme.spacing(25),
   },
 }));
-export const MenuList = ({ closeDrawer, items, depth = 0, showAsOpen }) => {
+export const MenuList = ({
+  closeDrawer,
+  items,
+  depth = 0,
+  showAsOpen,
+  styleProps,
+}) => {
   const array = selectedTitlesTree(items);
   const object = {};
   array.forEach(key => {
@@ -43,6 +49,7 @@ export const MenuList = ({ closeDrawer, items, depth = 0, showAsOpen }) => {
               open={open[title]}
               showAsOpen={showAsOpen}
               selected={selected}
+              styleProps={styleProps}
               handleClick={a => {
                 if (children) {
                   handleClick(a);
@@ -57,6 +64,7 @@ export const MenuList = ({ closeDrawer, items, depth = 0, showAsOpen }) => {
                   depth={depth + 1}
                   items={children}
                   showAsOpen={showAsOpen}
+                  styleProps={styleProps}
                 />
               ) : null}
             </MenuItem>
