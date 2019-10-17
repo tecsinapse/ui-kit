@@ -1,3 +1,14 @@
+<a name="2.0.9"></a>
+## <small>2.0.9 (2019-10-17)</small>
+
+*  - Added style do selected item background color by props ([f2f9489](https://github.com/tecsinapse/ui-kit/commit/f2f9489))
+* - Added customizable style by using props on Appbar ([da3316b](https://github.com/tecsinapse/ui-kit/commit/da3316b))
+* Update README.md ([b378c74](https://github.com/tecsinapse/ui-kit/commit/b378c74))
+* Update README.md ([4c09a5a](https://github.com/tecsinapse/ui-kit/commit/4c09a5a))
+* Update README.md ([8a21748](https://github.com/tecsinapse/ui-kit/commit/8a21748))
+
+
+
 <a name="2.0.8"></a>
 ## <small>2.0.8 (2019-10-09)</small>
 
