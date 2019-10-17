@@ -37,6 +37,14 @@ const ExampleAppBar = () => {
   const classes = useStyles();
   return (
     <AppBar
+      styleProps={{
+        appBarBackgroundColor: '#013473',
+        titleColor: '#fff',
+        subtitleColor: '#FDF001',
+        breadcrumbBackgroundColor: '#FDF001',
+        breadcrumbTextColor: '#000',
+        activeBreadcrumbTextColor: '#013473',
+      }}
       leftIcons={
         <div className={classes.div}>
           <div className={classes.flex}>
