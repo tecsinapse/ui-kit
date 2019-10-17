@@ -1,4 +1,5 @@
-import React, { cloneElement, Fragment } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { cloneElement } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { mdiMenuDown, mdiMenuUp } from '@mdi/js';
 import Icon from '@mdi/react';
@@ -8,12 +9,15 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import List from '@material-ui/core/List';
 import { grey } from '@material-ui/core/colors';
+import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
 
 const useStyles = depth =>
   makeStyles(theme => ({
     item: {
       paddingLeft:
-        depth >= 1 ? theme.spacing((depth + 1) * 1.25) :  theme.spacing(depth + 1),
+        depth >= 1
+          ? theme.spacing((depth + 1) * 1.25)
+          : theme.spacing(depth + 1),
     },
     parentItem: {
       height: theme.spacing(5),
@@ -25,7 +29,11 @@ const useStyles = depth =>
       backgroundColor: grey[Math.min(Math.max(1, depth) * 50, 100)],
     },
     selected: {
-      backgroundColor: grey[200],
+      backgroundColor: ({ selectedBackgroundColor }) => {
+        return isNotUndefOrNull(selectedBackgroundColor)
+          ? selectedBackgroundColor
+          : grey[200];
+      },
     },
     shadow: {
       borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
@@ -38,6 +46,7 @@ export const TitleSubtitleMenuItem = ({
   component,
   ...props
 }) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
   <ListItem button divider onClick={onClick} component={component} {...props}>
     <ListItemText
       primary={title}
@@ -57,8 +66,9 @@ export const MenuItem = ({
   children,
   showAsOpen = false,
   selected = false,
+  styleProps,
 }) => {
-  const classes = useStyles(depth)();
+  const classes = useStyles(depth)(styleProps);
   return (
     <div
       className={classNames({
@@ -87,13 +97,13 @@ export const MenuItem = ({
           }}
         />
         {children && (
-          <Fragment>
+          <>
             {open ? (
               <Icon path={mdiMenuUp} color="gray" size={1} />
             ) : (
               <Icon path={mdiMenuDown} color="gray" size={1} />
             )}
-          </Fragment>
+          </>
         )}
       </ListItem>
       {children && (
