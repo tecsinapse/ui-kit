@@ -32,8 +32,7 @@ const getTheme = () => ({
             horizontalAlign: 'right',
             Bubble: {
                 css: {
-                    backgroundColor: defaultGreyLight2,
-                    color: '#fff',
+                    backgroundColor: "#817e7d",
                     borderRadius: '10px 0px 10px 10px',
                 },
             },
@@ -51,8 +50,7 @@ const getTheme = () => ({
         // Not own message properties
         Bubble: {
             css: {
-              backgroundColor: '#fff',
-              color: '#000',
+              backgroundColor: ' #ffffff',
               borderRadius: '0 10px 10px 10px',
             },
         },
@@ -61,7 +59,7 @@ const getTheme = () => ({
     },
     MessageList: {
         css: {
-            backgroundColor: defaultGreyLight3,
+            backgroundColor: "#f2f2f2",
         },
     },
     TextComposer: {

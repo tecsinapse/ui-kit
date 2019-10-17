@@ -9,25 +9,39 @@ import ChatTheme from './ChatTheme';
 export const Chat = ({
   messages,
   onMessageSend,
-  title,
   messagesEndRef,
+  disabled,
+  isMaximizedOnly,
   onAudio,
+  title,
+  subtitle,
+  onCloseChat,
+  error,
+  onMediaSend,
 }) => (
   <div>
     <ChatTheme>
       <div>
-        <FixedWrapper.Root>
+        <FixedWrapper.Root maximizedOnInit={isMaximizedOnly}>
           <FixedWrapper.Maximized>
             <Maximized
               messages={messages}
               onMessageSend={onMessageSend}
-              title={title}
               messagesEndRef={messagesEndRef}
               onAudio={onAudio}
+              disabled={disabled}
+              isMaximizedOnly={isMaximizedOnly}
+              hasCloseButton={!isMaximizedOnly}
+              title={title}
+              subtitle={subtitle}
+              onCloseChat={onCloseChat}
+              error={error}
+              onMediaSend={onMediaSend}
             />
           </FixedWrapper.Maximized>
+          
           <FixedWrapper.Minimized>
-            <Minimized />
+            {!isMaximizedOnly && (<Minimized />)}
           </FixedWrapper.Minimized>
         </FixedWrapper.Root>
       </div>
@@ -36,8 +50,14 @@ export const Chat = ({
 );
 
 Chat.defaultProps = {
-  title: '',
   onAudio: undefined,
+  disabled: false,
+  isMaximizedOnly: false,
+  title: '',
+  subtitle: '',
+  onCloseChat: undefined,
+  error: undefined,
+  onMediaSend: undefined,
 };
 
 Chat.propTypes = {
@@ -48,15 +68,31 @@ Chat.propTypes = {
       id: PropTypes.string,
       text: PropTypes.string,
       title: PropTypes.string,
-      media: PropTypes.shape({
+      authorName: PropTypes.string,
+      medias: PropTypes.arrayOf(
+        PropTypes.shape({
           url: PropTypes.string,
           mediaType: PropTypes.oneOf(['image', 'video', 'audio', 'application']),
-      }),
+        })
+      ),
     })
   ).isRequired,
   onMessageSend: PropTypes.func.isRequired,
+
+  // onAudio is not required, when it is not informed the chat doesn't support audio though!
   onAudio: PropTypes.func,
+  
+  // Event handler closing the chat
+  onCloseChat: PropTypes.func,
+
+  // onMwedia is not required, when it is not informed the chat doesn't support media
+  onMediaSend: PropTypes.func,
+
+  disabled: PropTypes.bool,
+  isMaximizedOnly: PropTypes.bool,
   title: PropTypes.string,
+  subtitle: PropTypes.string,
+  error: PropTypes.string,
 };
 
 export default Chat;
