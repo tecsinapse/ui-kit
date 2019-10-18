@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext } from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import { IconButton } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
@@ -9,8 +10,10 @@ import {
   DateTimePicker as DateTimePickerExt,
   KeyboardDateTimePicker,
 } from '@material-ui/pickers';
+import { isNotUndefOrNull } from '@tecsinapse/es-utils';
 import { Input } from '../Inputs/Input';
 import { LocaleContext } from '../LocaleProvider';
+import { customDatePickerStyle, renderStyledLabel } from '../ThemeProvider';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {
@@ -42,11 +45,19 @@ const useStyle = makeStyles(theme => ({
     color: '#676767',
   },
   highlight: {
-    background: theme.palette.primary.main,
+    background: ({ highligthBgColor }) => {
+      return isNotUndefOrNull(highligthBgColor)
+        ? highligthBgColor
+        : theme.palette.primary.main;
+    },
     color: theme.palette.primary.contrastText,
     fontWeight: theme.typography.fontWeightMedium,
     '&:hover': {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: ({ highligthBgColor }) => {
+        return isNotUndefOrNull(highligthBgColor)
+          ? highligthBgColor
+          : theme.palette.primary.main;
+      },
     },
   },
   badge: {
@@ -69,7 +80,9 @@ export const DateTimePicker = ({
   pointedDates,
   ...props
 }) => {
-  const classes = useStyle();
+  const theme = useTheme();
+  const styleProps = customDatePickerStyle(theme.variant);
+  const classes = useStyle(styleProps);
   const {
     Picker: { todayLabel, okLabel, cancelLabel, clearLabel },
   } = useContext(LocaleContext);
@@ -115,6 +128,8 @@ export const DateTimePicker = ({
       format={format}
       id={id}
       label={label}
+      cancelLabel={renderStyledLabel(cancelLabel, theme.variant)}
+      okLabel={renderStyledLabel(okLabel, theme.variant)}
       value={selectedDateTime}
       onChange={onChange}
       KeyboardButtonProps={{
@@ -123,8 +138,6 @@ export const DateTimePicker = ({
       renderDay={renderPointedDay}
       inputVariant={inputVariant}
       todayLabel={todayLabel}
-      okLabel={okLabel}
-      cancelLabel={cancelLabel}
       clearLabel={clearLabel}
       TextFieldComponent={Input}
       {...props}
@@ -134,13 +147,13 @@ export const DateTimePicker = ({
       format={format}
       id={id}
       label={label}
+      cancelLabel={renderStyledLabel(cancelLabel, theme.variant)}
+      okLabel={renderStyledLabel(okLabel, theme.variant)}
       value={selectedDateTime}
       onChange={onChange}
       renderDay={renderPointedDay}
       inputVariant={inputVariant}
       todayLabel={todayLabel}
-      okLabel={okLabel}
-      cancelLabel={cancelLabel}
       clearLabel={clearLabel}
       TextFieldComponent={Input}
       {...props}

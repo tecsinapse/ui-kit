@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/styles';
@@ -14,6 +15,7 @@ import { mdiClose, mdiMagnify, mdiMenu } from '@mdi/js';
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
 import { DefaultProductTypography } from '../DefaultProductTypography';
 import { LocaleContext } from '../../LocaleProvider';
+import { customAppBarStyle } from '../../ThemeProvider';
 
 const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   marginLeft: {
@@ -107,10 +109,10 @@ export const AppBar = ({
   menuBar,
   searchMode,
   setSearchMode,
-  styleProps,
 }) => {
-  const classes = useStyles(styleProps);
   const theme = useTheme();
+  const styleProps = customAppBarStyle(theme.variant);
+  const classes = useStyles(styleProps);
   const [value, setCustomValue] = useState('');
   const {
     AppBar: { closeSearch, openSearch, openMenu },
@@ -260,7 +262,6 @@ export const AppBar = ({
                       component={current.component}
                       variant="subtitle2"
                       classes={{ root: classes.link }}
-                      /* eslint-disable react/jsx-props-no-spreading */
                       {...current.componentProps}
                     >
                       {current.title}

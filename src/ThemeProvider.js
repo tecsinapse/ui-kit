@@ -15,8 +15,8 @@ const themeColors = {
     },
   },
   yellow: {
-    primary: { main: '#003473', contrastText: '#ffffff' },
-    secondary: { main: '#ffed00', contrastText: '#ffffff' },
+    secondary: { main: '#003473', contrastText: '#ffffff' },
+    primary: { main: '#ffed00', contrastText: '#ffffff' },
     error: {
       main: defaultRed,
       contrastText: '#ffffff',
@@ -46,16 +46,81 @@ const themeColors = {
     primary: blue,
   },
 };
+export const customDatePickerStyle = variant => {
+  return variant === 'yellow'
+    ? {
+        highligthBgColor: '#003473',
+        appBarBackgroundColor: '#003473',
+      }
+    : {};
+};
+export const renderStyledLabel = (label, variant) => {
+  if (variant === 'yellow') {
+    return (
+      <div style={{ color: '#003473', ':hover': { background: '#000' } }}>
+        {label}
+      </div>
+    );
+  }
+  return label;
+};
+export const customAppBarStyle = variant => {
+  return variant === 'yellow'
+    ? {
+        titleColor: '#fff',
+        subtitleColor: '#ffed00',
+        breadcrumbBackgroundColor: '#ffed00',
+        breadcrumbTextColor: '#000',
+        activeBreadcrumbTextColor: '#003473',
+        appBarBackgroundColor: '#003473',
+      }
+    : {};
+};
 const themeGlobals = variant => ({
   menuGlobal: {
     breadcrumbContrastText: variant === 'redLight' ? '#000000' : '#ffffff',
   },
 });
+const themeCustom = variant => {
+  if (variant !== 'yellow') {
+    return {};
+  }
+  return {
+    MuiPickersToolbar: {
+      toolbar: {
+        backgroundColor: '#003473',
+      },
+    },
+    MuiPickersYear: {
+      yearSelected: {
+        color: '#003473',
+      },
+    },
+    MuiPickersClockPointer: {
+      pointer: {
+        backgroundColor: '#003473',
+      },
+      thumb: {
+        backgroundColor: '#003473',
+        borderColor: '#003473',
+      },
+      noPoint: {
+        backgroundColor: '#003473',
+      },
+    },
+    MuiPickersClock: {
+      pin: {
+        backgroundColor: '#003473',
+      },
+    },
+  };
+};
 const theme = variant => {
   const themeCompile = {
     typography: {
       useNextVariants: true,
     },
+    variant,
     spacing: 12,
     overrides: {
       MuiCollapse: {
@@ -64,6 +129,7 @@ const theme = variant => {
           overflow: 'visible',
         },
       },
+      ...themeCustom(variant),
     },
     palette: { ...themeColors[variant] },
     ...themeGlobals(variant),
