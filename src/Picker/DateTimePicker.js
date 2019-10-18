@@ -13,7 +13,11 @@ import {
 import { isNotUndefOrNull } from '@tecsinapse/es-utils';
 import { Input } from '../Inputs/Input';
 import { LocaleContext } from '../LocaleProvider';
-import { customDatePickerStyle, renderStyledLabel } from '../ThemeProvider';
+import {
+  customDatePickerStyle,
+  renderStyledBadgeColor,
+  renderStyledLabel,
+} from '../ThemeProvider';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {
@@ -108,7 +112,7 @@ export const DateTimePicker = ({
           </span>
           {isPointed && (
             <Badge
-              color="primary"
+              color={renderStyledBadgeColor(theme.variant)}
               className={classes.badge}
               variant="dot"
               classes={

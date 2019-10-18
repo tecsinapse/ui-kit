@@ -54,6 +54,8 @@ export const customDatePickerStyle = variant => {
       }
     : {};
 };
+export const renderStyledBadgeColor = variant =>
+  variant === 'yellow' ? 'secondary' : 'primary';
 export const renderStyledLabel = (label, variant) => {
   if (variant === 'yellow') {
     return (
