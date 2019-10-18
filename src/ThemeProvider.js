@@ -3,7 +3,7 @@ import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { defaultRed } from './colors';
+import { defaultBlue, defaultRed, defaultYellow } from './colors';
 
 const themeColors = {
   orange: {
@@ -49,8 +49,8 @@ const themeColors = {
 export const customDatePickerStyle = variant => {
   return variant === 'yellow'
     ? {
-        highligthBgColor: '#003473',
-        appBarBackgroundColor: '#003473',
+        highligthBgColor: defaultBlue,
+        appBarBackgroundColor: defaultBlue,
       }
     : {};
 };
@@ -58,11 +58,7 @@ export const renderStyledBadgeColor = variant =>
   variant === 'yellow' ? 'secondary' : 'primary';
 export const renderStyledLabel = (label, variant) => {
   if (variant === 'yellow') {
-    return (
-      <div style={{ color: '#003473', ':hover': { background: '#000' } }}>
-        {label}
-      </div>
-    );
+    return <div style={{ color: defaultBlue }}>{label}</div>;
   }
   return label;
 };
@@ -70,11 +66,11 @@ export const customAppBarStyle = variant => {
   return variant === 'yellow'
     ? {
         titleColor: '#fff',
-        subtitleColor: '#ffed00',
-        breadcrumbBackgroundColor: '#ffed00',
+        subtitleColor: defaultYellow,
+        breadcrumbBackgroundColor: defaultYellow,
         breadcrumbTextColor: '#000',
-        activeBreadcrumbTextColor: '#003473',
-        appBarBackgroundColor: '#003473',
+        activeBreadcrumbTextColor: defaultBlue,
+        appBarBackgroundColor: defaultBlue,
       }
     : {};
 };
@@ -90,29 +86,29 @@ const themeCustom = variant => {
   return {
     MuiPickersToolbar: {
       toolbar: {
-        backgroundColor: '#003473',
+        backgroundColor: defaultBlue,
       },
     },
     MuiPickersYear: {
       yearSelected: {
-        color: '#003473',
+        color: defaultBlue,
       },
     },
     MuiPickersClockPointer: {
       pointer: {
-        backgroundColor: '#003473',
+        backgroundColor: defaultBlue,
       },
       thumb: {
-        backgroundColor: '#003473',
-        borderColor: '#003473',
+        backgroundColor: defaultBlue,
+        borderColor: defaultBlue,
       },
       noPoint: {
-        backgroundColor: '#003473',
+        backgroundColor: defaultBlue,
       },
     },
     MuiPickersClock: {
       pin: {
-        backgroundColor: '#003473',
+        backgroundColor: defaultBlue,
       },
     },
   };

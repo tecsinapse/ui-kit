@@ -12,3 +12,5 @@ export const defaultGreyLight2 = grey[600];
 export const defaultGreyLight3 = '#f7f7f7';
 export const defaultGreyLight200 = grey[200];
 export const defaultGreyDisabled = grey[400];
+export const defaultBlue = '#003473';
+export const defaultYellow = '#ffed00';
