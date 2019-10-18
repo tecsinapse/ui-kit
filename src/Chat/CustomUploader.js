@@ -1,37 +1,34 @@
-import React, {forwardRef, useState} from 'react';
+import React, { forwardRef } from 'react';
 import uniqid from 'uniqid';
-import IconButton from '@material-ui/core/IconButton';
-import { mdiPaperclip } from '@mdi/js';
-import Icon from '@mdi/react';
 
-
-import {Uploader} from '../UploadFile/Uploader';
+import { Uploader } from '../UploadFile/Uploader';
 
 export const CustomUploader = forwardRef(
-  ({files, setFiles, mediaType}, ref) => {
-
+  ({ files, setFiles, mediaType }, ref) => {
     const onAccept = newFiles => {
-        const copyFiles = { ...files };
-        newFiles.forEach(file => {
+      const copyFiles = { ...files };
+      newFiles.forEach(file => {
         const reader = new FileReader();
         const uid = uniqid();
-            console.log(newFiles);
+
         // Create preview tag
-        reader.onload = event => { 
-        copyFiles[uid] = {
+        reader.onload = event => {
+          copyFiles[uid] = {
             mediaType,
             data: event.target.result,
             name: file.name,
+            size: Math.round(file.size / 1024),
           };
 
           setFiles(copyFiles);
-        }
-            reader.readAsDataURL(file);
-        });
-    }
+        };
+        reader.readAsDataURL(file);
+      });
+    };
 
     const messages = {
-      maximumFileLimitMessage: limit => `Apenas ${limit} arquivo(s) podem ser enviados por vez`,
+      maximumFileLimitMessage: limit =>
+        `Apenas ${limit} arquivo(s) podem ser enviados por vez`,
     };
 
     return (

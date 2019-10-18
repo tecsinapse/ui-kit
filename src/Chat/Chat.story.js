@@ -25,11 +25,10 @@ const ChatWrapper = () => {
   };
 
   const sendAudioToBackend = blob => {
-      // Mocking send to a local echo backend (1s)
-      setTimeout(() => echoAudioBackend(blob), 3000);
-  
-  }
-  
+    // Mocking send to a local echo backend (1s)
+    setTimeout(() => echoAudioBackend(blob), 3000);
+  };
+
   const echoAudioBackend = blob => {
     setMessages(prevMessage => [
       ...prevMessage,
@@ -37,21 +36,20 @@ const ChatWrapper = () => {
         at: '02/03/2019 10:12',
         own: false,
         id: Date.now().toString(),
-        medias: [{
+        medias: [
+          {
             mediaType: 'audio',
             url: blob.blobURL,
-        }],
+          },
+        ],
       },
     ]);
   };
 
-  
-
   const sendMediaToBackend = (file, title) => {
     // Mocking send to a local echo backend (1s)
     setTimeout(() => echoMediaBackend(file, title), 3000);
-
-  }
+  };
 
   const echoMediaBackend = (file, title) => {
     setMessages(prevMessage => [
@@ -60,18 +58,18 @@ const ChatWrapper = () => {
         at: '02/03/2019 10:12',
         own: false,
         id: Date.now().toString(),
-        medias: [{
+        medias: [
+          {
             mediaType: file.mediaType,
             url: file.data,
-        }],
+            name: file.name,
+            size: file.size,
+          },
+        ],
         title,
       },
     ]);
   };
-
-
-
-  
 
   return (
     <Chat
@@ -85,14 +83,13 @@ const ChatWrapper = () => {
             at: '02/03/2019 10:12',
             own: true,
             id: Date.now().toString(),
-            authorName: "Você",
+            authorName: 'Você',
             text,
           },
         ]);
 
         sendToBackend(text);
       }}
-
       onAudio={blob => {
         if (blob !== null) {
           setMessages(prevMessage => [
@@ -101,23 +98,22 @@ const ChatWrapper = () => {
               at: '02/03/2019 10:12',
               own: true,
               id: Date.now().toString(),
-              authorName: "Você",
-              medias: [{
+              authorName: 'Você',
+              medias: [
+                {
                   mediaType: 'audio',
                   url: blob.blobURL,
-              }],
+                },
+              ],
             },
           ]);
 
           sendAudioToBackend(blob);
         }
       }}
-      onCloseChat={(e) => console.log(e)}
+      // onCloseChat={(e) => console.log(e)}
 
       onMediaSend={(title, files) => {
-        console.log(title);
-        console.log(files);
-
         if (files !== null) {
           Object.keys(files).forEach((uid, i) => {
             setMessages(prevMessage => [
@@ -126,19 +122,21 @@ const ChatWrapper = () => {
                 at: '02/03/2019 10:12',
                 own: true,
                 id: Date.now().toString(),
-                authorName: "Você",
-                medias: [{
+                authorName: 'Você',
+                medias: [
+                  {
                     mediaType: files[uid].mediaType,
                     url: files[uid].data,
-                }],
+                    name: files[uid].name,
+                    size: files[uid].size,
+                  },
+                ],
                 title,
               },
             ]);
 
             sendMediaToBackend(files[uid], title);
-          })
-          
-
+          });
         }
       }}
     />

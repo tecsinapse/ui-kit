@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useRef} from 'react';
+import React, { useState, Fragment, useRef } from 'react';
 import {
   TextInput,
   MessageList,
@@ -25,14 +25,21 @@ import {
   // mdiEmoticon,  TODO: implement this buttton
   mdiLibraryVideo,
   mdiClose,
+  mdiFile,
+  mdiDownload,
 } from '@mdi/js';
 import Icon from '@mdi/react';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
 
 import { defaultGreyLight2 } from '../colors';
 import { MicRecorder } from './MicRecorder';
 
-import {CustomUploader} from './CustomUploader';
-import {PreviewList} from './PreviewList';
+import { CustomUploader } from './CustomUploader';
+import { PreviewList } from './PreviewList';
 
 const Maximized = ({
   messages,
@@ -56,7 +63,6 @@ const Maximized = ({
   const imageUpRef = useRef(null);
   const videoUpRef = useRef(null);
   const appUpRef = useRef(null);
-
 
   const onStopRecording = (blob, accept) => {
     setRecording(false);
@@ -93,7 +99,11 @@ const Maximized = ({
           {hasCloseButton && (
             <Column style={{ justifyContent: 'center' }}>
               <IconButton key="close" onClick={onCloseChatClicked}>
-                <Icon path={mdiClose} size={1.0} color="rgba(117, 117, 117, 0.75)" />
+                <Icon
+                  path={mdiClose}
+                  size={1.0}
+                  color="rgba(117, 117, 117, 0.75)"
+                />
               </IconButton>
             </Column>
           )}
@@ -107,8 +117,14 @@ const Maximized = ({
               <Typography variant="caption">
                 {/* Workaround to overcome lack of authorName on message object */}
                 {message.authorName}
-                {(message.authorName === '' || message.authorName === undefined) && message.own && "Você" }
-                {(message.authorName === '' || message.authorName === undefined) && !message.own && title }
+                {(message.authorName === '' ||
+                  message.authorName === undefined) &&
+                  message.own &&
+                  'Você'}
+                {(message.authorName === '' ||
+                  message.authorName === undefined) &&
+                  !message.own &&
+                  title}
               </Typography>
             }
             deliveryStatus={
@@ -152,34 +168,44 @@ const Maximized = ({
                       <audio controls>
                         <source src={media.url} />
                         {/* TODO: ADD A REAL TRACK OBJECT */}
-                        <track
-                          default
-                          kind="captions"
-                          src={media.url}
-                        />
+                        <track default kind="captions" src={media.url} />
                       </audio>
                     )}
                     {media.mediaType.startsWith('video') && (
                       <video controls height={200}>
                         <source src={media.url} />
                         {/* TODO: ADD A REAL TRACK OBJECT */}
-                        <track
-                          default
-                          kind="captions"
-                          src={media.url}
-                        />
+                        <track default kind="captions" src={media.url} />
                       </video>
                     )}
                     {media.mediaType.startsWith('application') && (
-                      <p style={{ textAlign: 'center' }}>
-                        <a
-                          href={media.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatar>
+                            <Icon path={mdiFile} size={2} color="#817e7d" />
+                          </Avatar>
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={media.name}
+                          secondary={`${media.size} Kb`}
+                        />
+                        <ListItemSecondaryAction
+                          style={{
+                            right: 0,
+                            top: '60px',
+                          }}
                         >
-                          Download
-                        </a>
-                      </p>
+                          <a href={media.url} download>
+                            <IconButton edge="end" aria-label="delete">
+                              <Icon
+                                path={mdiDownload}
+                                size={1.5}
+                                color={message.own ? 'white' : 'black'}
+                              />
+                            </IconButton>
+                          </a>
+                        </ListItemSecondaryAction>
+                      </ListItem>
                     )}
                   </MessageMedia>
                 ))}
@@ -191,12 +217,11 @@ const Maximized = ({
 
       <PreviewList files={files} setFiles={setFiles} />
 
-
       {!disabled && (
         <TextComposer
           onSend={text => {
-            if(Object.keys(files).length > 0) {
-              onMediaSend(text,files);
+            if (Object.keys(files).length > 0) {
+              onMediaSend(text, files);
               setFiles({});
             } else {
               setWriting(false);
@@ -218,7 +243,9 @@ const Maximized = ({
                   <TextInput fill placeholder="Digite uma mensagem" />
                 )}
 
-                {writing || Object.keys(files).length > 0 ||  !isThereAudioSupport ? (
+                {writing ||
+                Object.keys(files).length > 0 ||
+                !isThereAudioSupport ? (
                   <SendButton fill />
                 ) : (
                   !recording && (
@@ -278,10 +305,24 @@ const Maximized = ({
                   </IconButton>
                 </Row>
               )}
-              <CustomUploader ref={imageUpRef} files={files} setFiles={setFiles} mediaType="image/*" />
-              <CustomUploader ref={videoUpRef} files={files} setFiles={setFiles} mediaType="video/*" />        
-              <CustomUploader ref={appUpRef} files={files} setFiles={setFiles} mediaType="application/*" />          
-            
+              <CustomUploader
+                ref={imageUpRef}
+                files={files}
+                setFiles={setFiles}
+                mediaType="image/*"
+              />
+              <CustomUploader
+                ref={videoUpRef}
+                files={files}
+                setFiles={setFiles}
+                mediaType="video/*"
+              />
+              <CustomUploader
+                ref={appUpRef}
+                files={files}
+                setFiles={setFiles}
+                mediaType="application/*"
+              />
             </Fragment>
           )}
         </TextComposer>

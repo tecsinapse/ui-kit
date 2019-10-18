@@ -39,9 +39,9 @@ export const Chat = ({
               onMediaSend={onMediaSend}
             />
           </FixedWrapper.Maximized>
-          
+
           <FixedWrapper.Minimized>
-            {!isMaximizedOnly && (<Minimized />)}
+            {!isMaximizedOnly && <Minimized />}
           </FixedWrapper.Minimized>
         </FixedWrapper.Root>
       </div>
@@ -72,7 +72,14 @@ Chat.propTypes = {
       medias: PropTypes.arrayOf(
         PropTypes.shape({
           url: PropTypes.string,
-          mediaType: PropTypes.oneOf(['image', 'video', 'audio', 'application']),
+          mediaType: PropTypes.oneOf([
+            'image',
+            'video',
+            'audio',
+            'application',
+          ]),
+          name: PropTypes.string,
+          size: PropTypes.number,
         })
       ),
     })
@@ -81,7 +88,7 @@ Chat.propTypes = {
 
   // onAudio is not required, when it is not informed the chat doesn't support audio though!
   onAudio: PropTypes.func,
-  
+
   // Event handler closing the chat
   onCloseChat: PropTypes.func,
 
