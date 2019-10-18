@@ -1,3 +1,12 @@
+<a name="2.0.10"></a>
+## <small>2.0.10 (2019-10-18)</small>
+
+* - Added customizable style on yellow theme for AppBar and Pickers ([04364ae](https://github.com/tecsinapse/ui-kit/commit/04364ae))
+* Fixed Badge color ([3e81a7e](https://github.com/tecsinapse/ui-kit/commit/3e81a7e))
+* Fixed theme colors ([7fdf6e1](https://github.com/tecsinapse/ui-kit/commit/7fdf6e1))
+
+
+
 <a name="2.0.9"></a>
 ## <small>2.0.9 (2019-10-17)</small>
 
