@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/styles';
-import { defaultOrange } from '../colors';
 
-export const useStylesWeek = makeStyles(() => ({
+export const useStylesWeek = makeStyles(theme => ({
   dayWrapper: {
     position: 'relative',
   },
@@ -19,7 +18,7 @@ export const useStylesWeek = makeStyles(() => ({
     bottom: 0,
     left: '2px',
     right: '2px',
-    border: `1px solid ${defaultOrange}`,
+    border: `1px solid ${theme.palette.secondary.main}`,
     borderRadius: '50%',
   },
   nonCurrentMonthDay: {
@@ -29,7 +28,7 @@ export const useStylesWeek = makeStyles(() => ({
     color: '#676767',
   },
   highlight: {
-    background: defaultOrange,
+    background: theme.palette.secondary.main,
     color: '#ffff',
   },
   firstHighlight: {
