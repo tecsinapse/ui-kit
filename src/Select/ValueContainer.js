@@ -61,7 +61,7 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
 
   return (
     <div className={selectProps.childrenClasses.valueContainer}>
-      <div className={selectProps.childrenClasses.input}>{children}</div>
+      <body1 className={selectProps.childrenClasses.input}>{children}</body1>
     </div>
   );
 }
