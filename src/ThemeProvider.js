@@ -111,6 +111,20 @@ const themeCustom = variant => {
         backgroundColor: defaultBlue,
       },
     },
+    MuiOutlinedInput: {
+      root: {
+        '&$focused $notchedOutline': {
+          borderColor: defaultBlue,
+        },
+      },
+    },
+    MuiFormLabel: {
+      root: {
+        '&$focused': {
+          color: defaultBlue,
+        },
+      },
+    },
   };
 };
 const theme = variant => {

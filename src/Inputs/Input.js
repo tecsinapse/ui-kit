@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -117,7 +118,7 @@ export const TextFieldComponent = ({
     InputLabelProps={{
       classes: {
         root: classNames(classes[labelClass({ warning, error, success })]),
-        focused: classes.cssFocused,
+        focused: classes.cssLabel,
       },
       shrink: shrinkLabel,
     }}
@@ -133,7 +134,7 @@ export const TextFieldComponent = ({
           classes.inputRoot
         ),
         focused: classes.cssFocused,
-        notchedOutline: classes.notchedOutline,
+        notchedOutline: classes.cssOutlinedInput,
         inputAdornedStart: classes.adornedMarginLeft,
         inputAdornedEnd: classes.adornedMarginRight,
         adornedEnd: classes.adornedMarginEnd,
