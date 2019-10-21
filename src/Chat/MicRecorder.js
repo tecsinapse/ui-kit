@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReactMic } from '@cleandersonlobo/react-mic';
 import Icon from '@mdi/react';
 import {
@@ -9,7 +9,13 @@ import {
 import PropTypes from 'prop-types';
 import { IconButton } from '@livechat/ui-kit';
 import Timer from 'react-compound-timer';
-import { Typography } from '@material-ui/core';
+import { Typography, makeStyles } from '@material-ui/core';
+
+const useStyle = makeStyles({
+  reactMic: {
+    opacity: '0.30',
+  },
+});
 
 export const MicRecorder = ({
   onStopRecording,
@@ -19,6 +25,9 @@ export const MicRecorder = ({
   waveHeight,
 }) => {
   const [recording, setRecording] = useState(true);
+  const [opacity, setOpacity] = useState(1);
+
+  const classes = useStyle();
 
   let accepted = false;
 
@@ -30,6 +39,10 @@ export const MicRecorder = ({
   const onStop = recordedBlob => {
     onStopRecording(recordedBlob, accepted);
   };
+
+  useEffect(() => {
+    setInterval(() => setOpacity(oldOpacity => (oldOpacity > 0 ? 0 : 1)), 500);
+  }, []);
 
   return (
     <div
@@ -45,6 +58,7 @@ export const MicRecorder = ({
       </IconButton>
       <div style={{ display: 'flex' }}>
         <ReactMic
+          className={classes.reactMic}
           height={waveHeight}
           width={waveWidth}
           record={recording}
@@ -59,10 +73,14 @@ export const MicRecorder = ({
         style={{
           display: 'flex',
           flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
         <div>
-          <Typography variant="caption" style={{ color: '#787879' }}>
+          <Typography
+            variant="subtitle2"
+            style={{ color: '#787879', fontSize: '12px', lineHeight: 1 }}
+          >
             GRAVANDO
           </Typography>
         </div>
@@ -73,12 +91,25 @@ export const MicRecorder = ({
             justifyContent: 'space-around',
           }}
         >
-          <Icon path={mdiCheckboxBlankCircle} size={0.5} color="red" />
-          <Typography variant="subtitle" style={{ color: '#787879' }}>
-            <Timer formatValue={value => `${value < 10 ? `0${value}` : value}`}>
+          <Icon
+            path={mdiCheckboxBlankCircle}
+            size={0.75}
+            color="red"
+            style={{ opacity, padding: '2px 6px 0px 0px' }}
+          />
+          <Timer formatValue={value => `${value < 10 ? `0${value}` : value}`}>
+            <Typography
+              variant="h6"
+              style={{
+                color: '#787879',
+                fontSize: '18px',
+                lineHeight: 1,
+                fontWeight: 900,
+              }}
+            >
               <Timer.Minutes />:<Timer.Seconds />
-            </Timer>
-          </Typography>
+            </Typography>
+          </Timer>
         </div>
       </div>
       <IconButton fill key="confirmRecord" onClick={() => stopRecording(true)}>

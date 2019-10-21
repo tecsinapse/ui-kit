@@ -33,6 +33,9 @@ const getTheme = (materialTheme, width, height) => ({
       Bubble: {
         css: {
           backgroundColor: '#817e7d', // it is not materialized!
+          boxShadow: `0 ${materialTheme.spacing(
+            1 / 6
+          )}px ${materialTheme.spacing(1 / 3)}px rgba(0,0,0,0.1)`,
           borderRadius: `${materialTheme.spacing(
             1
           )}px 0px ${materialTheme.spacing(1)}px ${materialTheme.spacing(1)}px`,

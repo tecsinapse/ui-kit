@@ -18,6 +18,7 @@ export const CustomUploader = forwardRef(
         // Create preview tag
         reader.onload = event => {
           copyFiles[uid] = {
+            file,
             mediaType,
             data: event.target.result,
             name: file.name,

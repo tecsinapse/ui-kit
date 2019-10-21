@@ -35,7 +35,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 
 import { defaultGreyLight2 } from '../colors';
 import { MicRecorder } from './MicRecorder';
@@ -81,6 +81,7 @@ const Maximized = ({
   onMediaSend,
 }) => {
   const classes = useStyle();
+  const theme = useTheme();
 
   const [writing, setWriting] = useState(false);
   const [recording, setRecording] = useState(false);
@@ -112,12 +113,18 @@ const Maximized = ({
         <Row flexFill>
           <Column flexFill>
             <Title>
-              <Typography variant="h6" color="textPrimary">
+              <Typography
+                variant="h6"
+                style={{ color: theme.palette.primary.contrastText }}
+              >
                 {title}
               </Typography>
             </Title>
             <Subtitle>
-              <Typography variant="subtitle2" color="textPrimary">
+              <Typography
+                variant="subtitle2"
+                style={{ color: theme.palette.primary.contrastText }}
+              >
                 {subtitle}
               </Typography>
             </Subtitle>
@@ -128,7 +135,7 @@ const Maximized = ({
                 <Icon
                   path={mdiClose}
                   size={1.0}
-                  color="rgba(117, 117, 117, 0.75)"
+                  color={theme.palette.primary.contrastText}
                 />
               </IconButton>
             </Column>
