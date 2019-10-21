@@ -28,14 +28,7 @@ export function Option({
       {selectProps.isMulti && (
         <Checkbox checked={isSelected} value="checkedA" />
       )}
-      <body1
-        style={{
-          width: '100%',
-          whiteSpace: 'normal',
-          textOverflow: 'ellipsis',
-          overflow: 'hidden',
-        }}
-      >
+      <body1 className={selectProps.childrenClasses.body1Option}>
         {children}
       </body1>
     </MenuItem>
