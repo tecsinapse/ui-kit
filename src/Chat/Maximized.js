@@ -27,19 +27,44 @@ import {
   mdiClose,
   mdiFile,
   mdiDownload,
+  mdiSend,
 } from '@mdi/js';
 import Icon from '@mdi/react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
+import List from '@material-ui/core/List';
+import { makeStyles } from '@material-ui/styles';
 
 import { defaultGreyLight2 } from '../colors';
 import { MicRecorder } from './MicRecorder';
 
 import { CustomUploader } from './CustomUploader';
 import { PreviewList } from './PreviewList';
+
+const useStyle = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+  },
+  at: {
+    color: '#B2B2B2',
+    margin: '0px 8px 0px 8px',
+  },
+  authorName: {
+    color: '#787879',
+  },
+}));
+
+const ENTER_KEYCODE = 13;
+const wasEnterPressed = function wasEnterPressed(event) {
+  return event.which === ENTER_KEYCODE;
+};
+const wasOnlyEnterPressed = function wasOnlyEnterPressed(event) {
+  return wasEnterPressed(event) && !event.altKey && !event.shiftKey;
+};
 
 const Maximized = ({
   messages,
@@ -55,6 +80,8 @@ const Maximized = ({
   error,
   onMediaSend,
 }) => {
+  const classes = useStyle();
+
   const [writing, setWriting] = useState(false);
   const [recording, setRecording] = useState(false);
   const [files, setFiles] = useState({});
@@ -63,6 +90,7 @@ const Maximized = ({
   const imageUpRef = useRef(null);
   const videoUpRef = useRef(null);
   const appUpRef = useRef(null);
+  const [inputRef, setInputRef] = useState(null);
 
   const onStopRecording = (blob, accept) => {
     setRecording(false);
@@ -79,21 +107,19 @@ const Maximized = ({
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-      }}
-    >
+    <div className={classes.root}>
       <AgentBar>
         <Row flexFill>
           <Column flexFill>
             <Title>
-              <Typography variant="h6">{title}</Typography>
+              <Typography variant="h6" color="textPrimary">
+                {title}
+              </Typography>
             </Title>
             <Subtitle>
-              <Typography variant="subtitle2">{subtitle}</Typography>
+              <Typography variant="subtitle2" color="textPrimary">
+                {subtitle}
+              </Typography>
             </Subtitle>
           </Column>
           {hasCloseButton && (
@@ -114,7 +140,7 @@ const Maximized = ({
         {messages.map(message => (
           <Message
             date={
-              <Typography variant="caption">
+              <Typography variant="caption" className={classes.authorName}>
                 {/* Workaround to overcome lack of authorName on message object */}
                 {message.authorName}
                 {(message.authorName === '' ||
@@ -128,10 +154,7 @@ const Maximized = ({
               </Typography>
             }
             deliveryStatus={
-              <Typography
-                variant="caption"
-                style={{ color: '#999999', margin: '0px 8px 0px 8px' }}
-              >
+              <Typography variant="caption" className={classes.at}>
                 {message.at}
               </Typography>
             }
@@ -179,33 +202,36 @@ const Maximized = ({
                       </video>
                     )}
                     {media.mediaType.startsWith('application') && (
-                      <ListItem>
-                        <ListItemAvatar>
-                          <Avatar>
-                            <Icon path={mdiFile} size={2} color="#817e7d" />
-                          </Avatar>
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={media.name}
-                          secondary={`${media.size} Kb`}
-                        />
-                        <ListItemSecondaryAction
-                          style={{
-                            right: 0,
-                            top: '60px',
-                          }}
-                        >
-                          <a href={media.url} download>
-                            <IconButton edge="end" aria-label="delete">
-                              <Icon
-                                path={mdiDownload}
-                                size={1.5}
-                                color={message.own ? 'white' : 'black'}
-                              />
-                            </IconButton>
-                          </a>
-                        </ListItemSecondaryAction>
-                      </ListItem>
+                      <List>
+                        <ListItem style={{ paddingTop: 0, paddingBottom: 0 }}>
+                          <ListItemAvatar>
+                            <Icon
+                              path={mdiFile}
+                              size={2}
+                              color={message.own ? 'white' : 'black'}
+                            />
+                          </ListItemAvatar>
+                          <ListItemText
+                            primary={media.name}
+                            secondary={`${media.size} Kb`}
+                          />
+                          <ListItemSecondaryAction
+                            style={{
+                              right: 0,
+                            }}
+                          >
+                            <a href={media.url} download>
+                              <IconButton edge="end" aria-label="delete">
+                                <Icon
+                                  path={mdiDownload}
+                                  size={1.5}
+                                  color={message.own ? 'white' : 'black'}
+                                />
+                              </IconButton>
+                            </a>
+                          </ListItemSecondaryAction>
+                        </ListItem>
+                      </List>
                     )}
                   </MessageMedia>
                 ))}
@@ -222,13 +248,24 @@ const Maximized = ({
           onSend={text => {
             if (Object.keys(files).length > 0) {
               onMediaSend(text, files);
-              setFiles({});
             } else {
-              setWriting(false);
               onMessageSend(text);
+            }
+            setFiles({});
+            setWriting(false);
+          }}
+          onKeyDown={e => {
+            if (
+              !writing &&
+              wasOnlyEnterPressed(e) &&
+              Object.keys(files).length > 0
+            ) {
+              onMediaSend('', files);
+              setFiles({});
             }
           }}
           onChange={e => setWriting(e.currentTarget.value !== '')}
+          inputRef={ref => setInputRef(ref)}
         >
           {error !== '' && error !== undefined ? (
             <Row align="center" justifyContent="space-around">
@@ -243,11 +280,38 @@ const Maximized = ({
                   <TextInput fill placeholder="Digite uma mensagem" />
                 )}
 
-                {writing ||
-                Object.keys(files).length > 0 ||
-                !isThereAudioSupport ? (
-                  <SendButton fill />
-                ) : (
+                {/* 
+                  It's using the <SendButton/ /> to handle the send when typing 
+                  some text (easier because it is implemented by the livechat).
+                  This scenario cannot handle the attachment files with no text (active bug), though.
+                  So, we are using the <Icon /> to handle the bug scenario and keeping the 
+                  livechat for user text scenario (with or without attachment).
+                  TODO: Keep only one handler, either by fixing the active bug or implementing the text 
+                  handler on our <Icon /> (using controlled component passing 'value ' to TextComposer)
+                */}
+                {(writing || !isThereAudioSupport) && <SendButton fill />}
+                {!writing && !recording && Object.keys(files).length > 0 && (
+                  <IconButton
+                    fill
+                    key="close"
+                    onClick={() => {
+                      onMediaSend('', files);
+                      setFiles({});
+                    }}
+                    style={{ maxHeight: 37, maxWidth: 35 }}
+                  >
+                    <Icon
+                      path={mdiSend}
+                      size={1.143}
+                      color="#427fe1"
+                      style={{ maxHeight: 26, maxWidth: 24 }}
+                    />
+                  </IconButton>
+                )}
+
+                {!writing &&
+                  isThereAudioSupport &&
+                  Object.keys(files).length <= 0 &&
                   !recording && (
                     <IconButton
                       fill
@@ -260,8 +324,7 @@ const Maximized = ({
                         color={defaultGreyLight2}
                       />
                     </IconButton>
-                  )
-                )}
+                  )}
 
                 {recording && <MicRecorder onStopRecording={onStopRecording} />}
               </Row>
@@ -306,18 +369,21 @@ const Maximized = ({
                 </Row>
               )}
               <CustomUploader
+                focusRef={inputRef}
                 ref={imageUpRef}
                 files={files}
                 setFiles={setFiles}
                 mediaType="image/*"
               />
               <CustomUploader
+                focusRef={inputRef}
                 ref={videoUpRef}
                 files={files}
                 setFiles={setFiles}
                 mediaType="video/*"
               />
               <CustomUploader
+                focusRef={inputRef}
                 ref={appUpRef}
                 files={files}
                 setFiles={setFiles}

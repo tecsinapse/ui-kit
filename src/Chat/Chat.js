@@ -1,6 +1,7 @@
 import React from 'react';
 import { FixedWrapper } from '@livechat/ui-kit';
 import PropTypes from 'prop-types';
+import { useTheme } from '@material-ui/styles';
 
 import Maximized from './Maximized';
 import Minimized from './Minimized';
@@ -18,36 +19,43 @@ export const Chat = ({
   onCloseChat,
   error,
   onMediaSend,
-}) => (
-  <div>
-    <ChatTheme>
-      <div>
-        <FixedWrapper.Root maximizedOnInit={isMaximizedOnly}>
-          <FixedWrapper.Maximized>
-            <Maximized
-              messages={messages}
-              onMessageSend={onMessageSend}
-              messagesEndRef={messagesEndRef}
-              onAudio={onAudio}
-              disabled={disabled}
-              isMaximizedOnly={isMaximizedOnly}
-              hasCloseButton={!isMaximizedOnly}
-              title={title}
-              subtitle={subtitle}
-              onCloseChat={onCloseChat}
-              error={error}
-              onMediaSend={onMediaSend}
-            />
-          </FixedWrapper.Maximized>
+  notifyNumber,
+  width,
+  height,
+}) => {
+  const theme = useTheme();
 
-          <FixedWrapper.Minimized>
-            {!isMaximizedOnly && <Minimized />}
-          </FixedWrapper.Minimized>
-        </FixedWrapper.Root>
-      </div>
-    </ChatTheme>
-  </div>
-);
+  return (
+    <div>
+      <ChatTheme materialTheme={theme} width={width} height={height}>
+        <div>
+          <FixedWrapper.Root maximizedOnInit={isMaximizedOnly}>
+            <FixedWrapper.Maximized>
+              <Maximized
+                messages={messages}
+                onMessageSend={onMessageSend}
+                messagesEndRef={messagesEndRef}
+                onAudio={onAudio}
+                disabled={disabled}
+                isMaximizedOnly={isMaximizedOnly}
+                hasCloseButton={!isMaximizedOnly}
+                title={title}
+                subtitle={subtitle}
+                onCloseChat={onCloseChat}
+                error={error}
+                onMediaSend={onMediaSend}
+              />
+            </FixedWrapper.Maximized>
+
+            <FixedWrapper.Minimized>
+              {!isMaximizedOnly && <Minimized notifyNumber={notifyNumber} />}
+            </FixedWrapper.Minimized>
+          </FixedWrapper.Root>
+        </div>
+      </ChatTheme>
+    </div>
+  );
+};
 
 Chat.defaultProps = {
   onAudio: undefined,
@@ -58,6 +66,9 @@ Chat.defaultProps = {
   onCloseChat: undefined,
   error: undefined,
   onMediaSend: undefined,
+  notifyNumber: 0,
+  width: 450,
+  height: 550,
 };
 
 Chat.propTypes = {
@@ -100,6 +111,9 @@ Chat.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   error: PropTypes.string,
+  notifyNumber: PropTypes.number,
+  width: PropTypes.number,
+  height: PropTypes.number,
 };
 
 export default Chat;

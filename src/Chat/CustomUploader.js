@@ -4,8 +4,12 @@ import uniqid from 'uniqid';
 import { Uploader } from '../UploadFile/Uploader';
 
 export const CustomUploader = forwardRef(
-  ({ files, setFiles, mediaType }, ref) => {
+  ({ files, setFiles, mediaType, focusRef }, ref) => {
     const onAccept = newFiles => {
+      if (focusRef) {
+        focusRef.focus();
+      }
+
       const copyFiles = { ...files };
       newFiles.forEach(file => {
         const reader = new FileReader();

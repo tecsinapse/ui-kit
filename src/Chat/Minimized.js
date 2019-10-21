@@ -1,35 +1,25 @@
 import React from 'react';
-import { ChatIcon, IconButton } from '@livechat/ui-kit';
 import Icon from '@mdi/react';
-import { mdiForum} from '@mdi/js';
-import {Badge} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { mdiForum } from '@mdi/js';
+import { Badge } from '@material-ui/core';
+import { useTheme } from '@material-ui/styles';
 
-import {FloatingButton} from '../Buttons/FloatingButton';
-// import {defaultOrange} from '../colors';
+import { FloatingButton } from '../Buttons/FloatingButton';
 
-const useStyles = makeStyles(theme => ({
-  margin: {
-    margin: theme.spacing(2),
-  },
-  padding: {
-    padding: theme.spacing(0, 2),
-  },
-}));
+const Minimized = ({ maximize, notifyNumber }) => {
+  const theme = useTheme();
 
-const Minimized = ({ maximize }) => 
-  // const classes = useStyles();
-
-   (
-  <Badge color="error" badgeContent={4}>
-    <FloatingButton
-      onClick={maximize}
-      variant="primary"
-      size="large"
-    >
-      <Icon path={mdiForum} size={1.25} />
-    </FloatingButton>
-  </Badge>
-  )
+  return (
+    <Badge color="error" badgeContent={notifyNumber}>
+      <FloatingButton onClick={maximize} variant="primary" size="large">
+        <Icon
+          path={mdiForum}
+          size={1.25}
+          color={theme.palette.primary.contrastText}
+        />
+      </FloatingButton>
+    </Badge>
+  );
+};
 
 export default Minimized;

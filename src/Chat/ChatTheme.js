@@ -1,110 +1,110 @@
 import React from 'react';
-import { ThemeProvider } from '@livechat/ui-kit'
+import { ThemeProvider } from '@livechat/ui-kit';
 
-import {defaultOrange, defaultGreyLight2, defaultGreyLight3} from '../colors';
-
-const getTheme = () => ({
-    AgentBar: {
-        Avatar: {},
-        css: {
-            backgroundColor: defaultOrange,
-            borderRadius: '8px 8px 0 0',        
-        },
-    },
-    FixedWrapperMaximized: {
-        animationDuration: 100,
-        width: '450px',
-        height: '550px',
-        css: {
-            boxShadow: '0 0 1em rgba(0, 0, 0, 0.1)',
-            borderRadius: '8px',
-        },
-    },
-    FixedWrapperMinimized: {
-        animationDuration: 100,
-    },
-    FixedWrapperRoot: {
-        position: 'right',
-        css: {},
-    },
-    Message: {
-        own: {
-            horizontalAlign: 'right',
-            Bubble: {
-                css: {
-                    backgroundColor: "#817e7d",
-                    borderRadius: '10px 0px 10px 10px',
-                },
-            },
-            Content: {
-                css: {
-                    alignItems: 'flex-end',
-                },
-            },
-            MessageMeta: {
-                css: {
-                    textAlign: 'right',
-                },
-            },
-        },
-        // Not own message properties
-        Bubble: {
-            css: {
-              backgroundColor: ' #ffffff',
-              borderRadius: '0 10px 10px 10px',
-            },
-        },
-        horizontalAlign: 'left',
-
-    },
-    MessageList: {
-        css: {
-            backgroundColor: "#f2f2f2",
-        },
-    },
-    TextComposer: {
-        inputColor: '#000', // this is a color for text, but sounds like a color for background
-        Icon: {
-            css: {
-                height: '26px',
-                width: '24px',
-            },
-        },
-        IconButton: {
-            active: {
-                Icon: {},
-            },
-        },
-        css: {
-            borderRadius: '0 0 8px 8px',
-        },
-    },
-
-    // Let unset the components that our chat is not using
+const getTheme = (materialTheme, width, height) => ({
+  AgentBar: {
     Avatar: {},
-    Bubble: {},
-    Button: {},
-    ChatListItem: {
-        Avatar: {},
+    css: {
+      backgroundColor: materialTheme.palette.primary.main,
+      borderRadius: `${materialTheme.spacing(0.5)}px ${materialTheme.spacing(
+        0.5
+      )}px 0px 0px`,
     },
-    QuickReply: {},
-    TitleBar: {},
-    MessageButtons: {},
-    MessageGroup: {},
-    MessageMedia: {},
-    MessageText: {
+  },
+  FixedWrapperMaximized: {
+    animationDuration: 100,
+    width,
+    height,
+    css: {
+      boxShadow: '0 0 1em rgba(0, 0, 0, 0.1)',
+      borderRadius: `${materialTheme.spacing(1)}px`,
+    },
+  },
+  FixedWrapperMinimized: {
+    animationDuration: 100,
+  },
+  FixedWrapperRoot: {
+    position: 'right',
+    css: {},
+  },
+  Message: {
+    own: {
+      horizontalAlign: 'right',
+      Bubble: {
         css: {
-            padding: '10px 10px 10px 10px',
+          backgroundColor: '#817e7d', // it is not materialized!
+          borderRadius: `${materialTheme.spacing(
+            1
+          )}px 0px ${materialTheme.spacing(1)}px ${materialTheme.spacing(1)}px`,
         },
+      },
+      Content: {
+        css: {
+          alignItems: 'flex-end',
+        },
+      },
+      MessageMeta: {
+        css: {
+          textAlign: 'right',
+        },
+      },
     },
-    MessageTitle: {},
+    // Not own message properties
+    Bubble: {
+      css: {
+        backgroundColor: ' #ffffff', // it is not materialized!
+        borderRadius: `0 ${materialTheme.spacing(1)}px ${materialTheme.spacing(
+          1
+        )}px ${materialTheme.spacing(1)}px`,
+      },
+    },
+    horizontalAlign: 'left',
+  },
+  MessageList: {
+    css: {
+      backgroundColor: '#f2f2f2', // it is not materialized
+    },
+  },
+  TextComposer: {
+    inputColor: '#000', // this is a color for text, but sounds like a color for background
+    Icon: {
+      css: {
+        height: '26px',
+        width: '24px',
+      },
+    },
+    css: {
+      borderRadius: `0px 0px ${materialTheme.spacing(
+        0.5
+      )}px ${materialTheme.spacing(0.5)}px `,
+    },
+  },
+
+  // Let unset the components that our chat is not using
+  Avatar: {},
+  Bubble: {},
+  Button: {},
+  ChatListItem: {
+    Avatar: {},
+  },
+  QuickReply: {},
+  TitleBar: {},
+  MessageButtons: {},
+  MessageGroup: {},
+  MessageMedia: {},
+  MessageText: {
+    css: {
+      padding: `${materialTheme.spacing(0.75)}px ${materialTheme.spacing(
+        0.75
+      )}px ${materialTheme.spacing(0.75)}px ${materialTheme.spacing(0.75)}px`,
+    },
+  },
+  MessageTitle: {},
 });
 
-const ChatTheme = ({children}) => (
-    <ThemeProvider theme={getTheme()} >
-        {children}
-    </ThemeProvider>
-
+const ChatTheme = ({ children, materialTheme, width, height }) => (
+  <ThemeProvider theme={getTheme(materialTheme, width, height)}>
+    {children}
+  </ThemeProvider>
 );
 export default ChatTheme;
-
