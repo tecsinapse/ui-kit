@@ -39,5 +39,5 @@ storiesOf(`${GROUPS.FORMS}|GroupedInput`, module)
   .add('grouped input', () => <GroupedWrapper />)
   .add('grouped input empty', () => <GroupedWrapper empty />)
   .add('grouped input empty error', () => (
-    <GroupedWrapper empty error="should not be empty" />
+    <GroupedWrapper empty error="Não deve estar vazio" />
   ));
