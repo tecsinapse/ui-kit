@@ -22,6 +22,8 @@ export const Chat = ({
   notifyNumber,
   width,
   height,
+  isLoading,
+  loadMore,
 }) => {
   const theme = useTheme();
 
@@ -44,6 +46,8 @@ export const Chat = ({
                 onCloseChat={onCloseChat}
                 error={error}
                 onMediaSend={onMediaSend}
+                isLoading={isLoading}
+                loadMore={loadMore}
               />
             </FixedWrapper.Maximized>
 
@@ -69,6 +73,8 @@ Chat.defaultProps = {
   notifyNumber: 0,
   width: 450,
   height: 550,
+  isLoading: false,
+  loadMore: undefined,
 };
 
 Chat.propTypes = {
@@ -114,6 +120,8 @@ Chat.propTypes = {
   notifyNumber: PropTypes.number,
   width: PropTypes.number,
   height: PropTypes.number,
+  isLoading: PropTypes.bool,
+  loadMore: PropTypes.func,
 };
 
 export default Chat;

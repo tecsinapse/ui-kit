@@ -21,7 +21,6 @@ import {
   mdiMicrophone,
   mdiPaperclip,
   mdiImage,
-  // mdiEmoticon,  TODO: implement this buttton
   mdiLibraryVideo,
   mdiClose,
   mdiFile,
@@ -43,6 +42,7 @@ import { MicRecorder } from './MicRecorder';
 
 import { CustomUploader } from './CustomUploader';
 import { PreviewList } from './PreviewList';
+import { Loading } from './Loading';
 
 const useStyle = makeStyles(theme => ({
   root: {
@@ -80,6 +80,8 @@ const Maximized = ({
   onCloseChat,
   error,
   onMediaSend,
+  isLoading,
+  loadMore,
 }) => {
   const classes = useStyle();
   const theme = useTheme();
@@ -144,7 +146,8 @@ const Maximized = ({
         </Row>
       </AgentBar>
 
-      <MessageList active containScrollInSubtree>
+      {isLoading && <Loading />}
+      <MessageList active onScrollTop={loadMore}>
         {messages.map(message => (
           <Message
             date={
