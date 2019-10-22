@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardTimePicker } from '@material-ui/pickers';

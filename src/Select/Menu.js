@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { SearchDialog } from './SearchDialog';
 import { SelectAllButton } from './SelectAllButton';

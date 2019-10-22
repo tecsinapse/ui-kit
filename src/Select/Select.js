@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { Tooltip, withStyles } from '@material-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
 import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/build';
