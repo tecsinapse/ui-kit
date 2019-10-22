@@ -1,3 +1,11 @@
+<a name="2.0.11"></a>
+## <small>2.0.11 (2019-10-22)</small>
+
+* Add css body1 class ([1f75104](https://github.com/tecsinapse/ui-kit/commit/1f75104))
+* Fix text overflox options web/mobile; Fix show selected opt ([6cc839c](https://github.com/tecsinapse/ui-kit/commit/6cc839c))
+
+
+
 <a name="2.0.10"></a>
 ## <small>2.0.10 (2019-10-18)</small>
 
