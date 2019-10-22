@@ -14,11 +14,6 @@ import { LocaleContext } from '../LocaleProvider';
 import { EmptyStateWrapper } from '../EmptyState/EmptyState';
 import { TableCard } from './TableCard';
 
-const cache = new CellMeasurerCache({
-  defaultHeight: 300,
-  fixedWidth: true,
-});
-
 export const TableMobile = ({
   columns,
   data,
@@ -29,6 +24,11 @@ export const TableMobile = ({
   onChangeStartStopIndex,
 }) => {
   const list = useRef();
+
+  const cache = new CellMeasurerCache({
+    defaultHeight: 300,
+    fixedWidth: true,
+  });
 
   const {
     Table: { emptyStateTitle, emptyStateMessage },
