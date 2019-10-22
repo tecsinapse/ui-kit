@@ -93,7 +93,7 @@ export const MicRecorder = ({
         >
           <Icon
             path={mdiCheckboxBlankCircle}
-            size={0.75}
+            size={0.5}
             color="red"
             style={{ opacity, padding: '2px 6px 0px 0px' }}
           />

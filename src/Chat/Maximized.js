@@ -16,8 +16,7 @@ import {
   Column,
   Bubble,
 } from '@livechat/ui-kit';
-// import {IconButton as IconButtonMaterial} from '../Buttons/IconButton';
-import { Typography } from '@material-ui/core';
+import { Typography, Avatar } from '@material-ui/core';
 import {
   mdiMicrophone,
   mdiPaperclip,
@@ -35,7 +34,9 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
+
 import { makeStyles, useTheme } from '@material-ui/styles';
+import { IconButton as IconButtonMaterial } from '../Buttons/IconButton';
 
 import { defaultGreyLight2 } from '../colors';
 import { MicRecorder } from './MicRecorder';
@@ -131,13 +132,13 @@ const Maximized = ({
           </Column>
           {hasCloseButton && (
             <Column style={{ justifyContent: 'center' }}>
-              <IconButton key="close" onClick={onCloseChatClicked}>
+              <IconButtonMaterial key="close" onClick={onCloseChatClicked}>
                 <Icon
                   path={mdiClose}
                   size={1.0}
                   color={theme.palette.primary.contrastText}
                 />
-              </IconButton>
+              </IconButtonMaterial>
             </Column>
           )}
         </Row>
@@ -209,14 +210,22 @@ const Maximized = ({
                       </video>
                     )}
                     {media.mediaType.startsWith('application') && (
-                      <List>
-                        <ListItem style={{ paddingTop: 0, paddingBottom: 0 }}>
+                      <List style={{ padding: 0 }}>
+                        <ListItem
+                          style={{
+                            paddingTop: 0,
+                            paddingBottom: 0,
+                            paddingLeft: 8,
+                          }}
+                        >
                           <ListItemAvatar>
-                            <Icon
-                              path={mdiFile}
-                              size={2}
-                              color={message.own ? 'white' : 'black'}
-                            />
+                            <Avatar>
+                              <Icon
+                                path={mdiFile}
+                                size={1.0}
+                                color={message.own ? 'white' : 'black'}
+                              />
+                            </Avatar>
                           </ListItemAvatar>
                           <ListItemText
                             primary={media.name}
@@ -228,13 +237,13 @@ const Maximized = ({
                             }}
                           >
                             <a href={media.url} download>
-                              <IconButton edge="end" aria-label="delete">
+                              <IconButtonMaterial aria-label="download">
                                 <Icon
                                   path={mdiDownload}
-                                  size={1.5}
+                                  size={1.2}
                                   color={message.own ? 'white' : 'black'}
                                 />
-                              </IconButton>
+                              </IconButtonMaterial>
                             </a>
                           </ListItemSecondaryAction>
                         </ListItem>
@@ -300,7 +309,7 @@ const Maximized = ({
                 {!writing && !recording && Object.keys(files).length > 0 && (
                   <IconButton
                     fill
-                    key="close"
+                    key="send"
                     onClick={() => {
                       onMediaSend('', files);
                       setFiles({});
@@ -322,7 +331,7 @@ const Maximized = ({
                   !recording && (
                     <IconButton
                       fill
-                      key="close"
+                      key="mic"
                       onClick={() => setRecording(true)}
                     >
                       <Icon

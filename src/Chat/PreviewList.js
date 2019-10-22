@@ -61,6 +61,18 @@ const useStyle = makeStyles({
     marginRight: '0px',
     position: 'relative',
   },
+  iconButtonClose: {
+    position: 'absolute',
+    top: '0',
+    right: '0',
+    backgroundColor: 'rgba(117, 117, 117, 0.65)',
+    padding: '3px',
+    margin: '2px 1px',
+    transition: 'opacity 0.25s',
+    '&:hover': {
+      backgroundColor: 'rgba(117, 117, 117, 0.85)',
+    },
+  },
 });
 
 const getMediaComponent = (mediaType, name, data) => {
@@ -112,14 +124,7 @@ export function PreviewList({ files, setFiles }) {
                     return filesCopy;
                   })
                 }
-                style={{
-                  position: 'absolute',
-                  top: '0',
-                  right: '0',
-                  backgroundColor: 'rgba(117, 117, 117, 0.75)',
-                  padding: '3px',
-                  margin: '2px 1px',
-                }}
+                className={classes.iconButtonClose}
               >
                 <Icon path={mdiClose} size={0.5} color="white" />
               </IconButton>
