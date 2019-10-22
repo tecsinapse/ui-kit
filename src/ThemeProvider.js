@@ -3,7 +3,12 @@ import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { defaultBlue, defaultRed, defaultYellow } from './colors';
+import {
+  defaultBadgeColor,
+  defaultBlue,
+  defaultRed,
+  defaultYellow,
+} from './colors';
 
 const themeColors = {
   orange: {
@@ -139,6 +144,11 @@ const theme = variant => {
         entered: {
           height: 'auto',
           overflow: 'visible',
+        },
+      },
+      MuiBadge: {
+        badge: {
+          backgroundColor: defaultBadgeColor,
         },
       },
       ...themeCustom(variant),
