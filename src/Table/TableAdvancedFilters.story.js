@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
 import { makeStyles } from '@material-ui/core';
 
-import { resolveObj } from '@tecsinapse/es-utils/core/object';
+import { resolveObj } from '@tecsinapse/es-utils/build';
 import Table from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { countries } from './exampleData';

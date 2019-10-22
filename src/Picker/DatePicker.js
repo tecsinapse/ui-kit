@@ -5,14 +5,13 @@ import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import DateTime from 'luxon/src/datetime';
+import { DateTime, Interval } from 'luxon';
 import {
   DatePicker as DatePickerExt,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 
-import Interval from 'luxon/src/interval';
-import { isNotUndefOrNull } from '@tecsinapse/es-utils/core/object';
+import { isNotUndefOrNull } from '@tecsinapse/es-utils/build';
 import { Input } from '../Inputs/Input';
 import { LocaleContext } from '../LocaleProvider';
 import { useStylesWeek } from './customWeekPickerStyles';

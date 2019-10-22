@@ -1,3 +1,43 @@
+<a name="2.0.5"></a>
+## <small>2.0.5 (2019-09-26)</small>
+
+* Removing docz from readme ([3e4b680](https://github.com/tecsinapse/ui-kit/commit/3e4b680))
+* Removing old pickers ([f9e4845](https://github.com/tecsinapse/ui-kit/commit/f9e4845))
+
+
+
+<a name="2.0.4"></a>
+## <small>2.0.4 (2019-09-03)</small>
+
+* Missing Deps ([6b4c12b](https://github.com/tecsinapse/ui-kit/commit/6b4c12b))
+
+
+
+<a name="2.0.3"></a>
+## <small>2.0.3 (2019-09-02)</small>
+
+* Updating libs and minor fix ([6df8457](https://github.com/tecsinapse/ui-kit/commit/6df8457))
+
+
+
+<a name="2.0.2"></a>
+## <small>2.0.2 (2019-09-02)</small>
+
+* yarn upgrade ([1c62e32](https://github.com/tecsinapse/ui-kit/commit/1c62e32))
+
+
+
+<a name="2.0.1"></a>
+## <small>2.0.1 (2019-09-02)</small>
+
+* - Updating utils and yarn.lock ([a1a6b80](https://github.com/tecsinapse/ui-kit/commit/a1a6b80))
+* ES-UTILS update ([bc1ed49](https://github.com/tecsinapse/ui-kit/commit/bc1ed49))
+* ES-UTILS update and fix wrong dependencies ([5e01909](https://github.com/tecsinapse/ui-kit/commit/5e01909))
+* Toolbar must be undefined when it isn't set ([b5614a0](https://github.com/tecsinapse/ui-kit/commit/b5614a0))
+* toolbarOptions as required and default as a empty object ([4a8354e](https://github.com/tecsinapse/ui-kit/commit/4a8354e))
+
+
+
 <a name="2.0.0"></a>
 ## 2.0.0 (2019-09-02)
 

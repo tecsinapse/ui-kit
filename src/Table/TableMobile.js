@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { isEmptyOrNull } from '@tecsinapse/es-utils/core/object';
+import { isEmptyOrNull } from '@tecsinapse/es-utils/build';
 import { VisibilityOff } from '@material-ui/icons';
 import {
   CellMeasurer,

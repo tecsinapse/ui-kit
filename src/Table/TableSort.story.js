@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core';
 
 import Table from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { DivFlex } from '../withFlexCenter';
 
 const useStyle = makeStyles(() => ({
   rootMobile: {
@@ -75,6 +76,6 @@ const PaginationTable = () => {
   );
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module).add('Sort Table', () => (
-  <PaginationTable />
-));
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .addDecorator(story => <DivFlex>{story()}</DivFlex>)
+  .add('Sort Table', () => <PaginationTable />);
