@@ -24,6 +24,7 @@ export const Chat = ({
   height,
   isLoading,
   loadMore,
+  maxFileUploadSize,
 }) => {
   const theme = useTheme();
 
@@ -48,6 +49,7 @@ export const Chat = ({
                 onMediaSend={onMediaSend}
                 isLoading={isLoading}
                 loadMore={loadMore}
+                maxFileUploadSize={maxFileUploadSize}
               />
             </FixedWrapper.Maximized>
 
@@ -75,6 +77,7 @@ Chat.defaultProps = {
   height: 550,
   isLoading: false,
   loadMore: undefined,
+  maxFileUploadSize: 20971520, // 20 MB
 };
 
 Chat.propTypes = {
@@ -122,6 +125,7 @@ Chat.propTypes = {
   height: PropTypes.number,
   isLoading: PropTypes.bool,
   loadMore: PropTypes.func,
+  maxFileUploadSize: PropTypes.number,
 };
 
 export default Chat;

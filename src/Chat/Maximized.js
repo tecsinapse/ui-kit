@@ -52,7 +52,6 @@ const useStyle = makeStyles(theme => ({
   },
   at: {
     color: '#B2B2B2',
-    margin: '0px 8px 0px 8px',
   },
   authorName: {
     color: '#787879',
@@ -82,6 +81,7 @@ const Maximized = ({
   onMediaSend,
   isLoading,
   loadMore,
+  maxFileUploadSize,
 }) => {
   const classes = useStyle();
   const theme = useTheme();
@@ -393,6 +393,7 @@ const Maximized = ({
                 files={files}
                 setFiles={setFiles}
                 mediaType="image/*"
+                maxFileUploadSize={maxFileUploadSize}
               />
               <CustomUploader
                 focusRef={inputRef}
@@ -400,13 +401,14 @@ const Maximized = ({
                 files={files}
                 setFiles={setFiles}
                 mediaType="video/*"
+                maxFileUploadSize={maxFileUploadSize}
               />
               <CustomUploader
                 focusRef={inputRef}
                 ref={appUpRef}
                 files={files}
                 setFiles={setFiles}
-                mediaType="application/*"
+                maxFileUploadSize={maxFileUploadSize}
               />
             </Fragment>
           )}
