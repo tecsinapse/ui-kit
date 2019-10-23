@@ -30,6 +30,7 @@ function GroupedWrapper({ empty, error }) {
         });
       }}
       push={() => setValues(v => [...v, ''])}
+      hr
     />
   );
 }

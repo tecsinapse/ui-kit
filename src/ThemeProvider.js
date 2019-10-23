@@ -3,12 +3,7 @@ import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {
-  defaultBadgeColor,
-  defaultBlue,
-  defaultRed,
-  defaultYellow,
-} from './colors';
+import { defaultBlue, defaultRed, defaultYellow } from './colors';
 
 const themeColors = {
   orange: {
@@ -84,55 +79,7 @@ const themeGlobals = variant => ({
     breadcrumbContrastText: variant === 'redLight' ? '#000000' : '#ffffff',
   },
 });
-const themeCustom = variant => {
-  if (variant !== 'yellow') {
-    return {};
-  }
-  return {
-    MuiPickersToolbar: {
-      toolbar: {
-        backgroundColor: defaultBlue,
-      },
-    },
-    MuiPickersYear: {
-      yearSelected: {
-        color: defaultBlue,
-      },
-    },
-    MuiPickersClockPointer: {
-      pointer: {
-        backgroundColor: defaultBlue,
-      },
-      thumb: {
-        backgroundColor: defaultBlue,
-        borderColor: defaultBlue,
-      },
-      noPoint: {
-        backgroundColor: defaultBlue,
-      },
-    },
-    MuiPickersClock: {
-      pin: {
-        backgroundColor: defaultBlue,
-      },
-    },
-    MuiOutlinedInput: {
-      root: {
-        '&$focused $notchedOutline': {
-          borderColor: defaultBlue,
-        },
-      },
-    },
-    MuiFormLabel: {
-      root: {
-        '&$focused': {
-          color: defaultBlue,
-        },
-      },
-    },
-  };
-};
-const theme = variant => {
+const theme = (variant, overrides) => {
   const themeCompile = {
     typography: {
       useNextVariants: true,
@@ -146,20 +93,19 @@ const theme = variant => {
           overflow: 'visible',
         },
       },
-      MuiBadge: {
-        badge: {
-          backgroundColor: defaultBadgeColor,
-        },
-      },
-      ...themeCustom(variant),
+      ...overrides,
     },
     palette: { ...themeColors[variant] },
     ...themeGlobals(variant),
   };
   return createMuiTheme(themeCompile);
 };
-export function ThemeProvider({ children, variant }) {
-  return <MuiThemeProvider theme={theme(variant)}>{children}</MuiThemeProvider>;
+export function ThemeProvider({ children, variant, overrides }) {
+  return (
+    <MuiThemeProvider theme={theme(variant, overrides)}>
+      {children}
+    </MuiThemeProvider>
+  );
 }
 export default ThemeProvider;
 ThemeProvider.propTypes = {
