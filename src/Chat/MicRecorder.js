@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ReactMic } from '@cleandersonlobo/react-mic';
 import Icon from '@mdi/react';
 import {
@@ -26,22 +26,27 @@ export const MicRecorder = ({
 }) => {
   const [recording, setRecording] = useState(true);
   const [opacity, setOpacity] = useState(1);
+  const accepted = useRef(false);
 
   const classes = useStyle();
 
-  let accepted = false;
-
   const stopRecording = acceptedClicked => {
-    accepted = acceptedClicked;
+    accepted.current = acceptedClicked;
     setRecording(false);
   };
 
   const onStop = recordedBlob => {
-    onStopRecording(recordedBlob, accepted);
+    onStopRecording(recordedBlob, accepted.current);
   };
 
   useEffect(() => {
-    setInterval(() => setOpacity(oldOpacity => (oldOpacity > 0 ? 0 : 1)), 500);
+    const animation = setInterval(
+      () => setOpacity(oldOpacity => (oldOpacity > 0 ? 0 : 1)),
+      1000
+    );
+    return () => {
+      clearInterval(animation);
+    };
   }, []);
 
   return (
