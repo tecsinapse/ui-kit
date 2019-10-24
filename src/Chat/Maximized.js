@@ -35,6 +35,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 
 import { makeStyles, useTheme } from '@material-ui/styles';
+import clsx from 'classnames';
 import { IconButton as IconButtonMaterial } from '../Buttons/IconButton';
 
 import { defaultGreyLight2 } from '../colors';
@@ -55,6 +56,12 @@ const useStyle = makeStyles(theme => ({
   },
   authorName: {
     color: '#787879',
+  },
+  bubbleTransparent: {
+    border: 'unset',
+    borderRadius: 'unset',
+    backgroundColor: 'rgba(255, 255, 255, 0)',
+    boxShadow: 'unset',
   },
 }));
 
@@ -172,7 +179,20 @@ const Maximized = ({
             isOwn={message.own}
             key={message.id}
           >
-            <Bubble isOwn={message.own}>
+            <Bubble
+              isOwn={message.own}
+              className={clsx({
+                [classes.bubbleTransparent]:
+                  message.medias &&
+                  message.medias.filter(
+                    media =>
+                      media.mediaType.startsWith('video') ||
+                      media.mediaType.startsWith('image')
+                  ).length > 0 &&
+                  !message.text &&
+                  !message.title,
+              })}
+            >
               {message.text && (
                 <MessageText>
                   <Typography variant="body1">{message.text}</Typography>
@@ -195,18 +215,34 @@ const Maximized = ({
                       <img
                         src={media.url}
                         alt="Imagem"
-                        style={{ maxHeight: '200px' }}
+                        style={{
+                          maxHeight: '200px',
+                          border: '1px solid black',
+                        }}
                       />
                     )}
                     {media.mediaType.startsWith('audio') && (
-                      <audio controls>
+                      <audio
+                        controls
+                        style={{
+                          display: 'flex',
+                          padding: '5px',
+                        }}
+                      >
                         <source src={media.url} />
                         {/* TODO: ADD A REAL TRACK OBJECT */}
                         <track default kind="captions" src={media.url} />
                       </audio>
                     )}
                     {media.mediaType.startsWith('video') && (
-                      <video controls height={200}>
+                      <video
+                        controls
+                        height={200}
+                        style={{
+                          maxHeight: '200px',
+                          border: '1px solid black',
+                        }}
+                      >
                         <source src={media.url} />
                         {/* TODO: ADD A REAL TRACK OBJECT */}
                         <track default kind="captions" src={media.url} />
