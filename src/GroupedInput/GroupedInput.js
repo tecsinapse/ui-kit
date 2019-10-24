@@ -73,7 +73,7 @@ export const GroupedInput = ({
     <div>
       <div className={classes.flex}>
         <Typography
-          variant="subtitle2"
+          variant="h6"
           className={classNames({ [classes.errorLabel]: !!error })}
         >
           {header} {!!error && '* '}
