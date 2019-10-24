@@ -216,8 +216,8 @@ const Maximized = ({
                       <List style={{ padding: 0 }}>
                         <ListItem
                           style={{
-                            paddingTop: 0,
-                            paddingBottom: 0,
+                            paddingTop: media.size ? 0 : undefined,
+                            paddingBottom: media.size ? 0 : undefined,
                             paddingLeft: 8,
                           }}
                         >
@@ -232,7 +232,11 @@ const Maximized = ({
                           </ListItemAvatar>
                           <ListItemText
                             primary={media.name}
-                            secondary={`${media.size} Kb`}
+                            secondary={media.size && `${media.size} Kb`}
+                            style={{
+                              textOverflow: 'ellipsis',
+                              overflow: 'hidden',
+                            }}
                           />
                           <ListItemSecondaryAction
                             style={{

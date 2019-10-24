@@ -63,7 +63,7 @@ const ChatWrapper = () => {
             mediaType: file.mediaType,
             url: file.data,
             name: file.name,
-            size: file.size,
+            // size: file.size, emulate scenario without size from backend
           },
         ],
         title,
