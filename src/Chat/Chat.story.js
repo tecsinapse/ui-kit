@@ -146,7 +146,16 @@ const ChatWrapper = () => {
 storiesOf(`Chat`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Chat', () => (
-    <div style={{ width: '700px', height: '500px' }}>
+    <div
+      style={{
+        width: '400px',
+        height: '550px',
+        position: 'fixed',
+        right: '1em',
+        bottom: '-50px',
+      }}
+    >
+      {/* Only renders inside the given div */}
       <ChatWrapper />
     </div>
   ));

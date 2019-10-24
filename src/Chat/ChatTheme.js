@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from '@livechat/ui-kit';
 
-const getTheme = (materialTheme, width, height) => ({
+const getTheme = materialTheme => ({
   AgentBar: {
     Avatar: {},
     css: {
@@ -13,19 +13,30 @@ const getTheme = (materialTheme, width, height) => ({
   },
   FixedWrapperMaximized: {
     animationDuration: 100,
-    width,
-    height,
     css: {
       boxShadow: '0 0 1em rgba(0, 0, 0, 0.1)',
       borderRadius: `${materialTheme.spacing(1)}px`,
+      position: 'inherit',
+      right: 0,
+      left: 0,
+      width: '100%',
+      padding: 0,
+      margin: 0,
     },
   },
   FixedWrapperMinimized: {
     animationDuration: 100,
   },
   FixedWrapperRoot: {
-    position: 'right',
-    css: {},
+    css: {
+      position: 'inherit',
+      right: 0,
+      left: 0,
+      top: 0,
+      bottom: 0,
+      padding: 0,
+      margin: 0,
+    },
   },
   Message: {
     own: {
@@ -66,6 +77,7 @@ const getTheme = (materialTheme, width, height) => ({
   MessageList: {
     css: {
       backgroundColor: '#f2f2f2', // it is not materialized
+      height: '100%',
     },
   },
   TextComposer: {
@@ -105,9 +117,7 @@ const getTheme = (materialTheme, width, height) => ({
   MessageTitle: {},
 });
 
-const ChatTheme = ({ children, materialTheme, width, height }) => (
-  <ThemeProvider theme={getTheme(materialTheme, width, height)}>
-    {children}
-  </ThemeProvider>
+const ChatTheme = ({ children, materialTheme }) => (
+  <ThemeProvider theme={getTheme(materialTheme)}>{children}</ThemeProvider>
 );
 export default ChatTheme;

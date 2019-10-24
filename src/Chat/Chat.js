@@ -20,8 +20,6 @@ export const Chat = ({
   error,
   onMediaSend,
   notifyNumber,
-  width,
-  height,
   isLoading,
   loadMore,
   maxFileUploadSize,
@@ -30,7 +28,7 @@ export const Chat = ({
 
   return (
     <div>
-      <ChatTheme materialTheme={theme} width={width} height={height}>
+      <ChatTheme materialTheme={theme}>
         <div>
           <FixedWrapper.Root maximizedOnInit={isMaximizedOnly}>
             <FixedWrapper.Maximized>
@@ -73,8 +71,6 @@ Chat.defaultProps = {
   error: undefined,
   onMediaSend: undefined,
   notifyNumber: 0,
-  width: 450,
-  height: 550,
   isLoading: false,
   loadMore: undefined,
   maxFileUploadSize: 20971520, // 20 MB
@@ -121,8 +117,6 @@ Chat.propTypes = {
   subtitle: PropTypes.string,
   error: PropTypes.string,
   notifyNumber: PropTypes.number,
-  width: PropTypes.number,
-  height: PropTypes.number,
   isLoading: PropTypes.bool,
   loadMore: PropTypes.func,
   maxFileUploadSize: PropTypes.number,
