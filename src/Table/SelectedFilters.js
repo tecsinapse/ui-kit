@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
@@ -45,11 +45,10 @@ const cardStyles = makeStyles(theme => ({
   },
 }));
 
-const CardFilter = ({ title, selectedValues }) => {
+const CardFilter = ({ title, selectedValues, onDelete }) => {
   const classes = cardStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-
   return (
     <div>
       <Paper
@@ -72,9 +71,16 @@ const CardFilter = ({ title, selectedValues }) => {
         }}
       >
         <div className={classes.popover}>
-          {selectedValues.map(value => (
+          {selectedValues.map((value, index) => (
             <div key={value} className={classes.chipContainer}>
-              <Chip label={`${value}`} className={classes.chip} />
+              <Chip
+                label={`${value}`}
+                className={classes.chip}
+                onDelete={() => {
+                  onDelete(index);
+                  setAnchorEl(false);
+                }}
+              />
             </div>
           ))}
         </div>
@@ -83,53 +89,72 @@ const CardFilter = ({ title, selectedValues }) => {
   );
 };
 
-const SelectedFilters = ({ advancedFilters, filters }) => {
+const onApplyAdvFilter = setFilters => filters => {
+  setFilters(prevFilters => ({ ...prevFilters, ...filters }));
+};
+
+const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
+  const [filtersSelected, setFiltersSelected] = useState([]);
+  // eslint-disable-next-line consistent-return
+  useEffect(() => {
+    if (!advancedFilters) {
+      return [];
+    }
+    const selectedFilters = [];
+
+    advancedFilters.filters.forEach(({ name, label, options }) => {
+      let value = filters.advancedFilters[name];
+
+      if (options && options.length > 0 && value && value.length > 0) {
+        value = options
+          .filter(option => value.indexOf(option.value) > -1)
+          .map(option => option.label);
+      }
+
+      if (
+        (value && value.length > 0) ||
+        (typeof value === 'boolean' && value)
+      ) {
+        selectedFilters.push({
+          name,
+          label,
+          values: Array.isArray(value) ? value : [value],
+        });
+      }
+    });
+    setFiltersSelected(selectedFilters);
+  }, [advancedFilters, filters.advancedFilters]);
+
   const classes = styles();
   const {
     Table: { selectedFiltersLabel },
   } = useContext(LocaleContext);
 
-  if (!advancedFilters) {
-    return null;
-  }
-
-  const selectedFilters = [];
-
-  advancedFilters.filters.forEach(({ name, label, options }) => {
-    let value = filters.advancedFilters[name];
-
-    if (options && options.length > 0 && value.length > 0) {
-      value = options
-        .filter(option => value.indexOf(option.value) > -1)
-        .map(option => option.label);
-    }
-
-    if ((value && value.length > 0) || (typeof value === 'boolean' && value)) {
-      selectedFilters.push({
-        name,
-        label,
-        values: Array.isArray(value) ? value : [value],
-      });
-    }
-  });
-
-  if (selectedFilters.length === 0) {
+  if (filtersSelected.length === 0) {
     return null;
   }
 
   return (
-    <React.Fragment>
+    <>
       <Divider />
       <div className={classes.container}>
         <Typography variant="subtitle2" className={classes.title}>
           {selectedFiltersLabel}:
         </Typography>
-        {selectedFilters.map(({ name, label, values }) => (
-          <CardFilter key={name} title={label} selectedValues={values} />
+        {filtersSelected.map(({ name, label, values }) => (
+          <CardFilter
+            key={name}
+            title={label}
+            selectedValues={values}
+            onDelete={i => {
+              filters.advancedFilters[name].splice(i, 1);
+              onApplyAdvFilter(setFilters)(filters);
+            }}
+          />
         ))}
       </div>
       <Divider />
-    </React.Fragment>
+    </>
   );
 };
 

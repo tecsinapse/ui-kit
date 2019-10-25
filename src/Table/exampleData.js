@@ -51,7 +51,7 @@ export const countries = [
     name: 'Andorra',
     code: 'AD',
     continent: {
-      name: 'Europa',
+      name: 'Europe',
     },
     languages: [
       {
