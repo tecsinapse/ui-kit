@@ -4,6 +4,7 @@ import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { defaultBlue, defaultRed, defaultYellow } from './colors';
+import { customVariantYellow } from './customVariant';
 
 const themeColors = {
   orange: {
@@ -80,53 +81,10 @@ const themeGlobals = variant => ({
   },
 });
 const themeCustom = (variant, overrides) => {
-  if (variant !== 'yellow') {
-    return { ...overrides };
+  if (variant === 'yellow') {
+    return { ...customVariantYellow, ...overrides };
   }
-  return {
-    MuiPickersToolbar: {
-      toolbar: {
-        backgroundColor: defaultBlue,
-      },
-    },
-    MuiPickersYear: {
-      yearSelected: {
-        color: defaultBlue,
-      },
-    },
-    MuiPickersClockPointer: {
-      pointer: {
-        backgroundColor: defaultBlue,
-      },
-      thumb: {
-        backgroundColor: defaultBlue,
-        borderColor: defaultBlue,
-      },
-      noPoint: {
-        backgroundColor: defaultBlue,
-      },
-    },
-    MuiPickersClock: {
-      pin: {
-        backgroundColor: defaultBlue,
-      },
-    },
-    MuiOutlinedInput: {
-      root: {
-        '&$focused $notchedOutline': {
-          borderColor: defaultBlue,
-        },
-      },
-    },
-    MuiFormLabel: {
-      root: {
-        '&$focused': {
-          color: defaultBlue,
-        },
-      },
-    },
-    ...overrides,
-  };
+  return { ...overrides };
 };
 const theme = (variant, overrides) => {
   const themeCompile = {
