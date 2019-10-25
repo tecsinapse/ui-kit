@@ -2,9 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import IconButton from '@material-ui/core/IconButton';
-import { mdiOneUp, mdiShieldHalfFull, mdiTurtle } from '@mdi/js';
+import { mdiBell, mdiOneUp, mdiShieldHalfFull, mdiTurtle } from '@mdi/js';
 import Icon from '@mdi/react';
 import { makeStyles, styled, useTheme } from '@material-ui/styles';
+import Badge from '@material-ui/core/Badge';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import { AppBar } from './AppBar';
 
@@ -83,6 +84,15 @@ const ExampleAppBar = () => {
               color={theme.palette.primary.contrastText}
               size={1}
             />
+          </IconButton>
+          <IconButton aria-label="Mostrar notificações" color="inherit">
+            <Badge badgeContent={17} color="secondary">
+              <Icon
+                path={mdiBell}
+                color={theme.palette.primary.contrastText}
+                size={1}
+              />
+            </Badge>
           </IconButton>
         </div>
       }

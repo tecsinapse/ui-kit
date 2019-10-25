@@ -14,3 +14,4 @@ export const defaultGreyLight200 = grey[200];
 export const defaultGreyDisabled = grey[400];
 export const defaultBlue = '#003473';
 export const defaultYellow = '#ffed00';
+export const defaultBadgeColor = '#FD0051';

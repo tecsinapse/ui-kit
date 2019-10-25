@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { cloneElement } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { mdiMenuDown, mdiMenuUp } from '@mdi/js';
@@ -46,7 +45,6 @@ export const TitleSubtitleMenuItem = ({
   component,
   ...props
 }) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <ListItem button divider onClick={onClick} component={component} {...props}>
     <ListItemText
       primary={title}

@@ -76,12 +76,18 @@ export const inputStyles = theme => ({
   },
   cssOutlinedInput: {
     '&$cssFocused $notchedOutline': {
-      borderColor: theme.palette.secondary.main,
+      borderColor: ({ variant }) =>
+        variant === 'yellow'
+          ? theme.palette.secondary.main
+          : theme.palette.primary.main,
     },
   },
   cssLabel: {
     '&$cssFocused': {
-      color: theme.palette.secondary.main,
+      color: ({ variant }) =>
+        variant === 'yellow'
+          ? theme.palette.secondary.main
+          : theme.palette.primary.main,
     },
   },
   ...stylesError,
