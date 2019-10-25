@@ -1,3 +1,19 @@
+<a name="2.0.13"></a>
+## <small>2.0.13 (2019-10-25)</small>
+
+* - Fixed Select component having different style from Input ([750c090](https://github.com/tecsinapse/ui-kit/commit/750c090))
+* - Fixed Undefined prompt message on mobile Select. Added icon notification on AppBar ([18371fb](https://github.com/tecsinapse/ui-kit/commit/18371fb))
+* Added no-spreading config to .eslintrc ([fd6aa8d](https://github.com/tecsinapse/ui-kit/commit/fd6aa8d))
+* Changed error text from GroupedInput ([f2788fb](https://github.com/tecsinapse/ui-kit/commit/f2788fb))
+* Fixed GroupedInput label size, removed flex div from storybook ([84d202f](https://github.com/tecsinapse/ui-kit/commit/84d202f))
+* Fixed outline colors ([154276a](https://github.com/tecsinapse/ui-kit/commit/154276a))
+* Fixed overrides for custom themes ([38a000c](https://github.com/tecsinapse/ui-kit/commit/38a000c))
+* Modified with suggested modifications on overrides and grouped input ([596f564](https://github.com/tecsinapse/ui-kit/commit/596f564))
+* Removed top <hr> on GroupedInput ([14dcb10](https://github.com/tecsinapse/ui-kit/commit/14dcb10))
+* Reverted lockfile to da3316bc4e5d5423e24fdd1119ae1b92eea0ad46 version ([0214fab](https://github.com/tecsinapse/ui-kit/commit/0214fab))
+
+
+
 <a name="2.0.12"></a>
 ## <small>2.0.12 (2019-10-25)</small>
 
