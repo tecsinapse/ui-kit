@@ -117,7 +117,7 @@ export const TextFieldComponent = ({
     InputLabelProps={{
       classes: {
         root: classNames(classes[labelClass({ warning, error, success })]),
-        focused: classes.cssLabel,
+        focused: classes.cssFocused,
       },
       shrink: shrinkLabel,
     }}
@@ -133,7 +133,7 @@ export const TextFieldComponent = ({
           classes.inputRoot
         ),
         focused: classes.cssFocused,
-        notchedOutline: classes.cssOutlinedInput,
+        notchedOutline: classes.notchedOutline,
         inputAdornedStart: classes.adornedMarginLeft,
         inputAdornedEnd: classes.adornedMarginRight,
         adornedEnd: classes.adornedMarginEnd,
