@@ -1,3 +1,10 @@
+<a name="2.0.12"></a>
+## <small>2.0.12 (2019-10-25)</small>
+
+*  - Desabilitar o autocomplete do navegador no Autocomplete do ui-kit ([18b92be](https://github.com/tecsinapse/ui-kit/commit/18b92be))
+
+
+
 <a name="2.0.11"></a>
 ## <small>2.0.11 (2019-10-22)</small>
 
