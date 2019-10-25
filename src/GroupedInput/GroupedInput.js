@@ -145,7 +145,7 @@ export const GroupedInput = ({
           </Grid>
         ))}
       </Grid>
-      {hr === true ? <Divider /> : ''}
+      {hr && <Divider />}
     </div>
   );
 };
