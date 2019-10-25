@@ -4,11 +4,7 @@
   "version": "2.0.5",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
-  "dependencies": {
-    "@cleandersonlobo/react-mic": "^1.1.1",
-    "@livechat/ui-kit": "^0.4.0-7",
-    "react-compound-timer": "^1.1.14"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
@@ -128,8 +124,9 @@
     ]
   },
   "peerDependencies": {
+    "@cleandersonlobo/react-mic": "^1.1.1",
     "@date-io/luxon": "^1.1.0",
-    "@livechat/ui-kit": "^0.4.0-5",
+    "@livechat/ui-kit": "^0.4.0-8",
     "@material-ui/codemod": "^4.0.2",
     "@material-ui/core": "^4.0.0-rc.0",
     "@material-ui/icons": "^3.0.2",
@@ -146,6 +143,7 @@
     "material-ui-search-bar": "1.0.0-beta.13",
     "memoize-one": "^5.0.0",
     "react": ">= 16.3.x",
+    "react-compound-timer": "^1.1.15",
     "react-select": "^2.3.0",
     "react-sizeme": "^2.5.2",
     "react-swipeable-views": "^0.13.1",

@@ -1,21 +1,25 @@
 import React from 'react';
 import { ThemeProvider } from '@livechat/ui-kit';
+import {
+  defaultGreyDark,
+  defaultWhite,
+  defaultGreyLight4,
+  defaultBlack,
+} from '../colors';
 
 const getTheme = materialTheme => ({
   AgentBar: {
     Avatar: {},
     css: {
       backgroundColor: materialTheme.palette.primary.main,
-      borderRadius: `${materialTheme.spacing(0.5)}px ${materialTheme.spacing(
-        0.5
-      )}px 0px 0px`,
+      borderRadius: materialTheme.spacing(0.5, 0.5, 0, 0),
     },
   },
   FixedWrapperMaximized: {
     animationDuration: 100,
     css: {
       boxShadow: '0 0 1em rgba(0, 0, 0, 0.1)',
-      borderRadius: `${materialTheme.spacing(1)}px`,
+      borderRadius: materialTheme.spacing(1),
       position: 'inherit',
       right: 0,
       left: 0,
@@ -38,18 +42,19 @@ const getTheme = materialTheme => ({
       margin: 0,
     },
   },
+
   Message: {
     own: {
       horizontalAlign: 'right',
       Bubble: {
         css: {
-          backgroundColor: '#817e7d', // it is not materialized!
-          boxShadow: `0 ${materialTheme.spacing(
-            1 / 6
-          )}px ${materialTheme.spacing(1 / 3)}px rgba(0,0,0,0.1)`,
-          borderRadius: `${materialTheme.spacing(
-            1
-          )}px 0px ${materialTheme.spacing(1)}px ${materialTheme.spacing(1)}px`,
+          backgroundColor: defaultGreyDark, // it is not materialized!
+          boxShadow: `${materialTheme.spacing(
+            0,
+            1 / 6,
+            1 / 3
+          )} rgba(0,0,0,0.1)`,
+          borderRadius: materialTheme.spacing(1, 0, 1, 1),
         },
       },
       Content: {
@@ -66,22 +71,20 @@ const getTheme = materialTheme => ({
     // Not own message properties
     Bubble: {
       css: {
-        backgroundColor: ' #ffffff', // it is not materialized!
-        borderRadius: `0 ${materialTheme.spacing(1)}px ${materialTheme.spacing(
-          1
-        )}px ${materialTheme.spacing(1)}px`,
+        backgroundColor: defaultWhite, // it is not materialized!
+        borderRadius: materialTheme.spacing(0, 1, 1, 1),
       },
     },
     horizontalAlign: 'left',
   },
   MessageList: {
     css: {
-      backgroundColor: '#f2f2f2', // it is not materialized
+      backgroundColor: defaultGreyLight4, // it is not materialized
       height: '100%',
     },
   },
   TextComposer: {
-    inputColor: '#000', // this is a color for text, but sounds like a color for background
+    inputColor: defaultBlack, // this is a color for text, but sounds like a color for background
     Icon: {
       css: {
         height: '26px',
@@ -89,9 +92,7 @@ const getTheme = materialTheme => ({
       },
     },
     css: {
-      borderRadius: `0px 0px ${materialTheme.spacing(
-        0.5
-      )}px ${materialTheme.spacing(0.5)}px `,
+      borderRadius: materialTheme.spacing(0, 0, 0.5, 0.5),
     },
   },
 
@@ -109,9 +110,7 @@ const getTheme = materialTheme => ({
   MessageMedia: {},
   MessageText: {
     css: {
-      padding: `${materialTheme.spacing(0.75)}px ${materialTheme.spacing(
-        0.75
-      )}px ${materialTheme.spacing(0.75)}px ${materialTheme.spacing(0.75)}px`,
+      padding: materialTheme.spacing(0.75, 0.75, 0.75, 0.75),
     },
   },
   MessageTitle: {},

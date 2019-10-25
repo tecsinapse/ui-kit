@@ -10,10 +10,22 @@ import PropTypes from 'prop-types';
 import { IconButton } from '@livechat/ui-kit';
 import Timer from 'react-compound-timer';
 import { Typography, makeStyles } from '@material-ui/core';
+import { defaultBlack, defaultWhite, defaultGrey2 } from '../colors';
 
 const useStyle = makeStyles({
   reactMic: {
     opacity: '0.30',
+  },
+  recordingText: {
+    color: defaultGrey2,
+    fontSize: '12px',
+    lineHeight: 1,
+  },
+  recordingTime: {
+    color: defaultGrey2,
+    fontSize: '18px',
+    lineHeight: 1,
+    fontWeight: 900,
   },
 });
 
@@ -68,8 +80,8 @@ export const MicRecorder = ({
           width={waveWidth}
           record={recording}
           onStop={onStop}
-          strokeColor="#000000"
-          backgroundColor="#fff"
+          strokeColor={defaultBlack}
+          backgroundColor={defaultWhite}
           mimeType="audio/mp3"
           visualSetting="sinewave" // frequencyBars
         />
@@ -82,10 +94,7 @@ export const MicRecorder = ({
         }}
       >
         <div>
-          <Typography
-            variant="subtitle2"
-            style={{ color: '#787879', fontSize: '12px', lineHeight: 1 }}
-          >
+          <Typography variant="subtitle2" className={classes.recordingText}>
             GRAVANDO
           </Typography>
         </div>
@@ -103,15 +112,7 @@ export const MicRecorder = ({
             style={{ opacity, padding: '2px 6px 0px 0px' }}
           />
           <Timer formatValue={value => `${value < 10 ? `0${value}` : value}`}>
-            <Typography
-              variant="h6"
-              style={{
-                color: '#787879',
-                fontSize: '18px',
-                lineHeight: 1,
-                fontWeight: 900,
-              }}
-            >
+            <Typography variant="h6" className={classes.recordingTime}>
               <Timer.Minutes />:<Timer.Seconds />
             </Typography>
           </Timer>

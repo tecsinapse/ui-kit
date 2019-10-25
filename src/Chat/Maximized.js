@@ -38,7 +38,7 @@ import { makeStyles, useTheme } from '@material-ui/styles';
 import clsx from 'classnames';
 import { IconButton as IconButtonMaterial } from '../Buttons/IconButton';
 
-import { defaultGreyLight2 } from '../colors';
+import { defaultGreyLight2, defaultGreyLight5, defaultGrey2 } from '../colors';
 import { MicRecorder } from './MicRecorder';
 
 import { CustomUploader } from './CustomUploader';
@@ -52,16 +52,24 @@ const useStyle = makeStyles(theme => ({
     height: '100%',
   },
   at: {
-    color: '#B2B2B2',
+    color: defaultGreyLight5,
   },
   authorName: {
-    color: '#787879',
+    color: defaultGrey2,
   },
   bubbleTransparent: {
     border: 'unset',
     borderRadius: 'unset',
     backgroundColor: 'rgba(255, 255, 255, 0)',
     boxShadow: 'unset',
+  },
+  videoImage: {
+    maxHeight: '200px',
+    border: '1px solid black',
+  },
+  audio: {
+    display: 'flex',
+    padding: '5px',
   },
 }));
 
@@ -215,20 +223,11 @@ const Maximized = ({
                       <img
                         src={media.url}
                         alt="Imagem"
-                        style={{
-                          maxHeight: '200px',
-                          border: '1px solid black',
-                        }}
+                        className={classes.videoImage}
                       />
                     )}
                     {media.mediaType.startsWith('audio') && (
-                      <audio
-                        controls
-                        style={{
-                          display: 'flex',
-                          padding: '5px',
-                        }}
-                      >
+                      <audio controls className={classes.audio}>
                         <source src={media.url} />
                         {/* TODO: ADD A REAL TRACK OBJECT */}
                         <track default kind="captions" src={media.url} />
@@ -238,10 +237,7 @@ const Maximized = ({
                       <video
                         controls
                         height={200}
-                        style={{
-                          maxHeight: '200px',
-                          border: '1px solid black',
-                        }}
+                        className={classes.videoImage}
                       >
                         <source src={media.url} />
                         {/* TODO: ADD A REAL TRACK OBJECT */}

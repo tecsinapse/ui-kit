@@ -4,47 +4,11 @@ import { Card, CardMedia, IconButton } from '@material-ui/core';
 import { mdiFile, mdiClose } from '@mdi/js';
 import Icon from '@mdi/react';
 
+import { defaultGreyDark, defaultGreyDisabled, defaultWhite } from '../colors';
+
 const useStyle = makeStyles({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    height: '100%',
-    width: '100%',
-  },
-  scrollHiddenBar: {
-    maxHeight: 300,
-    overflowY: 'scroll',
-    scrollbarWidth: 'none',
-    '-ms-overflow-style': 'none',
-    '&::-webkit-scrollbar': {
-      width: 0,
-      height: 0,
-    },
-  },
-  circle: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    backgroundColor: '#f7f7f7',
-    height: '200px',
-    width: '200px',
-    borderRadius: '50%',
-  },
-  icon: {
-    alignItems: 'center',
-  },
-  text: {
-    textAlign: 'center',
-  },
-  list: {},
-  unavailableColor: {
-    color: '#cacacb',
-  },
-  iconColor: {
-    backgroundColor: '#f7f7f7',
+  rootPreview: {
+    backgroundColor: defaultGreyDisabled,
   },
   flexContainer: {
     display: 'flex',
@@ -73,6 +37,9 @@ const useStyle = makeStyles({
       backgroundColor: 'rgba(117, 117, 117, 0.85)',
     },
   },
+  card: {
+    margin: '5px 10px',
+  },
 });
 
 const getMediaComponent = (mediaType, name, data) => {
@@ -93,7 +60,7 @@ const getMediaComponent = (mediaType, name, data) => {
           justifyContent: 'center',
         }}
       >
-        <Icon path={mdiFile} size={2} color="#817e7d" />
+        <Icon path={mdiFile} size={2} color={defaultGreyDark} />
       </div>
     );
   }
@@ -105,10 +72,10 @@ export function PreviewList({ files, setFiles }) {
   const classes = useStyle();
 
   return (
-    <div style={{ backgroundColor: '#c5c5c5b3' }}>
+    <div className={classes.rootPreview}>
       <div className={classes.flexContainer}>
-        {Object.keys(files).map((uid, i) => (
-          <Card key={uid} style={{ margin: '5px 10px' }}>
+        {Object.keys(files).map(uid => (
+          <Card key={uid} classes={{ root: classes.card }}>
             <div className={classes.thumbnail}>
               {getMediaComponent(
                 files[uid].mediaType,
@@ -126,7 +93,7 @@ export function PreviewList({ files, setFiles }) {
                 }
                 className={classes.iconButtonClose}
               >
-                <Icon path={mdiClose} size={0.5} color="white" />
+                <Icon path={mdiClose} size={0.5} color={defaultWhite} />
               </IconButton>
             </div>
           </Card>
