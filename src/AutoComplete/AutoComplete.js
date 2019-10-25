@@ -1,3 +1,5 @@
+/* eslint react/jsx-props-no-spreading: 0 */
+
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
@@ -124,6 +126,7 @@ const AutoComplete = ({
   values,
   onDeleteItem,
   onSelectItem,
+  autoComplete,
   options,
   error,
 }) => {
@@ -148,6 +151,7 @@ const AutoComplete = ({
           setSuggestionsRef,
           suggestionsRef
         )}
+        autoComplete={autoComplete}
         onChange={handleInputChange(
           setInputValue,
           options,
@@ -231,6 +235,7 @@ AutoComplete.defaultProps = {
   values: null,
   onDeleteItem: null,
   onSelectItem: null,
+  autoComplete: 'off',
 };
 
 AutoComplete.propTypes = {
@@ -246,6 +251,7 @@ AutoComplete.propTypes = {
   onDeleteItem: PropTypes.func,
   onSelectItem: PropTypes.func,
   options: PropTypes.func.isRequired,
+  autoComplete: PropTypes.string,
 };
 
 export default AutoComplete;
