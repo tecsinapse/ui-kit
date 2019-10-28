@@ -93,6 +93,19 @@ const onApplyAdvFilter = setFilters => filters => {
   setFilters(prevFilters => ({ ...prevFilters, ...filters }));
 };
 
+const checkType = (filters, name, i) => {
+  const type = typeof filters.advancedFilters[name];
+  if (type === 'string') {
+    // eslint-disable-next-line no-param-reassign
+    filters.advancedFilters[name] = '';
+  } else if (type === 'boolean') {
+    // eslint-disable-next-line no-param-reassign
+    filters.advancedFilters[name] = !filters.advancedFilters[name];
+  } else {
+    filters.advancedFilters[name].splice(i, 1);
+  }
+};
+
 const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
   const [filtersSelected, setFiltersSelected] = useState([]);
   // eslint-disable-next-line consistent-return
@@ -123,7 +136,7 @@ const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
       }
     });
     setFiltersSelected(selectedFilters);
-  }, [advancedFilters, filters.advancedFilters]);
+  }, [filtersSelected]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const classes = styles();
   const {
@@ -147,7 +160,7 @@ const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
             title={label}
             selectedValues={values}
             onDelete={i => {
-              filters.advancedFilters[name].splice(i, 1);
+              checkType(filters, name, i);
               onApplyAdvFilter(setFilters)(filters);
             }}
           />

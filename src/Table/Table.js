@@ -15,11 +15,11 @@ import TableLoading from './TableLoading';
 import {
   initializeColumns,
   initializeFilters,
+  initializeSortFunc,
   isRemoteData,
   onChangeHeaderFilter,
   onChangePage,
   onChangeSortFilter,
-  initializeSortFunc,
 } from './tableFunctions';
 import {
   useInitialCheckboxData,
