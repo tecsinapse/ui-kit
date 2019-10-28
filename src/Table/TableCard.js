@@ -1,14 +1,14 @@
-import React, { useState, Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import {
   Card,
-  CardContent,
-  CardActions,
   CardActionArea,
+  CardActions,
+  CardContent,
   Collapse,
-  Grid,
-  Typography,
   Drawer,
+  Grid,
   List,
+  Typography,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { mdiDotsVertical } from '@mdi/js';
@@ -55,7 +55,7 @@ const CardColumn = ({ title, customRender, data, field }) => (
       {title}
     </Typography>
     <div>
-      {customRender ? (
+      {customRender && data ? (
         customRender(data)
       ) : (
         <Typography variant="subtitle2" color="textPrimary">
