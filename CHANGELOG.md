@@ -1,3 +1,24 @@
+<a name="2.1.0"></a>
+## 2.1.0 (2019-10-29)
+
+* Add attachment file on message list ([167ad45](https://github.com/tecsinapse/ui-kit/commit/167ad45))
+* Add box-shadow on bubbles, fix mic timer and red circle blinking ([3a0b1bb](https://github.com/tecsinapse/ui-kit/commit/3a0b1bb))
+* Add chat preview with media support, fix rollup and attachment docs breaking ([bb9a21c](https://github.com/tecsinapse/ui-kit/commit/bb9a21c))
+* Add classNames, theme spacing replacement, use colors const, remove unused css file and add as peer ([bf2a2ff](https://github.com/tecsinapse/ui-kit/commit/bf2a2ff))
+* Add first version of chat desing: no material design and no attachments ([d5c2826](https://github.com/tecsinapse/ui-kit/commit/d5c2826))
+* Add first version of chat desing: no material design and no attachments ([e08d153](https://github.com/tecsinapse/ui-kit/commit/e08d153))
+* Add hover to buttons, improve recording design and bubble attachment file design ([c5a0f76](https://github.com/tecsinapse/ui-kit/commit/c5a0f76))
+* Add initial chat version with live-chat ui-kit ([0e06fa2](https://github.com/tecsinapse/ui-kit/commit/0e06fa2))
+* Add loading props ([d452723](https://github.com/tecsinapse/ui-kit/commit/d452723))
+* Fix centralize audio and remove bubble for image/video adding a border to them ([0245411](https://github.com/tecsinapse/ui-kit/commit/0245411))
+* Fix chat to fill inside the given div to it ([c1d276a](https://github.com/tecsinapse/ui-kit/commit/c1d276a))
+* Fix clip to attach all files; add max file size prop; update snackbar messages; change default uploa ([3c14a7c](https://github.com/tecsinapse/ui-kit/commit/3c14a7c))
+* Fix mic recorder clearing the animation and saving accepted state on useRef hook ([89887b5](https://github.com/tecsinapse/ui-kit/commit/89887b5))
+* Handle scenario without file size and fix text overflow ([6730ab2](https://github.com/tecsinapse/ui-kit/commit/6730ab2))
+* Improve material support and fix bugs send attachment action ([ad02155](https://github.com/tecsinapse/ui-kit/commit/ad02155))
+
+
+
 <a name="2.0.13"></a>
 ## <small>2.0.13 (2019-10-25)</small>
 
