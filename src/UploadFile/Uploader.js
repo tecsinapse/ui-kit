@@ -104,7 +104,7 @@ export const Uploader = forwardRef(
     const { getRootProps, getInputProps, open } = useDropzone({
       noClick: true,
       noKeyboard: true,
-      accept: acceptedFormat.join(','),
+      accept: acceptedFormat ? acceptedFormat.join(',') : undefined,
       maxSize: maxFileSize,
       onDrop: acceptedFiles => {
         // The limit only counts uploading file (no error and no completed)
@@ -242,7 +242,7 @@ export const Uploader = forwardRef(
 
 Uploader.defaultProps = {
   value: {},
-  acceptedFormat: ['image/*', 'video/*', 'application/*'],
+  acceptedFormat: undefined,
   filesLimit: 3,
   maxFileSize: 3000000,
   onAccept: null,

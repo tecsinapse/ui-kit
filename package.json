@@ -23,7 +23,7 @@
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
     "@storybook/addon-actions": "^5.2.0-rc.2",
-    "@storybook/addon-info": "^5.2.0-rc.2",
+    "@storybook/addon-info": "^5.2.5",
     "@storybook/addon-knobs": "^5.2.0-rc.2",
     "@storybook/addon-options": "^5.2.0-rc.2",
     "@storybook/addon-storysource": "^5.2.0-rc.2",
@@ -128,7 +128,9 @@
     ]
   },
   "peerDependencies": {
+    "@cleandersonlobo/react-mic": "^1.1.1",
     "@date-io/luxon": "^1.1.0",
+    "@livechat/ui-kit": "^0.4.0-8",
     "@material-ui/codemod": "^4.0.2",
     "@material-ui/core": "^4.0.0-rc.0",
     "@material-ui/icons": "^3.0.2",
@@ -145,6 +147,7 @@
     "material-ui-search-bar": "1.0.0-beta.13",
     "memoize-one": "^5.0.0",
     "react": ">= 16.3.x",
+    "react-compound-timer": "^1.1.15",
     "react-select": "^2.3.0",
     "react-sizeme": "^2.5.2",
     "react-swipeable-views": "^0.13.1",
