@@ -23,6 +23,7 @@ export const Chat = ({
   isLoading,
   loadMore,
   maxFileUploadSize,
+  onMessageResend,
 }) => {
   const theme = useTheme();
 
@@ -48,6 +49,7 @@ export const Chat = ({
                 isLoading={isLoading}
                 loadMore={loadMore}
                 maxFileUploadSize={maxFileUploadSize}
+                onMessageResend={onMessageResend}
               />
             </FixedWrapper.Maximized>
 
@@ -74,6 +76,7 @@ Chat.defaultProps = {
   isLoading: false,
   loadMore: undefined,
   maxFileUploadSize: 20971520, // 20 MB
+  onMessageResend: undefined,
 };
 
 Chat.propTypes = {
@@ -98,9 +101,11 @@ Chat.propTypes = {
           size: PropTypes.number,
         })
       ),
+      status: PropTypes.objectOf(['sending', 'error', 'delivered']),
     })
   ).isRequired,
   onMessageSend: PropTypes.func.isRequired,
+  onMessageResend: PropTypes.func,
 
   // onAudio is not required, when it is not informed the chat doesn't support audio though!
   onAudio: PropTypes.func,

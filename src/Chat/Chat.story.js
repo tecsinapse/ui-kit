@@ -4,12 +4,27 @@ import { storiesOf } from '@storybook/react';
 import { Chat } from './Chat';
 import { DivFlex } from '../withFlexCenter';
 
-const ChatWrapper = () => {
-  const [messages, setMessages] = useState([]);
+const ChatWrapper = ({
+  initialMessages = [],
+  isMaximizedOnly = false,
+  error,
+}) => {
+  const [messages, setMessages] = useState(initialMessages);
 
-  const sendToBackend = text => {
-    // Mocking send to a local echo backend (1s)
-    setTimeout(() => echoBackend(text), 1000);
+  const mockStatusMessage = (id, status) => {
+    setMessages(prevMessages => {
+      const copyMessages = [...prevMessages];
+      copyMessages[id].status = status;
+      return copyMessages;
+    });
+  };
+
+  const sendToBackend = (text, id) => {
+    // Mocking change state to delivered
+    setTimeout(() => mockStatusMessage(id, 'delivered'), 1000);
+
+    // Mocking send to a local echo backend
+    setTimeout(() => echoBackend(text), 2000);
   };
 
   const echoBackend = newMessage => {
@@ -24,9 +39,12 @@ const ChatWrapper = () => {
     ]);
   };
 
-  const sendAudioToBackend = blob => {
-    // Mocking send to a local echo backend (1s)
-    setTimeout(() => echoAudioBackend(blob), 3000);
+  const sendAudioToBackend = (blob, id) => {
+    // Mocking change state to delivered
+    setTimeout(() => mockStatusMessage(id, 'delivered'), 2000);
+
+    // Mocking send to a local echo backend
+    setTimeout(() => echoAudioBackend(blob), 4000);
   };
 
   const echoAudioBackend = blob => {
@@ -46,9 +64,12 @@ const ChatWrapper = () => {
     ]);
   };
 
-  const sendMediaToBackend = (file, title) => {
-    // Mocking send to a local echo backend (1s)
-    setTimeout(() => echoMediaBackend(file, title), 3000);
+  const sendMediaToBackend = (file, title, id) => {
+    // Mocking change state to delivered
+    setTimeout(() => mockStatusMessage(id, 'delivered'), 2000);
+
+    // Mocking send to a local echo backend
+    setTimeout(() => echoMediaBackend(file, title), 5000);
   };
 
   const echoMediaBackend = (file, title) => {
@@ -73,42 +94,56 @@ const ChatWrapper = () => {
 
   return (
     <Chat
+      error={error}
+      isMaximizedOnly={isMaximizedOnly}
       messages={messages}
       title="Felipe Rodrigues"
       subtitle="Última mensagem 10/10/2019 10:10"
       onMessageSend={text => {
-        setMessages(prevMessage => [
-          ...prevMessage,
-          {
-            at: '02/03/2019 10:12',
-            own: true,
-            id: Date.now().toString(),
-            authorName: 'Você',
-            text,
-          },
-        ]);
-
-        sendToBackend(text);
-      }}
-      onAudio={blob => {
-        if (blob !== null) {
-          setMessages(prevMessage => [
-            ...prevMessage,
-            {
+        let id;
+        setMessages(prevMessages => {
+          const copyPrevMessages = [...prevMessages];
+          id =
+            copyPrevMessages.push({
               at: '02/03/2019 10:12',
               own: true,
               id: Date.now().toString(),
               authorName: 'Você',
-              medias: [
-                {
-                  mediaType: 'audio',
-                  url: blob.blobURL,
-                },
-              ],
-            },
-          ]);
+              status: 'sending',
+              text,
+            }) - 1;
+          return copyPrevMessages;
+        });
 
-          sendAudioToBackend(blob);
+        if (!error) {
+          sendToBackend(text, id);
+        }
+      }}
+      onAudio={blob => {
+        if (blob !== null) {
+          let id;
+          setMessages(prevMessages => {
+            const copyPrevMessages = [...prevMessages];
+            id =
+              copyPrevMessages.push({
+                at: '02/03/2019 10:12',
+                own: true,
+                id: Date.now().toString(),
+                authorName: 'Você',
+                status: 'sending',
+                medias: [
+                  {
+                    mediaType: 'audio',
+                    url: blob.blobURL,
+                  },
+                ],
+              }) - 1;
+            return copyPrevMessages;
+          });
+
+          if (!error) {
+            sendAudioToBackend(blob, id);
+          }
         }
       }}
       // onCloseChat={(e) => console.log(e)}
@@ -116,28 +151,42 @@ const ChatWrapper = () => {
       onMediaSend={(title, files) => {
         if (files !== null) {
           Object.keys(files).forEach((uid, i) => {
-            setMessages(prevMessage => [
-              ...prevMessage,
-              {
-                at: '02/03/2019 10:12',
-                own: true,
-                id: Date.now().toString(),
-                authorName: 'Você',
-                medias: [
-                  {
-                    mediaType: files[uid].mediaType,
-                    url: files[uid].data,
-                    name: files[uid].name,
-                    size: files[uid].size,
-                  },
-                ],
-                title,
-              },
-            ]);
+            let id;
+            setMessages(prevMessages => {
+              const copyPrevMessages = [...prevMessages];
 
-            sendMediaToBackend(files[uid], title);
+              id =
+                copyPrevMessages.push({
+                  at: '02/03/2019 10:12',
+                  own: true,
+                  id: Date.now().toString(),
+                  authorName: 'Você',
+                  status: 'sending',
+                  medias: [
+                    {
+                      mediaType: files[uid].mediaType,
+                      url: files[uid].data,
+                      name: files[uid].name,
+                      size: files[uid].size,
+                    },
+                  ],
+                  title,
+                }) - 1;
+              return copyPrevMessages;
+            });
+
+            if (!error) {
+              sendMediaToBackend(files[uid], title, id);
+            }
           });
         }
+      }}
+      onMessageResend={id => {
+        // mock sending to backend
+        mockStatusMessage(id, 'sending');
+
+        // mock error again sending the message
+        setTimeout(() => mockStatusMessage(id, 'error'), 1000);
       }}
     />
   );
@@ -145,7 +194,7 @@ const ChatWrapper = () => {
 
 storiesOf(`Chat`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('Chat', () => (
+  .add('Chat Echo', () => (
     <div
       style={{
         width: '400px',
@@ -156,6 +205,129 @@ storiesOf(`Chat`, module)
       }}
     >
       {/* Only renders inside the given div */}
-      <ChatWrapper />
+      <ChatWrapper isMaximizedOnly />
+    </div>
+  ))
+  .add('Status Text', () => (
+    <div
+      style={{
+        width: '400px',
+        height: '550px',
+        position: 'fixed',
+        right: '1em',
+        bottom: '-50px',
+      }}
+    >
+      {/* Only renders inside the given div */}
+      <ChatWrapper
+        isMaximizedOnly
+        initialMessages={[
+          {
+            at: '02/03/2019 10:12',
+            own: false,
+            id: `${Date.now().toString()}0`,
+            authorName: 'Felipe Rodrigues',
+            text: 'Olá, tudo bem?!',
+            status: 'delivered',
+          },
+          {
+            at: '02/03/2019 10:15',
+            own: true,
+            id: `${Date.now().toString()}2`,
+            authorName: 'Você',
+            text: 'Tudo sim!',
+            status: 'delivered',
+          },
+          {
+            at: '02/03/2019 10:14',
+            own: true,
+            id: `${Date.now().toString()}2`,
+            authorName: 'Você',
+            text: 'O que desaja solicitar ?',
+            status: 'error',
+          },
+          {
+            at: '02/03/2019 10:14',
+            own: true,
+            id: `${Date.now().toString()}2`,
+            authorName: 'Você',
+            text: 'Abraço!',
+            status: 'sending',
+          },
+        ]}
+      />
+    </div>
+  ))
+  .add('Status Image', () => (
+    <div
+      style={{
+        width: '400px',
+        height: '550px',
+        position: 'fixed',
+        right: '1em',
+        bottom: '-50px',
+      }}
+    >
+      {/* Only renders inside the given div */}
+      <ChatWrapper
+        initialMessages={[
+          {
+            at: '02/03/2019 10:12',
+            own: false,
+            id: `${Date.now().toString()}0`,
+            authorName: 'Felipe Rodrigues',
+            status: 'delivered',
+            medias: [
+              {
+                mediaType: 'image/png',
+                url: 'http://www.invalidUrl123.com.br',
+              },
+            ],
+          },
+          {
+            at: '02/03/2019 10:14',
+            own: true,
+            id: `${Date.now().toString()}2`,
+            authorName: 'Você',
+            medias: [
+              {
+                mediaType: 'image/png',
+                url: 'http://www.invalidUrl123.com.br',
+              },
+            ],
+            status: 'error',
+          },
+          {
+            at: '02/03/2019 10:14',
+            own: true,
+            id: `${Date.now().toString()}2`,
+            authorName: 'Você',
+            medias: [
+              {
+                mediaType: 'image/png',
+                url: 'http://www.invalidUrl123.com.br',
+              },
+            ],
+            status: 'sending',
+          },
+        ]}
+        isMaximizedOnly
+      />
+    </div>
+  ))
+  .add('Error Connection', () => (
+    <div
+      style={{
+        width: '400px',
+        height: '550px',
+        position: 'fixed',
+        right: '1em',
+        bottom: '-50px',
+      }}
+    >
+      <ChatWrapper
+        isMaximizedOnly
+        error="Erro ao realizar a conexão. Tente mais tarde!"
+      />
     </div>
   ));
