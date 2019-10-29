@@ -1,3 +1,76 @@
+<a name="2.0.13"></a>
+## <small>2.0.13 (2019-10-25)</small>
+
+* - Fixed Select component having different style from Input ([750c090](https://github.com/tecsinapse/ui-kit/commit/750c090))
+* - Fixed Undefined prompt message on mobile Select. Added icon notification on AppBar ([18371fb](https://github.com/tecsinapse/ui-kit/commit/18371fb))
+* Added no-spreading config to .eslintrc ([fd6aa8d](https://github.com/tecsinapse/ui-kit/commit/fd6aa8d))
+* Changed error text from GroupedInput ([f2788fb](https://github.com/tecsinapse/ui-kit/commit/f2788fb))
+* Fixed GroupedInput label size, removed flex div from storybook ([84d202f](https://github.com/tecsinapse/ui-kit/commit/84d202f))
+* Fixed outline colors ([154276a](https://github.com/tecsinapse/ui-kit/commit/154276a))
+* Fixed overrides for custom themes ([38a000c](https://github.com/tecsinapse/ui-kit/commit/38a000c))
+* Modified with suggested modifications on overrides and grouped input ([596f564](https://github.com/tecsinapse/ui-kit/commit/596f564))
+* Removed top <hr> on GroupedInput ([14dcb10](https://github.com/tecsinapse/ui-kit/commit/14dcb10))
+* Reverted lockfile to da3316bc4e5d5423e24fdd1119ae1b92eea0ad46 version ([0214fab](https://github.com/tecsinapse/ui-kit/commit/0214fab))
+
+
+
+<a name="2.0.12"></a>
+## <small>2.0.12 (2019-10-25)</small>
+
+*  - Desabilitar o autocomplete do navegador no Autocomplete do ui-kit ([18b92be](https://github.com/tecsinapse/ui-kit/commit/18b92be))
+
+
+
+<a name="2.0.11"></a>
+## <small>2.0.11 (2019-10-22)</small>
+
+* Add css body1 class ([1f75104](https://github.com/tecsinapse/ui-kit/commit/1f75104))
+* Fix text overflox options web/mobile; Fix show selected opt ([6cc839c](https://github.com/tecsinapse/ui-kit/commit/6cc839c))
+
+
+
+<a name="2.0.10"></a>
+## <small>2.0.10 (2019-10-18)</small>
+
+* - Added customizable style on yellow theme for AppBar and Pickers ([04364ae](https://github.com/tecsinapse/ui-kit/commit/04364ae))
+* Fixed Badge color ([3e81a7e](https://github.com/tecsinapse/ui-kit/commit/3e81a7e))
+* Fixed theme colors ([7fdf6e1](https://github.com/tecsinapse/ui-kit/commit/7fdf6e1))
+
+
+
+<a name="2.0.9"></a>
+## <small>2.0.9 (2019-10-17)</small>
+
+*  - Added style do selected item background color by props ([f2f9489](https://github.com/tecsinapse/ui-kit/commit/f2f9489))
+* - Added customizable style by using props on Appbar ([da3316b](https://github.com/tecsinapse/ui-kit/commit/da3316b))
+* Update README.md ([b378c74](https://github.com/tecsinapse/ui-kit/commit/b378c74))
+* Update README.md ([4c09a5a](https://github.com/tecsinapse/ui-kit/commit/4c09a5a))
+* Update README.md ([8a21748](https://github.com/tecsinapse/ui-kit/commit/8a21748))
+
+
+
+<a name="2.0.8"></a>
+## <small>2.0.8 (2019-10-09)</small>
+
+* Add yellow theme ([d511d1a](https://github.com/tecsinapse/ui-kit/commit/d511d1a))
+
+
+
+<a name="2.0.7"></a>
+## <small>2.0.7 (2019-10-08)</small>
+
+*  - Exporting Table from root ([313d635](https://github.com/tecsinapse/ui-kit/commit/313d635))
+
+
+
+<a name="2.0.6"></a>
+## <small>2.0.6 (2019-10-08)</small>
+
+*  - Remove docz ([5efd4b1](https://github.com/tecsinapse/ui-kit/commit/5efd4b1))
+* Missing Docs ([f39fb72](https://github.com/tecsinapse/ui-kit/commit/f39fb72))
+
+
+
 <a name="2.0.5"></a>
 ## <small>2.0.5 (2019-09-26)</small>
 

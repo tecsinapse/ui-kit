@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import { IconButton } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
@@ -15,6 +15,11 @@ import { isNotUndefOrNull } from '@tecsinapse/es-utils/build';
 import { Input } from '../Inputs/Input';
 import { LocaleContext } from '../LocaleProvider';
 import { useStylesWeek } from './customWeekPickerStyles';
+import {
+  customDatePickerStyle,
+  renderStyledBadgeColor,
+  renderStyledLabel,
+} from '../ThemeProvider';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {
@@ -46,11 +51,19 @@ const useStyle = makeStyles(theme => ({
     color: '#676767',
   },
   highlight: {
-    background: theme.palette.primary.main,
+    background: ({ highligthBgColor }) => {
+      return isNotUndefOrNull(highligthBgColor)
+        ? highligthBgColor
+        : theme.palette.primary.main;
+    },
     color: theme.palette.primary.contrastText,
     fontWeight: theme.typography.fontWeightMedium,
     '&:hover': {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: ({ highligthBgColor }) => {
+        return isNotUndefOrNull(highligthBgColor)
+          ? highligthBgColor
+          : theme.palette.primary.main;
+      },
     },
   },
   badge: {
@@ -102,7 +115,9 @@ export const DatePicker = ({
   ...props
 }) => {
   const classesWeek = useStylesWeek();
-  const classes = useStyle();
+  const theme = useTheme();
+  const styleProps = customDatePickerStyle(theme.variant);
+  const classes = useStyle(styleProps);
   const {
     Picker: { todayLabel, okLabel, cancelLabel, clearLabel },
   } = useContext(LocaleContext);
@@ -164,7 +179,7 @@ export const DatePicker = ({
       <div role="presentation">
         <IconButton className={dayClassName}>
           <Badge
-            color="primary"
+            color={renderStyledBadgeColor(theme.variant)}
             variant="dot"
             classes={
               !dayInCurrentMonth
@@ -192,6 +207,8 @@ export const DatePicker = ({
       format={format}
       id={id}
       label={label}
+      cancelLabel={renderStyledLabel(cancelLabel, theme.variant)}
+      okLabel={renderStyledLabel(okLabel, theme.variant)}
       value={selectedDate}
       onChange={onChange}
       KeyboardButtonProps={{
@@ -200,8 +217,6 @@ export const DatePicker = ({
       renderDay={weekly ? renderWrappedWeekDay(classesWeek) : renderPointedDay}
       inputVariant={inputVariant}
       todayLabel={todayLabel}
-      okLabel={okLabel}
-      cancelLabel={cancelLabel}
       clearLabel={clearLabel}
       TextFieldComponent={customTextFieldComponent || Input}
       {...props}
@@ -212,13 +227,13 @@ export const DatePicker = ({
       format={format}
       id={id}
       label={label}
+      cancelLabel={renderStyledLabel(cancelLabel, theme.variant)}
+      okLabel={renderStyledLabel(okLabel, theme.variant)}
       value={selectedDate}
       onChange={onChange}
       renderDay={weekly ? renderWrappedWeekDay(classesWeek) : renderPointedDay}
       inputVariant={inputVariant}
       todayLabel={todayLabel}
-      okLabel={okLabel}
-      cancelLabel={cancelLabel}
       clearLabel={clearLabel}
       TextFieldComponent={customTextFieldComponent || Input}
       {...props}

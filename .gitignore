@@ -90,3 +90,5 @@ fabric.properties
 
 .npmrc
 .yarnrc
+
+.idea
