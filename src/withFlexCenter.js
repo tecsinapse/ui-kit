@@ -6,7 +6,7 @@ export const DivFlex = ({ children, style, ...rest }) => (
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '100vh',
+      height: 'auto',
       width: '100%',
       ...style,
     }}

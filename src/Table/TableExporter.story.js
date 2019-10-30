@@ -1,17 +1,10 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
-import { makeStyles } from '@material-ui/core';
 
 import Table from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DivFlex } from '../withFlexCenter';
-
-const useStyle = makeStyles(() => ({
-  rootMobile: {
-    height: '100vh',
-  },
-}));
 
 const createCar = (id, brand, name, year, price) => ({
   id,
@@ -63,29 +56,25 @@ const tableOptions = {
   selection: true,
 };
 
-const ExporterTable = () => {
-  const classes = useStyle();
-  return (
-    <Paper style={{ width: 800 }}>
-      <Table
-        columns={columns}
-        data={cars}
-        rowId={row => row.id}
-        options={tableOptions}
-        toolbarOptions={{ title: 'Pagination Example' }}
-        pagination
-        classes={classes}
-        exportOptions={{
-          exportTypes: [
-            {
-              type: 'csv',
-            },
-          ],
-        }}
-      />
-    </Paper>
-  );
-};
+const ExporterTable = () => (
+  <Paper style={{ width: 800 }}>
+    <Table
+      columns={columns}
+      data={cars}
+      rowId={row => row.id}
+      options={tableOptions}
+      toolbarOptions={{ title: 'Pagination Example' }}
+      pagination
+      exportOptions={{
+        exportTypes: [
+          {
+            type: 'csv',
+          },
+        ],
+      }}
+    />
+  </Paper>
+);
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)

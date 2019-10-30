@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Card,
   CardActionArea,
@@ -112,7 +112,7 @@ export const TableCard = ({
                       />
                     </div>
                     {i === 0 && isNotEmptyOrNull(actions) && (
-                      <Fragment>
+                      <>
                         <div
                           style={{
                             flex: '0 0 auto',
@@ -147,7 +147,7 @@ export const TableCard = ({
                             {getActionButtons(actions, true, data)}
                           </List>
                         </Drawer>
-                      </Fragment>
+                      </>
                     )}
                   </div>
                 </Grid>
@@ -193,7 +193,7 @@ export const TableCard = ({
       </CardActionArea>
 
       {isHidden && (
-        <Fragment>
+        <>
           <Divider variant="solid" />
           <CardActions style={{ padding: 'unset' }}>
             <IconButton
@@ -205,6 +205,7 @@ export const TableCard = ({
               aria-label="Show more"
             >
               <ExpandMoreIcon
+                color="primary"
                 className={clsx(classes.expand, {
                   [classes.expandOpen]: expanded,
                 })}
@@ -214,7 +215,7 @@ export const TableCard = ({
               </Typography>
             </IconButton>
           </CardActions>
-        </Fragment>
+        </>
       )}
     </Card>
   );

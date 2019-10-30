@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import MUITable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -19,11 +19,11 @@ import TableLoading from './TableLoading';
 import {
   initializeColumns,
   initializeFilters,
+  initializeSortFunc,
   isRemoteData,
   onChangeHeaderFilter,
   onChangePage,
   onChangeSortFilter,
-  initializeSortFunc,
   onChangeStartStopIndex,
 } from './tableFunctions';
 import {
@@ -124,7 +124,7 @@ const Table = props => {
   }
 
   return (
-    <div className={mobile ? propClasses.rootMobile : propClasses.root} id={id}>
+    <div className={mobile ? classes.rootMobile : propClasses.root} id={id}>
       <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
         <TableLoading loading={loading} />
         <TableToolbar
@@ -156,7 +156,7 @@ const Table = props => {
             </div>
           </div>
         ) : (
-          <Fragment>
+          <>
             <MUITable className={classes.table}>
               <TableHeader
                 columns={tableColumns}
@@ -194,7 +194,7 @@ const Table = props => {
                 </TableRow>
               </TableFooter>
             </MUITable>
-          </Fragment>
+          </>
         )}
       </div>
     </div>
