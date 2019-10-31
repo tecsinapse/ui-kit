@@ -1,3 +1,11 @@
+<a name="2.1.1"></a>
+## <small>2.1.1 (2019-10-31)</small>
+
+* add hasImageButton and height prop ([da20d7c](https://github.com/tecsinapse/ui-kit/commit/da20d7c))
+* Updating libs ([fa94648](https://github.com/tecsinapse/ui-kit/commit/fa94648))
+
+
+
 <a name="2.1.0"></a>
 ## 2.1.0 (2019-10-29)
 
