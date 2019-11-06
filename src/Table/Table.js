@@ -34,7 +34,7 @@ import {
   useUpdatePageData,
 } from './tableHooks';
 import { useWindowSize } from '../ThemeProvider';
-/* eslint-disable no-unused-vars */
+
 const Table = props => {
   const {
     data: originalData,
@@ -124,7 +124,7 @@ const Table = props => {
   }
 
   return (
-    <>
+    <div className={propClasses.root} id={id}>
       <TableLoading loading={loading} />
       <TableToolbar
         options={toolbarOptions}
@@ -196,7 +196,7 @@ const Table = props => {
           </MUITable>
         </>
       )}
-    </>
+    </div>
   );
 };
 
