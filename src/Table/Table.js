@@ -33,7 +33,8 @@ import {
   useUpdateDataRemote,
   useUpdatePageData,
 } from './tableHooks';
-
+import { useWindowSize } from '../ThemeProvider';
+/* eslint-disable no-unused-vars */
 const Table = props => {
   const {
     data: originalData,
@@ -59,8 +60,7 @@ const Table = props => {
     sortFunc,
     variant,
   } = props;
-
-  const classes = tableStyles();
+  const classes = tableStyles(useWindowSize()[1]);
   const [mobile, setMobile] = useState(false);
   const [rowCount, setRowCount] = useState(0);
   const [data, setData] = useState([]);
@@ -124,80 +124,79 @@ const Table = props => {
   }
 
   return (
-    <div className={mobile ? classes.rootMobile : propClasses.root} id={id}>
-      <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-        <TableLoading loading={loading} />
-        <TableToolbar
-          options={toolbarOptions}
-          selectedRows={selectedRows}
-          selection={options.selection}
-          exportOptions={exportOptions}
-          data={isRemoteData(originalData) ? originalData : data}
-          filters={filters}
-          setFilters={setFilters}
-          columns={columns}
-          setLoading={setLoading}
-          rowCount={rowCount}
-          tableToolbarHide={tableToolbarHide}
-          mobile={mobile}
-        />
-        {mobile ? (
-          <div style={{ flex: '1 1 auto', width: '100vw' }}>
-            <div style={{ height: '100%' }}>
-              <TableMobile
-                columns={columns}
+    <>
+      <TableLoading loading={loading} />
+      <TableToolbar
+        options={toolbarOptions}
+        selectedRows={selectedRows}
+        selection={options.selection}
+        exportOptions={exportOptions}
+        data={isRemoteData(originalData) ? originalData : data}
+        filters={filters}
+        setFilters={setFilters}
+        columns={columns}
+        setLoading={setLoading}
+        rowCount={rowCount}
+        tableToolbarHide={tableToolbarHide}
+        mobile={mobile}
+      />
+      {mobile ? (
+        <div
+          style={{ flex: '1 1 auto', width: '100%', position: 'absolute' }}
+          className={classes.rootMobile}
+        >
+          <TableMobile
+            columns={columns}
+            rowId={rowId}
+            onRowClick={onRowClick}
+            actions={actions}
+            rowCount={rowCount}
+            data={data}
+            onChangeStartStopIndex={onChangeStartStopIndex(setFilters)}
+          />
+        </div>
+      ) : (
+        <>
+          <MUITable className={classes.table}>
+            <TableHeader
+              columns={tableColumns}
+              selectedRows={selectedRows}
+              setSelectedRows={setSelectedRows}
+              data={pageData}
+              onSelectRow={onSelectRow}
+              rowId={rowId}
+              tableHeaderHide={tableHeaderHide}
+              filters={filters}
+              onChangeSortFilter={onChangeSortFilter(setFilters)}
+            />
+            <TableBody>
+              <TableRowFilter
+                rendered={someColumnHasFilter}
+                columns={tableColumns}
+                data={originalData}
+                onChangeFilter={onChangeHeaderFilter(setFilters)}
+              />
+              <TableRows
+                columns={tableColumns}
+                forceCollapseActions={forceCollapseActions}
+                verticalActions={verticalActions}
+                data={pageData}
                 rowId={rowId}
                 onRowClick={onRowClick}
-                actions={actions}
-                rowCount={rowCount}
-                data={data}
-                onChangeStartStopIndex={onChangeStartStopIndex(setFilters)}
-              />
-            </div>
-          </div>
-        ) : (
-          <>
-            <MUITable className={classes.table}>
-              <TableHeader
-                columns={tableColumns}
                 selectedRows={selectedRows}
                 setSelectedRows={setSelectedRows}
-                data={pageData}
                 onSelectRow={onSelectRow}
-                rowId={rowId}
-                tableHeaderHide={tableHeaderHide}
-                filters={filters}
-                onChangeSortFilter={onChangeSortFilter(setFilters)}
               />
-              <TableBody>
-                <TableRowFilter
-                  rendered={someColumnHasFilter}
-                  columns={tableColumns}
-                  data={originalData}
-                  onChangeFilter={onChangeHeaderFilter(setFilters)}
-                />
-                <TableRows
-                  columns={tableColumns}
-                  forceCollapseActions={forceCollapseActions}
-                  verticalActions={verticalActions}
-                  data={pageData}
-                  rowId={rowId}
-                  onRowClick={onRowClick}
-                  selectedRows={selectedRows}
-                  setSelectedRows={setSelectedRows}
-                  onSelectRow={onSelectRow}
-                />
-              </TableBody>
-              <TableFooter>
-                <TableRow>
-                  <TablePagination {...paginationOptions} />
-                </TableRow>
-              </TableFooter>
-            </MUITable>
-          </>
-        )}
-      </div>
-    </div>
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination {...paginationOptions} />
+              </TableRow>
+            </TableFooter>
+          </MUITable>
+        </>
+      )}
+    </>
   );
 };
 

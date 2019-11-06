@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { defaultRed } from './colors';
 
 const themeColors = {
@@ -38,7 +38,18 @@ const themeColors = {
     primary: blue,
   },
 };
-
+export const useWindowSize = () => {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  return size;
+};
 const themeGlobals = variant => ({
   menuGlobal: {
     breadcrumbContrastText: variant === 'redLight' ? '#000000' : '#ffffff',
