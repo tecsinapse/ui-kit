@@ -1,3 +1,10 @@
+<a name="2.1.2"></a>
+## <small>2.1.2 (2019-11-12)</small>
+
+* Add blocked chat state and its story ([48a3d57](https://github.com/tecsinapse/ui-kit/commit/48a3d57))
+
+
+
 <a name="2.1.1"></a>
 ## <small>2.1.1 (2019-10-31)</small>
 
