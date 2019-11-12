@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   TextInput,
   MessageList,
@@ -97,6 +97,8 @@ const Maximized = ({
   isLoading,
   loadMore,
   maxFileUploadSize,
+  isBlocked,
+  blockedMessage,
 }) => {
   const classes = useStyle();
   const theme = useTheme();
@@ -322,14 +324,14 @@ const Maximized = ({
           onChange={e => setWriting(e.currentTarget.value !== '')}
           inputRef={ref => setInputRef(ref)}
         >
-          {error !== '' && error !== undefined ? (
+          {(error !== '' && error !== undefined) || isBlocked ? (
             <Row align="center" justifyContent="space-around">
               <Typography variant="subtitle2" color="error">
-                {error}
+                {isBlocked ? blockedMessage : error}
               </Typography>
             </Row>
           ) : (
-            <Fragment>
+            <>
               <Row align="center">
                 {!recording && (
                   <TextInput fill placeholder="Digite uma mensagem" />
@@ -446,7 +448,7 @@ const Maximized = ({
                 setFiles={setFiles}
                 maxFileUploadSize={maxFileUploadSize}
               />
-            </Fragment>
+            </>
           )}
         </TextComposer>
       )}

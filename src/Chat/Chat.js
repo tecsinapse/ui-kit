@@ -23,6 +23,8 @@ export const Chat = ({
   isLoading,
   loadMore,
   maxFileUploadSize,
+  isBlocked,
+  blockedMessage,
 }) => {
   const theme = useTheme();
 
@@ -48,6 +50,8 @@ export const Chat = ({
                 isLoading={isLoading}
                 loadMore={loadMore}
                 maxFileUploadSize={maxFileUploadSize}
+                isBlocked={isBlocked}
+                blockedMessage={blockedMessage}
               />
             </FixedWrapper.Maximized>
 
@@ -74,6 +78,8 @@ Chat.defaultProps = {
   isLoading: false,
   loadMore: undefined,
   maxFileUploadSize: 20971520, // 20 MB
+  isBlocked: undefined,
+  blockedMessage: 'The chat is blocked',
 };
 
 Chat.propTypes = {
@@ -120,6 +126,8 @@ Chat.propTypes = {
   isLoading: PropTypes.bool,
   loadMore: PropTypes.func,
   maxFileUploadSize: PropTypes.number,
+  isBlocked: PropTypes.bool,
+  blockedMessage: PropTypes.string,
 };
 
 export default Chat;
