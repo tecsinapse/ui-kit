@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { mdiImageOff } from '@mdi/js';
-import Icon from '@mdi/react';
 
 const ImageLoader = ({ classes, url, own }) => {
   const [loading, setLoading] = useState(true);
@@ -16,17 +14,10 @@ const ImageLoader = ({ classes, url, own }) => {
       {loading && !imageError && (
         <CircularProgress className={classes.progress} />
       )}
-      {imageError && (
-        <Icon
-          path={mdiImageOff}
-          size={1}
-          color={own ? 'white' : 'black'}
-          className={classes.imageError}
-        />
-      )}
+
       <img
         src={url}
-        alt="description"
+        alt={url}
         onLoad={e => {
           e.stopPropagation();
           setLoading(false);

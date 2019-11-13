@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   TextInput,
   MessageList,
@@ -26,6 +26,7 @@ import {
   mdiFile,
   mdiDownload,
   mdiSend,
+  mdiAlertCircle,
   mdiAlertCircleOutline,
   mdiImageOff,
 } from '@mdi/js';
@@ -36,7 +37,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import Tooltip from '@material-ui/core/Tooltip';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { IconButton as IconButtonMaterial } from '../Buttons/IconButton';
 
@@ -86,7 +87,7 @@ const useStyle = makeStyles(theme => ({
     transform: 'translate(-50%, -50%)',
   },
   emptyBubble: {
-    width: '100px',
+    width: '75px',
     height: '50px',
     position: 'relative',
   },
@@ -108,8 +109,6 @@ const useStyle = makeStyles(theme => ({
     right: 0,
     margin: '6px',
     alignItems: 'center',
-    bottom: '50%',
-    minHeight: '60px',
     borderRadius: '6px 6px 6px 6px',
   },
   errorDivIcon: {
@@ -154,6 +153,7 @@ const Maximized = ({
   const [writing, setWriting] = useState(false);
   const [recording, setRecording] = useState(false);
   const [files, setFiles] = useState({});
+  const [showError, setShowError] = useState(true);
 
   const isThereAudioSupport = onAudio !== undefined;
   const imageUpRef = useRef(null);
@@ -213,14 +213,21 @@ const Maximized = ({
 
       {isLoading && <Loading />}
       <MessageList active onScrollTop={loadMore}>
-        {error !== '' && error !== undefined && (
+        {error !== '' && error !== undefined && showError && (
           <div className={classes.errorDiv}>
             <div className={classes.errorDivIcon}>
-              <Icon path={mdiAlertCircleOutline} size={1} color="white" />
+              <Icon path={mdiAlertCircle} size={0.75} color="white" />
             </div>
             <div className={classes.errorDivText}>
-              <Typography variant="body1">{error}</Typography>
+              <Typography variant="body2">{error}</Typography>
             </div>
+            <IconButtonMaterial key="close" onClick={() => setShowError(false)}>
+              <Icon
+                path={mdiClose}
+                size={0.75}
+                color={theme.palette.primary.contrastText}
+              />
+            </IconButtonMaterial>
           </div>
         )}
 
@@ -253,7 +260,7 @@ const Maximized = ({
                 </Typography>
               }
               deliveryStatus={
-                <Fragment>
+                <>
                   {(message.status !== 'sending' &&
                     message.status !== 'error') ||
                   message.own === false ? (
@@ -261,7 +268,7 @@ const Maximized = ({
                       {message.at}
                     </Typography>
                   ) : (
-                    <Fragment>
+                    <>
                       {message.status === 'sending' && (
                         <Typography variant="caption" className={classes.at}>
                           Enviando...
@@ -272,9 +279,9 @@ const Maximized = ({
                           Erro no envio
                         </Typography>
                       )}
-                    </Fragment>
+                    </>
                   )}
-                </Fragment>
+                </>
               }
               isOwn={message.own}
               key={message.id}
@@ -317,7 +324,7 @@ const Maximized = ({
                     <MessageMedia key={media.url}>
                       {(media.mediaType.startsWith('image') ||
                         media.mediaType.startsWith('video')) && (
-                        <Fragment>
+                        <>
                           {message.status === 'sending' ||
                           message.status === 'error' ? (
                             <div className={classes.emptyBubble}>
@@ -336,7 +343,7 @@ const Maximized = ({
                               )}
                             </div>
                           ) : (
-                            <Fragment>
+                            <>
                               {media.mediaType.startsWith('image') && (
                                 <ImageLoader
                                   url={media.url}
@@ -360,9 +367,9 @@ const Maximized = ({
                                   />
                                 </video>
                               )}
-                            </Fragment>
+                            </>
                           )}
-                        </Fragment>
+                        </>
                       )}
 
                       {media.mediaType.startsWith('audio') && (
@@ -422,24 +429,26 @@ const Maximized = ({
               </Bubble>
             </Message>
             {message.status === 'error' && (
-              <IconButtonMaterial
-                fill
-                key="send again"
-                onClick={() => {
-                  onMessageResend(id);
-                }}
-                style={{
-                  padding: '4px',
-                  height: '32px',
-                  alignSelf: 'center',
-                }}
-              >
-                <Icon
-                  path={mdiAlertCircleOutline}
-                  size={1}
-                  color={theme.palette.error.main}
-                />
-              </IconButtonMaterial>
+              <Tooltip title="Reenviar" placement="top">
+                <IconButtonMaterial
+                  fill
+                  key="send again"
+                  onClick={() => {
+                    onMessageResend(id);
+                  }}
+                  style={{
+                    padding: '4px',
+                    height: '32px',
+                    alignSelf: 'center',
+                  }}
+                >
+                  <Icon
+                    path={mdiAlertCircleOutline}
+                    size={1}
+                    color={theme.palette.error.main}
+                  />
+                </IconButtonMaterial>
+              </Tooltip>
             )}
           </div>
         ))}
@@ -472,7 +481,7 @@ const Maximized = ({
           onChange={e => setWriting(e.currentTarget.value !== '')}
           inputRef={ref => setInputRef(ref)}
         >
-          <Fragment>
+          <>
             <Row align="center">
               {!recording && (
                 <TextInput fill placeholder="Digite uma mensagem" />
@@ -581,7 +590,7 @@ const Maximized = ({
               setFiles={setFiles}
               maxFileUploadSize={maxFileUploadSize}
             />
-          </Fragment>
+          </>
         </TextComposer>
       )}
     </div>

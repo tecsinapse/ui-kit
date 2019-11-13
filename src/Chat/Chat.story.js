@@ -325,9 +325,6 @@ storiesOf(`Chat`, module)
         bottom: '-50px',
       }}
     >
-      <ChatWrapper
-        isMaximizedOnly
-        error="Erro ao realizar a conexão. Tente mais tarde!"
-      />
+      <ChatWrapper isMaximizedOnly error="Erro de conexão. Tente mais tarde!" />
     </div>
   ));
