@@ -47,6 +47,9 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  marginTop: {
+    marginTop: theme.spacing(1),
+  },
 }));
 
 const CardColumn = ({ title, customRender, data, field }) => (
@@ -74,6 +77,8 @@ export const TableCard = ({
   onRowClick,
   actions,
   rowId,
+  labelShowLess,
+  labelShowMore,
 }) => {
   const [expanded, setExpanded] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
@@ -89,80 +94,82 @@ export const TableCard = ({
       >
         <CardContent>
           <Grid spacing={1} direction="column" container>
-            {columns.map(({ title, field, customRender, options = {} }, i) => {
-              const { visible = true } = options;
-              const { hiddenCard = false } = options;
+            {columns.map(
+              ({ title, field, customRender, options = {} }, index) => {
+                const { visible = true } = options;
+                const { hiddenCard = false } = options;
 
-              if (hiddenCard || !visible) {
-                return null;
-              }
-              return (
-                <Grid item xs={12} key={field}>
-                  <div style={{ display: 'flex' }}>
-                    <div
-                      style={{
-                        flex: '1 1 auto',
-                      }}
-                    >
-                      <CardColumn
-                        title={title}
-                        customRender={customRender}
-                        data={data}
-                        field={field}
-                      />
-                    </div>
-                    {i === 0 && isNotEmptyOrNull(actions) && (
-                      <>
-                        <div
-                          style={{
-                            flex: '0 0 auto',
-                            alignSelf: 'flex-start',
-                          }}
-                        >
-                          <IconButton
-                            aria-label="actions"
+                if (hiddenCard || !visible) {
+                  return null;
+                }
+                return (
+                  <Grid item xs={12} key={field}>
+                    <div style={{ display: 'flex' }}>
+                      <div
+                        style={{
+                          flex: '1 1 auto',
+                        }}
+                      >
+                        <CardColumn
+                          title={title}
+                          customRender={customRender}
+                          data={data}
+                          field={field}
+                        />
+                      </div>
+                      {index === 0 && isNotEmptyOrNull(actions) && (
+                        <>
+                          <div
                             style={{
-                              marginRight: '-8px',
-                              marginTop: '-8px',
-                            }}
-                            onClick={e => {
-                              e.stopPropagation();
-                              e.preventDefault();
-                              setOpenActions(true);
+                              flex: '0 0 auto',
+                              alignSelf: 'flex-start',
                             }}
                           >
-                            <Icon path={mdiDotsVertical} size={1} />
-                          </IconButton>
-                        </div>
-                        <Drawer
-                          anchor="bottom"
-                          open={openActions}
-                          onClose={e => {
-                            e.stopPropagation();
-                            e.preventDefault();
-                            setOpenActions(false);
-                          }}
-                        >
-                          <List disablePadding>
-                            {getActionButtons(actions, true, data)}
-                          </List>
-                        </Drawer>
-                      </>
-                    )}
-                  </div>
-                </Grid>
-              );
-            })}
+                            <IconButton
+                              aria-label="actions"
+                              style={{
+                                marginRight: '-8px',
+                                marginTop: '-8px',
+                              }}
+                              onClick={e => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                setOpenActions(true);
+                              }}
+                            >
+                              <Icon path={mdiDotsVertical} size={1} />
+                            </IconButton>
+                          </div>
+                          <Drawer
+                            anchor="bottom"
+                            open={openActions}
+                            onClose={e => {
+                              e.stopPropagation();
+                              e.preventDefault();
+                              setOpenActions(false);
+                            }}
+                          >
+                            <List disablePadding>
+                              {getActionButtons(actions, true, data)}
+                            </List>
+                          </Drawer>
+                        </>
+                      )}
+                    </div>
+                  </Grid>
+                );
+              }
+            )}
           </Grid>
 
           <Collapse
+            className={classes.marginTop}
             in={expanded}
             timeout="auto"
             onEntered={updateList}
             onExited={() => {
               updateList();
             }}
-            style={{ marginTop: '12px' }}
           >
             <Grid spacing={1} direction="column" container>
               {columns.map(({ title, field, customRender, options = {} }) => {
@@ -211,7 +218,7 @@ export const TableCard = ({
                 })}
               />
               <Typography variant="button" color="textPrimary">
-                {expanded ? 'MOSTRAR MENOS' : 'MOSTRAR MAIS'}
+                {expanded ? labelShowLess : labelShowMore}
               </Typography>
             </IconButton>
           </CardActions>

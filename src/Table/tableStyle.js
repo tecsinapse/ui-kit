@@ -12,5 +12,8 @@ export const tableStyles = makeStyles({
   },
   rootMobile: {
     height: size => size,
+    flex: '1 1 auto',
+    width: '100%',
+    position: 'absolute',
   },
 });

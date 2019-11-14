@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { isEmptyOrNull } from '@tecsinapse/es-utils/build';
 import { VisibilityOff } from '@material-ui/icons';
 import {
-  CellMeasurer,
-  List,
   AutoSizer,
+  CellMeasurer,
   CellMeasurerCache,
   InfiniteLoader,
+  List,
 } from 'react-virtualized';
 
 import { LocaleContext } from '../LocaleProvider';
@@ -22,6 +22,8 @@ export const TableMobile = ({
   actions,
   rowCount,
   onChangeStartStopIndex,
+  labelShowLess,
+  labelShowMore,
 }) => {
   const list = useRef();
 
@@ -95,6 +97,8 @@ export const TableMobile = ({
                       actions={actions}
                       key={key}
                       rowId={key}
+                      labelShowLess={labelShowLess}
+                      labelShowMore={labelShowMore}
                     />
                   </div>
                 </CellMeasurer>

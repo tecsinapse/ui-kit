@@ -59,6 +59,8 @@ const Table = props => {
     id,
     sortFunc,
     variant,
+    labelShowLess,
+    labelShowMore,
   } = props;
   const classes = tableStyles(useWindowSize()[1]);
   const [mobile, setMobile] = useState(false);
@@ -141,10 +143,7 @@ const Table = props => {
         mobile={mobile}
       />
       {mobile ? (
-        <div
-          style={{ flex: '1 1 auto', width: '100%', position: 'absolute' }}
-          className={classes.rootMobile}
-        >
+        <div className={classes.rootMobile}>
           <TableMobile
             columns={columns}
             rowId={rowId}
@@ -153,6 +152,8 @@ const Table = props => {
             rowCount={rowCount}
             data={data}
             onChangeStartStopIndex={onChangeStartStopIndex(setFilters)}
+            labelShowLess={labelShowLess}
+            labelShowMore={labelShowMore}
           />
         </div>
       ) : (
@@ -220,6 +221,8 @@ Table.defaultProps = {
   id: null,
   classes: {},
   variant: 'auto',
+  labelShowLess: 'MOSTRAR MENOS',
+  labelShowMore: 'MOSTRAR MAIS',
 };
 
 Table.propTypes = {
@@ -281,6 +284,8 @@ Table.propTypes = {
     ),
   }),
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
+  labelShowLess: PropTypes.string,
+  labelShowMore: PropTypes.string,
 };
 
 export default Table;
