@@ -93,7 +93,7 @@ const onApplyAdvFilter = setFilters => filters => {
   setFilters(prevFilters => ({ ...prevFilters, ...filters }));
 };
 
-const checkType = (filters, name, i) => {
+const checkTypeAndApply = (setFilters, filters, name, i) => {
   const type = typeof filters.advancedFilters[name];
   if (type === 'string') {
     // eslint-disable-next-line no-param-reassign
@@ -104,6 +104,7 @@ const checkType = (filters, name, i) => {
   } else {
     filters.advancedFilters[name].splice(i, 1);
   }
+  onApplyAdvFilter(setFilters)(filters);
 };
 
 const filterOptions = (options, value) => {
@@ -162,8 +163,7 @@ const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
             title={label}
             selectedValues={values}
             onDelete={i => {
-              checkType(filters, name, i);
-              onApplyAdvFilter(setFilters)(filters);
+              checkTypeAndApply(setFilters, filters, name, i);
             }}
           />
         ))}
