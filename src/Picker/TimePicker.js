@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardTimePicker } from '@material-ui/pickers';
+import { useTheme } from '@material-ui/styles';
 import { Input } from '../Inputs/Input';
 import { LocaleContext } from '../LocaleProvider';
+import { renderStyledLabel } from '../ThemeProvider';
 
 export const TimePicker = ({
   selectedTime,
@@ -15,6 +17,7 @@ export const TimePicker = ({
   const {
     Picker: { todayLabel, okLabel, cancelLabel, clearLabel },
   } = useContext(LocaleContext);
+  const theme = useTheme();
 
   return (
     <KeyboardTimePicker
@@ -22,14 +25,14 @@ export const TimePicker = ({
       margin="normal"
       id={id}
       label={label}
+      cancelLabel={renderStyledLabel(cancelLabel, theme.variant)}
+      okLabel={renderStyledLabel(okLabel, theme.variant)}
       value={selectedTime}
       onChange={onChange}
       KeyboardButtonProps={{
         'aria-label': 'change time',
       }}
       todayLabel={todayLabel}
-      okLabel={okLabel}
-      cancelLabel={cancelLabel}
       clearLabel={clearLabel}
       TextFieldComponent={Input}
       {...props}

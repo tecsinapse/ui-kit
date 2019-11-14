@@ -99,6 +99,14 @@ const useStyle = (rememberBox, backgroundImage) =>
       marginTop: spacing(2),
       marginBottom: spacing(2),
     },
+    social: {
+      marginTop: spacing(2),
+      marginBottom: spacing(2),
+      marginLeft: spacing(1),
+    },
+    socialMobile: {
+      marginTop: spacing(1),
+    },
     forgot: {
       alignSelf: 'center',
     },
@@ -125,6 +133,7 @@ export const Login = ({
   headerImages,
   headerText,
   subheaderText,
+  subheaderTextInnerHtml,
   rememberBox,
   forgotPassword,
   buttonLabel,
@@ -134,6 +143,7 @@ export const Login = ({
   footerImg,
   variant,
   backgroundImage,
+  googleProvider,
 }) => {
   const [remember, setRemember] = useState(false);
 
@@ -181,6 +191,10 @@ export const Login = ({
             <Typography variant="body2" color="textSecondary">
               {subheaderText}
             </Typography>
+          )}
+          {subheaderTextInnerHtml && (
+            // eslint-disable-next-line react/no-danger
+            <div dangerouslySetInnerHTML={{ __html: subheaderTextInnerHtml }} />
           )}
         </div>
       )}
@@ -235,6 +249,17 @@ export const Login = ({
         >
           {buttonLabel}
         </Button>
+        {googleProvider && googleProvider.loginUrl && (
+          <Button
+            size="large"
+            href={googleProvider.loginUrl}
+            className={mobile ? classes.socialMobile : classes.social}
+            fullWidth={mobile}
+            variant="primary"
+          >
+            {googleProvider.label}
+          </Button>
+        )}
       </div>
     </div>
   );
@@ -279,6 +304,7 @@ Login.defaultProps = {
   headerImages: [],
   headerText: null,
   subheaderText: null,
+  subheaderTextInnerHtml: null,
   rememberBox: false,
   forgotPassword: null,
   buttonLabel: 'Acessar o Sistema',
@@ -293,6 +319,7 @@ Login.propTypes = {
   headerImages: PropTypes.arrayOf(PropTypes.string),
   headerText: PropTypes.string,
   subheaderText: PropTypes.string,
+  subheaderTextInnerHtml: PropTypes.string,
   rememberBox: PropTypes.bool,
   forgotPassword: PropTypes.shape({
     component: PropTypes.node,

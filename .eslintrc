@@ -1,5 +1,9 @@
 {
-  "extends": [
-    "@tecsinapse/tecsinapse-js"
-  ]
+  "plugins": ["prettier", "react-hooks"],
+  "rules": {
+    "prettier/prettier": "error",
+    "import/no-cycle": "off",
+    "react/jsx-props-no-spreading": "off"
+  },
+  "extends": ["react-app", "@tecsinapse/tecsinapse-js"]
 }

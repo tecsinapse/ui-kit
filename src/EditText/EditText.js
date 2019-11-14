@@ -35,9 +35,11 @@ export const EditText = ({
   showMenu,
   uploadFunc,
   hasImage,
+  hasImageButton,
   skinUrl,
   toolbarDrawer,
   variant,
+  height,
 }) => {
   const classes = useStyle();
 
@@ -62,12 +64,16 @@ export const EditText = ({
       'fontselect fontsizeselect forecolor',
       'bold italic underline strikethrough subscript superscript',
       'alignleft aligncenter alignright alignjustify',
-      'link unlink image',
+      'link unlink',
       'bullist numlist',
       'outdent indent',
       'code',
     ],
   };
+
+  if (hasImage && hasImageButton) {
+    toolbar.advanced.push('image');
+  }
 
   return (
     <div className={classes.root}>
@@ -87,6 +93,7 @@ export const EditText = ({
             menubar: showMenu,
             images_upload_handler: uploadFunc,
             branding: false,
+            height,
           }}
           onChange={onChange}
           textareaName={name}
@@ -107,9 +114,11 @@ EditText.defaultProps = {
   showMenu: false,
   uploadFunc: undefined,
   hasImage: false,
+  hasImageButton: true,
   skinUrl: '',
   toolbarDrawer: '',
   variant: 'simple',
+  height: 200,
 };
 
 EditText.propTypes = {
@@ -122,9 +131,11 @@ EditText.propTypes = {
   showMenu: PropTypes.bool,
   uploadFunc: PropTypes.func,
   hasImage: PropTypes.bool,
+  hasImageButton: PropTypes.bool,
   skinUrl: PropTypes.string,
   toolbarDrawer: PropTypes.oneOf(['', 'floating', 'sliding']),
   variant: PropTypes.oneOf(['simple', 'advanced']),
+  height: PropTypes.number,
 };
 
 export default EditText;

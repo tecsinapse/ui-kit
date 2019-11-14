@@ -7,6 +7,7 @@ import { setOptions } from '@storybook/addon-options';
 import { withSmartKnobs } from 'storybook-addon-smart-knobs';
 import { ClientContext, GraphQLClient } from 'graphql-hooks';
 import { ThemeProvider } from '../src/ThemeProvider';
+import { overrides } from './themeGlobals';
 
 const client = new GraphQLClient({
   url: 'https://countries.trevorblades.com/',
@@ -24,7 +25,9 @@ const withGraphqlClientProvider = storyFn => (
 );
 
 const withThemeProvider = storyFn => (
-  <ThemeProvider variant="orange">{storyFn()}</ThemeProvider>
+  <ThemeProvider variant="orange" overrides={overrides}>
+    {storyFn()}
+  </ThemeProvider>
 );
 const req = require.context('../src', true, /\.story\.js$/);
 // Sets the info addon's options.

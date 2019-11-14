@@ -35,7 +35,7 @@ import {
 } from './tableHooks';
 import { useWindowSize } from '../ThemeProvider';
 
-const Table = props => {
+const TableComponent = props => {
   const {
     data: originalData,
     columns,
@@ -201,7 +201,7 @@ const Table = props => {
   );
 };
 
-Table.defaultProps = {
+TableComponent.defaultProps = {
   data: [],
   onFilterData: null,
   options: {},
@@ -225,7 +225,7 @@ Table.defaultProps = {
   labelShowMore: 'MOSTRAR MAIS',
 };
 
-Table.propTypes = {
+TableComponent.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -288,4 +288,5 @@ Table.propTypes = {
   labelShowMore: PropTypes.string,
 };
 
+export const Table = TableComponent;
 export default Table;

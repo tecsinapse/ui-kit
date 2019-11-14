@@ -6,9 +6,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import MenuList from '@material-ui/core/MenuList';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import { Chip } from '@material-ui/core';
 import { Input } from '../Inputs/Input';
+import { renderStyledColor } from '../ThemeProvider';
 
 const styles = makeStyles(theme => ({
   root: {
@@ -124,10 +125,12 @@ const AutoComplete = ({
   values,
   onDeleteItem,
   onSelectItem,
+  autoComplete,
   options,
   error,
 }) => {
   const classes = styles();
+  const { variant } = useTheme();
   const [inputValue, setInputValue] = useState('');
   const [anchorEl, setAnchorEl] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -148,6 +151,7 @@ const AutoComplete = ({
           setSuggestionsRef,
           suggestionsRef
         )}
+        autoComplete={autoComplete}
         onChange={handleInputChange(
           setInputValue,
           options,
@@ -213,7 +217,7 @@ const AutoComplete = ({
             <Chip
               key={value.id}
               label={value.label}
-              color="primary"
+              color={renderStyledColor(variant)}
               clickable
               className={classes.chip}
               onDelete={handleDeleteChip(value, onDeleteItem, inputRef)}
@@ -231,6 +235,7 @@ AutoComplete.defaultProps = {
   values: null,
   onDeleteItem: null,
   onSelectItem: null,
+  autoComplete: 'off',
 };
 
 AutoComplete.propTypes = {
@@ -246,6 +251,7 @@ AutoComplete.propTypes = {
   onDeleteItem: PropTypes.func,
   onSelectItem: PropTypes.func,
   options: PropTypes.func.isRequired,
+  autoComplete: PropTypes.string,
 };
 
 export default AutoComplete;

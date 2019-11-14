@@ -16,6 +16,8 @@ export { EditText } from './EditText/EditText';
 export { AutoRotatingCarousel } from './Carousel/AutoRotatingCarousel';
 export { Slide } from './Carousel/Slide';
 export { Login } from './Login/Login';
+export { Chat } from './Chat/Chat';
+export { Table } from './Table/Table';
 export * from './Inputs/Masks';
 export * from './Select/Select';
 export * from './Calendar/index';

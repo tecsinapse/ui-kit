@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-curly-newline */
 import React, { useContext, useState } from 'react';
 import className from 'classnames';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
@@ -13,6 +14,7 @@ import { IconButton } from '../Buttons/IconButton';
 import { Input } from '../Inputs/Input';
 import { Select } from '../Select/Select';
 import { LocaleContext } from '../LocaleProvider';
+import { renderStyledColor } from '../ThemeProvider';
 
 const filterStyles = mobile =>
   makeStyles(theme => ({
@@ -181,6 +183,7 @@ const AdvancedFilters = ({
   closeDialog,
   mobile = false,
 }) => {
+  const { variant } = useTheme();
   const { filters: filtersOptions, filtersGroup } = advancedFiltersProp;
   const [advancedFilters, setAdvancedFilters] = useState({
     ...filters.advancedFilters,
@@ -219,6 +222,7 @@ const AdvancedFilters = ({
           onClick={() => onApplyFilter(advancedFilters)}
           variant={mobile ? 'contained' : 'text'}
           className={classes.button}
+          color={renderStyledColor(variant)}
         >
           {applyFiltersLabel}
         </Button>
