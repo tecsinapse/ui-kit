@@ -126,7 +126,7 @@ const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
 
       if (
         (value && value.length > 0) ||
-        (typeof value === 'boolean' && value)
+        (value && typeof value === 'boolean')
       ) {
         selectedFilters.push({
           name,
