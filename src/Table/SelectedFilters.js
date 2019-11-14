@@ -106,34 +106,36 @@ const checkType = (filters, name, i) => {
   }
 };
 
+const filterOptions = (options, value) => {
+  if (options && options.length > 0 && value && value.length > 0) {
+    return options
+      .filter(option => value.indexOf(option.value) > -1)
+      .map(option => option.label);
+  }
+  return value;
+};
+
 const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
   const [filtersSelected, setFiltersSelected] = useState([]);
   useEffect(() => {
     if (!advancedFilters) {
       return [];
     }
-    const selectedFilters = [];
-
-    advancedFilters.filters.forEach(({ name, label, options }) => {
-      let value = filters.advancedFilters[name];
-
-      if (options && options.length > 0 && value && value.length > 0) {
-        value = options
-          .filter(option => value.indexOf(option.value) > -1)
-          .map(option => option.label);
-      }
-
-      if (
-        (value && value.length > 0) ||
-        (value && typeof value === 'boolean')
-      ) {
-        selectedFilters.push({
+    const selectedFilters = advancedFilters.filters
+      .filter(({ name, options }) => {
+        const value = filterOptions(options, filters.advancedFilters[name]);
+        return (
+          (value && value.length > 0) || (value && typeof value === 'boolean')
+        );
+      })
+      .map(({ name, label, options }) => {
+        const value = filterOptions(options, filters.advancedFilters[name]);
+        return {
           name,
           label,
           values: Array.isArray(value) ? value : [value],
-        });
-      }
-    });
+        };
+      });
     setFiltersSelected(selectedFilters);
     return undefined; // Returning undefined due to React warning on console
   }, [filtersSelected]); // eslint-disable-line react-hooks/exhaustive-deps
