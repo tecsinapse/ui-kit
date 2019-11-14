@@ -108,7 +108,6 @@ const checkType = (filters, name, i) => {
 
 const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
   const [filtersSelected, setFiltersSelected] = useState([]);
-  // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (!advancedFilters) {
       return [];
@@ -136,6 +135,7 @@ const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
       }
     });
     setFiltersSelected(selectedFilters);
+    return undefined; // Returning undefined due to React warning on console
   }, [filtersSelected]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const classes = styles();
