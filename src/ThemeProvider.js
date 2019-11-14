@@ -4,7 +4,7 @@ import { blue, grey } from '@material-ui/core/colors';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { defaultBlue, defaultRed, defaultYellow } from './colors';
-import { customVariantYellow, customVariantBlueGrey } from './customVariant';
+import { customVariantBlueGrey, customVariantYellow } from './customVariant';
 
 const themeColors = {
   orange: {
@@ -109,24 +109,28 @@ export const renderStyledLabel = (label, variant) => {
   if (variant === 'yellow') {
     return <div style={{ color: defaultBlue }}>{label}</div>;
   }
-
   if (variant === 'blueGrey') {
     return <div style={{ color: '#0f3399' }}>{label}</div>;
   }
-
   return label;
 };
 export const customAppBarStyle = variant => {
-  return variant === 'yellow'
-    ? {
-        titleColor: '#fff',
-        subtitleColor: defaultYellow,
-        breadcrumbBackgroundColor: defaultYellow,
-        breadcrumbTextColor: '#000',
-        activeBreadcrumbTextColor: defaultBlue,
-        appBarBackgroundColor: defaultBlue,
-      }
-    : {};
+  if (variant === 'yellow') {
+    return {
+      titleColor: '#fff',
+      subtitleColor: defaultYellow,
+      breadcrumbBackgroundColor: defaultYellow,
+      breadcrumbTextColor: '#000',
+      activeBreadcrumbTextColor: defaultBlue,
+      appBarBackgroundColor: defaultBlue,
+    };
+  }
+  if (variant === 'blueGrey') {
+    return {
+      activeBreadcrumbTextColor: '#fff',
+    };
+  }
+  return {};
 };
 const themeGlobals = variant => ({
   menuGlobal: {
