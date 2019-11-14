@@ -8,7 +8,7 @@ import clsx from 'clsx';
 import { isEmptyOrNull, isNotEmptyOrNull } from '@tecsinapse/es-utils/build';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { IconButton } from '@material-ui/core';
-import { mdiArrowUp } from '@mdi/js';
+import { mdiArrowUp, mdiArrowUpDown } from '@mdi/js';
 import Icon from '@mdi/react';
 
 const headerStyles = makeStyles(theme => ({
@@ -38,7 +38,7 @@ const headerStyles = makeStyles(theme => ({
 const sortStyles = makeStyles(() => ({
   sortedHover: {
     transition: 'opacity 0.25s',
-    opacity: ({ sortedActive }) => (!sortedActive ? 0 : 100),
+    opacity: ({ sortedActive }) => (!sortedActive ? 1 : 100),
     '&:hover': {
       opacity: 100,
     },
@@ -149,7 +149,7 @@ const convertColumnToTableCell = (
           })}
         >
           <Icon
-            path={mdiArrowUp}
+            path={sortedActive ? mdiArrowUp : mdiArrowUpDown}
             color={
               field === filters.sortField && sortedActive
                 ? theme.palette.text.primary
