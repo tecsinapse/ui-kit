@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'flex-start',
     marginTop: theme.spacing(0.5),
-    marginBottom: theme.spacing(0.5),
+    marginBottom: theme.spacing(1.2),
   },
   marginLeft: {
     marginLeft: theme.spacing(1),
@@ -28,7 +28,10 @@ const useStyles = makeStyles(theme => ({
   },
   input: {
     flexGrow: 1,
-    margin: theme.spacing(2 / 3),
+    marginTop: 0,
+    marginLeft: theme.spacing(2 / 3),
+    marginRight: theme.spacing(2 / 3),
+    marginBottom: theme.spacing(1.2),
   },
   flexPadding: {
     padding: theme.spacing(0.5),
@@ -38,6 +41,9 @@ const useStyles = makeStyles(theme => ({
   },
   errorLabel: {
     color: defaultRed,
+  },
+  paddingRight: {
+    paddingRight: theme.spacing(1.2),
   },
 }));
 
@@ -55,17 +61,19 @@ export const GroupedInput = ({
   onBlur,
   label,
   spacing = 1,
-  xs = 4,
+  xs = 12,
   sm,
+  lg,
+  xl,
+  hr = false,
 }) => {
   const classes = useStyles();
   const errorIsArray = error instanceof Array;
   return (
     <div>
-      <Divider />
       <div className={classes.flex}>
         <Typography
-          variant="subtitle2"
+          variant="h6"
           className={classNames({ [classes.errorLabel]: !!error })}
         >
           {header} {!!error && '* '}
@@ -90,12 +98,22 @@ export const GroupedInput = ({
       <Grid
         container
         spacing={spacing}
-        className={classNames({ [classes.empty]: values.length === 0 })}
+        className={classNames(
+          { [classes.empty]: values.length === 0 },
+          classes.paddingRight
+        )}
       >
         {values.map((value, index) => (
           // we can use key here as the list is never reordered
-          // eslint-disable-next-line
-          <Grid item xs={xs} sm={sm} key={`${name}.${index}`}>
+          <Grid
+            item
+            xs={xs}
+            sm={sm}
+            // eslint-disable-next-line
+            key={`${name}.${index}`}
+            lg={lg}
+            xl={xl}
+          >
             <Input
               mask={mask}
               error={errorIsArray ? error[index] : undefined}
@@ -127,7 +145,7 @@ export const GroupedInput = ({
           </Grid>
         ))}
       </Grid>
-      <Divider />
+      {hr && <Divider />}
     </div>
   );
 };
@@ -137,8 +155,11 @@ GroupedInput.defaultProps = {
   success: [],
   warnings: [],
   spacing: 1,
-  xs: 4,
-  sm: undefined,
+  xs: 12,
+  sm: 12,
+  lg: 4,
+  xl: 4,
+  hr: false,
 };
 GroupedInput.propTypes = {
   name: PropTypes.string.isRequired,
@@ -154,4 +175,7 @@ GroupedInput.propTypes = {
   spacing: PropTypes.number,
   xs: PropTypes.number,
   sm: PropTypes.number,
+  lg: PropTypes.number,
+  xl: PropTypes.number,
+  hr: PropTypes.bool,
 };

@@ -35,7 +35,7 @@ import {
 } from './tableHooks';
 import { useWindowSize } from '../ThemeProvider';
 
-const Table = props => {
+const TableComponent = props => {
   const {
     data: originalData,
     columns,
@@ -200,7 +200,7 @@ const Table = props => {
   );
 };
 
-Table.defaultProps = {
+TableComponent.defaultProps = {
   data: [],
   onFilterData: null,
   options: {},
@@ -222,7 +222,7 @@ Table.defaultProps = {
   variant: 'auto',
 };
 
-Table.propTypes = {
+TableComponent.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -283,4 +283,5 @@ Table.propTypes = {
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
 };
 
+export const Table = TableComponent;
 export default Table;

@@ -71,4 +71,10 @@ export const selectInputStyle = theme => ({
   dropdownIndicator: {
     cursor: 'pointer !important',
   },
+  body1Option: {
+    width: '100%',
+    whiteSpace: 'normal',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+  },
 });

@@ -1,20 +1,51 @@
 # Iniciando
 
-Rodar
+[![Build Status](https://travis-ci.org/tecsinapse/ui-kit.svg?branch=master)](https://travis-ci.org/tecsinapse/ui-kit)
+
+
+
+***@tecsinapse/ui-kit*** é uma biblioteca contendo diversos componentes para facilitar a vida do dev react ;)
+
+## Get Started
+
+Para acessar os documentos acesse nosso [storybook](https://github.com/tecsinapse/ui-kit)
+
+Para add em seu projeto:
 ```
-    yarn install
+    yarn add @tecsinapse/ui-kit
+    npx install-peerdeps @tecsinapse/ui-kit
 ```
+
+E adicione o ThemeProvider em seu projeto como abaixo:
+
+```
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App/App";
+import * as serviceWorker from "./serviceWorker";
+import { ThemeProvider } from "@tecsinapse/ui-kit";
+
+ReactDOM.render(
+  <ThemeProvider variant="black">
+    <App />
+  </ThemeProvider>,
+
+  document.getElementById("root")
+);
+```
+
+### Desenvolvimento
+
+Para rodar localmente
+```
+    yarn install && yarn start
+```
+
 Para buildar e publicar a lib:
 ```
-    yarn build && yarn publish
+    bumped release $VERSAO
 ```
 
-# Desenvolvendo
-
-Rodar storybook:
-```
-    yarn storybook
-```
 Para rodar o app de exemplo, fazer o link da lib na pasta de exemplo após executar o build:
 ```
     yarn build && yarn link

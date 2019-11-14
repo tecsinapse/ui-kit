@@ -26,6 +26,7 @@ export const Drawer = ({
   productName,
   id,
   className,
+  styleProps,
 }) => {
   const items = normalizeFunctionItems(oldItems);
   const [search, setSearch] = useState('');
@@ -47,7 +48,13 @@ export const Drawer = ({
           />
         </div>
         <div>
-          {!search && <MenuList closeDrawer={onClose} items={items} />}
+          {!search && (
+            <MenuList
+              closeDrawer={onClose}
+              items={items}
+              styleProps={styleProps}
+            />
+          )}
           {search && (
             <SearchResultListing
               onClick={() => {
@@ -67,11 +74,13 @@ Drawer.defaultProps = {
   searchBarPlaceholder: 'O que você busca?',
   id: undefined,
   className: undefined,
+  styleProps: undefined,
 };
 const menuItemShape = PropTypes.shape({
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   component: PropTypes.object,
   componentProps: PropTypes.object,
+  styleProps: PropTypes.object,
 });
 menuItemShape.children = PropTypes.arrayOf(PropTypes.shape(menuItemShape));
 
@@ -80,6 +89,7 @@ Drawer.propTypes = {
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.string,
+  styleProps: PropTypes.object,
   className: PropTypes.string,
   subtitle: PropTypes.string.isRequired,
   productName: PropTypes.string.isRequired,

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
@@ -10,9 +10,11 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Icon from '@mdi/react';
 import Link from '@material-ui/core/Link';
 import Input from '@material-ui/core/Input';
-import { mdiMagnify, mdiClose, mdiMenu } from '@mdi/js';
+import { mdiClose, mdiMagnify, mdiMenu } from '@mdi/js';
+import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
 import { DefaultProductTypography } from '../DefaultProductTypography';
 import { LocaleContext } from '../../LocaleProvider';
+import { customAppBarStyle } from '../../ThemeProvider';
 
 const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   marginLeft: {
@@ -31,12 +33,21 @@ const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   },
   boldFont: {
     fontWeight: 700,
+    color: ({ activeBreadcrumbTextColor }) => {
+      return isNotUndefOrNull(activeBreadcrumbTextColor)
+        ? activeBreadcrumbTextColor
+        : null;
+    },
   },
   appBar: {
     display: 'flex',
     flexGrow: 0,
     position: 'unset',
-    backgroundColor: palette.primary.main,
+    backgroundColor: ({ appBarBackgroundColor }) => {
+      return isNotUndefOrNull(appBarBackgroundColor)
+        ? appBarBackgroundColor
+        : palette.primary.main;
+    },
   },
   breadcrumb: { display: 'flex !important' },
   paperBreadcrumb: {
@@ -45,13 +56,25 @@ const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
     borderTop: '1px solid white',
     paddingLeft: spacing(2),
     paddingRight: spacing(1),
-    backgroundColor: palette.primary.light,
+    backgroundColor: ({ breadcrumbBackgroundColor }) => {
+      return isNotUndefOrNull(breadcrumbBackgroundColor)
+        ? breadcrumbBackgroundColor
+        : palette.primary.light;
+    },
   },
   link: {
-    color: `${menuGlobal.breadcrumbContrastText} !important`,
+    color: ({ breadcrumbTextColor }) => {
+      return isNotUndefOrNull(breadcrumbTextColor)
+        ? `${breadcrumbTextColor} !important`
+        : `${menuGlobal.breadcrumbContrastText} !important`;
+    },
   },
   separator: {
-    color: menuGlobal.breadcrumbContrastText,
+    color: ({ breadcrumbTextColor }) => {
+      return isNotUndefOrNull(breadcrumbTextColor)
+        ? breadcrumbTextColor
+        : menuGlobal.breadcrumbContrastText;
+    },
   },
   marginRightPattern: {
     marginRight: spacing(1),
@@ -86,8 +109,9 @@ export const AppBar = ({
   searchMode,
   setSearchMode,
 }) => {
-  const classes = useStyles();
   const theme = useTheme();
+  const styleProps = customAppBarStyle(theme.variant);
+  const classes = useStyles(styleProps);
   const [value, setCustomValue] = useState('');
   const {
     AppBar: { closeSearch, openSearch, openMenu },
@@ -98,7 +122,7 @@ export const AppBar = ({
       <MaterialAppBar className={classes.appBar} elevation={0}>
         <Toolbar disableGutters className={classes.toolbar}>
           {searchBar && searchMode ? (
-            <React.Fragment>
+            <>
               <Icon
                 path={mdiMagnify}
                 color={theme.palette.primary.contrastText}
@@ -150,9 +174,9 @@ export const AppBar = ({
                   />
                 </IconButton>
               </div>
-            </React.Fragment>
+            </>
           ) : (
-            <React.Fragment>
+            <>
               {menuBar && (
                 <IconButton
                   color="inherit"
@@ -174,7 +198,11 @@ export const AppBar = ({
                 {titleComponent ? (
                   { titleComponent }
                 ) : (
-                  <DefaultProductTypography title={title} subtitle={subtitle} />
+                  <DefaultProductTypography
+                    title={title}
+                    subtitle={subtitle}
+                    styleProps={styleProps}
+                  />
                 )}
               </div>
 
@@ -199,7 +227,7 @@ export const AppBar = ({
                   />
                 </IconButton>
               )}
-            </React.Fragment>
+            </>
           )}
         </Toolbar>
         {!disableBreadcrumb && (
