@@ -4,7 +4,7 @@ import { blue, grey } from '@material-ui/core/colors';
 import PropTypes from 'prop-types';
 import React, { useLayoutEffect, useState } from 'react';
 import { defaultBlue, defaultRed, defaultYellow } from './colors';
-import { customVariantYellow } from './customVariant';
+import { customVariantBlueGrey, customVariantYellow } from './customVariant';
 
 const themeColors = {
   orange: {
@@ -16,8 +16,16 @@ const themeColors = {
     },
   },
   yellow: {
-    secondary: { main: '#003473', contrastText: '#ffffff' },
     primary: { main: '#ffed00', contrastText: '#ffffff' },
+    secondary: { main: '#003473', contrastText: '#ffffff' },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
+  blueGrey: {
+    primary: { main: '#d8d7d5', light: '#0f3399', contrastText: '#000000' },
+    secondary: { main: '#0f3399', contrastText: '#ffffff' },
     error: {
       main: defaultRed,
       contrastText: '#ffffff',
@@ -101,19 +109,28 @@ export const renderStyledLabel = (label, variant) => {
   if (variant === 'yellow') {
     return <div style={{ color: defaultBlue }}>{label}</div>;
   }
+  if (variant === 'blueGrey') {
+    return <div style={{ color: '#0f3399' }}>{label}</div>;
+  }
   return label;
 };
 export const customAppBarStyle = variant => {
-  return variant === 'yellow'
-    ? {
-        titleColor: '#fff',
-        subtitleColor: defaultYellow,
-        breadcrumbBackgroundColor: defaultYellow,
-        breadcrumbTextColor: '#000',
-        activeBreadcrumbTextColor: defaultBlue,
-        appBarBackgroundColor: defaultBlue,
-      }
-    : {};
+  if (variant === 'yellow') {
+    return {
+      titleColor: '#fff',
+      subtitleColor: defaultYellow,
+      breadcrumbBackgroundColor: defaultYellow,
+      breadcrumbTextColor: '#000',
+      activeBreadcrumbTextColor: defaultBlue,
+      appBarBackgroundColor: defaultBlue,
+    };
+  }
+  if (variant === 'blueGrey') {
+    return {
+      activeBreadcrumbTextColor: '#fff',
+    };
+  }
+  return {};
 };
 export const useWindowSize = () => {
   const [size, setSize] = useState([0, 0]);
@@ -136,6 +153,11 @@ const themeCustom = (variant, overrides) => {
   if (variant === 'yellow') {
     return { ...customVariantYellow, ...overrides };
   }
+
+  if (variant === 'blueGrey') {
+    return { ...customVariantBlueGrey, ...overrides };
+  }
+
   return { ...overrides };
 };
 const theme = (variant, overrides) => {
@@ -174,6 +196,7 @@ ThemeProvider.propTypes = {
     'black',
     'redLight',
     'green',
+    'blueGrey',
     'yellow',
     'blackOrange',
     'blueLight',
