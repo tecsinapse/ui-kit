@@ -43,3 +43,24 @@ export const customVariantYellow = {
     },
   },
 };
+
+export const customVariantBlueGrey = {
+  MuiPickersToolbarText: {
+    toolbarBtnSelected: {
+      color: '#fff',
+    },
+    toolbarTxt: {
+      color: '#fff',
+    },
+  },
+  MuiPickersToolbar: {
+    toolbar: {
+      backgroundColor: '#0f3399',
+    },
+  },
+  MuiStepIcon: {
+    text: {
+      fill: '#fff',
+    },
+  },
+};
