@@ -86,7 +86,7 @@ const ExampleAppBar = () => {
             />
           </IconButton>
           <IconButton aria-label="Mostrar notificações" color="inherit">
-            <Badge badgeContent={17} color="secondary">
+            <Badge badgeContent={17}>
               <Icon
                 path={mdiBell}
                 color={theme.palette.primary.contrastText}
