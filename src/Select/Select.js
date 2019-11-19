@@ -1,5 +1,5 @@
 import { Tooltip, withStyles } from '@material-ui/core';
-import React, { useEffect, useRef, Fragment, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/build';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
@@ -111,14 +111,14 @@ export const SelectUnstyled = ({
     meta: { touched, error },
     hideSelectedOptions: false,
     endAdornment: (
-      <Fragment>
+      <>
         {endAdornment}
         {tooltip ? (
           <Tooltip title={tooltip} placement="right">
             <Help />
           </Tooltip>
         ) : null}
-      </Fragment>
+      </>
     ),
     onChange: input2 => {
       if (setMenuIsOpen !== undefined && !isMulti) {

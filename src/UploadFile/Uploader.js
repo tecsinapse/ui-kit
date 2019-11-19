@@ -140,7 +140,7 @@ export const Uploader = forwardRef(
         rejectedFiles.forEach(rejectedFile => {
           let messageFile = '';
           message += filenameFailedMessage(rejectedFile.name);
-          if (!acceptedFormat.includes(rejectedFile.type)) {
+          if (acceptedFormat && !acceptedFormat.includes(rejectedFile.type)) {
             messageFile += filetypeNotSupportedMessage;
           }
           if (rejectedFile.size > maxFileSize) {
@@ -177,7 +177,7 @@ export const Uploader = forwardRef(
     }));
 
     return (
-      <React.Fragment>
+      <>
         {silent ? (
           <div ref={ref}>
             <input {...getInputProps()} className={classes.hidden} />
@@ -225,17 +225,19 @@ export const Uploader = forwardRef(
         <Snackbar
           show={snackbar.show}
           variant={snackbar.variant}
-          onClose={() =>
-            setSnackBar(prevSnack => ({
-              show: false,
-              variant: prevSnack.variant,
-              msg: prevSnack.msg,
-            }))
+          onClose={
+            () =>
+              setSnackBar(prevSnack => ({
+                show: false,
+                variant: prevSnack.variant,
+                msg: prevSnack.msg,
+              }))
+            // eslint-disable-next-line
           }
         >
           {snackbar.msg}
         </Snackbar>
-      </React.Fragment>
+      </>
     );
   }
 );

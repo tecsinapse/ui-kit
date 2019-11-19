@@ -18,3 +18,6 @@ export const defaultGreyLight5 = '#B2B2B2';
 export const defaultGreyDark = '#817e7d';
 export const defaultWhite = '#ffffff';
 export const defaultBlack = '#000';
+export const defaultBlue = '#003473';
+export const defaultYellow = '#ffed00';
+export const defaultBadgeColor = '#FD0051';

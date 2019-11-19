@@ -29,7 +29,7 @@ import {
   useUpdatePageData,
 } from './tableHooks';
 
-const Table = props => {
+const TableComponent = props => {
   const {
     data: originalData,
     columns,
@@ -153,7 +153,7 @@ const Table = props => {
   );
 };
 
-Table.defaultProps = {
+TableComponent.defaultProps = {
   data: [],
   onFilterData: null,
   options: {},
@@ -174,7 +174,7 @@ Table.defaultProps = {
   classes: {},
 };
 
-Table.propTypes = {
+TableComponent.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -233,4 +233,5 @@ Table.propTypes = {
   }),
 };
 
+export const Table = TableComponent;
 export default Table;

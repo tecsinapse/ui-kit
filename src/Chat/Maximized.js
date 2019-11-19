@@ -92,7 +92,7 @@ const useStyle = makeStyles(theme => ({
     position: 'relative',
   },
   thumbnail: {
-    maxWidth: '200px',
+    maxWidth: '300px',
     maxHeight: '200px',
     border: '1px solid black',
   },
@@ -147,6 +147,8 @@ const Maximized = ({
   loadMore,
   maxFileUploadSize,
   onMessageResend,
+  isBlocked,
+  blockedMessage,
 }) => {
   const classes = useStyle();
   const theme = useTheme();
@@ -481,13 +483,20 @@ const Maximized = ({
           onChange={e => setWriting(e.currentTarget.value !== '')}
           inputRef={ref => setInputRef(ref)}
         >
-          <>
-            <Row align="center">
-              {!recording && (
-                <TextInput fill placeholder="Digite uma mensagem" />
-              )}
+          {isBlocked ? (
+            <Row align="center" justifyContent="space-around">
+              <Typography variant="subtitle2" color="error">
+                {blockedMessage}
+              </Typography>
+            </Row>
+          ) : (
+            <>
+              <Row align="center">
+                {!recording && (
+                  <TextInput fill placeholder="Digite uma mensagem" />
+                )}
 
-              {/* 
+                {/* 
                   It's using the <SendButton/ /> to handle the send when typing 
                   some text (easier because it is implemented by the livechat).
                   This scenario cannot handle the attachment files with no text (active bug), though.
@@ -496,101 +505,110 @@ const Maximized = ({
                   TODO: Keep only one handler, either by fixing the active bug or implementing the text 
                   handler on our <Icon /> (using controlled component passing 'value ' to TextComposer)
                 */}
-              {(writing || !isThereAudioSupport) && <SendButton fill />}
-              {!writing && !recording && Object.keys(files).length > 0 && (
-                <IconButton
-                  fill
-                  key="send"
-                  onClick={() => {
-                    onMediaSend('', files);
-                    setFiles({});
-                  }}
-                  style={{ maxHeight: 37, maxWidth: 35 }}
-                >
-                  <Icon
-                    path={mdiSend}
-                    size={1.143}
-                    color="#427fe1"
-                    style={{ maxHeight: 26, maxWidth: 24 }}
-                  />
-                </IconButton>
-              )}
-
-              {!writing &&
-                isThereAudioSupport &&
-                Object.keys(files).length <= 0 &&
-                !recording && (
-                  <IconButton fill key="mic" onClick={() => setRecording(true)}>
+                {(writing || !isThereAudioSupport) && <SendButton fill />}
+                {!writing && !recording && Object.keys(files).length > 0 && (
+                  <IconButton
+                    fill
+                    key="send"
+                    onClick={() => {
+                      onMediaSend('', files);
+                      setFiles({});
+                    }}
+                    style={{ maxHeight: 37, maxWidth: 35 }}
+                  >
                     <Icon
-                      path={mdiMicrophone}
-                      size={1}
-                      color={defaultGreyLight2}
+                      path={mdiSend}
+                      size={1.143}
+                      color="#427fe1"
+                      style={{ maxHeight: 26, maxWidth: 24 }}
                     />
                   </IconButton>
                 )}
 
-              {recording && <MicRecorder onStopRecording={onStopRecording} />}
-            </Row>
+                {!writing &&
+                  isThereAudioSupport &&
+                  Object.keys(files).length <= 0 &&
+                  !recording && (
+                    <IconButton
+                      fill
+                      key="mic"
+                      onClick={() => setRecording(true)}
+                    >
+                      <Icon
+                        path={mdiMicrophone}
+                        size={1}
+                        color={defaultGreyLight2}
+                      />
+                    </IconButton>
+                  )}
 
-            {!recording && (
-              <Row verticalAlign="center" justify="left">
-                <IconButton
-                  fill
-                  key="image"
-                  onClick={() => imageUpRef.current.open()}
-                >
-                  <Icon path={mdiImage} size={0.75} color={defaultGreyLight2} />
-                </IconButton>
-
-                <IconButton
-                  fill
-                  key="movie"
-                  onClick={() => videoUpRef.current.open()}
-                >
-                  <Icon
-                    path={mdiLibraryVideo}
-                    size={0.75}
-                    color={defaultGreyLight2}
-                  />
-                </IconButton>
-
-                <IconButton
-                  fill
-                  key="paperclip"
-                  onClick={() => appUpRef.current.open()}
-                >
-                  <Icon
-                    path={mdiPaperclip}
-                    size={0.75}
-                    color={defaultGreyLight2}
-                  />
-                </IconButton>
+                {recording && <MicRecorder onStopRecording={onStopRecording} />}
               </Row>
-            )}
-            <CustomUploader
-              focusRef={inputRef}
-              ref={imageUpRef}
-              files={files}
-              setFiles={setFiles}
-              mediaType="image/*"
-              maxFileUploadSize={maxFileUploadSize}
-            />
-            <CustomUploader
-              focusRef={inputRef}
-              ref={videoUpRef}
-              files={files}
-              setFiles={setFiles}
-              mediaType="video/*"
-              maxFileUploadSize={maxFileUploadSize}
-            />
-            <CustomUploader
-              focusRef={inputRef}
-              ref={appUpRef}
-              files={files}
-              setFiles={setFiles}
-              maxFileUploadSize={maxFileUploadSize}
-            />
-          </>
+
+              {!recording && (
+                <Row verticalAlign="center" justify="left">
+                  <IconButton
+                    fill
+                    key="image"
+                    onClick={() => imageUpRef.current.open()}
+                  >
+                    <Icon
+                      path={mdiImage}
+                      size={0.75}
+                      color={defaultGreyLight2}
+                    />
+                  </IconButton>
+
+                  <IconButton
+                    fill
+                    key="movie"
+                    onClick={() => videoUpRef.current.open()}
+                  >
+                    <Icon
+                      path={mdiLibraryVideo}
+                      size={0.75}
+                      color={defaultGreyLight2}
+                    />
+                  </IconButton>
+
+                  <IconButton
+                    fill
+                    key="paperclip"
+                    onClick={() => appUpRef.current.open()}
+                  >
+                    <Icon
+                      path={mdiPaperclip}
+                      size={0.75}
+                      color={defaultGreyLight2}
+                    />
+                  </IconButton>
+                </Row>
+              )}
+              <CustomUploader
+                focusRef={inputRef}
+                ref={imageUpRef}
+                files={files}
+                setFiles={setFiles}
+                mediaType="image/*"
+                maxFileUploadSize={maxFileUploadSize}
+              />
+              <CustomUploader
+                focusRef={inputRef}
+                ref={videoUpRef}
+                files={files}
+                setFiles={setFiles}
+                mediaType="video/*"
+                maxFileUploadSize={maxFileUploadSize}
+              />
+              <CustomUploader
+                focusRef={inputRef}
+                ref={appUpRef}
+                files={files}
+                setFiles={setFiles}
+                maxFileUploadSize={maxFileUploadSize}
+              />
+            </>
+          )}
         </TextComposer>
       )}
     </div>

@@ -8,6 +8,8 @@ const ChatWrapper = ({
   initialMessages = [],
   isMaximizedOnly = false,
   error,
+  isBlocked = false,
+  blockedMessage = undefined,
 }) => {
   const [messages, setMessages] = useState(initialMessages);
 
@@ -96,6 +98,8 @@ const ChatWrapper = ({
     <Chat
       error={error}
       isMaximizedOnly={isMaximizedOnly}
+      isBlocked={isBlocked}
+      blockedMessage={blockedMessage}
       messages={messages}
       title="Felipe Rodrigues"
       subtitle="Última mensagem 10/10/2019 10:10"
@@ -326,5 +330,25 @@ storiesOf(`Chat`, module)
       }}
     >
       <ChatWrapper isMaximizedOnly error="Erro de conexão. Tente mais tarde!" />
+    </div>
+  ))
+  .add('Chat Blocked', () => (
+    <div
+      style={{
+        width: '400px',
+        height: '550px',
+        position: 'fixed',
+        right: '1em',
+        bottom: '-50px',
+      }}
+    >
+      {/* Only renders inside the given div */}
+      <ChatWrapper
+        isMaximizedOnly
+        isBlocked
+        blockedMessage="Já se passaram 24h desde a última mensagem enviada pelo cliente, 
+          por isso não é possível enviar nova mensagem por esse canal de comunicação, por favor, 
+          entre em contato com o cliente por outro meio."
+      />
     </div>
   ));

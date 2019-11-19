@@ -11,7 +11,7 @@ export const Menu = ({
 }) => (
   <SearchDialog
     label={selectProps.label}
-    selectProptMessage={selectProps.selectPromptMessage}
+    selectPromptMessage={selectProps.selectPromptMessage}
     setMenuIsOpen={selectProps.setMenuIsOpen}
   >
     {selectProps.isMulti && selectProps.allowSelectAll && (

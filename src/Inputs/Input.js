@@ -1,3 +1,5 @@
+/* eslint react/jsx-props-no-spreading: 0 */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -175,6 +177,7 @@ const InputUI = withStyles(inputStyles)(
     helperText,
     endAdornment,
     startAdornment,
+    autoComplete,
     ...input
   }) => (
     <TextFieldComponent
@@ -194,6 +197,7 @@ const InputUI = withStyles(inputStyles)(
       mask={mask}
       endAdornment={endAdornment}
       startAdornment={startAdornment}
+      autoComplete={autoComplete}
       {...input}
     />
   )
@@ -215,6 +219,7 @@ Input.defaultProps = {
   endAdornment: null,
   endAdornmentMargin: true,
   startAdornment: null,
+  autoComplete: null,
 };
 
 const maskProp = PropTypes.oneOfType([
@@ -256,6 +261,7 @@ Input.propTypes = {
   endAdornment: PropTypes.object,
   endAdornmentMargin: PropTypes.bool,
   startAdornment: PropTypes.object,
+  autoComplete: PropTypes.string,
 };
 
 export default Input;

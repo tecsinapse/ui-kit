@@ -31,6 +31,9 @@ const ImageLoader = ({ classes, url, own }) => {
             setImageError(true);
           }
         }}
+        style={{
+          maxHeight: '200px',
+        }}
       />
     </div>
   );

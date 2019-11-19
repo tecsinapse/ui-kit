@@ -13,5 +13,8 @@ storiesOf(`${GROUPS.MENU}|Drawer`, module).add('Drawer', () => (
     productName="Gestão de Frotas"
     subtitle="TecSinapse"
     title="Portal"
+    styleProps={{
+      selectedBackgroundColor: 'blue',
+    }}
   />
 ));

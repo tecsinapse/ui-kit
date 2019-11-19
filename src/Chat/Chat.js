@@ -24,6 +24,8 @@ export const Chat = ({
   loadMore,
   maxFileUploadSize,
   onMessageResend,
+  isBlocked,
+  blockedMessage,
 }) => {
   const theme = useTheme();
 
@@ -50,6 +52,8 @@ export const Chat = ({
                 loadMore={loadMore}
                 maxFileUploadSize={maxFileUploadSize}
                 onMessageResend={onMessageResend}
+                isBlocked={isBlocked}
+                blockedMessage={blockedMessage}
               />
             </FixedWrapper.Maximized>
 
@@ -77,6 +81,8 @@ Chat.defaultProps = {
   loadMore: undefined,
   maxFileUploadSize: 20971520, // 20 MB
   onMessageResend: undefined,
+  isBlocked: undefined,
+  blockedMessage: 'The chat is blocked',
 };
 
 Chat.propTypes = {
@@ -99,6 +105,7 @@ Chat.propTypes = {
           ]),
           name: PropTypes.string,
           size: PropTypes.number,
+          data: PropTypes.object,
         })
       ),
       status: PropTypes.objectOf(['sending', 'error', 'delivered']),
@@ -125,6 +132,8 @@ Chat.propTypes = {
   isLoading: PropTypes.bool,
   loadMore: PropTypes.func,
   maxFileUploadSize: PropTypes.number,
+  isBlocked: PropTypes.bool,
+  blockedMessage: PropTypes.string,
 };
 
 export default Chat;
