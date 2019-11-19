@@ -92,6 +92,7 @@ export function UpFile({
   error,
   setSnackBar,
   messages: { fileUploadedSucessfullyMessage, fileErroedMessage },
+  noShowSnack = false,
 }) {
   const [isCompleted, setIsCompleted] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -109,7 +110,7 @@ export function UpFile({
 
   if (error && !isError) {
     setSnackBar({
-      show: true,
+      show: !noShowSnack,
       variant: 'error',
       msg: fileErroedMessage(filename, error),
     });
