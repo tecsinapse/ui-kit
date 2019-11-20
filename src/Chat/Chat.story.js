@@ -26,7 +26,10 @@ const ChatWrapper = ({
     setTimeout(() => mockStatusMessage(id, 'delivered'), 1000);
 
     // Mocking send to a local echo backend
-    setTimeout(() => echoBackend(text), 2000);
+    if ((id + 1) % 2 === 0) {
+      setTimeout(() => echoBackend(text), 2000);
+      setTimeout(() => echoBackend(text), 3000);
+    }
   };
 
   const echoBackend = newMessage => {
@@ -104,10 +107,9 @@ const ChatWrapper = ({
       title="Felipe Rodrigues"
       subtitle="Última mensagem 10/10/2019 10:10"
       onMessageSend={text => {
-        let id;
         setMessages(prevMessages => {
           const copyPrevMessages = [...prevMessages];
-          id =
+          const id =
             copyPrevMessages.push({
               at: '02/03/2019 10:12',
               own: true,
@@ -116,12 +118,11 @@ const ChatWrapper = ({
               status: 'sending',
               text,
             }) - 1;
+          if (!error) {
+            sendToBackend(text, id);
+          }
           return copyPrevMessages;
         });
-
-        if (!error) {
-          sendToBackend(text, id);
-        }
       }}
       onAudio={blob => {
         if (blob !== null) {
