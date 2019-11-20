@@ -52,16 +52,29 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const CardColumn = ({ title, customRender, data, field }) => (
+const CardColumn = ({
+  title,
+  customRender,
+  data,
+  field,
+  tableHeaderHide,
+  classes,
+}) => (
   <div key={field}>
-    <Typography variant="body2" color="textSecondary">
-      {title}
-    </Typography>
+    {!tableHeaderHide && (
+      <Typography variant="body2" color="textSecondary">
+        {title}
+      </Typography>
+    )}
     <div>
       {customRender && data ? (
         customRender(data)
       ) : (
-        <Typography variant="subtitle2" color="textPrimary">
+        <Typography
+          variant="subtitle2"
+          color="textPrimary"
+          className={tableHeaderHide ? classes.marginTop : {}}
+        >
           {resolveData(field, data)}
         </Typography>
       )}
@@ -79,6 +92,7 @@ export const TableCard = ({
   rowId,
   labelShowLess,
   labelShowMore,
+  tableHeaderHide,
 }) => {
   const [expanded, setExpanded] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
@@ -115,6 +129,8 @@ export const TableCard = ({
                           customRender={customRender}
                           data={data}
                           field={field}
+                          tableHeaderHide={tableHeaderHide}
+                          classes={classes}
                         />
                       </div>
                       {index === 0 && isNotEmptyOrNull(actions) && (

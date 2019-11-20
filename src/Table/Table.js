@@ -154,6 +154,8 @@ const TableComponent = props => {
             onChangeStartStopIndex={onChangeStartStopIndex(setFilters)}
             labelShowLess={labelShowLess}
             labelShowMore={labelShowMore}
+            page={filters.page}
+            tableHeaderHide={tableHeaderHide}
           />
         </div>
       ) : (

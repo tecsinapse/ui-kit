@@ -15,7 +15,13 @@ const onApplyFilter = (
   setFilters,
   setOpenDialog
 ) => advancedFilters => {
-  setFilters(prevFilters => ({ ...prevFilters, advancedFilters }));
+  setFilters(prevFilters => ({
+    ...prevFilters,
+    advancedFilters,
+    page: 0,
+    startIndex: 0,
+    stopIndex: prevFilters.rowsPerPage - 1,
+  }));
   setAnchorEl(null);
   setOpenDialog(false);
 };
@@ -49,7 +55,7 @@ const TableAdvancedFilters = ({
   };
 
   return (
-    <React.Fragment>
+    <>
       <Tooltip title={tooltipAdvancedFilter}>
         <IconButton
           onClick={event => {
@@ -110,7 +116,7 @@ const TableAdvancedFilters = ({
           </div>
         </Dialog>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

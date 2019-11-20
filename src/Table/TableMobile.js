@@ -24,6 +24,8 @@ export const TableMobile = ({
   onChangeStartStopIndex,
   labelShowLess,
   labelShowMore,
+  page,
+  tableHeaderHide,
 }) => {
   const list = useRef();
 
@@ -71,9 +73,11 @@ export const TableMobile = ({
                   list.current = ref;
                 }
               }}
+              overscanRowCount={5}
               width={width}
               height={height}
               rowCount={rowCount}
+              scrollToIndex={page === 0 ? 0 : null}
               deferredMeasurementCache={cache}
               rowHeight={cache.rowHeight}
               rowRenderer={({ index, key, parent, style }) => (
@@ -99,6 +103,7 @@ export const TableMobile = ({
                       rowId={key}
                       labelShowLess={labelShowLess}
                       labelShowMore={labelShowMore}
+                      tableHeaderHide={tableHeaderHide}
                     />
                   </div>
                 </CellMeasurer>

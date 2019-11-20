@@ -22,7 +22,6 @@ const tableToolbarStyles = makeStyles(theme => ({
   filter: {
     width: '100%',
     textAlign: 'right',
-    maxWidth: '20%',
   },
 }));
 

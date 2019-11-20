@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -30,7 +30,7 @@ export const Action = ({ action, row, vertical, setAnchorEl }) => {
     event.stopPropagation();
   };
   const button = vertical ? (
-    <Fragment>
+    <>
       <ListItem button onClick={onClickButton}>
         {icon && <ListItemIcon>{icon}</ListItemIcon>}
         <ListItemText
@@ -46,7 +46,7 @@ export const Action = ({ action, row, vertical, setAnchorEl }) => {
         />
       </ListItem>
       {bottomDivider && <Divider />}
-    </Fragment>
+    </>
   ) : (
     <IconButton onClick={onClickButton}>
       {icon} {label}
@@ -61,7 +61,7 @@ export const Action = ({ action, row, vertical, setAnchorEl }) => {
 
 export function getActionButtons(actions, vertical = false, row, setAnchorEl) {
   return actions
-    .filter(action => !action.visible || action.visible(row))
+    .filter(action => !action.visible || (!!row && action.visible(row)))
     .map((action, index) => (
       <Action
         vertical={vertical}
@@ -100,7 +100,7 @@ const TableRowActions = ({
   }
 
   return (
-    <React.Fragment>
+    <>
       <IconButton
         onClick={event => {
           event.preventDefault();
@@ -135,7 +135,7 @@ const TableRowActions = ({
           actionButtons
         )}
       </Popover>
-    </React.Fragment>
+    </>
   );
 };
 

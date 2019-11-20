@@ -32,10 +32,7 @@ export const useUpdateDataRemote = (
           if (!mobile || !filters.loadedResolver) {
             return [...resultData];
           }
-          // Replace old array with received array according its position
-          return prevData
-            .slice(0, filters.startIndex)
-            .concat(resultData, prevData.slice(filters.stopIndex + 1));
+          return prevData.slice(0, filters.startIndex).concat(resultData);
         });
         setTotalCount(totalCount);
 

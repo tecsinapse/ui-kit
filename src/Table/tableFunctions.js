@@ -81,6 +81,7 @@ export const onChangeStartStopIndex = setFilters => ({
   setFilters(prevFilters => ({
     ...prevFilters,
     ...{ startIndex, stopIndex, loadedResolver },
+    page: Math.round(startIndex / prevFilters.rowsPerPage),
   }));
   return loadedPromise;
 };
