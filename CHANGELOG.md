@@ -1,3 +1,9 @@
+## <small>2.2.1-0 (2019-11-21)</small>
+
+* Voltando versões ([d7c639e](https://github.com/tecsinapse/ui-kit/commit/d7c639e))
+
+
+
 <a name="2.2.0"></a>
 ## 2.2.0 (2019-11-21)
 
