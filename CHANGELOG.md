@@ -1,3 +1,8 @@
+## 4.0.0-0 (2019-11-21)
+
+
+
+
 ## 3.0.0-0 (2019-11-21)
 
 * Fix bug global cache which save old cache state among tables ([33c54f0](https://github.com/tecsinapse/ui-kit/commit/33c54f0))
