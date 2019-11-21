@@ -1,3 +1,23 @@
+<a name="2.2.0"></a>
+## 2.2.0 (2019-11-21)
+
+* #124853 Changing notification colour. ([cafe941](https://github.com/tecsinapse/ui-kit/commit/cafe941)), closes [#124853](https://github.com/tecsinapse/ui-kit/issues/124853) [#125395](https://github.com/tecsinapse/ui-kit/issues/125395)
+* Add button for social login (just one/google for now) ([05e8721](https://github.com/tecsinapse/ui-kit/commit/05e8721))
+* Add themes ([f349445](https://github.com/tecsinapse/ui-kit/commit/f349445))
+* Added "default sort" display on table header. ([6910839](https://github.com/tecsinapse/ui-kit/commit/6910839))
+* Added remove option to advanced filters table ([30fa549](https://github.com/tecsinapse/ui-kit/commit/30fa549))
+* Fix duplicate snack message on uploading ([b6d71ab](https://github.com/tecsinapse/ui-kit/commit/b6d71ab))
+* Fix image not fiting in container on uploading ([160a9ad](https://github.com/tecsinapse/ui-kit/commit/160a9ad))
+* Fixed blueGrey breadcrumb color ([93ba322](https://github.com/tecsinapse/ui-kit/commit/93ba322))
+* Fixed chip color on AutoComplete. ([0f035e6](https://github.com/tecsinapse/ui-kit/commit/0f035e6))
+* Resolving return consistency. ([ed82461](https://github.com/tecsinapse/ui-kit/commit/ed82461))
+* Resolving suggestion by changing forEach to filter().map() ([7876585](https://github.com/tecsinapse/ui-kit/commit/7876585))
+* Resolving value checking condition. ([048ee06](https://github.com/tecsinapse/ui-kit/commit/048ee06))
+* Set apply filters function. ([944e4f1](https://github.com/tecsinapse/ui-kit/commit/944e4f1))
+* Update .travis.yml ([73f92f4](https://github.com/tecsinapse/ui-kit/commit/73f92f4))
+
+
+
 <a name="2.1.2"></a>
 ## <small>2.1.2 (2019-11-12)</small>
 
