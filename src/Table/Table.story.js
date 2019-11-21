@@ -15,22 +15,34 @@ const columns = [
   {
     title: 'Model',
     field: 'model.name',
+    options: {
+      hiddenCard: true,
+    },
   },
   {
     title: 'Year',
     field: 'model.year',
     options: {
       numeric: true,
+      hiddenCard: true,
     },
   },
 ];
 
 const SimpleTable = () => (
   <Paper style={{ width: 1000 }}>
-    <Table columns={columns} data={cars} rowId={row => row.id} />
+    <Table
+      columns={columns}
+      data={cars}
+      rowId={row => row.id}
+      onRowClick={rowData => {
+        // eslint-disable-next-line no-alert
+        alert(JSON.stringify(rowData));
+      }}
+    />
   </Paper>
 );
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('Simple Table', SimpleTable);
+  .add('Simple Table', () => <SimpleTable />);

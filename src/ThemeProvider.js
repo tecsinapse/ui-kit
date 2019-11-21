@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
 import { blue, grey } from '@material-ui/core/colors';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { defaultBlue, defaultRed, defaultYellow } from './colors';
 import { customVariantBlueGrey, customVariantYellow } from './customVariant';
 
@@ -131,6 +131,18 @@ export const customAppBarStyle = variant => {
     };
   }
   return {};
+};
+export const useWindowSize = () => {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  return size;
 };
 const themeGlobals = variant => ({
   menuGlobal: {

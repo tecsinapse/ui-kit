@@ -90,7 +90,13 @@ const CardFilter = ({ title, selectedValues, onDelete }) => {
 };
 
 const onApplyAdvFilter = setFilters => filters => {
-  setFilters(prevFilters => ({ ...prevFilters, ...filters }));
+  setFilters(prevFilters => ({
+    ...prevFilters,
+    ...filters,
+    page: 0,
+    startIndex: 0,
+    stopIndex: filters.rowsPerPage - 1,
+  }));
 };
 
 const checkTypeAndApply = (setFilters, filters, name, i) => {

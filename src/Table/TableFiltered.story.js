@@ -50,4 +50,4 @@ const FilteringTable = () => (
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('Filtering Table', FilteringTable);
+  .add('Filtering Table', () => <FilteringTable />);
