@@ -16,7 +16,10 @@ const headerStyles = makeStyles(theme => ({
     width: '7%',
   },
   ascending: {
-    padding: 0,
+    paddingTop: 0,
+    paddingRight: theme.spacing(1 / 5),
+    paddingBottom: theme.spacing(1 / 3),
+    paddingLeft: theme.spacing(1 / 5),
     marginLeft: 'auto',
     transform: 'rotate(0deg)',
     transition: theme.transitions.create('transform', {
@@ -24,6 +27,10 @@ const headerStyles = makeStyles(theme => ({
     }),
   },
   descending: {
+    paddingTop: theme.spacing(1 / 3),
+    paddingRight: theme.spacing(1 / 5),
+    paddingBottom: 0,
+    paddingLeft: theme.spacing(1 / 5),
     transform: 'rotate(180deg)',
   },
 }));
@@ -148,7 +155,7 @@ const convertColumnToTableCell = (
                 ? theme.palette.text.primary
                 : theme.palette.text.disabled
             }
-            size={1}
+            size={0.8}
           />
         </IconButton>
       )}
