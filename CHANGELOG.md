@@ -1,4 +1,4 @@
-## 3.0.0-beta.0 (2019-11-21)
+## 3.0.0-beta.1 (2019-11-21)
 
 * Fix bug global cache which save old cache state among tables ([33c54f0](https://github.com/tecsinapse/ui-kit/commit/33c54f0))
 * Fixed error logged in console by scrollToIndex being null and className being {} ([5c88826](https://github.com/tecsinapse/ui-kit/commit/5c88826))
