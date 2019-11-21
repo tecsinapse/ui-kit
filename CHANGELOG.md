@@ -1,26 +1,3 @@
-## 4.0.0-0 (2019-11-21)
-
-
-
-
-## 3.0.0-0 (2019-11-21)
-
-* Fix bug global cache which save old cache state among tables ([33c54f0](https://github.com/tecsinapse/ui-kit/commit/33c54f0))
-* Fixed error logged in console by scrollToIndex being null and className being {} ([5c88826](https://github.com/tecsinapse/ui-kit/commit/5c88826))
-* Fixed Picker story error on production ([3543cf3](https://github.com/tecsinapse/ui-kit/commit/3543cf3))
-* Fixed render preventing undefined entries. ([b136b94](https://github.com/tecsinapse/ui-kit/commit/b136b94))
-* Fixed responsive table not showing full height on mobile (for portal) ([15daa25](https://github.com/tecsinapse/ui-kit/commit/15daa25))
-* Fixed Table not showing on mobile (without passing classes to component) ([f88bfa6](https://github.com/tecsinapse/ui-kit/commit/f88bfa6))
-* Merge and storybook run fix ([b909876](https://github.com/tecsinapse/ui-kit/commit/b909876))
-* Missing deps ([a5d25ff](https://github.com/tecsinapse/ui-kit/commit/a5d25ff))
-* Resolving static labels and styles. ([f32de0d](https://github.com/tecsinapse/ui-kit/commit/f32de0d))
-* Restored root div for desktop version ([ca007a3](https://github.com/tecsinapse/ui-kit/commit/ca007a3))
-* Table resposive: ([cefe23a](https://github.com/tecsinapse/ui-kit/commit/cefe23a))
-* Tasks done: ([0dc0849](https://github.com/tecsinapse/ui-kit/commit/0dc0849))
-* Updated lock ([4559ba5](https://github.com/tecsinapse/ui-kit/commit/4559ba5))
-
-
-
 <a name="2.2.0"></a>
 ## 2.2.0 (2019-11-21)
 
