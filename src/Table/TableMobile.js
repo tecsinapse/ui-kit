@@ -77,7 +77,7 @@ export const TableMobile = ({
               width={width}
               height={height}
               rowCount={rowCount}
-              scrollToIndex={page === 0 ? 0 : null}
+              scrollToIndex={page === 0 ? 0 : undefined}
               deferredMeasurementCache={cache}
               rowHeight={cache.rowHeight}
               rowRenderer={({ index, key, parent, style }) => (

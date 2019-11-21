@@ -73,7 +73,7 @@ const CardColumn = ({
         <Typography
           variant="subtitle2"
           color="textPrimary"
-          className={tableHeaderHide ? classes.marginTop : {}}
+          className={tableHeaderHide ? classes.marginTop : ''}
         >
           {resolveData(field, data)}
         </Typography>
