@@ -278,6 +278,7 @@ Uploader.propTypes = {
     completed: PropTypes.number,
     uprate: PropTypes.number,
     error: PropTypes.string,
+    noShowSnack: PropTypes.bool,
   }),
   messages: PropTypes.shape({
     title: PropTypes.string,

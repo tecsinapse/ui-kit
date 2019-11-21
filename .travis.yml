@@ -15,3 +15,6 @@ deploy:
     keep-history: false
     on:
       tags: true
+notifications:
+  email:
+    - lip@tecsinapse.com.br

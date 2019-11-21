@@ -74,7 +74,7 @@ export function PreviewList({
   const classes = useStyle();
 
   return (
-    <React.Fragment>
+    <>
       <ConfirmationAlert
         show={showAlert}
         proceed={() => {
@@ -103,8 +103,7 @@ export function PreviewList({
             show: false,
             variant: prevSnack.variant,
             msg: prevSnack.msg,
-          }))
-        }
+          }))}
       >
         {snackbar.msg}
       </Snackbar>
@@ -133,7 +132,7 @@ export function PreviewList({
           </div>
         </div>
       ) : (
-        <React.Fragment>
+        <>
           {headerLabel && (
             <div>
               <Typography variant="h6">{headerLabel}</Typography>
@@ -147,6 +146,7 @@ export function PreviewList({
                   uid={uid}
                   filename={value[uid].file.name}
                   completed={value[uid].completed}
+                  noShowSnack={value[uid].noShowSnack && value[uid].noShowSnack}
                   filesize={convertBytes(value[uid].file.size)}
                   divider={Object.keys(value).length !== i + 1}
                   setShowAlert={setShowAlert}
@@ -160,9 +160,9 @@ export function PreviewList({
               ))}
             </List>
           </div>
-        </React.Fragment>
+        </>
       )}
-    </React.Fragment>
+    </>
   );
 }
 
