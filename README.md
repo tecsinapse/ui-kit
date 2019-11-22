@@ -10,10 +10,11 @@
 
 Para acessar os documentos acesse nosso [storybook](https://github.com/tecsinapse/ui-kit)
 
+É recomendável utilizar uma versão `"node": ">=12.0.0"` devido a performance de build superior
+
 Para add em seu projeto:
 ```
     yarn add @tecsinapse/ui-kit
-    npx install-peerdeps @tecsinapse/ui-kit
 ```
 
 E adicione o ThemeProvider em seu projeto como abaixo:

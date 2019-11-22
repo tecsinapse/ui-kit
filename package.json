@@ -4,6 +4,9 @@
   "version": "3.0.0-beta.1",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "dependencies": {
     "@date-io/luxon": "^1.1.0",
     "@material-ui/core": "^4.2.1",
@@ -90,9 +93,7 @@
   ],
   "scripts": {
     "build": "rimraf -rf build/ && babel src/ -d build/ && rollup -c",
-    "build:windows": "set NODE_OPTIONS=--max-old-space-size=4096&& rimraf -rf build/ && babel src/ -d build/ && rollup -c",
     "build-all": "yarn build && yarn storybook:build",
-    "build-all:windows": "yarn build:windows && yarn storybook:build",
     "build-publish": "yarn build-all && npm publish",
     "dev": "rollup -c -w",
     "start": "yarn install && yarn storybook",
