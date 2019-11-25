@@ -54,6 +54,7 @@ export const DateSlider = (props: SliderTypes) => {
   } => {
     return {
       value: index,
+      // $FlowFixMe
       label: days[el.getDay()],
     };
   });
