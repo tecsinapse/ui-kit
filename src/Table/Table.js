@@ -4,8 +4,12 @@ import MUITable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/styles';
+
 import { tableStyles } from './tableStyle';
 import TableRowFilter from './TableRowFilter';
+import { TableMobile } from './TableMobile';
 import TableHeader from './TableHeader';
 import TableRows from './TableRows';
 import TableToolbar from './TableToolbar';
@@ -20,6 +24,7 @@ import {
   onChangeHeaderFilter,
   onChangePage,
   onChangeSortFilter,
+  onChangeStartStopIndex,
 } from './tableFunctions';
 import {
   useInitialCheckboxData,
@@ -28,6 +33,7 @@ import {
   useUpdateDataRemote,
   useUpdatePageData,
 } from './tableHooks';
+import { useWindowSize } from '../ThemeProvider';
 
 const TableComponent = props => {
   const {
@@ -52,10 +58,12 @@ const TableComponent = props => {
     tableHeaderHide,
     id,
     sortFunc,
+    variant,
+    labelShowLess,
+    labelShowMore,
   } = props;
-
-  const classes = tableStyles();
-
+  const classes = tableStyles(useWindowSize()[1]);
+  const [mobile, setMobile] = useState(false);
   const [rowCount, setRowCount] = useState(0);
   const [data, setData] = useState([]);
   const [pageData, setPageData] = useState([]);
@@ -77,7 +85,14 @@ const TableComponent = props => {
   useInitialCheckboxData(selectedData, setSelectedRows);
 
   // Only one update data is executed, depends on type of originalData
-  useUpdateDataRemote(originalData, setLoading, setData, filters, setRowCount);
+  useUpdateDataRemote(
+    originalData,
+    setLoading,
+    setData,
+    filters,
+    setRowCount,
+    mobile
+  );
   useUpdateDataProp(originalData, setLoading, setData, filters, setRowCount);
 
   useUpdatePageData(isRemoteData(originalData), data, setPageData, filters);
@@ -96,6 +111,20 @@ const TableComponent = props => {
     ({ options: columnOptions = {} }) => columnOptions.filter
   );
 
+  // Update the device
+  const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
+  if (variant === 'auto') {
+    if (matches && !mobile) {
+      setMobile(true);
+    } else if (!matches && mobile) {
+      setMobile(false);
+    }
+  } else if (variant === 'mobile' && !mobile) {
+    setMobile(true);
+  } else if (mobile) {
+    setMobile(false);
+  }
+
   return (
     <div className={propClasses.root} id={id}>
       <TableLoading loading={loading} />
@@ -111,44 +140,65 @@ const TableComponent = props => {
         setLoading={setLoading}
         rowCount={rowCount}
         tableToolbarHide={tableToolbarHide}
+        mobile={mobile}
       />
-      <MUITable className={classes.table}>
-        <TableHeader
-          columns={tableColumns}
-          selectedRows={selectedRows}
-          setSelectedRows={setSelectedRows}
-          data={pageData}
-          onSelectRow={onSelectRow}
-          rowId={rowId}
-          tableHeaderHide={tableHeaderHide}
-          filters={filters}
-          onChangeSortFilter={onChangeSortFilter(setFilters)}
-        />
-        <TableBody>
-          <TableRowFilter
-            rendered={someColumnHasFilter}
-            columns={tableColumns}
-            data={originalData}
-            onChangeFilter={onChangeHeaderFilter(setFilters)}
-          />
-          <TableRows
-            columns={tableColumns}
-            forceCollapseActions={forceCollapseActions}
-            verticalActions={verticalActions}
-            data={pageData}
+      {mobile ? (
+        <div className={classes.rootMobile}>
+          <TableMobile
+            columns={columns}
             rowId={rowId}
             onRowClick={onRowClick}
-            selectedRows={selectedRows}
-            setSelectedRows={setSelectedRows}
-            onSelectRow={onSelectRow}
+            actions={actions}
+            rowCount={rowCount}
+            data={data}
+            onChangeStartStopIndex={onChangeStartStopIndex(setFilters)}
+            labelShowLess={labelShowLess}
+            labelShowMore={labelShowMore}
+            page={filters.page}
+            tableHeaderHide={tableHeaderHide}
           />
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination {...paginationOptions} />
-          </TableRow>
-        </TableFooter>
-      </MUITable>
+        </div>
+      ) : (
+        <>
+          <MUITable className={classes.table}>
+            <TableHeader
+              columns={tableColumns}
+              selectedRows={selectedRows}
+              setSelectedRows={setSelectedRows}
+              data={pageData}
+              onSelectRow={onSelectRow}
+              rowId={rowId}
+              tableHeaderHide={tableHeaderHide}
+              filters={filters}
+              onChangeSortFilter={onChangeSortFilter(setFilters)}
+            />
+            <TableBody>
+              <TableRowFilter
+                rendered={someColumnHasFilter}
+                columns={tableColumns}
+                data={originalData}
+                onChangeFilter={onChangeHeaderFilter(setFilters)}
+              />
+              <TableRows
+                columns={tableColumns}
+                forceCollapseActions={forceCollapseActions}
+                verticalActions={verticalActions}
+                data={pageData}
+                rowId={rowId}
+                onRowClick={onRowClick}
+                selectedRows={selectedRows}
+                setSelectedRows={setSelectedRows}
+                onSelectRow={onSelectRow}
+              />
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination {...paginationOptions} />
+              </TableRow>
+            </TableFooter>
+          </MUITable>
+        </>
+      )}
     </div>
   );
 };
@@ -172,6 +222,9 @@ TableComponent.defaultProps = {
   exportOptions: null,
   id: null,
   classes: {},
+  variant: 'auto',
+  labelShowLess: 'MOSTRAR MENOS',
+  labelShowMore: 'MOSTRAR MAIS',
 };
 
 TableComponent.propTypes = {
@@ -220,6 +273,7 @@ TableComponent.propTypes = {
   page: PropTypes.number,
   classes: PropTypes.shape({
     root: PropTypes.string,
+    rootMobile: PropTypes.string,
   }),
   exportOptions: PropTypes.shape({
     exportFileName: PropTypes.string,
@@ -231,6 +285,9 @@ TableComponent.propTypes = {
       })
     ),
   }),
+  variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
+  labelShowLess: PropTypes.string,
+  labelShowMore: PropTypes.string,
 };
 
 export const Table = TableComponent;

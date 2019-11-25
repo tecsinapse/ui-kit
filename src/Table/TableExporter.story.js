@@ -78,4 +78,4 @@ const ExporterTable = () => (
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('Exporter Table', ExporterTable);
+  .add('Exporter Table', () => <ExporterTable />);

@@ -66,4 +66,4 @@ const PaginationTable = () => (
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('Sort Table', PaginationTable);
+  .add('Sort Table', () => <PaginationTable />);

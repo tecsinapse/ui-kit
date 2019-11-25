@@ -7,42 +7,55 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { mdiArrowLeft } from '@mdi/js';
+import Icon from '@mdi/react';
+
+import { IconButton } from '../Buttons/IconButton';
 import { Input } from '../Inputs/Input';
 import { Select } from '../Select/Select';
 import { LocaleContext } from '../LocaleProvider';
 import { renderStyledColor } from '../ThemeProvider';
 
-const filterStyles = makeStyles(theme => ({
-  group: {
-    padding: '20px',
-  },
-  filterContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-  },
-  filter: {
-    padding: '2px',
-  },
-  fullWidth: {
-    width: '100%',
-  },
-}));
+const filterStyles = mobile =>
+  makeStyles(theme => ({
+    group: {
+      padding: mobile ? theme.spacing(1) : '20px',
+    },
+    filterContainer: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+    },
+    filter: {
+      padding: '2px',
+    },
+    fullWidth: {
+      width: '100%',
+    },
+  }));
 
-const advancedFilterStyles = makeStyles(theme => ({
-  title: {
-    height: '50px',
-    padding: '20px',
-  },
-  panelButton: {
-    height: '70px',
-  },
-  button: {
-    width: '100%',
-    borderRadius: 0,
-    top: '25%',
-  },
-}));
+const advancedFilterStyles = mobile =>
+  makeStyles(theme => ({
+    title: {
+      height: mobile ? '20px' : '50px',
+      padding: mobile ? '20px 0px 20px 0px' : '20px 20px 20px 20px',
+      display: 'flex',
+      alignItems: 'center',
+    },
+    panelButton: {
+      height: '70px',
+    },
+    panelButtonMobile: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    button: {
+      width: mobile ? '75%' : '100%',
+      borderRadius: 0,
+      top: '25%',
+    },
+  }));
 
 const onChangeFilter = (setAdvancedFilters, name, value) => {
   setAdvancedFilters(prevAdvancedFilters => {
@@ -112,9 +125,10 @@ const Filters = ({
   setAdvancedFilters,
   advancedFilters,
   filtersGroup,
+  mobile = false,
 }) => {
   const filtersByGroup = {};
-  const classes = filterStyles();
+  const classes = filterStyles(mobile)();
 
   if (filtersGroup && filtersGroup.length > 0) {
     filtersGroup.forEach(group => {
@@ -166,6 +180,8 @@ const AdvancedFilters = ({
   advancedFilters: advancedFiltersProp,
   onApplyFilter,
   filters,
+  closeDialog,
+  mobile = false,
 }) => {
   const { variant } = useTheme();
   const { filters: filtersOptions, filtersGroup } = advancedFiltersProp;
@@ -175,11 +191,16 @@ const AdvancedFilters = ({
   const {
     Table: { tooltipAdvancedFilter, applyFiltersLabel },
   } = useContext(LocaleContext);
-  const classes = advancedFilterStyles();
+  const classes = advancedFilterStyles(mobile)();
 
   return (
     <div>
       <div className={classes.title}>
+        {mobile && (
+          <IconButton onClick={closeDialog}>
+            <Icon path={mdiArrowLeft} size={1} />
+          </IconButton>
+        )}
         <Typography variant="h6" id="tableTitle">
           {tooltipAdvancedFilter}
         </Typography>
@@ -189,12 +210,17 @@ const AdvancedFilters = ({
         setAdvancedFilters={setAdvancedFilters}
         advancedFilters={advancedFilters}
         filtersGroup={filtersGroup}
+        mobile={mobile}
       />
       <Divider />
-      <div className={classes.panelButton}>
+      <div
+        className={className(classes.panelButton, {
+          [classes.panelButtonMobile]: mobile,
+        })}
+      >
         <Button
           onClick={() => onApplyFilter(advancedFilters)}
-          variant="text"
+          variant={mobile ? 'contained' : 'text'}
           className={classes.button}
           color={renderStyledColor(variant)}
         >
