@@ -14,7 +14,10 @@
 * Tasks done: ([0dc0849](https://github.com/tecsinapse/ui-kit/commit/0dc0849))
 * Updated lock ([4559ba5](https://github.com/tecsinapse/ui-kit/commit/4559ba5))
 
+<a name="2.2.1"></a>
+## <small>2.2.1 (2019-11-21)</small>
 
+* Fixed sort icon table size ([b5775f8](https://github.com/tecsinapse/ui-kit/commit/b5775f8))
 
 <a name="2.2.0"></a>
 ## 2.2.0 (2019-11-21)
