@@ -1,8 +1,9 @@
 // @flow
-import React, { useState } from 'react';
-import { Slider, useTheme, withStyles } from '@material-ui/core';
+import React, {useState} from 'react';
+import {Slider, useTheme, withStyles} from '@material-ui/core';
 import ValueLabel from '@material-ui/core/Slider/ValueLabel';
-import { getDayName } from './dateUtils';
+import locale from 'luxon/src/impl/locale';
+import {renderStyledThemeColor} from '../ThemeProvider';
 
 const StyledValueLabel = withStyles({
   offset: {
@@ -25,11 +26,23 @@ type SliderTypes = {
   onChange: (Array<Date>) => void,
   labelDisplay?: string,
   disabled?: boolean,
+  days?: Array<string>,
+  locale?: string,
 };
 
 export const DateSlider = (props: SliderTypes) => {
-  const { range, values = [], onChange, labelDisplay, ...rest } = props;
+  const { variant } = useTheme();
+  const {
+    range,
+    values = [],
+    onChange,
+    labelDisplay,
+    days,
+    locale,
+    ...rest
+  } = props;
   const [dateIndex, setDateIndex] = useState([0, range.length - 1]);
+
   const handleChange = (ev, newValue) => {
     setDateIndex(newValue);
     onChange([range[dateIndex[0]], range[dateIndex[1]]]);
@@ -41,20 +54,19 @@ export const DateSlider = (props: SliderTypes) => {
   } => {
     return {
       value: index,
-      label: getDayName(el.getDay()),
+      label: days[el.getDay()],
     };
   });
 
   const formatLabel = (value: number, index: number): any => {
     return values && values.length > 0
-      ? values[index].toLocaleDateString('pt-BR')
+      ? values[index].toLocaleDateString(locale)
       : onChange([range[0], range[range.length - 1]]);
   };
 
-  const { variant } = useTheme();
   return (
     <Slider
-      color={variant === 'yellow' ? 'secondary' : 'primary'}
+      color={renderStyledThemeColor(variant)}
       value={dateIndex}
       onChange={handleChange}
       valueLabelFormat={formatLabel}
@@ -72,4 +84,6 @@ export const DateSlider = (props: SliderTypes) => {
 DateSlider.defaultProps = {
   disabled: false,
   labelDisplay: 'auto',
+  locale: 'pt-BR',
+  days: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
 };

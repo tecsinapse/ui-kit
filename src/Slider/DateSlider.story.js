@@ -1,10 +1,12 @@
 // @flow
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
-import { DivFlex } from '../withFlexCenter';
+import React, {useState} from 'react';
+import {storiesOf} from '@storybook/react';
+import {GROUPS} from '../../.storybook/hierarchySeparators';
+import {DivFlex} from '../withFlexCenter';
 
-import { DateSlider } from './DateSlider';
+import {DateSlider} from './DateSlider';
+
+const days = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'];
 
 const DateSliderStory = () => {
   const [dates, setDates] = useState([]);
@@ -18,7 +20,12 @@ const DateSliderStory = () => {
 
   return (
     <div style={{ width: '75%' }}>
-      <DateSlider range={dateRange} values={dates} onChange={setDates} />
+      <DateSlider
+        range={dateRange}
+        values={dates}
+        onChange={setDates}
+        days={days}
+      />
     </div>
   );
 };

@@ -1,22 +1,15 @@
-import React, { useContext } from 'react';
-import { makeStyles, useTheme } from '@material-ui/styles';
-import { IconButton } from '@material-ui/core';
+import React, {useContext} from 'react';
+import {makeStyles, useTheme} from '@material-ui/styles';
+import {IconButton} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import {
-  DateTimePicker as DateTimePickerExt,
-  KeyboardDateTimePicker,
-} from '@material-ui/pickers';
-import { isNotUndefOrNull } from '@tecsinapse/es-utils';
-import { Input } from '../Inputs/Input';
-import { LocaleContext } from '../LocaleProvider';
-import {
-  customDatePickerStyle,
-  renderStyledBadgeColor,
-  renderStyledLabel,
-} from '../ThemeProvider';
+import {DateTimePicker as DateTimePickerExt, KeyboardDateTimePicker,} from '@material-ui/pickers';
+import {isNotUndefOrNull} from '@tecsinapse/es-utils';
+import {Input} from '../Inputs/Input';
+import {LocaleContext} from '../LocaleProvider';
+import {customDatePickerStyle, renderStyledLabel, renderStyledThemeColor,} from '../ThemeProvider';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {
@@ -111,7 +104,7 @@ export const DateTimePicker = ({
           </span>
           {isPointed && (
             <Badge
-              color={renderStyledBadgeColor(theme.variant)}
+              color={renderStyledThemeColor(theme.variant)}
               className={classes.badge}
               variant="dot"
               classes={

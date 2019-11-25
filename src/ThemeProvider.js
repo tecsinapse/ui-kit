@@ -1,10 +1,10 @@
-import { createMuiTheme } from '@material-ui/core';
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
+import {createMuiTheme} from '@material-ui/core';
+import {ThemeProvider as MuiThemeProvider} from '@material-ui/styles';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { defaultBlue, defaultRed, defaultYellow } from './colors';
-import { customVariantYellow } from './customVariant';
+import {defaultBlue, defaultRed, defaultYellow} from './colors';
+import {customVariantYellow} from './customVariant';
 
 const themeColors = {
   orange: {
@@ -55,7 +55,7 @@ export const customDatePickerStyle = variant => {
       }
     : {};
 };
-export const renderStyledBadgeColor = variant =>
+export const renderStyledThemeColor = variant =>
   variant === 'yellow' ? 'secondary' : 'primary';
 export const renderStyledLabel = (label, variant) => {
   if (variant === 'yellow') {
