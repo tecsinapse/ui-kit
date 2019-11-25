@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Slider, useTheme, withStyles } from '@material-ui/core';
 import ValueLabel from '@material-ui/core/Slider/ValueLabel';
 import PropTypes from 'prop-types';
-import { getDayName } from './dateUtils';
+import { renderStyledThemeColor } from '../ThemeProvider';
 
 const StyledValueLabel = withStyles({
   offset: {
@@ -24,9 +24,13 @@ export const DateSlider = ({
   values = [],
   onChange,
   labelDisplay,
+  locale,
+  days,
   ...props
 }) => {
+  const { variant } = useTheme();
   const [dateIndex, setDateIndex] = useState([0, range.length - 1]);
+
   const handleChange = (ev, newValue) => {
     setDateIndex(newValue);
     onChange([range[dateIndex[0]], range[dateIndex[1]]]);
@@ -35,20 +39,19 @@ export const DateSlider = ({
   const customMarks = range.map((el, index) => {
     return {
       value: index,
-      label: getDayName(el.getDay()),
+      label: days[el.getDay()],
     };
   });
 
   const formatLabel = (value, index) => {
     return values && values.length > 0
-      ? values[index].toLocaleDateString('pt-BR')
+      ? values[index].toLocaleDateString(locale)
       : onChange([range[0], range[range.length - 1]]);
   };
 
-  const { variant } = useTheme();
   return (
     <Slider
-      color={variant === 'yellow' ? 'secondary' : 'primary'}
+      color={renderStyledThemeColor(variant)}
       value={dateIndex}
       onChange={handleChange}
       valueLabelFormat={formatLabel}
@@ -66,6 +69,8 @@ export const DateSlider = ({
 DateSlider.defaultProps = {
   disabled: false,
   labelDisplay: 'auto',
+  locale: 'pt-BR',
+  days: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
 };
 DateSlider.propTypes = {
   range: PropTypes.arrayOf(PropTypes.Date).isRequired,
@@ -73,4 +78,6 @@ DateSlider.propTypes = {
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   labelDisplay: PropTypes.string,
+  locale: PropTypes.string,
+  days: PropTypes.arrayOf(PropTypes.string),
 };
