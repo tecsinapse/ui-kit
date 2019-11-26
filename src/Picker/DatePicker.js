@@ -17,8 +17,8 @@ import { LocaleContext } from '../LocaleProvider';
 import { useStylesWeek } from './customWeekPickerStyles';
 import {
   customDatePickerStyle,
+  renderStyledColor,
   renderStyledLabel,
-  renderStyledThemeColor,
 } from '../ThemeProvider';
 
 const useStyle = makeStyles(theme => ({
@@ -179,7 +179,7 @@ export const DatePicker = ({
       <div role="presentation">
         <IconButton className={dayClassName}>
           <Badge
-            color={renderStyledThemeColor(theme.variant)}
+            color={renderStyledColor(theme.variant)}
             variant="dot"
             classes={
               !dayInCurrentMonth

@@ -14,8 +14,8 @@ import { Input } from '../Inputs/Input';
 import { LocaleContext } from '../LocaleProvider';
 import {
   customDatePickerStyle,
+  renderStyledColor,
   renderStyledLabel,
-  renderStyledThemeColor,
 } from '../ThemeProvider';
 
 const useStyle = makeStyles(theme => ({
@@ -111,7 +111,7 @@ export const DateTimePicker = ({
           </span>
           {isPointed && (
             <Badge
-              color={renderStyledThemeColor(theme.variant)}
+              color={renderStyledColor(theme.variant)}
               className={classes.badge}
               variant="dot"
               classes={
