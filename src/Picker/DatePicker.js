@@ -12,7 +12,7 @@ import {isNotUndefOrNull} from '@tecsinapse/es-utils/build';
 import {Input} from '../Inputs/Input';
 import {LocaleContext} from '../LocaleProvider';
 import {useStylesWeek} from './customWeekPickerStyles';
-import {customDatePickerStyle, renderStyledLabel, renderStyledThemeColor,} from '../ThemeProvider';
+import {customDatePickerStyle, renderStyledColor, renderStyledLabel,} from '../ThemeProvider';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {
@@ -172,7 +172,7 @@ export const DatePicker = ({
       <div role="presentation">
         <IconButton className={dayClassName}>
           <Badge
-            color={renderStyledThemeColor(theme.variant)}
+            color={renderStyledColor(theme.variant)}
             variant="dot"
             classes={
               !dayInCurrentMonth

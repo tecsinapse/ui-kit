@@ -9,7 +9,7 @@ import {DateTimePicker as DateTimePickerExt, KeyboardDateTimePicker,} from '@mat
 import {isNotUndefOrNull} from '@tecsinapse/es-utils';
 import {Input} from '../Inputs/Input';
 import {LocaleContext} from '../LocaleProvider';
-import {customDatePickerStyle, renderStyledLabel, renderStyledThemeColor,} from '../ThemeProvider';
+import {customDatePickerStyle, renderStyledColor, renderStyledLabel,} from '../ThemeProvider';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {
@@ -104,7 +104,7 @@ export const DateTimePicker = ({
           </span>
           {isPointed && (
             <Badge
-              color={renderStyledThemeColor(theme.variant)}
+              color={renderStyledColor(theme.variant)}
               className={classes.badge}
               variant="dot"
               classes={

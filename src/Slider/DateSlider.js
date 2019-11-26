@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {Slider, useTheme, withStyles} from '@material-ui/core';
 import ValueLabel from '@material-ui/core/Slider/ValueLabel';
 import locale from 'luxon/src/impl/locale';
-import {renderStyledThemeColor} from '../ThemeProvider';
+import {renderStyledColor} from '../ThemeProvider';
 
 const StyledValueLabel = withStyles({
   offset: {
@@ -76,7 +76,7 @@ export const DateSlider = (props: SliderTypes) => {
 
   return (
     <Slider
-      color={renderStyledThemeColor(variant)}
+      color={renderStyledColor(variant)}
       value={dateIndex}
       onChange={handleChange}
       onChangeCommitted={handleChange}

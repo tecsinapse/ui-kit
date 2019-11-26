@@ -55,7 +55,7 @@ export const customDatePickerStyle = variant => {
       }
     : {};
 };
-export const renderStyledThemeColor = variant =>
+export const renderStyledColor = variant =>
   variant === 'yellow' ? 'secondary' : 'primary';
 export const renderStyledLabel = (label, variant) => {
   if (variant === 'yellow') {
