@@ -1,3 +1,19 @@
+## 3.2.0 (2019-11-26)
+
+* Changed react dep version ([d9debf7](https://github.com/tecsinapse/ui-kit/commit/d9debf7))
+* Changing version to merge ([8bc9c3b](https://github.com/tecsinapse/ui-kit/commit/8bc9c3b))
+* Fixed unnecessary deps ([023f0cc](https://github.com/tecsinapse/ui-kit/commit/023f0cc))
+* Moved popper and text-autosize to devDeps ([ebfb2dd](https://github.com/tecsinapse/ui-kit/commit/ebfb2dd))
+* Moved story data from test to root TimeSlot ([5a7b800](https://github.com/tecsinapse/ui-kit/commit/5a7b800))
+* New version 3.0.0-alpha.0 ([b9a093f](https://github.com/tecsinapse/ui-kit/commit/b9a093f))
+* Organizing deps ([fe690de](https://github.com/tecsinapse/ui-kit/commit/fe690de))
+* Refactoring onChange prop ([bf7c2fa](https://github.com/tecsinapse/ui-kit/commit/bf7c2fa))
+* Removed peerDeps and Chat ([a81c9be](https://github.com/tecsinapse/ui-kit/commit/a81c9be))
+* Update MUI version due to features missing ([8737093](https://github.com/tecsinapse/ui-kit/commit/8737093))
+* Updated readme, added node preferable version ([ae589ca](https://github.com/tecsinapse/ui-kit/commit/ae589ca))
+
+
+
 <a name="3.1.0"></a>
 ## 3.1.0 (2019-11-25)
 
