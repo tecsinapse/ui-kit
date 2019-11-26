@@ -26,14 +26,21 @@ export const DateSlider = ({
   labelDisplay,
   locale,
   days,
+  simple,
   ...props
 }) => {
   const { variant } = useTheme();
-  const [dateIndex, setDateIndex] = useState([0, range.length - 1]);
+  const [dateIndex, setDateIndex] = useState(() =>
+    simple ? range.length - 1 : [0, range.length - 1]
+  );
 
   const handleChange = (ev, newValue) => {
     setDateIndex(newValue);
-    onChange([range[dateIndex[0]], range[dateIndex[1]]]);
+    if (simple) {
+      onChange([range[0], range[dateIndex]]);
+    } else {
+      onChange([range[dateIndex[0]], range[dateIndex[1]]]);
+    }
   };
 
   const customMarks = range.map((el, index) => {
@@ -45,7 +52,7 @@ export const DateSlider = ({
 
   const formatLabel = (value, index) => {
     return values && values.length > 0
-      ? values[index].toLocaleDateString(locale)
+      ? values[simple ? 1 : index].toLocaleDateString(locale)
       : onChange([range[0], range[range.length - 1]]);
   };
 
@@ -54,6 +61,7 @@ export const DateSlider = ({
       color={renderStyledThemeColor(variant)}
       value={dateIndex}
       onChange={handleChange}
+      onChangeCommitted={handleChange}
       valueLabelFormat={formatLabel}
       ValueLabelComponent={StyledValueLabel}
       aria-labelledby="range-slider"
@@ -71,6 +79,7 @@ DateSlider.defaultProps = {
   labelDisplay: 'auto',
   locale: 'pt-BR',
   days: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+  simple: false,
 };
 DateSlider.propTypes = {
   range: PropTypes.arrayOf(PropTypes.Date).isRequired,
@@ -80,4 +89,5 @@ DateSlider.propTypes = {
   labelDisplay: PropTypes.string,
   locale: PropTypes.string,
   days: PropTypes.arrayOf(PropTypes.string),
+  simple: PropTypes.bool,
 };
