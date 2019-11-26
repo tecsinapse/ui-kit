@@ -1,4 +1,25 @@
+<a name="3.1.0"></a>
+## 3.1.0 (2019-11-25)
+
+
+<a name="3.0.0"></a>
+## 3.0.0 (2019-11-25)
+
+* Updating version ([ae81103](https://github.com/tecsinapse/ui-kit/commit/ae81103))
+
+
+<a name="3.0.0-beta.1"></a>
 ## 3.0.0-beta.1 (2019-11-21)
+
+* Ajustando tags 3.0.0 para beta ([a52e56d](https://github.com/tecsinapse/ui-kit/commit/a52e56d))
+* Beta 1 da responsive table ([a6dd505](https://github.com/tecsinapse/ui-kit/commit/a6dd505))
+* Removendo changelog velho ([32110a0](https://github.com/tecsinapse/ui-kit/commit/32110a0))
+* Update versions ([3f0c10c](https://github.com/tecsinapse/ui-kit/commit/3f0c10c))
+* Updating changelog ([5615d4b](https://github.com/tecsinapse/ui-kit/commit/5615d4b))
+
+
+<a name="3.0.0-beta.0"></a>
+## 3.0.0-beta.0 (2019-11-21)
 
 * Fix bug global cache which save old cache state among tables ([33c54f0](https://github.com/tecsinapse/ui-kit/commit/33c54f0))
 * Fixed error logged in console by scrollToIndex being null and className being {} ([5c88826](https://github.com/tecsinapse/ui-kit/commit/5c88826))
@@ -15,12 +36,10 @@
 * Updated lock ([4559ba5](https://github.com/tecsinapse/ui-kit/commit/4559ba5))
 
 
-
 <a name="2.2.1"></a>
 ## <small>2.2.1 (2019-11-21)</small>
 
 * Fixed sort icon table size ([b5775f8](https://github.com/tecsinapse/ui-kit/commit/b5775f8))
-
 
 
 <a name="2.2.0"></a>
