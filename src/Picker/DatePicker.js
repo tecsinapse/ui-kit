@@ -1,18 +1,25 @@
-import React, {useContext, useState} from 'react';
-import {makeStyles, useTheme} from '@material-ui/styles';
-import {IconButton} from '@material-ui/core';
+import React, { useContext, useState } from 'react';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import { IconButton } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import {DateTime, Interval} from 'luxon';
-import {DatePicker as DatePickerExt, KeyboardDatePicker,} from '@material-ui/pickers';
+import { DateTime, Interval } from 'luxon';
+import {
+  DatePicker as DatePickerExt,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 
-import {isNotUndefOrNull} from '@tecsinapse/es-utils/build';
-import {Input} from '../Inputs/Input';
-import {LocaleContext} from '../LocaleProvider';
-import {useStylesWeek} from './customWeekPickerStyles';
-import {customDatePickerStyle, renderStyledColor, renderStyledLabel,} from '../ThemeProvider';
+import { isNotUndefOrNull } from '@tecsinapse/es-utils/build';
+import { Input } from '../Inputs/Input';
+import { LocaleContext } from '../LocaleProvider';
+import { useStylesWeek } from './customWeekPickerStyles';
+import {
+  customDatePickerStyle,
+  renderStyledColor,
+  renderStyledLabel,
+} from '../ThemeProvider';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {

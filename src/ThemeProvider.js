@@ -1,10 +1,10 @@
-import {createMuiTheme} from '@material-ui/core';
-import {ThemeProvider as MuiThemeProvider} from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {defaultBlue, defaultRed, defaultYellow} from './colors';
-import {customVariantYellow} from './customVariant';
+import { defaultBlue, defaultRed, defaultYellow } from './colors';
+import { customVariantYellow } from './customVariant';
 
 const themeColors = {
   orange: {
