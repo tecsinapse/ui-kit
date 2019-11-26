@@ -1,3 +1,8 @@
+## <small>3.3.1 (2019-11-26)</small>
+
+
+
+
 ## 3.3.0 (2019-11-26)
 
 * Changed react dep version ([d9debf7](https://github.com/tecsinapse/ui-kit/commit/d9debf7))
