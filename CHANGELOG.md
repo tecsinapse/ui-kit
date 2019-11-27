@@ -1,3 +1,114 @@
+## <small>3.3.1 (2019-11-26)</small>
+
+
+
+
+## 3.3.0 (2019-11-26)
+
+* Changed react dep version ([d9debf7](https://github.com/tecsinapse/ui-kit/commit/d9debf7))
+* Changing version to merge ([8bc9c3b](https://github.com/tecsinapse/ui-kit/commit/8bc9c3b))
+* Fixed unnecessary deps ([023f0cc](https://github.com/tecsinapse/ui-kit/commit/023f0cc))
+* Moved popper and text-autosize to devDeps ([ebfb2dd](https://github.com/tecsinapse/ui-kit/commit/ebfb2dd))
+* Moved story data from test to root TimeSlot ([5a7b800](https://github.com/tecsinapse/ui-kit/commit/5a7b800))
+* New version 3.0.0-alpha.0 ([b9a093f](https://github.com/tecsinapse/ui-kit/commit/b9a093f))
+* Organizing deps ([fe690de](https://github.com/tecsinapse/ui-kit/commit/fe690de))
+* Refactoring onChange prop ([bf7c2fa](https://github.com/tecsinapse/ui-kit/commit/bf7c2fa))
+* Release 3.2.0 ([c9bbf67](https://github.com/tecsinapse/ui-kit/commit/c9bbf67))
+* Release 3.3.0 ([e0b6682](https://github.com/tecsinapse/ui-kit/commit/e0b6682))
+* Removed peerDeps and Chat ([a81c9be](https://github.com/tecsinapse/ui-kit/commit/a81c9be))
+* Revert "Release 3.3.0" ([a6eb638](https://github.com/tecsinapse/ui-kit/commit/a6eb638))
+* Update MUI version due to features missing ([8737093](https://github.com/tecsinapse/ui-kit/commit/8737093))
+* Updated readme, added node preferable version ([ae589ca](https://github.com/tecsinapse/ui-kit/commit/ae589ca))
+
+
+
+## 3.2.0 (2019-11-26)
+
+* Changed react dep version ([d9debf7](https://github.com/tecsinapse/ui-kit/commit/d9debf7))
+* Changing version to merge ([8bc9c3b](https://github.com/tecsinapse/ui-kit/commit/8bc9c3b))
+* Fixed unnecessary deps ([023f0cc](https://github.com/tecsinapse/ui-kit/commit/023f0cc))
+* Moved popper and text-autosize to devDeps ([ebfb2dd](https://github.com/tecsinapse/ui-kit/commit/ebfb2dd))
+* Moved story data from test to root TimeSlot ([5a7b800](https://github.com/tecsinapse/ui-kit/commit/5a7b800))
+* New version 3.0.0-alpha.0 ([b9a093f](https://github.com/tecsinapse/ui-kit/commit/b9a093f))
+* Organizing deps ([fe690de](https://github.com/tecsinapse/ui-kit/commit/fe690de))
+* Refactoring onChange prop ([bf7c2fa](https://github.com/tecsinapse/ui-kit/commit/bf7c2fa))
+* Removed peerDeps and Chat ([a81c9be](https://github.com/tecsinapse/ui-kit/commit/a81c9be))
+* Update MUI version due to features missing ([8737093](https://github.com/tecsinapse/ui-kit/commit/8737093))
+* Updated readme, added node preferable version ([ae589ca](https://github.com/tecsinapse/ui-kit/commit/ae589ca))
+
+
+
+<a name="3.1.0"></a>
+## 3.1.0 (2019-11-25)
+
+
+<a name="3.0.0"></a>
+## 3.0.0 (2019-11-25)
+
+* Updating version ([ae81103](https://github.com/tecsinapse/ui-kit/commit/ae81103))
+
+
+<a name="3.0.0-beta.1"></a>
+## 3.0.0-beta.1 (2019-11-21)
+
+* Ajustando tags 3.0.0 para beta ([a52e56d](https://github.com/tecsinapse/ui-kit/commit/a52e56d))
+* Beta 1 da responsive table ([a6dd505](https://github.com/tecsinapse/ui-kit/commit/a6dd505))
+* Removendo changelog velho ([32110a0](https://github.com/tecsinapse/ui-kit/commit/32110a0))
+* Update versions ([3f0c10c](https://github.com/tecsinapse/ui-kit/commit/3f0c10c))
+* Updating changelog ([5615d4b](https://github.com/tecsinapse/ui-kit/commit/5615d4b))
+
+
+<a name="3.0.0-beta.0"></a>
+## 3.0.0-beta.0 (2019-11-21)
+
+* Fix bug global cache which save old cache state among tables ([33c54f0](https://github.com/tecsinapse/ui-kit/commit/33c54f0))
+* Fixed error logged in console by scrollToIndex being null and className being {} ([5c88826](https://github.com/tecsinapse/ui-kit/commit/5c88826))
+* Fixed Picker story error on production ([3543cf3](https://github.com/tecsinapse/ui-kit/commit/3543cf3))
+* Fixed render preventing undefined entries. ([b136b94](https://github.com/tecsinapse/ui-kit/commit/b136b94))
+* Fixed responsive table not showing full height on mobile (for portal) ([15daa25](https://github.com/tecsinapse/ui-kit/commit/15daa25))
+* Fixed Table not showing on mobile (without passing classes to component) ([f88bfa6](https://github.com/tecsinapse/ui-kit/commit/f88bfa6))
+* Merge and storybook run fix ([b909876](https://github.com/tecsinapse/ui-kit/commit/b909876))
+* Missing deps ([a5d25ff](https://github.com/tecsinapse/ui-kit/commit/a5d25ff))
+* Resolving static labels and styles. ([f32de0d](https://github.com/tecsinapse/ui-kit/commit/f32de0d))
+* Restored root div for desktop version ([ca007a3](https://github.com/tecsinapse/ui-kit/commit/ca007a3))
+* Table resposive: ([cefe23a](https://github.com/tecsinapse/ui-kit/commit/cefe23a))
+* Tasks done: ([0dc0849](https://github.com/tecsinapse/ui-kit/commit/0dc0849))
+* Updated lock ([4559ba5](https://github.com/tecsinapse/ui-kit/commit/4559ba5))
+
+
+<a name="2.2.1"></a>
+## <small>2.2.1 (2019-11-21)</small>
+
+* Fixed sort icon table size ([b5775f8](https://github.com/tecsinapse/ui-kit/commit/b5775f8))
+
+
+<a name="2.2.0"></a>
+## 2.2.0 (2019-11-21)
+
+* #124853 Changing notification colour. ([cafe941](https://github.com/tecsinapse/ui-kit/commit/cafe941)), closes [#124853](https://github.com/tecsinapse/ui-kit/issues/124853) [#125395](https://github.com/tecsinapse/ui-kit/issues/125395)
+* Add button for social login (just one/google for now) ([05e8721](https://github.com/tecsinapse/ui-kit/commit/05e8721))
+* Add themes ([f349445](https://github.com/tecsinapse/ui-kit/commit/f349445))
+* Added "default sort" display on table header. ([6910839](https://github.com/tecsinapse/ui-kit/commit/6910839))
+* Added remove option to advanced filters table ([30fa549](https://github.com/tecsinapse/ui-kit/commit/30fa549))
+* Fix duplicate snack message on uploading ([b6d71ab](https://github.com/tecsinapse/ui-kit/commit/b6d71ab))
+* Fix image not fiting in container on uploading ([160a9ad](https://github.com/tecsinapse/ui-kit/commit/160a9ad))
+* Fixed blueGrey breadcrumb color ([93ba322](https://github.com/tecsinapse/ui-kit/commit/93ba322))
+* Fixed chip color on AutoComplete. ([0f035e6](https://github.com/tecsinapse/ui-kit/commit/0f035e6))
+* Resolving return consistency. ([ed82461](https://github.com/tecsinapse/ui-kit/commit/ed82461))
+* Resolving suggestion by changing forEach to filter().map() ([7876585](https://github.com/tecsinapse/ui-kit/commit/7876585))
+* Resolving value checking condition. ([048ee06](https://github.com/tecsinapse/ui-kit/commit/048ee06))
+* Set apply filters function. ([944e4f1](https://github.com/tecsinapse/ui-kit/commit/944e4f1))
+* Update .travis.yml ([73f92f4](https://github.com/tecsinapse/ui-kit/commit/73f92f4))
+
+
+
+<a name="2.1.2"></a>
+## <small>2.1.2 (2019-11-12)</small>
+
+* Add blocked chat state and its story ([48a3d57](https://github.com/tecsinapse/ui-kit/commit/48a3d57))
+
+
+
 <a name="2.1.1"></a>
 ## <small>2.1.1 (2019-10-31)</small>
 

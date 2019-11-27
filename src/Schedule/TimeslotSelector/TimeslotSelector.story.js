@@ -12,7 +12,7 @@ import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import { Button, Input } from '../..';
 import { DivFlex } from '../../withFlexCenter';
 
-const personsAvailabilities = require('../../../test/resources/availabilities.json');
+const personsAvailabilities = require('./availabilities.json');
 
 const personsEmailSelected = personsAvailabilities.map(p => p.email);
 
@@ -31,6 +31,9 @@ const style = {
   height: '100%',
 };
 
+const handleChange = (event, changeOtherProps) =>
+  changeOtherProps ? changeOtherProps('empresa', event.target.value) : () => {};
+
 const customSteps = [
   {
     label: 'Empresas',
@@ -41,11 +44,7 @@ const customSteps = [
           label="Empresa"
           value={otherProps.empresa}
           fullWidth
-          onChange={event =>
-            changeOtherProps
-              ? changeOtherProps('empresa', event.target.value)
-              : () => {}
-          }
+          onChange={event => handleChange(event, changeOtherProps)}
         />
         <Divider style={{ margin: 8 }} />
         <Button onClick={callNextStep} variant="secondary" s>

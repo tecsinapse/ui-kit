@@ -81,4 +81,4 @@ const SelectionTable = () => (
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('Selection Table', SelectionTable);
+  .add('Selection Table', () => <SelectionTable />);

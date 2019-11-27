@@ -1,12 +1,18 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
+import { makeStyles } from '@material-ui/core';
 
-import { resolveObj } from '@tecsinapse/es-utils/build';
-import Table from './Table';
+import { Table } from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { countries } from './exampleData';
 import { DivFlex } from '../withFlexCenter';
+
+const useStyle = makeStyles(() => ({
+  rootMobile: {
+    height: '100vh',
+  },
+}));
 
 const columns = [
   {
@@ -19,130 +25,101 @@ const columns = [
   },
   {
     title: 'Languages',
-    field: 'languages.name',
+    field: 'languages',
     customRender: row => row.languages.map(l => l.name).join(', '),
   },
 ];
 
-const fetchData = async filters => {
-  const { headerFilters, page, rowsPerPage } = filters;
+const options = {
+  title: 'Advanced Filters Example',
+  advancedFilters: {
+    filtersGroup: [
+      {
+        name: 'region',
+        label: 'Region',
+      },
+    ],
+    filters: [
+      {
+        label: 'Country',
+        type: 'input',
+        name: 'country',
+        group: 'region',
+      },
+      {
+        label: 'Continent',
+        type: 'multi-select',
+        name: 'continent',
+        group: 'region',
+        options: [
+          {
+            label: 'Asia',
+            value: 'Asia',
+          },
+          {
+            label: 'Europe',
+            value: 'Europe',
+          },
+          {
+            label: 'South America',
+            value: 'South America',
+          },
+        ],
+      },
+    ],
+  },
+};
 
-  let filteredData = [...countries];
+const fetchData = props => async filters => {
+  const {
+    advancedFilters: { continent },
+    page,
+    rowsPerPage,
+  } = filters;
 
-  Object.keys(headerFilters).forEach(field => {
-    const filterValue = headerFilters[field];
+  let {
+    advancedFilters: { country },
+  } = filters;
 
-    filteredData = filteredData.filter(row => {
-      const valueField = resolveObj(field, row);
+  if (country) {
+    country = country.toLowerCase();
+  }
 
-      if (!filterValue) {
-        return true;
-      }
+  const results = props.filter(item => {
+    const countryName = item.name.toLowerCase();
 
-      if (typeof valueField === 'object') {
-        return true;
-      }
-      if (typeof valueField === 'string') {
-        return valueField.toLowerCase().includes(filterValue.toLowerCase());
-      }
+    if (country && !countryName.includes(country)) {
       return false;
-    });
+    }
+    return !(
+      continent &&
+      continent.length &&
+      !continent.some(land => land === item.continent.name)
+    );
   });
+
   return {
-    data: filteredData.slice(
-      page * rowsPerPage,
-      page * rowsPerPage + rowsPerPage
-    ),
-    totalCount: filteredData.length,
+    data: results.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
+    totalCount: results.length,
   };
 };
 
-const AdvancedFiltersTable = () => (
-  <Paper style={{ width: 800 }}>
-    <Table
-      columns={columns}
-      data={fetchData}
-      rowId={row => row.code}
-      toolbarOptions={{
-        title: 'Advanced Filters Example',
-        advancedFilters: {
-          filtersGroup: [
-            {
-              name: 'period',
-              label: 'Period',
-            },
-            {
-              name: 'country',
-              label: 'Country',
-            },
-          ],
-          filters: [
-            {
-              label: 'First date',
-              type: 'date',
-              name: 'first_date',
-              group: 'period',
-            },
-            {
-              label: 'Last date',
-              type: 'date',
-              name: 'last_date',
-              group: 'period',
-            },
-            {
-              label: 'Country',
-              type: 'input',
-              name: 'country',
-              group: 'country',
-            },
-            {
-              label: 'Continent',
-              type: 'multi-select',
-              name: 'continent',
-              group: 'country',
-              options: [
-                {
-                  label: 'Africa',
-                  value: 'Africa',
-                },
-                {
-                  label: 'Antarctica',
-                  value: 'Antarctica',
-                },
-                {
-                  label: 'Asia',
-                  value: 'Asia',
-                },
-                {
-                  label: 'Europe',
-                  value: 'Europe',
-                },
-                {
-                  label: 'North America',
-                  value: 'North America',
-                },
-                {
-                  label: 'Oceania',
-                  value: 'Oceania',
-                },
-                {
-                  label: 'South America',
-                  value: 'South America',
-                },
-              ],
-            },
-            {
-              label: 'Active',
-              type: 'checkbox',
-              name: 'active',
-            },
-          ],
-        },
-      }}
-      pagination
-    />
-  </Paper>
-);
+const AdvancedFiltersTable = () => {
+  const classes = useStyle();
+
+  return (
+    <Paper style={{ width: 800 }}>
+      <Table
+        columns={columns}
+        data={fetchData(countries)}
+        rowId={row => row.code}
+        classes={classes}
+        toolbarOptions={options}
+        pagination
+      />
+    </Paper>
+  );
+};
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)

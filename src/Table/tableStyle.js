@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/styles';
 
-export const tableStyles = makeStyles(theme => ({
+export const tableStyles = makeStyles({
   table: {
     width: '100%',
   },
@@ -10,4 +10,10 @@ export const tableStyles = makeStyles(theme => ({
     boxShadow: 'none !important',
     width: '100%',
   },
-}));
+  rootMobile: {
+    height: size => size,
+    flex: '1 1 auto',
+    width: '100%',
+    position: 'absolute',
+  },
+});

@@ -21,18 +21,30 @@ export const useUpdateDataRemote = (
   setLoading,
   setData,
   filters,
-  setTotalCount
+  setTotalCount,
+  mobile
 ) => {
   useEffect(() => {
     if (isRemoteData(originalData)) {
       setLoading(true);
       originalData(filters).then(({ data: resultData, totalCount }) => {
+        setData(prevData => {
+          if (!mobile || !filters.loadedResolver) {
+            return [...resultData];
+          }
+          return prevData.slice(0, filters.startIndex).concat(resultData);
+        });
         setTotalCount(totalCount);
-        setData([...resultData]);
+
+        // Warns the infinity mobile loader list that the new data has been retrieved
+        if (mobile && filters.loadedResolver) {
+          filters.loadedResolver();
+        }
+
         setLoading(false);
       });
     }
-  }, [filters, originalData, setLoading, setTotalCount, setData]);
+  }, [filters, originalData, setLoading, mobile, setTotalCount, setData]);
 };
 
 export const useUpdateDataProp = (
