@@ -7,7 +7,7 @@ import { DateSlider } from './DateSlider';
 
 const days = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'];
 
-const DateSliderStory = () => {
+const DateSliderStory = ({ simple }) => {
   const [dates, setDates] = useState([]);
   const dateRange = [
     new Date('2019-01-01'),
@@ -24,6 +24,7 @@ const DateSliderStory = () => {
         values={dates}
         onChange={setDates}
         days={days}
+        simple={simple}
       />
     </div>
   );
@@ -31,4 +32,5 @@ const DateSliderStory = () => {
 
 storiesOf(`${GROUPS.FORMS}|Date Slider`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('date slider input', () => <DateSliderStory />);
+  .add('date slider input', () => <DateSliderStory />)
+  .add('date slider simple input', () => <DateSliderStory simple />);
