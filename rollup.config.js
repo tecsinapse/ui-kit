@@ -4,7 +4,6 @@ import localResolve from 'rollup-plugin-local-resolve';
 
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
-import builtins from 'rollup-plugin-node-builtins';
 import filesize from 'rollup-plugin-filesize';
 
 import pkg from './package.json';
@@ -35,13 +34,12 @@ export default [
           'material-ui-dots': 'Dots',
         },
         format: 'cjs',
-        sourcemap: true,
+        sourceMap: true,
       },
     ],
 
     plugins: [
       peerDepsExternal(),
-      builtins(),
       babel({
         exclude: ['node_modules/**'],
         extensions: ['.js'],
