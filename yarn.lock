@@ -14,6 +14,7 @@
     lodash "^4.17.13"
     mkdirp "^0.5.1"
     output-file-sync "^2.0.0"
+    output-file-sync "^2.0.0"
     slash "^2.0.0"
     source-map "^0.5.0"
   optionalDependencies:
@@ -1803,13 +1804,6 @@
     prop-types "^15.6.2"
     react-color "^2.17.0"
     recompose "^0.30.0"
-
-"@tinymce/tinymce-react@^3.0.1":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/@tinymce/tinymce-react/-/tinymce-react-3.3.2.tgz#044e21c54f123d0d85933e7e994a6ed20702297b"
-  integrity sha512-5STyLVPtkvYwKrd5srXC++vrhoOhC8cx525PGVGOWIYK2Oqe5ey6o5s31Abg79XPJsCxiWU4daHBL5eaMBBhEg==
-  dependencies:
-    prop-types "^15.6.2"
 
 "@types/estree@0.0.39":
   version "0.0.39"
@@ -10391,16 +10385,6 @@ tinycolor2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
   integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
-
-tinymce-i18n@^19.5.15:
-  version "19.9.17"
-  resolved "https://registry.yarnpkg.com/tinymce-i18n/-/tinymce-i18n-19.9.17.tgz#528e08b4488c829e0edd7c1831c87ef9f5026fe9"
-  integrity sha512-2+Feqllj8clf068xvSUw6uG3GNBkt7mPITzHpT8tPqKK5JIOW8RqnTjuLzxD8MYdcX3F7G2BL0OROLP9K1JURg==
-
-tinymce@^5.0.4:
-  version "5.0.16"
-  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-5.0.16.tgz#7cd34f1016d86fa281652ba02ca5026621dd7590"
-  integrity sha512-qXymNZmAR5fSp5Lp3mVMtHxpiTMvba7TV6wGFcyJP5eUGIhsPw+XkezjvWCFs7lrW+ti0YBBblJNzxG5/8ZtFg==
 
 tmp@^0.0.33:
   version "0.0.33"
