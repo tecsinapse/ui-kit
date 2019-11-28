@@ -1,14 +1,19 @@
 // @flow
-import React, {useState} from 'react';
-import {storiesOf} from '@storybook/react';
-import {GROUPS} from '../../.storybook/hierarchySeparators';
-import {DivFlex} from '../withFlexCenter';
+import React, { useState } from 'react';
+import { storiesOf } from '@storybook/react';
+import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { DivFlex } from '../withFlexCenter';
 
-import {DateSlider} from './DateSlider';
+import { DateSlider } from './DateSlider';
 
 const days = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'];
 
-const DateSliderStory = () => {
+type SliderStory = {
+  simple?: boolean,
+};
+
+const DateSliderStory = (props: SliderStory) => {
+  const { simple } = props;
   const [dates, setDates] = useState([]);
   const dateRange = [
     new Date('2019-01-01'),
@@ -25,11 +30,17 @@ const DateSliderStory = () => {
         values={dates}
         onChange={setDates}
         days={days}
+        simple={simple}
       />
     </div>
   );
 };
 
+DateSliderStory.defaultProps = {
+  simple: false,
+};
+
 storiesOf(`${GROUPS.FORMS}|Date Slider`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('date slider input', () => <DateSliderStory />);
+  .add('date slider input', () => <DateSliderStory />)
+  .add('date slider simple input', () => <DateSliderStory simple />);
