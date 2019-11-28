@@ -15,6 +15,12 @@ type SliderStory = {
 const DateSliderStory = (props: SliderStory) => {
   const { simple } = props;
   const [dates, setDates] = useState([]);
+  const handleChange = array => {
+    setDates(array);
+    // eslint-disable-next-line no-console
+    console.log(dates);
+  };
+
   const dateRange = [
     new Date('2019-01-01'),
     new Date('2019-01-02'),
@@ -28,7 +34,7 @@ const DateSliderStory = (props: SliderStory) => {
       <DateSlider
         range={dateRange}
         values={dates}
-        onChange={setDates}
+        onChange={handleChange}
         days={days}
         simple={simple}
       />
