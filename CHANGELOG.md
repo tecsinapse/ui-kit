@@ -1,3 +1,19 @@
+<a name="3.3.2"></a>
+## <small>3.3.2 (2019-12-03)</small>
+
+* Added new Slider component for picking dates in a range. ([afdd3e5](https://github.com/tecsinapse/ui-kit/commit/afdd3e5))
+* Added simple slider to date selection ([766ed96](https://github.com/tecsinapse/ui-kit/commit/766ed96))
+* Added story to simple slider version ([64cd1fa](https://github.com/tecsinapse/ui-kit/commit/64cd1fa))
+* Fix lockfile ([513dffa](https://github.com/tecsinapse/ui-kit/commit/513dffa))
+* Fixing security vulnerabilities ([ed76e27](https://github.com/tecsinapse/ui-kit/commit/ed76e27))
+* Logging return value to console on story ([9867a68](https://github.com/tecsinapse/ui-kit/commit/9867a68))
+* Performed suggested changes on https://github.com/tecsinapse/ui-kit/pull/88 ([d109f0c](https://github.com/tecsinapse/ui-kit/commit/d109f0c))
+* Removed TextEditor from ui-kit and its deps ([612ae8f](https://github.com/tecsinapse/ui-kit/commit/612ae8f))
+* Removed tinymce css ([ad72359](https://github.com/tecsinapse/ui-kit/commit/ad72359))
+* Resolving conflicts ([9617c56](https://github.com/tecsinapse/ui-kit/commit/9617c56))
+
+
+
 ## <small>3.3.1 (2019-11-26)</small>
 
 
