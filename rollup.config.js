@@ -23,7 +23,6 @@ export default [
           'bootstrap-styled': 'Jumbotron',
           '@material-ui/core': 'material-ui',
           '@material-ui/icons': 'material-ui',
-          classnames: 'cn',
           '@material-ui/styles': 'styles',
           '@mdi/js': 'js',
           '@mdi/react': 'Icon',

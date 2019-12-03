@@ -5,7 +5,7 @@ import Step from '@material-ui/core/Step';
 import { makeStyles } from '@material-ui/styles';
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { defaultGreen, defaultRed } from '../colors';
 import { Button } from '../Buttons/Button';
 import { LocaleContext } from '../LocaleProvider';
@@ -71,7 +71,7 @@ export const Wizard = ({
     }
   };
   return (
-    <div className={classNames(innerClasses.wizard, className, classes.root)}>
+    <div className={clsx(innerClasses.wizard, className, classes.root)}>
       <Paper>
         <Stepper
           activeStep={activeStep}
@@ -111,10 +111,10 @@ export const Wizard = ({
           })}
         </Stepper>
       </Paper>
-      <div className={classNames(innerClasses.wizardContent, classes.content)}>
+      <div className={clsx(innerClasses.wizardContent, classes.content)}>
         {currentStep.props.children}
       </div>
-      <div className={classNames(innerClasses.wizardFooter, classes.footer)}>
+      <div className={clsx(innerClasses.wizardFooter, classes.footer)}>
         <div className={innerClasses.stepLabels}>
           <Typography variant="button">
             {stepText} {activeStep + 1}:

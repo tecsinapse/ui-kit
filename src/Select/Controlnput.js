@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { TextFieldComponent } from '../Inputs/Input';
 
 const useStyles = makeStyles({
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 
 export function InputComponentReact({ inputRef, className, ...props }) {
   const classes = useStyles();
-  const newClass = classNames(classes.flex, className);
+  const newClass = clsx(classes.flex, className);
   return <div ref={inputRef} className={newClass} {...props} />;
 }
 
@@ -29,7 +29,7 @@ export const Controlnput = ({
     InputProps={{
       inputComponent: InputComponentReact,
       inputProps: {
-        className: classNames(selectProps.childrenClasses.input, {
+        className: clsx(selectProps.childrenClasses.input, {
           [selectProps.childrenClasses.inputMultilineDense]:
             selectProps.isMulti && selectProps.value.length > 0,
           [selectProps.childrenClasses.inputNormal]:

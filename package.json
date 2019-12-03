@@ -14,7 +14,6 @@
     "@mdi/react": "^1.1.0",
     "@tecsinapse/es-utils": "^6.0.10",
     "@tecsinapse/material-ui-color-picker": "^4.3.0",
-    "classnames": "^2.2.6",
     "clsx": "^1.0.4",
     "graphql-hooks": "^3.4.0",
     "luxon": "^1.11.2",
