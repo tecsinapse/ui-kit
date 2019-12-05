@@ -94,6 +94,25 @@ const themeColors = {
       contrastText: '#ffffff',
     },
   },
+  greyLight: {
+    primary: {
+      light: '#8e8e8e',
+      main: '#616161',
+      dark: '#373737',
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      main: '#ff9d0d',
+      contrastText: '#ffffff',
+    },
+    error: {
+      main: '#e6433f',
+      contrastText: '#ffffff',
+    },
+    background: {
+      main: '#f5f5f5',
+    },
+  },
 };
 export const customDatePickerStyle = variant => {
   return variant === 'yellow'
