@@ -66,4 +66,7 @@ storiesOf(`${GROUPS.FORMS}|Input`, module)
   ))
   .add('input mask  plate (mercosul)', () => (
     <Input name="a" label="Placeholder" mask="plate" />
+  ))
+  .add('input mask  percentage', () => (
+    <Input name="a" label="Placeholder" mask="percentage" />
   ));
