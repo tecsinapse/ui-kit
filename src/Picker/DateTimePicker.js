@@ -3,7 +3,7 @@ import { makeStyles, useTheme } from '@material-ui/styles';
 import { IconButton } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {
   DateTimePicker as DateTimePickerExt,
@@ -96,7 +96,7 @@ export const DateTimePicker = ({
       undefined;
     const isSelected = date.hasSame(selectedDateRender, 'day');
 
-    const dayClassName = classNames(classes.day, {
+    const dayClassName = clsx(classes.day, {
       [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
       [classes.highlight]: isSelected,
     });

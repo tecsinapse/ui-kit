@@ -2,7 +2,7 @@ import { IconButton as MaterialIconButton } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {
   defaultGreen,
   defaultGrey,
@@ -30,7 +30,7 @@ export const IconButton = React.forwardRef(
     const classes = useStyles();
     return (
       <MaterialIconButton
-        className={classNames(
+        className={clsx(
           buttonClassNameDefinition(classes, disabled, false, variant)
         )}
         color={
