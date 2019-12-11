@@ -1,10 +1,10 @@
 import { createMuiTheme } from '@material-ui/core';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
-import blue from '@material-ui/core/colors/blue';
+import { blue, grey } from '@material-ui/core/colors';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { defaultBlue, defaultRed, defaultYellow } from './colors';
-import { customVariantYellow } from './customVariant';
+import { customVariantBlueGrey, customVariantYellow } from './customVariant';
 
 const themeColors = {
   orange: {
@@ -16,8 +16,16 @@ const themeColors = {
     },
   },
   yellow: {
-    secondary: { main: '#003473', contrastText: '#ffffff' },
     primary: { main: '#ffed00', contrastText: '#ffffff' },
+    secondary: { main: '#003473', contrastText: '#ffffff' },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
+  blueGrey: {
+    primary: { main: '#d8d7d5', light: '#0f3399', contrastText: '#000000' },
+    secondary: { main: '#0f3399', contrastText: '#ffffff' },
     error: {
       main: defaultRed,
       contrastText: '#ffffff',
@@ -46,6 +54,46 @@ const themeColors = {
   blue: {
     primary: blue,
   },
+  deepBlack: {
+    primary: { main: '#000000', light: '#323232', contrastText: '#ffffff' },
+    secondary: grey,
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
+  blackOrange: {
+    primary: { main: '#616161', light: '#323232', contrastText: '#ffffff' },
+    secondary: { main: '#ff6600', contrastText: '#ffffff' },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
+  blueLight: {
+    primary: { main: '#616161', light: '#989ea5', contrastText: '#ffffff' },
+    secondary: { main: '#009ada', contrastText: '#ffffff' },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
+  deepBlue: {
+    primary: { main: '#616161', light: '#989ea5', contrastText: '#ffffff' },
+    secondary: { main: '#0d4671', contrastText: '#ffffff' },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
+  micBlue: {
+    primary: { main: '#616161', light: '#989ea5', contrastText: '#ffffff' },
+    secondary: { main: '#2056ae', contrastText: '#ffffff' },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
 };
 export const customDatePickerStyle = variant => {
   return variant === 'yellow'
@@ -55,25 +103,46 @@ export const customDatePickerStyle = variant => {
       }
     : {};
 };
-export const renderStyledBadgeColor = variant =>
+export const renderStyledColor = variant =>
   variant === 'yellow' ? 'secondary' : 'primary';
 export const renderStyledLabel = (label, variant) => {
   if (variant === 'yellow') {
     return <div style={{ color: defaultBlue }}>{label}</div>;
   }
+  if (variant === 'blueGrey') {
+    return <div style={{ color: '#0f3399' }}>{label}</div>;
+  }
   return label;
 };
 export const customAppBarStyle = variant => {
-  return variant === 'yellow'
-    ? {
-        titleColor: '#fff',
-        subtitleColor: defaultYellow,
-        breadcrumbBackgroundColor: defaultYellow,
-        breadcrumbTextColor: '#000',
-        activeBreadcrumbTextColor: defaultBlue,
-        appBarBackgroundColor: defaultBlue,
-      }
-    : {};
+  if (variant === 'yellow') {
+    return {
+      titleColor: '#fff',
+      subtitleColor: defaultYellow,
+      breadcrumbBackgroundColor: defaultYellow,
+      breadcrumbTextColor: '#000',
+      activeBreadcrumbTextColor: defaultBlue,
+      appBarBackgroundColor: defaultBlue,
+    };
+  }
+  if (variant === 'blueGrey') {
+    return {
+      activeBreadcrumbTextColor: '#fff',
+    };
+  }
+  return {};
+};
+export const useWindowSize = () => {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  return size;
 };
 const themeGlobals = variant => ({
   menuGlobal: {
@@ -84,6 +153,11 @@ const themeCustom = (variant, overrides) => {
   if (variant === 'yellow') {
     return { ...customVariantYellow, ...overrides };
   }
+
+  if (variant === 'blueGrey') {
+    return { ...customVariantBlueGrey, ...overrides };
+  }
+
   return { ...overrides };
 };
 const theme = (variant, overrides) => {
@@ -122,6 +196,12 @@ ThemeProvider.propTypes = {
     'black',
     'redLight',
     'green',
+    'blueGrey',
     'yellow',
+    'blackOrange',
+    'blueLight',
+    'deepBlack',
+    'deepBlue',
+    'micBlue',
   ]).isRequired,
 };

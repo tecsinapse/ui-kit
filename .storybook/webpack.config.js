@@ -3,10 +3,10 @@ module.exports = {
     rules: [
       {
         test: /\.story\.js?$/,
-        loaders: [require.resolve('@storybook/addon-storysource/loader')],
+        loaders: [require.resolve('@storybook/source-loader')],
         enforce: 'pre',
       },
-       {
+      {
         test: /\.css$/,
         use: [
           {

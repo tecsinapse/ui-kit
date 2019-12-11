@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
@@ -45,11 +45,10 @@ const cardStyles = makeStyles(theme => ({
   },
 }));
 
-const CardFilter = ({ title, selectedValues }) => {
+const CardFilter = ({ title, selectedValues, onDelete }) => {
   const classes = cardStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-
   return (
     <div>
       <Paper
@@ -72,9 +71,16 @@ const CardFilter = ({ title, selectedValues }) => {
         }}
       >
         <div className={classes.popover}>
-          {selectedValues.map(value => (
+          {selectedValues.map((value, index) => (
             <div key={value} className={classes.chipContainer}>
-              <Chip label={`${value}`} className={classes.chip} />
+              <Chip
+                label={`${value}`}
+                className={classes.chip}
+                onDelete={() => {
+                  onDelete(index);
+                  setAnchorEl(false);
+                }}
+              />
             </div>
           ))}
         </div>
@@ -83,53 +89,93 @@ const CardFilter = ({ title, selectedValues }) => {
   );
 };
 
-const SelectedFilters = ({ advancedFilters, filters }) => {
+const onApplyAdvFilter = setFilters => filters => {
+  setFilters(prevFilters => ({
+    ...prevFilters,
+    ...filters,
+    page: 0,
+    startIndex: 0,
+    stopIndex: filters.rowsPerPage - 1,
+  }));
+};
+
+const checkTypeAndApply = (setFilters, filters, name, i) => {
+  const type = typeof filters.advancedFilters[name];
+  if (type === 'string') {
+    // eslint-disable-next-line no-param-reassign
+    filters.advancedFilters[name] = '';
+  } else if (type === 'boolean') {
+    // eslint-disable-next-line no-param-reassign
+    filters.advancedFilters[name] = !filters.advancedFilters[name];
+  } else {
+    filters.advancedFilters[name].splice(i, 1);
+  }
+  onApplyAdvFilter(setFilters)(filters);
+};
+
+const filterOptions = (options, value) => {
+  if (options && options.length > 0 && value && value.length > 0) {
+    return options
+      .filter(option => value.indexOf(option.value) > -1)
+      .map(option => option.label);
+  }
+  return value;
+};
+
+const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
+  const [filtersSelected, setFiltersSelected] = useState([]);
+  useEffect(() => {
+    if (!advancedFilters) {
+      return [];
+    }
+    const selectedFilters = advancedFilters.filters
+      .filter(({ name, options }) => {
+        const value = filterOptions(options, filters.advancedFilters[name]);
+        return (
+          (value && value.length > 0) || (value && typeof value === 'boolean')
+        );
+      })
+      .map(({ name, label, options }) => {
+        const value = filterOptions(options, filters.advancedFilters[name]);
+        return {
+          name,
+          label,
+          values: Array.isArray(value) ? value : [value],
+        };
+      });
+    setFiltersSelected(selectedFilters);
+    return undefined; // Returning undefined due to React warning on console
+  }, [filtersSelected]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const classes = styles();
   const {
     Table: { selectedFiltersLabel },
   } = useContext(LocaleContext);
 
-  if (!advancedFilters) {
-    return null;
-  }
-
-  const selectedFilters = [];
-
-  advancedFilters.filters.forEach(({ name, label, options }) => {
-    let value = filters.advancedFilters[name];
-
-    if (options && options.length > 0 && value.length > 0) {
-      value = options
-        .filter(option => value.indexOf(option.value) > -1)
-        .map(option => option.label);
-    }
-
-    if ((value && value.length > 0) || (typeof value === 'boolean' && value)) {
-      selectedFilters.push({
-        name,
-        label,
-        values: Array.isArray(value) ? value : [value],
-      });
-    }
-  });
-
-  if (selectedFilters.length === 0) {
+  if (filtersSelected.length === 0) {
     return null;
   }
 
   return (
-    <React.Fragment>
+    <>
       <Divider />
       <div className={classes.container}>
         <Typography variant="subtitle2" className={classes.title}>
           {selectedFiltersLabel}:
         </Typography>
-        {selectedFilters.map(({ name, label, values }) => (
-          <CardFilter key={name} title={label} selectedValues={values} />
+        {filtersSelected.map(({ name, label, values }) => (
+          <CardFilter
+            key={name}
+            title={label}
+            selectedValues={values}
+            onDelete={i => {
+              checkTypeAndApply(setFilters, filters, name, i);
+            }}
+          />
         ))}
       </div>
       <Divider />
-    </React.Fragment>
+    </>
   );
 };
 

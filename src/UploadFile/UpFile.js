@@ -46,18 +46,16 @@ const useStyle = makeStyles({
     flexWrap: 'wrap',
   },
   img: {
-    maxWidth: '40px',
-    maxHeight: '40px',
-    // border: '2px dashed green',
+    height: 'auto',
+    width: '100%',
     display: 'block',
   },
   thumbnail: {
     // border: '2px dashed green',
     width: '40px',
-    height: '40px',
     display: 'flex',
     justifyContent: 'center',
-    marginRight: '0px',
+    marginRight: '6px',
   },
   loading: {
     borderRadius: '0px 0px 5px 5px ',
@@ -94,6 +92,7 @@ export function UpFile({
   error,
   setSnackBar,
   messages: { fileUploadedSucessfullyMessage, fileErroedMessage },
+  noShowSnack = false,
 }) {
   const [isCompleted, setIsCompleted] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -111,7 +110,7 @@ export function UpFile({
 
   if (error && !isError) {
     setSnackBar({
-      show: true,
+      show: !noShowSnack,
       variant: 'error',
       msg: fileErroedMessage(filename, error),
     });
@@ -124,7 +123,7 @@ export function UpFile({
     ) : null;
 
   return (
-    <React.Fragment>
+    <>
       <ListItem key={uid} className={error ? classes.itemError : classes.item}>
         {img ? (
           <ListItemIcon className={classes.thumbnail}>{img}</ListItemIcon>
@@ -169,24 +168,21 @@ export function UpFile({
           <Clear fontSize="small" />
         </IconButton>
       </ListItem>
-      {
-        <LinearProgress
-          variant="determinate"
-          value={completed}
-          className={classes.loading}
-          classes={
-            error
-              ? {
-                  bar1Determinate: classes.barError,
-                  determinate: classes.barError2,
-                }
-              : {
-                  bar1Determinate:
-                    completed >= 100 ? classes.barCompleted : null,
-                }
-          }
-        />
-      }
-    </React.Fragment>
+      <LinearProgress
+        variant="determinate"
+        value={completed}
+        className={classes.loading}
+        classes={
+          error
+            ? {
+                bar1Determinate: classes.barError,
+                determinate: classes.barError2,
+              }
+            : {
+                bar1Determinate: completed >= 100 ? classes.barCompleted : null,
+              }
+        }
+      />
+    </>
   );
 }

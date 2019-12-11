@@ -2,7 +2,7 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
 
-import Table from './Table';
+import { Table } from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DivFlex } from '../withFlexCenter';
 
@@ -78,4 +78,4 @@ const ExporterTable = () => (
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('Exporter Table', ExporterTable);
+  .add('Exporter Table', () => <ExporterTable />);

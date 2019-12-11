@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
-import className from 'classnames';
+import clsx from 'clsx';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { mdiImageOff } from '@mdi/js';
 import Icon from '@mdi/react';
@@ -98,7 +98,7 @@ export const Slide = ({
 
   return (
     <div
-      className={className(classes.root, {
+      className={clsx(classes.root, {
         [classes.rootMobile]: mobile,
         [classes.cursorPointer]: !mobile && isEmptyOrNull(buttonTitle),
       })}
@@ -139,7 +139,7 @@ export const Slide = ({
       />
 
       <div
-        className={className(
+        className={clsx(
           {},
           {
             [classes.infoMobile]: mobile,
@@ -157,7 +157,7 @@ export const Slide = ({
             dangerouslySetInnerHTML={{ __html: title }}
           />
           <Typography
-            className={className(classes.subtitle, {
+            className={clsx(classes.subtitle, {
               [classes.subtitleMobile]: mobile,
               [classes.subtitleDesktop]: !mobile,
             })}

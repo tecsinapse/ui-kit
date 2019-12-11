@@ -6,7 +6,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import DeleteIcon from '@material-ui/icons/DeleteForever';
 import { storiesOf } from '@storybook/react';
 
-import Table from './Table';
+import { Table } from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { defaultRed } from '../colors';
@@ -75,9 +75,14 @@ const ActionTable = () => (
       data={cars}
       rowId={row => row.id}
       actions={actions}
+      onRowClick={rowData => {
+        // eslint-disable-next-line no-alert
+        alert(JSON.stringify(rowData));
+      }}
     />
   </Paper>
 );
+
 const ActionTableVertical = () => (
   <Paper style={{ width: 1000 }}>
     <Table
@@ -109,5 +114,5 @@ const ActionTableVertical = () => (
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('Action Table', ActionTable)
-  .add('Action Table Vertical', ActionTableVertical);
+  .add('Action Table', () => <ActionTable />)
+  .add('Action Table Vertical', () => <ActionTableVertical />);

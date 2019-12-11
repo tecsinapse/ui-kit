@@ -1,6 +1,6 @@
-import React, { useState, forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import uniqid from 'uniqid';
-import { setInterval, clearInterval } from 'timers';
+import { clearInterval, setInterval } from 'timers';
 import Dialog from '@material-ui/core/Dialog';
 // import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -93,6 +93,10 @@ export const TesteUploader = forwardRef(
           completed: 0,
           uploader: null,
           error: fileObj.error,
+
+          // NOTE: It must set this as true, to avoid two snackbar,
+          // given that onReject error is handle by uploader.
+          noShowSnack: true,
         };
         setFiles(copyFiles);
 
@@ -115,9 +119,9 @@ export const TesteUploader = forwardRef(
     };
 
     return (
-      <React.Fragment>
+      <>
         {type !== 'form' ? (
-          <React.Fragment>
+          <>
             <Uploader
               value={files}
               onAccept={onAccept}
@@ -136,7 +140,7 @@ export const TesteUploader = forwardRef(
                 <PreviewList value={files} onDelete={onDeleteFiles} />
               </DialogContent>
             </Dialog>
-          </React.Fragment>
+          </>
         ) : (
           <FormUploader
             value={files}
@@ -146,7 +150,7 @@ export const TesteUploader = forwardRef(
             variant={variant}
           />
         )}
-      </React.Fragment>
+      </>
     );
   }
 );

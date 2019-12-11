@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
 import { storiesOf } from '@storybook/react';
 
-import Table from './Table';
+import { Table } from './Table';
 import { cars } from './exampleData';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DivFlex } from '../withFlexCenter';
@@ -81,4 +81,4 @@ const SelectionTable = () => (
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
-  .add('Selection Table', SelectionTable);
+  .add('Selection Table', () => <SelectionTable />);

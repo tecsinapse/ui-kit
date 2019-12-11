@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
 
 import { resolveObj } from '@tecsinapse/es-utils/build';
-import Table from './Table';
+import { Table } from './Table';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { countries } from './exampleData';
 import { DivFlex } from '../withFlexCenter';
@@ -37,7 +37,14 @@ const ServerSideTable = () => (
     <Table
       columns={columns}
       data={async filters => {
-        const { headerFilters, page, rowsPerPage } = filters;
+        const {
+          headerFilters,
+          page,
+          rowsPerPage,
+          startIndex,
+          stopIndex,
+          loadedResolver,
+        } = filters;
 
         let filteredData = [...countries];
 
@@ -64,8 +71,10 @@ const ServerSideTable = () => (
         });
         return {
           data: filteredData.slice(
-            page * rowsPerPage,
-            page * rowsPerPage + rowsPerPage
+            // It can get the slice by start/stop index or page/rowsPerPage.
+            // The first one is for mobile, while the second one is for desktop
+            loadedResolver ? startIndex : page * rowsPerPage,
+            loadedResolver ? stopIndex : page * rowsPerPage + rowsPerPage
           ),
           totalCount: filteredData.length,
         };
