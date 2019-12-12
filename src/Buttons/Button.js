@@ -1,7 +1,7 @@
 import { Button as MaterialButton, CircularProgress } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import {
   defaultGreen,
@@ -89,7 +89,7 @@ export const Button = React.forwardRef(
         type={type}
         variant="contained"
         classes={{ label: classes.buttonSpan }}
-        className={classNames(className, classdef)}
+        className={clsx(className, classdef)}
         color={
           ['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined
         }

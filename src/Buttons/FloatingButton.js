@@ -2,7 +2,7 @@ import Add from '@material-ui/icons/Add';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Fab from '@material-ui/core/Fab';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import { buttonClassNameDefinition, buttonStyle } from './Button';
 
@@ -35,7 +35,7 @@ export const FloatingButton = ({
       color={
         ['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined
       }
-      className={classNames(
+      className={clsx(
         className,
         buttonClassNameDefinition(classes, disabled, false, variant)
       )}

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Folder from '@material-ui/icons/Folder';
 import { makeStyles } from '@material-ui/styles';
@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import PropTypes from 'prop-types';
 import Link from '@material-ui/core/Link';
-import classname from 'classnames';
+import clsx from 'clsx';
 import { defaultGreyLight2 } from '../colors';
 import { breadcrumb } from '../Menu/AppBar/AppBar';
 
@@ -51,7 +51,7 @@ export const FolderBreadcrumb = ({
         const isLink = typeof current === 'object';
         const key = isLink ? current.title : current;
         const BodyContent = (
-          <Fragment>
+          <>
             <Folder fontSize="small" className={classes.separator} />
             <Typography
               key={current}
@@ -61,7 +61,7 @@ export const FolderBreadcrumb = ({
             >
               {key}
             </Typography>
-          </Fragment>
+          </>
         );
         return (
           <div key={key} className={classes.flex}>
@@ -71,11 +71,7 @@ export const FolderBreadcrumb = ({
                 component={current.component}
                 variant="subtitle2"
                 classes={{
-                  root: classname(
-                    classes.link,
-                    classes.flex,
-                    classes.noMarginLeft
-                  ),
+                  root: clsx(classes.link, classes.flex, classes.noMarginLeft),
                 }}
                 {...current.componentProps}
               >

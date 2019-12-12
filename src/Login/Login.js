@@ -6,7 +6,7 @@ import { makeStyles, useTheme } from '@material-ui/styles';
 import Divider from '@material-ui/core/Divider';
 import { Typography } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Button } from '../Buttons/Button';
 import PoweredBy from './PoweredBy';
@@ -162,7 +162,7 @@ export const Login = ({
 
   const headerElem = headerImages && headerImages.length > 0 && (
     <div
-      className={classNames(classes.imgHeader, {
+      className={clsx(classes.imgHeader, {
         [classes.imgHeaderMobile]: mobile,
       })}
     >
@@ -176,7 +176,7 @@ export const Login = ({
 
   const contentElem = (
     <div
-      className={classNames(classes.content, {
+      className={clsx(classes.content, {
         [classes.contentMobile]: mobile,
       })}
     >
@@ -203,13 +203,13 @@ export const Login = ({
         {children}
 
         <div
-          className={classNames(classes.extra, {
+          className={clsx(classes.extra, {
             [classes.extramobile]: mobile,
           })}
         >
           {rememberBox && (
             <FormControlLabel
-              className={classNames(classes.formControlLabelCheck, {
+              className={clsx(classes.formControlLabelCheck, {
                 [classes.formControlLabelCheckMobile]: mobile,
               })}
               control={
@@ -228,7 +228,7 @@ export const Login = ({
           )}
           {forgotPassword && forgotPassword.component && (
             <Typography
-              className={classNames(classes.forgot, {
+              className={clsx(classes.forgot, {
                 [classes.forgotmobile]: mobile,
               })}
               variant="subtitle2"
@@ -266,7 +266,7 @@ export const Login = ({
 
   const footerElem = (
     <div
-      className={classNames(classes.footer, {
+      className={clsx(classes.footer, {
         [classes.footermobile]: mobile,
       })}
     >
@@ -282,7 +282,7 @@ export const Login = ({
 
   if (mobile) {
     return (
-      <div className={classNames(classes.root, classes.rootmobile)}>
+      <div className={clsx(classes.root, classes.rootmobile)}>
         {headerElem}
         {contentElem}
         {footerElem}

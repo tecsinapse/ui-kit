@@ -3,7 +3,7 @@ import { makeStyles, useTheme } from '@material-ui/styles';
 import { IconButton } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { DateTime, Interval } from 'luxon';
 import {
@@ -143,13 +143,13 @@ export const DatePicker = ({
     const isFirstDay = start.hasSame(dateClone, 'day');
     const isLastDay = end.hasSame(dateClone, 'day');
 
-    const wrapperClassName = classNames({
+    const wrapperClassName = clsx({
       [classes2.highlight]: dayIsBetween,
       [classes2.firstHighlight]: isFirstDay,
       [classes2.endHighlight]: isLastDay,
     });
 
-    const dayClassName = classNames(classes2.day, {
+    const dayClassName = clsx(classes2.day, {
       [classes2.nonCurrentMonthDay]: !dayInCurrentMonth,
       [classes2.highlightNonCurrentMonthDay]:
         !dayInCurrentMonth && dayIsBetween,
@@ -170,7 +170,7 @@ export const DatePicker = ({
       undefined;
     const isSelected = date.hasSame(selectedDateRender, 'day');
 
-    const dayClassName = classNames(classes.day, {
+    const dayClassName = clsx(classes.day, {
       [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
       [classes.highlight]: isSelected,
     });

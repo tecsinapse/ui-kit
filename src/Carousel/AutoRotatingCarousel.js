@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import Dots from 'material-ui-dots';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import Fab from '@material-ui/core/Fab';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { grey } from '@material-ui/core/colors';
-import useMediaQuery  from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import Carousel from './Carousel';
 import { modulo } from './util';
@@ -116,7 +116,7 @@ export const AutoRotatingCarousel = ({
       {hasMultipleChildren && !mobile && (
         <div>
           <Fab
-            className={classNames(classes.arrow, classes.arrowLeft)}
+            className={clsx(classes.arrow, classes.arrowLeft)}
             onClick={() => setSlideIndex(prevIndex => prevIndex - 1)}
           >
             <ArrowBackIcon className={classes.arrowIcon} />
@@ -127,7 +127,7 @@ export const AutoRotatingCarousel = ({
         <Dots
           count={children.length}
           index={modulo(slideIndex, children.length)}
-          className={classNames(classes.dots, {
+          className={clsx(classes.dots, {
             [classes.dotsMobile]: mobile,
           })}
           onDotClick={slideIndexNew => setSlideIndex(slideIndexNew)}
@@ -147,7 +147,7 @@ export const AutoRotatingCarousel = ({
       {hasMultipleChildren && !mobile && (
         <div>
           <Fab
-            className={classNames(classes.arrow, classes.arrowRight)}
+            className={clsx(classes.arrow, classes.arrowRight)}
             onClick={() => setSlideIndex(prevIndex => prevIndex + 1)}
           >
             <ArrowForwardIcon className={classes.arrowIcon} />
