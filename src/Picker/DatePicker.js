@@ -5,11 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { DateTime, Interval } from 'luxon';
 import {
   DatePicker as DatePickerExt,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
+import moment from 'moment';
 
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build';
 import { Input } from '../Inputs/Input';
@@ -132,16 +132,17 @@ export const DatePicker = ({
     selectedDateRender,
     dayInCurrentMonth
   ) => {
-    const dateClone = date;
-    const selectedDateClone = selectedDateRender;
+    const dateClone = moment(date);
+    const selectedDateClone = moment(selectedDateRender);
 
-    const start = selectedDateClone.startOf('week');
-    const end = selectedDateClone.endOf('week');
+    const start = moment(selectedDateClone).startOf('week');
+    const end = moment(selectedDateClone).endOf('week');
 
-    const dayIsBetween = Interval.fromDateTimes(start, end).contains(dateClone);
-
-    const isFirstDay = start.hasSame(dateClone, 'day');
-    const isLastDay = end.hasSame(dateClone, 'day');
+    const dayIsBetween = moment()
+      .range(start, end)
+      .contains(dateClone);
+    const isFirstDay = dateClone.isSame(start, 'day');
+    const isLastDay = dateClone.isSame(end, 'day');
 
     const wrapperClassName = classNames({
       [classes2.highlight]: dayIsBetween,
@@ -158,7 +159,7 @@ export const DatePicker = ({
     return (
       <div className={wrapperClassName}>
         <IconButton className={dayClassName} href="">
-          <span> {dateClone.toFormat('d')} </span>
+          <span> {dateClone.format('D')} </span>
         </IconButton>
       </div>
     );
@@ -166,9 +167,9 @@ export const DatePicker = ({
 
   const renderPointedDay = (date, selectedDateRender, dayInCurrentMonth) => {
     const isPointed =
-      pointedDates.find(pointDate => pointDate.hasSame(date, 'day')) !==
+      pointedDates.find(pointDate => pointDate.isSame(date, 'day')) !==
       undefined;
-    const isSelected = date.hasSame(selectedDateRender, 'day');
+    const isSelected = date.isSame(selectedDateRender, 'day');
 
     const dayClassName = classNames(classes.day, {
       [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
@@ -193,7 +194,7 @@ export const DatePicker = ({
           >
             <span>
               <Typography variant="body2" color="inherit">
-                {date.toFormat('d')}{' '}
+                {date.format('DD')}{' '}
               </Typography>
             </span>
           </Badge>
@@ -260,7 +261,7 @@ DatePicker.propTypes = {
   onChange: PropTypes.func,
   format: PropTypes.string,
   keyboardPicker: PropTypes.bool,
-  pointedDates: PropTypes.arrayOf(PropTypes.instanceOf(DateTime)),
+  pointedDates: PropTypes.arrayOf(PropTypes.instanceOf(moment)),
   inputVariant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
 };
 export default DatePicker;

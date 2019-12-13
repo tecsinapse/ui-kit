@@ -77,7 +77,7 @@ export const DateTimePicker = ({
   id,
   label,
   onChange,
-  format = 'dd/MM/yyyy HH:mm',
+  format = 'DD[/]MM[/]YYYY  HH[:]mm',
   keyboardPicker,
   inputVariant,
   pointedDates,
@@ -92,9 +92,9 @@ export const DateTimePicker = ({
 
   const renderPointedDay = (date, selectedDateRender, dayInCurrentMonth) => {
     const isPointed =
-      pointedDates.find(pointDate => pointDate.hasSame(date, 'day')) !==
+      pointedDates.find(pointDate => pointDate.isSame(date, 'day')) !==
       undefined;
-    const isSelected = date.hasSame(selectedDateRender, 'day');
+    const isSelected = date.isSame(selectedDateRender, 'day');
 
     const dayClassName = classNames(classes.day, {
       [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
@@ -106,7 +106,7 @@ export const DateTimePicker = ({
         <IconButton className={dayClassName}>
           <span>
             <Typography variant="body2" color="inherit">
-              {date.toFormat('d')}{' '}
+              {date.format('DD')}{' '}
             </Typography>
           </span>
           {isPointed && (

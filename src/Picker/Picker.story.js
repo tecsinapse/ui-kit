@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import moment from 'moment';
 
 import Typography from '@material-ui/core/Typography';
-import { DateTime } from 'luxon';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DatePicker } from './DatePicker';
 import { TimePicker } from './TimePicker';
@@ -13,7 +13,7 @@ import { DivFlex } from '../withFlexCenter';
 
 const DatePickerStory = () => {
   const [selectedDate, setSelectedDate] = React.useState(
-    new Date('2014-08-18T21:11:54')
+    moment('2014-08-18T21:11:54')
   );
 
   return (
@@ -21,9 +21,10 @@ const DatePickerStory = () => {
       <DatePicker
         selectedDate={selectedDate}
         onChange={date => setSelectedDate(date)}
-        format="dd/MM/yyyy"
+        format="DD[/]MM[/]YYYY  HH[:]mm"
         name="datetimepicker"
-        pointedDates={[DateTime.fromISO('2014-08-25T09:08:34.123')]}
+        pointedDates={[moment('2014-08-25T09:08:34.123')]}
+        minDate={moment('2014-08-18T21:11:54')}
       />
     </PickersProvider>
   );
@@ -31,7 +32,7 @@ const DatePickerStory = () => {
 
 const CustomLabelDatePickerStory = () => {
   const [selectedDate, setSelectedDate] = React.useState(
-    DateTime.fromISO('2019-08-25T09:08:34.123')
+    moment('2014-08-18T21:11:54')
   );
 
   return (
@@ -39,11 +40,11 @@ const CustomLabelDatePickerStory = () => {
       <DatePicker
         selectedDate={selectedDate}
         onChange={date => setSelectedDate(date)}
-        format="dd/MM/yyyy"
+        format="DD[/]MM[/]YYYY  HH[:]mm"
         name="customdatepicker"
         customTextFieldComponentInput={() => (
           <Typography variant="h6" color="secondary">
-            {selectedDate.setLocale('pt-BR').toFormat('MMMM, yyyy')}
+            {selectedDate.setLocale('pt-BR').format('MMMM, yyyy')}
           </Typography>
         )}
       />
@@ -62,7 +63,7 @@ const WeeklyDatePickerStory = () => {
         weekly
         selectedDate={selectedDate}
         onChange={date => setSelectedDate(date)}
-        format="dd/MM/yyyy"
+        format="DD[/]MM[/]YYYY  HH[:]mm"
         name="datepicker"
       />
     </PickersProvider>
@@ -87,7 +88,7 @@ const TimePickerStory = () => {
 
 const DateTimePickerStory = () => {
   const [selectedDateTime, setSelecteDatetime] = React.useState(
-    new Date('2014-08-18T21:11:54')
+    moment('2014-08-18T21:11:54')
   );
 
   return (
