@@ -198,3 +198,5 @@ export const PERCENTAGE_MASK = createNumberMask({
   decimalSymbol: ',',
   allowDecimal: true,
 });
+
+export const YEAR_MASK = [/\d/, /\d/, /\d/, /\d/];

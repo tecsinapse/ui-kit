@@ -21,6 +21,7 @@ import {
   PLATE_MASK,
   TIME_MASK,
   PERCENTAGE_MASK,
+  YEAR_MASK,
 } from './Masks';
 
 import { GetEndAdornment, labelClass, outlinedInputClass } from './styleUtils';
@@ -72,6 +73,9 @@ const TextMaskCustom = props => {
         break;
       case 'percentage':
         inputMask = PERCENTAGE_MASK;
+        break;
+      case 'year':
+        inputMask = YEAR_MASK;
         break;
       default:
         return null;
@@ -239,6 +243,8 @@ const maskProp = PropTypes.oneOfType([
     'cpfcnpj',
     'date',
     'time',
+    'percentage',
+    'year',
   ]),
   PropTypes.array,
   PropTypes.func,
