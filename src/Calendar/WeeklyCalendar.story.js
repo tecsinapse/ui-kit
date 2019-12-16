@@ -3,11 +3,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DateTime } from 'luxon';
 
+import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
 import { WeeklyCalendar } from './WeeklyCalendar';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
-import { DivFlex } from '../withFlexCenter';
 
-storiesOf(`${GROUPS.CALENDAR}|Calendar`, module)
+storiesOf(`Calendar`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Weekly', () => (
     <WeeklyCalendar

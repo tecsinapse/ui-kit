@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/styles';
 
-import { defaultGreyLight200 } from '../colors';
+import { defaultGreyLight200 } from '@tecsinapse/ui-kit/build/colors';
 
 export const muiInlineDatePicker = {
   overrides: {

@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import Button from '@material-ui/core/Button';
-import { weeklyCalendarStyles as useStyles } from './WeeklyCalendarStyles';
+import { weeklyCalendarStyles as useStyles } from './weeklyCalendarStyles';
 import { DatePicker } from '../Picker/DatePicker';
 import { PickersProvider } from '../Picker/PickersProvider';
 
@@ -60,6 +60,9 @@ export const WeeklyCalendarComponent = ({
     onDayChange && onDayChange(selectedDay);
   }, [selectedDay]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const handleChange = (event, day) =>
+    !day.equals(selectedDay) && setSelectedDay(day);
+
   return (
     <div className={classes.root}>
       <PickersProvider>
@@ -89,9 +92,7 @@ export const WeeklyCalendarComponent = ({
         </Button>
         <BottomNavigation
           value={selectedDay}
-          onChange={(event, day) =>
-            !day.equals(selectedDay) && setSelectedDay(day)
-          }
+          onChange={handleChange}
           showLabels
           className={classes.cssButtonNavigation}
         >
