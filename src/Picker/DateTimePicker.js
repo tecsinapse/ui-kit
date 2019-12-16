@@ -10,13 +10,13 @@ import {
   KeyboardDateTimePicker,
 } from '@material-ui/pickers';
 import { isNotUndefOrNull } from '@tecsinapse/es-utils';
-import { Input } from '../Inputs/Input';
-import { LocaleContext } from '../LocaleProvider';
+import { Input } from '@tecsinapse/ui-kit';
+import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import {
   customDatePickerStyle,
   renderStyledColor,
   renderStyledLabel,
-} from '../ThemeProvider';
+} from '@tecsinapse/ui-kit/build/ThemeProvider';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {

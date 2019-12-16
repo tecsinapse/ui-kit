@@ -3,13 +3,12 @@ import { storiesOf } from '@storybook/react';
 
 import Typography from '@material-ui/core/Typography';
 import { DateTime } from 'luxon';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
 import { DatePicker } from './DatePicker';
 import { TimePicker } from './TimePicker';
 import { ColorPicker } from './ColorPicker';
 import { PickersProvider } from './PickersProvider';
 import { DateTimePicker } from './DateTimePicker';
-import { DivFlex } from '../withFlexCenter';
 
 const DatePickerStory = () => {
   const [selectedDate, setSelectedDate] = React.useState(
@@ -101,7 +100,7 @@ const DateTimePickerStory = () => {
   );
 };
 
-storiesOf(`${GROUPS.FORMS}|Picker`, module)
+storiesOf(`Picker`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Date Picker', () => <DatePickerStory />)
   .add('Date Time Picker', () => <DateTimePickerStory />)

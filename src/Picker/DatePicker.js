@@ -12,14 +12,14 @@ import {
 } from '@material-ui/pickers';
 
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build';
-import { Input } from '../Inputs/Input';
-import { LocaleContext } from '../LocaleProvider';
-import { useStylesWeek } from './customWeekPickerStyles';
+import { Input } from '@tecsinapse/ui-kit';
+import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import {
   customDatePickerStyle,
   renderStyledColor,
   renderStyledLabel,
-} from '../ThemeProvider';
+} from '@tecsinapse/ui-kit/build/ThemeProvider';
+import { useStylesWeek } from './customWeekPickerStyles';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {

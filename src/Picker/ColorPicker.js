@@ -1,6 +1,6 @@
 import React from 'react';
 import MakedColorPicker from '@tecsinapse/material-ui-color-picker';
-import { Input } from '../Inputs/Input';
+import { Input } from '@tecsinapse/ui-kit';
 
 export const ColorPicker = props => (
   <MakedColorPicker TextFieldComponent={Input} {...props} />
