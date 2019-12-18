@@ -16,10 +16,6 @@ export const buttonStyle = ({ spacing }) => ({
       marginRight: spacing(0.5),
     },
   },
-  disabled: {
-    backgroundColor: defaultGrey,
-    color: 'white',
-  },
   buttonColorDefault: {
     backgroundColor: defaultGrey,
     color: 'white',
@@ -49,14 +45,13 @@ export const buttonStyle = ({ spacing }) => ({
     },
   },
 });
-export function buttonClassNameDefinition(classes, disabled, margin, variant) {
+export function buttonClassNameDefinition(classes, margin, customVariant) {
   return {
-    [classes.disabled]: disabled,
     [classes.marginTop]: margin,
-    [classes.buttonColorDefault]: variant === 'default',
-    [classes.buttonColorSuccess]: variant === 'success',
-    [classes.buttonColorWarning]: variant === 'warning',
-    [classes.buttonColorError]: variant === 'error',
+    [classes.buttonColorDefault]: customVariant === 'default',
+    [classes.buttonColorSuccess]: customVariant === 'success',
+    [classes.buttonColorWarning]: customVariant === 'warning',
+    [classes.buttonColorError]: customVariant === 'error',
   };
 }
 const useStyles = makeStyles(buttonStyle);
@@ -67,7 +62,7 @@ export const Button = React.forwardRef(
       submitting,
       fullWidth,
       disabled,
-      variant,
+      customVariant,
       margin,
       type,
       size = 'medium',
@@ -78,21 +73,12 @@ export const Button = React.forwardRef(
     ref
   ) => {
     const classes = useStyles();
-    const classdef = buttonClassNameDefinition(
-      classes,
-      disabled,
-      margin,
-      variant
-    );
+    const classdef = buttonClassNameDefinition(classes, margin, customVariant);
     return (
       <MaterialButton
         type={type}
-        variant="contained"
         classes={{ label: classes.buttonSpan }}
         className={classNames(className, classdef)}
-        color={
-          ['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined
-        }
         fullWidth={fullWidth}
         disabled={disabled || submitting}
         size={size}
@@ -108,25 +94,16 @@ export const Button = React.forwardRef(
 Button.defaultProps = {
   submitting: false,
   margin: false,
-  disabled: false,
   fullWidth: false,
-  variant: 'success',
+  customVariant: undefined,
   type: 'submit',
   size: 'medium',
 };
 Button.propTypes = {
-  variant: PropTypes.oneOf([
-    'default',
-    'success',
-    'warning',
-    'error',
-    'primary',
-    'secondary',
-  ]),
+  customVariant: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
   submitting: PropTypes.bool,
   fullWidth: PropTypes.bool,
   margin: PropTypes.bool,
-  disabled: PropTypes.bool,
   type: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };

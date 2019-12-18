@@ -21,38 +21,38 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
     <Button onClick={action('onClick')}>Smart Button</Button>
   ))
   .add('default button', () => (
-    <Button variant="default" onClick={action('onClick')}>
+    <Button customVariant="default" onClick={action('onClick')}>
       Smart Button
     </Button>
   ))
   .add('success button', () => (
-    <Button variant="success" onClick={action('onClick')}>
+    <Button customVariant="success" onClick={action('onClick')} submitting>
       Smart Button
     </Button>
   ))
   .add('warning button', () => (
-    <Button variant="warning" onClick={action('onClick')}>
+    <Button customVariant="warning" onClick={action('onClick')}>
       Smart Button
     </Button>
   ))
   .add('error button', () => (
-    <Button variant="error" onClick={action('onClick')}>
+    <Button customVariant="error" onClick={action('onClick')}>
       Smart Button
     </Button>
   ))
   .add('primary button', () => (
-    <Button variant="primary" onClick={action('onClick')}>
+    <Button color="primary" onClick={action('onClick')}>
       Smart Button
     </Button>
   ))
-  .add('primary button', () => (
-    <Button variant="primary">
+  .add('primary button contained', () => (
+    <Button color="primary" variant="contained">
       <Icon path={mdiFolderPlus} size={1} color="white" />
       Nova Pasta
     </Button>
   ))
   .add('secondary button', () => (
-    <Button variant="secondary" onClick={action('onClick')}>
+    <Button color="secondary" onClick={action('onClick')}>
       Smart Button
     </Button>
   ))
