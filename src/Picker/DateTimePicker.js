@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import {
   DateTimePicker as DateTimePickerExt,
   KeyboardDateTimePicker,
+  MuiPickersContext,
 } from '@material-ui/pickers';
 import { isNotUndefOrNull } from '@tecsinapse/es-utils';
 import { Input } from '@tecsinapse/ui-kit';
@@ -83,6 +84,7 @@ export const DateTimePicker = ({
   pointedDates,
   ...props
 }) => {
+  const utils = useContext(MuiPickersContext);
   const theme = useTheme();
   const styleProps = customDatePickerStyle(theme.variant);
   const classes = useStyle(styleProps);
@@ -92,9 +94,9 @@ export const DateTimePicker = ({
 
   const renderPointedDay = (date, selectedDateRender, dayInCurrentMonth) => {
     const isPointed =
-      pointedDates.find(pointDate => pointDate.hasSame(date, 'day')) !==
+      pointedDates.find(pointDate => utils.isSameDay(pointDate, date)) !==
       undefined;
-    const isSelected = date.hasSame(selectedDateRender, 'day');
+    const isSelected = utils.isSameDay(date, selectedDateRender);
 
     const dayClassName = clsx(classes.day, {
       [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
@@ -106,7 +108,7 @@ export const DateTimePicker = ({
         <IconButton className={dayClassName}>
           <span>
             <Typography variant="body2" color="inherit">
-              {date.toFormat('d')}{' '}
+              {utils.getDayText(date)}{' '}
             </Typography>
           </span>
           {isPointed && (
@@ -182,7 +184,7 @@ DateTimePicker.propTypes = {
   onChange: PropTypes.func,
   format: PropTypes.string,
   keyboardPicker: PropTypes.bool,
-  pointedDates: PropTypes.arrayOf(Date),
+  pointedDates: PropTypes.array,
   inputVariant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
 };
 export default DateTimePicker;
