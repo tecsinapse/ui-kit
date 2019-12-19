@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { Uploader } from './Uploader';
@@ -71,12 +71,12 @@ export function FormUploader({
 
   return (
     <div
-      className={classNames(classes.root, {
+      className={clsx(classes.root, {
         [classes.rootmobile]: mobile,
       })}
     >
       <div
-        className={classNames(classes.uploader, {
+        className={clsx(classes.uploader, {
           [classes.uploadermobile]: mobile,
         })}
       >
@@ -94,7 +94,7 @@ export function FormUploader({
       </div>
 
       <div
-        className={classNames(classes.preview, {
+        className={clsx(classes.preview, {
           [classes.previewmobile]: mobile,
         })}
       >

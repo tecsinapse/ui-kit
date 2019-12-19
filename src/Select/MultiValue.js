@@ -1,5 +1,5 @@
 import Chip from '@material-ui/core/Chip';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import React from 'react';
 import CancelIcon from '@material-ui/icons/Cancel';
 import { getLabelSliced } from './CalculateOptionsWidth';
@@ -12,7 +12,7 @@ export function MultiValue({ children, selectProps, removeProps, isFocused }) {
       size="small"
       tabIndex={-1}
       label={label}
-      className={classNames(selectProps.childrenClasses.chip, {
+      className={clsx(selectProps.childrenClasses.chip, {
         [selectProps.childrenClasses.chipFocused]: isFocused,
       })}
       onDelete={removeProps ? removeProps.onClick : undefined}

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField/TextField';
 import MaskedInput from 'react-text-mask';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { inputStyles } from './InputStyles';
 import {
   CELL_MASK,
@@ -126,7 +126,7 @@ export const TextFieldComponent = ({
     onChange={onChange}
     InputLabelProps={{
       classes: {
-        root: classNames(classes[labelClass({ warning, error, success })]),
+        root: clsx(classes[labelClass({ warning, error, success })]),
         focused: classes.cssFocused,
       },
       shrink: shrinkLabel,
@@ -138,7 +138,7 @@ export const TextFieldComponent = ({
       },
       className: classes.input,
       classes: {
-        root: classNames(
+        root: clsx(
           classes[outlinedInputClass({ warning, error, success })],
           classes.inputRoot
         ),

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Icon from '@mdi/react';
@@ -25,11 +25,18 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
       Smart Button
     </Button>
   ))
-  .add('success button', () => (
-    <Button customVariant="success" onClick={action('onClick')} submitting>
-      Smart Button
-    </Button>
-  ))
+  .add('success button submitting', () => {
+    const [submitting, setSub] = useState(false);
+    return (
+      <Button
+        customVariant="success"
+        onClick={() => setSub(true)}
+        submitting={submitting}
+      >
+        Smart Button
+      </Button>
+    );
+  })
   .add('warning button', () => (
     <Button customVariant="warning" onClick={action('onClick')}>
       Smart Button

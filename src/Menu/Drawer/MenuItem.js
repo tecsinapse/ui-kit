@@ -2,7 +2,7 @@ import React, { cloneElement } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { mdiMenuDown, mdiMenuUp } from '@mdi/js';
 import Icon from '@mdi/react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
@@ -69,7 +69,7 @@ export const MenuItem = ({
   const classes = useStyles(depth)(styleProps);
   return (
     <div
-      className={classNames({
+      className={clsx({
         [classes.shadow]: depth === 0 && open,
       })}
     >
@@ -77,7 +77,7 @@ export const MenuItem = ({
         button
         component={component}
         divider={depth === 0}
-        className={classNames({
+        className={clsx({
           [classes.openItem]: open || showAsOpen,
           [classes.parentItem]: depth === 0,
           [classes.childItem]: depth > 0,

@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "dependencies": {
@@ -12,10 +12,8 @@
     "@material-ui/styles": "^4.2.1",
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
-    "@tecsinapse/es-utils": "^6.0.1",
+    "@tecsinapse/es-utils": "^6.0.10",
     "@tecsinapse/material-ui-color-picker": "^4.3.0",
-    "@tinymce/tinymce-react": "^3.0.1",
-    "classnames": "^2.2.6",
     "clsx": "^1.0.4",
     "graphql-hooks": "^3.4.0",
     "luxon": "^1.11.2",
@@ -31,8 +29,6 @@
     "react-window": "^1.5.1",
     "text-mask-addons": "^3.8.0",
     "text-mask-core": "^5.1.2",
-    "tinymce": "^5.0.4",
-    "tinymce-i18n": "^19.5.15",
     "uniqid": "^5.0.3"
   },
   "devDependencies": {
@@ -73,7 +69,6 @@
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-filesize": "^5.0.1",
     "rollup-plugin-local-resolve": "^1.0.7",
-    "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",

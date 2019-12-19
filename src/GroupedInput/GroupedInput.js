@@ -5,7 +5,7 @@ import { FormHelperText, Typography } from '@material-ui/core';
 import Add from '@material-ui/icons/Add';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { Input } from '../Inputs/Input';
 import { Divider } from '../Divider/Divider';
 import { IconButton } from '../Buttons/IconButton';
@@ -74,7 +74,7 @@ export const GroupedInput = ({
       <div className={classes.flex}>
         <Typography
           variant="h6"
-          className={classNames({ [classes.errorLabel]: !!error })}
+          className={clsx({ [classes.errorLabel]: !!error })}
         >
           {header} {!!error && '* '}
         </Typography>
@@ -98,7 +98,7 @@ export const GroupedInput = ({
       <Grid
         container
         spacing={spacing}
-        className={classNames(
+        className={clsx(
           { [classes.empty]: values.length === 0 },
           classes.paddingRight
         )}

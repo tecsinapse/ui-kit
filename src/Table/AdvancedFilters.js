@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-curly-newline */
 import React, { useContext, useState } from 'react';
-import className from 'classnames';
+import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -159,7 +159,7 @@ const Filters = ({
           {group.filters.map(filter => (
             <div
               key={`filter-${filter.name}`}
-              className={className(classes.filter, {
+              className={clsx(classes.filter, {
                 [classes.fullWidth]: filter.fullWidth,
               })}
             >
@@ -214,7 +214,7 @@ const AdvancedFilters = ({
       />
       <Divider />
       <div
-        className={className(classes.panelButton, {
+        className={clsx(classes.panelButton, {
           [classes.panelButtonMobile]: mobile,
         })}
       >

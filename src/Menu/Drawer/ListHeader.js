@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import SearchBar from 'material-ui-search-bar';
 import { grey } from '@material-ui/core/colors';
@@ -38,7 +38,7 @@ export const ListHeader = ({
 }) => {
   const classes = useStyles();
   return (
-    <Fragment>
+    <>
       <ListItem alignItems="flex-start" divider className={classes.flexColumn}>
         <DefaultProductTypography title={title} subtitle={subtitle} />
         <ListItemText className={classes.noPadding} secondary={productName} />
@@ -46,7 +46,7 @@ export const ListHeader = ({
       <ListItem
         alignItems="flex-start"
         divider
-        className={classNames(classes.flexColumn, classes.noPadding)}
+        className={clsx(classes.flexColumn, classes.noPadding)}
       >
         <SearchBar
           placeholder={searchBarPlaceholder}
@@ -56,6 +56,6 @@ export const ListHeader = ({
           onCancelSearch={() => setSearch('')}
         />
       </ListItem>
-    </Fragment>
+    </>
   );
 };

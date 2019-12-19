@@ -179,13 +179,13 @@ const themeCustom = (variant, overrides) => {
 
   return { ...overrides };
 };
-const theme = (variant, overrides) => {
+const theme = (variant, overrides, spacing) => {
   const themeCompile = {
     typography: {
       useNextVariants: true,
     },
     variant,
-    spacing: 12,
+    spacing,
     overrides: {
       MuiCollapse: {
         entered: {
@@ -200,9 +200,9 @@ const theme = (variant, overrides) => {
   };
   return createMuiTheme(themeCompile);
 };
-export function ThemeProvider({ children, variant, overrides }) {
+export function ThemeProvider({ children, variant, overrides, spacing = 12 }) {
   return (
-    <MuiThemeProvider theme={theme(variant, overrides)}>
+    <MuiThemeProvider theme={theme(variant, overrides, spacing)}>
       {children}
     </MuiThemeProvider>
   );
