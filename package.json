@@ -1,9 +1,28 @@
 {
   "name": "@tecsinapse/pickers",
   "description": "TecSinapse Pickers",
-  "version": "0.0.1",
+  "homepage": "https://github.com/tecsinapse/pickers#readme",
+  "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
+  "author": {
+    "name": "TecSinapse"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecsinapse/pickers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tecsinapse/pickers/issues"
+  },
+  "keywords": [
+    "date",
+    "pickers",
+    "react",
+    "tecsinapse",
+    "time",
+    "ui-kit"
+  ],
   "dependencies": {
     "@date-io/luxon": "^1.1.0",
     "@material-ui/core": "^4.2.1",
@@ -75,6 +94,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook -s ./storybook-public",
     "storybook:build": "build-storybook -c .storybook -o docs/"
   },
+  "license": "MIT",
   "husky": {
     "hooks": {
       "post-commit": "git update-index --again",
@@ -92,26 +112,5 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "sideEffects": false,
-  "directories": {
-    "doc": "docs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tecsinapse/pickers.git"
-  },
-  "keywords": [
-    "react",
-    "pickers",
-    "date",
-    "time",
-    "ui-kit",
-    "tecsinapse"
-  ],
-  "author": "TecSinapse",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tecsinapse/pickers/issues"
-  },
-  "homepage": "https://github.com/tecsinapse/pickers#readme"
+  "sideEffects": false
 }
