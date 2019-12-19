@@ -54,11 +54,13 @@ export const Wizard = ({
   classes = {},
   className,
   isSubmitting,
+  stepText = 'Step',
+  hideBottomStepLabel = false,
 }) => {
   const currentStep = React.Children.toArray(children)[activeStep];
   const [error, setError] = useState(false);
   const {
-    Wizard: { finishText, nextText, backText, stepText },
+    Wizard: { finishText, nextText, backText },
   } = useContext(LocaleContext);
 
   const innerClasses = useStyles();
@@ -117,7 +119,7 @@ export const Wizard = ({
       <div className={clsx(innerClasses.wizardFooter, classes.footer)}>
         <div className={innerClasses.stepLabels}>
           <Typography variant="button">
-            {stepText} {activeStep + 1}:
+            {!hideBottomStepLabel && `${stepText} ${activeStep + 1}:`}
           </Typography>
           &nbsp;
           <Typography>

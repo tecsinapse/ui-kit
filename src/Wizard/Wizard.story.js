@@ -18,6 +18,7 @@ const WizardWrapper = () => {
         setActiveStep(newStep);
         return null;
       }}
+      stepText="Passo"
     >
       <Step title="Step 1">1</Step>
       <Step title="Step 2">
