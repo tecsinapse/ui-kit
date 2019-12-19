@@ -19,4 +19,3 @@ export { Table } from './Table/Table';
 export * from './Inputs/Masks';
 export * from './Select/Select';
 export * from './Calendar/index';
-export * from './Schedule/TimeslotSelector/index';
