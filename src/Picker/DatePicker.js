@@ -5,10 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { DateTime, Interval } from 'luxon';
 import {
   DatePicker as DatePickerExt,
   KeyboardDatePicker,
+  MuiPickersContext,
 } from '@material-ui/pickers';
 
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build';
@@ -19,6 +19,7 @@ import {
   renderStyledColor,
   renderStyledLabel,
 } from '@tecsinapse/ui-kit/build/ThemeProvider';
+
 import { useStylesWeek } from './customWeekPickerStyles';
 
 const useStyle = makeStyles(theme => ({
@@ -114,6 +115,7 @@ export const DatePicker = ({
   weekly,
   ...props
 }) => {
+  const utils = useContext(MuiPickersContext);
   const classesWeek = useStylesWeek();
   const theme = useTheme();
   const styleProps = customDatePickerStyle(theme.variant);
@@ -132,16 +134,14 @@ export const DatePicker = ({
     selectedDateRender,
     dayInCurrentMonth
   ) => {
-    const dateClone = date;
-    const selectedDateClone = selectedDateRender;
+    const start = selectedDateRender.startOf('week');
+    const end = selectedDateRender.endOf('week');
 
-    const start = selectedDateClone.startOf('week');
-    const end = selectedDateClone.endOf('week');
+    const dayIsBetween =
+      utils.isAfterDay(start, date) && utils.isBeforeDay(end, date);
 
-    const dayIsBetween = Interval.fromDateTimes(start, end).contains(dateClone);
-
-    const isFirstDay = start.hasSame(dateClone, 'day');
-    const isLastDay = end.hasSame(dateClone, 'day');
+    const isFirstDay = utils.isSameDay(start, date);
+    const isLastDay = utils.isSameDay(end, date);
 
     const wrapperClassName = clsx({
       [classes2.highlight]: dayIsBetween,
@@ -158,7 +158,7 @@ export const DatePicker = ({
     return (
       <div className={wrapperClassName}>
         <IconButton className={dayClassName} href="">
-          <span> {dateClone.toFormat('d')} </span>
+          <span> {utils.getDayText(date)} </span>
         </IconButton>
       </div>
     );
@@ -166,9 +166,9 @@ export const DatePicker = ({
 
   const renderPointedDay = (date, selectedDateRender, dayInCurrentMonth) => {
     const isPointed =
-      pointedDates.find(pointDate => pointDate.hasSame(date, 'day')) !==
+      pointedDates.find(pointDate => utils.isSameDay(pointDate, date)) !==
       undefined;
-    const isSelected = date.hasSame(selectedDateRender, 'day');
+    const isSelected = utils.isSameDay(date, selectedDateRender);
 
     const dayClassName = clsx(classes.day, {
       [classes.nonCurrentMonthDay]: !dayInCurrentMonth,
@@ -193,7 +193,7 @@ export const DatePicker = ({
           >
             <span>
               <Typography variant="body2" color="inherit">
-                {date.toFormat('d')}{' '}
+                {utils.getDayText(date)}{' '}
               </Typography>
             </span>
           </Badge>
@@ -260,7 +260,7 @@ DatePicker.propTypes = {
   onChange: PropTypes.func,
   format: PropTypes.string,
   keyboardPicker: PropTypes.bool,
-  pointedDates: PropTypes.arrayOf(PropTypes.instanceOf(DateTime)),
+  pointedDates: PropTypes.array,
   inputVariant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
 };
 export default DatePicker;
