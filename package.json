@@ -31,7 +31,7 @@
     "@material-ui/styles": "^4.2.1",
     "@tecsinapse/es-utils": "^6.0.10",
     "@tecsinapse/material-ui-color-picker": "^4.3.0",
-    "@tecsinapse/ui-kit": "^3.3.2",
+    "@tecsinapse/ui-kit": "3.2.0-alpha.0",
     "clsx": "^1.0.4",
     "luxon": "^1.11.2",
     "prop-types": "^15.6.2"
