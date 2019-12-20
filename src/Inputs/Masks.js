@@ -190,3 +190,13 @@ export const CPF_CNPJ_MASK = rawValue => {
   }
   return CPF_MASK;
 };
+
+export const PERCENTAGE_MASK = createNumberMask({
+  prefix: '',
+  suffix: ' %',
+  thousandsSeparatorSymbol: '.',
+  decimalSymbol: ',',
+  allowDecimal: true,
+});
+
+export const YEAR_MASK = [/\d/, /\d/, /\d/, /\d/];

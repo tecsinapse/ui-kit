@@ -39,6 +39,7 @@ export const SelectUnstyled = ({
   allowSelectAll = true,
   selectPromptMessage = 'Selecione',
   portal,
+  minWidth,
   ...rest
 }) => {
   const valuesAllSelected = isMulti && value && value.length === options.length;
@@ -88,6 +89,7 @@ export const SelectUnstyled = ({
     isMulti,
     menuIsOpen,
     setMenuIsOpen,
+    minWidth,
     value: !isMulti
       ? getAnyFromArray(map.filter(c => c.value === value))
       : map.filter(c => value.includes(c.value)),
@@ -177,7 +179,7 @@ export const SelectUnstyled = ({
         key={key}
         error={!!error}
         fullWidth={fullWidth}
-        style={{ minWidth: '200px' }}
+        style={{ minWidth }}
       >
         <SizeMe noPlaceholder>
           {({ size }) => (
@@ -210,6 +212,7 @@ SelectUnstyled.defaultProps = {
   touched: false,
   selectPromptMessage: 'Selecione',
   selectAllMessage: 'Selecionar todos',
+  minWidth: '200px',
 };
 SelectUnstyled.propTypes = {
   allowSelectAll: PropTypes.bool,
@@ -234,6 +237,7 @@ SelectUnstyled.propTypes = {
   onBlur: PropTypes.func,
   selectPromptMessage: PropTypes.string,
   selectAllMessage: PropTypes.string,
+  minWidth: PropTypes.string,
 };
 
 export default SelectUnstyled;

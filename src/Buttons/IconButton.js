@@ -26,16 +26,17 @@ const useStyles = makeStyles({
   },
 });
 export const IconButton = React.forwardRef(
-  ({ disabled, variant, children, ...props }, ref) => {
+  ({ disabled, variant, children, className, ...props }, ref) => {
     const classes = useStyles();
+    const classdef = buttonClassNameDefinition(
+      classes,
+      disabled,
+      false,
+      variant
+    );
     return (
       <MaterialIconButton
-        className={clsx(
-          buttonClassNameDefinition(classes, disabled, false, variant)
-        )}
-        color={
-          ['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined
-        }
+        className={clsx(className, classdef)}
         disabled={disabled}
         {...props}
         ref={ref}
@@ -48,16 +49,10 @@ export const IconButton = React.forwardRef(
 
 IconButton.defaultProps = {
   disabled: false,
-  variant: 'success',
+  variant: undefined,
 };
 IconButton.propTypes = {
-  variant: PropTypes.oneOf([
-    'success',
-    'warning',
-    'error',
-    'primary',
-    'secondary',
-  ]),
+  variant: PropTypes.oneOf(['success', 'warning', 'error']),
   disabled: PropTypes.bool,
 };
 

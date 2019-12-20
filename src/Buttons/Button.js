@@ -21,42 +21,47 @@ export const buttonStyle = ({ spacing }) => ({
     color: 'white',
   },
   buttonColorDefault: {
-    backgroundColor: defaultGrey,
+    backgroundColor: `${defaultGrey} !important`,
     color: 'white',
     '&:hover': {
       backgroundColor: defaultGrey,
     },
   },
   buttonColorSuccess: {
-    backgroundColor: defaultGreen,
+    backgroundColor: `${defaultGreen} !important`,
     color: 'white',
     '&:hover': {
       backgroundColor: defaultGreen,
     },
   },
   buttonColorWarning: {
-    backgroundColor: defaultOrange,
+    backgroundColor: `${defaultOrange} !important`,
     color: 'white',
     '&:hover': {
       backgroundColor: defaultOrange,
     },
   },
   buttonColorError: {
-    backgroundColor: defaultRed,
+    backgroundColor: `${defaultRed} !important`,
     color: 'white',
     '&:hover': {
       backgroundColor: defaultRed,
     },
   },
 });
-export function buttonClassNameDefinition(classes, disabled, margin, variant) {
+export function buttonClassNameDefinition(
+  classes,
+  disabled,
+  margin,
+  customVariant
+) {
   return {
     [classes.disabled]: disabled,
     [classes.marginTop]: margin,
-    [classes.buttonColorDefault]: variant === 'default',
-    [classes.buttonColorSuccess]: variant === 'success',
-    [classes.buttonColorWarning]: variant === 'warning',
-    [classes.buttonColorError]: variant === 'error',
+    [classes.buttonColorDefault]: customVariant === 'default',
+    [classes.buttonColorSuccess]: customVariant === 'success',
+    [classes.buttonColorWarning]: customVariant === 'warning',
+    [classes.buttonColorError]: customVariant === 'error',
   };
 }
 const useStyles = makeStyles(buttonStyle);
@@ -67,7 +72,7 @@ export const Button = React.forwardRef(
       submitting,
       fullWidth,
       disabled,
-      variant,
+      customVariant,
       margin,
       type,
       size = 'medium',
@@ -82,17 +87,13 @@ export const Button = React.forwardRef(
       classes,
       disabled,
       margin,
-      variant
+      customVariant
     );
     return (
       <MaterialButton
         type={type}
-        variant="contained"
         classes={{ label: classes.buttonSpan }}
         className={clsx(className, classdef)}
-        color={
-          ['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined
-        }
         fullWidth={fullWidth}
         disabled={disabled || submitting}
         size={size}
@@ -108,25 +109,16 @@ export const Button = React.forwardRef(
 Button.defaultProps = {
   submitting: false,
   margin: false,
-  disabled: false,
   fullWidth: false,
-  variant: 'success',
+  customVariant: undefined,
   type: 'submit',
   size: 'medium',
 };
 Button.propTypes = {
-  variant: PropTypes.oneOf([
-    'default',
-    'success',
-    'warning',
-    'error',
-    'primary',
-    'secondary',
-  ]),
+  customVariant: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
   submitting: PropTypes.bool,
   fullWidth: PropTypes.bool,
   margin: PropTypes.bool,
-  disabled: PropTypes.bool,
   type: PropTypes.string,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };

@@ -20,9 +20,9 @@ export const FloatingButton = ({
   children,
   disabled,
   variantFab,
-  variant,
   size,
   onClick,
+  ...props
 }) => {
   const classes = useStyles();
   return (
@@ -30,15 +30,12 @@ export const FloatingButton = ({
       aria-label="add"
       disabled={disabled}
       onClick={onClick}
-      variant={variantFab}
       size={size}
-      color={
-        ['primary', 'secondary'].indexOf(variant) > -1 ? variant : undefined
-      }
       className={clsx(
         className,
-        buttonClassNameDefinition(classes, disabled, false, variant)
+        buttonClassNameDefinition(classes, disabled, false, variantFab)
       )}
+      {...props}
     >
       {children || <Add />}
     </Fab>
@@ -46,16 +43,10 @@ export const FloatingButton = ({
 };
 FloatingButton.defaultProps = {
   disabled: false,
-  variant: 'success',
+  variantFab: undefined,
 };
 FloatingButton.propTypes = {
-  variant: PropTypes.oneOf([
-    'success',
-    'warning',
-    'error',
-    'primary',
-    'secondary',
-  ]),
+  variantFab: PropTypes.oneOf(['success', 'warning', 'error']),
   disabled: PropTypes.bool,
 };
 export default FloatingButton;
