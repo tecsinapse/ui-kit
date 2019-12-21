@@ -1,25 +1,28 @@
-module.exports = {
-  module: {
-    rules: [
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
+
+module.exports = async ({ config }) => {
+  config.module.rules.push({
+    test: /\.(stories|story)\.mdx$/,
+    use: [
       {
-        test: /\.story\.js?$/,
-        loaders: [require.resolve('@storybook/source-loader')],
-        enforce: 'pre',
+        loader: 'babel-loader',
+        // may or may not need this line depending on your app's setup
+        options: {
+          plugins: ['@babel/plugin-transform-react-jsx'],
+        },
       },
       {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-        ],
+        loader: '@mdx-js/loader',
+        options: {
+          compilers: [createCompiler({})],
+        },
       },
     ],
-  },
+  });
+  config.module.rules.push({
+    test: /\.story\.js?$/,
+    loaders: [require.resolve('@storybook/source-loader')],
+    enforce: 'pre',
+  });
+  return config;
 };

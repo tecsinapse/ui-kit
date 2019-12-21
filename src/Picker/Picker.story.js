@@ -1,16 +1,18 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Typography from '@material-ui/core/Typography';
-import { DateTime } from 'luxon';
-import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
-import { DatePicker } from './DatePicker';
-import { TimePicker } from './TimePicker';
-import { ColorPicker } from './ColorPicker';
-import { PickersProvider } from './PickersProvider';
-import { DateTimePicker } from './DateTimePicker';
+import {DateTime} from 'luxon';
+import {DatePicker} from './DatePicker';
+import {TimePicker} from './TimePicker';
+import {PickersProvider} from './PickersProvider';
+import {DateTimePicker} from './DateTimePicker';
 
-const DatePickerStory = () => {
+/*export default {
+  title: 'Picker/Date',
+  component: DatePicker,
+};*/
+
+export const DatePickerStory = () => {
   const [selectedDate, setSelectedDate] = React.useState(
     new Date('2014-08-18T21:11:54')
   );
@@ -28,7 +30,7 @@ const DatePickerStory = () => {
   );
 };
 
-const CustomLabelDatePickerStory = () => {
+export const CustomLabelDatePickerStory = () => {
   const [selectedDate, setSelectedDate] = React.useState(
     DateTime.fromISO('2019-08-25T09:08:34.123')
   );
@@ -50,7 +52,7 @@ const CustomLabelDatePickerStory = () => {
   );
 };
 
-const WeeklyDatePickerStory = () => {
+export const WeeklyDatePickerStory = () => {
   const [selectedDate, setSelectedDate] = React.useState(
     new Date('2014-08-18T21:11:54')
   );
@@ -68,7 +70,7 @@ const WeeklyDatePickerStory = () => {
   );
 };
 
-const TimePickerStory = () => {
+export const TimePickerStory = () => {
   const [selectedTime, setSelecteTime] = React.useState(
     new Date('2014-08-18T21:11:54')
   );
@@ -84,7 +86,7 @@ const TimePickerStory = () => {
   );
 };
 
-const DateTimePickerStory = () => {
+export const DateTimePickerStory = () => {
   const [selectedDateTime, setSelecteDatetime] = React.useState(
     new Date('2014-08-18T21:11:54')
   );
@@ -100,7 +102,7 @@ const DateTimePickerStory = () => {
   );
 };
 
-storiesOf(`Picker`, module)
+/*storiesOf(`Picker`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Date Picker', () => <DatePickerStory />)
   .add('Date Time Picker', () => <DateTimePickerStory />)
@@ -109,4 +111,5 @@ storiesOf(`Picker`, module)
   .add('Color Picker', () => (
     <ColorPicker name="color" defaultValue="#000" label="Color Picker" />
   ))
-  .add('Time Picker', () => <TimePickerStory />);
+  .add('Time Picker', () => <TimePickerStory />)
+  .addParameters({ component: DatePicker });*/
