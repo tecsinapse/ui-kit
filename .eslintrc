@@ -5,5 +5,5 @@
     "import/no-cycle": "off",
     "react/jsx-props-no-spreading": "off"
   },
-  "extends": ["react-app", "@tecsinapse/tecsinapse-js"]
+  "extends": ["react-app", "@tecsinapse/tecsinapse-js", "plugin:mdx/recommended"]
 }

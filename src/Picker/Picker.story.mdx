@@ -1,15 +1,12 @@
-import {
-  Meta,
-  Story,
-  Props,
-  Source,
-} from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
 import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
 import { DatePicker } from './DatePicker';
 import { DateTimePicker } from './DateTimePicker';
 import { TimePicker } from './TimePicker';
+import { ColorPicker } from './ColorPicker';
 import { PickersProvider } from './PickersProvider';
 import { DateTime } from 'luxon';
+import { Typography } from '@material-ui/core';
 
 <Meta title="Picker" decorators={[story => <DivFlex>{story()}</DivFlex>]} />
 
@@ -54,9 +51,11 @@ The DateTimePicker component can receive the following props:
 
 <Props of={DateTimePicker} />
 
-## Weekly Date Picker
-
 ## Color Picker
+
+The DateTimePicker component can receive the following props:
+
+<Props of={ColorPicker} />
 
 ## Time Picker
 
@@ -91,12 +90,33 @@ Here you can check the code snippet for the story.
 
 <Source id="picker--date" />
 
-## Custom Text Input Date Picker
+## Date Time
 
-<Story name="Custom Text Input Date" parameters={{ docs: { disable: true } }}>
+<Story name="Date Time" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const [selectedDateTime, setSelecteDatetime] = React.useState(
+      new Date('2014-08-18T21:11:54')
+    );
+    return (
+      <PickersProvider>
+        <DateTimePicker
+          selectedDateTime={selectedDateTime}
+          onChange={dateTime => setSelecteDatetime(dateTime)}
+          name="datetimepicker"
+        />
+      </PickersProvider>
+    );
+  }}
+</Story>
+
+<Source id="picker--date-time" />
+
+## Custom Input
+
+<Story name="Custom Input" parameters={{ docs: { disable: true } }}>
   {() => {
     const [selectedDate, setSelectedDate] = React.useState(
-      new Date('2014-08-18T21:11:54')
+      DateTime.fromISO('2019-08-25T09:08:34.123')
     );
     return (
       <PickersProvider>
@@ -104,12 +124,68 @@ Here you can check the code snippet for the story.
           selectedDate={selectedDate}
           onChange={date => setSelectedDate(date)}
           format="dd/MM/yyyy"
-          name="datetimepicker"
-          pointedDates={[DateTime.fromISO('2014-08-25T09:08:34.123')]}
+          name="customdatepicker"
+          customTextFieldComponentInput={() => (
+            <Typography variant="h6" color="secondary">
+              {selectedDate.setLocale('pt-BR').toFormat('MMMM, yyyy')}
+            </Typography>
+          )}
         />
       </PickersProvider>
     );
   }}
 </Story>
 
-<Source id="picker--date" />
+<Source id="picker--custom-input" />
+
+## Week
+
+<Story name="Week" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const [selectedDate, setSelectedDate] = React.useState(
+      new Date('2014-08-18T21:11:54')
+    );
+    return (
+      <PickersProvider>
+        <DatePicker
+          weekly
+          selectedDate={selectedDate}
+          onChange={date => setSelectedDate(date)}
+          format="dd/MM/yyyy"
+          name="weekpicker"
+        />
+      </PickersProvider>
+    );
+  }}
+</Story>
+
+<Source id="picker--week" />
+
+## Time
+
+<Story name="Time" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const [selectedTime, setSelecteTime] = React.useState(
+      new Date('2014-08-18T21:11:54')
+    );
+    return (
+      <PickersProvider>
+        <TimePicker
+          selectedTime={selectedTime}
+          onChange={time => setSelecteTime(time)}
+          name="timepicker"
+        />
+      </PickersProvider>
+    );
+  }}
+</Story>
+
+<Source id="picker--time" />
+
+## Color
+
+<Story name="Color" parameters={{ docs: { disable: true } }}>
+  <ColorPicker name="color" defaultValue="#000" label="Color Picker" />
+</Story>
+
+<Source id="picker--color" />
