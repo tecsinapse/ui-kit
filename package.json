@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/wizard",
   "description": "TecSinapse Wizard",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "dependencies": {
@@ -82,5 +82,22 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecsinapse/wizard.git"
+  },
+  "keywords": [
+    "react",
+    "tecsinapse",
+    "wizard",
+    "ui-kit",
+    "material-ui"
+  ],
+  "author": "TecSinapse",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tecsinapse/wizard/issues"
+  },
+  "homepage": "https://github.com/tecsinapse/wizard#readme"
 }
