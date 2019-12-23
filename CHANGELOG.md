@@ -1,3 +1,16 @@
+<a name="1.1.0"></a>
+## 1.1.0 (2019-12-23)
+
+* Fix expect ([bea7328](https://github.com/tecsinapse/pickers/commit/bea7328))
+* Setup MDX docs ([4f561f5](https://github.com/tecsinapse/pickers/commit/4f561f5))
+* Setup tests ([e5fe0f1](https://github.com/tecsinapse/pickers/commit/e5fe0f1))
+* Updating deps ([1aa2b94](https://github.com/tecsinapse/pickers/commit/1aa2b94))
+* Updating libs ([6eb2ce0](https://github.com/tecsinapse/pickers/commit/6eb2ce0))
+* Updating MDX stories ([4d1067d](https://github.com/tecsinapse/pickers/commit/4d1067d))
+* Use utils from provider to remove luxon dependency ([a8ba79b](https://github.com/tecsinapse/pickers/commit/a8ba79b))
+
+
+
 ## 1.0.0 (2019-12-16)
 
 *  - Added style do selected item background color by props ([f2f9489](https://github.com/tecsinapse/pickers/commit/f2f9489))

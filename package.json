@@ -2,7 +2,7 @@
   "name": "@tecsinapse/pickers",
   "description": "TecSinapse Pickers",
   "homepage": "https://github.com/tecsinapse/pickers#readme",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "author": {
