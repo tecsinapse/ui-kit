@@ -41,5 +41,5 @@ test('Render Calendar', () => {
     </MuiThemeProvider>
   );
 
-  expect(container).toContainElement(getByText('M08, 2014'));
+  expect(container).toContainElement(getByText('August, 2014'));
 });
