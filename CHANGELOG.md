@@ -1,3 +1,9 @@
+## <small>1.0.1 (2019-12-23)</small>
+
+* Updating package.json ([2701681](https://github.com/tecsinapse/wizard/commit/2701681))
+
+
+
 ## 1.0.0 (2019-12-23)
 
 *  - Added style do selected item background color by props ([f2f9489](https://github.com/tecsinapse/wizard/commit/f2f9489))
