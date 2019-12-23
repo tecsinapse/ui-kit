@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Step } from '@material-ui/core';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
 import { Wizard } from './Wizard';
-import { DivFlex } from '../withFlexCenter';
 
 const WizardWrapper = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -32,7 +31,7 @@ const WizardWrapper = () => {
   );
 };
 
-storiesOf(`${GROUPS.FORMS}|Wizard`, module)
+storiesOf(`Wizard`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('wizard 2 steps', () => (
     <div style={{ width: 800 }}>
