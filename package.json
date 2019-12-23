@@ -1,9 +1,27 @@
 {
   "name": "@tecsinapse/wizard",
   "description": "TecSinapse Wizard",
-  "version": "1.0.0",
+  "homepage": "https://github.com/tecsinapse/wizard#readme",
+  "version": "1.0.1",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
+  "author": {
+    "name": "TecSinapse"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecsinapse/wizard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tecsinapse/wizard/issues"
+  },
+  "keywords": [
+    "material-ui",
+    "react",
+    "tecsinapse",
+    "ui-kit",
+    "wizard"
+  ],
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "@material-ui/styles": "^4.2.1",
@@ -65,6 +83,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:build": "build-storybook -c .storybook -o docs/"
   },
+  "license": "MIT",
   "husky": {
     "hooks": {
       "post-commit": "git update-index --again",
@@ -82,22 +101,5 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "sideEffects": false,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tecsinapse/wizard.git"
-  },
-  "keywords": [
-    "react",
-    "tecsinapse",
-    "wizard",
-    "ui-kit",
-    "material-ui"
-  ],
-  "author": "TecSinapse",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tecsinapse/wizard/issues"
-  },
-  "homepage": "https://github.com/tecsinapse/wizard#readme"
+  "sideEffects": false
 }
