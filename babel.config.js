@@ -5,6 +5,7 @@ module.exports = function presets(api) {
   if (env === 'test') {
     delete envConfig.modules;
     plugins.push('@babel/plugin-transform-modules-commonjs');
+    plugins.push('@babel/plugin-transform-runtime');
   }
   return {
     presets: ['@babel/preset-react', ['@babel/preset-env', envConfig]],
