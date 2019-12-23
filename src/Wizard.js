@@ -6,9 +6,9 @@ import { makeStyles } from '@material-ui/styles';
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
 import clsx from 'clsx';
-import { defaultGreen, defaultRed } from '../colors';
-import { Button } from '../Buttons/Button';
-import { LocaleContext } from '../LocaleProvider';
+import { defaultGreen, defaultRed } from '@tecsinapse/ui-kit/build/colors';
+import { Button } from '@tecsinapse/ui-kit';
+import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 
 const useStyles = makeStyles(theme => ({
   margin: {
