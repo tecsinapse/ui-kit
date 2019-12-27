@@ -1,3 +1,5 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/require-default-props */
 import React, { useContext, useState } from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -9,6 +11,7 @@ import clsx from 'clsx';
 import { defaultGreen, defaultRed } from '@tecsinapse/ui-kit/build/colors';
 import { Button } from '@tecsinapse/ui-kit';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   margin: {
@@ -159,4 +162,21 @@ export const Wizard = ({
       </div>
     </div>
   );
+};
+
+Wizard.defaultProps = {
+  classes: {},
+  stepText: 'Step',
+  hideBottomStepLabel: false,
+};
+
+Wizard.propTypes = {
+  children: PropTypes.any,
+  activeStep: PropTypes.number,
+  onChange: PropTypes.func,
+  classes: PropTypes.object,
+  className: PropTypes.any,
+  isSubmitting: PropTypes.bool,
+  stepText: PropTypes.string,
+  hideBottomStepLabel: PropTypes.bool,
 };

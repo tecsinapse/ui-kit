@@ -1,7 +1,7 @@
-import { addDecorator, configure } from '@storybook/react';
+import { addDecorator, addParameters, configure } from '@storybook/react';
 import React from 'react';
 import { setOptions } from '@storybook/addon-options';
-
+import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks';
 import { ThemeProvider } from '@tecsinapse/ui-kit';
 
 setOptions({
@@ -11,14 +11,24 @@ setOptions({
   url: 'https://github.com/tecsinapse/wizard',
 });
 
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
+});
+
 const withThemeProvider = storyFn => (
   <ThemeProvider variant="orange">{storyFn()}</ThemeProvider>
 );
-const req = require.context('../src', true, /\.story\.js$/);
+const req = require.context('../src', true, /\.story\.(js|mdx)$/);
 
 function loadStories() {
   addDecorator(withThemeProvider);
-  req.keys().forEach(filename => req(filename));
+  return req
+    .keys()
+    .map(fname => req(fname))
+    .filter(exp => !!exp.default);
 }
 
 configure(loadStories, module);
