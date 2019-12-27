@@ -1,3 +1,22 @@
+## 1.1.0 (2019-12-27)
+
+* Add app-wfv theme provider ([ea9185a](https://github.com/tecsinapse/wizard/commit/ea9185a))
+* Add input mask percentage ([47c5df6](https://github.com/tecsinapse/wizard/commit/47c5df6))
+* Add picker moment for app-wfv ([6d1f49d](https://github.com/tecsinapse/wizard/commit/6d1f49d))
+* Fix Floatting and Icon Buttons to avoid forcing a specific variant ([e3da7f7](https://github.com/tecsinapse/wizard/commit/e3da7f7))
+* Fix masks and select ([f253605](https://github.com/tecsinapse/wizard/commit/f253605))
+* Fix variant prop to support material variant ([79506f1](https://github.com/tecsinapse/wizard/commit/79506f1))
+* Remove changes on pickers ([d338093](https://github.com/tecsinapse/wizard/commit/d338093))
+* Remove moment from package ([56a29fa](https://github.com/tecsinapse/wizard/commit/56a29fa))
+* Removing Calendar and Pickers from ui-kit ([6691da7](https://github.com/tecsinapse/wizard/commit/6691da7))
+* Removing TimeslotSelector from ui-kit ([9c91146](https://github.com/tecsinapse/wizard/commit/9c91146))
+* Setup Jest ([838d98c](https://github.com/tecsinapse/wizard/commit/838d98c))
+* Setup MDX docs ([0d9d58c](https://github.com/tecsinapse/wizard/commit/0d9d58c))
+* Updating deps ([f79ac59](https://github.com/tecsinapse/wizard/commit/f79ac59))
+* Updating libs ([6eb2ce0](https://github.com/tecsinapse/wizard/commit/6eb2ce0))
+
+
+
 ## <small>1.0.1 (2019-12-23)</small>
 
 * Updating package.json ([2701681](https://github.com/tecsinapse/wizard/commit/2701681))
