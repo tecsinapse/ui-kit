@@ -4,6 +4,7 @@ node_js:
 script:
   - yarn storybook:build
   - yarn build
+  - yarn test
 
 cache:
   yarn: true
