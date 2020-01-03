@@ -3,7 +3,8 @@
   "rules": {
     "prettier/prettier": "error",
     "import/no-cycle": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off"
   },
   "extends": ["react-app", "@tecsinapse/tecsinapse-js"]
 }

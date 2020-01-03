@@ -16,5 +16,6 @@ export { AutoRotatingCarousel } from './Carousel/AutoRotatingCarousel';
 export { Slide } from './Carousel/Slide';
 export { Login } from './Login/Login';
 export { Table } from './Table/Table';
+export { UiKitCard as Card } from './Card/UiKitCard';
 export * from './Inputs/Masks';
 export * from './Select/Select';
