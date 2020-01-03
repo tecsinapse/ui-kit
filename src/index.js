@@ -14,7 +14,6 @@ export { Snackbar } from './Snackbar/Snackbar';
 export { ThemeProvider } from './ThemeProvider';
 export { AutoRotatingCarousel } from './Carousel/AutoRotatingCarousel';
 export { Slide } from './Carousel/Slide';
-export { Login } from './Login/Login';
 export { Table } from './Table/Table';
 export * from './Inputs/Masks';
 export * from './Select/Select';
