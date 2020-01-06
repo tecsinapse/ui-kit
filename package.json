@@ -1,9 +1,27 @@
 {
   "name": "@tecsinapse/table",
   "description": "TecSinapse Table",
-  "version": "0.0.1",
+  "homepage": "https://github.com/tecsinapse/table#readme",
+  "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
+  "author": {
+    "name": "TecSinapse"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecsinapse/table.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tecsinapse/table/issues"
+  },
+  "keywords": [
+    "material-ui",
+    "react",
+    "table",
+    "tecsinapse",
+    "ui-kit"
+  ],
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",
@@ -70,6 +88,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:build": "build-storybook -c .storybook -o docs/"
   },
+  "license": "MIT",
   "husky": {
     "hooks": {
       "post-commit": "git update-index --again",
@@ -87,22 +106,5 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "sideEffects": false,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tecsinapse/table.git"
-  },
-  "keywords": [
-    "table",
-    "react",
-    "material-ui",
-    "tecsinapse",
-    "ui-kit"
-  ],
-  "author": "TecSinapse",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tecsinapse/table/issues"
-  },
-  "homepage": "https://github.com/tecsinapse/table#readme"
+  "sideEffects": false
 }
