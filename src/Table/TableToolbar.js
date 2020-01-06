@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/styles';
+import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import TableToolbarSelection from './TableToolbarSelection';
 import TableAdvancedFilters from './TableAdvancedFilters';
 import { toolbarOptionsTypes } from './TablePropTypes';
 import TableExporter from './TableExporter';
 import SelectedFilters from './SelectedFilters';
-import { LocaleContext } from '../LocaleProvider';
 
 const tableToolbarStyles = makeStyles(theme => ({
   toolbar: {

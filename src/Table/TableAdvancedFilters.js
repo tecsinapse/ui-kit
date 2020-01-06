@@ -7,8 +7,8 @@ import Popover from '@material-ui/core/Popover';
 import Slide from '@material-ui/core/Slide';
 import Dialog from '@material-ui/core/Dialog';
 
+import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import AdvancedFilters from './AdvancedFilters';
-import { LocaleContext } from '../LocaleProvider';
 
 const onApplyFilter = (
   setAnchorEl,

@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Popover from '@material-ui/core/Popover';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/styles';
-import { LocaleContext } from '../LocaleProvider';
+import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 
 const styles = makeStyles(theme => ({
   container: {
@@ -145,7 +145,7 @@ const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
       });
     setFiltersSelected(selectedFilters);
     return undefined; // Returning undefined due to React warning on console
-  }, [filtersSelected]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [advancedFilters, filters]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const classes = styles();
   const {

@@ -2,10 +2,9 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
 
-import Table from './Table';
+import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
+import { Table } from './Table';
 import { cars } from './exampleData';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
-import { DivFlex } from '../withFlexCenter';
 
 const columns = [
   {
@@ -45,6 +44,6 @@ const CustomRenderTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+storiesOf(`Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Custom Render Table', () => <CustomRenderTable />);

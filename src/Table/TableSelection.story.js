@@ -4,10 +4,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
 import { storiesOf } from '@storybook/react';
 
+import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
 import { Table } from './Table';
 import { cars } from './exampleData';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
-import { DivFlex } from '../withFlexCenter';
 
 const columns = [
   {
@@ -79,6 +78,6 @@ const SelectionTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+storiesOf(`Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Selection Table', () => <SelectionTable />);

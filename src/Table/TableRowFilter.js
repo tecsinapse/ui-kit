@@ -5,14 +5,13 @@ import TableRow from '@material-ui/core/TableRow';
 import { mdiMagnify } from '@mdi/js';
 import Icon from '@mdi/react';
 import { resolveObj } from '@tecsinapse/es-utils/build';
-import { Input } from '../Inputs/Input';
-import { Select } from '../Select/Select';
+import { Input, Select } from '@tecsinapse/ui-kit';
+import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import {
-  isRemoteData,
   EXACT_MATCH_CONST,
   INCLUDE_MATCH_CONST,
+  isRemoteData,
 } from './tableFunctions';
-import { LocaleContext } from '../LocaleProvider';
 
 const onChange = (onChangeFilter, setHeaderFilters) => ({ target }) => {
   const { name } = target;
@@ -89,6 +88,15 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
           ...selectOptions,
         ];
         const { value: filterValue } = headerFilters[field] || {};
+        const handleChange = value => {
+          onChange(onChangeFilter, setHeaderFilters)({
+            target: {
+              name: field,
+              value,
+              matchType: EXACT_MATCH_CONST,
+            },
+          });
+        };
         return (
           <TableCell key={field} align={options.numeric ? 'right' : 'left'}>
             {filter && select && (
@@ -99,15 +107,7 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
                 fullWidth
                 options={selectOptions || []}
                 menuPlacement="auto"
-                onChange={value =>
-                  onChange(onChangeFilter, setHeaderFilters)({
-                    target: {
-                      name: field,
-                      value,
-                      matchType: EXACT_MATCH_CONST,
-                    },
-                  })
-                }
+                onChange={handleChange}
                 label={title}
               />
             )}

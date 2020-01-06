@@ -3,10 +3,9 @@ import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
 import { makeStyles } from '@material-ui/core';
 
+import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
 import { Table } from './Table';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { countries } from './exampleData';
-import { DivFlex } from '../withFlexCenter';
 
 const useStyle = makeStyles(() => ({
   rootMobile: {
@@ -121,6 +120,6 @@ const AdvancedFiltersTable = () => {
   );
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+storiesOf(`Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Advanced Filters Table', () => <AdvancedFiltersTable />);
