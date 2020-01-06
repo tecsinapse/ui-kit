@@ -14,7 +14,6 @@ export { Snackbar } from './Snackbar/Snackbar';
 export { ThemeProvider } from './ThemeProvider';
 export { AutoRotatingCarousel } from './Carousel/AutoRotatingCarousel';
 export { Slide } from './Carousel/Slide';
-export { Table } from './Table/Table';
 export { UiKitCard as Card } from './Card/UiKitCard';
 export * from './Inputs/Masks';
 export * from './Select/Select';
