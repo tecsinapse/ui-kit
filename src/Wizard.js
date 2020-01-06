@@ -4,7 +4,7 @@ import React, { useContext, useState } from 'react';
 import Stepper from '@material-ui/core/Stepper';
 import StepLabel from '@material-ui/core/StepLabel';
 import Step from '@material-ui/core/Step';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
 import clsx from 'clsx';
@@ -12,6 +12,7 @@ import { defaultGreen, defaultRed } from '@tecsinapse/ui-kit/build/colors';
 import { Button } from '@tecsinapse/ui-kit';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import PropTypes from 'prop-types';
+import { renderStyledColor } from '@tecsinapse/ui-kit/build/ThemeProvider';
 
 const useStyles = makeStyles(theme => ({
   margin: {
@@ -65,7 +66,7 @@ export const Wizard = ({
   const {
     Wizard: { finishText, nextText, backText },
   } = useContext(LocaleContext);
-
+  const { themeVariant } = useTheme();
   const innerClasses = useStyles();
   const nextStep = async increment => {
     const onChangeError = await onChange(activeStep + increment);
@@ -134,7 +135,8 @@ export const Wizard = ({
             <Button
               size="large"
               type="button"
-              variant="default"
+              variant="contained"
+              color={renderStyledColor(themeVariant)}
               submitting={isSubmitting}
               className={innerClasses.margin}
               onClick={() => {
@@ -148,7 +150,7 @@ export const Wizard = ({
             size="large"
             type="button"
             submitting={isSubmitting}
-            variant={error ? 'error' : 'success'}
+            customVariant={error ? 'error' : 'success'}
             className={innerClasses.margin}
             onClick={() => {
               nextStep(+1);
