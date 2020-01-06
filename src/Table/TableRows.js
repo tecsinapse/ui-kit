@@ -5,9 +5,9 @@ import { isEmptyOrNull, isNotEmptyOrNull } from '@tecsinapse/es-utils/build';
 import { TableCell } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
 import { VisibilityOff } from '@material-ui/icons';
+import { EmptyStateWrapper } from '@tecsinapse/ui-kit/build/EmptyState/EmptyState';
+import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import TableCells from './TableCells';
-import { EmptyStateWrapper } from '../EmptyState/EmptyState';
-import { LocaleContext } from '../LocaleProvider';
 
 const tableRowStyles = hasSelection =>
   makeStyles(theme => ({

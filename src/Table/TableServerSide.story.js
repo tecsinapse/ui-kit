@@ -3,10 +3,9 @@ import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
 
 import { resolveObj } from '@tecsinapse/es-utils/build';
-import Table from './Table';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
+import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
+import { Table } from './Table';
 import { countries } from './exampleData';
-import { DivFlex } from '../withFlexCenter';
 
 const columns = [
   {
@@ -96,6 +95,6 @@ const ServerSideTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+storiesOf(`Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Server Side Table', () => <ServerSideTable />);

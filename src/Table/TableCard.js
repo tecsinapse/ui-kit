@@ -17,8 +17,7 @@ import clsx from 'clsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { isNotEmptyOrNull } from '@tecsinapse/es-utils/build';
 
-import { IconButton } from '../Buttons/IconButton';
-import { Divider } from '../Divider/Divider';
+import { Divider, IconButton } from '@tecsinapse/ui-kit';
 import { resolveData } from './tableFunctions';
 import { getActionButtons } from './TableRowActions';
 

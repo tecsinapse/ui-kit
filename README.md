@@ -1,20 +1,20 @@
 # Iniciando
 
-[![Build Status](https://travis-ci.org/tecsinapse/ui-kit.svg?branch=master)](https://travis-ci.org/tecsinapse/ui-kit)
+[![Build Status](https://travis-ci.org/tecsinapse/table.svg?branch=master)](https://travis-ci.org/tecsinapse/table)
 
 
 
-***@tecsinapse/ui-kit*** é uma biblioteca contendo diversos componentes para facilitar a vida do dev react ;)
+***@tecsinapse/table*** é uma biblioteca contendo componente de tabela para facilitar a vida do dev react ;)
 
 ## Get Started
 
-Para acessar os documentos acesse nosso [storybook](https://github.com/tecsinapse/ui-kit)
+Para acessar os documentos acesse nosso [storybook](https://github.com/tecsinapse/table)
 
 É recomendável utilizar uma versão `"node": ">=12.0.0"` devido a performance de build superior
 
 Para add em seu projeto:
 ```
-    yarn add @tecsinapse/ui-kit
+    yarn add @tecsinapse/table
 ```
 
 E adicione o ThemeProvider em seu projeto como abaixo:
@@ -25,10 +25,11 @@ import ReactDOM from "react-dom";
 import App from "./components/App/App";
 import * as serviceWorker from "./serviceWorker";
 import { ThemeProvider } from "@tecsinapse/ui-kit";
+import { Table } from "@tecsinapse/table";
 
 ReactDOM.render(
   <ThemeProvider variant="black">
-    <App />
+    <Table />
   </ThemeProvider>,
 
   document.getElementById("root")
@@ -51,7 +52,7 @@ Para rodar o app de exemplo, fazer o link da lib na pasta de exemplo após execu
 ```
     yarn build && yarn link
     cd example/
-    yarn link @tecsinapse/ui-kit
+    yarn link @tecsinapse/table
     yarn install && yarn start
 ```
 
