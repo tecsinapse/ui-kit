@@ -2,9 +2,8 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { storiesOf } from '@storybook/react';
 
+import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
 import { Table } from './Table';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
-import { DivFlex } from '../withFlexCenter';
 
 const createCar = (id, brand, name, year, price) => ({
   id,
@@ -64,6 +63,6 @@ const PaginationTable = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+storiesOf(`Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Sort Table', () => <PaginationTable />);

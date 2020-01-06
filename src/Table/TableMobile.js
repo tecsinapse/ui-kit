@@ -10,8 +10,8 @@ import {
   List,
 } from 'react-virtualized';
 
-import { LocaleContext } from '../LocaleProvider';
-import { EmptyStateWrapper } from '../EmptyState/EmptyState';
+import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
+import { EmptyStateWrapper } from '@tecsinapse/ui-kit/build/EmptyState/EmptyState';
 import { TableCard } from './TableCard';
 
 export const TableMobile = ({

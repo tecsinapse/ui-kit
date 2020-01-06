@@ -7,6 +7,7 @@ import TableRow from '@material-ui/core/TableRow';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/styles';
 
+import { useWindowSize } from '@tecsinapse/ui-kit/build/ThemeProvider';
 import { tableStyles } from './tableStyle';
 import TableRowFilter from './TableRowFilter';
 import { TableMobile } from './TableMobile';
@@ -33,7 +34,6 @@ import {
   useUpdateDataRemote,
   useUpdatePageData,
 } from './tableHooks';
-import { useWindowSize } from '../ThemeProvider';
 
 const TableComponent = props => {
   const {

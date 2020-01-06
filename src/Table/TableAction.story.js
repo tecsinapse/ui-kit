@@ -6,11 +6,10 @@ import MailIcon from '@material-ui/icons/Mail';
 import DeleteIcon from '@material-ui/icons/DeleteForever';
 import { storiesOf } from '@storybook/react';
 
+import { defaultRed } from '@tecsinapse/ui-kit/build/colors';
+import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
 import { Table } from './Table';
 import { cars } from './exampleData';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
-import { defaultRed } from '../colors';
-import { DivFlex } from '../withFlexCenter';
 
 const columns = [
   {
@@ -112,7 +111,7 @@ const ActionTableVertical = () => (
   </Paper>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+storiesOf(`Table`, module)
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Action Table', () => <ActionTable />)
   .add('Action Table Vertical', () => <ActionTableVertical />);

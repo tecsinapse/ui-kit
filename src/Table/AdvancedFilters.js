@@ -10,11 +10,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { mdiArrowLeft } from '@mdi/js';
 import Icon from '@mdi/react';
 
-import { IconButton } from '../Buttons/IconButton';
-import { Input } from '../Inputs/Input';
-import { Select } from '../Select/Select';
-import { LocaleContext } from '../LocaleProvider';
-import { renderStyledColor } from '../ThemeProvider';
+import { IconButton, Input, Select } from '@tecsinapse/ui-kit';
+import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
+import { renderStyledColor } from '@tecsinapse/ui-kit/build/ThemeProvider';
 
 const filterStyles = mobile =>
   makeStyles(theme => ({
@@ -162,6 +160,7 @@ const Filters = ({
               className={clsx(classes.filter, {
                 [classes.fullWidth]: filter.fullWidth,
               })}
+              style={mobile ? { width: '100%' } : {}}
             >
               {mapFilterOptionToInput(
                 filter,
