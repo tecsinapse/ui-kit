@@ -1,3 +1,9 @@
+## 1.2.0 (2020-01-07)
+
+* Updating deps ([3537ab3](https://github.com/tecsinapse/pickers/commit/3537ab3))
+
+
+
 <a name="1.1.0"></a>
 ## 1.1.0 (2019-12-23)
 
