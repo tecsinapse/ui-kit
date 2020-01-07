@@ -1,3 +1,10 @@
+## 1.2.0 (2020-01-07)
+
+* Fixed new button API from ui-kit ([03c06bc](https://github.com/tecsinapse/wizard/commit/03c06bc))
+* Updating deps ([423327c](https://github.com/tecsinapse/wizard/commit/423327c))
+
+
+
 ## 1.1.0 (2019-12-27)
 
 * Add app-wfv theme provider ([ea9185a](https://github.com/tecsinapse/wizard/commit/ea9185a))
