@@ -1,3 +1,10 @@
+## 1.1.0 (2020-01-07)
+
+* Setup Jest ([73e3818](https://github.com/tecsinapse/table/commit/73e3818))
+* Setup MDX docs ([3827e6d](https://github.com/tecsinapse/table/commit/3827e6d))
+
+
+
 ## 1.0.0 (2020-01-06)
 
 *  - Added style do selected item background color by props ([f2f9489](https://github.com/tecsinapse/table/commit/f2f9489))
