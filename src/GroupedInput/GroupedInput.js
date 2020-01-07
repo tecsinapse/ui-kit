@@ -81,7 +81,7 @@ export const GroupedInput = ({
 
         <Button
           type="button"
-          variant="warning"
+          customVariant="warning"
           size="small"
           className={classes.marginLeft}
           onClick={push}
@@ -134,7 +134,7 @@ export const GroupedInput = ({
               fullWidth
               endAdornment={
                 <IconButton
-                  variant="error"
+                  customVariant="error"
                   className={classes.paddingCropped}
                   onClick={() => remove(index)}
                 >

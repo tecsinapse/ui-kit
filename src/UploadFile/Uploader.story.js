@@ -13,6 +13,7 @@ const SilentUploadExample = () => {
         onClick={() => {
           fancyRef.current.open();
         }}
+        customVariant="success"
       >
         Upload
       </Button>

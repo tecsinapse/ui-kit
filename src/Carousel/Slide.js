@@ -96,6 +96,12 @@ export const Slide = ({
 
   const classes = useStyle();
 
+  const CustomButton = ({ children, ...props }) => (
+    <Button customVariant="success" {...props}>
+      {children}
+    </Button>
+  );
+
   return (
     <div
       className={clsx(classes.root, {
@@ -169,7 +175,7 @@ export const Slide = ({
           />
           {!isEmptyOrNull(buttonTitle) && (
             <Link
-              component={Button}
+              component={CustomButton}
               className={classes.button}
               underline="none"
               target={linkTarget}

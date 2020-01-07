@@ -211,7 +211,8 @@ export const Uploader = forwardRef(
                   {subtitle}
                 </Typography>
                 <Button
-                  variant="secondary"
+                  color="secondary"
+                  variant="contained"
                   onClick={open}
                   className={classes.button}
                 >
