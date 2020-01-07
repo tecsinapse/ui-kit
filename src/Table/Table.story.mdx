@@ -323,16 +323,32 @@ Here you can check the code snippet for the story.
 ## Sort
 
 <Story name="Sort" parameters={{ docs: { disable: true } }}>
-  <Table
-    columns={sortColumns}
-    data={cars}
-    rowId={row => row.id}
-    options={{
-      selection: true,
-    }}
-    toolbarOptions={{ title: 'Sort Example' }}
-    pagination
-  />
+  {() => {
+    const carsList = [];
+    for (let index = 0; index < 70; index++) {
+      carsList.push({
+        id: index,
+        brand: 'BMW',
+        model: {
+          name: `BMW ${index + 1}`,
+          year: 2018,
+        },
+        price: 30000000,
+      });
+    }
+    return (
+      <Table
+        columns={sortColumns}
+        data={carsList}
+        rowId={row => row.id}
+        options={{
+          selection: true,
+        }}
+        toolbarOptions={{ title: 'Sort Example' }}
+        pagination
+      />
+    );
+  }}
 </Story>
 
 <Source id="table--sort" />
