@@ -21,28 +21,28 @@ export const buttonStyle = ({ spacing }) => ({
     color: 'white',
   },
   buttonColorDefault: {
-    backgroundColor: `${defaultGrey} !important`,
+    backgroundColor: `${defaultGrey}`,
     color: 'white',
     '&:hover': {
       backgroundColor: defaultGrey,
     },
   },
   buttonColorSuccess: {
-    backgroundColor: `${defaultGreen} !important`,
+    backgroundColor: `${defaultGreen}`,
     color: 'white',
     '&:hover': {
       backgroundColor: defaultGreen,
     },
   },
   buttonColorWarning: {
-    backgroundColor: `${defaultOrange} !important`,
+    backgroundColor: `${defaultOrange}`,
     color: 'white',
     '&:hover': {
       backgroundColor: defaultOrange,
     },
   },
   buttonColorError: {
-    backgroundColor: `${defaultRed} !important`,
+    backgroundColor: `${defaultRed}`,
     color: 'white',
     '&:hover': {
       backgroundColor: defaultRed,

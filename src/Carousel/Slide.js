@@ -97,7 +97,7 @@ export const Slide = ({
   const classes = useStyle();
 
   const CustomButton = ({ children, ...props }) => (
-    <Button customVariant="success" {...props}>
+    <Button customVariant="success" variant="contained" {...props}>
       {children}
     </Button>
   );

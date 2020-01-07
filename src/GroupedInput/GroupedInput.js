@@ -82,6 +82,7 @@ export const GroupedInput = ({
         <Button
           type="button"
           customVariant="warning"
+          variant="contained"
           size="small"
           className={classes.marginLeft}
           onClick={push}
