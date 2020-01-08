@@ -77,11 +77,13 @@ const SimpleToolbar = ({
           />
         </div>
       </Toolbar>
-      <SelectedFilters
-        advancedFilters={advancedFilters}
-        filters={filters}
-        setFilters={setFilters}
-      />
+      {advancedFilters && (
+        <SelectedFilters
+          advancedFilters={advancedFilters}
+          filters={filters}
+          setFilters={setFilters}
+        />
+      )}
     </div>
   );
 };
