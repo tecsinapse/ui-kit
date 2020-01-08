@@ -267,9 +267,6 @@ export const paginationColumns = [
   {
     title: 'Model',
     field: 'model.name',
-    options: {
-      filter: true,
-    },
   },
   {
     title: 'Year',
