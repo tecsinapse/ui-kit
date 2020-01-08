@@ -1,3 +1,10 @@
+## <small>1.1.1 (2020-01-08)</small>
+
+* Fixed bug func.apply/destroy not a function on table. ([a58d343](https://github.com/tecsinapse/table/commit/a58d343))
+* Updating deps ([2def944](https://github.com/tecsinapse/table/commit/2def944))
+
+
+
 ## 1.1.0 (2020-01-07)
 
 * Setup Jest ([73e3818](https://github.com/tecsinapse/table/commit/73e3818))
