@@ -1,3 +1,9 @@
+## <small>1.1.2 (2020-01-09)</small>
+
+* Add rootMobile class as a prop and empty table state as a prop ([f623a00](https://github.com/tecsinapse/table/commit/f623a00))
+
+
+
 ## <small>1.1.1 (2020-01-08)</small>
 
 * Fixed bug func.apply/destroy not a function on table. ([a58d343](https://github.com/tecsinapse/table/commit/a58d343))
