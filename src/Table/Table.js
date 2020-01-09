@@ -61,6 +61,7 @@ const TableComponent = props => {
     variant,
     labelShowLess,
     labelShowMore,
+    empytStateComponent,
   } = props;
   const classes = tableStyles(useWindowSize()[1]);
   const [mobile, setMobile] = useState(false);
@@ -143,7 +144,7 @@ const TableComponent = props => {
         mobile={mobile}
       />
       {mobile ? (
-        <div className={classes.rootMobile}>
+        <div className={propClasses.rootMobile || classes.rootMobile}>
           <TableMobile
             columns={columns}
             rowId={rowId}
@@ -156,6 +157,7 @@ const TableComponent = props => {
             labelShowMore={labelShowMore}
             page={filters.page}
             tableHeaderHide={tableHeaderHide}
+            empytStateComponent={empytStateComponent}
           />
         </div>
       ) : (
@@ -189,6 +191,7 @@ const TableComponent = props => {
                 selectedRows={selectedRows}
                 setSelectedRows={setSelectedRows}
                 onSelectRow={onSelectRow}
+                empytStateComponent={empytStateComponent}
               />
             </TableBody>
             <TableFooter>
@@ -225,6 +228,7 @@ TableComponent.defaultProps = {
   variant: 'auto',
   labelShowLess: 'MOSTRAR MENOS',
   labelShowMore: 'MOSTRAR MAIS',
+  empytStateComponent: undefined,
 };
 
 TableComponent.propTypes = {
@@ -288,6 +292,7 @@ TableComponent.propTypes = {
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
   labelShowLess: PropTypes.string,
   labelShowMore: PropTypes.string,
+  empytStateComponent: PropTypes.node,
 };
 
 export const Table = TableComponent;

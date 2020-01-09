@@ -26,6 +26,7 @@ export const TableMobile = ({
   labelShowMore,
   page,
   tableHeaderHide,
+  empytStateComponent,
 }) => {
   const list = useRef();
 
@@ -44,11 +45,13 @@ export const TableMobile = ({
 
   if (isEmptyOrNull(data)) {
     return (
-      <EmptyStateWrapper
-        IconComponent={VisibilityOff}
-        titleMessage={emptyStateTitle}
-        message={emptyStateMessage}
-      />
+      empytStateComponent || (
+        <EmptyStateWrapper
+          IconComponent={VisibilityOff}
+          titleMessage={emptyStateTitle}
+          message={emptyStateMessage}
+        />
+      )
     );
   }
 
@@ -119,6 +122,7 @@ export const TableMobile = ({
 TableMobile.defaultProps = {
   columns: [],
   data: [],
+  empytStateComponent: undefined,
 };
 
 TableMobile.propTypes = {
@@ -133,6 +137,7 @@ TableMobile.propTypes = {
   ),
   data: PropTypes.arrayOf(PropTypes.object),
   rowId: PropTypes.func.isRequired,
+  empytStateComponent: PropTypes.node,
 };
 
 export default TableMobile;

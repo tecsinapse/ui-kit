@@ -78,6 +78,7 @@ const TableRows = ({
   onRowClick,
   forceCollapseActions,
   verticalActions,
+  empytStateComponent,
 }) => {
   const hasSelection = (columns || []).some(({ selection }) => selection);
   const classes = tableRowStyles(hasSelection || !!onRowClick)();
@@ -94,11 +95,13 @@ const TableRows = ({
     return (
       <TableRow>
         <TableCell colSpan={columns.length}>
-          <EmptyStateWrapper
-            IconComponent={VisibilityOff}
-            titleMessage={emptyStateTitle}
-            message={emptyStateMessage}
-          />
+          {empytStateComponent || (
+            <EmptyStateWrapper
+              IconComponent={VisibilityOff}
+              titleMessage={emptyStateTitle}
+              message={emptyStateMessage}
+            />
+          )}
         </TableCell>
       </TableRow>
     );
@@ -137,6 +140,7 @@ TableRows.defaultProps = {
   data: [],
   selectedRows: [],
   forceCollapseActions: false,
+  empytStateComponent: undefined,
 };
 
 TableRows.propTypes = {
@@ -155,6 +159,7 @@ TableRows.propTypes = {
   onSelectRow: PropTypes.func,
   rowId: PropTypes.func.isRequired,
   forceCollapseActions: PropTypes.bool,
+  empytStateComponent: PropTypes.node,
 };
 
 export default TableRows;
