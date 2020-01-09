@@ -14,6 +14,5 @@ export const tableStyles = makeStyles({
     height: size => size,
     flex: '1 1 auto',
     width: '100%',
-    position: 'absolute',
   },
 });
