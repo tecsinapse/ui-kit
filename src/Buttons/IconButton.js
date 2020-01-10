@@ -28,12 +28,7 @@ const useStyles = makeStyles({
 export const IconButton = React.forwardRef(
   ({ disabled, customVariant, children, className, ...props }, ref) => {
     const classes = useStyles();
-    const classdef = buttonClassNameDefinition(
-      classes,
-      disabled,
-      false,
-      customVariant
-    );
+    const classdef = buttonClassNameDefinition(classes, false, customVariant);
     return (
       <MaterialIconButton
         className={clsx(className, classdef)}

@@ -16,10 +16,6 @@ export const buttonStyle = ({ spacing }) => ({
       marginRight: spacing(0.5),
     },
   },
-  disabled: {
-    backgroundColor: defaultGrey,
-    color: 'white',
-  },
   buttonColorDefault: {
     backgroundColor: `${defaultGrey}`,
     color: 'white',
@@ -49,14 +45,8 @@ export const buttonStyle = ({ spacing }) => ({
     },
   },
 });
-export function buttonClassNameDefinition(
-  classes,
-  disabled,
-  margin,
-  customVariant
-) {
+export function buttonClassNameDefinition(classes, margin, customVariant) {
   return {
-    [classes.disabled]: disabled,
     [classes.marginTop]: margin,
     [classes.buttonColorDefault]: customVariant === 'default',
     [classes.buttonColorSuccess]: customVariant === 'success',
@@ -78,17 +68,13 @@ export const Button = React.forwardRef(
       size = 'medium',
       children,
       className,
+      variant,
       ...props
     },
     ref
   ) => {
     const classes = useStyles();
-    const classdef = buttonClassNameDefinition(
-      classes,
-      disabled,
-      margin,
-      customVariant
-    );
+    const classdef = buttonClassNameDefinition(classes, margin, customVariant);
     return (
       <MaterialButton
         type={type}
@@ -98,6 +84,7 @@ export const Button = React.forwardRef(
         disabled={disabled || submitting}
         size={size}
         ref={ref}
+        variant={customVariant ? 'contained' : variant}
         {...props}
       >
         {submitting && <CircularProgress size={20} />} {children}

@@ -33,7 +33,7 @@ export const FloatingButton = ({
       size={size}
       className={clsx(
         className,
-        buttonClassNameDefinition(classes, disabled, false, variantFab)
+        buttonClassNameDefinition(classes, false, variantFab)
       )}
       {...props}
     >
