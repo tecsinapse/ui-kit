@@ -8,7 +8,18 @@ import { PickersProvider } from './PickersProvider';
 import { DateTime } from 'luxon';
 import { Typography } from '@material-ui/core';
 
-<Meta title="Picker" decorators={[story => <DivFlex>{story()}</DivFlex>]} />
+<Meta
+  title="Picker"
+  decorators={[story => <DivFlex>{story()}</DivFlex>]}
+  parameters={{
+    component: DatePicker,
+    subcomponents: {
+      DateTimePicker,
+      ColorPicker,
+      TimePicker,
+    },
+  }}
+/>
 
 # Picker
 
@@ -39,29 +50,11 @@ export const DateComponent = () => (
 );
 ```
 
-## Date Picker
+## Pickers props
 
-The DatePicker component can receive the following props:
+Each picker component can receive the following props:
 
 <Props of={DatePicker} />
-
-## Date Time Picker
-
-The DateTimePicker component can receive the following props:
-
-<Props of={DateTimePicker} />
-
-## Color Picker
-
-The DateTimePicker component can receive the following props:
-
-<Props of={ColorPicker} />
-
-## Time Picker
-
-The TimePicker component can receive the following props:
-
-<Props of={TimePicker} />
 
 # Code snippets
 
