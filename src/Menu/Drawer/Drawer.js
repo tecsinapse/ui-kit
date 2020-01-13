@@ -76,12 +76,12 @@ Drawer.defaultProps = {
   className: undefined,
   styleProps: undefined,
 };
-const menuItemShape = PropTypes.shape({
+const menuItemShape = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   component: PropTypes.object,
   componentProps: PropTypes.object,
   styleProps: PropTypes.object,
-});
+};
 menuItemShape.children = PropTypes.arrayOf(PropTypes.shape(menuItemShape));
 
 Drawer.propTypes = {
@@ -93,7 +93,8 @@ Drawer.propTypes = {
   className: PropTypes.string,
   subtitle: PropTypes.string.isRequired,
   productName: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(menuItemShape).isRequired,
+  /** This prop have a `children` attribute where you can nest sub items */
+  items: PropTypes.arrayOf(PropTypes.shape(menuItemShape)).isRequired,
   searchBarPlaceholder: PropTypes.string,
 };
 export default Drawer;

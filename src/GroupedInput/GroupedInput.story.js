@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { storiesOf } from '@storybook/react';
 
+import { Description, Props, Title } from '@storybook/addon-docs/dist/blocks';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { GroupedInput } from './GroupedInput';
 
@@ -34,7 +35,22 @@ function GroupedWrapper({ empty, error }) {
   );
 }
 
-storiesOf(`${GROUPS.FORMS}|GroupedInput`, module)
+storiesOf(`${GROUPS.FORMS}|Grouped Input`, module)
+  .addParameters({
+    component: GroupedInput,
+    docs: {
+      disable: true,
+      page: () => (
+        <>
+          <Title />
+          <Description>
+            The `GroupedInput` component can receive the following props:
+          </Description>
+          <Props />
+        </>
+      ),
+    },
+  })
   .add('grouped input', () => <GroupedWrapper />)
   .add('grouped input empty', () => <GroupedWrapper empty />)
   .add('grouped input empty error', () => (

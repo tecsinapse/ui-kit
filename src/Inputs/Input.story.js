@@ -2,11 +2,27 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import { Description, Props, Title } from '@storybook/addon-docs/dist/blocks';
 import { Input } from './Input';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DivFlex } from '../withFlexCenter';
 
 storiesOf(`${GROUPS.FORMS}|Input`, module)
+  .addParameters({
+    component: Input,
+    docs: {
+      disable: true,
+      page: () => (
+        <>
+          <Title />
+          <Description>
+            The `Input` component can receive the following props:
+          </Description>
+          <Props />
+        </>
+      ),
+    },
+  })
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('input', () => <Input name="a" label="Placeholder" />)
   .add('input with addornment', () => (

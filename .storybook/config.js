@@ -1,10 +1,7 @@
-import { addDecorator, configure } from '@storybook/react';
+import { addDecorator, addParameters, configure } from '@storybook/react';
 import React from 'react';
-import { setDefaults, withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs';
 import { setOptions } from '@storybook/addon-options';
-
-import { withSmartKnobs } from 'storybook-addon-smart-knobs';
+import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks';
 import { ClientContext, GraphQLClient } from 'graphql-hooks';
 import { ThemeProvider } from '../src/ThemeProvider';
 import { overrides } from './themeGlobals';
@@ -20,6 +17,13 @@ setOptions({
   url: 'https://github.com/tecsinapse/ui-kit',
 });
 
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
+});
+
 const withGraphqlClientProvider = storyFn => (
   <ClientContext.Provider value={client}>{storyFn()}</ClientContext.Provider>
 );
@@ -29,11 +33,7 @@ const withThemeProvider = storyFn => (
     {storyFn()}
   </ThemeProvider>
 );
-const req = require.context('../src', true, /\.story\.js$/);
-// Sets the info addon's options.
-setDefaults({
-  header: false,
-});
+const req = require.context('../src', true, /\.story\.(js|mdx)$/);
 
 const withStoryStyles = storyFn => (
   <div
@@ -47,13 +47,13 @@ const withStoryStyles = storyFn => (
 );
 
 function loadStories() {
-  addDecorator(withSmartKnobs);
-  addDecorator(withKnobs);
-  addDecorator(withInfo);
   addDecorator(withStoryStyles);
   addDecorator(withThemeProvider);
   addDecorator(withGraphqlClientProvider);
-  req.keys().forEach(filename => req(filename));
+  return req
+    .keys()
+    .map(fname => req(fname))
+    .filter(exp => !!exp.default);
 }
 
 configure(loadStories, module);

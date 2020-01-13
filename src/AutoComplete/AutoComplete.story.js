@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { useManualQuery } from 'graphql-hooks';
+import { Description, Props, Title } from '@storybook/addon-docs/dist/blocks';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import AutoComplete from './AutoComplete';
 import { DivFlex } from '../withFlexCenter';
@@ -30,18 +31,18 @@ const options = fetch => async inputValue => {
 const AutoCompleteExample = () => {
   const [values, setValues] = useState([]);
   const [fetch] = useManualQuery(CONTINENTS_QUERY);
+  const handleDelete = value =>
+    setValues(oldValues => oldValues.filter(v => v.id !== value.id));
+  const handleSelect = suggestion =>
+    setValues(oldValues => [...oldValues, suggestion]);
 
   return (
     <div style={{ width: '300px' }}>
       <AutoComplete
         options={options(fetch)}
         values={values}
-        onDeleteItem={value =>
-          setValues(oldValues => oldValues.filter(v => v.id !== value.id))
-        }
-        onSelectItem={suggestion =>
-          setValues(oldValues => [...oldValues, suggestion])
-        }
+        onDeleteItem={handleDelete}
+        onSelectItem={handleSelect}
         inputProps={{
           label: 'Search for continents',
         }}
@@ -51,5 +52,20 @@ const AutoCompleteExample = () => {
 };
 
 storiesOf(`${GROUPS.FORMS}|Autocomplete`, module)
+  .addParameters({
+    component: AutoComplete,
+    docs: {
+      disable: true,
+      page: () => (
+        <>
+          <Title />
+          <Description>
+            The `AutoComplete` component can receive the following props:
+          </Description>
+          <Props />
+        </>
+      ),
+    },
+  })
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Autocomplete', () => <AutoCompleteExample />);

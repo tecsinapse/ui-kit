@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import { Description, Props, Title } from '@storybook/addon-docs/dist/blocks';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DivFlex } from '../withFlexCenter';
 
@@ -37,6 +38,21 @@ const DateSliderStory = ({ simple }) => {
 };
 
 storiesOf(`${GROUPS.FORMS}|Date Slider`, module)
+  .addParameters({
+    component: DateSlider,
+    docs: {
+      disable: true,
+      page: () => (
+        <>
+          <Title />
+          <Description>
+            The `DateSlider` component can receive the following props:
+          </Description>
+          <Props />
+        </>
+      ),
+    },
+  })
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('date slider input', () => <DateSliderStory />)
   .add('date slider simple input', () => <DateSliderStory simple />);

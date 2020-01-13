@@ -5,6 +5,7 @@ import Icon from '@mdi/react';
 import { mdiAccount, mdiEmail, mdiKey } from '@mdi/js';
 import { grey } from '@material-ui/core/colors';
 import Chip from '@material-ui/core/Chip';
+import { Description, Props, Title } from '@storybook/addon-docs/dist/blocks';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DivFlex } from '../withFlexCenter';
 
@@ -77,6 +78,22 @@ const CardStory = ({ styleCard }) => {
 };
 
 storiesOf(`${GROUPS.COMPONENTS}|Card`, module)
+  .addParameters({
+    component: UiKitCard,
+    docs: {
+      disable: true,
+      page: () => (
+        <>
+          <Title />
+          <Description>
+            This component is exported from UI-KIT as `Card`. The component can
+            receive the following props:
+          </Description>
+          <Props />
+        </>
+      ),
+    },
+  })
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('full card', () => <CardStory />)
   .add('custom subtitle color', () => (

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import { Description, Props, Title } from '@storybook/addon-docs/dist/blocks';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
-import { Select } from './Select';
+import { Select, SelectUnstyled } from './Select';
 import { DivFlex } from '../withFlexCenter';
 
 const options = [
@@ -77,6 +78,21 @@ export const SelectWrapper2 = props => {
 };
 
 storiesOf(`${GROUPS.FORMS}|Select`, module)
+  .addParameters({
+    component: SelectUnstyled,
+    docs: {
+      disable: true,
+      page: () => (
+        <>
+          <Title />
+          <Description>
+            The `Select` component can receive the following props:
+          </Description>
+          <Props />
+        </>
+      ),
+    },
+  })
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('Select Auto Detect', () => <SelectWrapper />)
   .add('Select No Value', () => <SelectWrapper2 />)

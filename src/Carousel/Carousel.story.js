@@ -1,12 +1,29 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { Description, Props, Title } from '@storybook/addon-docs/dist/blocks';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Slide } from './Slide';
 import { AutoRotatingCarousel } from './AutoRotatingCarousel';
 import { DivFlex } from '../withFlexCenter';
 
 storiesOf(`${GROUPS.COMPONENTS}|Carousel`, module)
+  .addParameters({
+    component: AutoRotatingCarousel,
+    docs: {
+      disable: true,
+      page: () => (
+        <>
+          <Title />
+          <Description>
+            The `AutoRotatingCarousel` component can receive the following
+            props:
+          </Description>
+          <Props />
+        </>
+      ),
+    },
+  })
   .addDecorator(story => <DivFlex>{story()}</DivFlex>)
   .add('carousel single', () => (
     <div style={{ width: '700px', height: '400px' }}>

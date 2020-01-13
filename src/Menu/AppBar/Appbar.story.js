@@ -6,6 +6,7 @@ import { mdiBell, mdiOneUp, mdiShieldHalfFull, mdiTurtle } from '@mdi/js';
 import Icon from '@mdi/react';
 import { makeStyles, styled, useTheme } from '@material-ui/styles';
 import Badge from '@material-ui/core/Badge';
+import { Description, Props, Title } from '@storybook/addon-docs/dist/blocks';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import { AppBar } from './AppBar';
 
@@ -121,6 +122,21 @@ const ExampleAppBarSearch = () => {
 };
 
 storiesOf(`${GROUPS.MENU}|AppBar`, module)
+  .addParameters({
+    component: AppBar,
+    docs: {
+      disable: true,
+      page: () => (
+        <>
+          <Title />
+          <Description>
+            The `AppBar` component can receive the following props:
+          </Description>
+          <Props />
+        </>
+      ),
+    },
+  })
   .add('AppBar', () => <ExampleAppBar />)
   .add('Styled AppBar', () => (
     <StyledAppBar
