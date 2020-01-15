@@ -2,15 +2,13 @@ import React, { forwardRef, useState } from 'react';
 import uniqid from 'uniqid';
 import { clearInterval, setInterval } from 'timers';
 import Dialog from '@material-ui/core/Dialog';
-// import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-// import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Uploader } from './Uploader';
 import { PreviewList } from './PreviewList';
 import { FormUploader } from './FormUploader';
 
-export const TesteUploader = forwardRef(
+export const UploaderStory = forwardRef(
   ({ type, variant, silent = false }, ref) => {
     const [files, setFiles] = useState({});
     const [open, setOpen] = useState(false);

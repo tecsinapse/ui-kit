@@ -35,19 +35,7 @@ const withThemeProvider = storyFn => (
 );
 const req = require.context('../src', true, /\.story\.(js|mdx)$/);
 
-const withStoryStyles = storyFn => (
-  <div
-    style={{
-      height: '100vh',
-      width: '100%',
-    }}
-  >
-    {storyFn()}
-  </div>
-);
-
 function loadStories() {
-  addDecorator(withStoryStyles);
   addDecorator(withThemeProvider);
   addDecorator(withGraphqlClientProvider);
   return req

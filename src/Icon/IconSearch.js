@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 import Icon from '@mdi/react';
 import * as Icons from '@mdi/js';
-import { Description, Title } from '@storybook/addon-docs/dist/blocks';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Input } from '..';
 /* eslint-disable */
 
@@ -33,7 +30,7 @@ const IconWrapper = ({ iconPath, path }) => (
   </div>
 );
 
-function IconSearch() {
+export function IconSearch() {
   const [value, setValue] = useState('');
   return (
     <div
@@ -82,6 +79,7 @@ function IconSearch() {
   );
 }
 
+/*
 storiesOf(`${GROUPS.COMPONENTS}|Icon`, module)
   .addParameters({
     docs: {
@@ -104,3 +102,4 @@ storiesOf(`${GROUPS.COMPONENTS}|Icon`, module)
       </div>
     );
   });
+*/

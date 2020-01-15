@@ -82,8 +82,8 @@ DateSlider.defaultProps = {
   simple: false,
 };
 DateSlider.propTypes = {
-  range: PropTypes.arrayOf(PropTypes.Date).isRequired,
-  values: PropTypes.arrayOf(PropTypes.Date).isRequired,
+  range: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
+  values: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   labelDisplay: PropTypes.string,

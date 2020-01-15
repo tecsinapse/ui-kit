@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 import Link from '@material-ui/core/Link';
 import clsx from 'clsx';
 import { defaultGreyLight2 } from '../colors';
-import { breadcrumb } from '../Menu/AppBar/AppBar';
 
 const useStyles = (light, dense) =>
   makeStyles(theme => ({
@@ -87,9 +86,17 @@ export const FolderBreadcrumb = ({
     </Breadcrumbs>
   );
 };
-
 FolderBreadcrumb.propTypes = {
+  /** If component is `a`, you can pass `{ href: URL }` as `componentProps` */
   breadcrumbs: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, breadcrumb])
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        title: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+          .isRequired,
+        component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+        componentProps: PropTypes.object,
+      }),
+    ])
   ).isRequired,
 };

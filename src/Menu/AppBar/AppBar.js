@@ -294,11 +294,6 @@ AppBar.defaultProps = {
   menuBar: true,
   breadcrumbs: undefined,
 };
-export const breadcrumb = PropTypes.shape({
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
-  component: PropTypes.function,
-  componentProps: PropTypes.object,
-});
 
 AppBar.propTypes = {
   title: PropTypes.string,
@@ -307,7 +302,14 @@ AppBar.propTypes = {
   menuOnClick: PropTypes.func,
   leftIcons: PropTypes.object,
   rightIcons: PropTypes.object,
-  breadcrumbs: PropTypes.arrayOf(breadcrumb),
+  /** If component is `a`, you can pass `{ href: URL }` as `componentProps` */
+  breadcrumbs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
+      component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      componentProps: PropTypes.object,
+    })
+  ),
   loadingBreadcrumbs: PropTypes.bool,
   disableBreadcrumb: PropTypes.bool,
   searchBar: PropTypes.bool,
