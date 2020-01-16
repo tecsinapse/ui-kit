@@ -1,9 +1,27 @@
 {
   "name": "@tecsinapse/uploader",
   "description": "TecSinapse Uploader",
-  "version": "0.0.1",
+  "homepage": "https://github.com/tecsinapse/uploader#readme",
+  "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
+  "author": {
+    "name": "TecSinapse"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecsinapse/uploader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tecsinapse/uploader/issues"
+  },
+  "keywords": [
+    "material-ui",
+    "react",
+    "tecsinapse",
+    "ui-kit",
+    "uploader"
+  ],
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",
@@ -20,8 +38,8 @@
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-modules-commonjs": "^7.5.0",
-    "@babel/plugin-transform-runtime": "^7.7.4",
     "@babel/plugin-transform-react-jsx": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-docs": "^5.3.3",
@@ -31,10 +49,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "babel-core": "^7.0.0-beta.3",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-inline-react-svg": "^1.0.1",
     "core-js": "2.5.7",
-    "babel-jest": "^24.9.0",
     "eslint-config-react-app": "^5.0.2",
     "eslint-plugin-mdx": "^1.6.5",
     "eslint-plugin-prettier": "^3.1.1",
@@ -78,6 +96,7 @@
     "storybook:build": "build-storybook -c .storybook -o docs/",
     "test": "NODE_ENV=test jest"
   },
+  "license": "MIT",
   "husky": {
     "hooks": {
       "post-commit": "git update-index --again",
@@ -95,22 +114,5 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "sideEffects": false,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tecsinapse/uploader.git"
-  },
-  "keywords": [
-    "material-ui",
-    "ui-kit",
-    "tecsinapse",
-    "react",
-    "uploader"
-  ],
-  "author": "TecSinapse",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tecsinapse/uploader/issues"
-  },
-  "homepage": "https://github.com/tecsinapse/uploader#readme"
+  "sideEffects": false
 }
