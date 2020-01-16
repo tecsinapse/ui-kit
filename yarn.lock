@@ -2696,6 +2696,33 @@
     eslint-plugin-react-hooks "^1.6.0"
     prettier "1.18.2"
 
+"@tecsinapse/ui-kit@^4.2.1-beta.0":
+  version "4.2.1-beta.0"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/ui-kit/-/ui-kit-4.2.1-beta.0.tgz#5ad165bbd9b1fa76c249f54fed986d3cddeb8488"
+  integrity sha512-MioW7knNU18uNpWroifm5Mus71iZ8Ok8xIVzwapMG+tM+SkWfD5oc5nhv8mq+HPsM7cqPGxu/aMfgLxYOp6m3g==
+  dependencies:
+    "@material-ui/core" "^4.2.1"
+    "@material-ui/icons" "^4.2.1"
+    "@material-ui/styles" "^4.2.1"
+    "@mdi/js" "^3.0.39"
+    "@mdi/react" "^1.1.0"
+    "@tecsinapse/es-utils" "^6.0.10"
+    clsx "^1.0.4"
+    graphql-hooks "^3.4.0"
+    material-ui-dots "^2.0.0"
+    material-ui-search-bar "1.0.0-beta.13"
+    prop-types "^15.6.2"
+    react-dropzone "^10.0.2"
+    react-select "^2.3.0"
+    react-sizeme "^2.5.2"
+    react-swipeable-views "^0.13.1"
+    react-text-mask "^5.4.3"
+    react-virtualized "^9.21.0"
+    react-window "^1.5.1"
+    text-mask-addons "^3.8.0"
+    text-mask-core "^5.1.2"
+    uniqid "^5.0.3"
+
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@types/babel-types/-/babel-types-7.0.7.tgz#667eb1640e8039436028055737d2b9986ee336e3"

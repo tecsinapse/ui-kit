@@ -6,10 +6,9 @@ import { mdiFileUpload } from '@mdi/js';
 import Icon from '@mdi/react';
 import { makeStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
+import { ConfirmationAlert, Snackbar } from '@tecsinapse/ui-kit';
 import { convertBytes } from './helper';
-import { ConfirmationAlert } from '../Alerts/ConfirmationAlert';
 import { UpFile } from './UpFile';
-import { Snackbar } from '../Snackbar/Snackbar';
 
 const useStyle = makeStyles({
   root: {

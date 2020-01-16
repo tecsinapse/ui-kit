@@ -8,7 +8,6 @@ import Clear from '@material-ui/icons/Clear';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/styles';
-// import AttachFileIcon from '@material-ui/icons/AttachFile';
 import { isImage } from './helper';
 
 const useStyle = makeStyles({

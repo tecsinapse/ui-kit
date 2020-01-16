@@ -1,4 +1,5 @@
 export function isImage(fileName) {
+  // import AttachFileIcon from '@material-ui/icons/AttachFile';
   const suffix = fileName.substr(fileName.indexOf('.') + 1).toLowerCase();
   if (
     suffix === 'jpg' ||
