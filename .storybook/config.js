@@ -1,59 +1,40 @@
-import { addDecorator, configure } from '@storybook/react';
+import { addDecorator, addParameters, configure } from '@storybook/react';
 import React from 'react';
-import { setDefaults, withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs';
-import { setOptions } from '@storybook/addon-options';
+import { withOptions } from '@storybook/addon-options';
+import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks';
+import { ThemeProvider } from '@tecsinapse/ui-kit';
 
-import { withSmartKnobs } from 'storybook-addon-smart-knobs';
-import { ClientContext, GraphQLClient } from 'graphql-hooks';
-import { ThemeProvider } from '../src/ThemeProvider';
-import { overrides } from './themeGlobals';
-
-const client = new GraphQLClient({
-  url: 'https://countries.trevorblades.com/',
-});
-
-setOptions({
+withOptions({
   hierarchySeparator: /\//,
   hierarchyRootSeparator: /\|/,
-  name: 'TecSinapse UI-KIT',
-  url: 'https://github.com/tecsinapse/ui-kit',
+  name: 'TecSinapse Uploader',
+  url: 'https://github.com/tecsinapse/uploader',
 });
 
-const withGraphqlClientProvider = storyFn => (
-  <ClientContext.Provider value={client}>{storyFn()}</ClientContext.Provider>
-);
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
+  options: {
+    storySort: (a, b) =>
+      a[1].kind === b[1].kind
+        ? 0
+        : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+  },
+});
 
 const withThemeProvider = storyFn => (
-  <ThemeProvider variant="orange" overrides={overrides}>
-    {storyFn()}
-  </ThemeProvider>
+  <ThemeProvider variant="orange">{storyFn()}</ThemeProvider>
 );
-const req = require.context('../src', true, /\.story\.js$/);
-// Sets the info addon's options.
-setDefaults({
-  header: false,
-});
-
-const withStoryStyles = storyFn => (
-  <div
-    style={{
-      height: '100vh',
-      width: '100%',
-    }}
-  >
-    {storyFn()}
-  </div>
-);
+const req = require.context('../src', true, /\.story\.(js|mdx)$/);
 
 function loadStories() {
-  addDecorator(withSmartKnobs);
-  addDecorator(withKnobs);
-  addDecorator(withInfo);
-  addDecorator(withStoryStyles);
   addDecorator(withThemeProvider);
-  addDecorator(withGraphqlClientProvider);
-  req.keys().forEach(filename => req(filename));
+  return req
+    .keys()
+    .map(fname => req(fname))
+    .filter(exp => !!exp.default);
 }
 
 configure(loadStories, module);
