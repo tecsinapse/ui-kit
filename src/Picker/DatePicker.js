@@ -138,8 +138,7 @@ export const DatePicker = ({
     const end = selectedDateRender.endOf('week');
 
     const dayIsBetween =
-      utils.isAfterDay(start, date) && utils.isBeforeDay(end, date);
-
+      utils.isAfterDay(date, start) && utils.isBeforeDay(date, end);
     const isFirstDay = utils.isSameDay(start, date);
     const isLastDay = utils.isSameDay(end, date);
 
