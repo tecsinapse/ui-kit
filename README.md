@@ -22,7 +22,6 @@ E adicione o componente em seu projeto como abaixo:
 ```
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App/App";
 import * as serviceWorker from "./serviceWorker";
 import { ThemeProvider } from "@tecsinapse/ui-kit";
 import { Uploader } from "@tecsinapse/uploader";
