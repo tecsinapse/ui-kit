@@ -89,5 +89,22 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecsinapse/uploader.git"
+  },
+  "keywords": [
+    "material-ui",
+    "ui-kit",
+    "tecsinapse",
+    "react",
+    "uploader"
+  ],
+  "author": "TecSinapse",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tecsinapse/uploader/issues"
+  },
+  "homepage": "https://github.com/tecsinapse/uploader#readme"
 }
