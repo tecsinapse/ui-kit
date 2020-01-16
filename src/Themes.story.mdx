@@ -159,3 +159,26 @@ const App = () => {
 }
 
 ```
+
+# Overriding palette defaults
+
+With `@tecsinapse/ui-kit` it's possible to override default styles for components. The following example override the Picker toolbar background color.
+Check [material-ui docs](https://material-ui.com/) for component CSS API rules.
+
+```
+import { ThemeProvider } from '@tecsinapse/ui-kit';
+
+const defaultStyle = {
+  MuiPickersToolbar: {
+    toolbar: {
+      backgroundColor: '#FFF',
+    },
+  }
+};
+
+const App = () => (
+  <ThemeProvider variant="orange" overrides={defaultStyle}>
+    <App />
+  </ThemeProvider>
+);
+```

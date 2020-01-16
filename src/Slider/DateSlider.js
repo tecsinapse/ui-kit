@@ -90,8 +90,8 @@ DateSlider.propTypes = {
   onChange: PropTypes.func.isRequired,
   /** Disables the slider */
   disabled: PropTypes.bool,
-  /** Label display mode (on, auto and off) */
-  labelDisplay: PropTypes.string,
+  /** Label display mode */
+  labelDisplay: PropTypes.oneOf(['auto', 'on', 'off']),
   /** Language code for date conversion */
   locale: PropTypes.string,
   /** Array of week days from Sun to Sat */
