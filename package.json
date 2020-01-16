@@ -20,6 +20,7 @@
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-modules-commonjs": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.7.4",
     "@babel/plugin-transform-react-jsx": "^7.7.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
@@ -27,16 +28,20 @@
     "@storybook/addon-options": "^5.3.3",
     "@storybook/react": "^5.3.3",
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.1.4",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
     "babel-core": "^7.0.0-beta.3",
     "babel-loader": "^8.0.5",
     "babel-plugin-inline-react-svg": "^1.0.1",
     "core-js": "2.5.7",
+    "babel-jest": "^24.9.0",
     "eslint-config-react-app": "^5.0.2",
     "eslint-plugin-mdx": "^1.6.5",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react-hooks": "^2.3.0",
     "git-dirty": "^1.0.2",
     "husky": "^1.3.1",
+    "jest": "^24.9.0",
     "lint-staged": "^8.1.3",
     "markdown-to-jsx": "^6.10.3",
     "npm-check-updates": "^3.1.23",
@@ -70,7 +75,8 @@
     "dev": "rollup -c -w",
     "start": "yarn install && yarn storybook",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "storybook:build": "build-storybook -c .storybook -o docs/"
+    "storybook:build": "build-storybook -c .storybook -o docs/",
+    "test": "NODE_ENV=test jest"
   },
   "husky": {
     "hooks": {
