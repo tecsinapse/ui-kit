@@ -6,7 +6,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import { defaultBlue, defaultRed, defaultYellow } from './colors';
 import { customVariantBlueGrey, customVariantYellow } from './customVariant';
 
-const themeColors = {
+export const themeColors = {
   orange: {
     primary: { main: '#616161', contrastText: '#ffffff' },
     secondary: { main: '#f99f1f', contrastText: '#ffffff' },

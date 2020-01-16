@@ -1,6 +1,6 @@
 import { addDecorator, addParameters, configure } from '@storybook/react';
 import React from 'react';
-import { setOptions } from '@storybook/addon-options';
+import { withOptions } from '@storybook/addon-options';
 import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks';
 import { ClientContext, GraphQLClient } from 'graphql-hooks';
 import { ThemeProvider } from '../src/ThemeProvider';
@@ -10,7 +10,7 @@ const client = new GraphQLClient({
   url: 'https://countries.trevorblades.com/',
 });
 
-setOptions({
+withOptions({
   hierarchySeparator: /\//,
   hierarchyRootSeparator: /\|/,
   name: 'TecSinapse UI-KIT',
@@ -21,6 +21,12 @@ addParameters({
   docs: {
     container: DocsContainer,
     page: DocsPage,
+  },
+  options: {
+    storySort: (a, b) =>
+      a[1].kind === b[1].kind
+        ? 0
+        : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
   },
 });
 

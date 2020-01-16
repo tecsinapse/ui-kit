@@ -99,4 +99,10 @@ FolderBreadcrumb.propTypes = {
       }),
     ])
   ).isRequired,
+  light: PropTypes.bool,
+  dense: PropTypes.bool,
+};
+FolderBreadcrumb.defaultProps = {
+  light: false,
+  dense: false,
 };

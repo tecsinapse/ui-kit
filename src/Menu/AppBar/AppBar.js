@@ -296,11 +296,17 @@ AppBar.defaultProps = {
 };
 
 AppBar.propTypes = {
+  /** Bar title */
   title: PropTypes.string,
+  /** Bar subtitle */
   subtitle: PropTypes.string,
+  /** Replace bar title for a component */
   titleComponent: PropTypes.object,
+  /** Fired when menu icon is clicked */
   menuOnClick: PropTypes.func,
+  /** Icons placed to the left of title */
   leftIcons: PropTypes.object,
+  /** Icons placed to the right of title */
   rightIcons: PropTypes.object,
   /** If component is `a`, you can pass `{ href: URL }` as `componentProps` */
   breadcrumbs: PropTypes.arrayOf(
@@ -311,8 +317,11 @@ AppBar.propTypes = {
     })
   ),
   loadingBreadcrumbs: PropTypes.bool,
+  /** Disable breadcrumb line */
   disableBreadcrumb: PropTypes.bool,
+  /** Show search */
   searchBar: PropTypes.bool,
+  /** Display menu option */
   menuBar: PropTypes.bool,
   /** Fired when the text value changes. */
   onChange: PropTypes.func,

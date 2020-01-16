@@ -40,11 +40,18 @@ ConfirmationAlert.defaultProps = {
   confirmButtonText: 'Confirmar',
 };
 ConfirmationAlert.propTypes = {
+  /** Display dialog */
   show: PropTypes.bool.isRequired,
+  /** Confirm click callback */
   proceed: PropTypes.func.isRequired,
+  /** Callback when clicking out of dialog */
   dismiss: PropTypes.func.isRequired,
+  /** Cancel dialog callback */
   cancel: PropTypes.func.isRequired,
+  /** Dialog title */
   text: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  /** Cancel button label */
   cancelButtonText: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  /** Confirm button label */
   confirmButtonText: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };

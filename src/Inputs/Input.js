@@ -17,10 +17,10 @@ import {
   CURRENCY_MASK,
   DATE_MASK,
   maskConfig,
+  PERCENTAGE_MASK,
   PHONE_MASK,
   PLATE_MASK,
   TIME_MASK,
-  PERCENTAGE_MASK,
   YEAR_MASK,
 } from './Masks';
 
@@ -256,22 +256,39 @@ const maskProp = PropTypes.oneOfType([
 ]);
 
 Input.propTypes = {
+  /** Input fill div/screen width */
   fullWidth: PropTypes.bool,
+  /** Disable the input */
   disabled: PropTypes.bool,
+  /** Input success variant */
   success: PropTypes.bool,
+  /** Input warning variant */
   warning: PropTypes.bool,
+  /** Input error variant */
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  /** Input placeholder label */
   label: PropTypes.string,
+  /** Input html name */
   name: PropTypes.string.isRequired,
+  /** Fired when input changes */
   onChange: PropTypes.func,
+  /** Input mask. `@tecsinapse/ui-kit` provides a preset of masks: 'cep', 'phone', 'cel', 'cpf', 'currency', 'cnpj', 'plate', 'cellphone', 'cpfcnpj', 'date', 'time', 'percentage' and 'year'.
+   * See below form more info. */
   mask: maskProp,
+  /** Shrink label */
   shrinkLabel: PropTypes.bool,
+  /** Placeholder when input is focused */
   placeholder: PropTypes.string,
+  /** Helper text place below input */
   helperText: PropTypes.string,
+  /** Adornment Icon placed at Input end */
   endAdornment: PropTypes.object,
+  /** Put a margin on adornment Icon placed at Input end */
   endAdornmentMargin: PropTypes.bool,
+  /** Adornment Icon placed at Input start */
   startAdornment: PropTypes.object,
-  autoComplete: PropTypes.string,
+  /** Autocomplete html specification for text input */
+  autoComplete: PropTypes.oneOf(['on', 'off']),
 };
 
 export default Input;

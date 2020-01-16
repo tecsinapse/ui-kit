@@ -82,12 +82,20 @@ DateSlider.defaultProps = {
   simple: false,
 };
 DateSlider.propTypes = {
+  /** Range of dates to be displayed */
   range: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
+  /** Values to be changed or initial value */
   values: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
+  /** Function triggered on slider change */
   onChange: PropTypes.func.isRequired,
+  /** Disables the slider */
   disabled: PropTypes.bool,
+  /** Label display mode (on, auto and off) */
   labelDisplay: PropTypes.string,
+  /** Language code for date conversion */
   locale: PropTypes.string,
+  /** Array of week days from Sun to Sat */
   days: PropTypes.arrayOf(PropTypes.string),
+  /** Change slider from interval to single */
   simple: PropTypes.bool,
 };
