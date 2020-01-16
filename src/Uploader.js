@@ -5,9 +5,8 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { makeStyles } from '@material-ui/styles';
 import { Typography } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
-import { Snackbar } from '../Snackbar/Snackbar';
+import { Button, Snackbar } from '@tecsinapse/ui-kit';
 import { convertBytes } from './helper';
-import { Button } from '../Buttons/Button';
 
 const useStyle = makeStyles({
   root: {
