@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="A Introduction|Get started" />
+
+# Get started
+
+`@tecsinapse/ui-kit` is a reusable component library that helps React dev's build UIs faster and feature rich. The goal is to make building durable UIs more productive and satisfying.
+Built under `material-ui`, we provide a highly customizable interface with `ui-kit` components. Many of them are improved with very useful features.
+
+## Install
+
+`yarn add @tecsinapse/ui-kit`
+
+### **Use**
+
+Import components you want into your UI
+
+`import { ThemeProvider, Button } from ‘@tecsinapse/ui-kit’;`
+
+and use them like so
+
+```
+  const App = () => (
+    <ThemeProvider variant="orange">
+      <Button onClick={() => {}>Smart Button</Button>
+    </ThemeProvider>
+  )
+```
+
+### Developing
+
+Running locally
+```
+    yarn install && yarn start
+```

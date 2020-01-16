@@ -68,23 +68,33 @@ export const UiKitCard = ({
 };
 
 UiKitCard.propTypes = {
+  /** Key identifier */
   key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** Style for root div */
   style: PropTypes.object,
+  /** Style for card */
   styleCard: PropTypes.shape({
     customSubtitleColor: PropTypes.string,
     border: PropTypes.string,
     boxShadow: PropTypes.string,
     borderLeft: PropTypes.string,
   }),
+  /** Card onClick event handler */
   onClick: PropTypes.func,
+  /** Card title and components */
   title: PropTypes.shape({
     name: PropTypes.string,
     components: PropTypes.element,
   }),
+  /** Card subtitle */
   subtitle: PropTypes.string,
+  /** Card content */
   content: PropTypes.string,
+  /** Card extra content */
   subContent: PropTypes.string,
+  /** Components to be rendered as card actions */
   actions: PropTypes.element,
+  /** Function to be rendered on load */
   onLoad: PropTypes.func,
 };
 

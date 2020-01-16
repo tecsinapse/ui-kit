@@ -267,12 +267,19 @@ Uploader.defaultProps = {
 };
 
 Uploader.propTypes = {
+  /** Formats accepted by uploader */
   acceptedFormat: PropTypes.array,
+  /** Limit of files */
   filesLimit: PropTypes.number,
+  /** Max size of file */
   maxFileSize: PropTypes.number,
+  /** Accept upload func */
   onAccept: PropTypes.func,
+  /** Reject upload func */
   onReject: PropTypes.func,
+  /** Silent uploader */
   silent: PropTypes.bool,
+  /** File object */
   value: PropTypes.shape({
     uid: PropTypes.number,
     file: PropTypes.object,
@@ -281,6 +288,7 @@ Uploader.propTypes = {
     error: PropTypes.string,
     noShowSnack: PropTypes.bool,
   }),
+  /** Messages object to the user */
   messages: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,

@@ -215,17 +215,28 @@ SelectUnstyled.defaultProps = {
   minWidth: '200px',
 };
 SelectUnstyled.propTypes = {
+  /** Show 'select' option to select all options */
   allowSelectAll: PropTypes.bool,
+  /** Fill div/screen width */
   fullWidth: PropTypes.bool,
+  /** Disable Select */
   disabled: PropTypes.bool,
+  /** Sucess input variant */
   success: PropTypes.bool,
+  /** Warning input variant */
   warning: PropTypes.bool,
+  /** Turn multi-selection on */
   isMulti: PropTypes.bool,
+  /** Device Select variant view */
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
+  /** Select is touched */
   touched: PropTypes.bool,
   portal: PropTypes.bool,
+  /** Error message/variant */
   error: PropTypes.string,
+  /** Input label */
   label: PropTypes.string,
+  /** Options available to Select */
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.any,
@@ -233,10 +244,15 @@ SelectUnstyled.propTypes = {
       disabled: PropTypes.bool,
     })
   ).isRequired,
+  /** Fired when change event */
   onChange: PropTypes.func,
+  /** Fired when blur event */
   onBlur: PropTypes.func,
+  /** Select prompt placeholder */
   selectPromptMessage: PropTypes.string,
+  /** Select all placeholder */
   selectAllMessage: PropTypes.string,
+  /** Minimum element width */
   minWidth: PropTypes.string,
 };
 

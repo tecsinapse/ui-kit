@@ -239,19 +239,27 @@ AutoComplete.defaultProps = {
 };
 
 AutoComplete.propTypes = {
+  /** Props passed to Input component */
   inputProps: PropTypes.object,
+  /** Props passed to Paper results area */
   paperProps: PropTypes.object,
+  /** Props passed to individual MenuItem result */
   itemProps: PropTypes.object,
+  /** Values choosen from input */
   values: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.any.isRequired,
       label: PropTypes.string.isRequired,
     })
   ),
+  /** Action to perform on delete choosen list item */
   onDeleteItem: PropTypes.func,
+  /** Action to perform on select item from list results */
   onSelectItem: PropTypes.func,
+  /** Function to query list data */
   options: PropTypes.func.isRequired,
-  autoComplete: PropTypes.string,
+  /** Text input autocomplete specification */
+  autoComplete: PropTypes.oneOf(['on', 'off']),
 };
 
 export default AutoComplete;

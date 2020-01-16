@@ -72,9 +72,14 @@ EmptyState.defaultProps = {
   IconComponent: FolderOpen,
 };
 EmptyState.propTypes = {
+  /** Icon to be displayed */
   IconComponent: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+  /** Custom message title */
   titleMessage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  /** Custom message */
   message: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  /** Custom message title when no connection available */
   noConnectionTitle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  /** Custom message when offline */
   offlineMessage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };

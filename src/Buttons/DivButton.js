@@ -57,7 +57,9 @@ DivButton.defaultProps = {
 };
 
 DivButton.propTypes = {
+  /** Text to be displayed */
   infoText: PropTypes.string,
+  /** Number of notifications */
   notifyNumber: PropTypes.number,
 };
 export default DivButton;

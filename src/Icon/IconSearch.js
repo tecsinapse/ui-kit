@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 import Icon from '@mdi/react';
 import * as Icons from '@mdi/js';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { Input } from '..';
 /* eslint-disable */
 
@@ -32,7 +30,7 @@ const IconWrapper = ({ iconPath, path }) => (
   </div>
 );
 
-function IconSearch() {
+export function IconSearch() {
   const [value, setValue] = useState('');
   return (
     <div
@@ -81,10 +79,27 @@ function IconSearch() {
   );
 }
 
-storiesOf(`${GROUPS.COMPONENTS}|Icon`, module).add('Icon', () => {
-  return (
-    <div>
-      <IconSearch />
-    </div>
-  );
-});
+/*
+storiesOf(`${GROUPS.COMPONENTS}|Icon`, module)
+  .addParameters({
+    docs: {
+      disable: true,
+      page: () => (
+        <>
+          <Title />
+          <Description>
+            Icons can be used in any component you want. All you have to do is
+            to import just like in the story canvas source.
+          </Description>
+        </>
+      ),
+    },
+  })
+  .add('Icon', () => {
+    return (
+      <div>
+        <IconSearch />
+      </div>
+    );
+  });
+*/

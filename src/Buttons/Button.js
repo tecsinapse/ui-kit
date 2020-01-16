@@ -102,11 +102,17 @@ Button.defaultProps = {
   size: 'medium',
 };
 Button.propTypes = {
+  /** Predefined custom button */
   customVariant: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
+  /** Button disabled during form submission */
   submitting: PropTypes.bool,
+  /** Button fill div/screen width */
   fullWidth: PropTypes.bool,
+  /** Button CSS margin */
   margin: PropTypes.bool,
+  /** Button html type */
   type: PropTypes.string,
+  /** Button size */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
