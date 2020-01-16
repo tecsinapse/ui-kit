@@ -9,6 +9,7 @@ import { MenuList } from './MenuList';
 import { SingleValue } from './SingleValue';
 import { MultiValue } from './MultiValue';
 import { IndicatorsContainer } from './IndicatorContainer';
+import { DropdownIndicator } from './DropdownIndicator';
 
 export const SelectMobileCustomComponents = {
   Control,
@@ -18,6 +19,7 @@ export const SelectMobileCustomComponents = {
   ValueContainer,
   Menu,
   IndicatorsContainer,
+  DropdownIndicator,
   MenuList,
   SingleValue,
   Input,
