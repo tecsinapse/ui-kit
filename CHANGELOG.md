@@ -1,3 +1,12 @@
+## <small>1.2.1 (2020-01-17)</small>
+
+* Fixed week picker ([2501a7c](https://github.com/tecsinapse/pickers/commit/2501a7c))
+* Improving props table ([11a92cc](https://github.com/tecsinapse/pickers/commit/11a92cc))
+* Props table preview improvement ([4343fd5](https://github.com/tecsinapse/pickers/commit/4343fd5))
+* Updating deps ([ca39363](https://github.com/tecsinapse/pickers/commit/ca39363))
+
+
+
 ## 1.2.0 (2020-01-07)
 
 * Updating deps ([3537ab3](https://github.com/tecsinapse/pickers/commit/3537ab3))
