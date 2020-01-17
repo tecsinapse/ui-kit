@@ -1,10 +1,7 @@
-import './InstallStyles';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from '@tecsinapse/ui-kit';
 import AppLogin from './AppLogin';
-// import * as serviceWorker from './serviceWorker';
 
 const Bla = () => (
   <ThemeProvider variant="orange">
