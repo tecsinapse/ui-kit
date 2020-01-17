@@ -172,12 +172,20 @@ Wizard.defaultProps = {
 };
 
 Wizard.propTypes = {
+  /** Element children to be rendered */
   children: PropTypes.any,
+  /** Active step index */
   activeStep: PropTypes.number,
+  /** Change step handler */
   onChange: PropTypes.func,
+  /** Styles object to decorate component */
   classes: PropTypes.object,
+  /** CSS class name applied to root div */
   className: PropTypes.any,
+  /** Subitting loading state */
   isSubmitting: PropTypes.bool,
+  /** Text to be rendered as step bottom label */
   stepText: PropTypes.string,
+  /** Hide bottom step label text */
   hideBottomStepLabel: PropTypes.bool,
 };
