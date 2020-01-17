@@ -32,12 +32,14 @@ export const useStylesWeek = makeStyles(theme => ({
     color: '#ffff',
   },
   firstHighlight: {
-    extend: 'highlight',
+    background: theme.palette.secondary.main,
+    color: '#ffff',
     borderTopLeftRadius: '50%',
     borderBottomLeftRadius: '50%',
   },
   endHighlight: {
-    extend: 'highlight',
+    background: theme.palette.secondary.main,
+    color: '#ffff',
     borderTopRightRadius: '50%',
     borderBottomRightRadius: '50%',
   },
