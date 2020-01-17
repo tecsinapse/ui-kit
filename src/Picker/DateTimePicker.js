@@ -178,13 +178,21 @@ DateTimePicker.defaultProps = {
 };
 
 DateTimePicker.propTypes = {
+  /** Current selected date and time */
   selectedDateTime: PropTypes.object,
+  /** Input id */
   id: PropTypes.string,
+  /** Input label */
   label: PropTypes.string,
+  /** Change event handler */
   onChange: PropTypes.func,
+  /** Date and time format to be rendered */
   format: PropTypes.string,
+  /** Use keyboard picker */
   keyboardPicker: PropTypes.bool,
+  /** Dates pointed on calendar */
   pointedDates: PropTypes.array,
+  /** Input variant selector */
   inputVariant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
 };
 export default DateTimePicker;
