@@ -34,10 +34,18 @@
     "@babel/plugin-transform-react-jsx": "^7.7.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-docs": "^5.3.3",
-    "@storybook/addon-options": "^5.3.3",
-    "@storybook/react": "^5.3.3",
+    "@storybook/addon-docs": "^5.3.5",
+    "@storybook/addon-options": "^5.3.5",
+    "@storybook/react": "^5.3.5",
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.1.4",
+    "@tecsinapse/chat": "^1.2.2",
+    "@tecsinapse/uploader": "^1.0.0",
+    "@tecsinapse/text-editor": "^1.1.0",
+    "@tecsinapse/login": "^1.0.1",
+    "@tecsinapse/pickers": "^1.2.1",
+    "@tecsinapse/table": "^1.1.2",
+    "@tecsinapse/timeslot-selector": "^1.1.0",
+    "@tecsinapse/wizard": "^1.2.0",
     "babel-core": "^7.0.0-beta.3",
     "babel-loader": "^8.0.5",
     "babel-plugin-inline-react-svg": "^1.0.1",
@@ -80,8 +88,8 @@
     "build-publish": "yarn build-all && npm publish",
     "dev": "rollup -c -w",
     "start": "yarn install && yarn storybook",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "storybook:build": "build-storybook -c .storybook -o docs/"
+    "storybook": "start-storybook -p 9001 -c .storybook -s ./storybook-public",
+    "storybook:build": "build-storybook -c .storybook -s ./storybook-public -o docs/"
   },
   "husky": {
     "hooks": {

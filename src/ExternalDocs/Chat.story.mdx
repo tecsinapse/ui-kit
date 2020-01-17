@@ -1,0 +1,89 @@
+import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
+import { ChatStory } from '@tecsinapse/chat/build/ChatStory';
+import {
+  dummyMessagesMedia,
+  dummyMessagesTextError,
+  dummyChatList,
+} from '@tecsinapse/chat/build/dummyMessages';
+
+<Meta title="@tecsinapse/chat|Chat" />
+
+# Chat
+
+To view chat component and it's props, check out [@tecsinapse/chat](https://github.com/tecsinapse/chat).
+After importing `@tecsinapse/ui-kit` and `@tecsinapse/chat`, all you have to do is:
+
+```
+import { ThemeProvider } from '@tecsinapse/ui-kit';
+import { Chat } from '@tecsinapse/chat';
+
+const App = () => {
+  return (
+    <ThemeProvider variant="orange">
+      <Chat />
+    </ThemeProvider>
+  );
+};
+```
+
+# Code snippets
+
+Here you can check the code snippet for each story. The mock implementation of these stories you can view [here](https://github.com/tecsinapse/chat/blob/master/src/ChatStory.js).
+
+## Chat Echo
+
+<Story name="Chat Echo" parameters={{ docs: { disable: true } }}>
+  <ChatStory isMaximizedOnly />
+</Story>
+
+<Source id="tecsinapse-chat-chat--chat-echo" />
+
+## Status Text
+
+<Story name="Status Text" parameters={{ docs: { disable: true } }}>
+  <ChatStory isMaximizedOnly initialMessages={dummyMessagesTextError} />
+</Story>
+
+<Source id="tecsinapse-chat-chat--status-text" />
+
+## Status Image
+
+<Story name="Status Image" parameters={{ docs: { disable: true } }}>
+  <ChatStory initialMessages={dummyMessagesMedia} isMaximizedOnly />
+</Story>
+
+<Source id="tecsinapse-chat-chat--status-image" />
+
+## Error Connection
+
+<Story name="Error Connection" parameters={{ docs: { disable: true } }}>
+  <ChatStory isMaximizedOnly error="Erro de conexão. Tente mais tarde!" />
+</Story>
+
+<Source id="tecsinapse-chat-chat--error-connection" />
+
+## Chat Blocked
+
+<Story name="Chat Blocked" parameters={{ docs: { disable: true } }}>
+  <ChatStory
+    isMaximizedOnly
+    isBlocked
+    blockedMessage="Já se passaram 24h desde a última mensagem enviada pelo cliente,
+            por isso não é possível enviar nova mensagem por esse canal de comunicação, por favor,
+            entre em contato com o cliente por outro meio."
+  />
+</Story>
+
+<Source id="tecsinapse-chat-chat--chat-blocked" />
+
+## Chat List
+
+<Story name="Chat List" parameters={{ docs: { disable: true } }}>
+  <ChatStory
+    isMaximizedOnly
+    initialMessages={dummyMessagesTextError}
+    initialChatList={dummyChatList}
+  />
+</Story>
+
+<Source id="tecsinapse-chat-chat--chat-list" />

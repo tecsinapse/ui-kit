@@ -1,9 +1,10 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
 import { EmptyState } from './EmptyState';
 import { DivFlex } from '../withFlexCenter';
+import { GROUPS } from '../../.storybook/hierarchySeparators';
 
 <Meta
-  title="Empty State"
+  title={`${GROUPS.LAYOUT}|Empty State`}
   decorators={[story => <DivFlex>{story()}</DivFlex>]}
 />
 
