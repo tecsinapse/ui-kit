@@ -48,10 +48,15 @@ TimePicker.defaultProps = {
 };
 
 TimePicker.propTypes = {
+  /** Current selected time */
   selectedTime: PropTypes.object.isRequired,
+  /** Input id */
   id: PropTypes.string,
+  /** Input label */
   label: PropTypes.string,
+  /** Change event handler */
   onChange: PropTypes.func,
+  /** Time format to be rendered */
   format: PropTypes.string,
 };
 export default TimePicker;

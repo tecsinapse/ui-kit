@@ -253,13 +253,27 @@ DatePicker.defaultProps = {
 };
 
 DatePicker.propTypes = {
+  /** Current selected date */
   selectedDate: PropTypes.object,
+  /** Input id */
   id: PropTypes.string,
+  /** Input label */
   label: PropTypes.string,
+  /** Change event handler */
   onChange: PropTypes.func,
+  /** Date format to be rendered */
   format: PropTypes.string,
+  /** Use keyboard picker */
   keyboardPicker: PropTypes.bool,
+  /** Dates to be pointed on calendar */
   pointedDates: PropTypes.array,
+  /** Input variant style */
   inputVariant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
+  /** Custom component render */
+  customTextFieldComponentInput: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.node,
+    PropTypes.object,
+  ]),
 };
 export default DatePicker;
