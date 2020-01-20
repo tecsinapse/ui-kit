@@ -232,6 +232,7 @@ TableComponent.defaultProps = {
 };
 
 TableComponent.propTypes = {
+  /** Table columns options */
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -243,20 +244,29 @@ TableComponent.propTypes = {
       customRender: PropTypes.func,
     })
   ).isRequired,
+  /** Data object or function loader */
   data: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object),
     PropTypes.func,
   ]),
+  /** On data filter funtion handler */
   onFilterData: PropTypes.func,
+  /** Set vertical actions table */
   verticalActions: PropTypes.bool,
+  /** Row identifier */
   rowId: PropTypes.func.isRequired,
+  /** Set table selectable rows */
   options: PropTypes.shape({
     selection: PropTypes.bool,
   }),
+  /** Object containing selected rows */
   selectedData: PropTypes.arrayOf(PropTypes.object),
+  /** Row selection handler */
   onSelectRow: PropTypes.func,
+  /** Row click handler */
   onRowClick: PropTypes.func,
   id: PropTypes.string,
+  /** Configure table actions */
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       tooltip: PropTypes.string,
@@ -268,17 +278,26 @@ TableComponent.propTypes = {
       bottomDivider: PropTypes.bool,
     })
   ),
+  /** Table toolbar options. Check accepted attributes [here](https://github.com/tecsinapse/table/blob/master/src/Table/TablePropTypes.js#L3) */
   toolbarOptions: toolbarOptionsTypes,
+  /** Enable table pagination */
   pagination: PropTypes.bool,
+  /** Hide table toolbar */
   tableToolbarHide: PropTypes.bool,
+  /** Hide table header */
   tableHeaderHide: PropTypes.bool,
+  /** Number of rows per page available to be selected */
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
+  /** Rows to be rendered per page if paginated */
   rowsPerPage: PropTypes.number,
+  /** Current page number */
   page: PropTypes.number,
+  /** CSS classes applied to root div */
   classes: PropTypes.shape({
     root: PropTypes.string,
     rootMobile: PropTypes.string,
   }),
+  /** Set options for exporting table */
   exportOptions: PropTypes.shape({
     exportFileName: PropTypes.string,
     exportTypes: PropTypes.arrayOf(
@@ -289,9 +308,13 @@ TableComponent.propTypes = {
       })
     ),
   }),
+  /** Set table variant view */
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
+  /** Label for mobile show less button */
   labelShowLess: PropTypes.string,
+  /** Label for mobile show more button */
   labelShowMore: PropTypes.string,
+  /** Empty state component to display */
   empytStateComponent: PropTypes.node,
 };
 

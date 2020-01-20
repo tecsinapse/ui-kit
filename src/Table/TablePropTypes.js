@@ -44,8 +44,8 @@ export const toolbarOptionsTypes = PropTypes.shape({
         value: PropTypes.any,
       })
     ),
-    maxWidth: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
-    maxHeight: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
+    maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }),
 }).isRequired;
 
