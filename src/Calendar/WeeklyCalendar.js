@@ -1,3 +1,4 @@
+/* eslint-disable mdx/no-unused-expressions */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
@@ -166,9 +167,13 @@ WeeklyCalendar.defaultProps = {
 };
 
 WeeklyCalendar.propTypes = {
+  /** Day change event handler */
   onDayChange: PropTypes.func,
+  /** Week change event handler */
   onWeekChange: PropTypes.func,
+  /** Initial date */
   currentDate: PropTypes.object.isRequired,
+  /** Locale language code to format date */
   locale: PropTypes.string,
 };
 
