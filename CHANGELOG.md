@@ -1,3 +1,10 @@
+## <small>1.2.1 (2020-01-20)</small>
+
+* Improving props table ([b9699de](https://github.com/tecsinapse/wizard/commit/b9699de))
+* Updating deps ([16659ce](https://github.com/tecsinapse/wizard/commit/16659ce))
+
+
+
 ## 1.2.0 (2020-01-07)
 
 * Fixed new button API from ui-kit ([03c06bc](https://github.com/tecsinapse/wizard/commit/03c06bc))
