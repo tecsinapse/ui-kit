@@ -16,6 +16,7 @@ const StyledValueLabel = withStyles({
   },
   label: {
     transform: 'none',
+    color: '#FFF',
   },
 })(ValueLabel);
 

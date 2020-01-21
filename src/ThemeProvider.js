@@ -123,7 +123,7 @@ export const customDatePickerStyle = variant => {
     : {};
 };
 export const renderStyledColor = variant =>
-  variant === 'yellow' ? 'secondary' : 'primary';
+  variant === 'yellow' || variant === 'blueGrey' ? 'secondary' : 'primary';
 export const renderStyledLabel = (label, variant) => {
   if (variant === 'yellow') {
     return <div style={{ color: defaultBlue }}>{label}</div>;
