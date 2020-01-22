@@ -2,7 +2,7 @@
   "name": "@tecsinapse/carousel",
   "description": "TecSinapse Carousel",
   "homepage": "https://github.com/tecsinapse/carousel#readme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "author": {
@@ -39,8 +39,8 @@
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-modules-commonjs": "^7.5.0",
-    "@babel/plugin-transform-runtime": "^7.7.4",
     "@babel/plugin-transform-react-jsx": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-docs": "^5.3.8",

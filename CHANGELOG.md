@@ -1,3 +1,10 @@
+## <small>1.0.1 (2020-01-22)</small>
+
+* Setup Jest ([e91dd87](https://github.com/tecsinapse/carousel/commit/e91dd87))
+* Updating deps ([a3f3cf0](https://github.com/tecsinapse/carousel/commit/a3f3cf0))
+
+
+
 ## 1.0.0 (2020-01-22)
 
 *  - Added style do selected item background color by props ([f2f9489](https://github.com/tecsinapse/carousel/commit/f2f9489))
