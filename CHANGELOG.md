@@ -1,3 +1,9 @@
+## 1.3.0 (2020-01-22)
+
+* @tecsinapse/ui-kit@4.0.0 ([8feeb16](https://github.com/tecsinapse/pickers/commit/8feeb16))
+
+
+
 ## <small>1.2.2 (2020-01-20)</small>
 
 * Improving props table ([002d014](https://github.com/tecsinapse/pickers/commit/002d014))
