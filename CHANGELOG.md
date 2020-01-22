@@ -1,3 +1,9 @@
+## 1.3.0 (2020-01-22)
+
+* @tecsinapse/ui-kit@4.0.0 ([fb6a670](https://github.com/tecsinapse/wizard/commit/fb6a670))
+
+
+
 ## <small>1.2.1 (2020-01-20)</small>
 
 * Improving props table ([b9699de](https://github.com/tecsinapse/wizard/commit/b9699de))
