@@ -6,7 +6,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import { defaultBlue, defaultRed, defaultYellow } from './colors';
 import { customVariantBlueGrey, customVariantYellow } from './customVariant';
 
-const themeColors = {
+export const themeColors = {
   orange: {
     primary: { main: '#616161', contrastText: '#ffffff' },
     secondary: { main: '#f99f1f', contrastText: '#ffffff' },
@@ -94,6 +94,25 @@ const themeColors = {
       contrastText: '#ffffff',
     },
   },
+  greyLight: {
+    primary: {
+      light: '#8e8e8e',
+      main: '#616161',
+      dark: '#373737',
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      main: '#ff9d0d',
+      contrastText: '#ffffff',
+    },
+    error: {
+      main: '#e6433f',
+      contrastText: '#ffffff',
+    },
+    background: {
+      main: '#f5f5f5',
+    },
+  },
 };
 export const customDatePickerStyle = variant => {
   return variant === 'yellow'
@@ -104,7 +123,7 @@ export const customDatePickerStyle = variant => {
     : {};
 };
 export const renderStyledColor = variant =>
-  variant === 'yellow' ? 'secondary' : 'primary';
+  variant === 'yellow' || variant === 'blueGrey' ? 'secondary' : 'primary';
 export const renderStyledLabel = (label, variant) => {
   if (variant === 'yellow') {
     return <div style={{ color: defaultBlue }}>{label}</div>;
@@ -160,13 +179,13 @@ const themeCustom = (variant, overrides) => {
 
   return { ...overrides };
 };
-const theme = (variant, overrides) => {
+const theme = (variant, overrides, spacing) => {
   const themeCompile = {
     typography: {
       useNextVariants: true,
     },
     variant,
-    spacing: 12,
+    spacing,
     overrides: {
       MuiCollapse: {
         entered: {
@@ -181,9 +200,9 @@ const theme = (variant, overrides) => {
   };
   return createMuiTheme(themeCompile);
 };
-export function ThemeProvider({ children, variant, overrides }) {
+export function ThemeProvider({ children, variant, overrides, spacing = 12 }) {
   return (
-    <MuiThemeProvider theme={theme(variant, overrides)}>
+    <MuiThemeProvider theme={theme(variant, overrides, spacing)}>
       {children}
     </MuiThemeProvider>
   );

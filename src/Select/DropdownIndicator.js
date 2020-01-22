@@ -1,13 +1,14 @@
 import { components } from 'react-select';
-import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 import React from 'react';
 
-export const DropdownIndicator = props =>
+export const DropdownIndicator = ({
+  innerProps: { onTouchEnd, ...innerPropsAux },
+  ...props
+}) =>
   components.DropdownIndicator && (
     <components.DropdownIndicator
+      innerProps={innerPropsAux}
       {...props}
       className={props.selectProps.childrenClasses.dropdownIndicator}
-    >
-      <ArrowDropDown />
-    </components.DropdownIndicator>
+    />
   );

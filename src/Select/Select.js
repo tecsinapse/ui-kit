@@ -39,6 +39,7 @@ export const SelectUnstyled = ({
   allowSelectAll = true,
   selectPromptMessage = 'Selecione',
   portal,
+  minWidth,
   ...rest
 }) => {
   const valuesAllSelected = isMulti && value && value.length === options.length;
@@ -88,6 +89,7 @@ export const SelectUnstyled = ({
     isMulti,
     menuIsOpen,
     setMenuIsOpen,
+    minWidth,
     value: !isMulti
       ? getAnyFromArray(map.filter(c => c.value === value))
       : map.filter(c => value.includes(c.value)),
@@ -177,7 +179,7 @@ export const SelectUnstyled = ({
         key={key}
         error={!!error}
         fullWidth={fullWidth}
-        style={{ minWidth: '200px' }}
+        style={{ minWidth }}
       >
         <SizeMe noPlaceholder>
           {({ size }) => (
@@ -210,19 +212,31 @@ SelectUnstyled.defaultProps = {
   touched: false,
   selectPromptMessage: 'Selecione',
   selectAllMessage: 'Selecionar todos',
+  minWidth: '200px',
 };
 SelectUnstyled.propTypes = {
+  /** Show 'select' option to select all options */
   allowSelectAll: PropTypes.bool,
+  /** Fill div/screen width */
   fullWidth: PropTypes.bool,
+  /** Disable Select */
   disabled: PropTypes.bool,
+  /** Sucess input variant */
   success: PropTypes.bool,
+  /** Warning input variant */
   warning: PropTypes.bool,
+  /** Turn multi-selection on */
   isMulti: PropTypes.bool,
+  /** Device Select variant view */
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
+  /** Select is touched */
   touched: PropTypes.bool,
   portal: PropTypes.bool,
+  /** Error message/variant */
   error: PropTypes.string,
+  /** Input label */
   label: PropTypes.string,
+  /** Options available to Select */
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.any,
@@ -230,10 +244,16 @@ SelectUnstyled.propTypes = {
       disabled: PropTypes.bool,
     })
   ).isRequired,
+  /** Fired when change event */
   onChange: PropTypes.func,
+  /** Fired when blur event */
   onBlur: PropTypes.func,
+  /** Select prompt placeholder */
   selectPromptMessage: PropTypes.string,
+  /** Select all placeholder */
   selectAllMessage: PropTypes.string,
+  /** Minimum element width */
+  minWidth: PropTypes.string,
 };
 
 export default SelectUnstyled;

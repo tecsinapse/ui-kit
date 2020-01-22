@@ -27,8 +27,11 @@ Snackbar.defaultProps = {
   onClose: () => {},
 };
 Snackbar.propTypes = {
+  /** Close Snackbar func */
   onClose: PropTypes.func,
+  /** Display snackbar */
   show: PropTypes.bool.isRequired,
+  /** Snackbar variant */
   variant: PropTypes.oneOf(['success', 'warning', 'error']).isRequired,
 };
 export default Snackbar;

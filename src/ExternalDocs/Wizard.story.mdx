@@ -1,0 +1,102 @@
+import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
+import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
+import { Wizard } from '@tecsinapse/wizard';
+import { Step } from '@material-ui/core';
+
+<Meta
+  title="@tecsinapse/wizard|Wizard"
+  decorators={[
+    story => (
+      <DivFlex>
+        <div style={{ width: 800 }}>{story()}</div>
+      </DivFlex>
+    ),
+  ]}
+/>
+
+# Wizard
+
+To view `Wizard` component and it's props, check out [@tecsinapse/wizard](https://github.com/tecsinapse/wizard).
+After importing `@tecsinapse/ui-kit` and `@tecsinapse/wizard`, all you have to do is:
+
+```
+import { ThemeProvider } from '@tecsinapse/ui-kit';
+import { Wizard } from '@tecsinapse/wizard';
+
+const App = () => {
+  return (
+    <ThemeProvider variant="orange">
+      <Wizard />
+    </ThemeProvider>
+  );
+};
+```
+
+The `<Step />` component passed as children is reused from `@material-ui/core`.
+
+# Code snippets
+
+Here you can check the code snippet for the story.
+
+## Warning step
+
+<Story name="Warning step" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const [activeStep, setActiveStep] = React.useState(0);
+    return (
+      <Wizard
+        activeStep={activeStep}
+        onChange={newStep => {
+          if (activeStep === 2) {
+            return 'Falha na validação do formulário';
+          }
+          setActiveStep(newStep);
+          return null;
+        }}
+        stepText="Passo"
+      >
+        <Step title="Step 1">1</Step>
+        <Step title="Step 2">
+          <div>2</div>
+        </Step>
+        <Step title="Step 3" warningText="Preencheu todos os dados do usuário?">
+          <div>3</div>
+        </Step>
+        <Step title="Step 4">4</Step>
+      </Wizard>
+    );
+  }}
+</Story>
+
+<Source id="tecsinapse-wizard-wizard--warning-step" />
+
+## Hide step bottom label
+
+<Story name="Hide step bottom label" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const [activeStep, setActiveStep] = React.useState(0);
+    return (
+      <Wizard
+        activeStep={activeStep}
+        onChange={newStep => {
+          if (activeStep === 3) {
+            return null;
+          }
+          setActiveStep(newStep);
+        }}
+        hideBottomStepLabel
+      >
+        <Step title="Step 1">1</Step>
+        <Step title="Step 2">
+          <div>2</div>
+        </Step>
+        <Step title="Step 3" warningText="Preencheu todos os dados do usuário?">
+          <div>3</div>
+        </Step>
+        <Step title="Step 4">4</Step>
+      </Wizard>
+    );
+  }}
+</Story>
+
+<Source id="tecsinapse-wizard-wizard--hide-step-bottom-label" />

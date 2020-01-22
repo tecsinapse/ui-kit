@@ -16,6 +16,7 @@ const StyledValueLabel = withStyles({
   },
   label: {
     transform: 'none',
+    color: '#FFF',
   },
 })(ValueLabel);
 
@@ -82,12 +83,20 @@ DateSlider.defaultProps = {
   simple: false,
 };
 DateSlider.propTypes = {
-  range: PropTypes.arrayOf(PropTypes.Date).isRequired,
-  values: PropTypes.arrayOf(PropTypes.Date).isRequired,
+  /** Range of dates to be displayed */
+  range: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
+  /** Values to be changed or initial value */
+  values: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
+  /** Function triggered on slider change */
   onChange: PropTypes.func.isRequired,
+  /** Disables the slider */
   disabled: PropTypes.bool,
-  labelDisplay: PropTypes.string,
+  /** Label display mode */
+  labelDisplay: PropTypes.oneOf(['auto', 'on', 'off']),
+  /** Language code for date conversion */
   locale: PropTypes.string,
+  /** Array of week days from Sun to Sat */
   days: PropTypes.arrayOf(PropTypes.string),
+  /** Change slider from interval to single */
   simple: PropTypes.bool,
 };

@@ -76,24 +76,32 @@ Drawer.defaultProps = {
   className: undefined,
   styleProps: undefined,
 };
-const menuItemShape = PropTypes.shape({
+const menuItemShape = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   component: PropTypes.object,
   componentProps: PropTypes.object,
   styleProps: PropTypes.object,
-});
+};
 menuItemShape.children = PropTypes.arrayOf(PropTypes.shape(menuItemShape));
 
 Drawer.propTypes = {
+  /** Display drawer */
   open: PropTypes.bool.isRequired,
+  /** Close drawer func */
   onClose: PropTypes.func.isRequired,
+  /** Drawer title */
   title: PropTypes.string.isRequired,
   id: PropTypes.string,
+  /** Styles passed to MenuList */
   styleProps: PropTypes.object,
+  /** CSS class passed to root Drawer */
   className: PropTypes.string,
+  /** Drawer subtitle */
   subtitle: PropTypes.string.isRequired,
   productName: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(menuItemShape).isRequired,
+  /** Items passed to menu. This prop have a `children` attribute where you can nest sub items */
+  items: PropTypes.arrayOf(PropTypes.shape(menuItemShape)).isRequired,
+  /** Search placeholder */
   searchBarPlaceholder: PropTypes.string,
 };
 export default Drawer;

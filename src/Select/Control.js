@@ -18,7 +18,7 @@ export function Control({ selectProps, innerProps, innerRef, children }) {
         display: 'flex',
         flexDirection: 'column',
         cursor: 'pointer',
-        minWidth: '200px',
+        minWidth: selectProps.minWidth,
       }}
       onTouchEnd={onTouch}
       onClick={onTouch}
@@ -29,7 +29,12 @@ export function Control({ selectProps, innerProps, innerRef, children }) {
         innerProps={innerProps}
       >
         <div
-          style={{ display: 'flex', flexDirection: 'row', flexGrow: 1 }}
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexGrow: 1,
+            overflow: 'hidden',
+          }}
           ref={inputRef}
         >
           {children}

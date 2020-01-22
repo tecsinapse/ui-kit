@@ -81,7 +81,8 @@ export const GroupedInput = ({
 
         <Button
           type="button"
-          variant="warning"
+          customVariant="warning"
+          variant="contained"
           size="small"
           className={classes.marginLeft}
           onClick={push}
@@ -134,7 +135,7 @@ export const GroupedInput = ({
               fullWidth
               endAdornment={
                 <IconButton
-                  variant="error"
+                  customVariant="error"
                   className={classes.paddingCropped}
                   onClick={() => remove(index)}
                 >
@@ -162,20 +163,36 @@ GroupedInput.defaultProps = {
   hr: false,
 };
 GroupedInput.propTypes = {
+  /** Input name */
   name: PropTypes.string.isRequired,
+  /** Component name on header */
   header: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+  /** Input label */
   label: PropTypes.string.isRequired,
+  /** Array of field values */
   values: PropTypes.array.isRequired,
+  /** Error input variant */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  /** Success input variant */
   success: PropTypes.arrayOf(PropTypes.bool),
+  /** Warning input variant */
   warnings: PropTypes.arrayOf(PropTypes.bool),
+  /** Function to execute when pushing a new input */
   push: PropTypes.func.isRequired,
+  /** Function to execute when deleting a input */
   remove: PropTypes.func.isRequired,
+  /** Change event handler */
   onChange: PropTypes.func.isRequired,
+  /** Spacing between inputs */
   spacing: PropTypes.number,
+  /** Extra small screen grid size */
   xs: PropTypes.number,
+  /** Small screen grid size */
   sm: PropTypes.number,
+  /** Large screen grid size */
   lg: PropTypes.number,
+  /** Extra large screen grid size */
   xl: PropTypes.number,
+  /** Show divider on end */
   hr: PropTypes.bool,
 };

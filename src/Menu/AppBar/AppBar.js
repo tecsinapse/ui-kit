@@ -294,23 +294,34 @@ AppBar.defaultProps = {
   menuBar: true,
   breadcrumbs: undefined,
 };
-export const breadcrumb = PropTypes.shape({
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
-  component: PropTypes.function,
-  componentProps: PropTypes.object,
-});
 
 AppBar.propTypes = {
+  /** Bar title */
   title: PropTypes.string,
+  /** Bar subtitle */
   subtitle: PropTypes.string,
+  /** Replace bar title for a component */
   titleComponent: PropTypes.object,
+  /** Fired when menu icon is clicked */
   menuOnClick: PropTypes.func,
+  /** Icons placed to the left of title */
   leftIcons: PropTypes.object,
+  /** Icons placed to the right of title */
   rightIcons: PropTypes.object,
-  breadcrumbs: PropTypes.arrayOf(breadcrumb),
+  /** If component is `a`, you can pass `{ href: URL }` as `componentProps` */
+  breadcrumbs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
+      component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      componentProps: PropTypes.object,
+    })
+  ),
   loadingBreadcrumbs: PropTypes.bool,
+  /** Disable breadcrumb line */
   disableBreadcrumb: PropTypes.bool,
+  /** Show search */
   searchBar: PropTypes.bool,
+  /** Display menu option */
   menuBar: PropTypes.bool,
   /** Fired when the text value changes. */
   onChange: PropTypes.func,
