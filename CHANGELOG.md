@@ -1,3 +1,43 @@
+## 4.0.0 (2020-01-22)
+
+* Add app-wfv theme provider ([ea9185a](https://github.com/tecsinapse/ui-kit/commit/ea9185a))
+* Add input mask percentage ([47c5df6](https://github.com/tecsinapse/ui-kit/commit/47c5df6))
+* Add picker moment for app-wfv ([6d1f49d](https://github.com/tecsinapse/ui-kit/commit/6d1f49d))
+* Added custom card ([09045b1](https://github.com/tecsinapse/ui-kit/commit/09045b1))
+* Added prop to set/hide custom bottom step label text ([df99569](https://github.com/tecsinapse/ui-kit/commit/df99569))
+* Adding graphql as devDeps ([c34714f](https://github.com/tecsinapse/ui-kit/commit/c34714f))
+* Bump handlebars from 4.1.2 to 4.5.3 in /example ([b8d7637](https://github.com/tecsinapse/ui-kit/commit/b8d7637))
+* Carousel moved to @tecsinapse/carousel ([14d8341](https://github.com/tecsinapse/ui-kit/commit/14d8341))
+* Docs adjust ([36aedc9](https://github.com/tecsinapse/ui-kit/commit/36aedc9))
+* Finishing docs ([c814b94](https://github.com/tecsinapse/ui-kit/commit/c814b94))
+* First SB setup ([10525bb](https://github.com/tecsinapse/ui-kit/commit/10525bb))
+* Fix button API ([9d09188](https://github.com/tecsinapse/ui-kit/commit/9d09188))
+* Fix button removing disabled class and forcing a variant contained when customVariant is set ([50c50d3](https://github.com/tecsinapse/ui-kit/commit/50c50d3))
+* Fix Floatting and Icon Buttons to avoid forcing a specific variant ([e3da7f7](https://github.com/tecsinapse/ui-kit/commit/e3da7f7))
+* Fix masks and select ([f253605](https://github.com/tecsinapse/ui-kit/commit/f253605))
+* Fix variant prop to support material variant ([79506f1](https://github.com/tecsinapse/ui-kit/commit/79506f1))
+* Fixed Button styles ([92e5aef](https://github.com/tecsinapse/ui-kit/commit/92e5aef))
+* Importing external docs ([e559d08](https://github.com/tecsinapse/ui-kit/commit/e559d08))
+* Login moved to @tecsinapse/login ([91f35f5](https://github.com/tecsinapse/ui-kit/commit/91f35f5))
+* Migrating to MDX docs ([6adbeec](https://github.com/tecsinapse/ui-kit/commit/6adbeec))
+* Moved from classnames to clsx ([ff41bd3](https://github.com/tecsinapse/ui-kit/commit/ff41bd3))
+* Remove changes on pickers ([d338093](https://github.com/tecsinapse/ui-kit/commit/d338093))
+* Remove moment from package ([56a29fa](https://github.com/tecsinapse/ui-kit/commit/56a29fa))
+* Remove the onTouchEnd of DropdownIndicator for mobile ([025dcd6](https://github.com/tecsinapse/ui-kit/commit/025dcd6))
+* Removing Calendar and Pickers from ui-kit ([6691da7](https://github.com/tecsinapse/ui-kit/commit/6691da7))
+* Removing TimeslotSelector from ui-kit ([9c91146](https://github.com/tecsinapse/ui-kit/commit/9c91146))
+* Table moved to @tecsinapse/table ([3275527](https://github.com/tecsinapse/ui-kit/commit/3275527))
+* Updating deps ([85f3a7e](https://github.com/tecsinapse/ui-kit/commit/85f3a7e))
+* Updating deps ([71f5e54](https://github.com/tecsinapse/ui-kit/commit/71f5e54))
+* Updating deps ([f79ac59](https://github.com/tecsinapse/ui-kit/commit/f79ac59))
+* Updating example ([ebe5dc8](https://github.com/tecsinapse/ui-kit/commit/ebe5dc8))
+* Updating libs ([6eb2ce0](https://github.com/tecsinapse/ui-kit/commit/6eb2ce0))
+* Updating theme exceptions ([3ffe113](https://github.com/tecsinapse/ui-kit/commit/3ffe113))
+* Uploader moved to @tecsinapse/uploader ([4c8e7a0](https://github.com/tecsinapse/ui-kit/commit/4c8e7a0))
+* Wizard moved to @tecsinapse/wizard ([a4f47c0](https://github.com/tecsinapse/ui-kit/commit/a4f47c0))
+
+
+
 <a name="3.3.2"></a>
 ## <small>3.3.2 (2019-12-03)</small>
 
