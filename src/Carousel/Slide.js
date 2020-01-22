@@ -8,7 +8,7 @@ import { mdiImageOff } from '@mdi/js';
 import Icon from '@mdi/react';
 import { Link } from '@material-ui/core';
 import { isEmptyOrNull } from '@tecsinapse/es-utils/build';
-import { Button } from '../Buttons/Button';
+import { Button } from '@tecsinapse/ui-kit';
 
 const useStyle = makeStyles(theme => ({
   root: {
@@ -96,6 +96,12 @@ export const Slide = ({
 
   const classes = useStyle();
 
+  const CustomButton = ({ children, ...props }) => (
+    <Button customVariant="success" variant="contained" {...props}>
+      {children}
+    </Button>
+  );
+
   return (
     <div
       className={clsx(classes.root, {
@@ -169,7 +175,7 @@ export const Slide = ({
           />
           {!isEmptyOrNull(buttonTitle) && (
             <Link
-              component={Button}
+              component={CustomButton}
               className={classes.button}
               underline="none"
               target={linkTarget}
