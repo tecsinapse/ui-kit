@@ -1,3 +1,9 @@
+## 1.1.0 (2020-01-22)
+
+* @tecsinapse/ui-kit@4.0.0 ([843ff9f](https://github.com/tecsinapse/carousel/commit/843ff9f))
+
+
+
 ## <small>1.0.1 (2020-01-22)</small>
 
 * Setup Jest ([e91dd87](https://github.com/tecsinapse/carousel/commit/e91dd87))
