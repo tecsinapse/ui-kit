@@ -1,3 +1,9 @@
+## 1.1.0 (2020-01-22)
+
+* @tecsinapse/ui-kit@4.0.0 ([fefb5d6](https://github.com/tecsinapse/uploader/commit/fefb5d6))
+
+
+
 ## 1.0.0 (2020-01-16)
 
 *  - Added style do selected item background color by props ([f2f9489](https://github.com/tecsinapse/uploader/commit/f2f9489))
