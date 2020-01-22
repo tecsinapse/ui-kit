@@ -1,3 +1,9 @@
+## 1.2.0 (2020-01-22)
+
+* @tecsinapse/ui-kit@4.0.0 ([17bdac3](https://github.com/tecsinapse/table/commit/17bdac3))
+
+
+
 ## <small>1.1.4 (2020-01-21)</small>
 
 * Updating ui-kit ([301b719](https://github.com/tecsinapse/table/commit/301b719))
