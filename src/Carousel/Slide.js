@@ -8,7 +8,7 @@ import { mdiImageOff } from '@mdi/js';
 import Icon from '@mdi/react';
 import { Link } from '@material-ui/core';
 import { isEmptyOrNull } from '@tecsinapse/es-utils/build';
-import { Button } from '../Buttons/Button';
+import { Button } from '@tecsinapse/ui-kit';
 
 const useStyle = makeStyles(theme => ({
   root: {

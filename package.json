@@ -1,7 +1,7 @@
 {
-  "name": "@tecsinapse/ui-kit",
-  "description": "TecSinapse UI-KIT",
-  "version": "3.3.2",
+  "name": "@tecsinapse/carousel",
+  "description": "TecSinapse Carousel",
+  "version": "0.0.1",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "dependencies": {
@@ -10,22 +10,12 @@
     "@material-ui/styles": "^4.2.1",
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
+    "@tecsinapse/ui-kit": "4.3.1-beta.0",
     "@tecsinapse/es-utils": "^6.0.10",
     "clsx": "^1.0.4",
-    "graphql-hooks": "^3.4.0",
     "material-ui-dots": "^2.0.0",
-    "material-ui-search-bar": "1.0.0-beta.13",
     "prop-types": "^15.6.2",
-    "react-dropzone": "^10.0.2",
-    "react-select": "^2.3.0",
-    "react-sizeme": "^2.5.2",
-    "react-swipeable-views": "^0.13.1",
-    "react-text-mask": "^5.4.3",
-    "react-virtualized": "^9.21.0",
-    "react-window": "^1.5.1",
-    "text-mask-addons": "^3.8.0",
-    "text-mask-core": "^5.1.2",
-    "uniqid": "^5.0.3"
+    "react-swipeable-views": "^0.13.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -34,18 +24,10 @@
     "@babel/plugin-transform-react-jsx": "^7.7.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-docs": "^5.3.7",
-    "@storybook/addon-options": "^5.3.7",
-    "@storybook/react": "^5.3.7",
+    "@storybook/addon-docs": "^5.3.8",
+    "@storybook/addon-options": "^5.3.8",
+    "@storybook/react": "^5.3.8",
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.1.4",
-    "@tecsinapse/chat": "^1.2.2",
-    "@tecsinapse/uploader": "^1.0.0",
-    "@tecsinapse/text-editor": "^1.1.0",
-    "@tecsinapse/login": "^1.0.1",
-    "@tecsinapse/pickers": "^1.2.1",
-    "@tecsinapse/table": "^1.1.4",
-    "@tecsinapse/timeslot-selector": "^1.1.0",
-    "@tecsinapse/wizard": "^1.2.1",
     "babel-core": "^7.0.0-beta.3",
     "babel-loader": "^8.0.5",
     "babel-plugin-inline-react-svg": "^1.0.1",
@@ -88,8 +70,8 @@
     "build-publish": "yarn build-all && npm publish",
     "dev": "rollup -c -w",
     "start": "yarn install && yarn storybook",
-    "storybook": "start-storybook -p 9001 -c .storybook -s ./storybook-public",
-    "storybook:build": "build-storybook -c .storybook -s ./storybook-public -o docs/"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook:build": "build-storybook -c .storybook -o docs/"
   },
   "husky": {
     "hooks": {
@@ -108,5 +90,22 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecsinapse/carousel.git"
+  },
+  "keywords": [
+    "carousel",
+    "material-ui",
+    "ui-kit",
+    "react",
+    "tecsinapse"
+  ],
+  "author": "TecSinapse",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tecsinapse/carousel/issues"
+  },
+  "homepage": "https://github.com/tecsinapse/carousel#readme"
 }
