@@ -1,24 +1,32 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
-import { AutoRotatingCarousel } from './AutoRotatingCarousel';
+import { AutoRotatingCarousel, Slide } from '@tecsinapse/carousel';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { DivFlex } from '../withFlexCenter';
-import { Slide } from './Slide';
 
 <Meta
-  title={`${GROUPS.COMPONENTS}|Carousel`}
+  title={`@tecsinapse/carousel|Carousel`}
   decorators={[story => <DivFlex>{story()}</DivFlex>]}
 />
 
 # Carousel
 
-A Carousel is composed by Slides. The `AutoRotatingCarousel` and `Slide` components can receive the following props:
+A Carousel is composed by Slides. To view `AutoRotatingCarousel` and `Slide` components and it's props, check out [@tecsinapse/carousel](https://github.com/tecsinapse/carousel).
+After importing `@tecsinapse/ui-kit` and `@tecsinapse/carousel`, all you have to do is:
 
-<Props
-  components={{
-    AutoRotatingCarousel: AutoRotatingCarousel,
-    Slide: Slide,
-  }}
-/>
+```
+import { ThemeProvider } from '@tecsinapse/ui-kit';
+import { AutoRotatingCarousel, Slide } from '@tecsinapse/carousel';
+
+const App = () => {
+  return (
+    <ThemeProvider variant="orange">
+      <AutoRotatingCarousel>
+        <Slide />
+      </AutoRotatingCarousel>
+    </ThemeProvider>
+  );
+};
+```
 
 # Code snippets
 
@@ -42,7 +50,7 @@ Here you can check the code snippet for the story.
   </div>
 </Story>
 
-<Source id="components-carousel--single" />
+<Source id="tecsinapse-carousel-carousel--single" />
 
 ## Multiple
 
@@ -67,7 +75,7 @@ Here you can check the code snippet for the story.
   </div>
 </Story>
 
-<Source id="components-carousel--multiple" />
+<Source id="tecsinapse-carousel-carousel--multiple" />
 
 ## Mobile
 
@@ -95,4 +103,4 @@ Here you can check the code snippet for the story.
   </div>
 </Story>
 
-<Source id="components-carousel--mobile" />
+<Source id="tecsinapse-carousel-carousel--mobile" />
