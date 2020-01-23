@@ -2751,10 +2751,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@tecsinapse/carousel@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/carousel/-/carousel-1.0.0.tgz#902f2d1549c737803ed4087faecfbe48e02b3c75"
-  integrity sha512-iNvOHAxLeKg8PJKg6Ndi2ylRsq21tnJ2ucapgJXvNrQ7wERgofoebG5YIRDkMHF8Tb8Jr2IkgeehxoD2wxLSMQ==
+"@tecsinapse/carousel@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/carousel/-/carousel-1.1.0.tgz#73897308acfaa13b889e04254fd539bf3838e1bc"
+  integrity sha512-t2OMKEk6IpTPLh+Vs7Nv7XoiyIJJF9bpAWYxmiAH2jyfqUinphWP9qbMnmDXipbsCG0BZLxEbZzlfhSZYve7jg==
   dependencies:
     "@material-ui/core" "^4.2.1"
     "@material-ui/icons" "^4.2.1"
@@ -2762,16 +2762,16 @@
     "@mdi/js" "^3.0.39"
     "@mdi/react" "^1.1.0"
     "@tecsinapse/es-utils" "^6.0.10"
-    "@tecsinapse/ui-kit" "4.3.1-beta.0"
+    "@tecsinapse/ui-kit" "^4.0.0"
     clsx "^1.0.4"
     material-ui-dots "^2.0.0"
     prop-types "^15.6.2"
     react-swipeable-views "^0.13.1"
 
-"@tecsinapse/chat@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/chat/-/chat-1.2.2.tgz#ef1eef5f4e91b26be557d7f5bf418be469b18270"
-  integrity sha512-cINI0eGnPEuK1AOI0G58hFUl0A2voRWLtGn2MerjBzSxMZlse+fnU5OvIN3fLrCD2bbKGjlsCLU2g7XexeheHQ==
+"@tecsinapse/chat@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/chat/-/chat-1.3.0.tgz#139d15f288d7b023d32406479dd59c22879f9ae4"
+  integrity sha512-RL6XgEBzOPxiQzBu1FUUIyYOU6eND6dt9SGnraWbj9BK+qzZZu7tlaxGluDfHOZyzPv8kV4Cx5XUSkLvY/pFkA==
   dependencies:
     "@cleandersonlobo/react-mic" "^1.1.1"
     "@livechat/ui-kit" "^0.4.0-10"
@@ -2780,7 +2780,8 @@
     "@mdi/js" "^3.0.39"
     "@mdi/react" "^1.1.0"
     "@tecsinapse/es-utils" "^6.0.10"
-    "@tecsinapse/ui-kit" "^3.3.1"
+    "@tecsinapse/ui-kit" "^4.0.0"
+    "@tecsinapse/uploader" "^1.1.0"
     prop-types "^15.6.2"
     react-compound-timer "^1.1.15"
     uniqid "^5.0.3"
@@ -2814,15 +2815,15 @@
     eslint-plugin-react-hooks "^1.6.0"
     prettier "1.18.2"
 
-"@tecsinapse/login@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/login/-/login-1.0.1.tgz#6b59b7abcd453199b7b1384f306b222165f9151c"
-  integrity sha512-7NEtNUyDoDMIKLGUdpTeZ3VppldaYa+TI0cPmMPmGNKDOahe2GVdztIDyuNpBVrfAja/sHWq8APtiQSjG+naxA==
+"@tecsinapse/login@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/login/-/login-1.1.0.tgz#829a9217919180f861b04dd5260266965c9b22e2"
+  integrity sha512-G8tw3X5Vde2PqPaj7VsgH33JwxCKgM3rsMkWDGf+xbTgYJT0WdJd95sCFqVbcP+AatIlwDhgPPEZXPzeCBpx6g==
   dependencies:
     "@material-ui/core" "^4.2.1"
     "@material-ui/icons" "^4.2.1"
     "@material-ui/styles" "^4.2.1"
-    "@tecsinapse/ui-kit" "4.0.0-beta.0"
+    "@tecsinapse/ui-kit" "^4.0.0"
     clsx "^1.0.4"
     prop-types "^15.6.2"
 
@@ -2835,44 +2836,27 @@
     react-color "^2.17.0"
     recompose "^0.30.0"
 
-"@tecsinapse/pickers@^1.0.0":
+"@tecsinapse/pickers@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/pickers/-/pickers-1.3.0.tgz#0d3a30bbdab709d3b5fcb464895a7cd29c928406"
+  integrity sha512-NslrmOhPpb/dLmuwzvO2B0yvkAkja5V9c4K2eiEp0V9hevlXiKCF7GqAiU2NKwKGrXmdA6tZes6IRnETQ6YULA==
+  dependencies:
+    "@date-io/luxon" "^1.1.0"
+    "@material-ui/core" "^4.2.1"
+    "@material-ui/icons" "^4.2.1"
+    "@material-ui/pickers" "^3.1.2"
+    "@material-ui/styles" "^4.2.1"
+    "@tecsinapse/es-utils" "^6.0.10"
+    "@tecsinapse/material-ui-color-picker" "^4.3.0"
+    "@tecsinapse/ui-kit" "^4.0.0"
+    clsx "^1.0.4"
+    luxon "^1.11.2"
+    prop-types "^15.6.2"
+
+"@tecsinapse/table@^1.2.0":
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/pickers/-/pickers-1.2.0.tgz#159f4182eb94f9f1bef6912ac8736132f6186b19"
-  integrity sha512-ZRGMOq/cinpz3lb6FYXm5MOuRxT3ZXKEmOdZRf0dQTtP6jQV9n/lHh9envN2nYxCHRKKvFa9eaTj4lisQq+WyA==
-  dependencies:
-    "@date-io/luxon" "^1.1.0"
-    "@material-ui/core" "^4.2.1"
-    "@material-ui/icons" "^4.2.1"
-    "@material-ui/pickers" "^3.1.2"
-    "@material-ui/styles" "^4.2.1"
-    "@tecsinapse/es-utils" "^6.0.10"
-    "@tecsinapse/material-ui-color-picker" "^4.3.0"
-    "@tecsinapse/ui-kit" "^4.2.0-beta.0"
-    clsx "^1.0.4"
-    luxon "^1.11.2"
-    prop-types "^15.6.2"
-
-"@tecsinapse/pickers@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/pickers/-/pickers-1.2.1.tgz#f548481bd4bd0c6690c906871f92b111ce191f2a"
-  integrity sha512-56Ha15gLCGQ7SGLozlKv7FiwBbRxDXToFHKhL8s5W8EkY39vK1ZcYlxoOm8RhOWSOOMCSdRMvLUbCVsWxGrgGA==
-  dependencies:
-    "@date-io/luxon" "^1.1.0"
-    "@material-ui/core" "^4.2.1"
-    "@material-ui/icons" "^4.2.1"
-    "@material-ui/pickers" "^3.1.2"
-    "@material-ui/styles" "^4.2.1"
-    "@tecsinapse/es-utils" "^6.0.10"
-    "@tecsinapse/material-ui-color-picker" "^4.3.0"
-    "@tecsinapse/ui-kit" "^4.2.0-beta.2"
-    clsx "^1.0.4"
-    luxon "^1.11.2"
-    prop-types "^15.6.2"
-
-"@tecsinapse/table@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/table/-/table-1.1.4.tgz#0851350428a5ac2d63fa2d2d979a76ab5b396b4d"
-  integrity sha512-J+D/Q0dMNLekVKcuq6ZAEV7Jhl0KX8sfRJHMba5BQYqtx64dBvOw1Z0GjAvh6SOEmC8uZMAN8seuE8ktWVBjUg==
+  resolved "https://registry.yarnpkg.com/@tecsinapse/table/-/table-1.2.0.tgz#6fbbfac02046e363b3d1989c543b6c31904115ca"
+  integrity sha512-6N3NssUzG6oDWHqWM0YNsHNKaIoEHrLPREprtUXB/NHImis4PJD71u3rUlU/CQR/ysXcvVGTq+NdcU1eBYt09g==
   dependencies:
     "@material-ui/core" "^4.2.1"
     "@material-ui/icons" "^4.2.1"
@@ -2880,204 +2864,82 @@
     "@mdi/js" "^3.0.39"
     "@mdi/react" "^1.1.0"
     "@tecsinapse/es-utils" "^6.0.10"
-    "@tecsinapse/ui-kit" "4.3.1-beta.0"
+    "@tecsinapse/ui-kit" "^4.0.0"
     clsx "^1.0.4"
     prop-types "^15.6.2"
     react-virtualized "^9.21.0"
 
-"@tecsinapse/text-editor@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/text-editor/-/text-editor-1.1.0.tgz#e67542a9c1554edad70e5b161e129518ec836849"
-  integrity sha512-gdyypJ14/fgCWx7nTaHXewM6XSbBLqxc8fk7bKWqkPvf4FX49Qb00l2QnWf5ikvtTrd+T11sC2Ing5G3p2Q5Zw==
+"@tecsinapse/text-editor@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/text-editor/-/text-editor-1.2.0.tgz#f49c59b43275cbbeeb88c3fea3ad44b4f78f34b6"
+  integrity sha512-W9AXaLSvq0oTslgABobwsZ3xd5/2nMdjRpPX9Z8ii1pFFJ9p52v6Cxa7BBXJWwGbLAhiVVm+FEtcVxvUnEBDhg==
   dependencies:
     "@material-ui/core" "^4.2.1"
     "@material-ui/styles" "^4.2.1"
-    "@tecsinapse/ui-kit" "^4.2.0-beta.0"
+    "@tecsinapse/ui-kit" "^4.0.0"
     "@tinymce/tinymce-react" "^3.3.2"
     prop-types "^15.6.2"
     tinymce "^5.0.4"
     tinymce-i18n "^19.5.15"
 
-"@tecsinapse/timeslot-selector@^1.1.0":
+"@tecsinapse/timeslot-selector@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/timeslot-selector/-/timeslot-selector-1.2.0.tgz#eedef4123fabdfddd4d5d4c4fb75bf6913995f5d"
+  integrity sha512-qSi2Rz1A0V2HI6dKMbc2fIEZq+LhqQRU1xifTbFDWvCMgNFPZI8S6WZPDmeOLXqy9s7CQEPSVa9OZw9Ay+Wqiw==
+  dependencies:
+    "@material-ui/core" "^4.2.1"
+    "@material-ui/styles" "^4.2.1"
+    "@tecsinapse/pickers" "^1.3.0"
+    "@tecsinapse/ui-kit" "^4.0.0"
+    luxon "^1.11.2"
+    prop-types "^15.6.2"
+
+"@tecsinapse/ui-kit@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/ui-kit/-/ui-kit-4.0.0.tgz#8ba95f47aca8a2549d30d786fa2c10be5e243e44"
+  integrity sha512-nNdiR8VIfSdbGvd440SX1XkTrL75XMupPhzrvOAZYJkFymQES6l4umohJS3dbaQmqKK3eHSfG8XhYzNP0NxgPw==
+  dependencies:
+    "@material-ui/core" "^4.2.1"
+    "@material-ui/icons" "^4.2.1"
+    "@material-ui/styles" "^4.2.1"
+    "@mdi/js" "^3.0.39"
+    "@mdi/react" "^1.1.0"
+    "@tecsinapse/es-utils" "^6.0.10"
+    clsx "^1.0.4"
+    material-ui-search-bar "1.0.0-beta.13"
+    prop-types "^15.6.2"
+    react-select "^2.3.0"
+    react-sizeme "^2.5.2"
+    react-text-mask "^5.4.3"
+    react-virtualized "^9.21.0"
+    react-window "^1.5.1"
+    text-mask-addons "^3.8.0"
+    text-mask-core "^5.1.2"
+
+"@tecsinapse/uploader@^1.1.0":
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/timeslot-selector/-/timeslot-selector-1.1.0.tgz#a156287a0d86fc5b47fa483d5d6cfde867cf3884"
-  integrity sha512-9tPK5lZLMjHVgXTNevRt+xFAchRY8ggNq5QHssKjg+4/rLGnic1gmblnG9MAeZfSxncSUPKUsF14f3wPPkgyMg==
-  dependencies:
-    "@material-ui/core" "^4.2.1"
-    "@material-ui/styles" "^4.2.1"
-    "@tecsinapse/pickers" "^1.0.0"
-    "@tecsinapse/ui-kit" "^4.2.0-beta.0"
-    luxon "^1.11.2"
-    prop-types "^15.6.2"
-
-"@tecsinapse/ui-kit@4.0.0-beta.0":
-  version "4.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/ui-kit/-/ui-kit-4.0.0-beta.0.tgz#fc287536b73655f9788df36be9b5cb3aa6d6152f"
-  integrity sha512-KHmQCpW2YOlzpKwkRrS3uIU12egRTppicG8ahVQxgktTcdjmUilg9tRULpuNIKU4XBvaPsqQcvj0DHtDvibHaw==
-  dependencies:
-    "@date-io/luxon" "^1.1.0"
-    "@material-ui/core" "^4.2.1"
-    "@material-ui/icons" "^4.2.1"
-    "@material-ui/pickers" "^3.1.2"
-    "@material-ui/styles" "^4.2.1"
-    "@mdi/js" "^3.0.39"
-    "@mdi/react" "^1.1.0"
-    "@tecsinapse/es-utils" "^6.0.10"
-    "@tecsinapse/material-ui-color-picker" "^4.3.0"
-    clsx "^1.0.4"
-    graphql-hooks "^3.4.0"
-    luxon "^1.11.2"
-    material-ui-dots "^2.0.0"
-    material-ui-search-bar "1.0.0-beta.13"
-    prop-types "^15.6.2"
-    react-dropzone "^10.0.2"
-    react-select "^2.3.0"
-    react-sizeme "^2.5.2"
-    react-swipeable-views "^0.13.1"
-    react-text-mask "^5.4.3"
-    react-virtualized "^9.21.0"
-    react-window "^1.5.1"
-    text-mask-addons "^3.8.0"
-    text-mask-core "^5.1.2"
-    uniqid "^5.0.3"
-
-"@tecsinapse/ui-kit@4.3.1-beta.0":
-  version "4.3.1-beta.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/ui-kit/-/ui-kit-4.3.1-beta.0.tgz#d6fbee8a5c69ee209734ac958b5592407f6d3ed2"
-  integrity sha512-qJwBQF+M++ITQkf2QFUbOe6A23iDTew97nXpruf46QKw30HHCRyrygDHCrBwgdZgFv+qN7n259vc3aWVUPswiQ==
+  resolved "https://registry.yarnpkg.com/@tecsinapse/uploader/-/uploader-1.1.0.tgz#09a274629036706d006a434394920f973371c971"
+  integrity sha512-x59U50gTiKW/3jsAyzCjt71AZwxtt1qucKWrnhlQkPnupsScR/FO3DJMka3OTk/1j/XIWVJCrdffYyVF3zrZnw==
   dependencies:
     "@material-ui/core" "^4.2.1"
     "@material-ui/icons" "^4.2.1"
     "@material-ui/styles" "^4.2.1"
     "@mdi/js" "^3.0.39"
     "@mdi/react" "^1.1.0"
-    "@tecsinapse/es-utils" "^6.0.10"
-    clsx "^1.0.4"
-    graphql-hooks "^3.4.0"
-    material-ui-dots "^2.0.0"
-    material-ui-search-bar "1.0.0-beta.13"
-    prop-types "^15.6.2"
-    react-dropzone "^10.0.2"
-    react-select "^2.3.0"
-    react-sizeme "^2.5.2"
-    react-swipeable-views "^0.13.1"
-    react-text-mask "^5.4.3"
-    react-virtualized "^9.21.0"
-    react-window "^1.5.1"
-    text-mask-addons "^3.8.0"
-    text-mask-core "^5.1.2"
-    uniqid "^5.0.3"
-
-"@tecsinapse/ui-kit@^3.3.1":
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/ui-kit/-/ui-kit-3.3.2.tgz#f09d44daeea0a2169d06d3ab36a8448a19733820"
-  integrity sha512-7GnJ5Fj2xa/gUSz0uy4o1s3ytBFiGfxDpkKI/1l9PmS3UY0XIyLdkdhUEiCOantIyXU5fwYvB2e127ASC7Il1A==
-  dependencies:
-    "@date-io/luxon" "^1.1.0"
-    "@material-ui/core" "^4.2.1"
-    "@material-ui/icons" "^4.2.1"
-    "@material-ui/pickers" "^3.1.2"
-    "@material-ui/styles" "^4.2.1"
-    "@mdi/js" "^3.0.39"
-    "@mdi/react" "^1.1.0"
-    "@tecsinapse/es-utils" "^6.0.10"
-    "@tecsinapse/material-ui-color-picker" "^4.3.0"
-    classnames "^2.2.6"
-    clsx "^1.0.4"
-    graphql-hooks "^3.4.0"
-    luxon "^1.11.2"
-    material-ui-dots "^2.0.0"
-    material-ui-search-bar "1.0.0-beta.13"
-    prop-types "^15.6.2"
-    react-dropzone "^10.0.2"
-    react-select "^2.3.0"
-    react-sizeme "^2.5.2"
-    react-swipeable-views "^0.13.1"
-    react-text-mask "^5.4.3"
-    react-virtualized "^9.21.0"
-    react-window "^1.5.1"
-    text-mask-addons "^3.8.0"
-    text-mask-core "^5.1.2"
-    uniqid "^5.0.3"
-
-"@tecsinapse/ui-kit@^4.2.0-beta.0", "@tecsinapse/ui-kit@^4.2.0-beta.2":
-  version "4.2.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/ui-kit/-/ui-kit-4.2.0-beta.2.tgz#440ac619f4e59c89d399a96c57f4566d063a734c"
-  integrity sha512-cuvU3x7zOVqvmYlf2buhN0VIqzA6Yrn5mhGnV/ni3mB0bZVjN9DYXB2o+CMRe3QElB05Ez5IiaYaPDBR8oTjuQ==
-  dependencies:
-    "@material-ui/core" "^4.2.1"
-    "@material-ui/icons" "^4.2.1"
-    "@material-ui/styles" "^4.2.1"
-    "@mdi/js" "^3.0.39"
-    "@mdi/react" "^1.1.0"
-    "@tecsinapse/es-utils" "^6.0.10"
-    clsx "^1.0.4"
-    graphql-hooks "^3.4.0"
-    material-ui-dots "^2.0.0"
-    material-ui-search-bar "1.0.0-beta.13"
-    prop-types "^15.6.2"
-    react-dropzone "^10.0.2"
-    react-select "^2.3.0"
-    react-sizeme "^2.5.2"
-    react-swipeable-views "^0.13.1"
-    react-text-mask "^5.4.3"
-    react-virtualized "^9.21.0"
-    react-window "^1.5.1"
-    text-mask-addons "^3.8.0"
-    text-mask-core "^5.1.2"
-    uniqid "^5.0.3"
-
-"@tecsinapse/ui-kit@^4.2.1-beta.0":
-  version "4.2.1-beta.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/ui-kit/-/ui-kit-4.2.1-beta.0.tgz#5ad165bbd9b1fa76c249f54fed986d3cddeb8488"
-  integrity sha512-MioW7knNU18uNpWroifm5Mus71iZ8Ok8xIVzwapMG+tM+SkWfD5oc5nhv8mq+HPsM7cqPGxu/aMfgLxYOp6m3g==
-  dependencies:
-    "@material-ui/core" "^4.2.1"
-    "@material-ui/icons" "^4.2.1"
-    "@material-ui/styles" "^4.2.1"
-    "@mdi/js" "^3.0.39"
-    "@mdi/react" "^1.1.0"
-    "@tecsinapse/es-utils" "^6.0.10"
-    clsx "^1.0.4"
-    graphql-hooks "^3.4.0"
-    material-ui-dots "^2.0.0"
-    material-ui-search-bar "1.0.0-beta.13"
-    prop-types "^15.6.2"
-    react-dropzone "^10.0.2"
-    react-select "^2.3.0"
-    react-sizeme "^2.5.2"
-    react-swipeable-views "^0.13.1"
-    react-text-mask "^5.4.3"
-    react-virtualized "^9.21.0"
-    react-window "^1.5.1"
-    text-mask-addons "^3.8.0"
-    text-mask-core "^5.1.2"
-    uniqid "^5.0.3"
-
-"@tecsinapse/uploader@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/uploader/-/uploader-1.0.0.tgz#c724f35aa642f9f3be16b2c72619d80d4b63248e"
-  integrity sha512-DxRkFmYXgMtHdqdFIfz/j7gyiVj5iN8TbRnsNRayXs4AdHl+hF59asoL9vSeFiWqy4Jo01S4jiDjkKObTUFBDw==
-  dependencies:
-    "@material-ui/core" "^4.2.1"
-    "@material-ui/icons" "^4.2.1"
-    "@material-ui/styles" "^4.2.1"
-    "@mdi/js" "^3.0.39"
-    "@mdi/react" "^1.1.0"
-    "@tecsinapse/ui-kit" "^4.2.1-beta.0"
+    "@tecsinapse/ui-kit" "^4.0.0"
     clsx "^1.0.4"
     prop-types "^15.6.2"
     react-dropzone "^10.0.2"
     uniqid "^5.0.3"
 
-"@tecsinapse/wizard@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/wizard/-/wizard-1.2.1.tgz#84bb0a75db52e67a051209565142d401794c2ae3"
-  integrity sha512-tT6zzVtimN01NgRHXn2lwwC7/hv1uBoPCL3rZbxry+U2VvxXHv/Ce6f6dt1wxvPLl1mb+vLjNZcdxD+Q2gmchg==
+"@tecsinapse/wizard@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/wizard/-/wizard-1.3.0.tgz#286a3290cef9465f6cd6042d0d59ef3f33f9488e"
+  integrity sha512-IRKsQAXm6u91J6E2jBZDGpmS8u4MvworR2rm4xGwAbmiyTOga7yPXMCDnRIU7OpGdsCfj2xlH4q8nRNRu/hzUA==
   dependencies:
     "@material-ui/core" "^4.2.1"
     "@material-ui/styles" "^4.2.1"
-    "@tecsinapse/ui-kit" "^4.2.0-beta.2"
+    "@tecsinapse/ui-kit" "^4.0.0"
     clsx "^1.0.4"
     prop-types "^15.6.2"
 
@@ -4918,7 +4780,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5, classnames@^2.2.6:
+classnames@^2.2.5:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
