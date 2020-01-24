@@ -72,7 +72,7 @@ export const selectInputStyle = theme => ({
     cursor: 'pointer !important',
   },
   separatorIndicatorMobile: {
-    margin: 0,
+    margin: `0px !important`,
   },
   body1Option: {
     width: '100%',
