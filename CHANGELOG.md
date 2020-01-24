@@ -1,3 +1,11 @@
+## <small>4.0.8 (2020-01-24)</small>
+
+* Update .bumpedrc ([5c60b85](https://github.com/tecsinapse/ui-kit/commit/5c60b85))
+* Update package.json ([7ce2bd5](https://github.com/tecsinapse/ui-kit/commit/7ce2bd5))
+* Update package.json ([4a6df8d](https://github.com/tecsinapse/ui-kit/commit/4a6df8d))
+
+
+
 ## <small>4.0.1 (2020-01-24)</small>
 
 * Fix no dense input and select ([e20cc21](https://github.com/tecsinapse/ui-kit/commit/e20cc21))
