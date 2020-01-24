@@ -307,8 +307,8 @@ Input.propTypes = {
   startAdornment: PropTypes.object,
   /** Autocomplete html specification for text input */
   autoComplete: PropTypes.oneOf(['on', 'off']),
-  /** */
-  variant: PropTypes.string,
+  /** Variant for Input display */
+  variant: PropTypes.oneOf(['auto', 'web', 'mobile']),
 };
 
 export default Input;
