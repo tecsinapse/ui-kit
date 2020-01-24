@@ -1,3 +1,10 @@
+## <small>4.0.1 (2020-01-24)</small>
+
+* Fix no dense input and select ([e20cc21](https://github.com/tecsinapse/ui-kit/commit/e20cc21))
+* Updating prop description ([d509ebb](https://github.com/tecsinapse/ui-kit/commit/d509ebb))
+
+
+
 ## 4.0.0 (2020-01-22)
 
 * Add app-wfv theme provider ([ea9185a](https://github.com/tecsinapse/ui-kit/commit/ea9185a))
