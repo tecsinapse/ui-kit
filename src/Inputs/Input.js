@@ -4,6 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField/TextField';
+import { useTheme } from '@material-ui/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import MaskedInput from 'react-text-mask';
 import clsx from 'clsx';
 import { inputStyles } from './InputStyles';
@@ -115,57 +117,72 @@ export const TextFieldComponent = ({
   endAdornment,
   endAdornmentMargin = true,
   startAdornment,
+  variant,
   ...input
-}) => (
-  <TextField
-    disabled={disabled}
-    id="outlined-name"
-    name={name}
-    placeholder={placeholder || label}
-    label={label}
-    onChange={onChange}
-    InputLabelProps={{
-      classes: {
-        root: clsx(classes[labelClass({ warning, error, success })]),
-        focused: classes.cssFocused,
-      },
-      shrink: shrinkLabel,
-    }}
-    InputProps={{
-      inputComponent: mask ? TextMaskCustom : undefined,
-      inputProps: {
-        mask,
-      },
-      className: classes.input,
-      classes: {
-        root: clsx(
-          classes[outlinedInputClass({ warning, error, success })],
-          classes.inputRoot
+}) => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
+  let device = variant;
+  if (variant === 'auto') {
+    if (!matches) {
+      device = 'mobile';
+    } else {
+      device = 'web';
+    }
+  }
+
+  return (
+    <TextField
+      disabled={disabled}
+      id="outlined-name"
+      name={name}
+      placeholder={placeholder || label}
+      label={label}
+      onChange={onChange}
+      InputLabelProps={{
+        classes: {
+          root: clsx(classes[labelClass({ warning, error, success })]),
+          focused: classes.cssFocused,
+        },
+        shrink: shrinkLabel,
+      }}
+      InputProps={{
+        inputComponent: mask ? TextMaskCustom : undefined,
+        inputProps: {
+          mask,
+        },
+        className: classes.input,
+        classes: {
+          root: clsx(
+            classes[outlinedInputClass({ warning, error, success })],
+            classes.inputRoot
+          ),
+          focused: classes.cssFocused,
+          notchedOutline: classes.notchedOutline,
+          inputAdornedStart: classes.adornedMarginLeft,
+          inputAdornedEnd: classes.adornedMarginRight,
+          adornedEnd: classes.adornedMarginEnd,
+        },
+        startAdornment,
+        endAdornment: (
+          <GetEndAdornment
+            warning={warning}
+            error={error}
+            success={success}
+            endAdornmentMargin={endAdornmentMargin}
+            endAdornment={endAdornment}
+          />
         ),
-        focused: classes.cssFocused,
-        notchedOutline: classes.notchedOutline,
-        inputAdornedStart: classes.adornedMarginLeft,
-        inputAdornedEnd: classes.adornedMarginRight,
-        adornedEnd: classes.adornedMarginEnd,
-      },
-      startAdornment,
-      endAdornment: (
-        <GetEndAdornment
-          warning={warning}
-          error={error}
-          success={success}
-          endAdornmentMargin={endAdornmentMargin}
-          endAdornment={endAdornment}
-        />
-      ),
-    }}
-    margin="dense"
-    value={value}
-    error={!!error}
-    variant="outlined"
-    {...input}
-  />
-);
+      }}
+      margin={device === 'web' ? 'dense' : undefined}
+      value={value}
+      error={!!error}
+      variant="outlined"
+      {...input}
+    />
+  );
+};
 
 const InputUI = withStyles(inputStyles)(
   ({
@@ -228,6 +245,7 @@ Input.defaultProps = {
   endAdornmentMargin: true,
   startAdornment: null,
   autoComplete: null,
+  variant: 'auto',
 };
 
 const maskProp = PropTypes.oneOfType([
@@ -289,6 +307,8 @@ Input.propTypes = {
   startAdornment: PropTypes.object,
   /** Autocomplete html specification for text input */
   autoComplete: PropTypes.oneOf(['on', 'off']),
+  /** */
+  variant: PropTypes.string,
 };
 
 export default Input;
