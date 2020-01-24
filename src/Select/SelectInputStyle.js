@@ -71,6 +71,9 @@ export const selectInputStyle = theme => ({
   dropdownIndicator: {
     cursor: 'pointer !important',
   },
+  separatorIndicatorMobile: {
+    margin: 0,
+  },
   body1Option: {
     width: '100%',
     whiteSpace: 'normal',
