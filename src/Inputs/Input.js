@@ -117,14 +117,14 @@ export const TextFieldComponent = ({
   endAdornment,
   endAdornmentMargin = true,
   startAdornment,
-  variant,
+  variantDevice = 'auto',
   ...input
 }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
-  let device = variant;
-  if (variant === 'auto') {
+  let device = variantDevice;
+  if (variantDevice === 'auto') {
     if (!matches) {
       device = 'mobile';
     } else {
@@ -175,7 +175,7 @@ export const TextFieldComponent = ({
           />
         ),
       }}
-      margin={device === 'web' ? 'dense' : undefined}
+      margin={device === 'mobile' ? undefined : 'dense'}
       value={value}
       error={!!error}
       variant="outlined"
@@ -245,7 +245,7 @@ Input.defaultProps = {
   endAdornmentMargin: true,
   startAdornment: null,
   autoComplete: null,
-  variant: 'auto',
+  variantDevice: 'auto',
 };
 
 const maskProp = PropTypes.oneOfType([
@@ -308,7 +308,7 @@ Input.propTypes = {
   /** Autocomplete html specification for text input */
   autoComplete: PropTypes.oneOf(['on', 'off']),
   /** Variant for Input display */
-  variant: PropTypes.oneOf(['auto', 'web', 'mobile']),
+  variantDevice: PropTypes.oneOf(['auto', 'web', 'mobile']),
 };
 
 export default Input;

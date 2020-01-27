@@ -1,3 +1,25 @@
+## <small>4.0.10 (2020-01-27)</small>
+
+* Fix variant prop as variantDevice ([8b47f18](https://github.com/tecsinapse/ui-kit/commit/8b47f18))
+
+
+
+## <small>4.0.9 (2020-01-27)</small>
+
+* Add important to separator custom class ([449369d](https://github.com/tecsinapse/ui-kit/commit/449369d))
+* Fix web select and seaprator on mobile ([ff8b260](https://github.com/tecsinapse/ui-kit/commit/ff8b260))
+* Revert "Update .bumpedrc" ([a230e08](https://github.com/tecsinapse/ui-kit/commit/a230e08))
+
+
+
+## <small>4.0.8 (2020-01-24)</small>
+
+* Update .bumpedrc ([5c60b85](https://github.com/tecsinapse/ui-kit/commit/5c60b85))
+* Update package.json ([7ce2bd5](https://github.com/tecsinapse/ui-kit/commit/7ce2bd5))
+* Update package.json ([4a6df8d](https://github.com/tecsinapse/ui-kit/commit/4a6df8d))
+
+
+
 ## <small>4.0.1 (2020-01-24)</small>
 
 * Fix no dense input and select ([e20cc21](https://github.com/tecsinapse/ui-kit/commit/e20cc21))

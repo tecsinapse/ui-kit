@@ -12,7 +12,8 @@ export function MultiValue({ children, selectProps, removeProps, isFocused }) {
       size="small"
       tabIndex={-1}
       label={label}
-      className={clsx(selectProps.childrenClasses.chip, {
+      className={clsx({
+        [selectProps.childrenClasses.chip]: selectProps.variant === 'web',
         [selectProps.childrenClasses.chipFocused]: isFocused,
       })}
       onDelete={removeProps ? removeProps.onClick : undefined}
