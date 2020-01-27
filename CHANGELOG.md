@@ -1,3 +1,9 @@
+## <small>4.0.10 (2020-01-27)</small>
+
+* Fix variant prop as variantDevice ([8b47f18](https://github.com/tecsinapse/ui-kit/commit/8b47f18))
+
+
+
 ## <small>4.0.9 (2020-01-27)</small>
 
 * Add important to separator custom class ([449369d](https://github.com/tecsinapse/ui-kit/commit/449369d))
