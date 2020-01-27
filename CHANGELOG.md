@@ -1,3 +1,10 @@
+## <small>1.3.1 (2020-01-27)</small>
+
+* Fix test with material provider ([8999327](https://github.com/tecsinapse/pickers/commit/8999327))
+* Using as no dense mobile version ([f8872f2](https://github.com/tecsinapse/pickers/commit/f8872f2))
+
+
+
 ## 1.3.0 (2020-01-22)
 
 * @tecsinapse/ui-kit@4.0.0 ([8feeb16](https://github.com/tecsinapse/pickers/commit/8feeb16))
