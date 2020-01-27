@@ -20,6 +20,10 @@ export const selectInputStyle = theme => ({
     display: 'flex',
     paddingTop: `${theme.spacing(0.5)}px !important`,
     paddingBottom: `${theme.spacing(0.5)}px !important`,
+
+    // Material v4 inserts a fixed height to InputBase breaking the select web style
+    // See: https://github.com/mui-org/material-ui/blob/master/packages/material-ui/src/InputBase/InputBase.js#L81
+    height: '1.75em',
   },
   dummyWrapper: {
     display: 'none',
@@ -71,7 +75,7 @@ export const selectInputStyle = theme => ({
   dropdownIndicator: {
     cursor: 'pointer !important',
   },
-  separatorIndicatorMobile: {
+  separatorIndicator: {
     margin: `0px !important`,
   },
   body1Option: {

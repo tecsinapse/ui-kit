@@ -10,7 +10,7 @@ import { SingleValue } from './SingleValue';
 import { MultiValue } from './MultiValue';
 import { IndicatorsContainer } from './IndicatorContainer';
 import { DropdownIndicator } from './DropdownIndicator';
-import { IndicatorSeparatorMobile } from './IndicatorSeparatorMobile';
+import { IndicatorSeparator } from './IndicatorSeparator';
 
 export const SelectMobileCustomComponents = {
   Control,
@@ -21,7 +21,7 @@ export const SelectMobileCustomComponents = {
   Menu,
   IndicatorsContainer,
   DropdownIndicator,
-  IndicatorSeparator: IndicatorSeparatorMobile,
+  IndicatorSeparator,
   MenuList,
   SingleValue,
   Input,
