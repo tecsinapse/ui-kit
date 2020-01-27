@@ -117,7 +117,7 @@ export const TextFieldComponent = ({
   endAdornment,
   endAdornmentMargin = true,
   startAdornment,
-  variant,
+  variant = 'auto',
   ...input
 }) => {
   const theme = useTheme();
@@ -131,7 +131,6 @@ export const TextFieldComponent = ({
       device = 'web';
     }
   }
-
   return (
     <TextField
       disabled={disabled}
@@ -175,7 +174,7 @@ export const TextFieldComponent = ({
           />
         ),
       }}
-      margin={device === 'web' ? 'dense' : undefined}
+      margin={device === 'mobile' ? undefined : 'dense'}
       value={value}
       error={!!error}
       variant="outlined"

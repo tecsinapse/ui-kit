@@ -149,6 +149,7 @@ export const SelectUnstyled = ({
       setAllSelected(!allSelected);
     },
     ...rest,
+    variant,
     containerSize,
     setContainerSize,
   };
