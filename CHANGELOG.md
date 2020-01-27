@@ -1,3 +1,11 @@
+## <small>4.0.9 (2020-01-27)</small>
+
+* Add important to separator custom class ([449369d](https://github.com/tecsinapse/ui-kit/commit/449369d))
+* Fix web select and seaprator on mobile ([ff8b260](https://github.com/tecsinapse/ui-kit/commit/ff8b260))
+* Revert "Update .bumpedrc" ([a230e08](https://github.com/tecsinapse/ui-kit/commit/a230e08))
+
+
+
 ## <small>4.0.8 (2020-01-24)</small>
 
 * Update .bumpedrc ([5c60b85](https://github.com/tecsinapse/ui-kit/commit/5c60b85))
