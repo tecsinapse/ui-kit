@@ -78,7 +78,7 @@ Drawer.defaultProps = {
 };
 const menuItemShape = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
-  component: PropTypes.object,
+  component: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   componentProps: PropTypes.object,
   styleProps: PropTypes.object,
 };
