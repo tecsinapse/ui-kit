@@ -118,6 +118,7 @@ export const TextFieldComponent = ({
   endAdornmentMargin = true,
   startAdornment,
   variantDevice = 'auto',
+  maxLength,
   ...input
 }) => {
   const theme = useTheme();
@@ -151,6 +152,7 @@ export const TextFieldComponent = ({
         inputComponent: mask ? TextMaskCustom : undefined,
         inputProps: {
           mask,
+          maxLength,
         },
         className: classes.input,
         classes: {
@@ -203,6 +205,7 @@ const InputUI = withStyles(inputStyles)(
     endAdornment,
     startAdornment,
     autoComplete,
+    maxLength,
     ...input
   }) => (
     <TextFieldComponent
@@ -223,6 +226,7 @@ const InputUI = withStyles(inputStyles)(
       endAdornment={endAdornment}
       startAdornment={startAdornment}
       autoComplete={autoComplete}
+      maxLength={maxLength}
       {...input}
     />
   )
@@ -309,6 +313,8 @@ Input.propTypes = {
   autoComplete: PropTypes.oneOf(['on', 'off']),
   /** Variant for Input display */
   variantDevice: PropTypes.oneOf(['auto', 'web', 'mobile']),
+  /** Set maxLength size for Input */
+  maxLength: PropTypes.number,
 };
 
 export default Input;
