@@ -1,3 +1,11 @@
+## <small>4.0.11 (2020-02-05)</small>
+
+* Fixed maxLength prop not being propagated ([0308de6](https://github.com/tecsinapse/ui-kit/commit/0308de6))
+* Updating deps ([901fa7b](https://github.com/tecsinapse/ui-kit/commit/901fa7b))
+* Updating propType ([926183a](https://github.com/tecsinapse/ui-kit/commit/926183a))
+
+
+
 ## <small>4.0.10 (2020-01-27)</small>
 
 * Fix variant prop as variantDevice ([8b47f18](https://github.com/tecsinapse/ui-kit/commit/8b47f18))
