@@ -297,14 +297,15 @@ TableComponent.propTypes = {
     root: PropTypes.string,
     rootMobile: PropTypes.string,
   }),
-  /** Set options for exporting table */
+  /** Set options for exporting table. If custom `type` is provided, you have to set `exportFunc` and `label` */
   exportOptions: PropTypes.shape({
     exportFileName: PropTypes.string,
     exportTypes: PropTypes.arrayOf(
       PropTypes.shape({
-        type: PropTypes.oneOf(['csv']),
+        type: PropTypes.oneOf(['csv', 'custom']),
         label: PropTypes.string,
         delimeter: PropTypes.string,
+        exportFunc: PropTypes.func,
       })
     ),
   }),
