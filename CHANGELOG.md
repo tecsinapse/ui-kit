@@ -1,3 +1,9 @@
+## 1.3.0 (2020-02-06)
+
+* Added option to set custom data export ([917219e](https://github.com/tecsinapse/table/commit/917219e))
+
+
+
 ## 1.2.0 (2020-01-22)
 
 * @tecsinapse/ui-kit@4.0.0 ([17bdac3](https://github.com/tecsinapse/table/commit/17bdac3))
