@@ -71,8 +71,27 @@ const TableExporter = ({
     return null;
   }
 
+  const handleExport = async (type, delimeter, exportFunc) => {
+    if (exportFunc || type === 'custom') {
+      exportFunc();
+      setAnchorEl(false);
+    } else {
+      await exportData(
+        type,
+        exportFileName,
+        columns,
+        data,
+        setAnchorEl,
+        delimeter,
+        filters,
+        setLoading,
+        rowCount
+      );
+    }
+  };
+
   return (
-    <React.Fragment>
+    <>
       <IconButton onClick={event => setAnchorEl(event.currentTarget)}>
         <Icon path={mdiDownload} size={1} color="#757575" />
       </IconButton>
@@ -81,28 +100,16 @@ const TableExporter = ({
         open={Boolean(anchorEl)}
         onClose={() => setAnchorEl(null)}
       >
-        {exportTypes.map(({ type, label, delimeter }) => (
+        {exportTypes.map(({ type, label, delimeter, exportFunc }) => (
           <MenuItem
             key={`export-${type}`}
-            onClick={() =>
-              exportData(
-                type,
-                exportFileName,
-                columns,
-                data,
-                setAnchorEl,
-                delimeter,
-                filters,
-                setLoading,
-                rowCount
-              )
-            }
+            onClick={() => handleExport(type, delimeter, exportFunc)}
           >
             {label || defaultLabelToCSV}
           </MenuItem>
         ))}
       </Menu>
-    </React.Fragment>
+    </>
   );
 };
 
@@ -120,9 +127,10 @@ TableExporter.propTypes = {
   exportFileName: PropTypes.string,
   exportTypes: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.oneOf(['csv']),
+      type: PropTypes.oneOf(['csv', 'custom']),
       label: PropTypes.string,
       delimeter: PropTypes.string,
+      exportFunc: PropTypes.func,
     })
   ),
 };

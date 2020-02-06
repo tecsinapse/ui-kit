@@ -50,8 +50,7 @@ export const onChangeHeaderFilter = setFilters => headerFilters => {
   setFilters(prevFilters => {
     const newFilters = { page: 0 };
     newFilters.headerFilters = { ...headerFilters };
-    const mergedFilters = { ...prevFilters, ...newFilters };
-    return mergedFilters;
+    return { ...prevFilters, ...newFilters };
   });
 };
 
@@ -65,8 +64,7 @@ export const onChangeSortFilter = setFilters => field => {
       // same sort column, change only order
       newFilters.ascending = !prevFilters.ascending;
     }
-    const mergedFilters = { ...prevFilters, ...newFilters };
-    return mergedFilters;
+    return { ...prevFilters, ...newFilters };
   });
 };
 
