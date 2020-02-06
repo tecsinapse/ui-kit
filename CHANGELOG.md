@@ -1,3 +1,9 @@
+## <small>4.0.12 (2020-02-06)</small>
+
+* Updating Table example ([94426d6](https://github.com/tecsinapse/ui-kit/commit/94426d6))
+
+
+
 ## <small>4.0.11 (2020-02-05)</small>
 
 * Fixed maxLength prop not being propagated ([0308de6](https://github.com/tecsinapse/ui-kit/commit/0308de6))
