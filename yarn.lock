@@ -2853,10 +2853,10 @@
     luxon "^1.11.2"
     prop-types "^15.6.2"
 
-"@tecsinapse/table@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/table/-/table-1.2.0.tgz#6fbbfac02046e363b3d1989c543b6c31904115ca"
-  integrity sha512-6N3NssUzG6oDWHqWM0YNsHNKaIoEHrLPREprtUXB/NHImis4PJD71u3rUlU/CQR/ysXcvVGTq+NdcU1eBYt09g==
+"@tecsinapse/table@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/table/-/table-1.3.0.tgz#da96e05ed083fde1c9bec131c5367ce061b64ba2"
+  integrity sha512-IkgF0mSrJwhoOh3asO2t80o476XF7n9aZSaUDEO72fPKApQS0SP7R9bRRkgfQ3HpHAJLb9khIAayJx0sgjFN0A==
   dependencies:
     "@material-ui/core" "^4.2.1"
     "@material-ui/icons" "^4.2.1"
