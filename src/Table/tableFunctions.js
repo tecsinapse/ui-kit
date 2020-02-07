@@ -3,6 +3,12 @@ import { isNotEmptyOrNull, resolveObj } from '@tecsinapse/es-utils/build';
 export const INCLUDE_MATCH_CONST = 'INCLUDE';
 export const EXACT_MATCH_CONST = 'EXACT';
 
+export const normalizeString = str =>
+  str
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+
 const stringifyIfObject = value =>
   typeof value === 'object' ? JSON.stringify(value) : value;
 
@@ -191,7 +197,9 @@ export const applyHeaderFilters = (
         if (matchType === EXACT_MATCH_CONST) {
           return valueField === filterValue;
         }
-        return valueField.toLowerCase().includes(filterValue.toLowerCase());
+        return normalizeString(valueField).includes(
+          normalizeString(filterValue)
+        );
       }
       return false;
     });
