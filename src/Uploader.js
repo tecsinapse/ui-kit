@@ -72,6 +72,7 @@ const useStyle = makeStyles({
 export const Uploader = forwardRef(
   (
     {
+      buttonType,
       value,
       acceptedFormat,
       filesLimit,
@@ -211,6 +212,7 @@ export const Uploader = forwardRef(
                 </Typography>
                 <Button
                   color="secondary"
+                  type={buttonType}
                   variant="contained"
                   onClick={open}
                   className={classes.button}
@@ -261,7 +263,7 @@ Uploader.defaultProps = {
     buttonLabel: 'Upload Files',
     subtitle: 'or click on the button',
   },
-
+  buttonType: 'submit',
   silent: false,
 };
 
@@ -298,4 +300,6 @@ Uploader.propTypes = {
     filenameFailedMessage: PropTypes.func,
     sizeLimitErrorMessage: PropTypes.func,
   }),
+  /** Set uploader button type */
+  buttonType: PropTypes.string,
 };
