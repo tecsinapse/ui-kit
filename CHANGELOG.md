@@ -1,3 +1,9 @@
+## <small>1.3.1 (2020-02-07)</small>
+
+* Normalization for string comparison on table header filters ([73ef073](https://github.com/tecsinapse/table/commit/73ef073))
+
+
+
 ## 1.3.0 (2020-02-06)
 
 * Added option to set custom data export ([917219e](https://github.com/tecsinapse/table/commit/917219e))
