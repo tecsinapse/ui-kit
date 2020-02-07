@@ -1,3 +1,9 @@
+## <small>1.1.1 (2020-02-07)</small>
+
+* Set custom button type parameter ([3aa7046](https://github.com/tecsinapse/uploader/commit/3aa7046))
+
+
+
 ## 1.1.0 (2020-01-22)
 
 * @tecsinapse/ui-kit@4.0.0 ([fefb5d6](https://github.com/tecsinapse/uploader/commit/fefb5d6))
