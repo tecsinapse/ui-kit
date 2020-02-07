@@ -63,8 +63,8 @@ export const themeColors = {
     },
   },
   blackOrange: {
-    primary: { main: '#616161', light: '#323232', contrastText: '#ffffff' },
-    secondary: { main: '#ff6600', contrastText: '#ffffff' },
+    primary: { main: '#616161', light: '#151314', contrastText: '#ffffff' },
+    secondary: { main: '#ef7500', contrastText: '#ffffff' },
     error: {
       main: defaultRed,
       contrastText: '#ffffff',
