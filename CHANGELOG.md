@@ -1,3 +1,9 @@
+## <small>1.1.2 (2020-02-07)</small>
+
+* Set Upload Button as button ([c3b3e23](https://github.com/tecsinapse/uploader/commit/c3b3e23))
+
+
+
 ## <small>1.1.1 (2020-02-07)</small>
 
 * Set custom button type parameter ([3aa7046](https://github.com/tecsinapse/uploader/commit/3aa7046))
