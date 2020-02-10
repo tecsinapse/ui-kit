@@ -1,3 +1,9 @@
+## <small>4.0.13 (2020-02-10)</small>
+
+* Changing colors tone for orange black theme. ([eae3e76](https://github.com/tecsinapse/ui-kit/commit/eae3e76))
+
+
+
 ## <small>4.0.12 (2020-02-06)</small>
 
 * Updating Table example ([94426d6](https://github.com/tecsinapse/ui-kit/commit/94426d6))
