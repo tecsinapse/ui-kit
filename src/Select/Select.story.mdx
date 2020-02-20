@@ -4,6 +4,7 @@ import { DivFlex } from '../withFlexCenter';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { options } from './storyHelper';
 import { useState } from 'react';
+import { mdiPlus } from '@mdi/js';
 
 <Meta
   title={`${GROUPS.FORMS}|Select`}
@@ -78,6 +79,33 @@ Here you can check the code snippet for the story.
 </Story>
 
 <Source id="forms-select--no-value-multi" />
+
+## No value multi custom action
+
+<Story name="No value multi custom action" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const [value, setValue] = useState([null]);
+    return (
+      <Select
+        value={value}
+        options={options}
+        placeholder="select your destiny"
+        menuPlacement="top"
+        onChange={setValue}
+        label="Placeholder"
+        isMulti
+        minWidth={350}
+        customAction={{
+          buttonLabel: 'Nova ação',
+          handleClick: () => console.log('Custom Action Click'),
+          buttonIcon: mdiPlus,
+        }}
+      />
+    );
+  }}
+</Story>
+
+<Source id="forms-select--no-value-multi-custom-action" />
 
 ## Web
 

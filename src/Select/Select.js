@@ -40,6 +40,7 @@ export const SelectUnstyled = ({
   selectPromptMessage = 'Selecione',
   portal,
   minWidth,
+  customAction,
   ...rest
 }) => {
   const valuesAllSelected = isMulti && value && value.length === options.length;
@@ -152,6 +153,7 @@ export const SelectUnstyled = ({
     variant,
     containerSize,
     setContainerSize,
+    customAction,
   };
 
   const selectProps =
@@ -255,6 +257,18 @@ SelectUnstyled.propTypes = {
   selectAllMessage: PropTypes.string,
   /** Minimum element width */
   minWidth: PropTypes.string,
+  /** Custom action placed on '`Select all`' line for multi select. The `buttonIcon` prop must be a mdi valid icon. `buttonColor` and `buttonVariant` are material-ui equivalent props. */
+  customAction: PropTypes.shape({
+    buttonLabel: PropTypes.string.isRequired,
+    buttonColor: PropTypes.oneOf(['primary', 'secondary']),
+    buttonVariant: PropTypes.oneOf(['contained', 'text', 'outlined']),
+    buttonIcon: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.element,
+      PropTypes.string,
+    ]),
+    handleClick: PropTypes.func.isRequired,
+  }),
 };
 
 export default SelectUnstyled;
