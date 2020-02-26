@@ -41,6 +41,7 @@ export const SelectUnstyled = ({
   portal,
   minWidth,
   customAction,
+  customIndicators,
   ...rest
 }) => {
   const valuesAllSelected = isMulti && value && value.length === options.length;
@@ -146,14 +147,17 @@ export const SelectUnstyled = ({
       setMenuIsOpen(false);
     },
     selectAll: event => {
-      onChange(!allSelected ? options.map(c => c.value) : []);
-      setAllSelected(!allSelected);
+      if (!document.getElementById('customAction').contains(event.target)) {
+        onChange(!allSelected ? options.map(c => c.value) : []);
+        setAllSelected(!allSelected);
+      }
     },
     ...rest,
     variant,
     containerSize,
     setContainerSize,
     customAction,
+    customIndicators,
   };
 
   const selectProps =
@@ -216,6 +220,7 @@ SelectUnstyled.defaultProps = {
   selectPromptMessage: 'Selecione',
   selectAllMessage: 'Selecionar todos',
   minWidth: '200px',
+  customIndicators: undefined,
 };
 SelectUnstyled.propTypes = {
   /** Show 'select' option to select all options */
@@ -269,6 +274,12 @@ SelectUnstyled.propTypes = {
     ]),
     handleClick: PropTypes.func.isRequired,
   }),
+  /** Custom indicators to be placed as addornment */
+  customIndicators: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+    PropTypes.element,
+  ]),
 };
 
 export default SelectUnstyled;

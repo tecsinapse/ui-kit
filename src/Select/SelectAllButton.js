@@ -26,7 +26,7 @@ export const SelectAllButton = ({
           justifyContent: 'space-between',
         }}
         component="div"
-        onClick={buttonLabel ? () => {} : selectAll}
+        onClick={selectAll}
       >
         <div>
           <Checkbox
@@ -36,16 +36,18 @@ export const SelectAllButton = ({
           />
           {selectPromptMessage}
         </div>
-        {buttonLabel && (
-          <Button
-            onClick={handleClick}
-            variant={buttonVariant || 'contained'}
-            color={buttonColor || 'primary'}
-          >
-            {buttonIcon && <Icon path={buttonIcon} size={1} color="white" />}
-            {buttonLabel}
-          </Button>
-        )}
+        <div id="customAction">
+          {buttonLabel && (
+            <Button
+              onClick={handleClick}
+              variant={buttonVariant || 'contained'}
+              color={buttonColor || 'primary'}
+            >
+              {buttonIcon && <Icon path={buttonIcon} size={1} color="white" />}
+              {buttonLabel}
+            </Button>
+          )}
+        </div>
       </MenuItem>
       <Divider variant="solid" />
     </>

@@ -4,7 +4,9 @@ import { DivFlex } from '../withFlexCenter';
 import { GROUPS } from '../../.storybook/hierarchySeparators';
 import { options } from './storyHelper';
 import { useState } from 'react';
-import { mdiPlus } from '@mdi/js';
+import { mdiPlus, mdiEye } from '@mdi/js';
+import Icon from '@mdi/react';
+import { IconButton } from '../Buttons/IconButton';
 
 <Meta
   title={`${GROUPS.FORMS}|Select`}
@@ -82,7 +84,10 @@ Here you can check the code snippet for the story.
 
 ## No value multi custom action
 
-<Story name="No value multi custom action" parameters={{ docs: { disable: true } }}>
+<Story
+  name="No value multi custom action"
+  parameters={{ docs: { disable: true } }}
+>
   {() => {
     const [value, setValue] = useState([null]);
     return (
@@ -106,6 +111,36 @@ Here you can check the code snippet for the story.
 </Story>
 
 <Source id="forms-select--no-value-multi-custom-action" />
+
+## No value multi custom indicators
+
+<Story
+  name="No value multi custom indicators"
+  parameters={{ docs: { disable: true } }}
+>
+  {() => {
+    const [value, setValue] = useState([null]);
+    return (
+      <Select
+        value={value}
+        options={options}
+        placeholder="select your destiny"
+        menuPlacement="top"
+        onChange={setValue}
+        label="Placeholder"
+        isMulti
+        minWidth={350}
+        customIndicators={
+          <IconButton onClick={() => console.log('Indicator Click')}>
+            <Icon path={mdiEye} size={1} color="grey" />
+          </IconButton>
+        }
+      />
+    );
+  }}
+</Story>
+
+<Source id="forms-select--no-value-multi-custom-indicators" />
 
 ## Web
 
@@ -221,7 +256,7 @@ Here you can check the code snippet for the story.
           flexDirection: 'column',
           overflow: 'hide',
           alignItems: 'center',
-          width: '100%'
+          width: '100%',
         }}
       >
         <div
