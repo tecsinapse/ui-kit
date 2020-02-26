@@ -274,7 +274,7 @@ SelectUnstyled.propTypes = {
     ]),
     handleClick: PropTypes.func.isRequired,
   }),
-  /** Custom indicators to be placed as addornment */
+  /** Custom indicators to be placed as adornment */
   customIndicators: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
