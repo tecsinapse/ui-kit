@@ -45,9 +45,7 @@ export function FormUploader({
   acceptedFormat,
   filesLimit,
   maxFileSize,
-  title,
-  buttonLabel,
-  subtitle,
+  messages,
   onAccept,
   onReject,
   onDelete,
@@ -85,11 +83,9 @@ export function FormUploader({
           acceptedFormat={acceptedFormat}
           filesLimit={filesLimit}
           maxFileSize={maxFileSize}
-          title={title}
-          buttonLabel={buttonLabel}
+          messages={messages}
           onAccept={onAccept}
           onReject={onReject}
-          subtitle={subtitle}
         />
       </div>
 
@@ -115,9 +111,6 @@ FormUploader.defaultProps = {
   acceptedFormat: ['image/*', 'video/*', 'application/*'],
   filesLimit: 3,
   maxFileSize: 3000000,
-  title: 'Drag and drop a file',
-  buttonLabel: 'Upload Files',
-  subtitle: 'or click on the button',
   onAccept: null,
   onReject: null,
   onDelete: null,
@@ -125,15 +118,24 @@ FormUploader.defaultProps = {
   headerLabel: 'Uploading Files',
   noFileTopLabel: 'Upload Files',
   noFileBottomLabel: 'Appear Here',
+  messages: {
+    maximumFileLimitMessage: limit =>
+      `Maximum allowed number of files exceeded. Only ${limit} allowed`,
+    maximumFileNumberMessage: 'Maximum allowed number of files',
+    filenameFailedMessage: name => `${name} failed. `,
+    filetypeNotSupportedMessage: 'File type not supported. ',
+    sizeLimitErrorMessage: size => `Size limit ${size}.`,
+    undefinedErrorMessage: 'Undefined error',
+    title: 'Drag and drop a file',
+    buttonLabel: 'Upload Files',
+    subtitle: 'or click on the button',
+  },
 };
 
 FormUploader.propTypes = {
   acceptedFormat: PropTypes.array,
   filesLimit: PropTypes.number,
   maxFileSize: PropTypes.number,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  buttonLabel: PropTypes.string,
   value: PropTypes.shape({
     uid: PropTypes.number,
     file: PropTypes.object,
@@ -145,7 +147,21 @@ FormUploader.propTypes = {
   onReject: PropTypes.func,
   onDelete: PropTypes.func,
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
+  /** Header label displayed on form uploader */
   headerLabel: PropTypes.string,
+  /** Bottom label displayed on form uploader when empty */
   noFileBottomLabel: PropTypes.string,
+  /** Top label displayed on form uploader when empty */
   noFileTopLabel: PropTypes.string,
+  /** Messages object to the user */
+  messages: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    buttonLabel: PropTypes.string,
+    filetypeNotSupportedMessage: PropTypes.string,
+    undefinedErrorMessage: PropTypes.string,
+    maximumFileLimitMessage: PropTypes.func,
+    filenameFailedMessage: PropTypes.func,
+    sizeLimitErrorMessage: PropTypes.func,
+  }),
 };
