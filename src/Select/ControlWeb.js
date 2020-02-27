@@ -2,8 +2,10 @@ import React from 'react';
 import { Controlnput } from './Controlnput';
 
 export function ControlWeb({ selectProps, innerRef, innerProps, children }) {
-  const onTouch = () => {
-    selectProps.setMenuIsOpen(!selectProps.menuIsOpen);
+  const onTouch = e => {
+    if (!document.getElementById('customIndicators').contains(e.target)) {
+      selectProps.setMenuIsOpen(!selectProps.menuIsOpen);
+    }
   };
 
   return (
