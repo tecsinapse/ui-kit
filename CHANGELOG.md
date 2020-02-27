@@ -1,3 +1,9 @@
+## 1.2.0 (2020-02-27)
+
+* Fixed FormUploader.js API to display messages ([287f14b](https://github.com/tecsinapse/uploader/commit/287f14b))
+
+
+
 ## <small>1.1.2 (2020-02-07)</small>
 
 * Set Upload Button as button ([c3b3e23](https://github.com/tecsinapse/uploader/commit/c3b3e23))
