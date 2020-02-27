@@ -1,3 +1,13 @@
+## 4.1.0 (2020-02-27)
+
+* Added custom action to multi select ([c433af1](https://github.com/tecsinapse/ui-kit/commit/c433af1))
+* Added custom indicators to Select ([11e6b7e](https://github.com/tecsinapse/ui-kit/commit/11e6b7e))
+* Select props docs fix ([c80fee8](https://github.com/tecsinapse/ui-kit/commit/c80fee8))
+* Update GetStarted.story.mdx ([d7a3849](https://github.com/tecsinapse/ui-kit/commit/d7a3849))
+* Updating Drawer propTypes ([654a797](https://github.com/tecsinapse/ui-kit/commit/654a797))
+
+
+
 ## <small>4.0.13 (2020-02-10)</small>
 
 * Changing colors tone for orange black theme. ([eae3e76](https://github.com/tecsinapse/ui-kit/commit/eae3e76))
