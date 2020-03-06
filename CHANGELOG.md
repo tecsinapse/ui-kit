@@ -1,3 +1,9 @@
+## <small>4.1.1 (2020-03-06)</small>
+
+* Added condicional rendering at card title ([2d451d1](https://github.com/tecsinapse/ui-kit/commit/2d451d1))
+
+
+
 ## 4.1.0 (2020-02-27)
 
 * Added custom action to multi select ([c433af1](https://github.com/tecsinapse/ui-kit/commit/c433af1))
