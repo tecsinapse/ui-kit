@@ -25,9 +25,11 @@ export const UiKitCard = ({
           <Grid container classes={{ root: classes.gridContainer }}>
             <Grid item xs={12} classes={{ root: classes.grid }}>
               <div className={classes.gridFlex}>
-                <Typography classes={{ root: classes.title }}>
-                  {title.name}
-                </Typography>
+                {title && title.name && (
+                  <Typography classes={{ root: classes.title }}>
+                    {title.name}
+                  </Typography>
+                )}
                 {title.components}
               </div>
             </Grid>
