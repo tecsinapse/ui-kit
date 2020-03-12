@@ -222,5 +222,6 @@ ThemeProvider.propTypes = {
     'deepBlack',
     'deepBlue',
     'micBlue',
+    'greyLight',
   ]).isRequired,
 };
