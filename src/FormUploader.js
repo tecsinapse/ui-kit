@@ -100,6 +100,7 @@ export function FormUploader({
           headerLabel={headerLabel}
           noFileBottomLabel={noFileBottomLabel}
           noFileTopLabel={noFileTopLabel}
+          messages={messages}
         />
       </div>
     </div>
@@ -129,6 +130,10 @@ FormUploader.defaultProps = {
     title: 'Drag and drop a file',
     buttonLabel: 'Upload Files',
     subtitle: 'or click on the button',
+    fileRemovedMessage: 'File removed from upload list',
+    fileUploadedSucessfullyMessage: filename =>
+      `${filename} uploaded successfully`,
+    fileErroedMessage: (filename, error) => `${filename} error: ${error}`,
   },
 };
 
@@ -163,5 +168,8 @@ FormUploader.propTypes = {
     maximumFileLimitMessage: PropTypes.func,
     filenameFailedMessage: PropTypes.func,
     sizeLimitErrorMessage: PropTypes.func,
+    fileRemovedMessage: PropTypes.string,
+    fileUploadedSucessfullyMessage: PropTypes.func,
+    fileErroedMessage: PropTypes.func,
   }),
 };
