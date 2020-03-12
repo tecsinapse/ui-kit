@@ -1,3 +1,9 @@
+## <small>4.1.2 (2020-03-12)</small>
+
+* Fix missing color at ThemeProvider ([7a170f4](https://github.com/tecsinapse/ui-kit/commit/7a170f4))
+
+
+
 ## <small>4.1.1 (2020-03-06)</small>
 
 * Added condicional rendering at card title ([2d451d1](https://github.com/tecsinapse/ui-kit/commit/2d451d1))
