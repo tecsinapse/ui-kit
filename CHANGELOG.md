@@ -1,3 +1,9 @@
+## <small>1.2.1 (2020-03-12)</small>
+
+* Fixed FormUploader.js API to display snackbar messages ([f6b52a7](https://github.com/tecsinapse/uploader/commit/f6b52a7))
+
+
+
 ## 1.2.0 (2020-02-27)
 
 * Fixed FormUploader.js API to display messages ([287f14b](https://github.com/tecsinapse/uploader/commit/287f14b))

@@ -2,7 +2,7 @@
   "name": "@tecsinapse/uploader",
   "description": "TecSinapse Uploader",
   "homepage": "https://github.com/tecsinapse/uploader#readme",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "author": {
