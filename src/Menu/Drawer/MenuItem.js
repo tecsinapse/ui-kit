@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import React, { cloneElement, useRef, useEffect } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { mdiMenuDown, mdiMenuUp } from '@mdi/js';
 import Icon from '@mdi/react';
@@ -54,6 +54,18 @@ export const TitleSubtitleMenuItem = ({
   </ListItem>
 );
 
+const CollapsedList = ({ childrenBack, open }) => {
+  const listRef = useRef(null);
+
+  useEffect(() => listRef.current.scrollIntoView(true), []);
+
+  return (
+    <List component="div" disablePadding dense ref={listRef}>
+      {cloneElement(childrenBack, { showAsOpen: open })}
+    </List>
+  );
+};
+
 export const MenuItem = ({
   depth,
   handleClick,
@@ -106,9 +118,7 @@ export const MenuItem = ({
       </ListItem>
       {children && (
         <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding dense>
-            {cloneElement(children, { showAsOpen: open })}
-          </List>
+          <CollapsedList childrenBack={children} open={open} />
         </Collapse>
       )}
     </div>
