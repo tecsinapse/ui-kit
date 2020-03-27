@@ -1,3 +1,10 @@
+## <small>4.1.3 (2020-03-27)</small>
+
+* Bump acorn from 5.7.3 to 5.7.4 in /example ([dff72d6](https://github.com/tecsinapse/ui-kit/commit/dff72d6))
+* Fix drawer open just one by level. Fix drawer open to last child ([a3bb1c9](https://github.com/tecsinapse/ui-kit/commit/a3bb1c9))
+
+
+
 ## <small>4.1.2 (2020-03-12)</small>
 
 * Fix missing color at ThemeProvider ([7a170f4](https://github.com/tecsinapse/ui-kit/commit/7a170f4))
