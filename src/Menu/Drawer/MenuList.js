@@ -23,11 +23,20 @@ export const MenuList = ({
   });
   const [open, setOpen] = useState(object);
   const classes = useStyles();
-  const handleClick = key =>
-    setOpen(prevOpen => ({
-      ...prevOpen,
-      [key]: !prevOpen[key],
-    }));
+  const handleClick = clickedKey =>
+    setOpen(prevOpen => {
+      const newOpen = {};
+      Object.keys(prevOpen)
+        .concat([clickedKey])
+        .forEach(key => {
+          if (key === clickedKey) {
+            newOpen[key] = !prevOpen[key];
+          } else {
+            newOpen[key] = false;
+          }
+        });
+      return newOpen;
+    });
   return (
     <List className={classes.parentList} disablePadding>
       {items.map(
