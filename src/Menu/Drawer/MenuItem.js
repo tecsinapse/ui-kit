@@ -18,12 +18,6 @@ const useStyles = depth =>
           ? theme.spacing((depth + 1) * 1.25)
           : theme.spacing(depth + 1),
     },
-    parentItem: {
-      height: theme.spacing(5),
-    },
-    childItem: {
-      height: theme.spacing(3),
-    },
     openItem: {
       backgroundColor: grey[Math.min(Math.max(1, depth) * 50, 100)],
     },
@@ -91,8 +85,6 @@ export const MenuItem = ({
         divider={depth === 0}
         className={clsx({
           [classes.openItem]: open || showAsOpen,
-          [classes.parentItem]: depth === 0,
-          [classes.childItem]: depth > 0,
           [classes.item]: true,
           [classes.selected]: selected,
         })}
