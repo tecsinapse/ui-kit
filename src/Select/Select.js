@@ -261,7 +261,7 @@ SelectUnstyled.propTypes = {
   /** Select all placeholder */
   selectAllMessage: PropTypes.string,
   /** Minimum element width */
-  minWidth: PropTypes.string,
+  minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Custom action placed on '`Select all`' line for multi select. The `buttonIcon` prop must be a mdi valid icon. `buttonColor` and `buttonVariant` are material-ui equivalent props. */
   customAction: PropTypes.shape({
     buttonLabel: PropTypes.string.isRequired,
