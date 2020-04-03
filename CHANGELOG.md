@@ -1,3 +1,9 @@
+## <small>4.2.1 (2020-04-03)</small>
+
+* New Value Slider ([41fc52f](https://github.com/tecsinapse/ui-kit/commit/41fc52f))
+
+
+
 ## 4.2.0 (2020-04-03)
 
 * Fix menu fixed div ([91aff7b](https://github.com/tecsinapse/ui-kit/commit/91aff7b))
