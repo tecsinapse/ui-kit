@@ -55,7 +55,7 @@ ValueSlider.propTypes = {
   marks: PropTypes.array,
   min: PropTypes.number,
   max: PropTypes.number,
-  valueLabelDisplay: PropTypes.number,
+  valueLabelDisplay: PropTypes.string,
   onChange: PropTypes.func,
   onChangeCommitted: PropTypes.func,
 };
