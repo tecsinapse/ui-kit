@@ -1,3 +1,12 @@
+## 4.2.0 (2020-04-03)
+
+* Fix menu fixed div ([91aff7b](https://github.com/tecsinapse/ui-kit/commit/91aff7b))
+* New Value Slider ([ee75cb1](https://github.com/tecsinapse/ui-kit/commit/ee75cb1))
+* Removing example folder ([644401b](https://github.com/tecsinapse/ui-kit/commit/644401b))
+* Select props minWidth fix ([157d063](https://github.com/tecsinapse/ui-kit/commit/157d063))
+
+
+
 ## <small>4.1.3 (2020-03-27)</small>
 
 * Bump acorn from 5.7.3 to 5.7.4 in /example ([dff72d6](https://github.com/tecsinapse/ui-kit/commit/dff72d6))
