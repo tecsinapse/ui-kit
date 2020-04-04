@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { FormHelperText, Typography } from '@material-ui/core';
-import Add from '@material-ui/icons/Add';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
@@ -10,7 +9,7 @@ import { Input } from '../Inputs/Input';
 import { Divider } from '../Divider/Divider';
 import { IconButton } from '../Buttons/IconButton';
 import { defaultRed } from '../colors';
-import { Button } from '../Buttons/Button';
+import { AddButton } from './AddButton/AddButton';
 
 const useStyles = makeStyles(theme => ({
   flex: {
@@ -20,8 +19,17 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(0.5),
     marginBottom: theme.spacing(1.2),
   },
+  inputContainer: {
+    display: 'flex',
+  },
+  inputFullWidth: {
+    flexGrow: 1,
+  },
   marginLeft: {
     marginLeft: theme.spacing(1),
+  },
+  buttonIcon: {
+    color: theme.palette.primary.contrastText,
   },
   paddingCropped: {
     padding: theme.spacing(1 / 4),
@@ -78,19 +86,9 @@ export const GroupedInput = ({
         >
           {header} {!!error && '* '}
         </Typography>
-
-        <Button
-          type="button"
-          customVariant="warning"
-          variant="contained"
-          size="small"
-          className={classes.marginLeft}
-          onClick={push}
-          aria-label="Novo Campo"
-        >
-          <Add />
-          Novo Campo
-        </Button>
+        {values && values.length === 0 && (
+          <AddButton push={push} classes={classes} />
+        )}
       </div>
       {!!error && !errorIsArray && (
         <FormHelperText className={classes.errorLabel}>{error}</FormHelperText>
@@ -105,44 +103,48 @@ export const GroupedInput = ({
         )}
       >
         {values.map((value, index) => (
-          // we can use key here as the list is never reordered
           <Grid
             item
             xs={xs}
             sm={sm}
-            // eslint-disable-next-line
-            key={`${name}.${index}`}
+            key={`${name}.${index + 1}`}
             lg={lg}
             xl={xl}
           >
-            <Input
-              mask={mask}
-              error={errorIsArray ? error[index] : undefined}
-              success={
-                success && success.length > index ? success[index] : undefined
-              }
-              warning={
-                warnings && warnings.length > index
-                  ? warnings[index]
-                  : undefined
-              }
-              label={`${label} #${index + 1}`}
-              value={value}
-              name={`${name}.${index}`}
-              onChange={onChange}
-              onBlur={onBlur}
-              className={classes.input}
-              fullWidth
-              endAdornment={
-                <IconButton
-                  customVariant="error"
-                  className={classes.paddingCropped}
-                  onClick={() => remove(index)}
-                >
-                  <DeleteIcon />
-                </IconButton>
-              }
-            />
+            <div className={classes.inputContainer}>
+              <div className={classes.inputFullWidth}>
+                <Input
+                  mask={mask}
+                  error={errorIsArray ? error[index] : undefined}
+                  success={
+                    success && success.length > index
+                      ? success[index]
+                      : undefined
+                  }
+                  warning={
+                    warnings && warnings.length > index
+                      ? warnings[index]
+                      : undefined
+                  }
+                  label={`${label} #${index + 1}`}
+                  value={value}
+                  name={`${name}.${index}`}
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  className={classes.input}
+                  fullWidth
+                  endAdornment={
+                    <IconButton
+                      className={classes.paddingCropped}
+                      onClick={() => remove(index)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  }
+                />
+              </div>
+              {index === 0 && <AddButton push={push} classes={classes} />}
+            </div>
           </Grid>
         ))}
       </Grid>
