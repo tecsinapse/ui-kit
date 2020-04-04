@@ -1,3 +1,9 @@
+## <small>4.2.2 (2020-04-04)</small>
+
+* Fiz wrong type of UiKitCard ([ad7b571](https://github.com/tecsinapse/ui-kit/commit/ad7b571))
+
+
+
 ## <small>4.2.1 (2020-04-03)</small>
 
 * New Value Slider ([41fc52f](https://github.com/tecsinapse/ui-kit/commit/41fc52f))
