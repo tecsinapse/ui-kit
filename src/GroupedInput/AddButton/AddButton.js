@@ -23,6 +23,7 @@ export const AddButton = ({ push, classes }) => {
         onClick={push}
         aria-label="Novo Campo"
         style={style}
+        disableElevation
       >
         <Icon path={mdiPlusCircle} size={1} color={color} />
       </Button>
