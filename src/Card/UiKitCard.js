@@ -91,7 +91,7 @@ UiKitCard.propTypes = {
   /** Card subtitle */
   subtitle: PropTypes.string,
   /** Card content */
-  content: PropTypes.string,
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /** Card extra content */
   subContent: PropTypes.string,
   /** Components to be rendered as card actions */
