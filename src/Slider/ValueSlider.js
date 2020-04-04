@@ -7,11 +7,11 @@ import React from 'react';
  * Based on PrettoSlider at materia-ui
  * https://github.com/mui-org/material-ui/blob/master/docs/src/pages/components/slider/CustomizedSlider.tsx
  * */
-const ValueSlider = props => {
+const ValueSlider = ({ colorSlider, ...props }) => {
   const Component = withStyles(theme => ({
     root: {
       marginTop: `-${theme.spacing(1)}px`,
-      color: props && props.colorSlider,
+      color: colorSlider,
     },
     thumb: {
       display: 'none',
