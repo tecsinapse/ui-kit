@@ -14,7 +14,10 @@ deploy:
     github-token: $GITHUB_TOKEN
     keep-history: false
     on:
-      tags: true
+      tags: true      
 notifications:
   email:
-    - lip@tecsinapse.com.br
+    recipients:
+      - lip@etecsinapse.com
+    on_success: never # default: change
+    on_failure: always # default: always
