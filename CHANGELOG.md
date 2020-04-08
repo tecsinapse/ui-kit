@@ -1,3 +1,10 @@
+## <small>4.2.4 (2020-04-08)</small>
+
+* Added auto hide property to snackbar ([7907925](https://github.com/tecsinapse/ui-kit/commit/7907925))
+* Fixing color path ([7065b02](https://github.com/tecsinapse/ui-kit/commit/7065b02))
+
+
+
 ## <small>4.2.3 (2020-04-04)</small>
 
 * Fiz wrong type of UiKitCard ([eda953a](https://github.com/tecsinapse/ui-kit/commit/eda953a))
