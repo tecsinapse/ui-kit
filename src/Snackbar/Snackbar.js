@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { StyledSnackbarContent } from './StyledSnackbarContent';
 
-export function Snackbar({ show, onClose, variant, children }) {
+export function Snackbar({
+  show,
+  onClose,
+  variant,
+  children,
+  autoHideDuration,
+}) {
   return (
     <MaterialSnackbar
       anchorOrigin={{
@@ -11,7 +17,7 @@ export function Snackbar({ show, onClose, variant, children }) {
         horizontal: 'left',
       }}
       open={show}
-      autoHideDuration={6000}
+      autoHideDuration={autoHideDuration}
       onClose={onClose}
     >
       <StyledSnackbarContent
@@ -25,6 +31,7 @@ export function Snackbar({ show, onClose, variant, children }) {
 
 Snackbar.defaultProps = {
   onClose: () => {},
+  autoHideDuration: 6000,
 };
 Snackbar.propTypes = {
   /** Close Snackbar func */
@@ -33,5 +40,7 @@ Snackbar.propTypes = {
   show: PropTypes.bool.isRequired,
   /** Snackbar variant */
   variant: PropTypes.oneOf(['success', 'warning', 'error']).isRequired,
+  /** Auto hide timeout */
+  autoHideDuration: PropTypes.number,
 };
 export default Snackbar;
