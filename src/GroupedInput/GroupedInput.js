@@ -1,59 +1,11 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import DeleteIcon from '@material-ui/icons/Delete';
+import React, { useState } from 'react';
 import { FormHelperText, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { Input } from '../Inputs/Input';
 import { Divider } from '../Divider/Divider';
-import { IconButton } from '../Buttons/IconButton';
-import { defaultRed } from '../colors';
-import { AddButton } from './AddButton/AddButton';
-
-const useStyles = makeStyles(theme => ({
-  flex: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    marginTop: theme.spacing(0.5),
-    marginBottom: theme.spacing(1.2),
-  },
-  inputContainer: {
-    display: 'flex',
-  },
-  inputFullWidth: {
-    flexGrow: 1,
-  },
-  marginLeft: {
-    marginLeft: theme.spacing(1),
-  },
-  buttonIcon: {
-    color: theme.palette.primary.contrastText,
-  },
-  paddingCropped: {
-    padding: theme.spacing(1 / 4),
-  },
-  input: {
-    flexGrow: 1,
-    marginTop: 0,
-    marginLeft: theme.spacing(2 / 3),
-    marginRight: theme.spacing(2 / 3),
-    marginBottom: theme.spacing(1.2),
-  },
-  flexPadding: {
-    padding: theme.spacing(0.5),
-  },
-  empty: {
-    marginBottom: theme.spacing(0.5),
-  },
-  errorLabel: {
-    color: defaultRed,
-  },
-  paddingRight: {
-    paddingRight: theme.spacing(1.2),
-  },
-}));
+import { useGroupedInputStyles } from './useGroupedInputStyles';
+import { InputItemGroupInput } from './InputItemGroupInput/InputItemGroupInput';
 
 export const GroupedInput = ({
   name,
@@ -74,8 +26,10 @@ export const GroupedInput = ({
   lg,
   xl,
   hr = false,
+  firstItemWithoutList = false,
 }) => {
-  const classes = useStyles();
+  const classes = useGroupedInputStyles();
+  const [valueInput, setValueInput] = useState('');
   const errorIsArray = error instanceof Array;
   return (
     <div>
@@ -86,9 +40,6 @@ export const GroupedInput = ({
         >
           {header} {!!error && '* '}
         </Typography>
-        {values && values.length === 0 && (
-          <AddButton push={push} classes={classes} />
-        )}
       </div>
       {!!error && !errorIsArray && (
         <FormHelperText className={classes.errorLabel}>{error}</FormHelperText>
@@ -102,50 +53,61 @@ export const GroupedInput = ({
           classes.paddingRight
         )}
       >
-        {values.map((value, index) => (
-          <Grid
-            item
+        {firstItemWithoutList && (
+          <InputItemGroupInput
+            mask={mask}
+            classes={classes}
+            errorIsArray={errorIsArray}
+            success={success}
+            error={error}
+            warnings={warnings}
+            label={label}
+            value={valueInput}
+            name={name}
+            index={-1}
+            onChange={e => setValueInput(e.target.value)}
+            onBlur={onBlur}
+            remove={remove}
+            exibeDeleteButton={false}
             xs={xs}
             sm={sm}
-            key={`${name}.${index + 1}`}
             lg={lg}
             xl={xl}
-          >
-            <div className={classes.inputContainer}>
-              <div className={classes.inputFullWidth}>
-                <Input
-                  mask={mask}
-                  error={errorIsArray ? error[index] : undefined}
-                  success={
-                    success && success.length > index
-                      ? success[index]
-                      : undefined
-                  }
-                  warning={
-                    warnings && warnings.length > index
-                      ? warnings[index]
-                      : undefined
-                  }
-                  label={`${label} #${index + 1}`}
-                  value={value}
-                  name={`${name}.${index}`}
-                  onChange={onChange}
-                  onBlur={onBlur}
-                  className={classes.input}
-                  fullWidth
-                  endAdornment={
-                    <IconButton
-                      className={classes.paddingCropped}
-                      onClick={() => remove(index)}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
-                  }
-                />
-              </div>
-              {index === 0 && <AddButton push={push} classes={classes} />}
-            </div>
-          </Grid>
+            push={() => {
+              push();
+              onChange(valueInput, values.length);
+              setValueInput('');
+            }}
+            exibeAddButton
+          />
+        )}
+
+        {values.map((value, index) => (
+          <InputItemGroupInput
+            // This List will never be reordenaded, then is secure to use this
+            // eslint-disable-next-line
+            key={`${name}.${index}`}
+            mask={mask}
+            classes={classes}
+            errorIsArray={errorIsArray}
+            success={success}
+            error={error}
+            index={index}
+            warnings={warnings}
+            label={label}
+            value={value}
+            name={name}
+            onChange={e => onChange(e.target.value, index)}
+            onBlur={onBlur}
+            remove={remove}
+            exibeDeleteButton={firstItemWithoutList || index !== 0}
+            xs={xs}
+            sm={sm}
+            lg={lg}
+            xl={xl}
+            exibeAddButton={!firstItemWithoutList && index === 0}
+            push={() => push(value)}
+          />
         ))}
       </Grid>
       {hr && <Divider />}

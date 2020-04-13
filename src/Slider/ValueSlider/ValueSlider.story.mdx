@@ -1,9 +1,9 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
 import { useState } from 'react';
 import { ValueSlider } from './ValueSlider';
-import { GROUPS } from '../../.storybook/hierarchySeparators';
-import { DivFlex } from '../withFlexCenter';
-import { defaultOrange } from '../colors';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
+import { DivFlex } from '../../withFlexCenter';
+import { defaultOrange } from '../../colors';
 
 <Meta
   title={`${GROUPS.COMPONENTS}|Value Slider`}
@@ -11,6 +11,8 @@ import { defaultOrange } from '../colors';
 />
 
 # Value Slider
+
+
 
 The `ValueSlider` component can receive the following props:
 
@@ -22,7 +24,7 @@ Here you can check the code snippet for the story.
 
 ## Interval slider
 
-<Story name="Simple slider" parameters={{ docs: { disable: true } }}>
+<Story name="Value slider" parameters={{ docs: { disable: true } }}>
   {() => {
     const marks = [
       {

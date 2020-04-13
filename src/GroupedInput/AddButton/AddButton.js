@@ -1,17 +1,17 @@
-import { useTheme } from '@material-ui/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Icon from '@mdi/react';
 import { mdiPlusCircle } from '@mdi/js';
 import React from 'react';
 import { Tooltip } from '@material-ui/core';
-import { Button } from '../../Buttons/Button';
+import { Button } from '../..';
+import { useAddButtonStyles } from './useAddButtonStyles';
 
-export const AddButton = ({ push, classes }) => {
-  const theme = useTheme();
-  const color = theme.palette.primary.contrastText;
-  const style = { height: '100%' };
-  const matches = useMediaQuery(theme.breakpoints.up('sm'));
-  const buttonStyle = { maxHeight: !matches ? '56px' : '40px' };
+export const AddButton = ({ push }) => {
+  const {
+    color,
+    buttonNovoCampo,
+    buttonStyle,
+    marginZeroStyle,
+  } = useAddButtonStyles();
 
   return (
     <div style={buttonStyle}>
@@ -21,13 +21,17 @@ export const AddButton = ({ push, classes }) => {
           customVariant="success"
           variant="contained"
           size="large"
-          className={classes.marginLeft}
           onClick={push}
           aria-label="Novo Campo"
-          style={style}
+          style={buttonNovoCampo}
           disableElevation
         >
-          <Icon path={mdiPlusCircle} size={1} color={color} />
+          <Icon
+            path={mdiPlusCircle}
+            size={1}
+            color={color}
+            style={marginZeroStyle}
+          />
         </Button>
       </Tooltip>
     </div>

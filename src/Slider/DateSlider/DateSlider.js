@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Slider, useTheme, withStyles } from '@material-ui/core';
 import ValueLabel from '@material-ui/core/Slider/ValueLabel';
 import PropTypes from 'prop-types';
-import { renderStyledColor } from '../ThemeProvider';
+import { renderStyledColor } from '../../ThemeProvider';
 
 const StyledValueLabel = withStyles({
   offset: {
@@ -23,7 +23,7 @@ const StyledValueLabel = withStyles({
 export const DateSlider = ({
   range,
   values = [],
-  onChange,
+  onChangeFunction,
   labelDisplay,
   locale,
   days,
@@ -38,9 +38,9 @@ export const DateSlider = ({
   const handleChange = (ev, newValue) => {
     setDateIndex(newValue);
     if (simple) {
-      onChange([range[0], range[dateIndex]]);
+      onChangeFunction([range[0], range[dateIndex]]);
     } else {
-      onChange([range[dateIndex[0]], range[dateIndex[1]]]);
+      onChangeFunction([range[dateIndex[0]], range[dateIndex[1]]]);
     }
   };
 
@@ -54,14 +54,14 @@ export const DateSlider = ({
   const formatLabel = (value, index) => {
     return values && values.length > 0
       ? values[simple ? 1 : index].toLocaleDateString(locale)
-      : onChange([range[0], range[range.length - 1]]);
+      : onChangeFunction([range[0], range[range.length - 1]]);
   };
 
   return (
     <Slider
       color={renderStyledColor(variant)}
       value={dateIndex}
-      onChange={handleChange}
+      onChangeFunction={handleChange}
       onChangeCommitted={handleChange}
       valueLabelFormat={formatLabel}
       ValueLabelComponent={StyledValueLabel}
@@ -88,7 +88,7 @@ DateSlider.propTypes = {
   /** Values to be changed or initial value */
   values: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
   /** Function triggered on slider change */
-  onChange: PropTypes.func.isRequired,
+  onChangeFunction: PropTypes.func.isRequired,
   /** Disables the slider */
   disabled: PropTypes.bool,
   /** Label display mode */

@@ -69,6 +69,7 @@ export const Button = React.forwardRef(
       children,
       className,
       variant,
+      disableElevation = true,
       ...props
     },
     ref
@@ -85,6 +86,7 @@ export const Button = React.forwardRef(
         size={size}
         ref={ref}
         variant={customVariant ? 'contained' : variant}
+        disableElevation={disableElevation}
         {...props}
       >
         {submitting && <CircularProgress size={20} />} {children}
@@ -98,6 +100,7 @@ Button.defaultProps = {
   margin: false,
   fullWidth: false,
   customVariant: undefined,
+  disableElevation: true,
   type: 'submit',
   size: 'medium',
 };
@@ -106,6 +109,8 @@ Button.propTypes = {
   customVariant: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
   /** Button disabled during form submission */
   submitting: PropTypes.bool,
+  /** Button elevation disabled */
+  disableElevation: PropTypes.bool,
   /** Button fill div/screen width */
   fullWidth: PropTypes.bool,
   /** Button CSS margin */
