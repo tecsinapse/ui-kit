@@ -87,7 +87,8 @@
     "start": "yarn install && yarn storybook",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./storybook-public",
     "storybook:build": "build-storybook -c .storybook -s ./storybook-public -o docs/",
-    "hooks": "bash .git/hooks/pre-commit"
+    "hooks": "bash .git/hooks/pre-commit",
+    "publish:beta": "npm publish --tag beta"
   },
   "husky": {
     "hooks": {
