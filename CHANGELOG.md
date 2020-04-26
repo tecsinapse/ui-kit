@@ -1,3 +1,9 @@
+## 1.4.0 (2020-04-26)
+
+* New margin at table toolbar ([26699e0](https://github.com/tecsinapse/table/commit/26699e0))
+
+
+
 ## <small>1.3.1 (2020-02-07)</small>
 
 * Normalization for string comparison on table header filters ([73ef073](https://github.com/tecsinapse/table/commit/73ef073))
