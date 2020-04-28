@@ -9,7 +9,7 @@ export const useAddButtonStyles = () => {
   const marginZeroStyle = { margin: 0 };
   const buttonNovoCampo = {
     height: '100%',
-    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(2 / 3),
   };
 
   return { color, buttonNovoCampo, buttonStyle, marginZeroStyle };

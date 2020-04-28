@@ -14,6 +14,7 @@ export const useGroupedInputStyles = makeStyles(theme => ({
   },
   inputFullWidth: {
     flexGrow: 1,
+    display: 'flex',
   },
   marginLeft: {
     marginLeft: theme.spacing(1),
@@ -39,8 +40,5 @@ export const useGroupedInputStyles = makeStyles(theme => ({
   },
   errorLabel: {
     color: defaultRed,
-  },
-  paddingRight: {
-    paddingRight: theme.spacing(1.2),
   },
 }));
