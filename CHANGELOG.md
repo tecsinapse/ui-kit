@@ -1,3 +1,20 @@
+## 4.3.0 (2020-04-28)
+
+*  - Refactor Slider folder structure ([98919f7](https://github.com/tecsinapse/ui-kit/commit/98919f7))
+* 4.3.0-beta.0 ([8df2217](https://github.com/tecsinapse/ui-kit/commit/8df2217))
+* 4.4.2-alpha.0 ([dd8e531](https://github.com/tecsinapse/ui-kit/commit/dd8e531))
+* Added publish script ([0246a05](https://github.com/tecsinapse/ui-kit/commit/0246a05))
+* Bump https-proxy-agent from 2.2.2 to 2.2.4 ([d5787dd](https://github.com/tecsinapse/ui-kit/commit/d5787dd))
+* Fix memo missing at rollup configuration ([5f1b1d1](https://github.com/tecsinapse/ui-kit/commit/5f1b1d1))
+* Fix na margem errada em botões do group-input ([dda488b](https://github.com/tecsinapse/ui-kit/commit/dda488b))
+* Fix version ([2e70a18](https://github.com/tecsinapse/ui-kit/commit/2e70a18))
+* Fixing color path ([151f50a](https://github.com/tecsinapse/ui-kit/commit/151f50a))
+* New GroupInput with input aside of button ([259551e](https://github.com/tecsinapse/ui-kit/commit/259551e))
+* New GroupInput with input aside of button ([49d0856](https://github.com/tecsinapse/ui-kit/commit/49d0856))
+* New GroupInput with input aside of button ([3a7ff69](https://github.com/tecsinapse/ui-kit/commit/3a7ff69))
+
+
+
 ## <small>4.2.4 (2020-04-08)</small>
 
 * Added auto hide property to snackbar ([7907925](https://github.com/tecsinapse/ui-kit/commit/7907925))

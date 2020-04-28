@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
-  "version": "4.2.4",
+  "version": "4.3.0",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "dependencies": {
@@ -84,11 +84,11 @@
     "build-all": "yarn build && yarn storybook:build",
     "build-publish": "yarn build-all && npm publish",
     "dev": "rollup -c -w",
+    "hooks": "bash .git/hooks/pre-commit",
+    "publish:beta": "npm publish --tag beta",
     "start": "yarn install && yarn storybook",
     "storybook": "start-storybook -p 9001 -c .storybook -s ./storybook-public",
-    "storybook:build": "build-storybook -c .storybook -s ./storybook-public -o docs/",
-    "hooks": "bash .git/hooks/pre-commit",
-    "publish:beta": "npm publish --tag beta"
+    "storybook:build": "build-storybook -c .storybook -s ./storybook-public -o docs/"
   },
   "husky": {
     "hooks": {
