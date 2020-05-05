@@ -175,7 +175,7 @@ const customCardUiKitStyles = () => ({
   },
   subTitle: {
     fontSize: '16px',
-    lineHeight: '14px',
+    lineHeight: '18px',
     fontWeight: 500,
     textTransform: 'capitalize',
     margin: '5px 0',
