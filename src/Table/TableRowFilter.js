@@ -110,8 +110,13 @@ const TableRowFilter = ({
             backgroundColor: '#fff',
           },
         };
+        const cellPadding = { paddingTop: '8px', paddingBottom: '8px' };
         return (
-          <TableCell key={field} align={options.numeric ? 'right' : 'left'}>
+          <TableCell
+            key={field}
+            align={options.numeric ? 'right' : 'left'}
+            style={cellPadding}
+          >
             {filter && select && (
               <Select
                 selectPromptMessage={selectPromptMessage}
@@ -133,6 +138,7 @@ const TableRowFilter = ({
                   <Icon path={mdiMagnify} size={1} color="#C4C4C4" />
                 }
                 style={regularInputStyle}
+                fullWidth
                 onChange={onChange(onChangeFilter, setHeaderFilters)}
               />
             )}

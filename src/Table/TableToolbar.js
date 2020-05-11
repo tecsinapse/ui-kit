@@ -12,9 +12,10 @@ import SelectedFilters from './SelectedFilters';
 
 const tableToolbarStyles = makeStyles(theme => ({
   toolbar: {
-    margin: theme.spacing(1 / 2, 1 / 2),
+    margin: theme.spacing(1 / 2, 1 / 2, 0, 1 / 2),
     paddingRight: theme.spacing(1),
-    height: '65px',
+    paddingLeft: theme.spacing(1),
+    minHeight: '48px',
   },
   title: {
     width: '100%',
