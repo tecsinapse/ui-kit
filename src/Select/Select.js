@@ -42,6 +42,7 @@ export const SelectUnstyled = ({
   minWidth,
   customAction,
   customIndicators,
+  customTextField,
   ...rest
 }) => {
   const valuesAllSelected = isMulti && value && value.length === options.length;
@@ -108,6 +109,7 @@ export const SelectUnstyled = ({
       InputLabelProps: {
         shrink: true,
       },
+      ...customTextField,
     },
     name,
     allSelected,
@@ -221,6 +223,7 @@ SelectUnstyled.defaultProps = {
   selectAllMessage: 'Selecionar todos',
   minWidth: '200px',
   customIndicators: undefined,
+  customTextField: {},
 };
 SelectUnstyled.propTypes = {
   /** Show 'select' option to select all options */
@@ -280,6 +283,8 @@ SelectUnstyled.propTypes = {
     PropTypes.node,
     PropTypes.element,
   ]),
+  /** Customize text field behind select */
+  customTextField: PropTypes.object,
 };
 
 export default SelectUnstyled;
