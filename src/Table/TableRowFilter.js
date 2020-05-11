@@ -41,7 +41,13 @@ const initialHeaderFilters = columns => {
   return headerFilters;
 };
 
-const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
+const TableRowFilter = ({
+  columns,
+  rendered,
+  onChangeFilter,
+  data,
+  hideSelectFilterLabel,
+}) => {
   const [headerFilters, setHeaderFilters] = useState(
     initialHeaderFilters(columns)
   );
@@ -52,8 +58,9 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
     return null;
   }
 
+  const rowFilterStyle = { backgroundColor: '#f5f5f5' };
   return (
-    <TableRow>
+    <TableRow style={rowFilterStyle}>
       {columns.map(column => {
         const { title, field, options = {} } = column || {};
 
@@ -97,18 +104,25 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
             },
           });
         };
+        const regularInputStyle = { backgroundColor: '#fff' };
+        const customSelectStyle = {
+          style: {
+            backgroundColor: '#fff',
+          },
+        };
         return (
           <TableCell key={field} align={options.numeric ? 'right' : 'left'}>
             {filter && select && (
               <Select
                 selectPromptMessage={selectPromptMessage}
+                customTextField={customSelectStyle}
                 selectAllMessage={selectAllMessage}
                 value={filterValue}
                 fullWidth
                 options={selectOptions || []}
                 menuPlacement="auto"
                 onChange={handleChange}
-                label={title}
+                label={!hideSelectFilterLabel && title}
               />
             )}
             {filter && !select && (
@@ -118,6 +132,7 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
                 startAdornment={
                   <Icon path={mdiMagnify} size={1} color="#C4C4C4" />
                 }
+                style={regularInputStyle}
                 onChange={onChange(onChangeFilter, setHeaderFilters)}
               />
             )}
@@ -130,6 +145,7 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
 
 TableRowFilter.defaultProps = {
   rendered: false,
+  hideSelectFilterLabel: false,
 };
 
 TableRowFilter.propTypes = {
@@ -144,6 +160,7 @@ TableRowFilter.propTypes = {
   ).isRequired,
   rendered: PropTypes.bool,
   onChangeFilter: PropTypes.func.isRequired,
+  hideSelectFilterLabel: PropTypes.bool,
 };
 
 export default TableRowFilter;

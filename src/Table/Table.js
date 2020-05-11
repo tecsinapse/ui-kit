@@ -62,6 +62,7 @@ const TableComponent = props => {
     labelShowLess,
     labelShowMore,
     empytStateComponent,
+    hideSelectFilterLabel,
   } = props;
   const classes = tableStyles(useWindowSize()[1]);
   const [mobile, setMobile] = useState(false);
@@ -180,6 +181,7 @@ const TableComponent = props => {
                 columns={tableColumns}
                 data={originalData}
                 onChangeFilter={onChangeHeaderFilter(setFilters)}
+                hideSelectFilterLabel={hideSelectFilterLabel}
               />
               <TableRows
                 columns={tableColumns}
@@ -229,6 +231,7 @@ TableComponent.defaultProps = {
   labelShowLess: 'MOSTRAR MENOS',
   labelShowMore: 'MOSTRAR MAIS',
   empytStateComponent: undefined,
+  hideSelectFilterLabel: false,
 };
 
 TableComponent.propTypes = {
@@ -317,6 +320,8 @@ TableComponent.propTypes = {
   labelShowMore: PropTypes.string,
   /** Empty state component to display */
   empytStateComponent: PropTypes.node,
+  /** Hide floating label of select filter */
+  hideSelectFilterLabel: PropTypes.bool,
 };
 
 export const Table = TableComponent;
