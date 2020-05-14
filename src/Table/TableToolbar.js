@@ -16,14 +16,14 @@ const tableToolbarStyles = makeStyles(theme => ({
     paddingRight: theme.spacing(1),
     paddingLeft: theme.spacing(1),
     minHeight: '48px',
+    justifyContent: 'space-between',
   },
   title: {
     width: '100%',
-    maxWidth: '80%',
   },
   filter: {
-    width: '100%',
-    textAlign: 'right',
+    display: 'flex',
+    flexDirection: 'row',
   },
 }));
 
