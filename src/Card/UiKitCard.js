@@ -41,7 +41,6 @@ export const UiKitCard = ({
             </Grid>
             <Grid item xs={12} classes={{ root: classes.grid }}>
               <Typography
-                noWrap
                 variant="caption"
                 classes={{
                   root: classes.content,
