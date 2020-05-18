@@ -312,7 +312,11 @@ AppBar.propTypes = {
   breadcrumbs: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
-      component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      component: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.func,
+        PropTypes.node,
+      ]),
       componentProps: PropTypes.object,
     })
   ),
