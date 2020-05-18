@@ -1,3 +1,10 @@
+## <small>4.3.2 (2020-05-18)</small>
+
+* Removing logs ([c5e4b3f](https://github.com/tecsinapse/ui-kit/commit/c5e4b3f))
+* Removing logs ([6029c80](https://github.com/tecsinapse/ui-kit/commit/6029c80))
+
+
+
 ## <small>4.3.1 (2020-05-18)</small>
 
 * Fixing propType on AppBar.js ([15f5ef4](https://github.com/tecsinapse/ui-kit/commit/15f5ef4))
