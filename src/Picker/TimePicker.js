@@ -12,6 +12,7 @@ export const TimePicker = ({
   label,
   onChange,
   format,
+  inputVariant,
   ...props
 }) => {
   const {
@@ -34,6 +35,7 @@ export const TimePicker = ({
       }}
       todayLabel={todayLabel}
       clearLabel={clearLabel}
+      inputVariant={inputVariant}
       TextFieldComponent={Input}
       {...props}
     />
@@ -45,6 +47,7 @@ TimePicker.defaultProps = {
   id: 'timepicker-id',
   onChange: () => {},
   format: undefined,
+  inputVariant: 'outlined',
 };
 
 TimePicker.propTypes = {
@@ -58,5 +61,7 @@ TimePicker.propTypes = {
   onChange: PropTypes.func,
   /** Time format to be rendered */
   format: PropTypes.string,
+  /** Input variant selector */
+  inputVariant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
 };
 export default TimePicker;
