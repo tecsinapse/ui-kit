@@ -1,3 +1,9 @@
+## <small>1.3.2 (2020-05-18)</small>
+
+* Padrão do input errado ([d0a0964](https://github.com/tecsinapse/pickers/commit/d0a0964))
+
+
+
 ## <small>1.3.1 (2020-01-27)</small>
 
 * Fix test with material provider ([8999327](https://github.com/tecsinapse/pickers/commit/8999327))
