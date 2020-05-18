@@ -1,3 +1,10 @@
+## <small>1.3.3 (2020-05-18)</small>
+
+* Bump https-proxy-agent from 2.2.2 to 2.2.4 ([d5904f1](https://github.com/tecsinapse/pickers/commit/d5904f1))
+* Padrão do input errado ([0b217b2](https://github.com/tecsinapse/pickers/commit/0b217b2))
+
+
+
 ## <small>1.3.2 (2020-05-18)</small>
 
 * Padrão do input errado ([d0a0964](https://github.com/tecsinapse/pickers/commit/d0a0964))
