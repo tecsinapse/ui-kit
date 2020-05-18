@@ -241,7 +241,7 @@ SelectUnstyled.propTypes = {
   touched: PropTypes.bool,
   portal: PropTypes.bool,
   /** Error message/variant */
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /** Input label */
   label: PropTypes.string,
   /** Options available to Select */

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { useCardUiKitStyles } from './customStyles';
 
 export const UiKitCard = ({
-  key,
   style,
   styleCard,
   onClick,
@@ -17,9 +16,8 @@ export const UiKitCard = ({
   onLoad,
 }) => {
   const classes = useCardUiKitStyles();
-
   return (
-    <div key={key} style={style}>
+    <div style={style}>
       <Card className={classes.card} style={styleCard} onLoad={onLoad}>
         <CardContent className={classes.cardContent} onClick={onClick}>
           <Grid container classes={{ root: classes.gridContainer }}>
@@ -43,7 +41,6 @@ export const UiKitCard = ({
             </Grid>
             <Grid item xs={12} classes={{ root: classes.grid }}>
               <Typography
-                noWrap
                 variant="caption"
                 classes={{
                   root: classes.content,
@@ -70,8 +67,6 @@ export const UiKitCard = ({
 };
 
 UiKitCard.propTypes = {
-  /** Key identifier */
-  key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Style for root div */
   style: PropTypes.object,
   /** Style for card */
