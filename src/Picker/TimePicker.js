@@ -23,7 +23,6 @@ export const TimePicker = ({
   return (
     <KeyboardTimePicker
       format={format}
-      margin="normal"
       id={id}
       label={label}
       cancelLabel={renderStyledLabel(cancelLabel, theme.variant)}
