@@ -1,3 +1,9 @@
+## <small>4.3.1 (2020-05-18)</small>
+
+* Fixing propType on AppBar.js ([15f5ef4](https://github.com/tecsinapse/ui-kit/commit/15f5ef4))
+
+
+
 ## 4.3.0 (2020-04-28)
 
 *  - Refactor Slider folder structure ([98919f7](https://github.com/tecsinapse/ui-kit/commit/98919f7))
