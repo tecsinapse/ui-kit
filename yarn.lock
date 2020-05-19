@@ -2787,10 +2787,10 @@
     eslint-plugin-react-hooks "^1.6.0"
     prettier "1.18.2"
 
-"@tecsinapse/ui-kit@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/ui-kit/-/ui-kit-4.0.0.tgz#8ba95f47aca8a2549d30d786fa2c10be5e243e44"
-  integrity sha512-nNdiR8VIfSdbGvd440SX1XkTrL75XMupPhzrvOAZYJkFymQES6l4umohJS3dbaQmqKK3eHSfG8XhYzNP0NxgPw==
+"@tecsinapse/ui-kit@^4.3.3":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/ui-kit/-/ui-kit-4.3.3.tgz#0e3e700caa8e42904f8af7ae2e3c4501f966adbc"
+  integrity sha512-4+U0yB950bIAbluv07cDWtLXcvh2H4BSyyteorW4sRJKct/BftQ1lbJ72xKVGEc9Ns26oBDr7jn/QEBm1QXoig==
   dependencies:
     "@material-ui/core" "^4.2.1"
     "@material-ui/icons" "^4.2.1"
