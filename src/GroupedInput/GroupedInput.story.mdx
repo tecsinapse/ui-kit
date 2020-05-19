@@ -42,7 +42,7 @@ Here you can check the code snippet for the story.
              return newArray;
            });
          }}
-         push={() => setValues(v => [...v, ''])}
+         push={() => setValues(v => ['',  ...v])}
          hr
        />
      );
@@ -63,11 +63,11 @@ Here you can check the code snippet for the story.
          header="Telefones"
          values={values}
          onChange={(value, index) => {
-           setValues(v => {
-             const newArray = v;
-             newArray[index] = value;
-             return newArray;
-           });
+                setValues(v => {
+                const newArray = [...v];
+                newArray[index] = value;
+                return newArray;
+            });
          }}
          remove={index => {
            setValues(v => {
@@ -76,7 +76,7 @@ Here you can check the code snippet for the story.
              return newArray;
            });
          }}
-         push={() => setValues(v => [...v, ''])}
+         push={() => setValues(v => ['',  ...v])}
          hr
        />
      );

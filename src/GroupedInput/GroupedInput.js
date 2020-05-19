@@ -53,7 +53,7 @@ export const GroupedInput = ({
           classes.paddingRight
         )}
       >
-        {firstItemWithoutList && (
+        {(firstItemWithoutList || (values || []).length === 0) && (
           <InputItemGroupInput
             mask={mask}
             classes={classes}
@@ -74,8 +74,8 @@ export const GroupedInput = ({
             lg={lg}
             xl={xl}
             push={() => {
-              push();
               onChange(valueInput, values.length);
+              push();
               setValueInput('');
             }}
             exibeAddButton
