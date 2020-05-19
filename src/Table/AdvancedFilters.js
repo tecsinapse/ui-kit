@@ -13,6 +13,7 @@ import Icon from '@mdi/react';
 import { IconButton, Input, Select } from '@tecsinapse/ui-kit';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import { renderStyledColor } from '@tecsinapse/ui-kit/build/ThemeProvider';
+import { Grid } from '@material-ui/core';
 
 const filterStyles = mobile =>
   makeStyles(theme => ({
@@ -26,6 +27,9 @@ const filterStyles = mobile =>
     },
     filter: {
       padding: '2px',
+    },
+    gridItemMarginTop: {
+      margin: theme.spacing(1),
     },
     fullWidth: {
       width: '100%',
@@ -151,26 +155,36 @@ const Filters = ({
 
     return [
       <Divider key={`divider-${key}`} />,
-      <div key={`group-${key}`} className={classes.group}>
-        <Typography variant="subtitle2">{group.label}</Typography>
-        <div className={classes.filterContainer}>
-          {group.filters.map(filter => (
-            <div
-              key={`filter-${filter.name}`}
-              className={clsx(classes.filter, {
-                [classes.fullWidth]: filter.fullWidth,
-              })}
-              style={mobile ? { width: '100%' } : {}}
-            >
-              {mapFilterOptionToInput(
-                filter,
-                setAdvancedFilters,
-                advancedFilters
-              )}
-            </div>
-          ))}
+      <Grid container spacing={1}>
+        <div key={`group-${key}`} className={classes.group}>
+          <Typography variant="subtitle2">{group.label}</Typography>
+          <div className={classes.filterContainer}>
+            {group.filters.map(filter => (
+              <Grid
+                item
+                xs={12}
+                md={6}
+                xl={6}
+                className={classes.gridItemMarginTop}
+              >
+                <div
+                  key={`filter-${filter.name}`}
+                  className={clsx(classes.filter, {
+                    [classes.fullWidth]: filter.fullWidth,
+                  })}
+                  style={mobile ? { width: '100%' } : {}}
+                >
+                  {mapFilterOptionToInput(
+                    filter,
+                    setAdvancedFilters,
+                    advancedFilters
+                  )}
+                </div>
+              </Grid>
+            ))}
+          </div>
         </div>
-      </div>,
+      </Grid>,
     ];
   });
 };
