@@ -1,3 +1,9 @@
+## <small>1.4.1 (2020-05-19)</small>
+
+* New margin at table ([044f082](https://github.com/tecsinapse/table/commit/044f082))
+
+
+
 ## 1.4.0 (2020-04-26)
 
 * New margin at table toolbar ([26699e0](https://github.com/tecsinapse/table/commit/26699e0))
