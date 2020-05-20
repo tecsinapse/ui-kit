@@ -29,7 +29,7 @@ const filterStyles = mobile =>
       padding: '2px',
     },
     gridItemMarginTop: {
-      margin: theme.spacing(1),
+      padding: theme.spacing(2 / 3),
     },
     fullWidth: {
       width: '100%',
@@ -155,36 +155,28 @@ const Filters = ({
 
     return [
       <Divider key={`divider-${key}`} />,
-      <Grid container spacing={1}>
-        <div key={`group-${key}`} className={classes.group}>
-          <Typography variant="subtitle2">{group.label}</Typography>
-          <div className={classes.filterContainer}>
-            {group.filters.map(filter => (
-              <Grid
-                item
-                xs={12}
-                md={6}
-                xl={6}
-                className={classes.gridItemMarginTop}
+      <div key={`group-${key}`} className={classes.group}>
+        <Typography variant="subtitle2">{group.label}</Typography>
+        <Grid container className={classes.filterContainer}>
+          {group.filters.map(filter => (
+            <Grid item xs={12} sm={6} className={classes.gridItemMarginTop}>
+              <div
+                key={`filter-${filter.name}`}
+                className={clsx(classes.filter, {
+                  [classes.fullWidth]: filter.fullWidth,
+                })}
+                style={mobile ? { width: '100%' } : {}}
               >
-                <div
-                  key={`filter-${filter.name}`}
-                  className={clsx(classes.filter, {
-                    [classes.fullWidth]: filter.fullWidth,
-                  })}
-                  style={mobile ? { width: '100%' } : {}}
-                >
-                  {mapFilterOptionToInput(
-                    filter,
-                    setAdvancedFilters,
-                    advancedFilters
-                  )}
-                </div>
-              </Grid>
-            ))}
-          </div>
-        </div>
-      </Grid>,
+                {mapFilterOptionToInput(
+                  filter,
+                  setAdvancedFilters,
+                  advancedFilters
+                )}
+              </div>
+            </Grid>
+          ))}
+        </Grid>
+      </div>,
     ];
   });
 };
