@@ -5,7 +5,7 @@ import { TableCell } from '@material-ui/core';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import { makeStyles } from '@material-ui/styles';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
-import { paginationOptions } from './TablePropTypes';
+import { paginationOptions } from './propTypes';
 
 const styles = makeStyles(theme => ({
   total: {
@@ -38,8 +38,9 @@ const TablePagination = ({
   } = useContext(LocaleContext);
 
   if (!pagination) {
+    const align = { textAlign: 'end' };
     return (
-      <TableCell colSpan={tableColumns.length}>
+      <TableCell colSpan={tableColumns.length} style={align}>
         <Typography variant="caption" className={classes.total}>
           Total: {rowCount}
         </Typography>

@@ -1,6 +1,6 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
 import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
-import Paper from '@material-ui/core/Paper';
+import { Paper, FormControlLabel, Typography, Switch } from '@material-ui/core';
 import { Table } from './Table';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
@@ -130,9 +130,34 @@ Here you can check the code snippet for the story.
 
 <Source id="table--custom-render" />
 
-## Exporter
+## Custom header
 
-<Story name="Exporter" parameters={{ docs: { disable: true } }}>
+<Story name="Custom header" parameters={{ docs: { disable: true } }}>
+  <Table
+    columns={customColumns}
+    data={cars}
+    rowId={row => row.id}
+    toolbarOptions={{
+      title: (
+        <div style={{ display: 'flex' }}>
+          <Typography variant="h6" style={{ marginRight: '20px' }}>
+            Custom header
+          </Typography>
+          <FormControlLabel
+            control={<Switch size="small" />}
+            label="On/Off"
+          />
+        </div>
+      ),
+    }}
+  />
+</Story>
+
+<Source id="table--custom-header" />
+
+## Header exporter
+
+<Story name="Header exporter" parameters={{ docs: { disable: true } }}>
   {() => {
     const carsList = [];
     for (let index = 0; index < 70; index++) {
@@ -164,7 +189,7 @@ Here you can check the code snippet for the story.
             {
               type: 'custom',
               label: 'Export to Custom',
-              exportFunc: () => console.log('Custom Export Function')
+              exportFunc: () => console.log('Custom Export Function'),
             },
           ],
         }}
@@ -173,7 +198,50 @@ Here you can check the code snippet for the story.
   }}
 </Story>
 
-<Source id="table--exporter" />
+<Source id="table--header-exporter" />
+
+## Footer exporter
+
+<Story name="Footer exporter" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const carsList = [];
+    for (let index = 0; index < 70; index++) {
+      carsList.push({
+        id: index,
+        brand: 'BMW',
+        model: {
+          name: `BMW ${index + 1}`,
+          year: 2018,
+        },
+        price: 3 * (index + 10),
+      });
+    }
+    return (
+      <Table
+        columns={exporterColumns}
+        data={carsList}
+        rowId={row => row.id}
+        options={{
+          selection: true,
+        }}
+        toolbarOptions={{ title: 'Exporter Example' }}
+        pagination
+        exportOptions={{
+          position: 'footer',
+          exportTypes: [
+            {
+              type: 'custom',
+              label: 'Export to Custom',
+              exportFunc: () => console.log('Custom Export Function'),
+            },
+          ],
+        }}
+      />
+    );
+  }}
+</Story>
+
+<Source id="table--footer-exporter" />
 
 ## Filtering
 

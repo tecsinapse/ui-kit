@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import { makeStyles } from '@material-ui/styles';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
-import { toolbarOptionsTypes } from './TablePropTypes';
+import { toolbarOptionsTypes } from './propTypes';
 
 const selectionStyles = makeStyles(theme => ({
   toolbar: {

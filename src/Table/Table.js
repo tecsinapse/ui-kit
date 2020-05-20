@@ -8,6 +8,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/styles';
 
 import { useWindowSize } from '@tecsinapse/ui-kit/build/ThemeProvider';
+import { TableCell } from '@material-ui/core';
 import { tableStyles } from './tableStyle';
 import TableRowFilter from './TableRowFilter';
 import { TableMobile } from './TableMobile';
@@ -15,7 +16,7 @@ import TableHeader from './TableHeader';
 import TableRows from './TableRows';
 import TableToolbar from './TableToolbar';
 import TablePagination from './TablePagination';
-import { toolbarOptionsTypes } from './TablePropTypes';
+import { toolbarOptionsTypes } from './propTypes';
 import TableLoading from './TableLoading';
 import {
   initializeColumns,
@@ -34,6 +35,7 @@ import {
   useUpdateDataRemote,
   useUpdatePageData,
 } from './tableHooks';
+import TableExporter from './TableExporter';
 
 const TableComponent = props => {
   const {
@@ -198,6 +200,18 @@ const TableComponent = props => {
             </TableBody>
             <TableFooter>
               <TableRow>
+                {exportOptions?.position === 'footer' && (
+                  <TableCell>
+                    <TableExporter
+                      {...exportOptions}
+                      data={data}
+                      columns={columns}
+                      filters={filters}
+                      setLoading={setLoading}
+                      rowCount={rowCount}
+                    />
+                  </TableCell>
+                )}
                 <TablePagination {...paginationOptions} />
               </TableRow>
             </TableFooter>
@@ -224,7 +238,9 @@ TableComponent.defaultProps = {
   rowsPerPageOptions: [10, 20, 30],
   rowsPerPage: null,
   page: 0,
-  exportOptions: null,
+  exportOptions: {
+    position: 'header',
+  },
   id: null,
   classes: {},
   variant: 'auto',
@@ -303,6 +319,7 @@ TableComponent.propTypes = {
   /** Set options for exporting table. If custom `type` is provided, you have to set `exportFunc` and `label` */
   exportOptions: PropTypes.shape({
     exportFileName: PropTypes.string,
+    position: PropTypes.oneOf(['header', 'footer']),
     exportTypes: PropTypes.arrayOf(
       PropTypes.shape({
         type: PropTypes.oneOf(['csv', 'custom']),

@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/styles';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import TableToolbarSelection from './TableToolbarSelection';
 import TableAdvancedFilters from './TableAdvancedFilters';
-import { toolbarOptionsTypes } from './TablePropTypes';
+import { toolbarOptionsTypes } from './propTypes';
 import TableExporter from './TableExporter';
 import SelectedFilters from './SelectedFilters';
 
@@ -48,7 +48,7 @@ const SimpleToolbar = ({
   if (
     !advancedFilters &&
     !title &&
-    (!exportTypes || exportTypes.length === 0)
+    (!exportTypes || exportTypes.length === 0 || !exportTypes?.position)
   ) {
     return null;
   }
@@ -62,14 +62,16 @@ const SimpleToolbar = ({
           </Typography>
         </div>
         <div className={classes.filter}>
-          <TableExporter
-            {...exportOptions}
-            data={data}
-            columns={columns}
-            filters={filters}
-            setLoading={setLoading}
-            rowCount={rowCount}
-          />
+          {exportOptions?.position !== 'footer' && (
+            <TableExporter
+              {...exportOptions}
+              data={data}
+              columns={columns}
+              filters={filters}
+              setLoading={setLoading}
+              rowCount={rowCount}
+            />
+          )}
           <TableAdvancedFilters
             tooltipAdvancedFilter={tooltipAdvancedFilter}
             advancedFilters={advancedFilters}
