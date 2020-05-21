@@ -46,8 +46,11 @@ const advancedFilterStyles = mobile =>
       borderBottom: '1px #ccc solid',
     },
     panelButton: {
-      height: '70px',
+      height: '60px',
       borderTop: '1px #ccc solid',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     panelButtonMobile: {
       display: 'flex',
@@ -55,8 +58,7 @@ const advancedFilterStyles = mobile =>
       justifyContent: 'center',
     },
     button: {
-      width: mobile ? '75%' : '100%',
-      borderRadius: 0,
+      width: '75%',
       top: '25%',
     },
   }));
@@ -260,7 +262,7 @@ const AdvancedFilters = ({
       >
         <Button
           onClick={handleClick}
-          variant={mobile ? 'contained' : 'text'}
+          variant="contained"
           className={classes.button}
           color={renderStyledColor(variant)}
         >
