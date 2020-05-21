@@ -73,7 +73,6 @@ const TableComponent = props => {
   const [data, setData] = useState([]);
   const [pageData, setPageData] = useState([]);
   const [selectedRows, setSelectedRows] = useState([]);
-  const [tableColumns] = useState(initializeColumns(columns, options, actions));
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState(() =>
     initializeFilters(
@@ -86,6 +85,7 @@ const TableComponent = props => {
     )
   );
 
+  const tableColumns = initializeColumns(columns, options, actions);
   useInitialData(originalData, setData);
   useInitialCheckboxData(selectedData, setSelectedRows);
 
