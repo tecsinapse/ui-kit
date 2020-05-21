@@ -37,6 +37,7 @@ const SimpleToolbar = ({
   setLoading,
   rowCount,
   mobile,
+  customAdvancedFilters,
 }) => {
   const { title, advancedFilters } = options || {};
   const classes = tableToolbarStyles();
@@ -78,6 +79,7 @@ const SimpleToolbar = ({
             setFilters={setFilters}
             filters={filters}
             mobile={mobile}
+            customAdvancedFilters={customAdvancedFilters}
           />
         </div>
       </Toolbar>
@@ -105,6 +107,7 @@ const TableToolbar = ({
   rowCount,
   tableToolbarHide = false,
   mobile = false,
+  customAdvancedFilters,
 }) => {
   if (tableToolbarHide) {
     return null;
@@ -125,6 +128,7 @@ const TableToolbar = ({
         setLoading={setLoading}
         rowCount={rowCount}
         mobile={mobile}
+        customAdvancedFilters={customAdvancedFilters}
       />
     );
   }

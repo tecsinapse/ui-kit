@@ -7,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { mdiArrowLeft } from '@mdi/js';
+import { mdiArrowLeft, mdiClose } from '@mdi/js';
 import Icon from '@mdi/react';
 
 import { IconButton, Input, Select } from '@tecsinapse/ui-kit';
@@ -29,7 +29,7 @@ const filterStyles = mobile =>
       padding: '2px',
     },
     gridItemMarginTop: {
-      padding: theme.spacing(2 / 3),
+      padding: mobile ? theme.spacing(2 / 3) : 0,
     },
     fullWidth: {
       width: '100%',
@@ -43,9 +43,11 @@ const advancedFilterStyles = mobile =>
       padding: mobile ? '20px 0px 20px 0px' : '20px 20px 20px 20px',
       display: 'flex',
       alignItems: 'center',
+      borderBottom: '1px #ccc solid',
     },
     panelButton: {
       height: '70px',
+      borderTop: '1px #ccc solid',
     },
     panelButtonMobile: {
       display: 'flex',
@@ -146,20 +148,28 @@ const Filters = ({
     filters: filtersOptions.filter(filter => !filter.group),
   };
 
-  return Object.keys(filtersByGroup).map(key => {
+  return Object.keys(filtersByGroup).map((key, idx) => {
     const group = filtersByGroup[key];
 
     if (!group.filters || group.filters.length === 0) {
       return null;
     }
 
+    const style = { marginLeft: mobile && '10px' };
     return [
-      <Divider key={`divider-${key}`} />,
+      idx > 0 && <Divider key={`divider-${key}`} />,
       <div key={`group-${key}`} className={classes.group}>
-        <Typography variant="subtitle2">{group.label}</Typography>
+        <Typography variant="subtitle2" style={style}>
+          {group.label}
+        </Typography>
         <Grid container className={classes.filterContainer}>
           {group.filters.map(filter => (
-            <Grid item xs={12} sm={6} className={classes.gridItemMarginTop}>
+            <Grid
+              item
+              xs={12}
+              className={classes.gridItemMarginTop}
+              key={filter.name}
+            >
               <div
                 key={`filter-${filter.name}`}
                 className={clsx(classes.filter, {
@@ -187,6 +197,7 @@ const AdvancedFilters = ({
   filters,
   closeDialog,
   mobile = false,
+  customAdvancedFilters,
 }) => {
   const { variant } = useTheme();
   const { filters: filtersOptions, filtersGroup } = advancedFiltersProp;
@@ -198,6 +209,15 @@ const AdvancedFilters = ({
   } = useContext(LocaleContext);
   const classes = advancedFilterStyles(mobile)();
 
+  const handleClick = () => {
+    if (customAdvancedFilters) {
+      customAdvancedFilters.applyFilters();
+      closeDialog();
+    } else {
+      onApplyFilter(advancedFilters);
+    }
+  };
+
   return (
     <div>
       <div className={classes.title}>
@@ -206,25 +226,40 @@ const AdvancedFilters = ({
             <Icon path={mdiArrowLeft} size={1} />
           </IconButton>
         )}
-        <Typography variant="h6" id="tableTitle">
-          {tooltipAdvancedFilter}
-        </Typography>
+        <Grid
+          container
+          direction="row"
+          alignItems="center"
+          justify="space-between"
+        >
+          <Typography variant="h6" id="tableTitle">
+            {tooltipAdvancedFilter}
+          </Typography>
+          {!mobile && (
+            <IconButton onClick={closeDialog}>
+              <Icon path={mdiClose} size={1} />
+            </IconButton>
+          )}
+        </Grid>
       </div>
-      <Filters
-        filtersOptions={filtersOptions}
-        setAdvancedFilters={setAdvancedFilters}
-        advancedFilters={advancedFilters}
-        filtersGroup={filtersGroup}
-        mobile={mobile}
-      />
-      <Divider />
+      {!customAdvancedFilters ? (
+        <Filters
+          filtersOptions={filtersOptions}
+          setAdvancedFilters={setAdvancedFilters}
+          advancedFilters={advancedFilters}
+          filtersGroup={filtersGroup}
+          mobile={mobile}
+        />
+      ) : (
+        customAdvancedFilters.filters
+      )}
       <div
         className={clsx(classes.panelButton, {
           [classes.panelButtonMobile]: mobile,
         })}
       >
         <Button
-          onClick={() => onApplyFilter(advancedFilters)}
+          onClick={handleClick}
           variant={mobile ? 'contained' : 'text'}
           className={classes.button}
           color={renderStyledColor(variant)}

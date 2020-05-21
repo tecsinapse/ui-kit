@@ -65,6 +65,7 @@ const TableComponent = props => {
     labelShowMore,
     empytStateComponent,
     hideSelectFilterLabel,
+    customAdvancedFilters,
   } = props;
   const classes = tableStyles(useWindowSize()[1]);
   const [mobile, setMobile] = useState(false);
@@ -145,6 +146,7 @@ const TableComponent = props => {
         rowCount={rowCount}
         tableToolbarHide={tableToolbarHide}
         mobile={mobile}
+        customAdvancedFilters={customAdvancedFilters}
       />
       {mobile ? (
         <div className={propClasses.rootMobile || classes.rootMobile}>
@@ -248,6 +250,7 @@ TableComponent.defaultProps = {
   labelShowMore: 'MOSTRAR MAIS',
   empytStateComponent: undefined,
   hideSelectFilterLabel: false,
+  customAdvancedFilters: undefined,
 };
 
 TableComponent.propTypes = {
@@ -339,6 +342,11 @@ TableComponent.propTypes = {
   empytStateComponent: PropTypes.node,
   /** Hide floating label of select filter */
   hideSelectFilterLabel: PropTypes.bool,
+  /** Replace table advanced filters to your own */
+  customAdvancedFilters: PropTypes.shape({
+    applyFilters: PropTypes.func,
+    filters: PropTypes.node,
+  }),
 };
 
 export const Table = TableComponent;

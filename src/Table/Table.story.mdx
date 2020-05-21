@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
 import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
+import { Input } from '@tecsinapse/ui-kit';
 import { Paper, FormControlLabel, Typography, Switch } from '@material-ui/core';
 import { Table } from './Table';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -122,6 +123,70 @@ Here you can check the code snippet for the story.
 
 <Source id="table--advanced-filters" />
 
+## Custom advanced filters
+
+<Story name="Custom advanced filters" parameters={{ docs: { disable: true } }}>
+  <Table
+    columns={countryColumns}
+    data={fetchData(countries)}
+    rowId={row => row.code}
+    toolbarOptions={countryOptions}
+    pagination
+    customAdvancedFilters={{
+      applyFilters: () => console.log('Custom apply filters'),
+      filters: (
+        <div style={{ padding: '20px 16px 20px 16px' }}>
+          <Typography variant="subtitle2">Continent</Typography>
+          <Input
+            name="continent"
+            placeholder="Continent"
+            fullWidth
+            variantDevice="web"
+            disabled
+          />
+          <Typography variant="subtitle2" style={{ marginTop: '16px' }}>
+            Languages
+          </Typography>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              marginTop: '8px',
+            }}
+          >
+            <FormControlLabel
+              control={<Switch size="small" />}
+              label="ca"
+              checked
+              disabled
+            />
+            <FormControlLabel
+              control={<Switch size="small" />}
+              label="ar"
+              checked
+              disabled
+            />
+            <FormControlLabel
+              control={<Switch size="small" />}
+              label="ps/uz/tk"
+              checked
+              disabled
+            />
+            <FormControlLabel
+              control={<Switch size="small" />}
+              label="pt"
+              checked
+              disabled
+            />
+          </div>
+        </div>
+      ),
+    }}
+  />
+</Story>
+
+<Source id="table--custom-advanced-filters" />
+
 ## Custom render
 
 <Story name="Custom render" parameters={{ docs: { disable: true } }}>
@@ -143,10 +208,7 @@ Here you can check the code snippet for the story.
           <Typography variant="h6" style={{ marginRight: '20px' }}>
             Custom header
           </Typography>
-          <FormControlLabel
-            control={<Switch size="small" />}
-            label="On/Off"
-          />
+          <FormControlLabel control={<Switch size="small" />} label="On/Off" />
         </div>
       ),
     }}
