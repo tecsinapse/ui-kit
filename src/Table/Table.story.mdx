@@ -1,7 +1,18 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
 import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
-import { Input } from '@tecsinapse/ui-kit';
-import { Paper, FormControlLabel, Typography, Switch } from '@material-ui/core';
+import { Input, IconButton } from '@tecsinapse/ui-kit';
+import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
+import Icon from '@mdi/react';
+import {
+  Paper,
+  FormControlLabel,
+  Typography,
+  Switch,
+  TableRow,
+  TableCell,
+  Collapse,
+  makeStyles,
+} from '@material-ui/core';
 import { Table } from './Table';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
@@ -23,6 +34,8 @@ import {
   serverColumns,
   sortColumns,
 } from './storyHelper';
+import { resolveData, handleRowClick } from './tableFunctions';
+import TableCells from './TableCells';
 
 <Meta
   title="Table"
@@ -216,6 +229,166 @@ Here you can check the code snippet for the story.
 </Story>
 
 <Source id="table--custom-header" />
+
+## Custom row
+
+<Story name="Custom row" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const [expanded, setExpanded] = React.useState(false);
+    const useRowStyles = makeStyles({
+      root: {
+        '& > *': {
+          borderBottom: 'unset',
+        },
+      },
+    })();
+    return (
+      <Table
+        columns={customColumns}
+        data={cars}
+        rowId={row => row.id}
+        customRow={({ rowData }) => {
+          return (
+            <React.Fragment>
+              <TableRow
+                key={rowData.id}
+                hover
+                style={{ borderLeft: rowData.id === 2 ? '3px red solid' : '' }}
+                className={rowData.id === 2 && useRowStyles.root}
+              >
+                {customColumns.map(item => {
+                  return (
+                    <TableCell
+                      align={
+                        item.options && item.options.numeric ? 'right' : 'left'
+                      }
+                    >
+                      {resolveData(item.field, rowData)}
+                    </TableCell>
+                  );
+                })}
+              </TableRow>
+              {rowData.id === 2 && (
+                <TableRow style={{ borderLeft: '3px red solid' }}>
+                  <TableCell
+                    colSpan={customColumns.length}
+                    style={{ paddingTop: 0, paddingBottom: '8px' }}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Typography variant="caption">Expand</Typography>
+                      <IconButton
+                        size="small"
+                        onClick={() => setExpanded(!expanded)}
+                      >
+                        <Icon
+                          path={expanded ? mdiChevronUp : mdiChevronDown}
+                          size={0.75}
+                        />
+                      </IconButton>
+                    </div>
+                    <Collapse in={expanded}>
+                      <div
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'flex-start',
+                          alignItems: 'flex-start',
+                        }}
+                      >
+                        <Typography variant="subtitle2">
+                          Custom container title
+                        </Typography>
+                        <Typography variant="caption">
+                          Custom description
+                        </Typography>
+                        <Typography
+                          variant="caption"
+                          style={{
+                            backgroundColor: 'green',
+                            borderRadius: '10px',
+                            padding: '3px 5px 2px 5px',
+                            fontSize: '10px',
+                            color: 'white',
+                            fontWeight: '700',
+                          }}
+                        >
+                          This is OK
+                        </Typography>
+                      </div>
+                    </Collapse>
+                  </TableCell>
+                </TableRow>
+              )}
+            </React.Fragment>
+          );
+        }}
+      />
+    );
+  }}
+</Story>
+
+<Source id="table--custom-row" />
+
+## Custom reusable row
+
+<Story name="Custom table reusing" parameters={{ docs: { disable: true } }}>
+  <Table
+    columns={customColumns}
+    data={cars}
+    rowId={row => row.id}
+    options={{
+      selection: true,
+    }}
+    actions={storyActions}
+    toolbarOptions={{ title: 'Custom reusable row' }}
+    customRow={({
+      rowData,
+      rowId,
+      columns,
+      selectedRows,
+      onSelectRow,
+      setSelectedRows,
+      onRowClick,
+      forceCollapseActions,
+      verticalActions,
+    }) => {
+      const hasSelection = (columns || []).some(({ selection }) => selection);
+      return (
+        <TableRow
+          key={rowId(rowData)}
+          hover
+          onClick={handleRowClick(
+            rowData,
+            hasSelection,
+            onSelectRow,
+            onRowClick,
+            selectedRows,
+            setSelectedRows,
+            rowId
+          )}
+        >
+          <TableCells
+            columns={columns}
+            rowData={rowData}
+            selectedRows={selectedRows}
+            onSelectRow={onSelectRow}
+            rowId={rowId}
+            forceCollapseActions={forceCollapseActions}
+            verticalActions={verticalActions}
+          />
+        </TableRow>
+      );
+    }}
+  />
+</Story>
+
+<Source id="table--custom-reusable-row" />
 
 ## Header exporter
 

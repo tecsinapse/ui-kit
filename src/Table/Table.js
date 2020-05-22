@@ -66,6 +66,7 @@ const TableComponent = props => {
     empytStateComponent,
     hideSelectFilterLabel,
     customAdvancedFilters,
+    customRow,
   } = props;
   const classes = tableStyles(useWindowSize()[1]);
   const [mobile, setMobile] = useState(false);
@@ -198,6 +199,7 @@ const TableComponent = props => {
                 setSelectedRows={setSelectedRows}
                 onSelectRow={onSelectRow}
                 empytStateComponent={empytStateComponent}
+                customRow={customRow}
               />
             </TableBody>
             <TableFooter>
@@ -251,6 +253,7 @@ TableComponent.defaultProps = {
   empytStateComponent: undefined,
   hideSelectFilterLabel: false,
   customAdvancedFilters: undefined,
+  customRow: undefined,
 };
 
 TableComponent.propTypes = {
@@ -347,6 +350,8 @@ TableComponent.propTypes = {
     applyFilters: PropTypes.func,
     filters: PropTypes.node,
   }),
+  /** Provides custom row render. See examples for more detailed use cases. */
+  customRow: PropTypes.func,
 };
 
 export const Table = TableComponent;
