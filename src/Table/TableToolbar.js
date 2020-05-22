@@ -4,6 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/styles';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
+import { verifyIfString } from '@tecsinapse/es-utils/build/object';
 import TableToolbarSelection from './TableToolbarSelection';
 import TableAdvancedFilters from './TableAdvancedFilters';
 import { toolbarOptionsTypes } from './propTypes';
@@ -54,13 +55,19 @@ const SimpleToolbar = ({
     return null;
   }
 
+  const isTitleString = verifyIfString(title);
+
   return (
     <div>
       <Toolbar className={classes.toolbar}>
         <div className={classes.title}>
-          <Typography variant="h6" id="tableTitle">
-            {title}
-          </Typography>
+          {isTitleString ? (
+            <Typography variant="h6" id="tableTitle">
+              {title}
+            </Typography>
+          ) : (
+            title
+          )}
         </div>
         <div className={classes.filter}>
           {exportOptions?.position !== 'footer' && (
