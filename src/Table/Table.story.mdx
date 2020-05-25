@@ -1,6 +1,6 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
 import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
-import { Input, IconButton } from '@tecsinapse/ui-kit';
+import { Input, IconButton, Button } from '@tecsinapse/ui-kit';
 import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
 import Icon from '@mdi/react';
 import {
@@ -36,6 +36,7 @@ import {
 } from './storyHelper';
 import { resolveData, handleRowClick } from './tableFunctions';
 import TableCells from './TableCells';
+import FilterIcon from '@material-ui/icons/FilterList';
 
 <Meta
   title="Table"
@@ -147,6 +148,17 @@ Here you can check the code snippet for the story.
     pagination
     customAdvancedFilters={{
       applyFilters: () => console.log('Custom apply filters'),
+      toolbarButton: handleClick => (
+        <Button
+          onClick={handleClick}
+          startIcon={<FilterIcon />}
+          customVariant="default"
+          style={{ whiteSpace: 'nowrap' }}
+          size="small"
+        >
+          Filtros Avançados
+        </Button>
+      ),
       filters: (
         <div style={{ padding: '20px 16px 20px 16px' }}>
           <Typography variant="subtitle2">Continent</Typography>
@@ -254,7 +266,7 @@ Here you can check the code snippet for the story.
                 key={rowData.id}
                 hover
                 style={{ borderLeft: rowData.id === 2 ? '3px red solid' : '' }}
-                className={rowData.id === 2? useRowStyles.root : ''}
+                className={rowData.id === 2 ? useRowStyles.root : ''}
               >
                 {customColumns.map(item => {
                   return (

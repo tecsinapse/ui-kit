@@ -38,9 +38,10 @@ const TableAdvancedFilters = ({
     Table: { tooltipAdvancedFilter },
   } = useContext(LocaleContext);
 
-  if (!advancedFilters) {
+  if (!advancedFilters && !customAdvancedFilters) {
     return null;
   }
+
   const {
     maxHeight = '100%',
     maxWidth = mobile ? '1000' : '350px',
@@ -51,16 +52,20 @@ const TableAdvancedFilters = ({
     maxWidth,
   };
 
+  const handleOpenFilters = () => {
+    setOpen(true);
+  };
+
   return (
     <>
       <Tooltip title={tooltipAdvancedFilter}>
-        <IconButton
-          onClick={() => {
-            setOpen(true);
-          }}
-        >
-          <FilterIcon />
-        </IconButton>
+        {customAdvancedFilters?.toolbarButton ? (
+          customAdvancedFilters.toolbarButton(handleOpenFilters)
+        ) : (
+          <IconButton onClick={handleOpenFilters}>
+            <FilterIcon />
+          </IconButton>
+        )}
       </Tooltip>
       {!mobile ? (
         <Drawer open={open} onClose={() => setOpen(false)} anchor="right">
