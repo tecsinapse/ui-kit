@@ -2079,10 +2079,20 @@
   resolved "https://registry.yarnpkg.com/@mdi/js/-/js-3.9.97.tgz#8bf012999b9f6898692b854a32f6f17c344b125a"
   integrity sha512-JzX6rDlUcNZHaoUg9sAzdg5Js287tvgRbNmMIyKoJK2ZCP9JupeWTYlpbX4oNJ9Zg9v8YH76WuWLALKOospQgw==
 
+"@mdi/js@^5.3.45":
+  version "5.3.45"
+  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-5.3.45.tgz#c6f523311bf77e339051e24aaa3eddabf565a027"
+  integrity sha512-r05JoeUhokSERwW6yYi3WcKCBePHHqBvIikOD0X/dWyaZb6gIRth5Lya7VVTItvGo1qlpp8LpMJKmE6o49+G+Q==
+
 "@mdi/react@^1.1.0":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@mdi/react/-/react-1.2.1.tgz#24279784e080728e953f3c1a71f49c64031dee47"
   integrity sha512-1IRIVCT07vlLmaZjVtGfyfwCMivg/tCtPj0+r1BKrkoh9z4xLf+M1TD0LhjJPO+4+O0ibW+xrNRvf+boRRtX9A==
+
+"@mdi/react@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@mdi/react/-/react-1.4.0.tgz#7f6bad1bd8801226d0e5bad91659b215ce68a93f"
+  integrity sha512-OUH9RhfDJPhybQL3owwrSDIXz2yVKXg5lYeOZjyRCiT9wqywNK0FeYyDByOwNIZnnIQoQYmuSrMv+pOX0Uqkmw==
 
 "@mdx-js/loader@^1.5.1":
   version "1.5.3"

@@ -249,16 +249,17 @@ Here you can check the code snippet for the story.
         rowId={row => row.id}
         customRow={({ rowData }) => {
           return (
-            <React.Fragment>
+            <React.Fragment key={rowData.id}>
               <TableRow
                 key={rowData.id}
                 hover
                 style={{ borderLeft: rowData.id === 2 ? '3px red solid' : '' }}
-                className={rowData.id === 2 && useRowStyles.root}
+                className={rowData.id === 2? useRowStyles.root : ''}
               >
                 {customColumns.map(item => {
                   return (
                     <TableCell
+                      key={item.field}
                       align={
                         item.options && item.options.numeric ? 'right' : 'left'
                       }

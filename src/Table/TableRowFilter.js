@@ -133,6 +133,7 @@ const TableRowFilter = ({
             {filter && !select && (
               <Input
                 name={field}
+                id={field}
                 value={filterValue}
                 startAdornment={
                   <Icon path={mdiMagnify} size={1} color="#C4C4C4" />
