@@ -77,7 +77,11 @@ export default [
             'exact',
           ],
           'node_modules/react-dom/index.js': ['findDOMNode', 'createPortal'],
-          'node_modules/react-is/index.js': ['ForwardRef', 'isFragment'],
+          'node_modules/react-is/index.js': [
+            'ForwardRef',
+            'isFragment',
+            'Memo',
+          ],
           'node_modules/@tecsinapse/es-utils/build/index.js': [
             'isEmptyOrNull',
             'isNotEmptyOrNull',
