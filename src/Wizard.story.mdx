@@ -1,7 +1,8 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
 import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
+import { Input } from '@tecsinapse/ui-kit';
 import { Wizard } from './Wizard';
-import { Step } from '@material-ui/core';
+import { Step, Typography } from '@material-ui/core';
 
 <Meta
   title="Wizard"
@@ -26,9 +27,9 @@ The `<Step />` component passed as children is reused from `@material-ui/core`.
 
 Here you can check the code snippet for the story.
 
-## Warning step
+## Error step
 
-<Story name="Warning step" parameters={{ docs: { disable: true } }}>
+<Story name="Error step" parameters={{ docs: { disable: true } }}>
   {() => {
     const [activeStep, setActiveStep] = React.useState(0);
     return (
@@ -36,31 +37,61 @@ Here you can check the code snippet for the story.
         activeStep={activeStep}
         onChange={newStep => {
           if (activeStep === 2) {
-            return 'Falha na validação do formulário';
+            return 'Input validation failed';
           }
           setActiveStep(newStep);
           return null;
         }}
-        stepText="Passo"
+        stepText="Step"
       >
-        <Step title="Step 1">1</Step>
-        <Step title="Step 2">
-          <div>2</div>
+        <Step title="Contact Details">
+          <DivFlex>
+            <Input
+              name="contact"
+              id="contact"
+              placeholder="Contact details"
+              fullWidth
+            />
+          </DivFlex>
         </Step>
-        <Step title="Step 3" warningText="Preencheu todos os dados do usuário?">
-          <div>3</div>
+        <Step title="Shipping Information">
+          <DivFlex>
+            <Input
+              name="shipping"
+              id="shipping"
+              placeholder="Shipping information"
+              fullWidth
+            />
+          </DivFlex>
         </Step>
-        <Step title="Step 4">4</Step>
+        <Step
+          title="Billing Address"
+          warningText="Please, fill correct address"
+        >
+          <DivFlex>
+            <Input
+              name="billing"
+              id="billing"
+              placeholder="Billing address"
+              fullWidth
+            />
+          </DivFlex>
+        </Step>
+        <Step title="Review">
+          <DivFlex>
+            <Typography>All Set!</Typography>
+          </DivFlex>
+        </Step>
       </Wizard>
     );
   }}
 </Story>
 
-<Source id="wizard--warning-step" />
+<Source id="wizard--error-step" />
 
-## Hide step bottom label
+## Warning step
 
-<Story name="Hide step bottom label" parameters={{ docs: { disable: true } }}>
+<Story name="Warning step" parameters={{ docs: { disable: true } }}>
   {() => {
     const [activeStep, setActiveStep] = React.useState(0);
     return (
@@ -72,19 +103,112 @@ Here you can check the code snippet for the story.
           }
           setActiveStep(newStep);
         }}
-        hideBottomStepLabel
       >
-        <Step title="Step 1">1</Step>
-        <Step title="Step 2">
-          <div>2</div>
+        <Step
+          title="Contact Details"
+          warningText="Please, fill valid information"
+        >
+          <DivFlex>
+            <Input
+              name="contact"
+              id="contact"
+              placeholder="Contact details"
+              fullWidth
+            />
+          </DivFlex>
         </Step>
-        <Step title="Step 3" warningText="Preencheu todos os dados do usuário?">
-          <div>3</div>
+        <Step title="Shipping Information">
+          <DivFlex>
+            <Input
+              name="shipping"
+              id="shipping"
+              placeholder="Shipping information"
+              fullWidth
+            />
+          </DivFlex>
         </Step>
-        <Step title="Step 4">4</Step>
+        <Step title="Billing Address">
+          <DivFlex>
+            <Input
+              name="billing"
+              id="billing"
+              placeholder="Billing address"
+              fullWidth
+            />
+          </DivFlex>
+        </Step>
+        <Step title="Review">
+          <DivFlex>
+            <Typography>All Set!</Typography>
+          </DivFlex>
+        </Step>
       </Wizard>
     );
   }}
 </Story>
 
-<Source id="wizard--hide-step-bottom-label" />
+<Source id="wizard--warning-step" />
+
+## Mobile wizard
+
+<Story name="Mobile wizard" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const [activeStep, setActiveStep] = React.useState(0);
+    return (
+      <Wizard
+        activeStep={activeStep}
+        onChange={newStep => {
+          if (activeStep === 2) {
+            return 'Input validation failed';
+          }
+          if (activeStep === 3) {
+            return null;
+          }
+          setActiveStep(newStep);
+        }}
+        variant="mobile"
+      >
+        <Step title="Contact Details">
+          <DivFlex>
+            <Input
+              name="contact"
+              id="contact"
+              placeholder="Contact details"
+              fullWidth
+            />
+          </DivFlex>
+        </Step>
+        <Step
+          title="Shipping Information"
+          warningText="Please, fill correct address"
+        >
+          <DivFlex>
+            <Input
+              name="shipping"
+              id="shipping"
+              placeholder="Shipping information"
+              fullWidth
+            />
+          </DivFlex>
+        </Step>
+        <Step title="Billing Address">
+          <DivFlex>
+            <Input
+              name="billing"
+              id="billing"
+              placeholder="Billing address"
+              fullWidth
+            />
+          </DivFlex>
+        </Step>
+        <Step title="Review">
+          <DivFlex>
+            <Typography>All Set!</Typography>
+          </DivFlex>
+        </Step>
+      </Wizard>
+    );
+  }}
+</Story>
+
+<Source id="wizard--mobile-wizard" />
