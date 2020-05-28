@@ -32,7 +32,7 @@ const useStyles = makeStyles(({ spacing }) => ({
     fill: 'none',
   },
   circleText: {
-    fontSize: '1.1em',
+    fontSize: '1.1rem',
     fontWeight: '500',
     fontFamily: 'Roboto',
   },
@@ -41,7 +41,7 @@ const useStyles = makeStyles(({ spacing }) => ({
     textAlign: 'right',
   },
   currentStepText: {
-    fontSize: '1.3em',
+    fontSize: '1.3rem',
     fontWeight: 500,
     letterSpacing: '0.25px',
   },
