@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     color: `${theme.palette.secondary.main} !important`,
     textColor: theme.palette.secondary.contrastText,
   },
-  stepper: {},
+  stepper: { backgroundColor: 'transparent' },
   wizard: {
     display: 'flex',
     flexDirection: 'column',
