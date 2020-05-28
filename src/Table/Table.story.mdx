@@ -16,7 +16,7 @@ import {
 import { Table } from './Table';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
-import { cars, countries } from './exampleData';
+import { cars, countries } from './utils/exampleData';
 import {
   columnsSimple,
   columnsAction,
@@ -33,9 +33,9 @@ import {
   paginationData,
   serverColumns,
   sortColumns,
-} from './storyHelper';
-import { resolveData, handleRowClick } from './tableFunctions';
-import TableCells from './TableCells';
+} from './utils/storyHelper';
+import { resolveData, handleRowClick } from './utils/tableFunctions';
+import {Cells} from './Rows/Cells/Cells';
 import FilterIcon from '@material-ui/icons/FilterList';
 
 <Meta
@@ -386,7 +386,7 @@ Here you can check the code snippet for the story.
             rowId
           )}
         >
-          <TableCells
+          <Cells
             columns={columns}
             rowData={rowData}
             selectedRows={selectedRows}

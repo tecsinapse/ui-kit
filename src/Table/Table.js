@@ -9,15 +9,15 @@ import { useTheme } from '@material-ui/styles';
 
 import { useWindowSize } from '@tecsinapse/ui-kit/build/ThemeProvider';
 import { TableCell } from '@material-ui/core';
-import { tableStyles } from './tableStyle';
-import TableRowFilter from './TableRowFilter';
-import { TableMobile } from './TableMobile';
-import TableHeader from './TableHeader';
-import TableRows from './TableRows';
-import TableToolbar from './TableToolbar';
-import TablePagination from './TablePagination';
-import { toolbarOptionsTypes } from './propTypes';
-import TableLoading from './TableLoading';
+import { tableStyles } from './utils/tableStyle';
+import RowFilters from './Rows/RowFilters/RowFilters';
+import { Mobile } from './Mobile/Mobile';
+import Header from './Rows/Header/Header';
+import Rows from './Rows/Rows';
+import Toolbar from './Toolbar/Toolbar';
+import Pagination from './Pagination/Pagination';
+import { toolbarOptionsTypes } from './utils/propTypes';
+import Loading from './Loading/Loading';
 import {
   initializeColumns,
   initializeFilters,
@@ -27,15 +27,15 @@ import {
   onChangePage,
   onChangeSortFilter,
   onChangeStartStopIndex,
-} from './tableFunctions';
+} from './utils/tableFunctions';
 import {
   useInitialCheckboxData,
   useInitialData,
   useUpdateDataProp,
   useUpdateDataRemote,
   useUpdatePageData,
-} from './tableHooks';
-import TableExporter from './TableExporter';
+} from './utils/tableHooks';
+import Exporter from './Exporter/Exporter';
 
 const TableComponent = props => {
   const {
@@ -133,8 +133,8 @@ const TableComponent = props => {
 
   return (
     <div className={propClasses.root} id={id}>
-      <TableLoading loading={loading} />
-      <TableToolbar
+      <Loading loading={loading} />
+      <Toolbar
         options={toolbarOptions}
         selectedRows={selectedRows}
         selection={options.selection}
@@ -151,7 +151,7 @@ const TableComponent = props => {
       />
       {mobile ? (
         <div className={propClasses.rootMobile || classes.rootMobile}>
-          <TableMobile
+          <Mobile
             columns={columns}
             rowId={rowId}
             onRowClick={onRowClick}
@@ -169,7 +169,7 @@ const TableComponent = props => {
       ) : (
         <>
           <MUITable className={classes.table}>
-            <TableHeader
+            <Header
               columns={tableColumns}
               selectedRows={selectedRows}
               setSelectedRows={setSelectedRows}
@@ -181,14 +181,14 @@ const TableComponent = props => {
               onChangeSortFilter={onChangeSortFilter(setFilters)}
             />
             <TableBody>
-              <TableRowFilter
+              <RowFilters
                 rendered={someColumnHasFilter}
                 columns={tableColumns}
                 data={originalData}
                 onChangeFilter={onChangeHeaderFilter(setFilters)}
                 hideSelectFilterLabel={hideSelectFilterLabel}
               />
-              <TableRows
+              <Rows
                 columns={tableColumns}
                 forceCollapseActions={forceCollapseActions}
                 verticalActions={verticalActions}
@@ -206,7 +206,7 @@ const TableComponent = props => {
               <TableRow>
                 {exportOptions?.position === 'footer' && (
                   <TableCell>
-                    <TableExporter
+                    <Exporter
                       {...exportOptions}
                       data={data}
                       columns={columns}
@@ -216,7 +216,7 @@ const TableComponent = props => {
                     />
                   </TableCell>
                 )}
-                <TablePagination {...paginationOptions} />
+                <Pagination {...paginationOptions} />
               </TableRow>
             </TableFooter>
           </MUITable>

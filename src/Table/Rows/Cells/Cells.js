@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import Checkbox from '@material-ui/core/Checkbox';
 import { isNotEmptyOrNull } from '@tecsinapse/es-utils/build';
-import TableRowActions from './TableRowActions';
-import { resolveData } from './tableFunctions';
+import RowActions from '../RowActions/RowActions';
+import { resolveData } from '../../utils/tableFunctions';
 
 const isSelected = (selectedRows, row, rowId) =>
   isNotEmptyOrNull(selectedRows) &&
@@ -34,21 +34,18 @@ const convertValuesToTableCell = (
     );
   }
   if (actions) {
+    const style = {
+      paddingRight: theme.spacing(1),
+      width:
+        forceCollapseActions || actions.length >= 4
+          ? '50px'
+          : `${actions.length * 50}px`,
+      paddingTop: 0,
+      paddingBottom: 0,
+    };
     return (
-      <TableCell
-        key={field}
-        align="right"
-        style={{
-          paddingRight: theme.spacing(1),
-          width:
-            forceCollapseActions || actions.length >= 4
-              ? '50px'
-              : `${actions.length * 50}px`,
-          paddingTop: 0,
-          paddingBottom: 0,
-        }}
-      >
-        <TableRowActions
+      <TableCell key={field} align="right" style={style}>
+        <RowActions
           actions={actions}
           row={rowData}
           rowId={rowId}
@@ -65,7 +62,7 @@ const convertValuesToTableCell = (
   );
 };
 
-const TableCells = ({
+export const Cells = ({
   columns,
   rowData,
   rowId,
@@ -88,12 +85,10 @@ const TableCells = ({
   );
 };
 
-TableCells.propTypes = {
+Cells.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.object).isRequired,
   rowData: PropTypes.object.isRequired,
   rowId: PropTypes.func.isRequired,
   selectedRows: PropTypes.arrayOf(PropTypes.object),
   forceCollapseActions: PropTypes.bool,
 };
-
-export default TableCells;

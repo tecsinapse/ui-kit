@@ -8,7 +8,7 @@ import { mdiDownload } from '@mdi/js';
 import { Typography, useTheme } from '@material-ui/core';
 import { Button } from '@tecsinapse/ui-kit';
 import { renderStyledColor } from '@tecsinapse/ui-kit/build/ThemeProvider';
-import { exportToCSV, isRemoteData } from './tableFunctions';
+import { exportToCSV, isRemoteData } from '../utils/tableFunctions';
 
 const defaultLabelToCSV = 'Export to CSV';
 
@@ -59,7 +59,7 @@ const exportData = async (
   }
 };
 
-const TableExporter = ({
+const Exporter = ({
   exportFileName,
   exportTypes,
   position = 'header',
@@ -139,13 +139,13 @@ const TableExporter = ({
   );
 };
 
-TableExporter.defaultProps = {
+Exporter.defaultProps = {
   data: [],
   exportFileName: 'table_exporter',
   exportTypes: [],
 };
 
-TableExporter.propTypes = {
+Exporter.propTypes = {
   data: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object),
     PropTypes.func,
@@ -161,4 +161,4 @@ TableExporter.propTypes = {
   ),
 };
 
-export default TableExporter;
+export default Exporter;

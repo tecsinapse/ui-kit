@@ -6,8 +6,8 @@ import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import { ThemeProvider } from '@tecsinapse/ui-kit';
 import { Table } from '../src';
-import { columnsSimple } from '../src/Table/storyHelper';
-import { cars } from '../src/Table/exampleData';
+import { columnsSimple } from '../src/Table/utils/storyHelper';
+import { cars } from '../src/Table/utils/exampleData';
 
 const theme = createMuiTheme({
   palette: {

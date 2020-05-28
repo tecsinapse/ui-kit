@@ -18,7 +18,7 @@ export const styles = makeStyles(theme => ({
   },
 }));
 
-const TableLoading = ({ loading }) => {
+const Loading = ({ loading }) => {
   const classes = styles();
   if (!loading) {
     return null;
@@ -31,8 +31,8 @@ const TableLoading = ({ loading }) => {
   );
 };
 
-TableLoading.propTypes = {
+Loading.propTypes = {
   loading: PropTypes.bool.isRequired,
 };
 
-export default TableLoading;
+export default Loading;

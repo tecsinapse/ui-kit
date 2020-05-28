@@ -106,12 +106,14 @@ const mapFilterOptionToInput = (
     );
   }
   if (type === 'checkbox') {
+    const margin3 = { marginTop: 3 };
+    const padding5 = { paddingRight: 5 };
     return (
       <FormControlLabel
-        style={{ marginTop: 3 }}
+        style={margin3}
         control={
           <Checkbox
-            style={{ paddingRight: 5 }}
+            style={padding5}
             key={name}
             onChange={event =>
               onChangeFilter(setAdvancedFilters, name, event.target.checked)
@@ -165,35 +167,38 @@ const Filters = ({
           {group.label}
         </Typography>
         <Grid container className={classes.filterContainer}>
-          {group.filters.map(filter => (
-            <Grid
-              item
-              xs={12}
-              className={classes.gridItemMarginTop}
-              key={filter.name}
-            >
-              <div
-                key={`filter-${filter.name}`}
-                className={clsx(classes.filter, {
-                  [classes.fullWidth]: filter.fullWidth,
-                })}
-                style={mobile ? { width: '100%' } : {}}
+          {group.filters.map(filter => {
+            const mobileWidth = mobile ? { width: '100%' } : {};
+            return (
+              <Grid
+                item
+                xs={12}
+                className={classes.gridItemMarginTop}
+                key={filter.name}
               >
-                {mapFilterOptionToInput(
-                  filter,
-                  setAdvancedFilters,
-                  advancedFilters
-                )}
-              </div>
-            </Grid>
-          ))}
+                <div
+                  key={`filter-${filter.name}`}
+                  className={clsx(classes.filter, {
+                    [classes.fullWidth]: filter.fullWidth,
+                  })}
+                  style={mobileWidth}
+                >
+                  {mapFilterOptionToInput(
+                    filter,
+                    setAdvancedFilters,
+                    advancedFilters
+                  )}
+                </div>
+              </Grid>
+            );
+          })}
         </Grid>
       </div>,
     ];
   });
 };
 
-const AdvancedFilters = ({
+const Container = ({
   advancedFilters: advancedFiltersProp,
   onApplyFilter,
   filters,
@@ -273,4 +278,4 @@ const AdvancedFilters = ({
   );
 };
 
-export default AdvancedFilters;
+export default Container;

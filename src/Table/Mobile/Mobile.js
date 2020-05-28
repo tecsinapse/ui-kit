@@ -12,9 +12,9 @@ import {
 
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import { EmptyStateWrapper } from '@tecsinapse/ui-kit/build/EmptyState/EmptyState';
-import { TableCard } from './TableCard';
+import { Card } from './Card/Card';
 
-export const TableMobile = ({
+export const Mobile = ({
   columns,
   data,
   rowId,
@@ -69,8 +69,8 @@ export const TableMobile = ({
             <List
               onRowsRendered={onRowsRendered}
               ref={ref => {
-                // InfinityLoader and TableCard need to access to the list updater
-                // TableCard is a functional ref, while InfinityLoader approaches as a class ref
+                // InfinityLoader and Card need to access to the list updater
+                // Card is a functional ref, while InfinityLoader approaches as a class ref
                 if (ref) {
                   registerChild(ref);
                   list.current = ref;
@@ -92,7 +92,7 @@ export const TableMobile = ({
                   rowIndex={index}
                 >
                   <div style={style}>
-                    <TableCard
+                    <Card
                       clearCache={() => cache.clear(index, 0)}
                       data={data[index]}
                       updateList={() => {
@@ -119,13 +119,13 @@ export const TableMobile = ({
   );
 };
 
-TableMobile.defaultProps = {
+Mobile.defaultProps = {
   columns: [],
   data: [],
   empytStateComponent: undefined,
 };
 
-TableMobile.propTypes = {
+Mobile.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -140,4 +140,4 @@ TableMobile.propTypes = {
   empytStateComponent: PropTypes.node,
 };
 
-export default TableMobile;
+export default Mobile;

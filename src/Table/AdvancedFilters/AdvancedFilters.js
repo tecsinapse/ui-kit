@@ -8,7 +8,7 @@ import Dialog from '@material-ui/core/Dialog';
 
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import Drawer from '@material-ui/core/Drawer';
-import AdvancedFilters from './AdvancedFilters';
+import Container from './Container/Container';
 
 const onApplyFilter = (setFilters, setOpen) => advancedFilters => {
   setFilters(prevFilters => ({
@@ -25,7 +25,7 @@ const Transition = React.forwardRef((props, ref) => (
   <Slide direction="up" ref={ref} {...props} />
 ));
 
-const TableAdvancedFilters = ({
+const AdvancedFilters = ({
   advancedFilters,
   setFilters,
   filters,
@@ -70,7 +70,7 @@ const TableAdvancedFilters = ({
       {!mobile ? (
         <Drawer open={open} onClose={() => setOpen(false)} anchor="right">
           <div style={maxSizeAdvancedFilters}>
-            <AdvancedFilters
+            <Container
               advancedFilters={advancedFilters}
               onApplyFilter={onApplyFilter(setFilters, setOpen)}
               setFilters={setFilters}
@@ -88,7 +88,7 @@ const TableAdvancedFilters = ({
           TransitionComponent={Transition}
         >
           <div style={maxSizeAdvancedFilters}>
-            <AdvancedFilters
+            <Container
               advancedFilters={advancedFilters}
               onApplyFilter={onApplyFilter(setFilters, setOpen)}
               setFilters={setFilters}
@@ -104,11 +104,11 @@ const TableAdvancedFilters = ({
   );
 };
 
-TableAdvancedFilters.defaultProps = {
+AdvancedFilters.defaultProps = {
   advancedFilters: null,
 };
 
-TableAdvancedFilters.propTypes = {
+AdvancedFilters.propTypes = {
   advancedFilters: PropTypes.shape({
     applyFilters: PropTypes.func,
     filtersGroup: PropTypes.arrayOf(
@@ -144,4 +144,4 @@ TableAdvancedFilters.propTypes = {
   }),
 };
 
-export default TableAdvancedFilters;
+export default AdvancedFilters;

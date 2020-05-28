@@ -11,7 +11,7 @@ import {
   EXACT_MATCH_CONST,
   INCLUDE_MATCH_CONST,
   isRemoteData,
-} from './tableFunctions';
+} from '../../utils/tableFunctions';
 
 const onChange = (onChangeFilter, setHeaderFilters) => ({ target }) => {
   const { name } = target;
@@ -41,7 +41,7 @@ const initialHeaderFilters = columns => {
   return headerFilters;
 };
 
-const TableRowFilter = ({
+const RowFilters = ({
   columns,
   rendered,
   onChangeFilter,
@@ -96,7 +96,10 @@ const TableRowFilter = ({
         ];
         const { value: filterValue } = headerFilters[field] || {};
         const handleChange = value => {
-          onChange(onChangeFilter, setHeaderFilters)({
+          onChange(
+            onChangeFilter,
+            setHeaderFilters
+          )({
             target: {
               name: field,
               value,
@@ -150,12 +153,12 @@ const TableRowFilter = ({
   );
 };
 
-TableRowFilter.defaultProps = {
+RowFilters.defaultProps = {
   rendered: false,
   hideSelectFilterLabel: false,
 };
 
-TableRowFilter.propTypes = {
+RowFilters.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -170,4 +173,4 @@ TableRowFilter.propTypes = {
   hideSelectFilterLabel: PropTypes.bool,
 };
 
-export default TableRowFilter;
+export default RowFilters;

@@ -5,7 +5,7 @@ import { TableCell } from '@material-ui/core';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import { makeStyles } from '@material-ui/styles';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
-import { paginationOptions } from './propTypes';
+import { paginationOptions } from '../utils/propTypes';
 
 const styles = makeStyles(theme => ({
   total: {
@@ -23,7 +23,7 @@ const onChangePage = (onChangePageProp, rowsPerPage) => (event, page) => {
   onChangePageProp(rowsPerPage, page);
 };
 
-const TablePagination = ({
+const Pagination = ({
   rowsPerPageOptions,
   rowsPerPage,
   page,
@@ -48,9 +48,10 @@ const TablePagination = ({
     );
   }
 
+  const style = { width: '100%' };
   return (
     <MUITablePagination
-      style={{ width: '100%' }}
+      style={style}
       labelDisplayedRows={labelDisplayedRows}
       rowsPerPageOptions={rowsPerPageOptions}
       labelRowsPerPage={labelRowsPerPage}
@@ -63,7 +64,7 @@ const TablePagination = ({
   );
 };
 
-TablePagination.defaultProps = {
+Pagination.defaultProps = {
   pagination: false,
   rowsPerPageOptions: [5, 15, 30],
   rowsPerPage: 15,
@@ -71,6 +72,6 @@ TablePagination.defaultProps = {
   rowCount: null,
 };
 
-TablePagination.propTypes = paginationOptions;
+Pagination.propTypes = paginationOptions;
 
-export default TablePagination;
+export default Pagination;

@@ -7,8 +7,8 @@ import TableRow from '@material-ui/core/TableRow';
 import { VisibilityOff } from '@material-ui/icons';
 import { EmptyStateWrapper } from '@tecsinapse/ui-kit/build/EmptyState/EmptyState';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
-import TableCells from './TableCells';
-import { handleRowClick } from './tableFunctions';
+import { Cells } from './Cells/Cells';
+import { handleRowClick } from '../utils/tableFunctions';
 
 const tableRowStyles = hasSelection =>
   makeStyles(theme => ({
@@ -20,7 +20,7 @@ const tableRowStyles = hasSelection =>
     },
   }));
 
-const TableRows = ({
+const Rows = ({
   columns,
   data,
   selectedRows,
@@ -88,7 +88,7 @@ const TableRows = ({
           rowId
         )}
       >
-        <TableCells
+        <Cells
           columns={columns}
           rowData={rowData}
           selectedRows={selectedRows}
@@ -102,7 +102,7 @@ const TableRows = ({
   });
 };
 
-TableRows.defaultProps = {
+Rows.defaultProps = {
   columns: [],
   data: [],
   selectedRows: [],
@@ -110,7 +110,7 @@ TableRows.defaultProps = {
   empytStateComponent: undefined,
 };
 
-TableRows.propTypes = {
+Rows.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -129,4 +129,4 @@ TableRows.propTypes = {
   empytStateComponent: PropTypes.node,
 };
 
-export default TableRows;
+export default Rows;

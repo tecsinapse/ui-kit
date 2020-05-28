@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import { Toolbar as ToolbarMUI, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import { verifyIfString } from '@tecsinapse/es-utils/build/object';
-import TableToolbarSelection from './TableToolbarSelection';
-import TableAdvancedFilters from './TableAdvancedFilters';
-import { toolbarOptionsTypes } from './propTypes';
-import TableExporter from './TableExporter';
-import SelectedFilters from './SelectedFilters';
+import SelectionActions from './SelectionActions/SelectionActions';
+import AdvancedFilters from '../AdvancedFilters/AdvancedFilters';
+import { toolbarOptionsTypes } from '../utils/propTypes';
+import Exporter from '../Exporter/Exporter';
+import SelectedFilters from './SelectedFilters/SelectedFilters';
 
 const tableToolbarStyles = makeStyles(theme => ({
   toolbar: {
@@ -59,7 +58,7 @@ const SimpleToolbar = ({
 
   return (
     <div>
-      <Toolbar className={classes.toolbar}>
+      <ToolbarMUI className={classes.toolbar}>
         <div className={classes.title}>
           {isTitleString ? (
             <Typography variant="h6" id="tableTitle">
@@ -71,7 +70,7 @@ const SimpleToolbar = ({
         </div>
         <div className={classes.filter}>
           {exportOptions?.position !== 'footer' && (
-            <TableExporter
+            <Exporter
               {...exportOptions}
               data={data}
               columns={columns}
@@ -80,7 +79,7 @@ const SimpleToolbar = ({
               rowCount={rowCount}
             />
           )}
-          <TableAdvancedFilters
+          <AdvancedFilters
             tooltipAdvancedFilter={tooltipAdvancedFilter}
             advancedFilters={advancedFilters}
             setFilters={setFilters}
@@ -89,7 +88,7 @@ const SimpleToolbar = ({
             customAdvancedFilters={customAdvancedFilters}
           />
         </div>
-      </Toolbar>
+      </ToolbarMUI>
       {advancedFilters && (
         <SelectedFilters
           advancedFilters={advancedFilters}
@@ -101,7 +100,7 @@ const SimpleToolbar = ({
   );
 };
 
-const TableToolbar = ({
+const Toolbar = ({
   options,
   selectedRows,
   selection,
@@ -140,23 +139,21 @@ const TableToolbar = ({
     );
   }
 
-  return (
-    <TableToolbarSelection options={options} selectedRows={selectedRows} />
-  );
+  return <SelectionActions options={options} selectedRows={selectedRows} />;
 };
 
-TableToolbar.defaultProps = {
+Toolbar.defaultProps = {
   selectedRows: [],
   selection: false,
   tableToolbarHide: false,
   options: null,
 };
 
-TableToolbar.propTypes = {
+Toolbar.propTypes = {
   selectedRows: PropTypes.arrayOf(PropTypes.object),
   selection: PropTypes.bool,
   tableToolbarHide: PropTypes.bool,
   options: toolbarOptionsTypes,
 };
 
-export default TableToolbar;
+export default Toolbar;
