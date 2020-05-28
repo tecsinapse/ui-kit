@@ -42,6 +42,7 @@
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-docs": "^5.3.19",
     "@storybook/react": "^5.3.19",
+    "@storybook/theming": "^5.3.19",
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.1.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
