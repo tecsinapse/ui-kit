@@ -1,20 +1,19 @@
 import { addDecorator, addParameters, configure } from '@storybook/react';
 import React from 'react';
-import { setOptions } from '@storybook/addon-options';
 import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks';
 import { ThemeProvider } from '@tecsinapse/ui-kit';
-
-setOptions({
-  hierarchySeparator: /\//,
-  hierarchyRootSeparator: /\|/,
-  name: 'TecSinapse Wizard',
-  url: 'https://github.com/tecsinapse/wizard',
-});
 
 addParameters({
   docs: {
     container: DocsContainer,
     page: DocsPage,
+  },
+  options: {
+    showRoots: true,
+    theme: {
+      brandTitle: 'TecSinapse Wizard',
+      brandUrl: 'https://github.com/tecsinapse/wizard',
+    },
   },
 });
 

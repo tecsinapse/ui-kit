@@ -41,7 +41,6 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-docs": "^5.3.19",
-    "@storybook/addon-options": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "@tecsinapse/eslint-config-tecsinapse-js": "^2.1.4",
     "@testing-library/jest-dom": "^4.2.4",
@@ -84,6 +83,7 @@
     "dist"
   ],
   "scripts": {
+    "prestart": "yarn install",
     "analyze": "npx source-map-explorer 'dist/*.js'",
     "build": "rimraf -rf build/ && babel src/ -d build/ && rollup -c",
     "build-all": "yarn build && yarn storybook:build",

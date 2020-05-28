@@ -7,8 +7,8 @@ import { Button } from '@tecsinapse/ui-kit';
 import Icon from '@mdi/react';
 import { mdiInformation } from '@mdi/js';
 import PropTypes from 'prop-types';
-import { Stepper } from './Stepper';
-import { Circular } from './Circular';
+import { Stepper } from '../Stepper/Stepper';
+import { Circular } from '../Circular/Circular';
 
 const useStyles = makeStyles(theme => ({
   margin: {
@@ -94,6 +94,9 @@ export const Wizard = ({
     }
   };
 
+  const iconMargin = { margin: '0 6px 0 4px' };
+  const alertColor = { color: '#fff' };
+
   return (
     <div className={clsx(innerClasses.wizard, className, classes.root)}>
       {mobile ? (
@@ -125,9 +128,9 @@ export const Wizard = ({
             path={mdiInformation}
             size={0.8}
             color="#fff"
-            style={{ margin: '0 6px 0 4px' }}
+            style={iconMargin}
           />
-          <Typography style={{ color: '#fff' }}>
+          <Typography style={alertColor}>
             {error || currentStep.props.warningText}
           </Typography>
         </div>

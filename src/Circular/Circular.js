@@ -10,7 +10,7 @@ const useStyles = makeStyles(({ spacing }) => ({
     padding: spacing(1),
     backgroundColor: 'transparent',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
   circleBackground: {
     stroke: '#D3D3D3',

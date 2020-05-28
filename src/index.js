@@ -1,1 +1,1 @@
-export { Wizard } from './Wizard';
+export { Wizard } from './Wizard/Wizard';
