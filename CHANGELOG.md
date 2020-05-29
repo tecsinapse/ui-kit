@@ -1,3 +1,15 @@
+## 2.0.0-beta.0 (2020-05-28)
+
+* Added Mobile stepper ([b07a71d](https://github.com/tecsinapse/wizard/commit/b07a71d))
+* Bump https-proxy-agent from 2.2.2 to 2.2.4 ([bfe42fe](https://github.com/tecsinapse/wizard/commit/bfe42fe))
+* Fixing build ([cd5152d](https://github.com/tecsinapse/wizard/commit/cd5152d))
+* Fixing yarn.lock ([aa9f8ea](https://github.com/tecsinapse/wizard/commit/aa9f8ea))
+* Testing custom bumped ([27c4790](https://github.com/tecsinapse/wizard/commit/27c4790))
+* Updating lockfile ([3fe9701](https://github.com/tecsinapse/wizard/commit/3fe9701))
+* Updating SB config ([403e25f](https://github.com/tecsinapse/wizard/commit/403e25f))
+
+
+
 ## 1.3.0 (2020-01-22)
 
 * @tecsinapse/ui-kit@4.0.0 ([fb6a670](https://github.com/tecsinapse/wizard/commit/fb6a670))

@@ -15,7 +15,7 @@ plugins:
       command: 'git-dirty'
     Publishing tag to GitHub:
       plugin: bumped-terminal
-      command: 'git tag $newVersion && git push origin master && git push origin master --tags'
+      command: 'git tag $newVersion && git push origin $BRANCH && git push origin $BRANCH --tags'
     Publishing to NPM:
       plugin: bumped-terminal
-      command: yarn build && yarn publish --non-interactive --new-version $newVersion
+      command: yarn build && yarn publish --non-interactive --new-version $newVersion --tag $TAG
