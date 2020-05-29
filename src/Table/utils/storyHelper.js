@@ -288,6 +288,7 @@ export const paginationActions = [
 ];
 
 export const paginationToolbar = {
+  title: 'Pagination Example',
   advancedFilters: {
     title: 'Pagination Example',
     selectedFiltersLabel: 'Filtro Ativos',

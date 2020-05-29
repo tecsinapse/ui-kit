@@ -8,15 +8,16 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/styles';
 
 import { useWindowSize } from '@tecsinapse/ui-kit/build/ThemeProvider';
-import { tableStyles } from './tableStyle';
-import TableRowFilter from './TableRowFilter';
-import { TableMobile } from './TableMobile';
-import TableHeader from './TableHeader';
-import TableRows from './TableRows';
-import TableToolbar from './TableToolbar';
-import TablePagination from './TablePagination';
-import { toolbarOptionsTypes } from './TablePropTypes';
-import TableLoading from './TableLoading';
+import { TableCell } from '@material-ui/core';
+import { tableStyles } from './utils/tableStyle';
+import RowFilters from './Rows/RowFilters/RowFilters';
+import { Mobile } from './Mobile/Mobile';
+import Header from './Rows/Header/Header';
+import Rows from './Rows/Rows';
+import Toolbar from './Toolbar/Toolbar';
+import Pagination from './Pagination/Pagination';
+import { toolbarOptionsTypes } from './utils/propTypes';
+import Loading from './Loading/Loading';
 import {
   initializeColumns,
   initializeFilters,
@@ -26,14 +27,15 @@ import {
   onChangePage,
   onChangeSortFilter,
   onChangeStartStopIndex,
-} from './tableFunctions';
+} from './utils/tableFunctions';
 import {
   useInitialCheckboxData,
   useInitialData,
   useUpdateDataProp,
   useUpdateDataRemote,
   useUpdatePageData,
-} from './tableHooks';
+} from './utils/tableHooks';
+import Exporter from './Exporter/Exporter';
 
 const TableComponent = props => {
   const {
@@ -62,6 +64,9 @@ const TableComponent = props => {
     labelShowLess,
     labelShowMore,
     empytStateComponent,
+    hideSelectFilterLabel,
+    customAdvancedFilters,
+    customRow,
   } = props;
   const classes = tableStyles(useWindowSize()[1]);
   const [mobile, setMobile] = useState(false);
@@ -69,7 +74,6 @@ const TableComponent = props => {
   const [data, setData] = useState([]);
   const [pageData, setPageData] = useState([]);
   const [selectedRows, setSelectedRows] = useState([]);
-  const [tableColumns] = useState(initializeColumns(columns, options, actions));
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState(() =>
     initializeFilters(
@@ -82,6 +86,7 @@ const TableComponent = props => {
     )
   );
 
+  const tableColumns = initializeColumns(columns, options, actions);
   useInitialData(originalData, setData);
   useInitialCheckboxData(selectedData, setSelectedRows);
 
@@ -128,8 +133,8 @@ const TableComponent = props => {
 
   return (
     <div className={propClasses.root} id={id}>
-      <TableLoading loading={loading} />
-      <TableToolbar
+      <Loading loading={loading} />
+      <Toolbar
         options={toolbarOptions}
         selectedRows={selectedRows}
         selection={options.selection}
@@ -142,10 +147,11 @@ const TableComponent = props => {
         rowCount={rowCount}
         tableToolbarHide={tableToolbarHide}
         mobile={mobile}
+        customAdvancedFilters={customAdvancedFilters}
       />
       {mobile ? (
         <div className={propClasses.rootMobile || classes.rootMobile}>
-          <TableMobile
+          <Mobile
             columns={columns}
             rowId={rowId}
             onRowClick={onRowClick}
@@ -163,7 +169,7 @@ const TableComponent = props => {
       ) : (
         <>
           <MUITable className={classes.table}>
-            <TableHeader
+            <Header
               columns={tableColumns}
               selectedRows={selectedRows}
               setSelectedRows={setSelectedRows}
@@ -175,13 +181,14 @@ const TableComponent = props => {
               onChangeSortFilter={onChangeSortFilter(setFilters)}
             />
             <TableBody>
-              <TableRowFilter
+              <RowFilters
                 rendered={someColumnHasFilter}
                 columns={tableColumns}
                 data={originalData}
                 onChangeFilter={onChangeHeaderFilter(setFilters)}
+                hideSelectFilterLabel={hideSelectFilterLabel}
               />
-              <TableRows
+              <Rows
                 columns={tableColumns}
                 forceCollapseActions={forceCollapseActions}
                 verticalActions={verticalActions}
@@ -192,11 +199,24 @@ const TableComponent = props => {
                 setSelectedRows={setSelectedRows}
                 onSelectRow={onSelectRow}
                 empytStateComponent={empytStateComponent}
+                customRow={customRow}
               />
             </TableBody>
             <TableFooter>
               <TableRow>
-                <TablePagination {...paginationOptions} />
+                {exportOptions?.position === 'footer' && (
+                  <TableCell>
+                    <Exporter
+                      {...exportOptions}
+                      data={data}
+                      columns={columns}
+                      filters={filters}
+                      setLoading={setLoading}
+                      rowCount={rowCount}
+                    />
+                  </TableCell>
+                )}
+                <Pagination {...paginationOptions} />
               </TableRow>
             </TableFooter>
           </MUITable>
@@ -222,13 +242,18 @@ TableComponent.defaultProps = {
   rowsPerPageOptions: [10, 20, 30],
   rowsPerPage: null,
   page: 0,
-  exportOptions: null,
+  exportOptions: {
+    position: 'header',
+  },
   id: null,
   classes: {},
   variant: 'auto',
   labelShowLess: 'MOSTRAR MENOS',
   labelShowMore: 'MOSTRAR MAIS',
   empytStateComponent: undefined,
+  hideSelectFilterLabel: false,
+  customAdvancedFilters: undefined,
+  customRow: undefined,
 };
 
 TableComponent.propTypes = {
@@ -300,6 +325,7 @@ TableComponent.propTypes = {
   /** Set options for exporting table. If custom `type` is provided, you have to set `exportFunc` and `label` */
   exportOptions: PropTypes.shape({
     exportFileName: PropTypes.string,
+    position: PropTypes.oneOf(['header', 'footer']),
     exportTypes: PropTypes.arrayOf(
       PropTypes.shape({
         type: PropTypes.oneOf(['csv', 'custom']),
@@ -317,6 +343,15 @@ TableComponent.propTypes = {
   labelShowMore: PropTypes.string,
   /** Empty state component to display */
   empytStateComponent: PropTypes.node,
+  /** Hide floating label of select filter */
+  hideSelectFilterLabel: PropTypes.bool,
+  /** Replace table advanced filters to your own */
+  customAdvancedFilters: PropTypes.shape({
+    applyFilters: PropTypes.func,
+    filters: PropTypes.node,
+  }),
+  /** Provides custom row render. See examples for more detailed use cases. */
+  customRow: PropTypes.func,
 };
 
 export const Table = TableComponent;

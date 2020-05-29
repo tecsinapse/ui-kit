@@ -164,7 +164,7 @@ const convertColumnToTableCell = (
   );
 };
 
-const TableHeader = ({
+const Header = ({
   columns,
   selectedRows,
   setSelectedRows,
@@ -212,14 +212,14 @@ const TableHeader = ({
   );
 };
 
-TableHeader.defaultProps = {
+Header.defaultProps = {
   selectedRows: null,
   onSelectRow: null,
   setSelectedRows: null,
   tableHeaderHide: false,
 };
 
-TableHeader.propTypes = {
+Header.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.object).isRequired,
   selectedRows: PropTypes.arrayOf(PropTypes.object),
   onSelectRow: PropTypes.func,
@@ -229,4 +229,4 @@ TableHeader.propTypes = {
   rowId: PropTypes.func.isRequired,
 };
 
-export default TableHeader;
+export default Header;

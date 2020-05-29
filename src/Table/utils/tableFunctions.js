@@ -1,4 +1,5 @@
 import { isNotEmptyOrNull, resolveObj } from '@tecsinapse/es-utils/build';
+import { isEmptyOrNull } from '@tecsinapse/es-utils';
 
 export const INCLUDE_MATCH_CONST = 'INCLUDE';
 export const EXACT_MATCH_CONST = 'EXACT';
@@ -237,4 +238,53 @@ export const initializeSortFunc = sortFuncProp => {
     sortedArray.reverse();
     return sortedArray;
   };
+};
+
+const isRowSelected = (selectedRows, row, rowId) =>
+  isNotEmptyOrNull(selectedRows) &&
+  selectedRows.some(selectedRow => rowId(selectedRow) === rowId(row));
+
+export const handleRowClick = (
+  rowData,
+  hasSelection,
+  onSelectRow,
+  onRowClick,
+  selectedRows,
+  setSelectedRows,
+  rowId
+) => event => {
+  if (onRowClick) {
+    onRowClick(rowData);
+    return;
+  }
+  if (!hasSelection) {
+    return;
+  }
+
+  let checked = false;
+
+  if (isEmptyOrNull(selectedRows)) {
+    const newSelectedRows = [rowData];
+    setSelectedRows(newSelectedRows);
+    checked = true;
+
+    if (onSelectRow) {
+      onSelectRow(newSelectedRows, rowData, checked);
+    }
+  } else {
+    let newSelectedRows = [];
+    if (isRowSelected(selectedRows, rowData, rowId)) {
+      newSelectedRows = selectedRows.filter(
+        selectedRow => rowId(selectedRow) !== rowId(rowData)
+      );
+    } else {
+      newSelectedRows = [...selectedRows, rowData];
+      checked = true;
+    }
+    setSelectedRows(newSelectedRows);
+
+    if (onSelectRow) {
+      onSelectRow(newSelectedRows, rowData, checked);
+    }
+  }
 };

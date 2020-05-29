@@ -11,7 +11,7 @@ import {
   EXACT_MATCH_CONST,
   INCLUDE_MATCH_CONST,
   isRemoteData,
-} from './tableFunctions';
+} from '../../utils/tableFunctions';
 
 const onChange = (onChangeFilter, setHeaderFilters) => ({ target }) => {
   const { name } = target;
@@ -41,7 +41,13 @@ const initialHeaderFilters = columns => {
   return headerFilters;
 };
 
-const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
+const RowFilters = ({
+  columns,
+  rendered,
+  onChangeFilter,
+  data,
+  hideSelectFilterLabel,
+}) => {
   const [headerFilters, setHeaderFilters] = useState(
     initialHeaderFilters(columns)
   );
@@ -52,8 +58,9 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
     return null;
   }
 
+  const rowFilterStyle = { backgroundColor: '#f5f5f5' };
   return (
-    <TableRow>
+    <TableRow style={rowFilterStyle}>
       {columns.map(column => {
         const { title, field, options = {} } = column || {};
 
@@ -89,7 +96,10 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
         ];
         const { value: filterValue } = headerFilters[field] || {};
         const handleChange = value => {
-          onChange(onChangeFilter, setHeaderFilters)({
+          onChange(
+            onChangeFilter,
+            setHeaderFilters
+          )({
             target: {
               name: field,
               value,
@@ -97,27 +107,42 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
             },
           });
         };
+        const regularInputStyle = { backgroundColor: '#fff' };
+        const customSelectStyle = {
+          style: {
+            backgroundColor: '#fff',
+          },
+        };
+        const cellPadding = { paddingTop: '8px', paddingBottom: '8px' };
         return (
-          <TableCell key={field} align={options.numeric ? 'right' : 'left'}>
+          <TableCell
+            key={field}
+            align={options.numeric ? 'right' : 'left'}
+            style={cellPadding}
+          >
             {filter && select && (
               <Select
                 selectPromptMessage={selectPromptMessage}
+                customTextField={customSelectStyle}
                 selectAllMessage={selectAllMessage}
                 value={filterValue}
                 fullWidth
                 options={selectOptions || []}
                 menuPlacement="auto"
                 onChange={handleChange}
-                label={title}
+                label={!hideSelectFilterLabel && title}
               />
             )}
             {filter && !select && (
               <Input
                 name={field}
+                id={field}
                 value={filterValue}
                 startAdornment={
                   <Icon path={mdiMagnify} size={1} color="#C4C4C4" />
                 }
+                style={regularInputStyle}
+                fullWidth
                 onChange={onChange(onChangeFilter, setHeaderFilters)}
               />
             )}
@@ -128,11 +153,12 @@ const TableRowFilter = ({ columns, rendered, onChangeFilter, data }) => {
   );
 };
 
-TableRowFilter.defaultProps = {
+RowFilters.defaultProps = {
   rendered: false,
+  hideSelectFilterLabel: false,
 };
 
-TableRowFilter.propTypes = {
+RowFilters.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -144,6 +170,7 @@ TableRowFilter.propTypes = {
   ).isRequired,
   rendered: PropTypes.bool,
   onChangeFilter: PropTypes.func.isRequired,
+  hideSelectFilterLabel: PropTypes.bool,
 };
 
-export default TableRowFilter;
+export default RowFilters;

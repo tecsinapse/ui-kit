@@ -1,28 +1,29 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import { Toolbar as ToolbarMUI, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
-import TableToolbarSelection from './TableToolbarSelection';
-import TableAdvancedFilters from './TableAdvancedFilters';
-import { toolbarOptionsTypes } from './TablePropTypes';
-import TableExporter from './TableExporter';
-import SelectedFilters from './SelectedFilters';
+import { verifyIfString } from '@tecsinapse/es-utils/build/object';
+import SelectionActions from './SelectionActions/SelectionActions';
+import AdvancedFilters from '../AdvancedFilters/AdvancedFilters';
+import { toolbarOptionsTypes } from '../utils/propTypes';
+import Exporter from '../Exporter/Exporter';
+import SelectedFilters from './SelectedFilters/SelectedFilters';
 
 const tableToolbarStyles = makeStyles(theme => ({
   toolbar: {
-    margin: theme.spacing(1 / 2, 1 / 2),
+    margin: theme.spacing(1 / 2, 1 / 2, 0, 1 / 2),
     paddingRight: theme.spacing(1),
-    height: '65px',
+    paddingLeft: theme.spacing(1),
+    minHeight: '48px',
+    justifyContent: 'space-between',
   },
   title: {
     width: '100%',
-    maxWidth: '80%',
   },
   filter: {
-    width: '100%',
-    textAlign: 'right',
+    display: 'flex',
+    flexDirection: 'row',
   },
 }));
 
@@ -36,6 +37,7 @@ const SimpleToolbar = ({
   setLoading,
   rowCount,
   mobile,
+  customAdvancedFilters,
 }) => {
   const { title, advancedFilters } = options || {};
   const classes = tableToolbarStyles();
@@ -47,37 +49,46 @@ const SimpleToolbar = ({
   if (
     !advancedFilters &&
     !title &&
-    (!exportTypes || exportTypes.length === 0)
+    (!exportTypes || exportTypes.length === 0 || !exportTypes?.position)
   ) {
     return null;
   }
 
+  const isTitleString = verifyIfString(title);
+
   return (
     <div>
-      <Toolbar className={classes.toolbar}>
+      <ToolbarMUI className={classes.toolbar}>
         <div className={classes.title}>
-          <Typography variant="h6" id="tableTitle">
-            {title}
-          </Typography>
+          {isTitleString ? (
+            <Typography variant="h6" id="tableTitle">
+              {title}
+            </Typography>
+          ) : (
+            title
+          )}
         </div>
         <div className={classes.filter}>
-          <TableExporter
-            {...exportOptions}
-            data={data}
-            columns={columns}
-            filters={filters}
-            setLoading={setLoading}
-            rowCount={rowCount}
-          />
-          <TableAdvancedFilters
+          {exportOptions?.position !== 'footer' && (
+            <Exporter
+              {...exportOptions}
+              data={data}
+              columns={columns}
+              filters={filters}
+              setLoading={setLoading}
+              rowCount={rowCount}
+            />
+          )}
+          <AdvancedFilters
             tooltipAdvancedFilter={tooltipAdvancedFilter}
             advancedFilters={advancedFilters}
             setFilters={setFilters}
             filters={filters}
             mobile={mobile}
+            customAdvancedFilters={customAdvancedFilters}
           />
         </div>
-      </Toolbar>
+      </ToolbarMUI>
       {advancedFilters && (
         <SelectedFilters
           advancedFilters={advancedFilters}
@@ -89,7 +100,7 @@ const SimpleToolbar = ({
   );
 };
 
-const TableToolbar = ({
+const Toolbar = ({
   options,
   selectedRows,
   selection,
@@ -102,6 +113,7 @@ const TableToolbar = ({
   rowCount,
   tableToolbarHide = false,
   mobile = false,
+  customAdvancedFilters,
 }) => {
   if (tableToolbarHide) {
     return null;
@@ -122,27 +134,26 @@ const TableToolbar = ({
         setLoading={setLoading}
         rowCount={rowCount}
         mobile={mobile}
+        customAdvancedFilters={customAdvancedFilters}
       />
     );
   }
 
-  return (
-    <TableToolbarSelection options={options} selectedRows={selectedRows} />
-  );
+  return <SelectionActions options={options} selectedRows={selectedRows} />;
 };
 
-TableToolbar.defaultProps = {
+Toolbar.defaultProps = {
   selectedRows: [],
   selection: false,
   tableToolbarHide: false,
   options: null,
 };
 
-TableToolbar.propTypes = {
+Toolbar.propTypes = {
   selectedRows: PropTypes.arrayOf(PropTypes.object),
   selection: PropTypes.bool,
   tableToolbarHide: PropTypes.bool,
   options: toolbarOptionsTypes,
 };
 
-export default TableToolbar;
+export default Toolbar;

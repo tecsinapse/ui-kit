@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const toolbarOptionsTypes = PropTypes.shape({
-  title: PropTypes.string,
+  title: PropTypes.node,
   selectedLabel: PropTypes.func,
   actions: PropTypes.arrayOf(
     PropTypes.shape({

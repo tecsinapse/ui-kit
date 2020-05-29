@@ -1,20 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
 import FilterIcon from '@material-ui/icons/FilterList';
 import Tooltip from '@material-ui/core/Tooltip';
-import Popover from '@material-ui/core/Popover';
 import Slide from '@material-ui/core/Slide';
 import Dialog from '@material-ui/core/Dialog';
 
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
-import AdvancedFilters from './AdvancedFilters';
+import Drawer from '@material-ui/core/Drawer';
+import Container from './Container/Container';
 
-const onApplyFilter = (
-  setAnchorEl,
-  setFilters,
-  setOpenDialog
-) => advancedFilters => {
+const onApplyFilter = (setFilters, setOpen) => advancedFilters => {
   setFilters(prevFilters => ({
     ...prevFilters,
     advancedFilters,
@@ -22,96 +18,84 @@ const onApplyFilter = (
     startIndex: 0,
     stopIndex: prevFilters.rowsPerPage - 1,
   }));
-  setAnchorEl(null);
-  setOpenDialog(false);
+  setOpen(false);
 };
 
 const Transition = React.forwardRef((props, ref) => (
   <Slide direction="up" ref={ref} {...props} />
 ));
 
-const TableAdvancedFilters = ({
+const AdvancedFilters = ({
   advancedFilters,
   setFilters,
   filters,
   mobile,
+  customAdvancedFilters,
 }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [openDialog, setOpenDialog] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   const {
     Table: { tooltipAdvancedFilter },
   } = useContext(LocaleContext);
 
-  if (!advancedFilters) {
+  if (!advancedFilters && !customAdvancedFilters) {
     return null;
   }
-  const open = Boolean(anchorEl);
-  const { maxHeight = '100%', maxWidth = '700px' } = advancedFilters;
+
+  const {
+    maxHeight = '100%',
+    maxWidth = mobile ? '1000' : '350px',
+  } = advancedFilters;
 
   const maxSizeAdvancedFilters = {
     maxHeight,
     maxWidth,
   };
 
+  const handleOpenFilters = () => {
+    setOpen(true);
+  };
+
   return (
     <>
       <Tooltip title={tooltipAdvancedFilter}>
-        <IconButton
-          onClick={event => {
-            setOpenDialog(true);
-            setAnchorEl(event.currentTarget);
-          }}
-        >
-          <FilterIcon />
-        </IconButton>
+        {customAdvancedFilters?.toolbarButton ? (
+          customAdvancedFilters.toolbarButton(handleOpenFilters)
+        ) : (
+          <IconButton onClick={handleOpenFilters}>
+            <FilterIcon />
+          </IconButton>
+        )}
       </Tooltip>
       {!mobile ? (
-        <Popover
-          open={open}
-          anchorEl={anchorEl}
-          onClose={() => setAnchorEl(null)}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-        >
+        <Drawer open={open} onClose={() => setOpen(false)} anchor="right">
           <div style={maxSizeAdvancedFilters}>
-            <AdvancedFilters
+            <Container
               advancedFilters={advancedFilters}
-              onApplyFilter={onApplyFilter(
-                setAnchorEl,
-                setFilters,
-                setOpenDialog
-              )}
+              onApplyFilter={onApplyFilter(setFilters, setOpen)}
               setFilters={setFilters}
               filters={filters}
+              customAdvancedFilters={customAdvancedFilters}
+              closeDialog={() => setOpen(false)}
             />
           </div>
-        </Popover>
+        </Drawer>
       ) : (
         <Dialog
           fullScreen
-          open={openDialog}
-          onClose={() => setOpenDialog(false)}
+          open={open}
+          onClose={() => setOpen(false)}
           TransitionComponent={Transition}
         >
           <div style={maxSizeAdvancedFilters}>
-            <AdvancedFilters
+            <Container
               advancedFilters={advancedFilters}
-              onApplyFilter={onApplyFilter(
-                setAnchorEl,
-                setFilters,
-                setOpenDialog
-              )}
+              onApplyFilter={onApplyFilter(setFilters, setOpen)}
               setFilters={setFilters}
               filters={filters}
               mobile={mobile}
-              closeDialog={() => setOpenDialog(false)}
+              closeDialog={() => setOpen(false)}
+              customAdvancedFilters={customAdvancedFilters}
             />
           </div>
         </Dialog>
@@ -120,11 +104,11 @@ const TableAdvancedFilters = ({
   );
 };
 
-TableAdvancedFilters.defaultProps = {
+AdvancedFilters.defaultProps = {
   advancedFilters: null,
 };
 
-TableAdvancedFilters.propTypes = {
+AdvancedFilters.propTypes = {
   advancedFilters: PropTypes.shape({
     applyFilters: PropTypes.func,
     filtersGroup: PropTypes.arrayOf(
@@ -160,4 +144,4 @@ TableAdvancedFilters.propTypes = {
   }),
 };
 
-export default TableAdvancedFilters;
+export default AdvancedFilters;

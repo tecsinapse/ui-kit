@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
-import { isEmptyOrNull, isNotEmptyOrNull } from '@tecsinapse/es-utils/build';
+import { isEmptyOrNull } from '@tecsinapse/es-utils/build';
 import { TableCell } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
 import { VisibilityOff } from '@material-ui/icons';
 import { EmptyStateWrapper } from '@tecsinapse/ui-kit/build/EmptyState/EmptyState';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
-import TableCells from './TableCells';
+import { Cells } from './Cells/Cells';
+import { handleRowClick } from '../utils/tableFunctions';
 
 const tableRowStyles = hasSelection =>
   makeStyles(theme => ({
@@ -19,56 +20,7 @@ const tableRowStyles = hasSelection =>
     },
   }));
 
-const isSelected = (selectedRows, row, rowId) =>
-  isNotEmptyOrNull(selectedRows) &&
-  selectedRows.some(selectedRow => rowId(selectedRow) === rowId(row));
-
-const onClick = (
-  rowData,
-  hasSelection,
-  onSelectRow,
-  onRowClick,
-  selectedRows,
-  setSelectedRows,
-  rowId
-) => event => {
-  if (onRowClick) {
-    onRowClick(rowData);
-    return;
-  }
-  if (!hasSelection) {
-    return;
-  }
-
-  let checked = false;
-
-  if (isEmptyOrNull(selectedRows)) {
-    const newSelectedRows = [rowData];
-    setSelectedRows(newSelectedRows);
-    checked = true;
-
-    if (onSelectRow) {
-      onSelectRow(newSelectedRows, rowData, checked);
-    }
-  } else {
-    let newSelectedRows = [];
-    if (isSelected(selectedRows, rowData, rowId)) {
-      newSelectedRows = selectedRows.filter(
-        selectedRow => rowId(selectedRow) !== rowId(rowData)
-      );
-    } else {
-      newSelectedRows = [...selectedRows, rowData];
-      checked = true;
-    }
-    setSelectedRows(newSelectedRows);
-
-    if (onSelectRow) {
-      onSelectRow(newSelectedRows, rowData, checked);
-    }
-  }
-};
-
-const TableRows = ({
+const Rows = ({
   columns,
   data,
   selectedRows,
@@ -79,6 +31,7 @@ const TableRows = ({
   forceCollapseActions,
   verticalActions,
   empytStateComponent,
+  customRow,
 }) => {
   const hasSelection = (columns || []).some(({ selection }) => selection);
   const classes = tableRowStyles(hasSelection || !!onRowClick)();
@@ -107,35 +60,49 @@ const TableRows = ({
     );
   }
 
-  return data.map(rowData => (
-    <TableRow
-      key={rowId(rowData)}
-      hover
-      className={classes.row}
-      onClick={onClick(
+  return data.map(rowData => {
+    return customRow ? (
+      customRow({
         rowData,
-        hasSelection,
-        onSelectRow,
-        onRowClick,
+        rowId,
+        columns,
         selectedRows,
+        onSelectRow,
         setSelectedRows,
-        rowId
-      )}
-    >
-      <TableCells
-        columns={columns}
-        rowData={rowData}
-        selectedRows={selectedRows}
-        onSelectRow={onSelectRow}
-        rowId={rowId}
-        forceCollapseActions={forceCollapseActions}
-        verticalActions={verticalActions}
-      />
-    </TableRow>
-  ));
+        onRowClick,
+        forceCollapseActions,
+        verticalActions,
+      })
+    ) : (
+      <TableRow
+        key={rowId(rowData)}
+        hover
+        className={classes.row}
+        onClick={handleRowClick(
+          rowData,
+          hasSelection,
+          onSelectRow,
+          onRowClick,
+          selectedRows,
+          setSelectedRows,
+          rowId
+        )}
+      >
+        <Cells
+          columns={columns}
+          rowData={rowData}
+          selectedRows={selectedRows}
+          onSelectRow={onSelectRow}
+          rowId={rowId}
+          forceCollapseActions={forceCollapseActions}
+          verticalActions={verticalActions}
+        />
+      </TableRow>
+    );
+  });
 };
 
-TableRows.defaultProps = {
+Rows.defaultProps = {
   columns: [],
   data: [],
   selectedRows: [],
@@ -143,7 +110,7 @@ TableRows.defaultProps = {
   empytStateComponent: undefined,
 };
 
-TableRows.propTypes = {
+Rows.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -162,4 +129,4 @@ TableRows.propTypes = {
   empytStateComponent: PropTypes.node,
 };
 
-export default TableRows;
+export default Rows;

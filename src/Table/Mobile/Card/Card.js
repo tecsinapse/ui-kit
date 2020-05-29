@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Card,
+  Card as CardMUI,
   CardActionArea,
   CardActions,
   CardContent,
@@ -18,8 +18,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { isNotEmptyOrNull } from '@tecsinapse/es-utils/build';
 
 import { Divider, IconButton } from '@tecsinapse/ui-kit';
-import { resolveData } from './tableFunctions';
-import { getActionButtons } from './TableRowActions';
+import { resolveData } from '../../../index';
+import { getActionButtons } from '../../Rows/RowActions/RowActions';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -81,7 +81,7 @@ const CardColumn = ({
   </div>
 );
 
-export const TableCard = ({
+export const Card = ({
   clearCache,
   updateList,
   data,
@@ -99,8 +99,9 @@ export const TableCard = ({
 
   const classes = useStyles();
 
+  const paddingUnset = { padding: 'unset' };
   return (
-    <Card square className={classes.card} key={rowId}>
+    <CardMUI square className={classes.card} key={rowId}>
       <CardActionArea
         disableRipple
         onClick={() => (onRowClick ? onRowClick(data) : null)}
@@ -115,14 +116,22 @@ export const TableCard = ({
                 if (hiddenCard || !visible) {
                   return null;
                 }
+                const displayFlex = { display: 'flex' };
+                const flex1Auto = {
+                  flex: '1 1 auto',
+                };
+                const flex0AutoStart = {
+                  flex: '0 0 auto',
+                  alignSelf: 'flex-start',
+                };
+                const marginNegative = {
+                  marginRight: '-8px',
+                  marginTop: '-8px',
+                };
                 return (
                   <Grid item xs={12} key={field}>
-                    <div style={{ display: 'flex' }}>
-                      <div
-                        style={{
-                          flex: '1 1 auto',
-                        }}
-                      >
+                    <div style={displayFlex}>
+                      <div style={flex1Auto}>
                         <CardColumn
                           title={title}
                           customRender={customRender}
@@ -134,18 +143,10 @@ export const TableCard = ({
                       </div>
                       {index === 0 && isNotEmptyOrNull(actions) && (
                         <>
-                          <div
-                            style={{
-                              flex: '0 0 auto',
-                              alignSelf: 'flex-start',
-                            }}
-                          >
+                          <div style={flex0AutoStart}>
                             <IconButton
                               aria-label="actions"
-                              style={{
-                                marginRight: '-8px',
-                                marginTop: '-8px',
-                              }}
+                              style={marginNegative}
                               onClick={e => {
                                 e.stopPropagation();
                                 e.preventDefault();
@@ -217,7 +218,7 @@ export const TableCard = ({
       {isHidden && (
         <>
           <Divider variant="solid" />
-          <CardActions style={{ padding: 'unset' }}>
+          <CardActions style={paddingUnset}>
             <IconButton
               onClick={() => {
                 clearCache();
@@ -239,8 +240,8 @@ export const TableCard = ({
           </CardActions>
         </>
       )}
-    </Card>
+    </CardMUI>
   );
 };
 
-export default TableCard;
+export default Card;

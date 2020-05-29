@@ -75,7 +75,7 @@ export function getActionButtons(actions, vertical = false, row, setAnchorEl) {
     ));
 }
 
-const TableRowActions = ({
+const RowActions = ({
   actions,
   row,
   verticalActions = false,
@@ -139,12 +139,12 @@ const TableRowActions = ({
   );
 };
 
-TableRowActions.defaultProps = {
+RowActions.defaultProps = {
   row: null,
   forceCollapseActions: false,
 };
 
-TableRowActions.propTypes = {
+RowActions.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       tooltip: PropTypes.string,
@@ -157,4 +157,4 @@ TableRowActions.propTypes = {
   forceCollapseActions: PropTypes.bool,
 };
 
-export default TableRowActions;
+export default RowActions;

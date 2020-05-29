@@ -5,7 +5,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@mdi/react';
 import IconButton from '@material-ui/core/IconButton';
 import { mdiDownload } from '@mdi/js';
-import { exportToCSV, isRemoteData } from './tableFunctions';
+import { Typography, useTheme } from '@material-ui/core';
+import { Button } from '@tecsinapse/ui-kit';
+import { renderStyledColor } from '@tecsinapse/ui-kit/build/ThemeProvider';
+import { exportToCSV, isRemoteData } from '../utils/tableFunctions';
 
 const defaultLabelToCSV = 'Export to CSV';
 
@@ -56,9 +59,10 @@ const exportData = async (
   }
 };
 
-const TableExporter = ({
+const Exporter = ({
   exportFileName,
   exportTypes,
+  position = 'header',
   data,
   columns,
   filters,
@@ -66,6 +70,7 @@ const TableExporter = ({
   rowCount,
 }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const theme = useTheme();
 
   if (!exportTypes || exportTypes.length === 0) {
     return null;
@@ -90,6 +95,27 @@ const TableExporter = ({
     }
   };
 
+  if (position === 'footer') {
+    const whiteSpace = { whiteSpace: 'nowrap' };
+    const typoLabel = { fontWeight: '500', fontSize: '0.875rem' };
+    return (
+      <Button
+        onClick={() => exportTypes[0]?.exportFunc()}
+        style={whiteSpace}
+        variant="contained"
+        color={renderStyledColor(theme.variant)}
+        size="small"
+      >
+        <Icon
+          path={mdiDownload}
+          size={1}
+          color={theme.palette.primary.contrastText}
+        />
+        <Typography style={typoLabel}>{exportTypes[0]?.label}</Typography>
+      </Button>
+    );
+  }
+
   return (
     <>
       <IconButton onClick={event => setAnchorEl(event.currentTarget)}>
@@ -113,13 +139,13 @@ const TableExporter = ({
   );
 };
 
-TableExporter.defaultProps = {
+Exporter.defaultProps = {
   data: [],
   exportFileName: 'table_exporter',
   exportTypes: [],
 };
 
-TableExporter.propTypes = {
+Exporter.propTypes = {
   data: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object),
     PropTypes.func,
@@ -135,4 +161,4 @@ TableExporter.propTypes = {
   ),
 };
 
-export default TableExporter;
+export default Exporter;
