@@ -1,3 +1,8 @@
+## <small>2.0.1 (2020-05-29)</small>
+
+
+
+
 ## 2.0.0 (2020-05-29)
 
 * Adjusting font-size ([89084c3](https://github.com/tecsinapse/wizard/commit/89084c3))
