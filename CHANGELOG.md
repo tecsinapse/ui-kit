@@ -1,3 +1,24 @@
+## 2.0.0 (2020-05-29)
+
+* - Added support for custom advanced filters toolbar button ([db9c3ec](https://github.com/tecsinapse/table/commit/db9c3ec))
+* - Added support for optional chaining ([634c813](https://github.com/tecsinapse/table/commit/634c813))
+* - Adding customRow renderer ([1644702](https://github.com/tecsinapse/table/commit/1644702))
+* - Adjusting css ([300fd02](https://github.com/tecsinapse/table/commit/300fd02))
+* - Changed AdvancedFilters.js to Drawer ([34d10a9](https://github.com/tecsinapse/table/commit/34d10a9))
+* - Fixing AdvancedFilters.js spacings ([38bf80f](https://github.com/tecsinapse/table/commit/38bf80f))
+* - Fixing bug when changing columns render ([292b0fa](https://github.com/tecsinapse/table/commit/292b0fa))
+* - Fixing custom title rendering inside Typography ([f5db719](https://github.com/tecsinapse/table/commit/f5db719))
+* - Fixing warnings ([a647d28](https://github.com/tecsinapse/table/commit/a647d28))
+* - Removing bypass ([0558c0f](https://github.com/tecsinapse/table/commit/0558c0f))
+* - Restructuring folders ([c43e823](https://github.com/tecsinapse/table/commit/c43e823))
+* Adjusting css for table header and filters ([31f855f](https://github.com/tecsinapse/table/commit/31f855f))
+* Adjusting css for table header and filters ([415a23f](https://github.com/tecsinapse/table/commit/415a23f))
+* Bump https-proxy-agent from 2.2.2 to 2.2.4 ([6302796](https://github.com/tecsinapse/table/commit/6302796))
+* Customizing filtering row ([aac6b87](https://github.com/tecsinapse/table/commit/aac6b87))
+* Update rollup.config.js ([d9a31de](https://github.com/tecsinapse/table/commit/d9a31de))
+
+
+
 ## <small>1.4.1 (2020-05-19)</small>
 
 * New margin at table ([044f082](https://github.com/tecsinapse/table/commit/044f082))
