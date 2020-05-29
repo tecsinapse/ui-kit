@@ -1,3 +1,12 @@
+## 2.0.0 (2020-05-29)
+
+* Adjusting font-size ([89084c3](https://github.com/tecsinapse/wizard/commit/89084c3))
+* Removing web stepper bg ([846c1f7](https://github.com/tecsinapse/wizard/commit/846c1f7))
+* Theming storybook ([eac8873](https://github.com/tecsinapse/wizard/commit/eac8873))
+* Update package.json ([fd027b1](https://github.com/tecsinapse/wizard/commit/fd027b1))
+
+
+
 ## 2.0.0-beta.0 (2020-05-28)
 
 * Added Mobile stepper ([b07a71d](https://github.com/tecsinapse/wizard/commit/b07a71d))
