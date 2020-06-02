@@ -6,10 +6,9 @@ import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/styles';
-
 import { useWindowSize } from '@tecsinapse/ui-kit/build/ThemeProvider';
 import { TableCell } from '@material-ui/core';
-import { tableStyles } from './utils/tableStyle';
+import { styleDivContainer, tableStyles } from './utils/tableStyle';
 import RowFilters from './Rows/RowFilters/RowFilters';
 import { Mobile } from './Mobile/Mobile';
 import Header from './Rows/Header/Header';
@@ -17,7 +16,8 @@ import Rows from './Rows/Rows';
 import Toolbar from './Toolbar/Toolbar';
 import Pagination from './Pagination/Pagination';
 import { toolbarOptionsTypes } from './utils/propTypes';
-import Loading from './Loading/Loading';
+import { Loading } from './Loading';
+
 import {
   initializeColumns,
   initializeFilters,
@@ -132,7 +132,7 @@ const TableComponent = props => {
   }
 
   return (
-    <div className={propClasses.root} id={id}>
+    <div className={propClasses.root} id={id} style={styleDivContainer}>
       <Loading loading={loading} />
       <Toolbar
         options={toolbarOptions}
