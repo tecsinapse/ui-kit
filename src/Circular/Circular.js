@@ -1,51 +1,7 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import { defaultGreen } from '@tecsinapse/ui-kit/build/colors';
-
-const useStyles = makeStyles(({ spacing }) => ({
-  circularStepperContainer: {
-    display: 'flex',
-    flexWrap: 'nowrap',
-    padding: spacing(1),
-    backgroundColor: 'transparent',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  circleBackground: {
-    stroke: '#D3D3D3',
-    fill: 'none',
-  },
-  circleProgress: {
-    stroke: ({ warning, error }) => {
-      if (warning) {
-        return '#f99f1f';
-      }
-      if (error) {
-        return '#e6433f';
-      }
-      return defaultGreen;
-    },
-    strokeLinecap: 'round',
-    strokeLinejoin: 'round',
-    transition: '0.6s',
-    fill: 'none',
-  },
-  circleText: {
-    fontSize: '1.1rem',
-    fontWeight: '500',
-    fontFamily: 'Roboto',
-  },
-  circularStepperText: {
-    marginLeft: spacing(2),
-    textAlign: 'right',
-  },
-  currentStepText: {
-    fontSize: '1.3rem',
-    fontWeight: 500,
-    letterSpacing: '0.25px',
-  },
-}));
+import clsx from 'clsx';
+import { useStyles } from './styles';
 
 export const Circular = ({
   size,
@@ -56,8 +12,8 @@ export const Circular = ({
   error,
   warning,
 }) => {
-  const classes = useStyles({ error, warning });
-  const steps = React.Children.map(children, (arg, index) => {
+  const classes = useStyles();
+  const steps = React.Children.map(children, arg => {
     return arg.props.title;
   });
 
@@ -67,6 +23,11 @@ export const Circular = ({
   // Scale 100% coverage overlay with the actual percent
   const percentage = ((activeStep + 1) / steps.length) * 100; // (activeStep / steps.length) * 100;
   const dashOffset = dashArray - (dashArray * percentage) / 100;
+
+  const strokeColor = {
+    [classes.strokeOrange]: warning,
+    [classes.strokeRed]: error,
+  };
 
   return (
     <>
@@ -81,7 +42,7 @@ export const Circular = ({
               strokeWidth={`${strokeWidth}px`}
             />
             <circle
-              className={classes.circleProgress}
+              className={clsx(classes.circleProgress, strokeColor)}
               cx={size / 2}
               cy={size / 2}
               r={radius}
