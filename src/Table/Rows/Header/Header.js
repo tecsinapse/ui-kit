@@ -212,8 +212,7 @@ const Header = ({
         theme,
         sortedColumIndex,
         setSortedColumIndex,
-        index,
-        effectRef
+        index
       )
     );
   }
