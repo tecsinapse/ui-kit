@@ -61,12 +61,15 @@ export const onChangeHeaderFilter = setFilters => headerFilters => {
   });
 };
 
-export const onChangeSortFilter = setFilters => field => {
+export const onChangeSortFilter = setFilters => (field, defaultSort) => {
   setFilters(prevFilters => {
     const newFilters = {};
     if (field !== prevFilters.sortField) {
       // changing the sort column
       newFilters.sortField = field;
+      newFilters.ascending = defaultSort
+        ? defaultSort === 'ASC'
+        : prevFilters.ascending;
     } else {
       // same sort column, change only order
       newFilters.ascending = !prevFilters.ascending;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
@@ -177,7 +177,19 @@ const Header = ({
 }) => {
   const classes = headerStyles();
   const theme = useTheme();
-  const [sortedColumIndex, setSortedColumIndex] = useState(null);
+  const effectRef = useRef(false);
+  const [sortedColumIndex, setSortedColumIndex] = useState(
+    columns.findIndex(item => !!item.options?.defaultSort)
+  );
+
+  useEffect(() => {
+    if (!effectRef.current && sortedColumIndex !== -1) {
+      onChangeSortFilter(
+        columns[sortedColumIndex].field,
+        columns[sortedColumIndex].options?.defaultSort
+      );
+    }
+  }, [effectRef]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (tableHeaderHide) {
     return null;
@@ -200,7 +212,8 @@ const Header = ({
         theme,
         sortedColumIndex,
         setSortedColumIndex,
-        index
+        index,
+        effectRef
       )
     );
   }

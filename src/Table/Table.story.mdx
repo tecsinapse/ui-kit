@@ -350,7 +350,7 @@ Here you can check the code snippet for the story.
 
 ## Custom reusable row
 
-<Story name="Custom table reusing" parameters={{ docs: { disable: true } }}>
+<Story name="Custom reusable row" parameters={{ docs: { disable: true } }}>
   <Table
     columns={customColumns}
     data={cars}
@@ -653,7 +653,7 @@ Here you can check the code snippet for the story.
         brand: 'BMW',
         model: {
           name: `BMW ${index + 1}`,
-          year: 2018,
+          year: 2000 + index,
         },
         price: 30000000,
       });

@@ -374,6 +374,7 @@ export const sortColumns = [
     options: {
       filter: true,
       sort: true,
+      defaultSort: 'DESC',
     },
   },
   {
