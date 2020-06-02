@@ -16,3 +16,7 @@ export const tableStyles = makeStyles({
     width: '100%',
   },
 });
+
+export const styleDivContainer = {
+  position: 'relative',
+};
