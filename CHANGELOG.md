@@ -1,3 +1,9 @@
+## <small>2.0.3 (2020-06-02)</small>
+
+* Fix Mobile Table ([1c0726e](https://github.com/tecsinapse/table/commit/1c0726e))
+
+
+
 ## <small>2.0.2 (2020-06-02)</small>
 
 * Export applyHeaderFilters at index ([0c9f0c1](https://github.com/tecsinapse/table/commit/0c9f0c1))
