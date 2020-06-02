@@ -131,8 +131,10 @@ const TableComponent = props => {
     setMobile(false);
   }
 
+  const style = !mobile ? styleDivContainer : {};
+
   return (
-    <div className={propClasses.root} id={id} style={styleDivContainer}>
+    <div className={propClasses.root} id={id} style={style}>
       <Loading loading={loading} />
       <Toolbar
         options={toolbarOptions}
