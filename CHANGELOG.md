@@ -1,3 +1,9 @@
+## <small>2.0.2 (2020-06-02)</small>
+
+* Export applyHeaderFilters at index ([0c9f0c1](https://github.com/tecsinapse/table/commit/0c9f0c1))
+
+
+
 ## <small>2.0.1 (2020-06-02)</small>
 
 * Moving Loadin to inside table, without block the entire screen ([e1af71b](https://github.com/tecsinapse/table/commit/e1af71b))
