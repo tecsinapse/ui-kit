@@ -1,3 +1,9 @@
+## <small>2.0.1 (2020-06-02)</small>
+
+* Moving Loadin to inside table, without block the entire screen ([e1af71b](https://github.com/tecsinapse/table/commit/e1af71b))
+
+
+
 ## 2.0.0 (2020-05-29)
 
 * - Added support for custom advanced filters toolbar button ([db9c3ec](https://github.com/tecsinapse/table/commit/db9c3ec))
