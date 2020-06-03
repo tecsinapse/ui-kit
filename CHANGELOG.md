@@ -1,3 +1,11 @@
+## 2.1.0 (2020-06-03)
+
+* Added support to initialize column sorted ([a309f41](https://github.com/tecsinapse/table/commit/a309f41))
+* fixing function parameters ([52922f2](https://github.com/tecsinapse/table/commit/52922f2))
+* updating deps ([a1c4a07](https://github.com/tecsinapse/table/commit/a1c4a07))
+
+
+
 ## <small>2.0.3 (2020-06-02)</small>
 
 * Fix Mobile Table ([1c0726e](https://github.com/tecsinapse/table/commit/1c0726e))
