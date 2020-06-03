@@ -69,7 +69,6 @@ const TableComponent = props => {
     customRow,
   } = props;
   const classes = tableStyles(useWindowSize()[1]);
-  const [mobile, setMobile] = useState(false);
   const [rowCount, setRowCount] = useState(0);
   const [data, setData] = useState([]);
   const [pageData, setPageData] = useState([]);
@@ -85,6 +84,9 @@ const TableComponent = props => {
       initializeSortFunc(sortFunc)
     )
   );
+  // Update the device
+  const mobile =
+    useMediaQuery(useTheme().breakpoints.down('xs')) || variant === 'mobile';
 
   const tableColumns = initializeColumns(columns, options, actions);
   useInitialData(originalData, setData);
@@ -116,20 +118,6 @@ const TableComponent = props => {
   const someColumnHasFilter = columns.some(
     ({ options: columnOptions = {} }) => columnOptions.filter
   );
-
-  // Update the device
-  const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
-  if (variant === 'auto') {
-    if (matches && !mobile) {
-      setMobile(true);
-    } else if (!matches && mobile) {
-      setMobile(false);
-    }
-  } else if (variant === 'mobile' && !mobile) {
-    setMobile(true);
-  } else if (mobile) {
-    setMobile(false);
-  }
 
   const style = !mobile ? styleDivContainer : {};
 
@@ -259,7 +247,7 @@ TableComponent.defaultProps = {
 };
 
 TableComponent.propTypes = {
-  /** Table columns options */
+  /** Table columns options. Please note `defaultSort` option initializes a single column sorted in the order provided. Do not use more then one defaultSort field at a time. */
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -267,6 +255,7 @@ TableComponent.propTypes = {
       options: PropTypes.shape({
         filter: PropTypes.bool,
         sort: PropTypes.bool,
+        defaultSort: PropTypes.oneOf(['ASC', 'DESC']),
       }),
       customRender: PropTypes.func,
     })
