@@ -2,7 +2,7 @@
   "name": "@tecsinapse/wizard",
   "description": "TecSinapse Wizard",
   "homepage": "https://github.com/tecsinapse/wizard#readme",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "author": {

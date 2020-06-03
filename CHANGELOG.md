@@ -1,3 +1,9 @@
+## <small>2.0.2 (2020-06-03)</small>
+
+* JSS separation ([1bc2b2d](https://github.com/tecsinapse/wizard/commit/1bc2b2d))
+
+
+
 ## <small>2.0.1 (2020-05-29)</small>
 
 
