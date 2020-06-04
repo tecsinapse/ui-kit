@@ -50,7 +50,7 @@ export const storyActions = [
   {
     icon: <MailIcon />,
     tooltip: 'Mail',
-    onClick: rowData => {
+    onClick: (rowData) => {
       // eslint-disable-next-line
       console.log(JSON.stringify(rowData));
     },
@@ -58,7 +58,7 @@ export const storyActions = [
   {
     icon: <SearchIcon />,
     tooltip: 'Search item',
-    onClick: rowData => {
+    onClick: (rowData) => {
       // eslint-disable-next-line no-alert
       alert(JSON.stringify(rowData));
     },
@@ -66,7 +66,7 @@ export const storyActions = [
   {
     icon: <EditIcon />,
     tooltip: 'Edit item',
-    onClick: rowData => {
+    onClick: (rowData) => {
       // eslint-disable-next-line no-alert
       alert(JSON.stringify(rowData));
     },
@@ -80,7 +80,7 @@ export const storyActions = [
       // eslint-disable-next-line no-alert
       alert(JSON.stringify(rowData));
     },
-    visible: rowData => rowData.brand === 'BMW',
+    visible: (rowData) => rowData.brand === 'BMW',
   },
 ];
 
@@ -96,7 +96,7 @@ export const countryColumns = [
   {
     title: 'Languages',
     field: 'languages',
-    customRender: row => row.languages.map(l => l.name).join(', '),
+    customRender: (row) => row.languages.map((l) => l.name).join(', '),
   },
 ];
 
@@ -140,7 +140,7 @@ export const countryOptions = {
   },
 };
 
-export const fetchData = props => async filters => {
+export const fetchData = (props) => async (filters) => {
   const {
     advancedFilters: { continent },
     page,
@@ -155,7 +155,7 @@ export const fetchData = props => async filters => {
     country = country.toLowerCase();
   }
 
-  const results = props.filter(item => {
+  const results = props.filter((item) => {
     const countryName = item.name.toLowerCase();
 
     if (country && !countryName.includes(country)) {
@@ -164,7 +164,7 @@ export const fetchData = props => async filters => {
     return !(
       continent &&
       continent.length &&
-      !continent.some(land => land === item.continent.name)
+      !continent.some((land) => land === item.continent.name)
     );
   });
 
@@ -189,7 +189,7 @@ export const customColumns = [
     options: {
       numeric: true,
     },
-    customRender: row => {
+    customRender: (row) => {
       const style = { padding: 5 };
       return (
         <div
@@ -282,8 +282,8 @@ export const paginationActions = [
     icon: <Icon path={mdiAccessPoint} size={1} />,
     tooltip: 'Teste',
     // eslint-disable-next-line no-console
-    onClick: car => console.log(car),
-    visible: car => car.model.name === 'BMW 2',
+    onClick: (car) => console.log(car),
+    visible: (car) => car.model.name === 'BMW 2',
   },
 ];
 
@@ -318,7 +318,7 @@ for (let index = 0; index < 70; index++) {
   });
 }
 
-export const paginationData = async filters => {
+export const paginationData = async (filters) => {
   const {
     advancedFilters: { modelo },
     page,
@@ -326,7 +326,7 @@ export const paginationData = async filters => {
   } = filters;
 
   const resultados = carsList.filter(
-    car =>
+    (car) =>
       !modelo || car.model.name.toLowerCase().includes(modelo.toLowerCase())
   );
 
@@ -345,6 +345,8 @@ export const serverColumns = [
     field: 'name',
     options: {
       filter: true,
+      sort: true,
+      defaultSort: 'DESC',
     },
   },
   {
