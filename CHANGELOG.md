@@ -1,3 +1,9 @@
+## <small>4.3.4 (2020-06-05)</small>
+
+* Creating a new type of input (input at array's end) at groupedinut ([a2f1c8c](https://github.com/tecsinapse/ui-kit/commit/a2f1c8c))
+
+
+
 ## <small>4.3.3 (2020-05-19)</small>
 
 * Fix groupinput hidden when clean input ([b1466cc](https://github.com/tecsinapse/ui-kit/commit/b1466cc))
