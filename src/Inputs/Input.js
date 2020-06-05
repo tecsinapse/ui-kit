@@ -136,7 +136,7 @@ export const TextFieldComponent = ({
   return (
     <TextField
       disabled={disabled}
-      id="outlined-name"
+      id={`outlined-name-${name}`}
       name={name}
       placeholder={placeholder || label}
       label={label}
@@ -186,7 +186,9 @@ export const TextFieldComponent = ({
   );
 };
 
-const InputUI = withStyles(inputStyles)(
+const InputUI = withStyles(
+  inputStyles
+)(
   ({
     classes,
     key,

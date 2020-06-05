@@ -119,3 +119,39 @@ Here you can check the code snippet for the story.
 </Story>
 
 <Source id="forms-grouped-input--error" />
+
+## Input Without List
+
+<Story name="Input Without List" parameters={{ docs: { disable: true } }}>
+  {() => {
+     const [values, setValues] = useState([]);
+     return (
+       <GroupedInput
+         inputType="outside"
+         name="telefones"
+         label="Telefone"
+         header="Telefones"
+         error="Não deve estar vazio"
+         values={values}
+         onChange={(value, index) => {
+           setValues(v => {
+             const newArray = v;
+             newArray[index] = value;
+             return newArray;
+           });
+         }}
+         remove={index => {
+           setValues(v => {
+             const newArray = [...v];
+             newArray.splice(index, 1);
+             return newArray;
+           });
+         }}
+         push={() => setValues(v => [...v, ''])}
+       />
+     );
+   }}
+</Story>
+
+<Source id="forms-grouped-input--input-without-list" />
+

@@ -26,25 +26,14 @@ export const GroupedInput = ({
   lg,
   xl,
   hr = false,
-  firstItemWithoutList = false,
+  inputType = 'inside',
 }) => {
   const classes = useGroupedInputStyles();
   const [valueInput, setValueInput] = useState('');
   const errorIsArray = error instanceof Array;
+  const firstItemWithoutList = inputType === 'outside';
   return (
-    <div>
-      <div className={classes.flex}>
-        <Typography
-          variant="h6"
-          className={clsx({ [classes.errorLabel]: !!error })}
-        >
-          {header} {!!error && '* '}
-        </Typography>
-      </div>
-      {!!error && !errorIsArray && (
-        <FormHelperText className={classes.errorLabel}>{error}</FormHelperText>
-      )}
-
+    <>
       <Grid
         container
         spacing={spacing}
@@ -53,6 +42,22 @@ export const GroupedInput = ({
           classes.paddingRight
         )}
       >
+        <Grid item xs={12} sm={12} lg={12} xl={12}>
+          <div className={classes.flexWithMarginLeft}>
+            <Typography
+              variant="h6"
+              className={clsx({ [classes.errorLabel]: !!error })}
+            >
+              {header} {!!error && '* '}
+            </Typography>
+          </div>
+          {!!error && !errorIsArray && (
+            <FormHelperText className={classes.errorLabel}>
+              {error}
+            </FormHelperText>
+          )}
+        </Grid>
+
         {(firstItemWithoutList || (values || []).length === 0) && (
           <InputItemGroupInput
             mask={mask}
@@ -75,7 +80,6 @@ export const GroupedInput = ({
             xl={xl}
             push={() => {
               onChange(valueInput, values.length);
-              push();
               setValueInput('');
             }}
             exibeAddButton
@@ -111,7 +115,7 @@ export const GroupedInput = ({
         ))}
       </Grid>
       {hr && <Divider />}
-    </div>
+    </>
   );
 };
 
@@ -125,6 +129,7 @@ GroupedInput.defaultProps = {
   lg: 4,
   xl: 4,
   hr: false,
+  inputType: 'inside',
 };
 GroupedInput.propTypes = {
   /** Input name */
@@ -159,4 +164,6 @@ GroupedInput.propTypes = {
   xl: PropTypes.number,
   /** Show divider on end */
   hr: PropTypes.bool,
+  /** Case 'inside' input field will be values[0], otherwise 'outside' it will be outside list and after input will be values[values.length] */
+  inputType: PropTypes.oneOf(['inside', 'outside']),
 };

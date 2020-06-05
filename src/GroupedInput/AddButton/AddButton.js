@@ -5,7 +5,7 @@ import { Tooltip } from '@material-ui/core';
 import { Button } from '../..';
 import { useAddButtonStyles } from './useAddButtonStyles';
 
-export const AddButton = ({ push }) => {
+export const AddButton = React.memo(({ push }) => {
   const {
     color,
     buttonNovoCampo,
@@ -15,7 +15,12 @@ export const AddButton = ({ push }) => {
 
   return (
     <div style={buttonStyle}>
-      <Tooltip title="Novo Campo" placement="top" arrow>
+      <Tooltip
+        title="Novo Campo"
+        placement="top"
+        disableFocusListener
+        disableTouchListener
+      >
         <Button
           type="button"
           customVariant="success"
@@ -36,4 +41,4 @@ export const AddButton = ({ push }) => {
       </Tooltip>
     </div>
   );
-};
+});

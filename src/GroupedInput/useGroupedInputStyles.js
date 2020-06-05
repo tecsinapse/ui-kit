@@ -9,6 +9,14 @@ export const useGroupedInputStyles = makeStyles(theme => ({
     marginTop: theme.spacing(0.5),
     marginBottom: theme.spacing(1.2),
   },
+  flexWithMarginLeft: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    marginLeft: theme.spacing(2 / 3),
+    marginTop: theme.spacing(0.5),
+    marginBottom: theme.spacing(1.2),
+  },
   inputContainer: {
     display: 'flex',
   },
