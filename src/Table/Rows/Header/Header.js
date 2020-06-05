@@ -11,10 +11,7 @@ import { IconButton } from '@material-ui/core';
 import { mdiArrowUp, mdiArrowUpDown } from '@mdi/js';
 import Icon from '@mdi/react';
 
-const headerStyles = makeStyles(theme => ({
-  selectionColumn: {
-    width: '7%',
-  },
+const headerStyles = makeStyles((theme) => ({
   ascending: {
     paddingTop: 0,
     paddingRight: theme.spacing(1 / 5),
@@ -48,8 +45,8 @@ const sortStyles = makeStyles(() => ({
 const getSelectedRowsPage = (data, selectedRows, rowId) =>
   isEmptyOrNull(selectedRows)
     ? []
-    : selectedRows.filter(selected =>
-        data.some(rowData => rowId(rowData) === rowId(selected))
+    : selectedRows.filter((selected) =>
+        data.some((rowData) => rowId(rowData) === rowId(selected))
       );
 
 const selectAll = (
@@ -62,8 +59,8 @@ const selectAll = (
   const selectedRowsPage = getSelectedRowsPage(data, selectedRows, rowId);
   let newSelectedRows = isEmptyOrNull(selectedRows)
     ? []
-    : selectedRows.filter(selected =>
-        data.every(rowData => rowId(rowData) !== rowId(selected))
+    : selectedRows.filter((selected) =>
+        data.every((rowData) => rowId(rowData) !== rowId(selected))
       );
   let checked = false;
   if (
@@ -113,11 +110,7 @@ const convertColumnToTableCell = (
       isNotEmptyOrNull(selectedRowsPage) &&
       selectedRowsPage.length === data.length;
     return (
-      <TableCell
-        key={field}
-        padding="checkbox"
-        className={classes.selectionColumn}
-      >
+      <TableCell key={field} padding="checkbox">
         <Checkbox
           indeterminate={indeterminate}
           checked={checked}
@@ -179,7 +172,7 @@ const Header = ({
   const theme = useTheme();
   const effectRef = useRef(false);
   const [sortedColumIndex, setSortedColumIndex] = useState(
-    columns.findIndex(item => !!item.options?.defaultSort)
+    columns.findIndex((item) => !!item.options?.defaultSort)
   );
 
   useEffect(() => {
