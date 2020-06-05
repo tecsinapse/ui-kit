@@ -4,7 +4,7 @@ export { IconButton } from './Buttons/IconButton';
 export { DivButton } from './Buttons/DivButton';
 export { ConfirmationAlert } from './Alerts/ConfirmationAlert';
 export { Divider } from './Divider/Divider';
-export { GroupedInput } from './GroupedInput/GroupedInput';
+export { GroupedInput } from './GroupedInput';
 export { Flag } from './Icon/Flag';
 export { Input } from './Inputs/Input';
 export { FullScreenLoading } from './Loading/FullscreenLoading';
