@@ -12,6 +12,9 @@ import { mdiArrowUp, mdiArrowUpDown } from '@mdi/js';
 import Icon from '@mdi/react';
 
 const headerStyles = makeStyles((theme) => ({
+  selectionColumn: {
+    maxWidth: '7%',
+  },
   ascending: {
     paddingTop: 0,
     paddingRight: theme.spacing(1 / 5),
@@ -110,7 +113,11 @@ const convertColumnToTableCell = (
       isNotEmptyOrNull(selectedRowsPage) &&
       selectedRowsPage.length === data.length;
     return (
-      <TableCell key={field} padding="checkbox">
+      <TableCell
+        key={field}
+        padding="checkbox"
+        className={classes.selectionColumn}
+      >
         <Checkbox
           indeterminate={indeterminate}
           checked={checked}
