@@ -9,6 +9,7 @@ export const Circular = ({
   activeStep,
   children,
   nextLabel,
+  stepMobileLabel,
   error,
   warning,
 }) => {
@@ -21,7 +22,7 @@ export const Circular = ({
   // Arc length at 100% coverage is the circle circumference
   const dashArray = radius * Math.PI * 2;
   // Scale 100% coverage overlay with the actual percent
-  const percentage = ((activeStep + 1) / steps.length) * 100; // (activeStep / steps.length) * 100;
+  const percentage = ((activeStep + 1) / steps.length) * 100;
   const dashOffset = dashArray - (dashArray * percentage) / 100;
 
   const strokeColor = {
@@ -60,7 +61,7 @@ export const Circular = ({
               textAnchor="middle"
               className={classes.circleText}
             >
-              {activeStep + 1} of {steps.length}
+              {activeStep + 1} {stepMobileLabel} {steps.length}
             </text>
           </svg>
         </div>

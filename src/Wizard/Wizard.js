@@ -32,6 +32,7 @@ export const Wizard = ({
     nextText = 'Next',
     backText = 'Back',
     nextMobileLabel = 'Next',
+    stepMobileLabel = 'of',
   } = labels;
 
   const nextStep = async increment => {
@@ -60,6 +61,7 @@ export const Wizard = ({
           size={size}
           strokeWidth={strokeWidth}
           nextLabel={nextMobileLabel}
+          stepMobileLabel={stepMobileLabel}
           error={error}
           warning={currentStep.props.warningText}
         >
@@ -135,6 +137,7 @@ Wizard.defaultProps = {
     nextText: 'Next',
     backText: 'Back',
     nextMobileLabel: 'Next',
+    stepMobileLabel: 'of',
   },
 };
 
@@ -163,5 +166,6 @@ Wizard.propTypes = {
     nextText: PropTypes.string,
     backText: PropTypes.string,
     nextMobileLabel: PropTypes.string,
+    stepMobileLabel: PropTypes.string,
   }),
 };
