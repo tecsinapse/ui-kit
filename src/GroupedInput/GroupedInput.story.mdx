@@ -135,7 +135,7 @@ Here you can check the code snippet for the story.
          values={values}
          onChange={(value, index) => {
            setValues(v => {
-             const newArray = v;
+             const newArray = [...v];
              newArray[index] = value;
              return newArray;
            });
@@ -154,4 +154,40 @@ Here you can check the code snippet for the story.
 </Story>
 
 <Source id="forms-grouped-input--input-without-list" />
+
+## Add new elements
+
+<Story name="Add new elements" parameters={{ docs: { disable: true } }}>
+  {() => {
+     const [values, setValues] = useState([]);
+     return (
+       <GroupedInput
+         inputType="inside"
+         name="telefones"
+         label="Telefone"
+         header="Telefones"
+         values={values}
+         onChange={(value, index) => {
+           console.log(value)
+           console.log(index)
+           setValues(v => {
+             const newArray = [...v];
+             newArray[index] = value;
+             return newArray;
+           });
+         }}
+         remove={index => {
+           setValues(v => {
+             const newArray = [...v];
+             newArray.splice(index, 1);
+             return newArray;
+           });
+         }}
+         push={() => setValues(v => [...v, ''])}
+       />
+     );
+   }}
+</Story>
+
+<Source id="forms-grouped-input--add-new-elements" />
 

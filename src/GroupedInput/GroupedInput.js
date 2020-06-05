@@ -31,7 +31,7 @@ export const GroupedInput = ({
   const classes = useGroupedInputStyles();
   const [valueInput, setValueInput] = useState('');
   const errorIsArray = error instanceof Array;
-  const firstItemWithoutList = inputType === 'outside';
+  const inputOutsideList = inputType === 'outside';
   return (
     <>
       <Grid
@@ -58,7 +58,7 @@ export const GroupedInput = ({
           )}
         </Grid>
 
-        {(firstItemWithoutList || (values || []).length === 0) && (
+        {(inputOutsideList || (values || []).length === 0) && (
           <InputItemGroupInput
             mask={mask}
             classes={classes}
@@ -79,6 +79,21 @@ export const GroupedInput = ({
             lg={lg}
             xl={xl}
             push={() => {
+              if ((values || []).length === 0 && inputOutsideList) {
+                push();
+                onChange(valueInput, values.length);
+                setValueInput('');
+                return;
+              }
+
+              if ((values || []).length === 0 && !inputOutsideList) {
+                push();
+                onChange(valueInput, values.length);
+                setValueInput('');
+                push();
+                return;
+              }
+
               onChange(valueInput, values.length);
               setValueInput('');
             }}
@@ -104,12 +119,12 @@ export const GroupedInput = ({
             onChange={e => onChange(e.target.value, index)}
             onBlur={onBlur}
             remove={remove}
-            exibeDeleteButton={firstItemWithoutList || index !== 0}
+            exibeDeleteButton={inputOutsideList || index !== 0}
             xs={xs}
             sm={sm}
             lg={lg}
             xl={xl}
-            exibeAddButton={!firstItemWithoutList && index === 0}
+            exibeAddButton={!inputOutsideList && index === 0}
             push={() => push(value)}
           />
         ))}
