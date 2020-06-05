@@ -16,9 +16,12 @@ import {
   CNPJ_MASK,
   CPF_CNPJ_MASK,
   CPF_MASK,
+  CREDIT_CARD_MASK,
   CURRENCY_MASK,
+  CVV_MASK,
   DATE_MASK,
   maskConfig,
+  MOUNTH_YEAR_MASK,
   PERCENTAGE_MASK,
   PHONE_MASK,
   PLATE_MASK,
@@ -78,6 +81,15 @@ const TextMaskCustom = props => {
         break;
       case 'year':
         inputMask = YEAR_MASK;
+        break;
+      case 'creditcard':
+        inputMask = CREDIT_CARD_MASK;
+        break;
+      case 'cvv':
+        inputMask = CVV_MASK;
+        break;
+      case 'mounthyear':
+        inputMask = MOUNTH_YEAR_MASK;
         break;
       default:
         return null;
@@ -296,7 +308,7 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   /** Fired when input changes */
   onChange: PropTypes.func,
-  /** Input mask. `@tecsinapse/ui-kit` provides a preset of masks: 'cep', 'phone', 'cel', 'cpf', 'currency', 'cnpj', 'plate', 'cellphone', 'cpfcnpj', 'date', 'time', 'percentage' and 'year'.
+  /** Input mask. `@tecsinapse/ui-kit` provides a preset of masks: 'cep', 'phone', 'cel', 'cpf', 'currency', 'cnpj', 'plate', 'cellphone', 'cpfcnpj', 'date', 'time', 'creditcard', 'cvv', 'mounthyear', 'percentage' and 'year'.
    * See below form more info. */
   mask: maskProp,
   /** Shrink label */

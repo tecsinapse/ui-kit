@@ -200,3 +200,29 @@ export const PERCENTAGE_MASK = createNumberMask({
 });
 
 export const YEAR_MASK = [/\d/, /\d/, /\d/, /\d/];
+
+export const CREDIT_CARD_MASK = [
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/,
+  ' ',
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/,
+  ' ',
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/,
+  ' ',
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/,
+];
+
+export const CVV_MASK = [/\d/, /\d/, /\d/];
+
+export const MOUNTH_YEAR_MASK = [/[0-1]/, /\d/, /\d/, /\d/];
