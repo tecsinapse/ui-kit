@@ -1,3 +1,9 @@
+## <small>2.1.1 (2020-06-04)</small>
+
+* Updating server side example ([ff86a74](https://github.com/tecsinapse/table/commit/ff86a74))
+
+
+
 ## 2.1.0 (2020-06-03)
 
 * Added support to initialize column sorted ([a309f41](https://github.com/tecsinapse/table/commit/a309f41))
