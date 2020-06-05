@@ -1,3 +1,9 @@
+## <small>2.0.3 (2020-06-05)</small>
+
+* Adding circular step label ([0651460](https://github.com/tecsinapse/wizard/commit/0651460))
+
+
+
 ## <small>2.0.2 (2020-06-03)</small>
 
 * JSS separation ([1bc2b2d](https://github.com/tecsinapse/wizard/commit/1bc2b2d))
