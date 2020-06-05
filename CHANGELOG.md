@@ -1,3 +1,10 @@
+## <small>2.1.2 (2020-06-05)</small>
+
+* Removing fixed width on selection column ([c5d63ee](https://github.com/tecsinapse/table/commit/c5d63ee))
+* Removing fixed width on selection column ([3182fe3](https://github.com/tecsinapse/table/commit/3182fe3))
+
+
+
 ## <small>2.1.1 (2020-06-04)</small>
 
 * Updating server side example ([ff86a74](https://github.com/tecsinapse/table/commit/ff86a74))
