@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/styles';
-import { defaultRed } from '../colors';
+import { defaultRed } from '../../colors';
 
 export const useGroupedInputStyles = makeStyles(theme => ({
   flex: {

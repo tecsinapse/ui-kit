@@ -20,7 +20,7 @@ const StyledValueLabel = withStyles({
   },
 })(ValueLabel);
 
-export const DateSlider = ({
+const DateSlider = ({
   range,
   values = [],
   onChangeFunction,
@@ -100,3 +100,5 @@ DateSlider.propTypes = {
   /** Change slider from interval to single */
   simple: PropTypes.bool,
 };
+
+export { DateSlider };

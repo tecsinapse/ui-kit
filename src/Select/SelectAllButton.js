@@ -2,7 +2,14 @@ import Checkbox from '@material-ui/core/Checkbox';
 import MenuItem from '@material-ui/core/MenuItem';
 import React from 'react';
 import Icon from '@mdi/react';
-import { Button, Divider } from '..';
+import { Button } from '../Buttons/Button';
+import { Divider } from '../Divider/Divider';
+
+const style = {
+  fontWeight: 500,
+  display: 'flex',
+  justifyContent: 'space-between',
+};
 
 export const SelectAllButton = ({
   selectAll,
@@ -17,17 +24,10 @@ export const SelectAllButton = ({
     buttonVariant,
     buttonColor,
   } = customAction;
+
   return (
     <>
-      <MenuItem
-        style={{
-          fontWeight: 500,
-          display: 'flex',
-          justifyContent: 'space-between',
-        }}
-        component="div"
-        onClick={selectAll}
-      >
+      <MenuItem style={style} component="div" onClick={selectAll}>
         <div>
           <Checkbox
             checked={allSelected}

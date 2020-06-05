@@ -1,8 +1,9 @@
 import React from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Grid from '@material-ui/core/Grid';
-import { IconButton, Input } from '../..';
 import { AddButton } from '../AddButton/AddButton';
+import { Input } from '../../Inputs/Input';
+import { IconButton } from '../../Buttons/IconButton';
 
 export const InputItemGroupInput = React.memo(
   ({
