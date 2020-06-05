@@ -1,3 +1,9 @@
+## <small>4.3.5 (2020-06-05)</small>
+
+* - Bug fix at groupinput without elements ([f7586aa](https://github.com/tecsinapse/ui-kit/commit/f7586aa))
+
+
+
 ## <small>4.3.4 (2020-06-05)</small>
 
 * Creating a new type of input (input at array's end) at groupedinut ([a2f1c8c](https://github.com/tecsinapse/ui-kit/commit/a2f1c8c))
