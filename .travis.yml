@@ -17,4 +17,8 @@ deploy:
       tags: true
 notifications:
   email:
-    - lip@tecsinapse.com.br
+    recipients:
+      - lip@tecsinapse.com.br
+      on_success: never # default: change
+      on_failure: always # default: always
+
