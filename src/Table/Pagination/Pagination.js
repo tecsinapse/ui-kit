@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/styles';
 import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import { paginationOptions } from '../utils/propTypes';
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
   total: {
     color: lighten(theme.palette.text.primary, 0.54),
     width: '100%',
@@ -15,7 +15,7 @@ const styles = makeStyles(theme => ({
   },
 }));
 
-const onChangeRowsPerPage = onChangePageProp => event => {
+const onChangeRowsPerPage = (onChangePageProp) => (event) => {
   onChangePageProp(event.target.value, 0);
 };
 
@@ -48,10 +48,8 @@ const Pagination = ({
     );
   }
 
-  const style = { width: '100%' };
   return (
     <MUITablePagination
-      style={style}
       labelDisplayedRows={labelDisplayedRows}
       rowsPerPageOptions={rowsPerPageOptions}
       labelRowsPerPage={labelRowsPerPage}

@@ -37,7 +37,7 @@ import {
 } from './utils/tableHooks';
 import Exporter from './Exporter/Exporter';
 
-const TableComponent = props => {
+const TableComponent = (props) => {
   const {
     data: originalData,
     columns,
@@ -195,7 +195,7 @@ const TableComponent = props => {
             <TableFooter>
               <TableRow>
                 {exportOptions?.position === 'footer' && (
-                  <TableCell>
+                  <TableCell colSpan={Math.ceil(columns.length / 2) || 1}>
                     <Exporter
                       {...exportOptions}
                       data={data}
