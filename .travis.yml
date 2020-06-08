@@ -19,6 +19,6 @@ notifications:
   email:
     recipients:
       - lip@tecsinapse.com.br
-      on_success: never # default: change
-      on_failure: always # default: always
+    on_success: never # default: change
+    on_failure: always # default: always
 
