@@ -5,7 +5,7 @@ import FolderOpen from '@material-ui/icons/FolderOpen';
 import SignalWifiOff from '@material-ui/icons/SignalWifiOff';
 import PropTypes from 'prop-types';
 
-const useStyle = makeStyles(theme => ({
+const useStyle = makeStyles(() => ({
   container: {
     display: 'flex' /* establish flex container */,
     flexGrow: 1,
@@ -39,7 +39,6 @@ export const EmptyState = ({
   children,
 }) => {
   const classes = useStyle();
-
   const messagemTitulo =
     titleMessage ||
     mensagensTitulo[Math.floor(Math.random() * mensagensTitulo.length)];
