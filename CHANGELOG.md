@@ -1,3 +1,10 @@
+## <small>2.1.3 (2020-06-08)</small>
+
+* Fixing colSpan on footer exporter ([d7b33b9](https://github.com/tecsinapse/table/commit/d7b33b9))
+* Update .travis.yml ([406b51c](https://github.com/tecsinapse/table/commit/406b51c))
+
+
+
 ## <small>2.1.2 (2020-06-05)</small>
 
 * Removing fixed width on selection column ([c5d63ee](https://github.com/tecsinapse/table/commit/c5d63ee))
