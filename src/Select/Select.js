@@ -1,5 +1,5 @@
 import { Tooltip, withStyles } from '@material-ui/core';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/build';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
@@ -14,6 +14,17 @@ import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';
 import { selectCustomWebComponents } from './SelectCustomWebComponents';
 import { inputStyles } from '../Inputs/InputStyles';
 import { calculateValuesSizes } from './CalculateOptionsWidth';
+
+const flattenChildren = childrenIn =>
+  childrenIn
+    ? flatten(childrenIn)
+        .filter(c => !!c && !!c.props)
+        .map(suggestion => ({
+          value: suggestion.props.value,
+          label: suggestion.props.children,
+          disabled: suggestion.props.disabled || false,
+        }))
+    : [];
 
 export const SelectUnstyled = ({
   value,
@@ -69,21 +80,13 @@ export const SelectUnstyled = ({
     setYPos(pos.y);
   }, []);
 
-  const flattenChildren = childrenIn =>
-    childrenIn
-      ? flatten(childrenIn)
-          .filter(c => !!c && !!c.props)
-          .map(suggestion => ({
-            value: suggestion.props.value,
-            label: suggestion.props.children,
-            disabled: suggestion.props.disabled || false,
-          }))
-      : [];
-
-  const map =
-    options !== undefined && options && options.length !== 0
-      ? options
-      : flattenChildren(children);
+  const map = useMemo(
+    () =>
+      options !== undefined && options && options.length !== 0
+        ? options
+        : flattenChildren(children),
+    [options, children]
+  );
 
   const defaultProps = {
     yPos,
@@ -179,7 +182,10 @@ export const SelectUnstyled = ({
           ...defaultProps,
         };
 
-  const valuesWidth = calculateValuesSizes(selectProps.options);
+  const valuesWidth = useMemo(() => calculateValuesSizes(selectProps.options), [
+    selectProps.options,
+  ]);
+
   return (
     <div ref={selectRef}>
       <FormControl
