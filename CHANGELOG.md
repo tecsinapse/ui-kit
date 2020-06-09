@@ -1,3 +1,15 @@
+## <small>4.3.6 (2020-06-09)</small>
+
+* - Added docker ([c341af4](https://github.com/tecsinapse/ui-kit/commit/c341af4))
+* - Added docker ([e279411](https://github.com/tecsinapse/ui-kit/commit/e279411))
+* - Fix build ([12b890e](https://github.com/tecsinapse/ui-kit/commit/12b890e))
+* - Fix build ([3a2ff69](https://github.com/tecsinapse/ui-kit/commit/3a2ff69))
+* Fix select poor perfomance ([7c024ab](https://github.com/tecsinapse/ui-kit/commit/7c024ab))
+* Update .travis.yml ([768085e](https://github.com/tecsinapse/ui-kit/commit/768085e))
+* Update .travis.yml ([5e303bf](https://github.com/tecsinapse/ui-kit/commit/5e303bf))
+
+
+
 ## <small>4.3.5 (2020-06-05)</small>
 
 * - Bug fix at groupinput without elements ([f7586aa](https://github.com/tecsinapse/ui-kit/commit/f7586aa))
