@@ -15,6 +15,7 @@ deploy:
     keep-history: false
     on:
       tags: true
+
 notifications:
   email:
     recipients:
