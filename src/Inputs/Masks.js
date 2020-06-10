@@ -178,7 +178,7 @@ export const CURRENCY_MASK = createNumberMask({
 });
 
 export const CELL_PHONE_MASK = rawValue => {
-  if (rawValue.length > 14) {
+  if (rawValue.length > 10) {
     return CELL_MASK;
   }
   return PHONE_MASK;
