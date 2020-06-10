@@ -1,3 +1,9 @@
+## <small>4.3.7 (2020-06-10)</small>
+
+* Fixing cell phone mask ([0e447fa](https://github.com/tecsinapse/ui-kit/commit/0e447fa))
+
+
+
 ## <small>4.3.6 (2020-06-09)</small>
 
 * - Added docker ([c341af4](https://github.com/tecsinapse/ui-kit/commit/c341af4))
