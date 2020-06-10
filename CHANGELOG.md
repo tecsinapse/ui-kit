@@ -1,3 +1,9 @@
+## <small>4.3.9 (2020-06-10)</small>
+
+* Change GroupedInput onChange method ([718b03c](https://github.com/tecsinapse/ui-kit/commit/718b03c))
+
+
+
 ## <small>4.3.8 (2020-06-10)</small>
 
 * Change GroupedInput onChange method ([2bb65ba](https://github.com/tecsinapse/ui-kit/commit/2bb65ba))
