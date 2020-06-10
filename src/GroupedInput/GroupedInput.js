@@ -70,7 +70,14 @@ export const GroupedInput = ({
             value={valueInput}
             name={name}
             index={-1}
-            onChange={e => setValueInput(e.target.value)}
+            onChange={e => {
+              setValueInput(e.target.value);
+              if ((values || []).length === 0 && !inputOutsideList) {
+                push();
+                onChange(valueInput, values.length);
+                setValueInput('');
+              }
+            }}
             onBlur={onBlur}
             remove={remove}
             exibeDeleteButton={false}
