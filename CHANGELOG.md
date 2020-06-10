@@ -1,3 +1,9 @@
+## <small>4.3.8 (2020-06-10)</small>
+
+* Change GroupedInput onChange method ([2bb65ba](https://github.com/tecsinapse/ui-kit/commit/2bb65ba))
+
+
+
 ## <small>4.3.7 (2020-06-10)</small>
 
 * Fixing cell phone mask ([0e447fa](https://github.com/tecsinapse/ui-kit/commit/0e447fa))
