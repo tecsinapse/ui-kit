@@ -51,6 +51,7 @@ export const InputItemGroupInput = React.memo(
               onBlur={onBlur}
               className={classes.input}
               fullWidth
+              autoFocus={exibeAddButton}
               endAdornment={
                 exibeDeleteButton ? (
                   <IconButton

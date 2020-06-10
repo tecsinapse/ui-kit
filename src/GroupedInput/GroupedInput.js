@@ -71,11 +71,10 @@ export const GroupedInput = ({
             name={name}
             index={-1}
             onChange={e => {
-              setValueInput(e.target.value);
+              setValueInput(e?.target?.value);
               if ((values || []).length === 0 && !inputOutsideList) {
                 push();
-                onChange(valueInput, values.length);
-                setValueInput('');
+                onChange(e?.target?.value, values.length);
               }
             }}
             onBlur={onBlur}
