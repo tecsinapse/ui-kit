@@ -1,0 +1,21 @@
+import { Meta, Story, Source } from '@storybook/addon-docs/blocks';
+import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
+import { FullScreenLoading } from './FullscreenLoading';
+
+<Meta title={`${GROUPS.LOADINGS}|Fullscreen Loading`} />
+
+# Fullscreen Loading
+
+The `FullScreenLoading` component receive only one prop named as `show` to display the spinning circle.
+
+# Code snippets
+
+Here you can check the code snippet for the story.
+
+## Show
+
+<Story name="Show" parameters={{ docs: { disable: true } }}>
+  <FullScreenLoading show />
+</Story>
+
+<Source id="loadings-fullscreen-loading--show" />

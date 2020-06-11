@@ -1,0 +1,28 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
+import { IconSearch } from './IconSearch';
+import Icon from '@mdi/react';
+import { mdiBitcoin } from '@mdi/js';
+
+<Meta title={`${GROUPS.COMPONENTS}|Icon`} />
+
+# Icon
+
+Icons can be used in any component you want. You can search for icons on story canvas and click to copy code.
+
+# Code snippets
+
+You can use icons by doing:
+
+```
+import { iconName } from '@mdi/js';
+import Icon from '@mdi/react';
+<Icon path={iconName} size={1} />
+```
+Example Icon: `mdiBitcoin` <Icon path={mdiBitcoin} size={1} />
+
+<Story name="Icons" parameters={{ docs: { disable: true } }}>
+  <div>
+    <IconSearch />
+  </div>
+</Story>

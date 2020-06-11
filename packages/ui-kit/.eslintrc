@@ -1,0 +1,10 @@
+{
+  "plugins": ["prettier", "react-hooks"],
+  "rules": {
+    "prettier/prettier": "error",
+    "import/no-cycle": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off"
+  },
+  "extends": ["react-app", "@tecsinapse/tecsinapse-js", "plugin:mdx/recommended"]
+}

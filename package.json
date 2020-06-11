@@ -1,113 +1,15 @@
 {
-  "name": "@tecsinapse/ui-kit",
-  "description": "TecSinapse UI-KIT",
-  "version": "4.3.8",
-  "main": "dist/index.cjs.js",
-  "module": "build/index.js",
-  "dependencies": {
-    "@material-ui/core": "^4.2.1",
-    "@material-ui/icons": "^4.2.1",
-    "@material-ui/styles": "^4.2.1",
-    "@mdi/js": "^3.0.39",
-    "@mdi/react": "^1.1.0",
-    "@tecsinapse/es-utils": "^6.0.10",
-    "clsx": "^1.0.4",
-    "immutable": "^4.0.0-rc.12",
-    "material-ui-search-bar": "1.0.0-beta.13",
-    "prop-types": "^15.6.2",
-    "react-select": "^2.3.0",
-    "react-sizeme": "^2.5.2",
-    "react-text-mask": "^5.4.3",
-    "react-virtualized": "^9.21.0",
-    "react-window": "^1.5.1",
-    "text-mask-addons": "^3.8.0",
-    "text-mask-core": "^5.1.2"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
-    "@babel/plugin-transform-react-jsx": "^7.7.4",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-docs": "^5.3.12",
-    "@storybook/addon-options": "^5.3.12",
-    "@storybook/react": "^5.3.12",
-    "@tecsinapse/carousel": "^1.1.0",
-    "@tecsinapse/chat": "^1.3.0",
-    "@tecsinapse/eslint-config-tecsinapse-js": "^2.2.6",
-    "@tecsinapse/login": "^1.1.0",
-    "@tecsinapse/pickers": "^1.3.0",
-    "@tecsinapse/table": "^1.3.0",
-    "@tecsinapse/text-editor": "^1.2.0",
-    "@tecsinapse/timeslot-selector": "^1.2.0",
-    "@tecsinapse/uploader": "^1.1.0",
-    "@tecsinapse/wizard": "^1.3.0",
-    "babel-core": "^7.0.0-beta.3",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-inline-react-svg": "^1.0.1",
-    "core-js": "2.5.7",
-    "danger": "^10.2.0",
-    "eslint-config-react-app": "^5.0.2",
-    "eslint-plugin-mdx": "^1.6.5",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react-hooks": "^2.3.0",
-    "git-dirty": "^1.0.2",
-    "graphql-hooks": "^3.4.0",
-    "husky": "^1.3.1",
-    "lint-staged": "^8.1.3",
-    "markdown-to-jsx": "^6.10.3",
-    "npm-check-updates": "^3.1.23",
-    "prettier": "^1.18.2",
-    "prettier-plugin-packagejson": "^2.0.1",
-    "promise-polyfill": "^8.1.3",
-    "react-popper": "^1.3.4",
-    "react-textarea-autosize": "^7.1.0",
-    "regenerator-runtime": "^0.12.1",
-    "rimraf": "^2.6.3",
-    "rollup": "^0.68.2",
-    "rollup-plugin-auto-external": "^2.0.0",
-    "rollup-plugin-babel": "4.0.3",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-filesize": "^5.0.1",
-    "rollup-plugin-local-resolve": "^1.0.7",
-    "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
-    "source-map-explorer": "^2.0.0"
-  },
-  "files": [
-    "build",
-    "dist"
+  "name": "ui-kit",
+  "private": true,
+  "workspaces": [
+    "packages/*"
   ],
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
   "scripts": {
-    "analyze": "npx source-map-explorer 'dist/*.js'",
-    "build": "rimraf -rf build/ && babel src/ -d build/ && rollup -c",
-    "build-all": "yarn build && yarn storybook:build",
-    "build-publish": "yarn build-all && npm publish",
-    "dev": "rollup -c -w",
-    "hooks": "bash .git/hooks/pre-commit",
-    "publish:beta": "npm publish --tag beta",
-    "start": "yarn install && yarn storybook",
-    "storybook": "start-storybook -p 9001 -c .storybook -s ./storybook-public",
-    "storybook:build": "build-storybook -c .storybook -s ./storybook-public -o docs/"
-  },
-  "husky": {
-    "hooks": {
-      "post-commit": "git update-index --again",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --max-warnings=0 --fix --no-ignore",
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  },
-  "sideEffects": false
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "build": "lerna exec --parallel build",
+    "dev": "start-storybook -p 5555"
+  }
 }

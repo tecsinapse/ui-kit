@@ -1,4 +1,4 @@
-import { defaultBadgeColor } from '../src/colors';
+import { defaultBadgeColor } from '../packages/ui-kit/src/colors';
 
 export const overrides = {
   MuiBadge: {

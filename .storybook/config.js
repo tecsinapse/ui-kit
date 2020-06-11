@@ -3,7 +3,7 @@ import React from 'react';
 import { withOptions } from '@storybook/addon-options';
 import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks';
 import { ClientContext, GraphQLClient } from 'graphql-hooks';
-import { ThemeProvider } from '../src/ThemeProvider';
+import { ThemeProvider } from '../packages/ui-kit/src/ThemeProvider';
 import { overrides } from './themeGlobals';
 
 const client = new GraphQLClient({
@@ -39,7 +39,7 @@ const withThemeProvider = storyFn => (
     {storyFn()}
   </ThemeProvider>
 );
-const req = require.context('../src', true, /\.story\.(js|mdx)$/);
+const req = require.context('../packages', true, /\.story\.(js|mdx)$/);
 
 function loadStories() {
   addDecorator(withThemeProvider);

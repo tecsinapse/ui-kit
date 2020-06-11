@@ -1,0 +1,63 @@
+import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
+import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
+import { FolderBreadcrumb } from './FolderBreadcrumb';
+import { DivFlex } from '../../withFlexCenter';
+
+<Meta
+  title={`${GROUPS.FILES}|Folder Breadcrumb`}
+  decorators={[story => <DivFlex>{story()}</DivFlex>]}
+/>
+
+# Folder Breadcrumb
+
+The `FolderBreadcrumb` component can receive the following props:
+
+<Props of={FolderBreadcrumb} />
+
+# Code snippets
+
+Here you can check the code snippet for the story.
+
+## Simple
+
+<Story name="Simple" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const breadcrumbs = [
+      'BMW',
+      'BMW - Manutenção',
+      'Instalações',
+      {
+        title: 'Usuário',
+        component: 'a',
+        componentProps: {
+          href: 'http://google.com.br',
+        },
+      },
+    ];
+    return <FolderBreadcrumb breadcrumbs={breadcrumbs} />;
+  }}
+</Story>
+
+<Source id="files-folder-breadcrumb--simple" />
+
+## Simple light
+
+<Story name="Simple light" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const breadcrumbs = [
+      'BMW',
+      'BMW - Manutenção',
+      'Instalações',
+      {
+        title: 'Usuário',
+        component: 'a',
+        componentProps: {
+          href: 'http://google.com.br',
+        },
+      },
+    ];
+    return <FolderBreadcrumb breadcrumbs={breadcrumbs} light dense />;
+  }}
+</Story>
+
+<Source id="files-folder-breadcrumb--simple-light" />
