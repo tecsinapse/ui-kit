@@ -2,8 +2,8 @@
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
   "version": "4.3.14-alpha.0",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
+  "main": "build/index.js",
+  "module": "build/index.js",
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",
@@ -24,7 +24,7 @@
     "text-mask-core": "^5.1.2"
   },
   "files": [
-    "lib",
+    "build",
     "dist"
   ],
   "husky": {
