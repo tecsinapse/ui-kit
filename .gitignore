@@ -97,3 +97,8 @@ fabric.properties
 ./public/
 public/
 public/*
+
+
+./packages/ui-kit/lib/
+packages/ui-kit/lib/
+packages/ui-kit/lib/*
