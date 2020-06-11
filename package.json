@@ -85,9 +85,5 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "source-map-explorer": "^2.0.0"
-  },
-  "files": [
-    "./lib",
-    "./dist"
-  ]
+  }
 }
