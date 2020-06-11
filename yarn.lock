@@ -3202,6 +3202,29 @@
     luxon "^1.11.2"
     prop-types "^15.6.2"
 
+"@tecsinapse/ui-kit@^4.0.0", "@tecsinapse/ui-kit@^4.0.10", "@tecsinapse/ui-kit@^4.1.1", "@tecsinapse/ui-kit@^4.3.3", "@tecsinapse/ui-kit@^4.3.5":
+  version "4.3.9"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/ui-kit/-/ui-kit-4.3.9.tgz#5317de729465baf74af7263af5e387cf6fb3bea1"
+  integrity sha512-RakUjpQWtGLLV9ffxW46jeyJ/4QnwVqNosFlkGD9HjYxkYO6tgIBRbdbZBgJJuS9txGA2a7RNN23ygMF16bmFQ==
+  dependencies:
+    "@material-ui/core" "^4.2.1"
+    "@material-ui/icons" "^4.2.1"
+    "@material-ui/styles" "^4.2.1"
+    "@mdi/js" "^3.0.39"
+    "@mdi/react" "^1.1.0"
+    "@tecsinapse/es-utils" "^6.0.10"
+    clsx "^1.0.4"
+    immutable "^4.0.0-rc.12"
+    material-ui-search-bar "1.0.0-beta.13"
+    prop-types "^15.6.2"
+    react-select "^2.3.0"
+    react-sizeme "^2.5.2"
+    react-text-mask "^5.4.3"
+    react-virtualized "^9.21.0"
+    react-window "^1.5.1"
+    text-mask-addons "^3.8.0"
+    text-mask-core "^5.1.2"
+
 "@tecsinapse/uploader@^1.1.0":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@tecsinapse/uploader/-/uploader-1.2.1.tgz#3d073df96a207ccf50e01900832d4afb5ef13dbb"
