@@ -70,6 +70,14 @@ export const themeColors = {
       contrastText: '#ffffff',
     },
   },
+  lightOrange: {
+    primary: { main: '#f99f1f', contrastText: '#ffffff' },
+    secondary: { main: '#616161', light: '#151314', contrastText: '#ffffff' },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
   blueLight: {
     primary: { main: '#616161', light: '#989ea5', contrastText: '#ffffff' },
     secondary: { main: '#009ada', contrastText: '#ffffff' },
@@ -122,8 +130,10 @@ export const customDatePickerStyle = variant => {
       }
     : {};
 };
+
 export const renderStyledColor = variant =>
   variant === 'yellow' || variant === 'blueGrey' ? 'secondary' : 'primary';
+
 export const renderStyledLabel = (label, variant) => {
   if (variant === 'yellow') {
     return <div style={{ color: defaultBlue }}>{label}</div>;
@@ -133,6 +143,7 @@ export const renderStyledLabel = (label, variant) => {
   }
   return label;
 };
+
 export const customAppBarStyle = variant => {
   if (variant === 'yellow') {
     return {
@@ -214,6 +225,7 @@ ThemeProvider.propTypes = {
     'blue',
     'black',
     'redLight',
+    'lightOrange',
     'green',
     'blueGrey',
     'yellow',
