@@ -11,17 +11,19 @@ export function Option({
   isSelected,
   selectProps,
 }) {
+  const style = {
+    fontWeight: isSelected ? 500 : 400,
+    whiteSpace: 'normal',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+  };
+
   return (
     <MenuItem
       buttonRef={innerRef}
       selected={!selectProps.isMulti && isSelected}
       component="div"
-      style={{
-        fontWeight: isSelected ? 500 : 400,
-        whiteSpace: 'normal',
-        textOverflow: 'ellipsis',
-        overflow: 'hidden',
-      }}
+      style={style}
       disabled={data.disabled || false}
       {...innerProps}
     >

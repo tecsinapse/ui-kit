@@ -37,6 +37,7 @@ export const DateSlider = ({
 
   const handleChange = (ev, newValue) => {
     setDateIndex(newValue);
+
     if (simple) {
       onChangeFunction([range[0], range[dateIndex]]);
     } else {
@@ -44,18 +45,15 @@ export const DateSlider = ({
     }
   };
 
-  const customMarks = range.map((el, index) => {
-    return {
-      value: index,
-      label: days[el.getDay()],
-    };
-  });
+  const customMarks = range.map((el, index) => ({
+    value: index,
+    label: days[el.getDay()],
+  }));
 
-  const formatLabel = (value, index) => {
-    return values && values.length > 0
+  const formatLabel = (value, index) =>
+    values && values.length > 0
       ? values[simple ? 1 : index].toLocaleDateString(locale)
       : onChangeFunction([range[0], range[range.length - 1]]);
-  };
 
   return (
     <Slider

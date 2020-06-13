@@ -5,6 +5,7 @@ export const CEP_MASK = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
 export function conformToMask(text, mask) {
   const result = coreConformToMask(text, mask, maskConfig);
+
   return result.conformedValue;
 }
 export const maskConfig = {
@@ -114,9 +115,11 @@ export const PLATE_MASK = rawValue => {
 
   // Check if it is a old plate
   const fth = rawValue.charAt(3);
+
   if (fth === '-' || (rawValue.charAt(4) >= '0' && rawValue.charAt(4) <= '9')) {
     // Check if the a old plate should become a merco plate
     const sth = rawValue.length >= 6 ? rawValue.charAt(5) : null;
+
     if (sth != null && fth === '-' && sth.toLowerCase() !== sth.toUpperCase()) {
       // go back to merco plate
       return PLATE_MERCO_MASK;
@@ -166,6 +169,7 @@ export const TIME_MASK = rawValue => {
   if (rawValue.charAt(0) === '2') {
     return TIME_MASK_2;
   }
+
   return TIME_MASK_1;
 };
 
@@ -181,6 +185,7 @@ export const CELL_PHONE_MASK = rawValue => {
   if (rawValue.length > 10) {
     return CELL_MASK;
   }
+
   return PHONE_MASK;
 };
 
@@ -188,6 +193,7 @@ export const CPF_CNPJ_MASK = rawValue => {
   if (rawValue.length > 14) {
     return CNPJ_MASK;
   }
+
   return CPF_MASK;
 };
 

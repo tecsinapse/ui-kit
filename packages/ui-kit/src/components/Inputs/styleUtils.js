@@ -9,12 +9,15 @@ export const outlinedInputClass = ({ success, error, warning }) => {
   if (error) {
     return 'cssOutlinedInputRed';
   }
+
   if (success) {
     return 'cssOutlinedInputSuccess';
   }
+
   if (warning) {
     return 'cssOutlinedInputWarning';
   }
+
   return 'cssOutlinedInput';
 };
 
@@ -22,12 +25,15 @@ export const labelClass = ({ success, error, warning }) => {
   if (error) {
     return 'cssLabelRed';
   }
+
   if (success) {
     return 'cssLabelSuccess';
   }
+
   if (warning) {
     return 'cssLabelWarning';
   }
+
   return 'cssLabel';
 };
 
@@ -52,15 +58,19 @@ export function GetEndAdornment({
   endAdornmentMargin,
 }) {
   let stateIcon;
+
   if (error) {
     stateIcon = <Icon path={mdiCloseCircle} color={defaultRed} size={1} />;
   }
+
   if (success) {
     stateIcon = <Icon path={mdiCheckCircle} color={defaultGreen} size={1} />;
   }
+
   if (warning) {
     stateIcon = <Icon path={mdiAlertCircle} color={defaultOrange} size={1} />;
   }
+
   if (stateIcon && endAdornment) {
     return (
       <StyledFlexDiv endadornmentmargin={endAdornmentMargin.toString()}>
@@ -68,6 +78,7 @@ export function GetEndAdornment({
       </StyledFlexDiv>
     );
   }
+
   return (
     <StyledFlexDiv endadornmentmargin={endAdornmentMargin.toString()}>
       {stateIcon && stateIcon}

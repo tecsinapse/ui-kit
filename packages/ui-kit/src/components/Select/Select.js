@@ -1,9 +1,9 @@
-import { Tooltip, withStyles } from '@material-ui/core';
+import { Tooltip } from '@material-ui/core';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { flatten, getAnyFromArray } from '@tecsinapse/es-utils/build';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import { useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
@@ -26,7 +26,7 @@ const flattenChildren = childrenIn =>
         }))
     : [];
 
-export const SelectUnstyled = ({
+const SelectUnstyled = ({
   value,
   onChange,
   onBlur,
@@ -59,7 +59,6 @@ export const SelectUnstyled = ({
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [allSelected, setAllSelected] = useState(valuesAllSelected);
   const [containerSize, setContainerSize] = useState(0);
-
   const [yPos, setYPos] = useState(0);
   let { variant } = rest;
   const selectRef = useRef();
@@ -77,6 +76,7 @@ export const SelectUnstyled = ({
 
   useEffect(() => {
     const pos = selectRef.current.getBoundingClientRect();
+
     setYPos(pos.y);
   }, []);
 
@@ -209,7 +209,7 @@ export const SelectUnstyled = ({
   );
 };
 
-SelectUnstyled.defaultProps = {
+const defaultProps1 = {
   allowSelectAll: true,
   fullWidth: false,
   portal: false,
@@ -228,7 +228,8 @@ SelectUnstyled.defaultProps = {
   minWidth: '200px',
   customIndicators: undefined,
 };
-SelectUnstyled.propTypes = {
+
+const propTypes = {
   /** Show 'select' option to select all options */
   allowSelectAll: PropTypes.bool,
   /** Fill div/screen width */
@@ -288,8 +289,21 @@ SelectUnstyled.propTypes = {
   ]),
 };
 
-export default SelectUnstyled;
-export const Select = withStyles(theme => ({
+SelectUnstyled.propTypes = propTypes;
+SelectUnstyled.defaultProps = defaultProps1;
+
+const useSelectStyles = makeStyles(theme => ({
   ...selectInputStyle(theme),
   ...inputStyles(theme),
-}))(SelectUnstyled);
+}));
+
+const Select = props => {
+  const classes = useSelectStyles();
+
+  return <SelectUnstyled {...props} classes={classes} />;
+};
+
+Select.propTypes = propTypes;
+Select.defaultProps = defaultProps1;
+
+export { Select, SelectUnstyled };

@@ -25,6 +25,7 @@ export const MenuList = props => {
   let { options, children } = props;
   const [value] = getValue();
   let searchText = useContext(SearchTextContext);
+
   if (searchText) {
     searchText = searchText.toLowerCase();
     options = options.filter(
@@ -34,12 +35,15 @@ export const MenuList = props => {
       if (child.props.children.toLowerCase().indexOf(searchText) > -1) {
         return child;
       }
+
       return null;
     }).filter(b => b);
+
     if (options.length === 0) {
       return <NoItemsSearchDialog />;
     }
   }
+
   return (
     <AutoSizer>
       {({ height, width }) => (

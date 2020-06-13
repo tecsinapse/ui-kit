@@ -5,14 +5,12 @@ import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
 
 const useStyles = makeStyles(theme => ({
   titleColor: {
-    color: ({ titleColor }) => {
-      return isNotUndefOrNull(titleColor) ? titleColor : null;
-    },
+    color: ({ titleColor }) =>
+      isNotUndefOrNull(titleColor) ? titleColor : null,
   },
   subtitleColor: {
-    color: ({ subtitleColor }) => {
-      return isNotUndefOrNull(subtitleColor) ? subtitleColor : null;
-    },
+    color: ({ subtitleColor }) =>
+      isNotUndefOrNull(subtitleColor) ? subtitleColor : null,
   },
   marginLeft: {
     marginLeft: `${theme.spacing(0.5)}px !important`,
@@ -23,8 +21,10 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row',
   },
 }));
+
 export const DefaultProductTypography = ({ title, subtitle, styleProps }) => {
   const classes = useStyles(styleProps);
+
   return (
     <div className={classes.flexRow}>
       <Typography variant="h6" color="inherit" className={classes.titleColor}>

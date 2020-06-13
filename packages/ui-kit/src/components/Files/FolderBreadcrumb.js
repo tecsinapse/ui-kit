@@ -38,6 +38,7 @@ export const FolderBreadcrumb = ({
   dense = false,
 }) => {
   const classes = useStyles(light, dense)();
+
   return (
     <Breadcrumbs
       classes={{ root: classes.breadcrumb }}
@@ -62,6 +63,7 @@ export const FolderBreadcrumb = ({
             </Typography>
           </>
         );
+
         return (
           <div key={key} className={classes.flex}>
             {isLink ? (

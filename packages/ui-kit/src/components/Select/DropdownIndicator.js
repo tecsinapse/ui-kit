@@ -4,11 +4,16 @@ import React from 'react';
 export const DropdownIndicator = ({
   innerProps: { onTouchEnd, ...innerPropsAux },
   ...props
-}) =>
-  components.DropdownIndicator && (
-    <components.DropdownIndicator
-      innerProps={innerPropsAux}
-      {...props}
-      className={props.selectProps.childrenClasses.dropdownIndicator}
-    />
+}) => {
+  const { selectProps } = props;
+
+  return (
+    components.DropdownIndicator && (
+      <components.DropdownIndicator
+        innerProps={innerPropsAux}
+        {...props}
+        className={selectProps.childrenClasses.dropdownIndicator}
+      />
+    )
   );
+};

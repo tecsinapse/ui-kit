@@ -43,6 +43,7 @@ export const EmptyState = ({
     titleMessage ||
     mensagensTitulo[Math.floor(Math.random() * mensagensTitulo.length)];
   const Icon = navigator.onLine ? IconComponent : SignalWifiOff;
+
   return (
     <div className={classes.container}>
       <div className={classes.box}>

@@ -1,17 +1,21 @@
 import { Typography } from '@material-ui/core';
 import React from 'react';
 
-export const SingleValue = ({ selectProps, innerProps, children }) => (
-  <Typography
-    variant="subtitle1"
-    component="p"
-    color="textSecondary"
-    style={{
-      width: '100%',
-      ...(selectProps.isDisabled ? { color: 'rgb(180, 180, 180)' } : {}),
-    }}
-    className={selectProps.childrenClasses.placeholder}
-  >
-    {children}
-  </Typography>
-);
+export const SingleValue = ({ selectProps, innerProps, children }) => {
+  const style = {
+    width: '100%',
+    ...(selectProps.isDisabled ? { color: 'rgb(180, 180, 180)' } : {}),
+  };
+
+  return (
+    <Typography
+      variant="subtitle1"
+      component="p"
+      color="textSecondary"
+      style={style}
+      className={selectProps.childrenClasses.placeholder}
+    >
+      {children}
+    </Typography>
+  );
+};

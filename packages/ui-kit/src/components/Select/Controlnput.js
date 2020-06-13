@@ -14,6 +14,7 @@ const useStyles = makeStyles({
 export function InputComponentReactMobile({ inputRef, className, ...props }) {
   const classes = useStyles();
   const newClass = clsx(classes.inputBaseCustom, className);
+
   return <div ref={inputRef} className={newClass} {...props} />;
 }
 

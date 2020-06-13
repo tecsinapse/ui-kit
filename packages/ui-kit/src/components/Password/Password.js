@@ -14,6 +14,7 @@ const Password = props => {
       if (type === 'password') {
         return 'text';
       }
+
       return 'password';
     });
   };

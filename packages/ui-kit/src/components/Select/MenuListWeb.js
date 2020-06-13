@@ -10,6 +10,7 @@ export const MenuListWeb = props => {
 
   const initialOffset = Math.max(options.indexOf(value), 0) * selectMenuHeight;
   const listSize = selectMenuHeight * Math.min(optionsShown, options.length);
+
   return (
     <List
       height={listSize}

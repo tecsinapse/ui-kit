@@ -40,6 +40,7 @@ const styles = {
     },
   },
 };
+
 export const FullScreenLoading = withStyles(styles)(({ classes, show }) => (
   <div>{show && <div className={classes.coverspin} />}</div>
 ));

@@ -122,14 +122,13 @@ export const themeColors = {
     },
   },
 };
-export const customDatePickerStyle = variant => {
-  return variant === 'yellow'
+export const customDatePickerStyle = variant =>
+  variant === 'yellow'
     ? {
         highligthBgColor: defaultBlue,
         appBarBackgroundColor: defaultBlue,
       }
     : {};
-};
 
 export const renderStyledColor = variant =>
   variant === 'yellow' || variant === 'blueGrey' ? 'secondary' : 'primary';
@@ -138,9 +137,12 @@ export const renderStyledLabel = (label, variant) => {
   if (variant === 'yellow') {
     return <div style={{ color: defaultBlue }}>{label}</div>;
   }
+
   if (variant === 'blueGrey') {
+    // eslint-disable-next-line no-inline-styles/no-inline-styles
     return <div style={{ color: '#0f3399' }}>{label}</div>;
   }
+
   return label;
 };
 
@@ -155,30 +157,38 @@ export const customAppBarStyle = variant => {
       appBarBackgroundColor: defaultBlue,
     };
   }
+
   if (variant === 'blueGrey') {
     return {
       activeBreadcrumbTextColor: '#fff',
     };
   }
+
   return {};
 };
+
 export const useWindowSize = () => {
   const [size, setSize] = useState([0, 0]);
+
   useLayoutEffect(() => {
     function updateSize() {
       setSize([window.innerWidth, window.innerHeight]);
     }
     window.addEventListener('resize', updateSize);
     updateSize();
+
     return () => window.removeEventListener('resize', updateSize);
   }, []);
+
   return size;
 };
+
 const themeGlobals = variant => ({
   menuGlobal: {
     breadcrumbContrastText: variant === 'redLight' ? '#000000' : '#ffffff',
   },
 });
+
 const themeCustom = (variant, overrides) => {
   if (variant === 'yellow') {
     return { ...customVariantYellow, ...overrides };
@@ -190,6 +200,7 @@ const themeCustom = (variant, overrides) => {
 
   return { ...overrides };
 };
+
 const theme = (variant, overrides, spacing) => {
   const themeCompile = {
     typography: {
@@ -209,8 +220,10 @@ const theme = (variant, overrides, spacing) => {
     palette: { ...themeColors[variant] },
     ...themeGlobals(variant),
   };
+
   return createMuiTheme(themeCompile);
 };
+
 export function ThemeProvider({ children, variant, overrides, spacing = 12 }) {
   return (
     <MuiThemeProvider theme={theme(variant, overrides, spacing)}>

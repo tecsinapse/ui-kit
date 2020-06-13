@@ -10,8 +10,10 @@ const useStyles = makeStyles({
   dashed: { borderTop: `dashed 1px ${defaultGreyDisabled}`, ...noBackground },
   solid: { borderTop: `solid 1px ${defaultGreyDisabled}`, ...noBackground },
 });
+
 export const Divider = ({ variant = 'dashed' }) => {
   const classes = useStyles();
+
   return (
     <MuiDivider
       classes={{

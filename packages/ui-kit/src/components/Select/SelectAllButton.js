@@ -4,6 +4,12 @@ import React from 'react';
 import Icon from '@mdi/react';
 import { Button, Divider } from '../../index';
 
+const style = {
+  fontWeight: 500,
+  display: 'flex',
+  justifyContent: 'space-between',
+};
+
 export const SelectAllButton = ({
   selectAll,
   allSelected,
@@ -17,17 +23,10 @@ export const SelectAllButton = ({
     buttonVariant,
     buttonColor,
   } = customAction;
+
   return (
     <>
-      <MenuItem
-        style={{
-          fontWeight: 500,
-          display: 'flex',
-          justifyContent: 'space-between',
-        }}
-        component="div"
-        onClick={selectAll}
-      >
+      <MenuItem style={style} component="div" onClick={selectAll}>
         <div>
           <Checkbox
             checked={allSelected}

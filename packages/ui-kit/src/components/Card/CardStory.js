@@ -2,10 +2,10 @@ import React from 'react';
 
 import { UiKitCard } from './UiKitCard';
 
-export const CardStory = props => {
-  return (
-    <div style={{ width: '350px' }}>
-      <UiKitCard {...props} />
-    </div>
-  );
-};
+const style = { width: '350px' };
+
+export const CardStory = props => (
+  <div style={style}>
+    <UiKitCard {...props} />
+  </div>
+);

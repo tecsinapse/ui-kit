@@ -28,6 +28,7 @@ export const InputItemGroupInput = React.memo(
     push,
   }) => {
     const onClick = () => remove(index);
+
     return (
       <Grid key={index} item xs={xs} sm={sm} lg={lg} xl={xl}>
         <div className={classes.inputContainer}>

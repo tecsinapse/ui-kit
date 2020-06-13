@@ -16,6 +16,7 @@ export const UiKitCard = ({
   onLoad,
 }) => {
   const classes = useCardUiKitStyles();
+
   return (
     <div style={style}>
       <Card className={classes.card} style={styleCard} onLoad={onLoad}>

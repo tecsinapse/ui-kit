@@ -17,4 +17,4 @@ export { ValueSlider } from './components/Slider/ValueSlider/ValueSlider';
 export { DateSlider } from './components/Slider/DateSlider/DateSlider';
 export { UiKitCard as Card } from './components/Card/UiKitCard';
 export * from './components/Inputs/Masks';
-export * from './components/Select/Select';
+export { Select, SelectUnstyled } from './components/Select';

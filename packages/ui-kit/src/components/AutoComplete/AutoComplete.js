@@ -41,6 +41,7 @@ const handleInputChange = (
   setSuggestionsRef
 ) => ({ target, currentTarget }) => {
   setInputValue(target.value);
+
   if (target.value) {
     if (openSuggestionsTimeout) {
       clearTimeout(openSuggestionsTimeout);
@@ -83,6 +84,7 @@ const handleInputKeyDown = (
   if (event.key === 'ArrowDown' && suggestionsRef) {
     suggestionsRef.focus();
   }
+
   if (event.key === 'Escape') {
     handleCloseSuggestions(setAnchorEl, setSuggestionsRef)();
   }
@@ -141,6 +143,12 @@ const AutoComplete = ({
   const [suggestionsRef, setSuggestionsRef] = useState(null);
   const open = Boolean(anchorEl);
 
+  const style = {
+    width: containerRef ? containerRef.offsetWidth : null,
+    marginLeft: '3px',
+    zIndex: 1500,
+  };
+
   return (
     <div className={classes.root} ref={setContainerRef}>
       <Input
@@ -168,15 +176,7 @@ const AutoComplete = ({
           loading ? <CircularProgress size={25} thickness={2} /> : null
         }
       />
-      <Popper
-        open={open}
-        anchorEl={anchorEl}
-        style={{
-          width: containerRef ? containerRef.offsetWidth : null,
-          marginLeft: '3px',
-          zIndex: 1500,
-        }}
-      >
+      <Popper open={open} anchorEl={anchorEl} style={style}>
         <Paper className={classes.paper} {...paperProps}>
           <ClickAwayListener
             onClickAway={handleCloseSuggestions(setAnchorEl, setSuggestionsRef)}

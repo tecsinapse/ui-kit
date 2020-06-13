@@ -32,6 +32,7 @@ export const GroupedInput = ({
   const [valueInput, setValueInput] = useState('');
   const errorIsArray = error instanceof Array;
   const inputOutsideList = inputType === 'outside';
+
   return (
     <>
       <Grid
@@ -72,6 +73,7 @@ export const GroupedInput = ({
             index={-1}
             onChange={e => {
               setValueInput(e?.target?.value);
+
               if ((values || []).length === 0 && !inputOutsideList) {
                 push();
                 onChange(e?.target?.value, values.length);
@@ -89,6 +91,7 @@ export const GroupedInput = ({
                 push();
                 onChange(valueInput, values.length);
                 setValueInput('');
+
                 return;
               }
 
@@ -97,6 +100,7 @@ export const GroupedInput = ({
                 onChange(valueInput, values.length);
                 setValueInput('');
                 push();
+
                 return;
               }
 

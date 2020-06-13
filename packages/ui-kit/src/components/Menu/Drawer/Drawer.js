@@ -31,9 +31,11 @@ export const Drawer = ({
   const items = normalizeFunctionItems(oldItems);
   const [search, setSearch] = useState('');
   let searchResults = [];
+
   if (search != null) {
     searchResults = searchLogic(items, search);
   }
+
   return (
     <MuiDrawer open={open} onClose={onClose} id={id} className={className}>
       <StyledDiv>
@@ -87,6 +89,7 @@ const menuItemShape = {
   componentProps: PropTypes.object,
   styleProps: PropTypes.object,
 };
+
 menuItemShape.children = PropTypes.arrayOf(PropTypes.shape(menuItemShape));
 
 Drawer.propTypes = {

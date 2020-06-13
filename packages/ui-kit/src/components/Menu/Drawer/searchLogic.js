@@ -6,22 +6,26 @@ export function selectedTitlesTree(items) {
     return false;
   }
   const titles = [];
+
   for (const item of items) {
     if (item.selected) {
       titles.push(item.title);
     } else if (item.children) {
       const childFound = selectedTitlesTree(item.children);
+
       if (childFound.length > 0) {
         titles.push(childFound);
         titles.push(item.title);
       }
     }
   }
+
   return flatten(titles);
 }
 
 export function searchLogic(items, searchText, subtitle = '') {
   const found = [];
+
   for (const item of items) {
     if (item.children) {
       found.push(
@@ -45,6 +49,7 @@ export function searchLogic(items, searchText, subtitle = '') {
       });
     }
   }
+
   return flatten(found);
 }
 
@@ -53,14 +58,17 @@ export function normalizeFunctionItems(oldItems) {
     return null;
   }
   const items = [];
+
   for (const oldItem of oldItems) {
     const item = {
       ...oldItem,
       title:
         typeof oldItem.title === 'function' ? oldItem.title() : oldItem.title,
     };
+
     item.children = normalizeFunctionItems(oldItem.children);
     items.push(item);
   }
+
   return items;
 }

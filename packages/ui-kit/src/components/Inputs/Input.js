@@ -9,7 +9,22 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import MaskedInput from 'react-text-mask';
 import clsx from 'clsx';
 import { inputStyles } from './InputStyles';
-import { CELL_MASK, CELL_PHONE_MASK, CEP_MASK, CNPJ_MASK, CPF_CNPJ_MASK, CPF_MASK, CURRENCY_MASK, DATE_MASK, maskConfig, PERCENTAGE_MASK, PHONE_MASK, PLATE_MASK, TIME_MASK, YEAR_MASK } from './Masks';
+import {
+  CELL_MASK,
+  CELL_PHONE_MASK,
+  CEP_MASK,
+  CNPJ_MASK,
+  CPF_CNPJ_MASK,
+  CPF_MASK,
+  CURRENCY_MASK,
+  DATE_MASK,
+  maskConfig,
+  PERCENTAGE_MASK,
+  PHONE_MASK,
+  PLATE_MASK,
+  TIME_MASK,
+  YEAR_MASK,
+} from './Masks';
 
 import { GetEndAdornment, labelClass, outlinedInputClass } from './styleUtils';
 
@@ -110,6 +125,7 @@ export const TextFieldComponent = ({
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
   let device = variantDevice;
+
   if (variantDevice === 'auto') {
     if (!matches) {
       device = 'mobile';
@@ -218,6 +234,7 @@ const InputUI = withStyles(
     />
   )
 );
+
 export const Input = props => <InputUI {...props} />;
 
 Input.defaultProps = {

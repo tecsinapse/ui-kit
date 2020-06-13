@@ -22,16 +22,16 @@ const useStyles = depth =>
       backgroundColor: grey[Math.min(Math.max(1, depth) * 50, 100)],
     },
     selected: {
-      backgroundColor: ({ selectedBackgroundColor }) => {
-        return isNotUndefOrNull(selectedBackgroundColor)
+      backgroundColor: ({ selectedBackgroundColor }) =>
+        isNotUndefOrNull(selectedBackgroundColor)
           ? selectedBackgroundColor
-          : grey[200];
-      },
+          : grey[200],
     },
     shadow: {
       borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
     },
   }));
+
 export const TitleSubtitleMenuItem = ({
   title,
   subtitle,
@@ -73,6 +73,7 @@ export const MenuItem = ({
   styleProps,
 }) => {
   const classes = useStyles(depth)(styleProps);
+
   return (
     <div
       className={clsx({

@@ -33,21 +33,19 @@ const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   },
   boldFont: {
     fontWeight: 700,
-    color: ({ activeBreadcrumbTextColor }) => {
-      return isNotUndefOrNull(activeBreadcrumbTextColor)
+    color: ({ activeBreadcrumbTextColor }) =>
+      isNotUndefOrNull(activeBreadcrumbTextColor)
         ? activeBreadcrumbTextColor
-        : null;
-    },
+        : null,
   },
   appBar: {
     display: 'flex',
     flexGrow: 0,
     position: 'unset',
-    backgroundColor: ({ appBarBackgroundColor }) => {
-      return isNotUndefOrNull(appBarBackgroundColor)
+    backgroundColor: ({ appBarBackgroundColor }) =>
+      isNotUndefOrNull(appBarBackgroundColor)
         ? appBarBackgroundColor
-        : palette.primary.main;
-    },
+        : palette.primary.main,
   },
   breadcrumb: { display: 'flex !important' },
   paperBreadcrumb: {
@@ -56,25 +54,22 @@ const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
     borderTop: '1px solid white',
     paddingLeft: spacing(2),
     paddingRight: spacing(1),
-    backgroundColor: ({ breadcrumbBackgroundColor }) => {
-      return isNotUndefOrNull(breadcrumbBackgroundColor)
+    backgroundColor: ({ breadcrumbBackgroundColor }) =>
+      isNotUndefOrNull(breadcrumbBackgroundColor)
         ? breadcrumbBackgroundColor
-        : palette.primary.light;
-    },
+        : palette.primary.light,
   },
   link: {
-    color: ({ breadcrumbTextColor }) => {
-      return isNotUndefOrNull(breadcrumbTextColor)
+    color: ({ breadcrumbTextColor }) =>
+      isNotUndefOrNull(breadcrumbTextColor)
         ? `${breadcrumbTextColor} !important`
-        : `${menuGlobal.breadcrumbContrastText} !important`;
-    },
+        : `${menuGlobal.breadcrumbContrastText} !important`,
   },
   separator: {
-    color: ({ breadcrumbTextColor }) => {
-      return isNotUndefOrNull(breadcrumbTextColor)
+    color: ({ breadcrumbTextColor }) =>
+      isNotUndefOrNull(breadcrumbTextColor)
         ? breadcrumbTextColor
-        : menuGlobal.breadcrumbContrastText;
-    },
+        : menuGlobal.breadcrumbContrastText,
   },
   marginRightPattern: {
     marginRight: spacing(1),
@@ -139,6 +134,7 @@ export const AppBar = ({
                 value={value}
                 onChange={e => {
                   setCustomValue(e.target.value);
+
                   if (onChange) {
                     onChange(e.target.value);
                   }
@@ -161,6 +157,7 @@ export const AppBar = ({
                   onClick={() => {
                     setSearchMode(false);
                     setCustomValue('');
+
                     if (onCancelSearchMode) {
                       onCancelSearchMode();
                     }
@@ -214,6 +211,7 @@ export const AppBar = ({
                   aria-label={openSearch}
                   onClick={() => {
                     setSearchMode(true);
+
                     if (onSearchMode) {
                       onSearchMode();
                     }

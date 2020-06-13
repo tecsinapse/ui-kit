@@ -16,9 +16,11 @@ const useStyles = ({ width }) =>
       width,
     },
   });
+
 export const Flag = ({ variant = 'Brazil', width = 20 }) => {
   const classes = useStyles({ width })();
   const Component = components[variant];
+
   return <Component className={classes.svg} />;
 };
 

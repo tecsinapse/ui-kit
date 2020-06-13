@@ -37,6 +37,7 @@ export const ListHeader = ({
   searchBarPlaceholder = 'O que você busca?',
 }) => {
   const classes = useStyles();
+
   return (
     <>
       <ListItem alignItems="flex-start" divider className={classes.flexColumn}>

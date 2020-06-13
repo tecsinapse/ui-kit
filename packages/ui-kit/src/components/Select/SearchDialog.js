@@ -6,6 +6,7 @@ import Search from '@material-ui/icons/Search';
 import SearchBar from 'material-ui-search-bar';
 import Dialog from '@material-ui/core/Dialog';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/styles';
 
 const typeStyles = {
   container: {
@@ -76,42 +77,46 @@ export const NoItemsSearchDialog = withStyles(typeStyles)(
   )
 );
 
-export const SearchTextContext = React.createContext(null);
-export const SearchDialog = withStyles(tabStyles)(
-  ({ classes, children, label, setMenuIsOpen, selectPromptMessage }) => {
-    const [textSearch, setTextSearch] = useState('');
-    return (
-      <Dialog
-        fullScreen
-        onClose={() => setMenuIsOpen(false)}
-        open
-        disableEscapeKeyDown
-      >
-        <Paper className={classes.flex}>
-          <IconButton
-            style={{ marginLeft: '5px' }}
-            onClick={() => setMenuIsOpen(false)}
-          >
-            <ArrowBackIos color="inherit" />
-          </IconButton>
+const style = { height: '100%' };
+const style1 = { marginLeft: '5px' };
+const useSearchDialogStyles = makeStyles(tabStyles);
 
-          <SearchBar
-            classes={{
-              root: [classes.searchBar, classes.noPaddingRight].join(' '),
-              searchContainer: classes.searchBarContainer,
-            }}
-            placeholder={`${selectPromptMessage}: ${label}...`}
-            value={textSearch}
-            onCancelSearch={() => setTextSearch('')}
-            onChange={newValue => setTextSearch(newValue)}
-          />
-        </Paper>
-        <div style={{ height: '100%' }}>
-          <SearchTextContext.Provider value={textSearch}>
-            {children}
-          </SearchTextContext.Provider>
-        </div>
-      </Dialog>
-    );
-  }
-);
+export const SearchTextContext = React.createContext(null);
+
+export const SearchDialog = ({
+  children,
+  label,
+  setMenuIsOpen,
+  selectPromptMessage,
+}) => {
+  const [textSearch, setTextSearch] = useState('');
+  const classes = useSearchDialogStyles();
+
+  const onClick = () => setMenuIsOpen(false);
+
+  return (
+    <Dialog fullScreen onClose={onClick} open disableEscapeKeyDown>
+      <Paper className={classes.flex}>
+        <IconButton style={style1} onClick={onClick}>
+          <ArrowBackIos color="inherit" />
+        </IconButton>
+
+        <SearchBar
+          classes={{
+            root: [classes.searchBar, classes.noPaddingRight].join(' '),
+            searchContainer: classes.searchBarContainer,
+          }}
+          placeholder={`${selectPromptMessage}: ${label}...`}
+          value={textSearch}
+          onCancelSearch={() => setTextSearch('')}
+          onChange={newValue => setTextSearch(newValue)}
+        />
+      </Paper>
+      <div style={style}>
+        <SearchTextContext.Provider value={textSearch}>
+          {children}
+        </SearchTextContext.Provider>
+      </div>
+    </Dialog>
+  );
+};

@@ -9,6 +9,7 @@ const useStyles = makeStyles(theme => ({
     width: theme.spacing(25),
   },
 }));
+
 export const MenuList = ({
   closeDrawer,
   items,
@@ -18,6 +19,7 @@ export const MenuList = ({
 }) => {
   const array = selectedTitlesTree(items);
   const object = {};
+
   array.forEach(key => {
     object[key] = true;
   });
@@ -26,6 +28,7 @@ export const MenuList = ({
   const handleClick = clickedKey =>
     setOpen(prevOpen => {
       const newOpen = {};
+
       Object.keys(prevOpen)
         .concat([clickedKey])
         .forEach(key => {
@@ -35,8 +38,10 @@ export const MenuList = ({
             newOpen[key] = false;
           }
         });
+
       return newOpen;
     });
+
   return (
     <List className={classes.parentList} disablePadding>
       {items.map(
@@ -48,6 +53,7 @@ export const MenuList = ({
           selected,
         }) => {
           const title = typeof newTitle === 'function' ? newTitle() : newTitle;
+
           return (
             <MenuItem
               depth={depth}

@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { useManualQuery } from 'graphql-hooks';
-import { Description, Props, Source, Title } from '@storybook/addon-docs/dist/blocks';
+import {
+  Description,
+  Props,
+  Source,
+  Title,
+} from '@storybook/addon-docs/dist/blocks';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 import AutoComplete from './AutoComplete';
 import { DivFlex } from '../../withFlexCenter';
+
+const style = { width: '300px' };
 
 const CONTINENTS_QUERY = `query continents {
 	continents {
@@ -17,6 +24,7 @@ const options = fetch => async inputValue => {
   const {
     data: { continents },
   } = await fetch();
+
   return continents
     .map(continent => ({
       id: continent.code,
@@ -36,7 +44,7 @@ const AutoCompleteExample = () => {
     setValues(oldValues => [...oldValues, suggestion]);
 
   return (
-    <div style={{ width: '300px' }}>
+    <div style={style}>
       <AutoComplete
         options={options(fetch)}
         values={values}

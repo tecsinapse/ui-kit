@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '50%',
   },
 }));
+
 export const FloatingButton = ({
   className,
   children,
@@ -25,6 +26,7 @@ export const FloatingButton = ({
   ...props
 }) => {
   const classes = useStyles();
+
   return (
     <Fab
       aria-label="add"

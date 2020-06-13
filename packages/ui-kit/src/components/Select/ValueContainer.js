@@ -28,12 +28,14 @@ export function ValueContainer({ selectProps, children, getValue, ...props }) {
       (childList instanceof Array && childList.reduce
         ? childList.reduce((current, child) => {
             let newUsed = current;
+
             if (selectProps.valuesWidth[child.props.children] <= free) {
               // discount of left and right margin
               free -= 12;
               free -= selectProps.valuesWidth[child.props.children];
               newUsed += 1;
             }
+
             return newUsed;
           }, 0)
         : 0);

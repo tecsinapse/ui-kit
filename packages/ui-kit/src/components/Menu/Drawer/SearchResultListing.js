@@ -11,6 +11,7 @@ export const useStyles = makeStyles(theme => ({
 
 export const SearchResultListing = ({ searchResults, onClick }) => {
   const classes = useStyles();
+
   return (
     <List className={classes.parentList}>
       {searchResults.map(({ title, subtitle, component, componentProps }) => (
