@@ -102,7 +102,6 @@
     "source-map-explorer": "^2.0.0"
   },
   "engines": {
-    "node": ">=14",
-    "yarn": ">=1.17"
+    "node": ">=14"
   }
 }
