@@ -2,9 +2,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
 import TextField from '@material-ui/core/TextField/TextField';
-import { useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import MaskedInput from 'react-text-mask';
 import clsx from 'clsx';
@@ -187,30 +186,31 @@ export const TextFieldComponent = ({
   );
 };
 
-const InputUI = withStyles(
-  inputStyles
-)(
-  ({
-    classes,
-    key,
-    fullWidth = false,
-    label,
-    onChange,
-    value,
-    name,
-    warning,
-    error,
-    success,
-    disabled,
-    placeholder,
-    mask,
-    helperText,
-    endAdornment,
-    startAdornment,
-    autoComplete,
-    maxLength,
-    ...input
-  }) => (
+const useInputUIStyles = makeStyles(inputStyles);
+
+const InputUI = ({
+  key,
+  fullWidth = false,
+  label,
+  onChange,
+  value,
+  name,
+  warning,
+  error,
+  success,
+  disabled,
+  placeholder,
+  mask,
+  helperText,
+  endAdornment,
+  startAdornment,
+  autoComplete,
+  maxLength,
+  ...input
+}) => {
+  const classes = useInputUIStyles();
+
+  return (
     <TextFieldComponent
       key={key}
       error={!!error}
@@ -232,8 +232,8 @@ const InputUI = withStyles(
       maxLength={maxLength}
       {...input}
     />
-  )
-);
+  );
+};
 
 export const Input = props => <InputUI {...props} />;
 

@@ -1,4 +1,11 @@
-import { defaultGreen, defaultGreenDarker, defaultOrange, defaultOrangeDarker, defaultRed, defaultRedDarker } from '../../colors';
+import {
+  defaultGreen,
+  defaultGreenDarker,
+  defaultOrange,
+  defaultOrangeDarker,
+  defaultRed,
+  defaultRedDarker,
+} from '../../colors';
 
 export const stylesError = {
   cssOutlinedInputRed: {
@@ -15,6 +22,7 @@ export const stylesError = {
     },
   },
 };
+
 export const stylesSuccess = {
   cssOutlinedInputSuccess: {
     '& $notchedOutline': {
@@ -34,6 +42,7 @@ export const stylesSuccess = {
     color: defaultGreen,
   },
 };
+
 export const stylesWarning = {
   cssOutlinedInputWarning: {
     '& $notchedOutline': {
@@ -65,7 +74,7 @@ export const inputStyles = theme => ({
     paddingRight: `0px !important`,
   },
   inputRoot: {
-    paddingRight: theme.spacing(1 / 3),
+    paddingRight: theme.spacing(0.333),
   },
   cssOutlinedInput: {
     '&$cssFocused $notchedOutline': {

@@ -12,7 +12,6 @@ import { SizeMe } from 'react-sizeme';
 import { selectInputStyle } from './SelectInputStyle';
 import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';
 import { selectCustomWebComponents } from './SelectCustomWebComponents';
-import { inputStyles } from '../Inputs/InputStyles';
 import { calculateValuesSizes } from './CalculateOptionsWidth';
 
 const flattenChildren = childrenIn =>
@@ -108,6 +107,8 @@ const SelectUnstyled = ({
       label,
       disabled,
       error,
+      classes,
+      warning,
       InputLabelProps: {
         shrink: true,
       },
@@ -186,13 +187,15 @@ const SelectUnstyled = ({
     selectProps.options,
   ]);
 
+  const style = { minWidth };
+
   return (
     <div ref={selectRef}>
       <FormControl
         key={key}
         error={!!error}
         fullWidth={fullWidth}
-        style={{ minWidth }}
+        style={style}
       >
         <SizeMe noPlaceholder>
           {({ size }) => (
@@ -292,10 +295,7 @@ const propTypes = {
 SelectUnstyled.propTypes = propTypes;
 SelectUnstyled.defaultProps = defaultProps1;
 
-const useSelectStyles = makeStyles(theme => ({
-  ...selectInputStyle(theme),
-  ...inputStyles(theme),
-}));
+const useSelectStyles = makeStyles(selectInputStyle);
 
 const Select = props => {
   const classes = useSelectStyles();
