@@ -1,6 +1,5 @@
 {
   "name": "@tecsinapse/ui-kit",
-  "version": "4.3.8",
   "private": true,
   "description": "TecSinapse UI-KIT",
   "workspaces": [

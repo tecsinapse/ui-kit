@@ -23,7 +23,7 @@ const StyledValueLabel = withStyles({
 export const DateSlider = ({
   range,
   values = [],
-  onChangeFunction,
+  onChange,
   labelDisplay,
   locale,
   days,
@@ -39,9 +39,9 @@ export const DateSlider = ({
     setDateIndex(newValue);
 
     if (simple) {
-      onChangeFunction([range[0], range[dateIndex]]);
+      onChange([range[0], range[dateIndex]]);
     } else {
-      onChangeFunction([range[dateIndex[0]], range[dateIndex[1]]]);
+      onChange([range[dateIndex[0]], range[dateIndex[1]]]);
     }
   };
 
@@ -53,13 +53,13 @@ export const DateSlider = ({
   const formatLabel = (value, index) =>
     values && values.length > 0
       ? values[simple ? 1 : index].toLocaleDateString(locale)
-      : onChangeFunction([range[0], range[range.length - 1]]);
+      : onChange([range[0], range[range.length - 1]]);
 
   return (
     <Slider
       color={renderStyledColor(variant)}
       value={dateIndex}
-      onChangeFunction={handleChange}
+      onChange={handleChange}
       onChangeCommitted={handleChange}
       valueLabelFormat={formatLabel}
       ValueLabelComponent={StyledValueLabel}
@@ -86,7 +86,7 @@ DateSlider.propTypes = {
   /** Values to be changed or initial value */
   values: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
   /** Function triggered on slider change */
-  onChangeFunction: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   /** Disables the slider */
   disabled: PropTypes.bool,
   /** Label display mode */
