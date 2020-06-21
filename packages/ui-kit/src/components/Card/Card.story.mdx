@@ -1,0 +1,165 @@
+import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
+import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
+import Icon from '@mdi/react';
+import { grey } from '@material-ui/core/colors';
+import Chip from '@material-ui/core/Chip';
+import { mdiAccount, mdiEmail, mdiKey } from '@mdi/js';
+import { DivFlex } from '../../withFlexCenter';
+import { UiKitCard } from './UiKitCard';
+import { CardStory } from './CardStory';
+import { Button } from '../Buttons/Button';
+
+<Meta
+  title={`${GROUPS.COMPONENTS}|Card`}
+  decorators={[story => <DivFlex>{story()}</DivFlex>]}
+/>
+
+# Card
+
+This component is exported from UI-KIT as `Card`. The component can receive the following props:
+
+<Props of={UiKitCard} />
+
+# Code snippets
+
+Here you can check the code snippet for the story.
+
+## Full
+
+<Story name="Full" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const title = {
+      name: 'UI-KIT Card',
+      components: (
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <Chip
+            label="React"
+            size="small"
+            style={{
+              marginTop: '-1px',
+              fontSize: '10px',
+              height: 'auto',
+              padding: '2px 4px',
+              color: '#FFF',
+              marginLeft: '6px',
+              paddingLeft: '5px',
+              paddingRight: '5px',
+              fontWeight: 500,
+              backgroundColor: grey[700],
+            }}
+          />
+        </div>
+      ),
+    };
+    const actions = (
+      <div
+        style={{
+          padding: '8px 15px',
+          justifyContent: 'space-between',
+          display: 'flex',
+        }}
+      >
+        <Button>
+          <Icon path={mdiAccount} size={1} />
+        </Button>
+        <Button>
+          <Icon path={mdiKey} size={1} />
+        </Button>
+        <Button>
+          <Icon path={mdiEmail} size={1} />
+        </Button>
+
+      </div>
+    );
+
+    return (
+      <div style={{ width: '350px' }}>
+        <CardStory
+          onClick={() => console.log('card click')}
+          title={title}
+          subtitle="Subtitle example"
+          content="Description"
+          subContent="Extra content"
+          actions={actions}
+        />
+      </div>
+    );
+  }}
+</Story>
+
+<Source id="components-card--full" />
+
+## Custom subtitle color
+
+<Story name="Custom subtitle color" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const title = {
+      name: 'UI-KIT Card',
+      components: (
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <Chip
+            label="React"
+            size="small"
+            style={{
+              marginTop: '-1px',
+              fontSize: '10px',
+              height: 'auto',
+              padding: '2px 4px',
+              color: '#FFF',
+              marginLeft: '6px',
+              paddingLeft: '5px',
+              paddingRight: '5px',
+              fontWeight: 500,
+              backgroundColor: grey[700],
+            }}
+          />
+        </div>
+      ),
+    };
+    const actions = (
+      <div
+        style={{
+          padding: '8px 15px',
+          justifyContent: 'space-between',
+          display: 'flex',
+        }}
+      >
+        <Button>
+          <Icon path={mdiAccount} size={1} />
+        </Button>
+        <Button>
+          <Icon path={mdiKey} size={1} />
+        </Button>
+        <Button>
+          <Icon path={mdiEmail} size={1} />
+        </Button>
+      </div>
+    );
+
+    return (
+      <div style={{ width: '350px' }}>
+        <CardStory
+          styleCard={{ customSubtitleColor: 'orange' }}
+          onClick={() => console.log('card click')}
+          title={title}
+          subtitle="Subtitle example"
+          content="Description"
+          subContent="Extra content"
+          actions={actions}
+        />
+      </div>
+    );
+  }}
+</Story>
+
+<Source id="components-card--custom-subtitle-color" />

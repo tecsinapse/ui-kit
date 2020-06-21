@@ -1,10 +1,20 @@
 {
   "plugins": ["prettier", "react-hooks"],
+  "extends": [
+    "react-app",
+    "plugin:mdx/recommended",
+    "@tecsinapse/tecsinapse-js"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "import/no-cycle": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/require-default-props": "off"
-  },
-  "extends": ["react-app", "@tecsinapse/tecsinapse-js", "plugin:mdx/recommended"]
+    "react/require-default-props": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx", ".mdx"]
+      }
+    ]
+  }
 }
