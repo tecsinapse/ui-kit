@@ -1,9 +1,9 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
-import { useState } from 'react';
 import { ValueSlider } from './ValueSlider';
 import { GROUPS } from '../../../../../../.storybook/hierarchySeparators';
 import { DivFlex } from '../../../withFlexCenter';
 import { defaultOrange } from '../../../colors';
+import { marks, stylesValue } from './helperStory';
 
 <Meta
   title={`${GROUPS.COMPONENTS}|Value Slider`}
@@ -25,23 +25,7 @@ Here you can check the code snippet for the story.
 ## Interval slider
 
 <Story name="Value slider" parameters={{ docs: { disable: true } }}>
-  {() => {
-    const marks = [
-      {
-        value: 0,
-        label: '0',
-      },
-      {
-        value: 3,
-        label: '3',
-      },
-      {
-        value: 5,
-        label: '5',
-      },
-    ];
-    return (
-      <div style={{ width: '75%', marginTop: '5vh' }}>
+      <div style={stylesValue}>
         <ValueSlider
           colorSlider={defaultOrange}
           value="3"
@@ -52,8 +36,6 @@ Here you can check the code snippet for the story.
           max={5}
         />
       </div>
-    );
-  }}
 </Story>
 
 <Source id="components-value-slider--simple-slider" />

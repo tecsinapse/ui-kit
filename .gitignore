@@ -102,3 +102,14 @@ public/*
 ./packages/ui-kit/lib/
 packages/ui-kit/lib/
 packages/ui-kit/lib/*
+
+./ui-kit/
+ui-kit/
+ui-kit/*
+
+.yalc
+.yalc/*
+./yalc.lock
+yalc.lock
+./lerna-debug.log
+lerna-debug.log

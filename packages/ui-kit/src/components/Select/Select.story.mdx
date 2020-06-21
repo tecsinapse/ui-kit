@@ -1,9 +1,9 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
+import { useState } from 'react';
 import { SelectUnstyled, Select } from './Select';
 import { DivFlex } from '../../withFlexCenter';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 import { options } from './storyHelper';
-import { useState } from 'react';
 import { mdiPlus, mdiEye } from '@mdi/js';
 import Icon from '@mdi/react';
 import { IconButton } from '../Buttons/IconButton';
@@ -28,6 +28,7 @@ Here you can check the code snippet for the story.
 <Story name="Auto detect" parameters={{ docs: { disable: true } }}>
   {() => {
     const [value, setValue] = useState('a');
+
     return (
       <Select
         value={value}
@@ -46,6 +47,7 @@ Here you can check the code snippet for the story.
 <Story name="No value" parameters={{ docs: { disable: true } }}>
   {() => {
     const [value, setValue] = useState([null]);
+
     return (
       <Select
         value={value}
@@ -66,6 +68,7 @@ Here you can check the code snippet for the story.
 <Story name="No value multi" parameters={{ docs: { disable: true } }}>
   {() => {
     const [value, setValue] = useState([null]);
+
     return (
       <Select
         value={value}
@@ -90,6 +93,7 @@ Here you can check the code snippet for the story.
 >
   {() => {
     const [value, setValue] = useState([null]);
+
     return (
       <Select
         value={value}
@@ -120,6 +124,7 @@ Here you can check the code snippet for the story.
 >
   {() => {
     const [value, setValue] = useState([null]);
+
     return (
       <Select
         value={value}
@@ -148,6 +153,7 @@ Here you can check the code snippet for the story.
 <Story name="Web" parameters={{ docs: { disable: true } }}>
   {() => {
     const [value, setValue] = useState('a');
+
     return (
       <Select
         value={value}
@@ -167,6 +173,7 @@ Here you can check the code snippet for the story.
 <Story name="Mobile" parameters={{ docs: { disable: true } }}>
   {() => {
     const [value, setValue] = useState('a');
+
     return (
       <Select
         value={value}
@@ -186,6 +193,7 @@ Here you can check the code snippet for the story.
 <Story name="Web multi" parameters={{ docs: { disable: true } }}>
   {() => {
     const [value, setValue] = useState('a');
+
     return (
       <Select
         value={value}
@@ -206,6 +214,7 @@ Here you can check the code snippet for the story.
 <Story name="Mobile multi" parameters={{ docs: { disable: true } }}>
   {() => {
     const [value, setValue] = useState('a');
+
     return (
       <Select
         value={value}
@@ -229,6 +238,7 @@ Here you can check the code snippet for the story.
 >
   {() => {
     const [value, setValue] = useState('a');
+
     return (
       <Select
         value={value}
@@ -250,6 +260,7 @@ Here you can check the code snippet for the story.
 <Story name="Show auto" parameters={{ docs: { disable: true } }}>
   {() => {
     const [multiValue, setMultiValue] = useState(['a', 'b', 'c']);
+
     return (
       <div
         style={{

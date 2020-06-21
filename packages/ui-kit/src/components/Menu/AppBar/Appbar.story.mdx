@@ -1,11 +1,11 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
-import { GROUPS } from '../../../../../../.storybook/hierarchySeparators';
 import { AppBar } from './AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import { mdiBell, mdiOneUp, mdiShieldHalfFull, mdiTurtle } from '@mdi/js';
 import Icon from '@mdi/react';
 import { appBarStyles, StyledAppBar } from './storyHelper';
 import Badge from '@material-ui/core/Badge';
+import { GROUPS } from '../../../../../../.storybook/hierarchySeparators';
 
 <Meta title={`${GROUPS.MENU}|App Bar`} />
 
@@ -24,6 +24,7 @@ Here you can check the code snippet for the story.
 <Story name="App bar" parameters={{ docs: { disable: true } }}>
   {() => {
     const classes = appBarStyles();
+
     return (
       <AppBar
         leftIcons={
@@ -130,6 +131,7 @@ Here you can check the code snippet for the story.
 <Story name="Search bar mobile" parameters={{ docs: { disable: true } }}>
   {() => {
     const classes = appBarStyles();
+
     return (
       <StyledAppBar
         leftIcons={

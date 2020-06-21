@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
 import { useState } from 'react';
+import Icon from '@mdi/react';
 import { IconButton } from './IconButton';
 import { FloatingButton } from './FloatingButton';
 import { FloatingButtonList } from './FloatingButtonList';
@@ -7,7 +8,6 @@ import { DivButton } from './DivButton';
 import { Button } from './Button';
 import { DivFlex } from '../../withFlexCenter';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
-import Icon from '@mdi/react';
 import FileCopyRounded from '@material-ui/icons/FileCopyRounded';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { mdiFolderPlus } from '@mdi/js';
@@ -24,10 +24,10 @@ Each Button component can receive the following props:
 
 <Props
   components={{
-    Button: Button,
-    IconButton: IconButton,
-    FloatingButton: FloatingButton,
-    DivButton: DivButton,
+    Button,
+    IconButton,
+    FloatingButton,
+    DivButton,
   }}
 />
 
@@ -58,6 +58,7 @@ Here you can check the code snippet for the story.
 <Story name="Success submitting" parameters={{ docs: { disable: true } }}>
   {() => {
     const [submitting, setSub] = useState(false);
+
     return (
       <Button
         customVariant="success"
@@ -149,6 +150,7 @@ Here you can check the code snippet for the story.
     {
         () => {
             const [open, setOpen] = useState(true);
+
             return (<FloatingButtonList onClick={() => setOpen(!open)} open={open}
                   items={items}
             />);

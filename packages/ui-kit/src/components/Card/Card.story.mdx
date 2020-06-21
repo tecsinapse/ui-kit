@@ -1,10 +1,10 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
-import { DivFlex } from '../../withFlexCenter';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 import Icon from '@mdi/react';
 import { grey } from '@material-ui/core/colors';
 import Chip from '@material-ui/core/Chip';
 import { mdiAccount, mdiEmail, mdiKey } from '@mdi/js';
+import { DivFlex } from '../../withFlexCenter';
 import { UiKitCard } from './UiKitCard';
 import { CardStory } from './CardStory';
 import { Button } from '../Buttons/Button';
@@ -73,8 +73,10 @@ Here you can check the code snippet for the story.
         <Button>
           <Icon path={mdiEmail} size={1} />
         </Button>
+
       </div>
     );
+
     return (
       <div style={{ width: '350px' }}>
         <CardStory
@@ -143,6 +145,7 @@ Here you can check the code snippet for the story.
         </Button>
       </div>
     );
+
     return (
       <div style={{ width: '350px' }}>
         <CardStory
