@@ -106,3 +106,8 @@ packages/ui-kit/lib/*
 ./ui-kit/
 ui-kit/
 ui-kit/*
+
+.yalc
+.yalc/*
+./yalc.lock
+./lerna-debug.log
