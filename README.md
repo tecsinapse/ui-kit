@@ -56,3 +56,17 @@ Para rodar o app de exemplo, fazer o link da lib na pasta de exemplo após execu
 ```
 
 As modificações na lib serão refletidas após build da lib.
+
+# Outras libs
+
+| LIB                        |      Repo         | Storybook        |
+| -------------------------- | ----------------- |----------------- |
+| @tecsinapse/carousel    |  [Repo](https://github.com/tecsinapse/ui-kit)        |[Storybook](https://github.com/tecsinapse/ui-kit)        |
+| @tecsinapse/wizard    |  [Repo](https://github.com/tecsinapse/wizard)        |[Storybook](https://github.com/tecsinapse/wizard)        |
+| @tecsinapse/uploader    |  [Repo](https://github.com/tecsinapse/uploader)        |[Storybook](https://github.com/tecsinapse/uploader)        |
+| @tecsinapse/chat    |  [Repo](https://github.com/tecsinapse/chat)        |[Storybook](https://github.com/tecsinapse/chat)        |
+| @tecsinapse/table    |  [Repo](https://github.com/tecsinapse/table)        |[Storybook](https://github.com/tecsinapse/table)        |
+| @tecsinapse/login    |  [Repo](https://github.com/tecsinapse/login)        |[Storybook](https://github.com/tecsinapse/login)        |
+| @tecsinapse/pickers    |  [Repo](https://github.com/tecsinapse/pickers)        |[Storybook](https://github.com/tecsinapse/pickers)        |
+| @tecsinapse/text-editor    |  [Repo](https://github.com/tecsinapse/text-editor)        |[Storybook](https://github.com/tecsinapse/text-editor)        |
+| @tecsinapse/timeslot-selector    |  [Repo](https://github.com/tecsinapse/timeslot-selector)        |[Storybook](https://github.com/tecsinapse/timeslot-selector)        |
