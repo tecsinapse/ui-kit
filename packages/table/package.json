@@ -2,7 +2,7 @@
   "name": "@tecsinapse/table",
   "description": "TecSinapse Table",
   "homepage": "https://github.com/tecsinapse/table#readme",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0",
   "main": "../dist/index.cjs.js",
   "module": "build/index.js",
   "author": {
@@ -29,7 +29,7 @@
     "@mdi/js": "^5.3.45",
     "@mdi/react": "^1.4.0",
     "@tecsinapse/es-utils": "^6.0.10",
-    "@tecsinapse/ui-kit": "^5.0.17-alpha.0",
+    "@tecsinapse/ui-kit": "^5.0.17",
     "clsx": "^1.0.4",
     "prop-types": "^15.6.2",
     "react-virtualized": "^9.21.0"
