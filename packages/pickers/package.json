@@ -1,0 +1,61 @@
+{
+  "name": "@tecsinapse/pickers",
+  "description": "TecSinapse Pickers",
+  "homepage": "https://github.com/tecsinapse/pickers#readme",
+  "version": "2.0.0-alpha.0",
+  "main": "dist/index.cjs.js",
+  "module": "build/index.js",
+  "author": {
+    "name": "TecSinapse"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecsinapse/pickers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tecsinapse/pickers/issues"
+  },
+  "keywords": [
+    "date",
+    "pickers",
+    "react",
+    "tecsinapse",
+    "time",
+    "ui-kit"
+  ],
+  "dependencies": {
+    "@date-io/luxon": "^1.1.0",
+    "@material-ui/core": "^4.2.1",
+    "@material-ui/icons": "^4.2.1",
+    "@material-ui/pickers": "^3.1.2",
+    "@material-ui/styles": "^4.2.1",
+    "@tecsinapse/es-utils": "^6.0.10",
+    "@tecsinapse/material-ui-color-picker": "^4.3.0",
+    "@tecsinapse/ui-kit": "^5.0.17-alpha.0",
+    "clsx": "^1.0.4",
+    "luxon": "^1.11.2",
+    "prop-types": "^15.6.2"
+  },
+  "files": [
+    "build",
+    "dist"
+  ],
+  "scripts": {
+    "analyze": "npx source-map-explorer 'dist/*.js'",
+    "build": "rimraf -rf build/ && babel src/ -d build/ && rollup -c",
+    "build-all": "yarn build && yarn storybook:build",
+    "build-publish": "yarn build-all && npm publish",
+    "dev": "rollup -c -w",
+    "start": "yarn install && yarn storybook",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook:build": "build-storybook -c .storybook -o docs/",
+    "test": "NODE_ENV=test jest",
+    "test:windows": "set NODE_ENV=test&& jest"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "sideEffects": false
+}
