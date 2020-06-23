@@ -185,20 +185,13 @@ export const renderStyledColor = variant =>
     : 'primary';
 
 export const renderStyledLabel = (label, variant) => {
-  if (variant === themes.yellow) {
-    return <div style={{ color: defaultBlue }}>{label}</div>;
-  }
+  const customThemes = [themes.yellow, themes.blueGrey, themes.blueOcean];
 
-  if (variant === themes.blueGrey) {
-    // eslint-disable-next-line no-inline-styles/no-inline-styles
-    return <div style={{ color: '#0f3399' }}>{label}</div>;
-  }
+  if (customThemes.includes(variant)) {
+    const pallete = themeColors[variant];
+    const customColor = { color: pallete.secondary.main };
 
-  if (variant === themes.blueOcean) {
-    const pallete = themeColors[themes.blueOcean];
-
-    // eslint-disable-next-line no-inline-styles/no-inline-styles
-    return <div style={{ color: pallete.secondary.main }}>{label}</div>;
+    return <div style={customColor}>{label}</div>;
   }
 
   return label;
