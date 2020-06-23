@@ -59,6 +59,7 @@ export function FormUploader({
   const matches = useMediaQuery(useTheme().breakpoints.down('xs'));
 
   let mobile = false;
+
   if (variant === 'auto') {
     if (matches) {
       mobile = true;

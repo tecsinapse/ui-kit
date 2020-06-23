@@ -33,54 +33,8 @@
     "clsx": "^1.0.4",
     "material-ui-dots": "^2.0.0",
     "prop-types": "^15.6.2",
-    "react-swipeable-views": "^0.13.1"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
-    "@babel/plugin-transform-react-jsx": "^7.7.4",
-    "@babel/plugin-transform-runtime": "^7.7.4",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-docs": "^5.3.8",
-    "@storybook/addon-options": "^5.3.8",
-    "@storybook/react": "^5.3.8",
-    "@tecsinapse/eslint-config-tecsinapse-js": "^2.1.4",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "babel-core": "^7.0.0-beta.3",
-    "babel-jest": "^24.9.0",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-inline-react-svg": "^1.0.1",
-    "core-js": "2.5.7",
-    "eslint-config-react-app": "^5.0.2",
-    "eslint-plugin-mdx": "^1.6.5",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react-hooks": "^2.3.0",
-    "git-dirty": "^1.0.2",
-    "husky": "^1.3.1",
-    "jest": "^24.9.0",
-    "lint-staged": "^8.1.3",
-    "markdown-to-jsx": "^6.10.3",
-    "npm-check-updates": "^3.1.23",
-    "prettier": "^1.18.2",
-    "prettier-plugin-packagejson": "^2.0.1",
-    "promise-polyfill": "^8.1.3",
-    "react-popper": "^1.3.4",
-    "react-textarea-autosize": "^7.1.0",
-    "regenerator-runtime": "^0.12.1",
-    "rimraf": "^2.6.3",
-    "rollup": "^0.68.2",
-    "rollup-plugin-auto-external": "^2.0.0",
-    "rollup-plugin-babel": "4.0.3",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-filesize": "^5.0.1",
-    "rollup-plugin-local-resolve": "^1.0.7",
-    "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
-    "source-map-explorer": "^2.0.0"
+    "react-swipeable-views": "^0.13.1",
+    "react-swipeable-views-utils": "^0.13.9"
   },
   "files": [
     "build",
@@ -98,19 +52,6 @@
     "test": "NODE_ENV=test jest"
   },
   "license": "MIT",
-  "husky": {
-    "hooks": {
-      "post-commit": "git update-index --again",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --max-warnings=0 --fix --no-ignore",
-      "prettier --write",
-      "git add"
-    ]
-  },
   "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

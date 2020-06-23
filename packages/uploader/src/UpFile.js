@@ -10,6 +10,8 @@ import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/styles';
 import { isImage } from './helper';
 
+const style = { marginLeft: '2%' };
+const style1 = { padding: '0px' };
 const useStyle = makeStyles({
   item: {
     backgroundColor: '#f7f7f7',
@@ -134,21 +136,13 @@ export function UpFile({
                 <Typography variant="subtitle2" noWrap className={classes.name}>
                   {filename}
                 </Typography>
-                <Typography
-                  color="textSecondary"
-                  variant="body2"
-                  style={{ marginLeft: '2%' }}
-                >
+                <Typography color="textSecondary" variant="body2" style={style}>
                   ({filesize})
                 </Typography>
                 {error ? (
                   <div className={classes.errorDiv}>
                     <ErrorOutlineOutlined fontSize="small" />
-                    <Typography
-                      variant="caption"
-                      style={{ marginLeft: '2%' }}
-                      noWrap
-                    >
+                    <Typography variant="caption" style={style} noWrap>
                       {error}
                     </Typography>
                   </div>
@@ -162,7 +156,7 @@ export function UpFile({
             setShowAlert(true);
             setSelectedUID(uid);
           }}
-          style={{ padding: '0px' }}
+          style={style1}
         >
           <Clear fontSize="small" />
         </IconButton>

@@ -88,6 +88,7 @@ export const AutoRotatingCarousel = ({
   // const matches = true;
 
   let mobile = false;
+
   if (variant === 'auto') {
     if (matches) {
       mobile = true;

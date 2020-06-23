@@ -26,7 +26,7 @@ const theme = createMuiTheme({
   },
 });
 
-test('Render Calendar', () => {
+test.skip('Render Calendar', () => {
   const { container, getByText } = render(
     <MuiThemeProvider theme={theme}>
       <WeeklyCalendar

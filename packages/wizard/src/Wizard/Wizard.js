@@ -7,7 +7,7 @@ import { mdiInformation } from '@mdi/js';
 import PropTypes from 'prop-types';
 import { Stepper } from '../Stepper/Stepper';
 import { Circular } from '../Circular/Circular';
-import { useStyles, alertColor, iconMargin } from './styles';
+import { alertColor, iconMargin, useStyles } from './styles';
 
 export const Wizard = ({
   children,
@@ -37,6 +37,7 @@ export const Wizard = ({
 
   const nextStep = async increment => {
     const onChangeError = await onChange(activeStep + increment);
+
     if (onChangeError) {
       setError(onChangeError);
     } else {
@@ -47,6 +48,7 @@ export const Wizard = ({
   const handleBack = () => {
     nextStep(-1);
   };
+
   const handleNext = () => {
     nextStep(+1);
   };

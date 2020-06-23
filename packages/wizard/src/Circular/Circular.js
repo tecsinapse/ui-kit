@@ -14,9 +14,7 @@ export const Circular = ({
   warning,
 }) => {
   const classes = useStyles();
-  const steps = React.Children.map(children, arg => {
-    return arg.props.title;
-  });
+  const steps = React.Children.map(children, arg => arg.props.title);
 
   const radius = (size - strokeWidth) / 2;
   // Arc length at 100% coverage is the circle circumference

@@ -12,13 +12,18 @@ import { DatePicker } from '../Picker/DatePicker';
 import { PickersProvider } from '../Picker/PickersProvider';
 
 export const WEEK_DAYS = 7;
+const style = { textAlign: 'center' };
+const style1 = { display: 'flex' };
 
 export const fillWeekDays = (startDate, days) => {
   const weekDaysTemp = [];
+
   for (let i = 0; i < days; i++) {
     const day = i === 0 ? startDate : startDate.plus({ days: i });
+
     weekDaysTemp.push(day);
   }
+
   return weekDaysTemp;
 };
 
@@ -36,6 +41,7 @@ export const WeeklyCalendarComponent = ({
 
   const handleWeekChange = startDay => {
     const localizedDate = startDay.setLocale(locale);
+
     if (localizedDate.equals(weekDays[0])) {
       return;
     }
@@ -44,11 +50,13 @@ export const WeeklyCalendarComponent = ({
 
   const previousWeek = () => {
     const nextWeekStart = selectedDay.minus({ day: 7 });
+
     setWeekDays(fillWeekDays(nextWeekStart.setLocale(locale), WEEK_DAYS));
   };
 
   const nextWeek = () => {
     const nextWeekStart = selectedDay.plus({ day: 7 });
+
     setWeekDays(fillWeekDays(nextWeekStart.setLocale(locale), WEEK_DAYS));
   };
 
@@ -73,18 +81,14 @@ export const WeeklyCalendarComponent = ({
           onChange={newDate => handleWeekChange(newDate.startOf('week'))}
           format="dd/MM/yyyy"
           customTextFieldComponentInput={() => (
-            <Typography
-              variant="h6"
-              style={{ textAlign: 'center' }}
-              color="primary"
-            >
+            <Typography variant="h6" style={style} color="primary">
               {selectedDay.toFormat('MMMM, yyyy')}
             </Typography>
           )}
         />
       </PickersProvider>
 
-      <div style={{ display: 'flex' }}>
+      <div style={style1}>
         <Button
           className={classes.cssButtonWeekChange}
           onClick={() => previousWeek()}
@@ -146,6 +150,7 @@ const WeeklyCalendarUI = ({
   ...other
 }) => {
   const classes = useStyles();
+
   return (
     <WeeklyCalendarComponent
       classes={classes}

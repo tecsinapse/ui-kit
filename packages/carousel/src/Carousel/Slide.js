@@ -135,9 +135,11 @@ export const Slide = ({
         }}
         onError={e => {
           e.stopPropagation();
+
           if (showLoad) {
             setShowLoad(false);
           }
+
           if (!showError) {
             setShowError(true);
           }

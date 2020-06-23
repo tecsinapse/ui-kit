@@ -123,6 +123,7 @@ export const Uploader = forwardRef(
             variant: 'error',
             msg: maximumFileLimitMessage(filesLimit),
           });
+
           if (onReject) {
             onReject(
               acceptedFiles.map(file => ({
@@ -136,15 +137,20 @@ export const Uploader = forwardRef(
       onDropRejected: rejectedFiles => {
         let message = '';
         const errorFile = [];
+
         rejectedFiles.forEach(rejectedFile => {
           let messageFile = '';
+
           message += filenameFailedMessage(rejectedFile.name);
+
           if (acceptedFormat && !acceptedFormat.includes(rejectedFile.type)) {
             messageFile += filetypeNotSupportedMessage;
           }
+
           if (rejectedFile.size > maxFileSize) {
             messageFile += sizeLimitErrorMessage(convertBytes(maxFileSize));
           }
+
           if (messageFile === '') {
             messageFile = undefinedErrorMessage;
           }
@@ -155,6 +161,7 @@ export const Uploader = forwardRef(
           variant: 'error',
           msg: message,
         });
+
         if (onReject && errorFile.length > 0) {
           onReject(errorFile);
         }

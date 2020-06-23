@@ -10,6 +10,7 @@ import { ConfirmationAlert, Snackbar } from '@tecsinapse/ui-kit';
 import { convertBytes } from './helper';
 import { UpFile } from './UpFile';
 
+const style = { marginTop: '2%' };
 const useStyle = makeStyles({
   root: {
     display: 'flex',
@@ -136,7 +137,7 @@ export function PreviewList({
           {headerLabel && (
             <div>
               <Typography variant="h6">{headerLabel}</Typography>
-              <Divider style={{ marginTop: '2%' }} />
+              <Divider style={style} />
             </div>
           )}
           <div className={classes.scrollHiddenBar}>

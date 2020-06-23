@@ -6,12 +6,15 @@
     "packages/*"
   ],
   "scripts": {
+    "test": "NODE_ENV=test jest",
+    "test:windows": "set NODE_ENV=test&& jest",
+    "coverage": "jest --coverage",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "prebuild": "rimraf -rf build/",
     "build": "lerna exec --parallel -- babel --root-mode upward src -d build --ignore **/*.story.js,**/*.spec.js,**/*.story.mdx",
     "build:storybook": "build-storybook -c .storybook -s ./storybook-public -o docs/",
     "dev": "start-storybook -p 5555",
-    "eslint:fix": "npx eslint ./packages/ui-kit/src/ ./packages/table/src/ --ext .js --fix",
+    "eslint:fix": "npx eslint ./packages/carousel/src ./packages/pickers/src ./packages/wizard/src ./packages/uploader/src ./packages/ui-kit/src/ ./packages/table/src/ --ext .js --fix",
     "prepublish": "yarn build"
   },
   "husky": {

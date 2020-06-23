@@ -49,19 +49,17 @@ const useStyle = makeStyles(theme => ({
     color: '#676767',
   },
   highlight: {
-    background: ({ highligthBgColor }) => {
-      return isNotUndefOrNull(highligthBgColor)
+    background: ({ highligthBgColor }) =>
+      isNotUndefOrNull(highligthBgColor)
         ? highligthBgColor
-        : theme.palette.primary.main;
-    },
+        : theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
     fontWeight: theme.typography.fontWeightMedium,
     '&:hover': {
-      backgroundColor: ({ highligthBgColor }) => {
-        return isNotUndefOrNull(highligthBgColor)
+      backgroundColor: ({ highligthBgColor }) =>
+        isNotUndefOrNull(highligthBgColor)
           ? highligthBgColor
-          : theme.palette.primary.main;
-      },
+          : theme.palette.primary.main,
     },
   },
   badge: {

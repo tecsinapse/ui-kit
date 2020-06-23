@@ -8,26 +8,34 @@ import { modulo } from './util';
 const VirtualizeSwipeViews = bindKeyboard(virtualize(SwipeableViews));
 const VirtualizeAutoPlaySwipeViews = autoPlay(VirtualizeSwipeViews);
 
+const style = { backgroundColor: 'black', height: '100%' };
+const slideStyle = { height: '100%' };
+const containerStyle = { height: '100%' };
+const style1 = { backgroundColor: 'black', height: '100%' };
+const slideStyle1 = { height: '100%' };
+const containerStyle1 = { height: '100%' };
+
 const carouselSlideRenderer = children => ({ index, key }) =>
   React.cloneElement(children[modulo(index, children.length)], { key });
 
 export default function Carousel({ children, autoplay, ...other }) {
   const slideRenderer = carouselSlideRenderer(children);
+
   return autoplay ? (
     <VirtualizeAutoPlaySwipeViews
       {...other}
       slideRenderer={slideRenderer}
-      style={{ backgroundColor: 'black', height: '100%' }}
-      slideStyle={{ height: '100%' }}
-      containerStyle={{ height: '100%' }}
+      style={style}
+      slideStyle={slideStyle}
+      containerStyle={containerStyle}
     />
   ) : (
     <VirtualizeSwipeViews
       {...other}
       slideRenderer={slideRenderer}
-      style={{ backgroundColor: 'black', height: '100%' }}
-      slideStyle={{ height: '100%' }}
-      containerStyle={{ height: '100%' }}
+      style={style1}
+      slideStyle={slideStyle1}
+      containerStyle={containerStyle1}
     />
   );
 }

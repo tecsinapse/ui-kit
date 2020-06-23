@@ -1,6 +1,7 @@
 export function isImage(fileName) {
   // import AttachFileIcon from '@material-ui/icons/AttachFile';
   const suffix = fileName.substr(fileName.indexOf('.') + 1).toLowerCase();
+
   if (
     suffix === 'jpg' ||
     suffix === 'jpeg' ||
@@ -9,10 +10,13 @@ export function isImage(fileName) {
   ) {
     return true;
   }
+
   return false;
 }
+
 export function convertBytes(filesize) {
   let size = '';
+
   if (filesize >= 1000000) {
     size = `${Math.round(filesize / 1000000)}Mb`;
   } else if (filesize >= 1000) {
@@ -20,5 +24,6 @@ export function convertBytes(filesize) {
   } else {
     size = `${Math.round(filesize)}bytes`;
   }
+
   return size;
 }

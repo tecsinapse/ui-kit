@@ -56,6 +56,7 @@ export const UploaderStory = forwardRef(
     const onAccept = newFiles => {
       setOpen(true);
       const copyFiles = { ...files };
+
       newFiles.forEach(file => {
         const reader = new FileReader();
         const uid = uniqid();
@@ -82,6 +83,7 @@ export const UploaderStory = forwardRef(
     const onReject = newFiles => {
       setOpen(true);
       const copyFiles = { ...files };
+
       newFiles.forEach(fileObj => {
         const uid = uniqid();
 

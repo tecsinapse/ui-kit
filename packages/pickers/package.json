@@ -53,19 +53,6 @@
     "test:windows": "set NODE_ENV=test&& jest"
   },
   "license": "MIT",
-  "husky": {
-    "hooks": {
-      "post-commit": "git update-index --again",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --max-warnings=0 --fix --no-ignore",
-      "prettier --write",
-      "git add"
-    ]
-  },
   "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
