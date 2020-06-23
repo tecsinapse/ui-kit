@@ -29,7 +29,7 @@
     "@mdi/js": "^5.3.45",
     "@mdi/react": "^1.4.0",
     "@tecsinapse/es-utils": "^6.0.10",
-    "@tecsinapse/ui-kit": "^5.0.18",
+    "@tecsinapse/ui-kit": "^5.0.20",
     "clsx": "^1.0.4",
     "prop-types": "^15.6.2",
     "react-virtualized": "^9.21.0"
