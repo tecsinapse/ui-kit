@@ -1,7 +1,6 @@
 {
   "name": "@tecsinapse/table",
   "description": "TecSinapse Table",
-  "homepage": "https://github.com/tecsinapse/table#readme",
   "version": "3.0.0",
   "main": "../dist/index.cjs.js",
   "module": "build/index.js",
@@ -10,11 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tecsinapse/table.git"
+    "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
   },
   "bugs": {
-    "url": "https://github.com/tecsinapse/table/issues"
+    "url": "https://github.com/tecsinapse/ui-kit/issues"
   },
+  "homepage": "https://github.com/tecsinapse/ui-kit#readme",
   "keywords": [
     "material-ui",
     "react",

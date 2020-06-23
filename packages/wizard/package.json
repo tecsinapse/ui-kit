@@ -1,7 +1,6 @@
 {
   "name": "@tecsinapse/wizard",
   "description": "TecSinapse Wizard",
-  "homepage": "https://github.com/tecsinapse/wizard#readme",
   "version": "3.0.1",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
@@ -10,11 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tecsinapse/wizard.git"
+    "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
   },
   "bugs": {
-    "url": "https://github.com/tecsinapse/wizard/issues"
+    "url": "https://github.com/tecsinapse/ui-kit/issues"
   },
+  "homepage": "https://github.com/tecsinapse/ui-kit#readme",
   "keywords": [
     "material-ui",
     "react",

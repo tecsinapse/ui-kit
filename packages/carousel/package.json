@@ -1,7 +1,6 @@
 {
   "name": "@tecsinapse/carousel",
   "description": "TecSinapse Carousel",
-  "homepage": "https://github.com/tecsinapse/carousel#readme",
   "version": "2.0.0",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
@@ -10,11 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tecsinapse/carousel.git"
+    "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
   },
   "bugs": {
-    "url": "https://github.com/tecsinapse/carousel/issues"
+    "url": "https://github.com/tecsinapse/ui-kit/issues"
   },
+  "homepage": "https://github.com/tecsinapse/ui-kit#readme",
   "keywords": [
     "carousel",
     "material-ui",
