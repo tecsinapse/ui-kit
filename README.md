@@ -3,14 +3,22 @@
 [![Build Status](https://travis-ci.org/tecsinapse/ui-kit.svg?branch=master)](https://travis-ci.org/tecsinapse/ui-kit)
 
 
+***@tecsinapse/ui-kit*** é um conjuntos de bibliotecas contendo diversos componentes React para facilitar sua vida ;)
 
-***@tecsinapse/ui-kit*** é uma biblioteca contendo diversos componentes para facilitar a vida do dev react ;)
+Neste repositório estão as seguintes bibliotecas:
+
+- `@tecsinapse/ui-kit`
+- `@tecsinapse/uploader`
+- `@tecsinapse/carousel`
+- `@tecsinapse/pickers`
+- `@tecsinapse/wizard`
+- `@tecsinapse/table`
 
 ## Get Started
 
 Para acessar os documentos acesse nosso [storybook](https://github.com/tecsinapse/ui-kit)
 
-É recomendável utilizar uma versão `"node": ">=12.0.0"` devido a performance de build superior
+É recomendável utilizar uma versão `"node": ">=14.0.0"` e `yarn > 1.17`
 
 Para add em seu projeto:
 ```
@@ -37,36 +45,23 @@ ReactDOM.render(
 
 ### Desenvolvimento
 
-Para rodar localmente
+Para rodar localmente na porta 5555
+
 ```
-    yarn install && yarn start
+    yarn && yarn dev 
 ```
 
 Para buildar e publicar a lib:
 ```
-    bumped release $VERSAO
+    npx lerna publish
 ```
 
-Para rodar o app de exemplo, fazer o link da lib na pasta de exemplo após executar o build:
-```
-    yarn build && yarn link
-    cd example/
-    yarn link @tecsinapse/ui-kit
-    yarn install && yarn start
-```
 
-As modificações na lib serão refletidas após build da lib.
-
-# Outras libs
+# Outras libs no ui-kit-verso
 
 | LIB                        |      Repo         | Storybook        |
 | -------------------------- | ----------------- |----------------- |
-| @tecsinapse/carousel    |  [Repo](https://github.com/tecsinapse/ui-kit)        |[Storybook](https://github.com/tecsinapse/ui-kit)        |
-| @tecsinapse/wizard    |  [Repo](https://github.com/tecsinapse/wizard)        |[Storybook](https://github.com/tecsinapse/wizard)        |
-| @tecsinapse/uploader    |  [Repo](https://github.com/tecsinapse/uploader)        |[Storybook](https://github.com/tecsinapse/uploader)        |
 | @tecsinapse/chat    |  [Repo](https://github.com/tecsinapse/chat)        |[Storybook](https://github.com/tecsinapse/chat)        |
-| @tecsinapse/table    |  [Repo](https://github.com/tecsinapse/table)        |[Storybook](https://github.com/tecsinapse/table)        |
 | @tecsinapse/login    |  [Repo](https://github.com/tecsinapse/login)        |[Storybook](https://github.com/tecsinapse/login)        |
-| @tecsinapse/pickers    |  [Repo](https://github.com/tecsinapse/pickers)        |[Storybook](https://github.com/tecsinapse/pickers)        |
 | @tecsinapse/text-editor    |  [Repo](https://github.com/tecsinapse/text-editor)        |[Storybook](https://github.com/tecsinapse/text-editor)        |
 | @tecsinapse/timeslot-selector    |  [Repo](https://github.com/tecsinapse/timeslot-selector)        |[Storybook](https://github.com/tecsinapse/timeslot-selector)        |

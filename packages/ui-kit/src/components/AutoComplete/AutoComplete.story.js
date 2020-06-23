@@ -9,7 +9,7 @@ import {
 } from '@storybook/addon-docs/dist/blocks';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 import { AutoComplete } from './AutoComplete';
-import { DivFlex } from '../../withFlexCenter';
+import { DivFlex } from '../DivFlex/DivFlex';
 
 const style = { width: '300px' };
 

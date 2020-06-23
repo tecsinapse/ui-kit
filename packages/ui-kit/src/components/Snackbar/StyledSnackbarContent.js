@@ -9,7 +9,12 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { defaultGreen, defaultGrey, defaultOrange, defaultRed } from '../../colors';
+import {
+  defaultGreen,
+  defaultGrey,
+  defaultOrange,
+  defaultRed,
+} from '../../colors';
 
 const variantIcon = {
   success: CheckCircleIcon,

@@ -3,8 +3,9 @@ node_js:
   - 14
 script:
   - yarn install
-  - yarn build:storybook
   - yarn build
+  - yarn test
+  - yarn build:storybook
 
 cache:
   yarn: true

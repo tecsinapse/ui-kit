@@ -13,6 +13,7 @@ export const GROUPS = {
   ICONS: 'Icons',
   CALENDAR: 'Calendar',
   SCHEDULE: 'Schedule',
+  TABLE: 'Table',
 };
 
 export const OPTIONS = {
