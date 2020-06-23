@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/table",
   "description": "TecSinapse Table",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "main": "../dist/index.cjs.js",
   "module": "build/index.js",
   "author": {
