@@ -1,3 +1,64 @@
+## <small>4.3.9 (2020-06-10)</small>
+
+* Change GroupedInput onChange method ([718b03c](https://github.com/tecsinapse/ui-kit/commit/718b03c))
+
+
+
+## <small>4.3.8 (2020-06-10)</small>
+
+* Change GroupedInput onChange method ([2bb65ba](https://github.com/tecsinapse/ui-kit/commit/2bb65ba))
+
+
+
+## <small>4.3.7 (2020-06-10)</small>
+
+* Fixing cell phone mask ([0e447fa](https://github.com/tecsinapse/ui-kit/commit/0e447fa))
+
+
+
+## <small>4.3.6 (2020-06-09)</small>
+
+* - Added docker ([c341af4](https://github.com/tecsinapse/ui-kit/commit/c341af4))
+* - Added docker ([e279411](https://github.com/tecsinapse/ui-kit/commit/e279411))
+* - Fix build ([12b890e](https://github.com/tecsinapse/ui-kit/commit/12b890e))
+* - Fix build ([3a2ff69](https://github.com/tecsinapse/ui-kit/commit/3a2ff69))
+* Fix select poor perfomance ([7c024ab](https://github.com/tecsinapse/ui-kit/commit/7c024ab))
+* Update .travis.yml ([768085e](https://github.com/tecsinapse/ui-kit/commit/768085e))
+* Update .travis.yml ([5e303bf](https://github.com/tecsinapse/ui-kit/commit/5e303bf))
+
+
+
+## <small>4.3.5 (2020-06-05)</small>
+
+* - Bug fix at groupinput without elements ([f7586aa](https://github.com/tecsinapse/ui-kit/commit/f7586aa))
+
+
+
+## <small>4.3.4 (2020-06-05)</small>
+
+* Creating a new type of input (input at array's end) at groupedinut ([a2f1c8c](https://github.com/tecsinapse/ui-kit/commit/a2f1c8c))
+
+
+
+## <small>4.3.3 (2020-05-19)</small>
+
+* Fix groupinput hidden when clean input ([b1466cc](https://github.com/tecsinapse/ui-kit/commit/b1466cc))
+
+
+
+## <small>4.3.2 (2020-05-18)</small>
+
+* Removing logs ([c5e4b3f](https://github.com/tecsinapse/ui-kit/commit/c5e4b3f))
+* Removing logs ([6029c80](https://github.com/tecsinapse/ui-kit/commit/6029c80))
+
+
+
+## <small>4.3.1 (2020-05-18)</small>
+
+* Fixing propType on AppBar.js ([15f5ef4](https://github.com/tecsinapse/ui-kit/commit/15f5ef4))
+
+
+
 ## 4.3.0 (2020-04-28)
 
 *  - Refactor Slider folder structure ([98919f7](https://github.com/tecsinapse/ui-kit/commit/98919f7))

@@ -1,9 +1,11 @@
 language: node_js
 node_js:
-  - 12
+  - 14
 script:
-  - yarn storybook:build
+  - yarn install
   - yarn build
+  - yarn test
+  - yarn build:storybook
 
 cache:
   yarn: true
@@ -15,6 +17,11 @@ deploy:
     keep-history: false
     on:
       tags: true
+
 notifications:
   email:
-    - lip@tecsinapse.com.br
+    recipients:
+      - lip@tecsinapse.com.br
+    on_success: never # default: change
+    on_failure: always # default: always
+

@@ -3,6 +3,8 @@
 
 # dependencies
 node_modules
+./node_modules
+../../node_modules
 
 # builds
 build
@@ -21,7 +23,7 @@ dist
 
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
+yarn-error.log
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
@@ -92,3 +94,15 @@ fabric.properties
 .yarnrc
 
 .idea
+./public/
+public/
+public/*
+
+packages/ui-kit/lib/*
+
+.yalc
+.yalc/*
+./yalc.lock
+yalc.lock
+./lerna-debug.log
+lerna-debug.log

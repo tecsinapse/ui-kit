@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - 12
+script:
+  - yarn storybook:build
+  - yarn build
+  - yarn test
+
+cache:
+  yarn: true
+deploy:
+  - provider: pages
+    skip-cleanup: true
+    local-dir: docs
+    github-token: $GITHUB_TOKEN
+    keep-history: false
+    on:
+      tags: true
+
+notifications:
+  email:
+    recipients:
+      - lip@tecsinapse.com.br
+    on_success: never # default: change
+    on_failure: always # default: always
