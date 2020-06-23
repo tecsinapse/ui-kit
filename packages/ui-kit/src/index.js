@@ -15,6 +15,8 @@ export { Drawer } from './components/Menu/Drawer/Drawer';
 export { Snackbar } from './components/Snackbar/Snackbar';
 export { ThemeProvider } from './ThemeProvider';
 export { EmptyState } from './components/EmptyState/EmptyState';
+export { DivFlex } from './components/DivFlex/DivFlex';
+export { EmptyStateWrapper } from './components/EmptyState/EmptyState';
 export { ValueSlider } from './components/Slider/ValueSlider/ValueSlider';
 export { DateSlider } from './components/Slider/DateSlider/DateSlider';
 export { UiKitCard as Card } from './components/Card/UiKitCard';

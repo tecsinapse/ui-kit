@@ -1,0 +1,70 @@
+{
+  "name": "@tecsinapse/table",
+  "description": "TecSinapse Table",
+  "homepage": "https://github.com/tecsinapse/table#readme",
+  "version": "2.1.3",
+  "main": "../dist/index.cjs.js",
+  "module": "build/index.js",
+  "author": {
+    "name": "TecSinapse"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecsinapse/table.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tecsinapse/table/issues"
+  },
+  "keywords": [
+    "material-ui",
+    "react",
+    "table",
+    "tecsinapse",
+    "ui-kit"
+  ],
+  "dependencies": {
+    "@material-ui/core": "^4.2.1",
+    "@material-ui/icons": "^4.2.1",
+    "@material-ui/styles": "^4.2.1",
+    "@mdi/js": "^5.3.45",
+    "@mdi/react": "^1.4.0",
+    "@tecsinapse/es-utils": "^6.0.10",
+    "@tecsinapse/ui-kit": "^5.0.16-alpha.0",
+    "clsx": "^1.0.4",
+    "prop-types": "^15.6.2",
+    "react-virtualized": "^9.21.0"
+  },
+  "files": [
+    "build",
+    "../dist"
+  ],
+  "scripts": {
+    "analyze": "npx source-map-explorer 'dist/*.js'",
+    "build": "../node_modules/.bin/rimraf -rf build/ && babel src/ -d build/ && rollup -c",
+    "build-all": "yarn build && yarn storybook:build",
+    "build-publish": "yarn build-all && npm publish",
+    "dev": "npx rollup -c -w",
+    "prestart": "yarn install",
+    "start": "yarn install && yarn storybook",
+    "test": "NODE_ENV=test jest"
+  },
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "post-commit": "git update-index --again",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --max-warnings=0 --fix --no-ignore",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "sideEffects": false
+}
