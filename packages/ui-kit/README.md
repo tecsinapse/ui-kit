@@ -1,20 +1,19 @@
-# Iniciando
+# Tecsinapse UI-KIT
 
 [![Build Status](https://travis-ci.org/tecsinapse/ui-kit.svg?branch=master)](https://travis-ci.org/tecsinapse/ui-kit)
 
 
-
-***@tecsinapse/carousel*** é uma biblioteca contendo componentes de Carousel para facilitar a vida do dev react ;)
+***@tecsinapse/ui-kit*** é um conjuntos de bibliotecas contendo diversos componentes React para facilitar sua vida ;)
 
 ## Get Started
 
 Para acessar os documentos acesse nosso [storybook](https://tecsinapse.github.io/ui-kit/)
 
-É recomendável utilizar uma versão `"node": ">=12.0.0"` devido a performance de build superior
+É recomendável utilizar uma versão `"node": ">=14.0.0"` e `yarn > 1.17`
 
 Para add em seu projeto:
 ```
-    yarn add @tecsinapse/carousel
+    yarn add @tecsinapse/ui-kit
 ```
 
 E adicione o ThemeProvider em seu projeto como abaixo:
@@ -22,12 +21,12 @@ E adicione o ThemeProvider em seu projeto como abaixo:
 ```
 import React from "react";
 import ReactDOM from "react-dom";
-import { AutoRotatingCarousel } from "@tecsinapse/carousel";
+import App from "./components/App/App";
 import { ThemeProvider } from "@tecsinapse/ui-kit";
 
 ReactDOM.render(
   <ThemeProvider variant="black">
-    <AutoRotatingCarousel />
+    <App />
   </ThemeProvider>,
 
   document.getElementById("root")
@@ -36,14 +35,8 @@ ReactDOM.render(
 
 ### Desenvolvimento
 
-Para rodar localmente
-```
-    yarn install && yarn start
-```
+Para rodar localmente na porta 5555
 
-Para buildar e publicar a lib:
 ```
-    bumped release $VERSAO
+    yarn && yarn dev
 ```
-
-As modificações na lib serão refletidas após build.

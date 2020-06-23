@@ -16,7 +16,7 @@ Neste repositório estão as seguintes bibliotecas:
 
 ## Get Started
 
-Para acessar os documentos acesse nosso [storybook](https://github.com/tecsinapse/ui-kit)
+Para acessar os documentos acesse nosso [storybook](https://tecsinapse.github.io/ui-kit/)
 
 É recomendável utilizar uma versão `"node": ">=14.0.0"` e `yarn > 1.17`
 
@@ -31,7 +31,6 @@ E adicione o ThemeProvider em seu projeto como abaixo:
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App/App";
-import * as serviceWorker from "./serviceWorker";
 import { ThemeProvider } from "@tecsinapse/ui-kit";
 
 ReactDOM.render(
@@ -48,7 +47,7 @@ ReactDOM.render(
 Para rodar localmente na porta 5555
 
 ```
-    yarn && yarn dev 
+    yarn && yarn dev
 ```
 
 Para buildar e publicar a lib:

@@ -1,6 +1,6 @@
 # Iniciando
 
-[![Build Status](https://travis-ci.org/tecsinapse/uploader.svg?branch=master)](https://travis-ci.org/tecsinapse/uploader)
+[![Build Status](https://travis-ci.org/tecsinapse/ui-kit.svg?branch=master)](https://travis-ci.org/tecsinapse/ui-kit)
 
 
 
@@ -8,7 +8,7 @@
 
 ## Get Started
 
-Para acessar os documentos acesse nosso [storybook](https://github.com/tecsinapse/uploader)
+Para acessar os documentos acesse nosso [storybook](https://tecsinapse.github.io/ui-kit/)
 
 É recomendável utilizar uma versão `"node": ">=12.0.0"` devido a performance de build superior
 
@@ -22,7 +22,6 @@ E adicione o componente em seu projeto como abaixo:
 ```
 import React from "react";
 import ReactDOM from "react-dom";
-import * as serviceWorker from "./serviceWorker";
 import { ThemeProvider } from "@tecsinapse/ui-kit";
 import { Uploader } from "@tecsinapse/uploader";
 
