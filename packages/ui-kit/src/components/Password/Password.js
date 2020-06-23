@@ -39,4 +39,5 @@ const Password = props => {
   );
 };
 
+export { Password };
 export default Password;

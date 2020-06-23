@@ -1,3 +1,4 @@
+import React from 'react';
 import { makeStyles, styled } from '@material-ui/styles';
 import { AppBar } from './AppBar';
 
@@ -24,3 +25,26 @@ export const appBarStyles = makeStyles(() => ({
     marginRight: '24px',
   },
 }));
+
+const style = { display: 'flex' };
+
+export const SearchBarMobileStory = () => {
+  const classes = appBarStyles();
+
+  return (
+    <StyledAppBar
+      leftIcons={
+        <div style={style}>
+          <img
+            src="https://www.tecsinapse.com.br/wp-content/themes/TecSinapse/assets/images/tecsinapse.svg"
+            className={classes.image}
+            alt="logo"
+          />
+        </div>
+      }
+      menuBar={false}
+      searchBar
+      disableBreadcrumb
+    />
+  );
+};

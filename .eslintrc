@@ -16,5 +16,6 @@
         "extensions": [".js", ".jsx", ".mdx"]
       }
     ]
-  }
+  },
+  "ignorePatterns": ["**/*.mdx"]
 }

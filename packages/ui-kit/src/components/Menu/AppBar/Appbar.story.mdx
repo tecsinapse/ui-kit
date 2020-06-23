@@ -3,7 +3,7 @@ import { AppBar } from './AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import { mdiBell, mdiOneUp, mdiShieldHalfFull, mdiTurtle } from '@mdi/js';
 import Icon from '@mdi/react';
-import { appBarStyles, StyledAppBar } from './storyHelper';
+import { appBarStyles, StyledAppBar, SearchBarMobileStory } from './storyHelper';
 import Badge from '@material-ui/core/Badge';
 import { GROUPS } from '../../../../../../.storybook/hierarchySeparators';
 
@@ -24,7 +24,6 @@ Here you can check the code snippet for the story.
 <Story name="App bar" parameters={{ docs: { disable: true } }}>
   {() => {
     const classes = appBarStyles();
-
     return (
       <AppBar
         leftIcons={
@@ -129,26 +128,7 @@ Here you can check the code snippet for the story.
 ## Search bar mobile
 
 <Story name="Search bar mobile" parameters={{ docs: { disable: true } }}>
-  {() => {
-    const classes = appBarStyles();
-
-    return (
-      <StyledAppBar
-        leftIcons={
-          <div style={{ display: 'flex' }}>
-            <img
-              src="https://www.tecsinapse.com.br/wp-content/themes/TecSinapse/assets/images/tecsinapse.svg"
-              className={classes.image}
-              alt="logo"
-            />
-          </div>
-        }
-        menuBar={false}
-        searchBar
-        disableBreadcrumb
-      />
-    );
-  }}
+    <SearchBarMobileStory />
 </Story>
 
 <Source id="menu-app-bar--search-bar-mobile" />

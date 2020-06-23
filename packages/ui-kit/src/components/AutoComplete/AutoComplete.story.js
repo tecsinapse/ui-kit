@@ -8,7 +8,7 @@ import {
   Title,
 } from '@storybook/addon-docs/dist/blocks';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
-import AutoComplete from './AutoComplete';
+import { AutoComplete } from './AutoComplete';
 import { DivFlex } from '../../withFlexCenter';
 
 const style = { width: '300px' };

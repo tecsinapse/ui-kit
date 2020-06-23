@@ -1,4 +1,6 @@
 export { Button } from './components/Buttons/Button';
+export { Password } from './components/Password/Password';
+export { AutoComplete } from './components/AutoComplete';
 export { FloatingButton } from './components/Buttons/FloatingButton';
 export { IconButton } from './components/Buttons/IconButton';
 export { DivButton } from './components/Buttons/DivButton';

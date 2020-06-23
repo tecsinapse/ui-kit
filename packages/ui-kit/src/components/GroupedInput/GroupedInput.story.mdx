@@ -22,7 +22,6 @@ Here you can check the code snippet for the story.
 <Story name="Grouped input" parameters={{ docs: { disable: true } }}>
   {() => {
      const [values, setValues] = useState(['123', '456']);
-
      return (
        <GroupedInput
          name="telefones"
@@ -32,18 +31,14 @@ Here you can check the code snippet for the story.
          onChange={(value, index) => {
            setValues(v => {
              const newArray = [...v];
-
              newArray[index] = value;
-
              return newArray;
            });
          }}
          remove={index => {
            setValues(v => {
              const newArray = [...v];
-
              newArray.splice(index, 1);
-
              return newArray;
            });
          }}
@@ -61,7 +56,6 @@ Here you can check the code snippet for the story.
 <Story name="Empty" parameters={{ docs: { disable: true } }}>
   {() => {
      const [values, setValues] = useState([]);
-
      return (
        <GroupedInput
          name="telefones"
@@ -71,18 +65,14 @@ Here you can check the code snippet for the story.
          onChange={(value, index) => {
                 setValues(v => {
                 const newArray = [...v];
-
                 newArray[index] = value;
-
                 return newArray;
             });
          }}
          remove={index => {
            setValues(v => {
              const newArray = [...v];
-
              newArray.splice(index, 1);
-
              return newArray;
            });
          }}
@@ -100,7 +90,6 @@ Here you can check the code snippet for the story.
 <Story name="Error" parameters={{ docs: { disable: true } }}>
   {() => {
      const [values, setValues] = useState([]);
-
      return (
        <GroupedInput
          name="telefones"
@@ -111,18 +100,14 @@ Here you can check the code snippet for the story.
          onChange={(value, index) => {
            setValues(v => {
              const newArray = v;
-
              newArray[index] = value;
-
              return newArray;
            });
          }}
          remove={index => {
            setValues(v => {
              const newArray = [...v];
-
              newArray.splice(index, 1);
-
              return newArray;
            });
          }}
@@ -140,7 +125,6 @@ Here you can check the code snippet for the story.
 <Story name="Input Without List" parameters={{ docs: { disable: true } }}>
   {() => {
      const [values, setValues] = useState([]);
-
      return (
        <GroupedInput
          inputType="outside"
@@ -152,18 +136,14 @@ Here you can check the code snippet for the story.
          onChange={(value, index) => {
            setValues(v => {
              const newArray = [...v];
-
              newArray[index] = value;
-
              return newArray;
            });
          }}
          remove={index => {
            setValues(v => {
              const newArray = [...v];
-
              newArray.splice(index, 1);
-
              return newArray;
            });
          }}
@@ -180,7 +160,6 @@ Here you can check the code snippet for the story.
 <Story name="Add new elements" parameters={{ docs: { disable: true } }}>
   {() => {
      const [values, setValues] = useState([]);
-
      return (
        <GroupedInput
          inputType="inside"
@@ -193,18 +172,14 @@ Here you can check the code snippet for the story.
            console.log(index)
            setValues(v => {
              const newArray = [...v];
-
              newArray[index] = value;
-
              return newArray;
            });
          }}
          remove={index => {
            setValues(v => {
              const newArray = [...v];
-
              newArray.splice(index, 1);
-
              return newArray;
            });
          }}
