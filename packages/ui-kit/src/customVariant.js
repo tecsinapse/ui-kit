@@ -44,6 +44,54 @@ export const customVariantYellow = {
   },
 };
 
+export const customVariantBlueOcean = pallete => {
+  const secondaryColor = pallete.secondary.main;
+
+  return {
+    MuiPickersToolbar: {
+      toolbar: {
+        backgroundColor: secondaryColor,
+      },
+    },
+    MuiPickersYear: {
+      yearSelected: {
+        color: secondaryColor,
+      },
+    },
+    MuiPickersClockPointer: {
+      pointer: {
+        backgroundColor: secondaryColor,
+      },
+      thumb: {
+        backgroundColor: secondaryColor,
+        borderColor: secondaryColor,
+      },
+      noPoint: {
+        backgroundColor: secondaryColor,
+      },
+    },
+    MuiPickersClock: {
+      pin: {
+        backgroundColor: secondaryColor,
+      },
+    },
+    MuiOutlinedInput: {
+      root: {
+        '&$focused $notchedOutline': {
+          borderColor: secondaryColor,
+        },
+      },
+    },
+    MuiFormLabel: {
+      root: {
+        '&$focused': {
+          color: secondaryColor,
+        },
+      },
+    },
+  };
+};
+
 export const customVariantBlueGrey = {
   MuiPickersToolbarText: {
     toolbarBtnSelected: {

@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/uploader",
   "description": "TecSinapse Uploader",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "author": {
@@ -28,7 +28,7 @@
     "@material-ui/styles": "^4.2.1",
     "@mdi/js": "^3.0.39",
     "@mdi/react": "^1.1.0",
-    "@tecsinapse/ui-kit": "^5.0.18",
+    "@tecsinapse/ui-kit": "^5.0.20",
     "clsx": "^1.0.4",
     "prop-types": "^15.6.2",
     "react-dropzone": "^10.0.2",
