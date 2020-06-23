@@ -262,4 +262,4 @@ AutoComplete.propTypes = {
   autoComplete: PropTypes.oneOf(['on', 'off']),
 };
 
-export default AutoComplete;
+export { AutoComplete };

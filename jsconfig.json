@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@tecsinapse/ui-kit": [ "./packages/ui-kit/src/index.js" ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

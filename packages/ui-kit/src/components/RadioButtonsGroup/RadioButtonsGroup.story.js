@@ -1,7 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Description, Props, Source, Title } from '@storybook/addon-docs/dist/blocks';
-import { DivFlex } from '../../withFlexCenter';
+import {
+  Description,
+  Props,
+  Source,
+  Title,
+} from '@storybook/addon-docs/dist/blocks';
+import { DivFlex } from '../DivFlex/DivFlex';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 import { RadioButtonsGroup } from './RadioButtonsGroup';
 

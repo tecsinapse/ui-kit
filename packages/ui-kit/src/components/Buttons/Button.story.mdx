@@ -1,6 +1,9 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
 import { useState } from 'react';
 import Icon from '@mdi/react';
+import FileCopyRounded from '@material-ui/icons/FileCopyRounded';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { mdiFolderPlus } from '@mdi/js';
 import { IconButton } from './IconButton';
 import { FloatingButton } from './FloatingButton';
 import { FloatingButtonList } from './FloatingButtonList';
@@ -8,10 +11,7 @@ import { DivButton } from './DivButton';
 import { Button } from './Button';
 import { DivFlex } from '../../withFlexCenter';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
-import FileCopyRounded from '@material-ui/icons/FileCopyRounded';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { mdiFolderPlus } from '@mdi/js';
-import { handleClick, items } from './storyHelper';
+import { handleClick, items, style, FloatingButtonListStory, SuccessStory } from './storyHelper';
 
 <Meta
   title={`${GROUPS.COMPONENTS}|Button`}
@@ -56,19 +56,7 @@ Here you can check the code snippet for the story.
 ## Success submitting
 
 <Story name="Success submitting" parameters={{ docs: { disable: true } }}>
-  {() => {
-    const [submitting, setSub] = useState(false);
-
-    return (
-      <Button
-        customVariant="success"
-        onClick={() => setSub(true)}
-        submitting={submitting}
-      >
-        Smart Button
-      </Button>
-    );
-  }}
+  <SuccessStory />
 </Story>
 
 <Source id="components-button--success-submitting" />
@@ -147,15 +135,7 @@ Here you can check the code snippet for the story.
 ## FloatingList
 
 <Story name="Floating List" parameters={{ docs: { disable: true } }}>
-    {
-        () => {
-            const [open, setOpen] = useState(true);
-
-            return (<FloatingButtonList onClick={() => setOpen(!open)} open={open}
-                  items={items}
-            />);
-        }
-    }
+    <FloatingButtonListStory/>
 </Story>
 
 <Source id="components-button--floating-list" />
@@ -163,13 +143,7 @@ Here you can check the code snippet for the story.
 ## Div
 
 <Story name="Div" parameters={{ docs: { disable: true } }}>
-  <div
-    style={{
-      width: '100vw',
-      height: '160px',
-      backgroundColor: '#e0e0e0',
-    }}
-  >
+  <div style={style}>
     <DivButton onClick={handleClick} infoText="COMUNICADOS" notifyNumber={0}>
       <FileCopyRounded fontSize="large" />
     </DivButton>

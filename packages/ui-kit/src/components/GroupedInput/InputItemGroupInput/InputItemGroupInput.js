@@ -61,9 +61,7 @@ export const InputItemGroupInput = React.memo(
                   >
                     <DeleteIcon />
                   </IconButton>
-                ) : (
-                  undefined
-                )
+                ) : undefined
               }
             />
           </div>

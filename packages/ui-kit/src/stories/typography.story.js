@@ -8,8 +8,8 @@ import {
 } from '@storybook/addon-docs/dist/blocks';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { DivFlex } from './withFlexCenter';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
+import { DivFlex } from '../components/DivFlex/DivFlex';
+import { GROUPS } from '../../../../.storybook/hierarchySeparators';
 
 const useStyles = makeStyles({
   root: {

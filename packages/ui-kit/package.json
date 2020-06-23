@@ -1,9 +1,17 @@
 {
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
-  "version": "5.0.16",
+  "version": "5.0.18",
   "main": "build/index.js",
   "module": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tecsinapse/ui-kit/issues"
+  },
+  "homepage": "https://github.com/tecsinapse/ui-kit#readme",
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",

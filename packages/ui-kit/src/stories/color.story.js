@@ -8,8 +8,8 @@ import {
   Source,
   Title,
 } from '@storybook/addon-docs/dist/blocks';
-import { DivFlex } from './withFlexCenter';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
+import { DivFlex } from '../components/DivFlex/DivFlex';
+import { GROUPS } from '../../../../.storybook/hierarchySeparators';
 
 export function Palette() {
   return (

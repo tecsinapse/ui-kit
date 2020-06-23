@@ -5,7 +5,7 @@ services:
     stdin_open: true
     command:  yarn start
     build:
-      context: ../..
+      context: ""
       dockerfile: Dockerfile
     volumes:
       - '.:/app'

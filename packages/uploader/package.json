@@ -1,0 +1,58 @@
+{
+  "name": "@tecsinapse/uploader",
+  "description": "TecSinapse Uploader",
+  "version": "2.0.2",
+  "main": "dist/index.cjs.js",
+  "module": "build/index.js",
+  "author": {
+    "name": "TecSinapse"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tecsinapse/ui-kit/issues"
+  },
+  "homepage": "https://github.com/tecsinapse/ui-kit#readme",
+  "keywords": [
+    "material-ui",
+    "react",
+    "tecsinapse",
+    "ui-kit",
+    "uploader"
+  ],
+  "dependencies": {
+    "@material-ui/core": "^4.2.1",
+    "@material-ui/icons": "^4.2.1",
+    "@material-ui/styles": "^4.2.1",
+    "@mdi/js": "^3.0.39",
+    "@mdi/react": "^1.1.0",
+    "@tecsinapse/ui-kit": "^5.0.18",
+    "clsx": "^1.0.4",
+    "prop-types": "^15.6.2",
+    "react-dropzone": "^10.0.2",
+    "uniqid": "^5.0.3"
+  },
+  "files": [
+    "build",
+    "dist"
+  ],
+  "scripts": {
+    "analyze": "npx source-map-explorer 'dist/*.js'",
+    "build": "rimraf -rf build/ && babel src/ -d build/ && rollup -c",
+    "build-all": "yarn build && yarn storybook:build",
+    "build-publish": "yarn build-all && npm publish",
+    "dev": "rollup -c -w",
+    "start": "yarn install && yarn storybook",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook:build": "build-storybook -c .storybook -o docs/",
+    "test": "NODE_ENV=test jest"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "sideEffects": false
+}
