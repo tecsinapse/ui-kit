@@ -27,6 +27,8 @@ export const Wizard = ({
   const breakpoint = useMediaQuery(useTheme().breakpoints.down('xs'));
   const mobile = (variant === 'mobile' || variant === 'auto') && breakpoint;
 
+  const innerClasses = useStyles();
+
   const {
     finishText = 'Finish',
     nextText = 'Next',
