@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
-  "version": "5.0.23",
+  "version": "5.0.24",
   "main": "build/index.js",
   "module": "build/index.js",
   "repository": {
@@ -39,5 +39,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "gitHead": "6e28eb8a96325ca9da0564e4fc8f629448c3ff38"
 }

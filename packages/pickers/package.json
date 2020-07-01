@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/pickers",
   "description": "TecSinapse Pickers",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "author": {
@@ -31,7 +31,7 @@
     "@material-ui/styles": "^4.2.1",
     "@tecsinapse/es-utils": "^6.0.10",
     "@tecsinapse/material-ui-color-picker": "^4.3.0",
-    "@tecsinapse/ui-kit": "^5.0.23",
+    "@tecsinapse/ui-kit": "^5.0.24",
     "clsx": "^1.0.4",
     "luxon": "^1.11.2",
     "prop-types": "^15.6.2"
@@ -57,5 +57,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "gitHead": "6e28eb8a96325ca9da0564e4fc8f629448c3ff38"
 }

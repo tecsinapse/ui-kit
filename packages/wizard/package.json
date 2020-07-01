@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/wizard",
   "description": "TecSinapse Wizard",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "main": "dist/index.cjs.js",
   "module": "build/index.js",
   "author": {
@@ -27,7 +27,7 @@
     "@material-ui/styles": "^4.2.1",
     "@mdi/js": "^5.3.45",
     "@mdi/react": "^1.4.0",
-    "@tecsinapse/ui-kit": "^5.0.23",
+    "@tecsinapse/ui-kit": "^5.0.24",
     "clsx": "^1.1.0",
     "prop-types": "^15.7.2"
   },
@@ -66,5 +66,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "gitHead": "6e28eb8a96325ca9da0564e4fc8f629448c3ff38"
 }

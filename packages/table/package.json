@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/table",
   "description": "TecSinapse Table",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "main": "../dist/index.cjs.js",
   "module": "build/index.js",
   "author": {
@@ -29,7 +29,7 @@
     "@mdi/js": "^5.3.45",
     "@mdi/react": "^1.4.0",
     "@tecsinapse/es-utils": "^6.0.10",
-    "@tecsinapse/ui-kit": "^5.0.23",
+    "@tecsinapse/ui-kit": "^5.0.24",
     "clsx": "^1.0.4",
     "prop-types": "^15.6.2",
     "react-virtualized": "^9.21.0"
@@ -53,5 +53,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "gitHead": "6e28eb8a96325ca9da0564e4fc8f629448c3ff38"
 }
