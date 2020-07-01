@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/ui-kit",
   "description": "TecSinapse UI-KIT",
-  "version": "5.0.22",
+  "version": "5.0.23",
   "main": "build/index.js",
   "module": "build/index.js",
   "repository": {
