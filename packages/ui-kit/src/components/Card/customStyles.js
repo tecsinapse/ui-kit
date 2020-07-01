@@ -166,7 +166,7 @@ const customCardUiKitStyles = () => ({
     padding: '0',
   },
   grid: {
-    padding: '0px 8px 0px 0px',
+    padding: 0,
   },
   title: {
     fontSize: '12px',
