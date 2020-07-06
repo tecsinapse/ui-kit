@@ -1,6 +1,0 @@
-38 error Error: Command failed: git push --follow-tags --no-verify --atomic origin feature/monorepo
-38 error remote: Invalid username or password.
-38 error fatal: Authentication failed for 'https://github.com/tecsinapse/ui-kit/'
-38 error
-38 error     at makeError (/home/oliveiraswell/repositorios/ui-kit/node_modules/execa/index.js:174:9)
-38 error     at /home/oliveiraswell/repositorios/ui-kit/node_modules/execa/index.js:278:16
