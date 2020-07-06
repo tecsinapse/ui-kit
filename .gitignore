@@ -106,3 +106,6 @@ packages/ui-kit/lib/*
 yalc.lock
 ./lerna-debug.log
 lerna-debug.log
+/coverage/
+/coverage/*
+lerna-debug.log
