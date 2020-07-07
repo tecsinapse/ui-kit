@@ -35,19 +35,6 @@
     "build",
     "dist"
   ],
-  "scripts": {
-    "analyze": "npx source-map-explorer 'dist/*.js'",
-    "build": "rimraf -rf build/ && babel src/ -d build/ && rollup -c",
-    "build-all": "yarn build && yarn storybook:build",
-    "build-publish": "yarn build-all && npm publish",
-    "dev": "rollup -c -w",
-    "prestart": "yarn install",
-    "start": "yarn install && yarn storybook",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "storybook:build": "build-storybook -c .storybook -o docs/",
-    "test": "NODE_ENV=test jest",
-    "test:windows": "set NODE_ENV=test&& jest"
-  },
   "license": "MIT",
   "husky": {
     "hooks": {

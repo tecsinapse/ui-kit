@@ -36,6 +36,7 @@ const TextMaskCustom = props => {
     return null;
   }
 
+  // FIXME: Use strategy pattern
   if (typeof mask === 'string') {
     switch (mask) {
       case 'cep':
