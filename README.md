@@ -1,7 +1,7 @@
 # Tecsinapse UI-KIT
 
 [![Build Status](https://travis-ci.org/tecsinapse/ui-kit.svg?branch=master)](https://travis-ci.org/tecsinapse/ui-kit)
-
+[![Coverage Status](https://coveralls.io/repos/github/tecsinapse/ui-kit/badge.svg?branch=master)](https://coveralls.io/github/tecsinapse/ui-kit?branch=master)
 
 ***@tecsinapse/ui-kit*** é um conjuntos de bibliotecas contendo diversos componentes React para facilitar sua vida ;)
 
