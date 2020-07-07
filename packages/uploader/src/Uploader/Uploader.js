@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/styles';
 import { Typography } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import { Button, Snackbar } from '@tecsinapse/ui-kit';
-import { convertBytes } from './helper';
+import { convertBytes } from '../utils/helper';
 
 const useStyle = makeStyles({
   root: {

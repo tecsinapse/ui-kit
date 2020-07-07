@@ -58,7 +58,7 @@ const AutoCompleteExample = () => {
   );
 };
 
-storiesOf(`${GROUPS.FORMS}|Autocomplete`, module)
+storiesOf(`${GROUPS.FORMS}/Autocomplete`, module)
   .addParameters({
     component: AutoComplete,
     docs: {

@@ -8,7 +8,7 @@ import Clear from '@material-ui/icons/Clear';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/styles';
-import { isImage } from './helper';
+import { isImage } from '../../utils/helper';
 
 const style = { marginLeft: '2%' };
 const style1 = { padding: '0px' };

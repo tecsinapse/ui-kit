@@ -2,14 +2,8 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import {
-  Description,
-  Props,
-  Source,
-  Title,
-} from '@storybook/addon-docs/dist/blocks';
-import { DivFlex } from '../components/DivFlex/DivFlex';
-import { GROUPS } from '../../../../.storybook/hierarchySeparators';
+import { Description, Title } from '@storybook/addon-docs/dist/blocks';
+import { DivFlex } from '..';
 
 export function Palette() {
   return (
@@ -70,31 +64,17 @@ const PaletteExample = () => (
   </div>
 );
 
-storiesOf(`${GROUPS.FORMS}|Palette`, module)
+storiesOf(`A Introduction`, module)
   .addParameters({
     component: Palette,
     docs: {
       disable: true,
       page: () => (
         <>
-          <Title />
+          <Title>Palette</Title>
           <Description>
-            The `BackgroundColor` component can receive the following props:
+            The theme palette can be seen on canvas tab.
           </Description>
-          <Props />
-          <Title>Code snippets</Title>
-          <Description>
-            Here you can check the code snippet for the story.
-          </Description>
-          <Source
-            code={`
-              () => {
-                return (
-                  <PaletteExample/>
-                );
-              }
-            `}
-          />
         </>
       ),
     },

@@ -2,7 +2,7 @@
   "name": "@tecsinapse/wizard",
   "description": "TecSinapse Wizard",
   "version": "3.0.5",
-  "main": "dist/index.cjs.js",
+  "main": "build/index.js",
   "module": "build/index.js",
   "author": {
     "name": "TecSinapse"

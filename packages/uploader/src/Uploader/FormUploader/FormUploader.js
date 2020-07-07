@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { makeStyles, useTheme } from '@material-ui/styles';
-import { Uploader } from './Uploader';
-import { PreviewList } from './PreviewList';
+import { Uploader } from '../Uploader';
+import { PreviewList } from '../PeviewList/PreviewList';
 
 const useStyle = makeStyles(theme => ({
   root: {

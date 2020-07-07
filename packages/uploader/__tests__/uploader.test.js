@@ -5,7 +5,7 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import { ThemeProvider } from '@tecsinapse/ui-kit';
-import { UploaderStory } from '../src/UploaderStory';
+import { UploaderStory } from '../src/utils/UploaderStory';
 
 const theme = createMuiTheme({
   palette: {
@@ -33,5 +33,6 @@ test('Render Uploader', () => {
       </MuiThemeProvider>
     </ThemeProvider>
   );
+
   expect(container).toContainElement(getByText('Drag and drop a file'));
 });

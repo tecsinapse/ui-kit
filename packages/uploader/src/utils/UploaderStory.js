@@ -4,9 +4,7 @@ import { clearInterval, setInterval } from 'timers';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { Uploader } from './Uploader';
-import { PreviewList } from './PreviewList';
-import { FormUploader } from './FormUploader';
+import { Uploader, PreviewList, FormUploader } from '..';
 
 export const UploaderStory = forwardRef(
   ({ type, variant, silent = false }, ref) => {

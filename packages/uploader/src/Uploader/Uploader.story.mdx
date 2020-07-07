@@ -1,12 +1,12 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
-import { UploaderStory } from './UploaderStory';
+import { UploaderStory } from '../utils/UploaderStory';
 import { Button } from '@tecsinapse/ui-kit';
 import { DivFlex } from '@tecsinapse/ui-kit/build/withFlexCenter';
 import { Uploader } from './Uploader';
-import { FormUploader } from './FormUploader';
+import { FormUploader } from './FormUploader/FormUploader';
 import { useRef } from 'react';
 
-<Meta title="Uploader" decorators={[story => <DivFlex>{story()}</DivFlex>]} />
+<Meta title="Packages @tecsinapse/uploader" decorators={[story => <DivFlex>{story()}</DivFlex>]} />
 
 # Uploader
 
@@ -26,7 +26,7 @@ Here you can check the code snippet for the story.
   </div>
 </Story>
 
-<Source id="uploader--uploader-drag" />
+<Source id="packages-tecsinapse-uploader--uploader-drag" />
 
 ## Uploader form
 
@@ -36,7 +36,7 @@ Here you can check the code snippet for the story.
   </div>
 </Story>
 
-<Source id="uploader--uploader-form" />
+<Source id="packages-tecsinapse-uploader--uploader-form" />
 
 ## Uploader silent
 
@@ -60,4 +60,4 @@ Here you can check the code snippet for the story.
   }}
 </Story>
 
-<Source id="uploader--uploader-silent" />
+<Source id="packages-tecsinapse-uploader--uploader-silent" />

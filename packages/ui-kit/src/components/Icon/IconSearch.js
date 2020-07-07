@@ -49,7 +49,7 @@ export function IconSearch() {
       <hr />
       <div
         style={{
-          height: '500px',
+          height: 'auto',
           minWidth: '100%',
           overflow: 'auto',
         }}

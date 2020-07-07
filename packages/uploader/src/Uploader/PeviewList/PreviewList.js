@@ -7,8 +7,8 @@ import Icon from '@mdi/react';
 import { makeStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import { ConfirmationAlert, Snackbar } from '@tecsinapse/ui-kit';
-import { convertBytes } from './helper';
-import { UpFile } from './UpFile';
+import { convertBytes } from '../../utils/helper';
+import { UpFile } from '../UpFile/UpFile';
 
 const style = { marginTop: '2%' };
 const useStyle = makeStyles({

@@ -1,3 +1,3 @@
-export { FormUploader } from './FormUploader';
-export { Uploader } from './Uploader';
-export { PreviewList } from './PreviewList';
+export { FormUploader } from './Uploader/FormUploader/FormUploader';
+export { Uploader } from './Uploader/Uploader';
+export { PreviewList } from './Uploader/PeviewList/PreviewList';

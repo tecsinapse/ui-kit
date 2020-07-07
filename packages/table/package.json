@@ -2,7 +2,7 @@
   "name": "@tecsinapse/table",
   "description": "TecSinapse Table",
   "version": "3.0.4",
-  "main": "../dist/index.cjs.js",
+  "main": "build/index.js",
   "module": "build/index.js",
   "author": {
     "name": "TecSinapse"
@@ -38,16 +38,6 @@
     "build",
     "../dist"
   ],
-  "scripts": {
-    "analyze": "npx source-map-explorer 'dist/*.js'",
-    "build": "../node_modules/.bin/rimraf -rf build/ && babel src/ -d build/ && rollup -c",
-    "build-all": "yarn build && yarn storybook:build",
-    "build-publish": "yarn build-all && npm publish",
-    "dev": "npx rollup -c -w",
-    "prestart": "yarn install",
-    "start": "yarn install && yarn storybook",
-    "test": "NODE_ENV=test jest"
-  },
   "license": "MIT",
   "peerDependencies": {
     "react": "^16.12.0",
