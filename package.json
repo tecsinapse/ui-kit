@@ -15,7 +15,8 @@
     "build:storybook": "build-storybook -c .storybook -s ./storybook-public -o docs/",
     "dev": "start-storybook -p 5555",
     "eslint:fix": "npx eslint ./packages/carousel/src ./packages/pickers/src ./packages/wizard/src ./packages/uploader/src ./packages/ui-kit/src/ ./packages/table/src/ --ext .js --fix",
-    "prepublish": "yarn build"
+    "prepublish": "yarn build",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "husky": {
     "hooks": {
@@ -50,6 +51,7 @@
     "text-mask-core": "^5.1.2"
   },
   "devDependencies": {
+    "coveralls": "^3.1.0",
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",

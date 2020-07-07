@@ -23,8 +23,10 @@ export const Wizard = ({
 }) => {
   const currentStep = React.Children.toArray(children)[activeStep];
   const [error, setError] = useState(false);
-  const mobile =
-    useMediaQuery(useTheme().breakpoints.down('xs')) || variant === 'mobile';
+
+  const breakpoint = useMediaQuery(useTheme().breakpoints.down('xs'));
+  const mobile = (variant === 'mobile' || variant === 'auto') && breakpoint;
+
   const innerClasses = useStyles();
 
   const {
