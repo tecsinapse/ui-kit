@@ -33,7 +33,6 @@ const AdvancedFilters = ({
   customAdvancedFilters,
 }) => {
   const [open, setOpen] = React.useState(false);
-  const { cleanFilters = () => {} } = customAdvancedFilters;
 
   const {
     Table: { tooltipAdvancedFilter },
@@ -58,7 +57,7 @@ const AdvancedFilters = ({
   };
 
   const handleClose = () => {
-    cleanFilters();
+    customAdvancedFilters?.cleanFilters(); // eslint-disable-line
     setOpen(false);
   };
 
