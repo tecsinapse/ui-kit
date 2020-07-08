@@ -9,7 +9,6 @@ Neste repositório estão as seguintes bibliotecas:
 
 | Package                  | folder   | Feature                                     |
 | ------------------------ | -------- | ------------------------------------------- |
-
 | `@tecsinapse/ui-kit`     | ui-ki    | [![npm version](https://badge.fury.io/js/%40tecsinapse%2Fui-kit.svg)](https://badge.fury.io/js/%40tecsinapse%2Fui-kit) |
 | `@tecsinapse/uploader`   | uploader |  |
 | `@tecsinapse/carousel`   | carousel |  |
