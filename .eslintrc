@@ -7,7 +7,6 @@
   ],
   "rules": {
     "prettier/prettier": "error",
-    "import/no-cycle": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
     "react/jsx-filename-extension": [

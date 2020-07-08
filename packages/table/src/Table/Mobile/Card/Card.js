@@ -18,7 +18,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { isNotEmptyOrNull } from '@tecsinapse/es-utils/build';
 
 import { Divider, IconButton } from '@tecsinapse/ui-kit';
-import { resolveData } from '../../../index';
+import { resolveData } from '../../utils/tableFunctions';
 import { getActionButtons } from '../../Rows/RowActions/RowActions';
 
 const useStyles = makeStyles(theme => ({

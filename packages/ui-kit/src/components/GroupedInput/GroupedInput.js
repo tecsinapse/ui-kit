@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { Divider } from '../Divider/Divider';
-import { useGroupedInputStyles } from './useGroupedInputStyles';
+import { useGroupedInputStyles } from './hooks/useGroupedInputStyles';
 import { InputItemGroupInput } from './InputItemGroupInput/InputItemGroupInput';
 
 export const GroupedInput = ({
