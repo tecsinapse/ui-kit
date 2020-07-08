@@ -63,7 +63,7 @@ export const stylesWarning = {
   },
 };
 
-export const inputStyles = theme => ({
+export const styles = theme => ({
   adornedMarginLeft: {
     marginLeft: theme.spacing(0.5),
   },
@@ -77,7 +77,7 @@ export const inputStyles = theme => ({
     paddingRight: theme.spacing(0.333),
   },
   cssOutlinedInput: {
-    '&$cssFocused $notchedOutline': {
+    '&$focused $notchedOutline $cssFocused': {
       borderColor: ({ variant }) =>
         variant === 'yellow'
           ? theme.palette.secondary.main
@@ -85,7 +85,7 @@ export const inputStyles = theme => ({
     },
   },
   cssLabel: {
-    '&$cssFocused': {
+    '&$focused $cssFocused': {
       color: ({ variant }) =>
         variant === 'yellow'
           ? theme.palette.secondary.main
@@ -95,6 +95,9 @@ export const inputStyles = theme => ({
   ...stylesError,
   ...stylesSuccess,
   ...stylesWarning,
-  notchedOutline: {},
-  cssFocused: {},
+  notchedOutline: () => ({}),
+  focused: () => ({}),
+  cssFocused: () => ({}),
+  error: () => ({}),
+  disabled: () => ({}),
 });

@@ -206,3 +206,30 @@ export const PERCENTAGE_MASK = createNumberMask({
 });
 
 export const YEAR_MASK = [/\d/, /\d/, /\d/, /\d/];
+
+const masks = {
+  cep: CEP_MASK,
+  phone: PHONE_MASK,
+  cell: CELL_MASK,
+  cpf: CPF_MASK,
+  currency: CURRENCY_MASK,
+  cnpj: CNPJ_MASK,
+  plate: PLATE_MASK,
+  cellphone: CELL_PHONE_MASK,
+  cpfcnpj: CPF_CNPJ_MASK,
+  date: DATE_MASK,
+  time: TIME_MASK,
+  percentage: PERCENTAGE_MASK,
+  year: YEAR_MASK,
+};
+
+export const useMask = mask => {
+  let pipe;
+
+  if (mask === 'plate') {
+    pipe = conformedValue => conformedValue.toUpperCase();
+  }
+  const inputMask = masks[mask] ? masks[mask] : mask;
+
+  return [inputMask, pipe];
+};

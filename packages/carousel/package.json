@@ -23,17 +23,9 @@
     "ui-kit"
   ],
   "dependencies": {
-    "@material-ui/core": "^4.2.1",
-    "@material-ui/icons": "^4.2.1",
-    "@material-ui/styles": "^4.2.1",
-    "@mdi/js": "^5.3.45",
-    "@mdi/react": "^1.4.0",
-    "@tecsinapse/es-utils": "^6.0.10",
     "@tecsinapse/ui-kit": "^5.0.20",
-    "clsx": "^1.0.4",
     "material-ui-dots": "^2.0.0",
-    "prop-types": "^15.6.2",
-    "react-swipeable-views": "^0.13.1",
+    "react-swipeable-views": "^0.13.9",
     "react-swipeable-views-utils": "^0.13.9"
   },
   "files": [
@@ -42,8 +34,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "sideEffects": false
 }

@@ -1,4 +1,4 @@
-export const demoItems = [
+export const drawerDemoItems = [
   {
     title: '1. Portal',
     children: [

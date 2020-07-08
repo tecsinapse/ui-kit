@@ -48,7 +48,6 @@ export const InputItemGroupInput = React.memo(
               value={value}
               name={`${name}.${index}`}
               onChange={onChange}
-              onEnter={push}
               onBlur={onBlur}
               className={classes.input}
               fullWidth

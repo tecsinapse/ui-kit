@@ -81,7 +81,12 @@ export const WeeklyCalendarComponent = ({
           onChange={newDate => handleWeekChange(newDate.startOf('week'))}
           format="dd/MM/yyyy"
           customTextFieldComponentInput={() => (
-            <Typography variant="h6" style={style} color="primary">
+            <Typography
+              variant="h6"
+              style={style}
+              color="primary"
+              data-testid="week-header"
+            >
               {selectedDay.toFormat('MMMM, yyyy')}
             </Typography>
           )}

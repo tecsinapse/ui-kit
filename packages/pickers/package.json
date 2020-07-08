@@ -24,17 +24,11 @@
     "ui-kit"
   ],
   "dependencies": {
-    "@date-io/luxon": "^1.1.0",
-    "@material-ui/core": "^4.2.1",
-    "@material-ui/icons": "^4.2.1",
-    "@material-ui/pickers": "^3.1.2",
-    "@material-ui/styles": "^4.2.1",
-    "@tecsinapse/es-utils": "^6.0.10",
+    "@date-io/luxon": "^1.3.13",
+    "@material-ui/pickers": "^3.2.10",
     "@tecsinapse/material-ui-color-picker": "^4.3.0",
     "@tecsinapse/ui-kit": "^5.0.20",
-    "clsx": "^1.0.4",
-    "luxon": "^1.11.2",
-    "prop-types": "^15.6.2"
+    "luxon": "^1.24.1"
   },
   "files": [
     "build",
@@ -42,8 +36,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "sideEffects": false
 }
