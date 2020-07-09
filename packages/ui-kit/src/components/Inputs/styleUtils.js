@@ -3,7 +3,7 @@ import React from 'react';
 import Icon from '@mdi/react';
 import { styled } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
-import { defaultGreen, defaultOrange, defaultRed } from '../../colors';
+import { defaultGreen, defaultOrange, defaultRed } from '../../utils/colors';
 
 export const outlinedInputClass = ({ success, error, warning }) => {
   if (error) {

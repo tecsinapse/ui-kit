@@ -3,12 +3,12 @@ import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
 import { blue, grey } from '@material-ui/core/colors';
 import PropTypes from 'prop-types';
 import React, { useLayoutEffect, useState } from 'react';
-import { defaultBlue, defaultRed, defaultYellow } from './colors';
+import { defaultBlue, defaultRed, defaultYellow } from './utils/colors';
 import {
   customVariantBlueGrey,
   customVariantBlueOcean,
   customVariantYellow,
-} from './customVariant';
+} from './utils/customVariant';
 
 const themes = {
   orange: 'orange',

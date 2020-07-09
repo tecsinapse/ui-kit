@@ -8,8 +8,8 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import Button from '@material-ui/core/Button';
 import { weeklyCalendarStyles as useStyles } from './weeklyCalendarStyles';
-import { DatePicker } from '../Picker/DatePicker';
-import { PickersProvider } from '../Picker/PickersProvider';
+import { DatePicker } from '../Picker/DatePicker/DatePicker';
+import { PickersProvider } from '../Picker/PickersProvider/PickersProvider';
 
 export const WEEK_DAYS = 7;
 const style = { textAlign: 'center' };

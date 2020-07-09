@@ -6,7 +6,7 @@ import Badge from '@material-ui/core/Badge';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { mdiChevronRight } from '@mdi/js';
 import Icon from '@mdi/react';
-import { defaultGreyLight2 } from '../../colors';
+import { defaultGreyLight2 } from '../../utils/colors';
 
 const useStyle = makeStyles({
   root: {

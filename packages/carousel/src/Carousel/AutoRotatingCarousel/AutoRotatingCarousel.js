@@ -10,8 +10,8 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { grey } from '@material-ui/core/colors';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import Carousel from './Carousel';
-import { modulo } from './util';
+import Carousel from '../Carousel';
+import { modulo } from '../../utils/util';
 
 const useStyle = makeStyles(theme => ({
   content: {

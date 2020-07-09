@@ -9,10 +9,10 @@ import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import Help from '@material-ui/icons/Help';
 import { SizeMe } from 'react-sizeme';
-import { selectInputStyle } from './SelectInputStyle';
-import { SelectMobileCustomComponents } from './SelectMobileCustomComponents';
-import { selectCustomWebComponents } from './SelectCustomWebComponents';
-import { calculateValuesSizes } from './CalculateOptionsWidth';
+import { styles } from './utils/styles';
+import { MOBILE_COMPONENTS } from './MobileComponents';
+import { WEB_COMPONENTS } from './WebComponents';
+import { calculateValuesSizes } from './utils/selectHelper';
 
 const flattenChildren = childrenIn =>
   childrenIn
@@ -169,7 +169,7 @@ const SelectUnstyled = ({
   const selectProps =
     variant === 'mobile'
       ? {
-          components: SelectMobileCustomComponents,
+          components: MOBILE_COMPONENTS,
           menuPortalTarget: document.body,
           backspaceRemovesValue: false,
           deleteRemovesValue: false,
@@ -181,7 +181,7 @@ const SelectUnstyled = ({
             styles: { menuPortal: base => ({ ...base, zIndex: 9999 }) },
             menuPortalTarget: document.body,
           }),
-          components: selectCustomWebComponents,
+          components: WEB_COMPONENTS,
           ...defaultProps,
         };
 
@@ -300,7 +300,7 @@ const propTypes = {
 SelectUnstyled.propTypes = propTypes;
 SelectUnstyled.defaultProps = defaultProps1;
 
-const useSelectStyles = makeStyles(selectInputStyle);
+const useSelectStyles = makeStyles(styles);
 
 const Select = props => {
   const classes = useSelectStyles();

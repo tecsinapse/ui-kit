@@ -1,6 +1,6 @@
 import React from 'react';
-import { SearchDialog } from './SearchDialog';
-import { SelectAllButton } from './SelectAllButton';
+import { SearchDialog } from '../SearchDialog/SearchDialog';
+import { SelectAllButton } from '../../CommonComponents';
 
 export const Menu = ({
   menuPlacement,

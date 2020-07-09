@@ -20,7 +20,7 @@ import {
   renderStyledLabel,
 } from '@tecsinapse/ui-kit/build/ThemeProvider';
 
-import { useStylesWeek } from './customWeekPickerStyles';
+import { useStylesWeek } from './styles';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {

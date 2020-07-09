@@ -8,7 +8,7 @@ import {
   defaultGrey,
   defaultOrange,
   defaultRed,
-} from '../../colors';
+} from '../../utils/colors';
 
 export const buttonStyle = ({ spacing }) => ({
   buttonSpan: {

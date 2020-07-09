@@ -2,7 +2,7 @@ import Chip from '@material-ui/core/Chip';
 import clsx from 'clsx';
 import React from 'react';
 import CancelIcon from '@material-ui/icons/Cancel';
-import { getLabelSliced } from './CalculateOptionsWidth';
+import { getLabelSliced } from '../../utils/selectHelper';
 
 export function MultiValue({ children, selectProps, removeProps, isFocused }) {
   const label = getLabelSliced(children);

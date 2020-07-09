@@ -1,6 +1,6 @@
 import React from 'react';
 import { components } from 'react-select';
-import { MultiValue } from './MultiValue';
+import { MultiValue } from '../MultiValue/MultiValue';
 
 export function ValueContainer({ selectProps, children, getValue, ...props }) {
   const { length } = getValue();

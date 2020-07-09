@@ -3,7 +3,7 @@ import autoPlay from 'react-swipeable-views-utils/lib/autoPlay';
 import virtualize from 'react-swipeable-views-utils/lib/virtualize';
 import bindKeyboard from 'react-swipeable-views-utils/lib/bindKeyboard';
 import SwipeableViews from 'react-swipeable-views';
-import { modulo } from './util';
+import { modulo } from '../utils/util';
 
 const VirtualizeSwipeViews = bindKeyboard(virtualize(SwipeableViews));
 const VirtualizeAutoPlaySwipeViews = autoPlay(VirtualizeSwipeViews);

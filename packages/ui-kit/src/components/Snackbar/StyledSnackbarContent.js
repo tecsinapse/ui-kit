@@ -14,7 +14,7 @@ import {
   defaultGrey,
   defaultOrange,
   defaultRed,
-} from '../../colors';
+} from '../../utils/colors';
 
 const variantIcon = {
   success: CheckCircleIcon,

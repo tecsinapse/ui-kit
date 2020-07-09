@@ -1,7 +1,10 @@
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import { List } from 'react-virtualized';
 import React, { useContext } from 'react';
-import { NoItemsSearchDialog, SearchTextContext } from './SearchDialog';
+import {
+  NoItemsSearchDialog,
+  SearchTextContext,
+} from '../SearchDialog/SearchDialog';
 
 const selectMenuHeight = 50;
 

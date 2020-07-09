@@ -1,2 +1,2 @@
-export { AutoRotatingCarousel } from './Carousel/AutoRotatingCarousel';
-export { Slide } from './Carousel/Slide';
+export { AutoRotatingCarousel } from './Carousel/AutoRotatingCarousel/AutoRotatingCarousel';
+export { Slide } from './Carousel/Slide/Slide';

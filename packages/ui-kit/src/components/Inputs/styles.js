@@ -5,7 +5,7 @@ import {
   defaultOrangeDarker,
   defaultRed,
   defaultRedDarker,
-} from '../../colors';
+} from '../../utils/colors';
 
 export const stylesError = {
   cssOutlinedInputRed: {

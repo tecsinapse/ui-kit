@@ -1,4 +1,4 @@
-import { defaultBadgeColor } from '../packages/ui-kit/src/colors';
+import { defaultBadgeColor } from '@tecsinapse/ui-kit/src/utils/colors';
 
 export const overrides = {
   MuiBadge: {
