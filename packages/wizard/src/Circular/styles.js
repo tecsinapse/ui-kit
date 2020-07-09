@@ -3,7 +3,7 @@ import {
   defaultGreen,
   defaultOrange,
   defaultRed,
-} from '@tecsinapse/ui-kit/build/colors';
+} from '@tecsinapse/ui-kit/build/utils/colors';
 
 export const useStyles = makeStyles(({ spacing }) => ({
   circularStepperContainer: {

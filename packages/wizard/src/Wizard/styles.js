@@ -3,7 +3,7 @@ import {
   defaultGreen,
   defaultOrange,
   defaultRed,
-} from '@tecsinapse/ui-kit/build/colors';
+} from '@tecsinapse/ui-kit/build/utils/colors';
 
 export const iconMargin = {
   margin: '0 6px 0 4px',
