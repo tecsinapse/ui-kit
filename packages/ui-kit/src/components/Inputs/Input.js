@@ -7,95 +7,17 @@ import { makeStyles, useTheme } from '@material-ui/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import MaskedInput from 'react-text-mask';
 import clsx from 'clsx';
-import { inputStyles } from './InputStyles';
-import {
-  CELL_MASK,
-  CELL_PHONE_MASK,
-  CEP_MASK,
-  CNPJ_MASK,
-  CPF_CNPJ_MASK,
-  CPF_MASK,
-  CREDIT_CARD_MASK,
-  CURRENCY_MASK,
-  CVV_MASK,
-  DATE_MASK,
-  maskConfig,
-  MOUNTH_YEAR_MASK,
-  PERCENTAGE_MASK,
-  PHONE_MASK,
-  PLATE_MASK,
-  TIME_MASK,
-  YEAR_MASK,
-} from './Masks';
+import { styles } from './styles';
+import { maskConfig, useMask } from './masks';
 
 import { GetEndAdornment, labelClass, outlinedInputClass } from './styleUtils';
 
 const TextMaskCustom = props => {
   const { inputRef, mask, ...other } = props;
-  let inputMask;
-  let pipeFunc;
+  const [inputMask, pipeFunc] = useMask(mask);
 
   if (!mask) {
     return null;
-  }
-
-  // FIXME: Use strategy pattern
-  if (typeof mask === 'string') {
-    switch (mask) {
-      case 'cep':
-        inputMask = CEP_MASK;
-        break;
-      case 'phone':
-        inputMask = PHONE_MASK;
-        break;
-      case 'cell':
-        inputMask = CELL_MASK;
-        break;
-      case 'cpf':
-        inputMask = CPF_MASK;
-        break;
-      case 'currency':
-        inputMask = CURRENCY_MASK;
-        break;
-      case 'cnpj':
-        inputMask = CNPJ_MASK;
-        break;
-      case 'plate':
-        inputMask = PLATE_MASK;
-        pipeFunc = conformedValue => conformedValue.toUpperCase();
-        break;
-      case 'cellphone':
-        inputMask = CELL_PHONE_MASK;
-        break;
-      case 'cpfcnpj':
-        inputMask = CPF_CNPJ_MASK;
-        break;
-      case 'date':
-        inputMask = DATE_MASK;
-        break;
-      case 'time':
-        inputMask = TIME_MASK;
-        break;
-      case 'percentage':
-        inputMask = PERCENTAGE_MASK;
-        break;
-      case 'year':
-        inputMask = YEAR_MASK;
-        break;
-      case 'creditcard':
-        inputMask = CREDIT_CARD_MASK;
-        break;
-      case 'cvv':
-        inputMask = CVV_MASK;
-        break;
-      case 'mounthyear':
-        inputMask = MOUNTH_YEAR_MASK;
-        break;
-      default:
-        return null;
-    }
-  } else {
-    inputMask = mask;
   }
 
   return (
@@ -199,7 +121,7 @@ export const TextFieldComponent = ({
   );
 };
 
-const useInputUIStyles = makeStyles(inputStyles);
+const useInputUIStyles = makeStyles(styles);
 
 const InputUI = ({
   key,

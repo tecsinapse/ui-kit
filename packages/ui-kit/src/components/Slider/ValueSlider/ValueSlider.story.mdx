@@ -6,7 +6,7 @@ import { defaultOrange } from '../../../colors';
 import { marks, stylesValue } from './helperStory';
 
 <Meta
-  title={`${GROUPS.COMPONENTS}|Value Slider`}
+  title={`${GROUPS.COMPONENTS}/Value Slider`}
   decorators={[story => <DivFlex>{story()}</DivFlex>]}
 />
 
@@ -26,8 +26,8 @@ Here you can check the code snippet for the story.
       <div style={stylesValue}>
         <ValueSlider
           colorSlider={defaultOrange}
-          value="3"
-          defaultValue="10"
+          value={3}
+          defaultValue={10}
           step={2}
           marks={marks}
           min={0}

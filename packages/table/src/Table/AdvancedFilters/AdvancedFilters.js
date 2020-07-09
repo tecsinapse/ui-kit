@@ -56,6 +56,11 @@ const AdvancedFilters = ({
     setOpen(true);
   };
 
+  const handleClose = () => {
+    customAdvancedFilters?.cleanFilters(); // eslint-disable-line
+    setOpen(false);
+  };
+
   return (
     <>
       <Tooltip title={tooltipAdvancedFilter}>
@@ -68,7 +73,7 @@ const AdvancedFilters = ({
         )}
       </Tooltip>
       {!mobile ? (
-        <Drawer open={open} onClose={() => setOpen(false)} anchor="right">
+        <Drawer open={open} onClose={handleClose} anchor="right">
           <div style={maxSizeAdvancedFilters}>
             <Container
               advancedFilters={advancedFilters}
@@ -76,7 +81,7 @@ const AdvancedFilters = ({
               setFilters={setFilters}
               filters={filters}
               customAdvancedFilters={customAdvancedFilters}
-              closeDialog={() => setOpen(false)}
+              closeDialog={handleClose}
             />
           </div>
         </Drawer>
@@ -84,7 +89,7 @@ const AdvancedFilters = ({
         <Dialog
           fullScreen
           open={open}
-          onClose={() => setOpen(false)}
+          onClose={handleClose}
           TransitionComponent={Transition}
         >
           <div style={maxSizeAdvancedFilters}>
@@ -94,7 +99,7 @@ const AdvancedFilters = ({
               setFilters={setFilters}
               filters={filters}
               mobile={mobile}
-              closeDialog={() => setOpen(false)}
+              closeDialog={handleClose}
               customAdvancedFilters={customAdvancedFilters}
             />
           </div>

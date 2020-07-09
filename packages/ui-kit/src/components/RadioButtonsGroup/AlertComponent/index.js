@@ -1,1 +1,0 @@
-export { AlertComponent } from './AlertComponent';

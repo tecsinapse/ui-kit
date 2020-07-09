@@ -337,10 +337,11 @@ TableComponent.propTypes = {
   empytStateComponent: PropTypes.node,
   /** Hide floating label of select filter */
   hideSelectFilterLabel: PropTypes.bool,
-  /** Replace legacy advanced filters to your own */
+  /** Replace legacy advanced filters to your own. `cleanFilters` is associated to close button on custom Advanced Filters */
   customAdvancedFilters: PropTypes.shape({
     applyFilters: PropTypes.func,
     filters: PropTypes.node,
+    cleanFilters: PropTypes.func,
   }),
   /** Provides custom row render. See examples for more detailed use cases. */
   customRow: PropTypes.func,

@@ -277,6 +277,7 @@ const Container = ({
           variant="contained"
           className={classes.button}
           color={renderStyledColor(variant)}
+          disableElevation
         >
           {applyFiltersLabel}
         </Button>

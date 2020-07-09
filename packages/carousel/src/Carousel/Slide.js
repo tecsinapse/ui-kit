@@ -96,11 +96,11 @@ export const Slide = ({
 
   const classes = useStyle();
 
-  const CustomButton = ({ children, ...props }) => (
-    <Button customVariant="success" variant="contained" {...props}>
-      {children}
+  const CustomButton = React.forwardRef((props, ref) => (
+    <Button ref={ref} customVariant="success" variant="contained" {...props}>
+      {props.children}
     </Button>
-  );
+  ));
 
   return (
     <div

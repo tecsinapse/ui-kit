@@ -30,9 +30,7 @@ export function Option({
       {selectProps.isMulti && (
         <Checkbox checked={isSelected} value="checkedA" />
       )}
-      <body1 className={selectProps.childrenClasses.body1Option}>
-        {children}
-      </body1>
+      <div className={selectProps.childrenClasses.body1Option}>{children}</div>
     </MenuItem>
   );
 }

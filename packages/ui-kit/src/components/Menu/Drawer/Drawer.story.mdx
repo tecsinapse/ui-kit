@@ -1,9 +1,9 @@
 import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
 import { GROUPS } from '../../../../../../.storybook/hierarchySeparators';
 import { Drawer } from './Drawer';
-import { demoItems } from './demoItems';
+import { drawerDemoItems } from '../../../utils/drawerDemoItems';
 
-<Meta title={`${GROUPS.MENU}|Drawer`} />
+<Meta title={`${GROUPS.MENU}/Drawer`} />
 
 # Drawer
 
@@ -23,7 +23,7 @@ Here you can check the code snippet for the story.
 
 <Story name="Drawer" parameters={{ docs: { disable: true } }}>
   <Drawer
-    items={demoItems}
+    items={drawerDemoItems}
     open
     onClose={() => {}}
     productName="Gestão de Frotas"

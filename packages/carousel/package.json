@@ -2,7 +2,7 @@
   "name": "@tecsinapse/carousel",
   "description": "TecSinapse Carousel",
   "version": "2.0.2",
-  "main": "dist/index.cjs.js",
+  "main": "build/index.js",
   "module": "build/index.js",
   "author": {
     "name": "TecSinapse"
@@ -23,38 +23,19 @@
     "ui-kit"
   ],
   "dependencies": {
-    "@material-ui/core": "^4.2.1",
-    "@material-ui/icons": "^4.2.1",
-    "@material-ui/styles": "^4.2.1",
-    "@mdi/js": "^3.0.39",
-    "@mdi/react": "^1.1.0",
-    "@tecsinapse/es-utils": "^6.0.10",
     "@tecsinapse/ui-kit": "^5.0.20",
-    "clsx": "^1.0.4",
     "material-ui-dots": "^2.0.0",
-    "prop-types": "^15.6.2",
-    "react-swipeable-views": "^0.13.1",
+    "react-swipeable-views": "^0.13.9",
     "react-swipeable-views-utils": "^0.13.9"
   },
   "files": [
     "build",
     "dist"
   ],
-  "scripts": {
-    "analyze": "npx source-map-explorer 'dist/*.js'",
-    "build": "rimraf -rf build/ && babel src/ -d build/ && rollup -c",
-    "build-all": "yarn build && yarn storybook:build",
-    "build-publish": "yarn build-all && npm publish",
-    "dev": "rollup -c -w",
-    "start": "yarn install && yarn storybook",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "storybook:build": "build-storybook -c .storybook -o docs/",
-    "test": "NODE_ENV=test jest"
-  },
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "sideEffects": false
 }
