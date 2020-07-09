@@ -7,12 +7,15 @@
 
 Neste repositório estão as seguintes bibliotecas:
 
-- `@tecsinapse/ui-kit`
-- `@tecsinapse/uploader`
-- `@tecsinapse/carousel`
-- `@tecsinapse/pickers`
-- `@tecsinapse/wizard`
-- `@tecsinapse/table`
+| Package                  | folder   | Feature                                     |
+| ------------------------ | -------- | ------------------------------------------- |
+| `@tecsinapse/ui-kit`     | ui-ki    | [![npm version](https://badge.fury.io/js/%40tecsinapse%2Fui-kit.svg)](https://badge.fury.io/js/%40tecsinapse%2Fui-kit) |
+| `@tecsinapse/uploader`   | uploader | [![npm version](https://badge.fury.io/js/%40tecsinapse%2Fuploader.svg)](https://badge.fury.io/js/%40tecsinapse%2Fuploader) |
+| `@tecsinapse/carousel`   | carousel | [![npm version](https://badge.fury.io/js/%40tecsinapse%2Fcarousel.svg)](https://badge.fury.io/js/%40tecsinapse%2Fcarousel)  |
+| `@tecsinapse/pickers`    | pickers  | [![npm version](https://badge.fury.io/js/%40tecsinapse%2Fpickers.svg)](https://badge.fury.io/js/%40tecsinapse%2Fpickers)  |
+| `@tecsinapse/wizard`     | wizard   | [![npm version](https://badge.fury.io/js/%40tecsinapse%2Fwizard.svg)](https://badge.fury.io/js/%40tecsinapse%2Fwizard) |
+| `@tecsinapse/table`      | table    | [![npm version](https://badge.fury.io/js/%40tecsinapse%2Ftable.svg)](https://badge.fury.io/js/%40tecsinapse%2Ftable) |
+
 
 ## Get Started
 
