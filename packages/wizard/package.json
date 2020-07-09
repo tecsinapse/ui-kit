@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/wizard",
   "description": "TecSinapse Wizard",
-  "version": "3.0.5",
+  "version": "3.1.0",
   "main": "build/index.js",
   "module": "build/index.js",
   "author": {
@@ -23,7 +23,7 @@
     "wizard"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.0.20"
+    "@tecsinapse/ui-kit": "^5.1.0"
   },
   "files": [
     "build",
