@@ -1,5 +1,5 @@
 {
-  "name": "pickers",
+  "name": "@tecsinapse/pickers",
   "description": "TecSinapse Pickers",
   "version": "2.1.0",
   "main": "build/index.js",
