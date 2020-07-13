@@ -1,10 +1,9 @@
 import React from 'react';
-import MakedColorPicker from '@tecsinapse/material-ui-color-picker';
-import { Input } from '@tecsinapse/ui-kit';
-import {
+import MakedColorPicker, {
   converters,
   DEFAULT_CONVERTER,
-} from '@tecsinapse/material-ui-color-picker/lib/transformers';
+} from '@tecsinapse/material-ui-color-picker';
+import { Input } from '@tecsinapse/ui-kit';
 import PropTypes from 'prop-types';
 import { TextField } from '@material-ui/core';
 

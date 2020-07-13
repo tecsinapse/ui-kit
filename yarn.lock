@@ -2251,7 +2251,7 @@
     react-transition-group "^4.0.0"
     rifm "^0.7.0"
 
-"@material-ui/styles@^4.10.0":
+"@material-ui/styles@^4.10.0", "@material-ui/styles@^4.8.2":
   version "4.10.0"
   resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.10.0.tgz#2406dc23aa358217aa8cc772e6237bd7f0544071"
   integrity sha512-XPwiVTpd3rlnbfrgtEJ1eJJdFCXZkHxy8TrdieaTvwxNYj42VnnCyFzxYeNW9Lhj4V1oD8YtQ6S5Gie7bZDf7Q==
@@ -3156,13 +3156,14 @@
     eslint-plugin-react-hooks "^4.0.4"
     prettier "2.0.5"
 
-"@tecsinapse/material-ui-color-picker@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@tecsinapse/material-ui-color-picker/-/material-ui-color-picker-4.3.0.tgz#d150b702ff5bc104500aaad68bb071a608f98dd2"
-  integrity sha512-vC3uht+Bwh7GKoIqprKUPUOaAngwcys3g8BvVJEACEfsbEgyApsHhioV3kHrRfEyn1hX/9mI0E6Z9bpcp+ehYA==
+"@tecsinapse/material-ui-color-picker@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@tecsinapse/material-ui-color-picker/-/material-ui-color-picker-4.4.0.tgz#d0d00625ffa9f82cf28c74f78889d2d6751a6fa2"
+  integrity sha512-otNrSH8ArpDh8kIOg4qYt2zIajatULcxZzFfqru7EMNqEUpnwSGjcXuhgxJKaq4BX0PDFvSb5OcSK2cZocABWQ==
   dependencies:
-    prop-types "^15.6.2"
-    react-color "^2.17.0"
+    "@material-ui/styles" "^4.8.2"
+    prop-types "^15.7.2"
+    react-color "^2.18.0"
     recompose "^0.30.0"
 
 "@testing-library/dom@^6.15.0":
@@ -13084,7 +13085,7 @@ react-clientside-effect@^1.2.2:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-react-color@^2.17.0:
+react-color@^2.18.0:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/react-color/-/react-color-2.18.1.tgz#2cda8cc8e06a9e2c52ad391a30ddad31972472f4"
   integrity sha512-X5XpyJS6ncplZs74ak0JJoqPi+33Nzpv5RYWWxn17bslih+X7OlgmfpmGC1fNvdkK7/SGWYf1JJdn7D2n5gSuQ==
