@@ -21,7 +21,8 @@
     "react",
     "tecsinapse",
     "time",
-    "ui-kit"
+    "ui-kit",
+    "material"
   ],
   "dependencies": {
     "@date-io/luxon": "^1.3.13",
