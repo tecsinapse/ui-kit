@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.1.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.1.2...@tecsinapse/pickers@2.1.3) (2020-07-14)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
 ## <small>1.3.3 (2020-05-18)</small>
 
 * Bump https-proxy-agent from 2.2.2 to 2.2.4 ([d5904f1](https://github.com/tecsinapse/pickers/commit/d5904f1))
@@ -904,6 +917,3 @@
 * Select: select não fecha ao clicar no icon de dropdown #40 ([99b37c2](https://github.com/tecsinapse/pickers/commit/99b37c2)), closes [#40](https://github.com/tecsinapse/pickers/issues/40)
 * Select: select não fecha ao clicar no icon de dropdown #40 ([a7a07ee](https://github.com/tecsinapse/pickers/commit/a7a07ee)), closes [#40](https://github.com/tecsinapse/pickers/issues/40)
 * Select: select não fecha ao clicar no icon de dropdown #40 ([89c84f0](https://github.com/tecsinapse/pickers/commit/89c84f0)), closes [#40](https://github.com/tecsinapse/pickers/issues/40)
-
-
-
