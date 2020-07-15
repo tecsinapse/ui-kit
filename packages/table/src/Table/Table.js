@@ -86,7 +86,7 @@ const TableComponent = props => {
   );
   // Update the device
   const breakpoint = useMediaQuery(useTheme().breakpoints.down('xs'));
-  const mobile = (variant === 'mobile' || variant === 'auto') && breakpoint;
+  const mobile = variant === 'mobile' || (variant === 'auto' && breakpoint);
 
   const tableColumns = initializeColumns(columns, options, actions);
 

@@ -13,6 +13,7 @@ module.exports = function presets(api) {
   }
 
   return {
+    ignore: ['**/*.story.js', '**/*.spec.js', '**/*.story.mdx'],
     presets: ['@babel/preset-react', ['@babel/preset-env', envConfig]],
     plugins,
   };

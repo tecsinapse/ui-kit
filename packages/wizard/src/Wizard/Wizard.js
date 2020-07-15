@@ -9,7 +9,7 @@ import { Stepper } from '../Stepper/Stepper';
 import { Circular } from '../Circular/Circular';
 import { alertColor, iconMargin, useStyles } from './styles';
 
-export const Wizard = ({
+const Wizard = ({
   children,
   activeStep,
   onChange,
@@ -25,7 +25,7 @@ export const Wizard = ({
   const [error, setError] = useState(false);
 
   const breakpoint = useMediaQuery(useTheme().breakpoints.down('xs'));
-  const mobile = (variant === 'mobile' || variant === 'auto') && breakpoint;
+  const mobile = variant === 'mobile' || (variant === 'auto' && breakpoint);
 
   const innerClasses = useStyles();
 
@@ -173,3 +173,5 @@ Wizard.propTypes = {
     stepMobileLabel: PropTypes.string,
   }),
 };
+
+export default Wizard;
