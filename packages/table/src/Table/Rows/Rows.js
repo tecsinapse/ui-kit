@@ -5,8 +5,8 @@ import { isEmptyOrNull } from '@tecsinapse/es-utils/build';
 import { TableCell } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
 import { VisibilityOff } from '@material-ui/icons';
-import { EmptyStateWrapper } from '@tecsinapse/ui-kit';
-import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
+import { EmptyStateWrapper, LocaleContext } from '@tecsinapse/ui-kit';
+
 import { Cells } from './Cells/Cells';
 import { handleRowClick } from '../utils/tableFunctions';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { UploaderStory } from '../src/utils/UploaderStory';
+import { UploaderStory } from '../src/stories/UploaderStory';
 import { TestProvider } from '../../../utils/TestProvider';
 
 test('Render Uploader', () => {

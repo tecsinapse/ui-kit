@@ -12,13 +12,13 @@ import {
 } from '@material-ui/pickers';
 
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build';
-import { Input } from '@tecsinapse/ui-kit';
-import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import {
+  Input,
+  LocaleContext,
   customDatePickerStyle,
   renderStyledColor,
   renderStyledLabel,
-} from '@tecsinapse/ui-kit/build/ThemeProvider';
+} from '@tecsinapse/ui-kit';
 
 import { useStylesWeek } from './styles';
 

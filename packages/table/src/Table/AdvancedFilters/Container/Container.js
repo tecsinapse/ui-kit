@@ -9,9 +9,14 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { mdiArrowLeft, mdiClose } from '@mdi/js';
 import Icon from '@mdi/react';
 
-import { IconButton, Input, Select } from '@tecsinapse/ui-kit';
-import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
-import { renderStyledColor } from '@tecsinapse/ui-kit/build/ThemeProvider';
+import {
+  IconButton,
+  Input,
+  Select,
+  LocaleContext,
+  renderStyledColor,
+} from '@tecsinapse/ui-kit';
+
 import { Grid } from '@material-ui/core';
 
 const filterStyles = mobile =>

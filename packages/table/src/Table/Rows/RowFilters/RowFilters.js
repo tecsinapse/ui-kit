@@ -5,8 +5,8 @@ import TableRow from '@material-ui/core/TableRow';
 import { mdiMagnify } from '@mdi/js';
 import Icon from '@mdi/react';
 import { resolveObj } from '@tecsinapse/es-utils/build';
-import { Input, Select } from '@tecsinapse/ui-kit';
-import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
+import { Input, Select, LocaleContext } from '@tecsinapse/ui-kit';
+
 import {
   EXACT_MATCH_CONST,
   INCLUDE_MATCH_CONST,

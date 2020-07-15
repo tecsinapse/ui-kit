@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { TableCell } from '@material-ui/core';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import { makeStyles } from '@material-ui/styles';
-import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
+import { LocaleContext } from '@tecsinapse/ui-kit';
 import { paginationOptions } from '../utils/propTypes';
 
 const styles = makeStyles(theme => ({

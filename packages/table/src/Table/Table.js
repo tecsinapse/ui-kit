@@ -6,7 +6,7 @@ import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/styles';
-import { useWindowSize } from '@tecsinapse/ui-kit/build/ThemeProvider';
+import { useWindowSize } from '@tecsinapse/ui-kit';
 import { TableCell } from '@material-ui/core';
 import { styleDivContainer, tableStyles } from './utils/tableStyle';
 import RowFilters from './Rows/RowFilters/RowFilters';

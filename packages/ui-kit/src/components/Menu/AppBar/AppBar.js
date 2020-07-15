@@ -12,7 +12,7 @@ import Link from '@material-ui/core/Link';
 import Input from '@material-ui/core/Input';
 import { mdiClose, mdiMagnify, mdiMenu } from '@mdi/js';
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
-import { DefaultProductTypography } from '../DefaultProductTypography';
+import { DefaultProductTypography } from '../Drawer/DefaultProductTypography/DefaultProductTypography';
 import { LocaleContext } from '../../../LocaleProvider';
 import { customAppBarStyle } from '../../../ThemeProvider';
 

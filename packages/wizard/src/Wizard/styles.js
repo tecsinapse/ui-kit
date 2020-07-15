@@ -1,9 +1,5 @@
 import { makeStyles } from '@material-ui/styles';
-import {
-  defaultGreen,
-  defaultOrange,
-  defaultRed,
-} from '@tecsinapse/ui-kit/build/utils/colors';
+import { defaultGreen, defaultOrange, defaultRed } from '@tecsinapse/ui-kit';
 
 export const iconMargin = {
   margin: '0 6px 0 4px',

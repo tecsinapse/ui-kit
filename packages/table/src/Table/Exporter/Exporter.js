@@ -6,8 +6,8 @@ import Icon from '@mdi/react';
 import IconButton from '@material-ui/core/IconButton';
 import { mdiDownload } from '@mdi/js';
 import { Typography, useTheme } from '@material-ui/core';
-import { Button } from '@tecsinapse/ui-kit';
-import { renderStyledColor } from '@tecsinapse/ui-kit/build/ThemeProvider';
+import { Button, renderStyledColor } from '@tecsinapse/ui-kit';
+
 import { exportToCSV, isRemoteData } from '../utils/tableFunctions';
 
 const defaultLabelToCSV = 'Export to CSV';

@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import Button from '@material-ui/core/Button';
-import { weeklyCalendarStyles as useStyles } from './weeklyCalendarStyles';
+import { styles as useStyles } from './styles';
 import { DatePicker } from '../Picker/DatePicker/DatePicker';
 import { PickersProvider } from '../Picker/PickersProvider/PickersProvider';
 

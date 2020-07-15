@@ -1,0 +1,153 @@
+import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
+import { useState } from 'react';
+import Icon from '@mdi/react';
+import FileCopyRounded from '@material-ui/icons/FileCopyRounded';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { mdiFolderPlus } from '@mdi/js';
+import { IconButton } from '../..';
+import { FloatingButton } from '../..';
+import { FloatingButtonList } from '../..';
+import { DivButton } from '../..';
+import { Button } from '../..';
+import { DivFlex } from '../..';
+import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
+import { handleClick, items, style, FloatingButtonListStory, SuccessStory } from './buttonStoryHelper';
+
+<Meta
+  title={`${GROUPS.COMPONENTS}/Button`}
+  decorators={[story => <DivFlex>{story()}</DivFlex>]}
+/>
+
+# Button
+
+Each Button component can receive the following props:
+
+<Props
+  components={{
+    Button,
+    IconButton,
+    FloatingButton,
+    DivButton,
+  }}
+/>
+
+# Code snippets
+
+Here you can check the code snippet for the story.
+
+## Button
+
+<Story name="Button" parameters={{ docs: { disable: true } }}>
+  <Button onClick={handleClick}>Smart Button</Button>
+</Story>
+
+<Source id="components-button--button" />
+
+## Default
+
+<Story name="Default" parameters={{ docs: { disable: true } }}>
+  <Button customVariant="default" onClick={handleClick}>
+    Smart Button
+  </Button>
+</Story>
+
+<Source id="components-button--default-story" />
+
+## Success submitting
+
+<Story name="Success submitting" parameters={{ docs: { disable: true } }}>
+  <SuccessStory />
+</Story>
+
+<Source id="components-button--success-submitting" />
+
+## Warning
+
+<Story name="Warning" parameters={{ docs: { disable: true } }}>
+  <Button customVariant="warning" onClick={handleClick}>
+    Smart Button
+  </Button>
+</Story>
+
+<Source id="components-button--warning" />
+
+## Error
+
+<Story name="Error" parameters={{ docs: { disable: true } }}>
+  <Button customVariant="error" onClick={handleClick}>
+    Smart Button
+  </Button>
+</Story>
+
+<Source id="components-button--error" />
+
+## Primary
+
+<Story name="Primary" parameters={{ docs: { disable: true } }}>
+  <Button color="primary" onClick={handleClick}>
+    Smart Button
+  </Button>
+</Story>
+
+<Source id="components-button--primary" />
+
+## Primary contained
+
+<Story name="Primary contained" parameters={{ docs: { disable: true } }}>
+  <Button color="primary" variant="contained">
+    <Icon path={mdiFolderPlus} size={1} color="white" />
+    Nova Pasta
+  </Button>
+</Story>
+
+<Source id="components-button--primary-contained" />
+
+## Secondary
+
+<Story name="Secondary" parameters={{ docs: { disable: true } }}>
+  <Button color="secondary" onClick={handleClick}>
+    Smart Button
+  </Button>
+</Story>
+
+<Source id="components-button--secondary" />
+
+## Icon
+
+<Story name="Icon" parameters={{ docs: { disable: true } }}>
+  <IconButton onClick={handleClick}>
+    <DeleteIcon />
+  </IconButton>
+</Story>
+
+<Source id="components-button--icon" />
+
+## Floating
+
+<Story name="Floating" parameters={{ docs: { disable: true } }}>
+  <FloatingButton onClick={handleClick}>
+    <DeleteIcon />
+  </FloatingButton>
+</Story>
+
+<Source id="components-button--floating" />
+
+## FloatingList
+
+<Story name="Floating List" parameters={{ docs: { disable: true } }}>
+    <FloatingButtonListStory/>
+</Story>
+
+<Source id="components-button--floating-list" />
+
+## Div
+
+<Story name="Div" parameters={{ docs: { disable: true } }}>
+  <div style={style}>
+    <DivButton onClick={handleClick} infoText="COMUNICADOS" notifyNumber={0}>
+      <FileCopyRounded fontSize="large" />
+    </DivButton>
+  </div>
+</Story>
+
+<Source id="components-button--div" />

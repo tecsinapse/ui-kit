@@ -2,9 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { KeyboardTimePicker } from '@material-ui/pickers';
 import { useTheme } from '@material-ui/styles';
-import { Input } from '@tecsinapse/ui-kit';
-import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
-import { renderStyledLabel } from '@tecsinapse/ui-kit/build/ThemeProvider';
+import { Input, LocaleContext, renderStyledLabel } from '@tecsinapse/ui-kit';
 
 export const TimePicker = ({
   selectedTime,

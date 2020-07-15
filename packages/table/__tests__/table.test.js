@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Table } from '../src';
-import { columnsSimple } from '../src/Table/utils/storyHelper';
-import { cars } from '../src/Table/utils/exampleData';
+import { columnsSimple } from '../src/stories/storyHelper';
+import { cars } from '../src/stories/exampleData';
 import { TestProvider } from '../../../utils/TestProvider';
 
 test('Render Table', () => {

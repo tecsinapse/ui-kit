@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Popover from '@material-ui/core/Popover';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/styles';
-import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
+import { LocaleContext } from '@tecsinapse/ui-kit';
 
 const styles = makeStyles(theme => ({
   container: {

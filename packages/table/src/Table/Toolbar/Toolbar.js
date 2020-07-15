@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Toolbar as ToolbarMUI, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
+import { LocaleContext } from '@tecsinapse/ui-kit';
 import { verifyIfString } from '@tecsinapse/es-utils/build/object';
 import SelectionActions from './SelectionActions/SelectionActions';
 import AdvancedFilters from '../AdvancedFilters/AdvancedFilters';

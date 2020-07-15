@@ -1,8 +1,8 @@
 import { ReactNode, FC } from 'react';
 
-type Variant = 'auto' | 'web' | 'mobile';
+export type Variant = 'auto' | 'web' | 'mobile';
 
-interface LabelsProps {
+export interface LabelsProps {
   /** Label used to display 'Finish' button label */
   finishText?: string;
   /** Label used to display 'Next' button label */

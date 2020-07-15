@@ -10,8 +10,8 @@ import {
   List,
 } from 'react-virtualized';
 
-import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
-import { EmptyStateWrapper } from '@tecsinapse/ui-kit';
+import { LocaleContext, EmptyState } from '@tecsinapse/ui-kit';
+
 import { Card } from './Card/Card';
 
 export const Mobile = ({
@@ -46,7 +46,7 @@ export const Mobile = ({
   if (isEmptyOrNull(data)) {
     return (
       empytStateComponent || (
-        <EmptyStateWrapper
+        <EmptyState
           IconComponent={VisibilityOff}
           titleMessage={emptyStateTitle}
           message={emptyStateMessage}

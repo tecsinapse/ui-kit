@@ -6,7 +6,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Slide from '@material-ui/core/Slide';
 import Dialog from '@material-ui/core/Dialog';
 
-import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
+import { LocaleContext } from '@tecsinapse/ui-kit';
 import Drawer from '@material-ui/core/Drawer';
 import Container from './Container/Container';
 

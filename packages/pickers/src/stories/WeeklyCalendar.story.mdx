@@ -1,0 +1,36 @@
+import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
+import { DivFlex } from '@tecsinapse/ui-kit';
+import { WeeklyCalendar } from '../Calendar/WeeklyCalendar';
+import { DateTime } from 'luxon';
+
+<Meta
+  title="Packages @tecsinapse/pickers"
+  component={WeeklyCalendar}
+  decorators={[story => <DivFlex>{story()}</DivFlex>]}
+/>
+
+# Calendar
+
+The Weekly Calendar component can receive the following props:
+
+<Props of={WeeklyCalendar} />
+
+# Code snippets
+
+Here you can check the code snippet for the story.
+
+## Weekly
+
+<Story name="Weekly" parameters={{ docs: { disable: true } }}>
+  <WeeklyCalendar
+    onDayChange={day => {
+      console.info('onDayChange: ', day && day.toISODate());
+    }}
+    onWeekChange={weekDays => {
+      console.info('onWeekChange: ', weekDays);
+    }}
+    currentDate={DateTime.local()}
+  />
+</Story>
+
+<Source id="packages-tecsinapse-pickers--weekly" />

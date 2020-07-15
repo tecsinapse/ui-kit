@@ -1,9 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import {
-  defaultGreen,
-  defaultOrange,
-  defaultRed,
-} from '@tecsinapse/ui-kit/build/utils/colors';
+import { defaultGreen, defaultOrange, defaultRed } from '@tecsinapse/ui-kit';
 
 export const useStyles = makeStyles(({ spacing }) => ({
   circularStepperContainer: {

@@ -11,13 +11,13 @@ import {
   MuiPickersContext,
 } from '@material-ui/pickers';
 import { isNotUndefOrNull } from '@tecsinapse/es-utils';
-import { Input } from '@tecsinapse/ui-kit';
-import { LocaleContext } from '@tecsinapse/ui-kit/build/LocaleProvider';
 import {
+  Input,
+  LocaleContext,
   customDatePickerStyle,
   renderStyledColor,
   renderStyledLabel,
-} from '@tecsinapse/ui-kit/build/ThemeProvider';
+} from '@tecsinapse/ui-kit';
 
 const useStyle = makeStyles(theme => ({
   dayWrapper: {
