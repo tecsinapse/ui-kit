@@ -19,9 +19,17 @@ export { DivFlex } from './components/DivFlex/DivFlex';
 export { EmptyStateWrapper } from './components/EmptyState/EmptyState';
 export { ValueSlider } from './components/Slider/ValueSlider/ValueSlider';
 export { DateSlider } from './components/Slider/DateSlider/DateSlider';
-export { UiKitCard as Card } from './components/Card/UiKitCard';
+export { Card } from './components/Card/Card';
 export { Select, SelectUnstyled } from './components/Select';
-export * from './ThemeProvider';
-export * from './LocaleProvider';
+export {
+  ThemeProvider,
+  themeColors,
+  renderStyledColor,
+  customAppBarStyle,
+  customDatePickerStyle,
+  renderStyledLabel,
+  useWindowSize,
+} from './ThemeProvider';
+export { LocaleContext, LocaleProvider } from './LocaleProvider';
 export * from './components/Inputs/masks';
 export * from './utils/colors';

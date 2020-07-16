@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { UiKitCard } from '../../components/Card/UiKitCard';
+import { Card } from '../../components/Card/Card';
 
 const style = { width: '350px' };
 
 export const CardStory = props => (
   <div style={style}>
-    <UiKitCard {...props} />
+    <Card {...props} />
   </div>
 );

@@ -1,10 +1,15 @@
-import { Card, CardContent, Grid, Typography } from '@material-ui/core';
-import CardActions from '@material-ui/core/CardActions/CardActions';
 import React from 'react';
+import {
+  Card as MuiCard,
+  CardContent,
+  Grid,
+  Typography,
+  CardActions,
+} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useCardUiKitStyles } from './customStyles';
 
-export const UiKitCard = ({
+export const Card = ({
   style,
   styleCard,
   onClick,
@@ -19,7 +24,7 @@ export const UiKitCard = ({
 
   return (
     <div style={style}>
-      <Card className={classes.card} style={styleCard} onLoad={onLoad}>
+      <MuiCard className={classes.card} style={styleCard} onLoad={onLoad}>
         <CardContent className={classes.cardContent} onClick={onClick}>
           <Grid container classes={{ root: classes.gridContainer }}>
             <Grid item xs={12} classes={{ root: classes.grid }}>
@@ -62,12 +67,12 @@ export const UiKitCard = ({
         >
           {actions}
         </CardActions>
-      </Card>
+      </MuiCard>
     </div>
   );
 };
 
-UiKitCard.propTypes = {
+Card.propTypes = {
   /** Style for root div */
   style: PropTypes.object,
   /** Style for card */
@@ -96,7 +101,7 @@ UiKitCard.propTypes = {
   onLoad: PropTypes.func,
 };
 
-UiKitCard.defaultProps = {
+Card.defaultProps = {
   styleCard: {
     customSubtitleColor: '',
   },
