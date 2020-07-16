@@ -40,9 +40,8 @@ Here you can check the code snippet for the story.
             return 'Input validation failed';
           }
           setActiveStep(newStep);
-          return null;
+          return;
         }}
-        stepText="Step"
         variant="web"
       >
         <Step title="Contact Details">
@@ -100,7 +99,7 @@ Here you can check the code snippet for the story.
         activeStep={activeStep}
         onChange={newStep => {
           if (activeStep === 3) {
-            return null;
+            return;
           }
           setActiveStep(newStep);
         }}
@@ -164,7 +163,7 @@ Here you can check the code snippet for the story.
             return 'Input validation failed';
           }
           if (activeStep === 3) {
-            return null;
+            return;
           }
           setActiveStep(newStep);
         }}

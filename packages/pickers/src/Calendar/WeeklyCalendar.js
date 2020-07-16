@@ -8,26 +8,14 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import Button from '@material-ui/core/Button';
 import { styles as useStyles } from './styles';
-import { DatePicker } from '../Picker/DatePicker/DatePicker';
-import { PickersProvider } from '../Picker/PickersProvider/PickersProvider';
+import DatePicker from '../Picker/DatePicker';
+import PickersProvider from '../Picker/PickersProvider';
+import { fillWeekDays, WEEK_DAYS } from './utils';
 
-export const WEEK_DAYS = 7;
 const style = { textAlign: 'center' };
 const style1 = { display: 'flex' };
 
-export const fillWeekDays = (startDate, days) => {
-  const weekDaysTemp = [];
-
-  for (let i = 0; i < days; i++) {
-    const day = i === 0 ? startDate : startDate.plus({ days: i });
-
-    weekDaysTemp.push(day);
-  }
-
-  return weekDaysTemp;
-};
-
-export const WeeklyCalendarComponent = ({
+const WeeklyCalendarComponent = ({
   classes,
   currentDate,
   onDayChange,

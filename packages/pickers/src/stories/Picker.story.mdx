@@ -73,7 +73,6 @@ Here you can check the code snippet for the story.
           selectedDate={selectedDate}
           onChange={date => setSelectedDate(date)}
           format="dd/MM/yyyy"
-          name="datetimepicker"
           pointedDates={[DateTime.fromISO('2014-08-25T09:08:34.123')]}
         />
       </PickersProvider>
@@ -95,7 +94,6 @@ Here you can check the code snippet for the story.
         <DateTimePicker
           selectedDateTime={selectedDateTime}
           onChange={dateTime => setSelecteDatetime(dateTime)}
-          name="datetimepicker"
         />
       </PickersProvider>
     );
@@ -117,7 +115,6 @@ Here you can check the code snippet for the story.
           selectedDate={selectedDate}
           onChange={date => setSelectedDate(date)}
           format="dd/MM/yyyy"
-          name="customdatepicker"
           customTextFieldComponentInput={() => (
             <Typography variant="h6" color="secondary">
               {selectedDate.setLocale('pt-BR').toFormat('MMMM, yyyy')}
@@ -145,7 +142,6 @@ Here you can check the code snippet for the story.
           selectedDate={selectedDate}
           onChange={date => setSelectedDate(date)}
           format="dd/MM/yyyy"
-          name="weekpicker"
         />
       </PickersProvider>
     );
@@ -166,7 +162,6 @@ Here you can check the code snippet for the story.
         <TimePicker
           selectedTime={selectedTime}
           onChange={time => setSelecteTime(time)}
-          name="timepicker"
         />
       </PickersProvider>
     );
