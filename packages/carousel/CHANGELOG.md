@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.2.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/carousel@2.1.0...@tecsinapse/carousel@2.2.0) (2020-07-17)
+
+**Note:** Version bump only for package @tecsinapse/carousel
+
+
+
+
+
 ## 1.1.0 (2020-01-22)
 
 * @tecsinapse/ui-kit@4.0.0 ([843ff9f](https://github.com/tecsinapse/carousel/commit/843ff9f))
@@ -886,6 +899,3 @@
 * Select: select não fecha ao clicar no icon de dropdown #40 ([99b37c2](https://github.com/tecsinapse/carousel/commit/99b37c2)), closes [#40](https://github.com/tecsinapse/carousel/issues/40)
 * Select: select não fecha ao clicar no icon de dropdown #40 ([a7a07ee](https://github.com/tecsinapse/carousel/commit/a7a07ee)), closes [#40](https://github.com/tecsinapse/carousel/issues/40)
 * Select: select não fecha ao clicar no icon de dropdown #40 ([89c84f0](https://github.com/tecsinapse/carousel/commit/89c84f0)), closes [#40](https://github.com/tecsinapse/carousel/issues/40)
-
-
-

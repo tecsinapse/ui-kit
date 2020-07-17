@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.2.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.1.0...@tecsinapse/table@3.2.0) (2020-07-17)
+
+**Note:** Version bump only for package @tecsinapse/table
+
+
+
+
+
 ## <small>2.1.3 (2020-06-08)</small>
 
 * Fixing colSpan on footer exporter ([d7b33b9](https://github.com/tecsinapse/table/commit/d7b33b9))
@@ -989,6 +1002,3 @@
 * Select: select não fecha ao clicar no icon de dropdown #40 ([99b37c2](https://github.com/tecsinapse/table/commit/99b37c2)), closes [#40](https://github.com/tecsinapse/table/issues/40)
 * Select: select não fecha ao clicar no icon de dropdown #40 ([a7a07ee](https://github.com/tecsinapse/table/commit/a7a07ee)), closes [#40](https://github.com/tecsinapse/table/issues/40)
 * Select: select não fecha ao clicar no icon de dropdown #40 ([89c84f0](https://github.com/tecsinapse/table/commit/89c84f0)), closes [#40](https://github.com/tecsinapse/table/issues/40)
-
-
-
