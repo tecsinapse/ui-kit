@@ -9,10 +9,7 @@ import { buttonClassNameDefinition, buttonStyle } from './Button';
 const useStyles = makeStyles(theme => ({
   ...buttonStyle(theme),
   button: {
-    position: 'fixed',
-    bottom: 80,
-    right: 30,
-    borderRadius: '50%',
+    boxShadow: 'none',
   },
 }));
 
@@ -35,6 +32,7 @@ export const FloatingButton = ({
       size={size}
       className={clsx(
         className,
+        classes.button,
         buttonClassNameDefinition(classes, false, variantFab)
       )}
       {...props}
