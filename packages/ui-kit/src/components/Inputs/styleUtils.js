@@ -3,7 +3,7 @@ import React from 'react';
 import Icon from '@mdi/react';
 import { styled } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
-import { defaultGreen, defaultOrange, defaultRed } from '../../utils/colors';
+import { defaultGreen, defaultRed, defaultWarning } from '../../utils/colors';
 
 export const outlinedInputClass = ({ success, error, warning }) => {
   if (error) {
@@ -68,7 +68,7 @@ export function GetEndAdornment({
   }
 
   if (warning) {
-    stateIcon = <Icon path={mdiAlertCircle} color={defaultOrange} size={1} />;
+    stateIcon = <Icon path={mdiAlertCircle} color={defaultWarning} size={1} />;
   }
 
   if (stateIcon && endAdornment) {

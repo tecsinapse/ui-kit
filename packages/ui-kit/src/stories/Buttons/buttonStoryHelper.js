@@ -12,7 +12,7 @@ export const items = [
   {
     text: 'Absoluto',
     component: (
-      <FloatingButton key="absoluto" color="primary">
+      <FloatingButton key="absoluto" color="secondary">
         1
       </FloatingButton>
     ),
@@ -20,7 +20,7 @@ export const items = [
   {
     text: 'Absoluto 2',
     component: (
-      <FloatingButton key="absoluto2" color="primary">
+      <FloatingButton key="absoluto2" color="secondary">
         2
       </FloatingButton>
     ),

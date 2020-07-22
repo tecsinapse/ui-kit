@@ -3,28 +3,25 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import clsx from 'clsx';
-import {
-  defaultGreen,
-  defaultGrey,
-  defaultOrange,
-  defaultRed,
-} from '../../utils/colors';
 import { buttonClassNameDefinition } from './Button';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(({ palette }) => ({
   disabled: {
-    color: defaultGrey,
+    color: palette.text.disabled,
   },
   buttonColorSuccess: {
-    color: defaultGreen,
+    color: palette.success.main,
   },
   buttonColorWarning: {
-    color: defaultOrange,
+    color: palette.warning.main,
   },
   buttonColorError: {
-    color: defaultRed,
+    color: palette.error.main,
   },
-});
+  buttonColorInfo: {
+    color: palette.info.main,
+  },
+}));
 
 export const IconButton = React.forwardRef(
   ({ disabled, customVariant, children, className, ...props }, ref) => {
@@ -49,7 +46,7 @@ IconButton.defaultProps = {
   customVariant: undefined,
 };
 IconButton.propTypes = {
-  customVariant: PropTypes.oneOf(['success', 'warning', 'error']),
+  customVariant: PropTypes.oneOf(['success', 'warning', 'error', 'info']),
   disabled: PropTypes.bool,
 };
 

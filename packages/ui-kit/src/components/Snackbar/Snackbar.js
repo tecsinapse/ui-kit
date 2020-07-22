@@ -31,7 +31,7 @@ export function Snackbar({
 
 Snackbar.defaultProps = {
   onClose: () => {},
-  autoHideDuration: 6000,
+  autoHideDuration: 5000,
 };
 Snackbar.propTypes = {
   /** Close Snackbar func */
@@ -39,7 +39,7 @@ Snackbar.propTypes = {
   /** Display snackbar */
   show: PropTypes.bool.isRequired,
   /** Snackbar variant */
-  variant: PropTypes.oneOf(['success', 'warning', 'error']).isRequired,
+  variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired,
   /** Auto hide timeout */
   autoHideDuration: PropTypes.number,
 };

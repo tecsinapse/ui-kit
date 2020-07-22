@@ -21,11 +21,15 @@ export const FloatingButton = ({
   children,
   disabled,
   variantFab,
+  customVariant,
   size,
   onClick,
+  color,
   ...props
 }) => {
   const classes = useStyles();
+
+  // TODO: Colocar Fab default para secondary.main
 
   return (
     <Fab
@@ -35,8 +39,9 @@ export const FloatingButton = ({
       size={size}
       className={clsx(
         className,
-        buttonClassNameDefinition(classes, false, variantFab)
+        buttonClassNameDefinition(classes, false, variantFab || customVariant)
       )}
+      color={color}
       {...props}
     >
       {children || <Add />}
@@ -48,7 +53,8 @@ FloatingButton.defaultProps = {
   variantFab: undefined,
 };
 FloatingButton.propTypes = {
-  variantFab: PropTypes.oneOf(['success', 'warning', 'error']),
+  /** This prop can be customVariant as well */
+  variantFab: PropTypes.oneOf(['success', 'warning', 'error', 'info']),
   disabled: PropTypes.bool,
 };
 export default FloatingButton;

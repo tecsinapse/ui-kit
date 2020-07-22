@@ -35,14 +35,6 @@ Each Button component can receive the following props:
 
 Here you can check the code snippet for the story.
 
-## Button
-
-<Story name="Button" parameters={{ docs: { disable: true } }}>
-  <Button onClick={handleClick}>Smart Button</Button>
-</Story>
-
-<Source id="components-button--button" />
-
 ## Default
 
 <Story name="Default" parameters={{ docs: { disable: true } }}>
@@ -71,6 +63,16 @@ Here you can check the code snippet for the story.
 
 <Source id="components-button--warning" />
 
+## Informative
+
+<Story name="Informative" parameters={{ docs: { disable: true } }}>
+  <Button customVariant="info" onClick={handleClick}>
+    Smart Button
+  </Button>
+</Story>
+
+<Source id="components-button--informative" />
+
 ## Error
 
 <Story name="Error" parameters={{ docs: { disable: true } }}>
@@ -84,7 +86,7 @@ Here you can check the code snippet for the story.
 ## Primary
 
 <Story name="Primary" parameters={{ docs: { disable: true } }}>
-  <Button color="primary" onClick={handleClick}>
+  <Button color="primary" variant="outlined" onClick={handleClick}>
     Smart Button
   </Button>
 </Story>
@@ -105,7 +107,7 @@ Here you can check the code snippet for the story.
 ## Secondary
 
 <Story name="Secondary" parameters={{ docs: { disable: true } }}>
-  <Button color="secondary" onClick={handleClick}>
+  <Button color="secondary" variant="outlined" onClick={handleClick}>
     Smart Button
   </Button>
 </Story>
@@ -125,7 +127,7 @@ Here you can check the code snippet for the story.
 ## Floating
 
 <Story name="Floating" parameters={{ docs: { disable: true } }}>
-  <FloatingButton onClick={handleClick}>
+  <FloatingButton onClick={handleClick} variantFab="default">
     <DeleteIcon />
   </FloatingButton>
 </Story>

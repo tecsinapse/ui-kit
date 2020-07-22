@@ -5,6 +5,8 @@ import { Collapse } from '@material-ui/core';
 import { useFloatingButtonListStyles } from './FloatingButtonListStyle';
 import { FloatingButton } from '../FloatingButton';
 
+const style = { marginTop: '6px' };
+
 const FloatingButtonList = ({ items, onClick, open, color }) => {
   const classes = useFloatingButtonListStyles();
 
@@ -19,10 +21,11 @@ const FloatingButtonList = ({ items, onClick, open, color }) => {
           </div>
         </Collapse>
       ))}
-      <div>
+      <div style={style}>
         <FloatingButton
           onClick={() => (onClick ? onClick() : null)}
           color={color || null}
+          variantFab={color || 'default'}
         >
           <Icon path={mdiPlus} size={1} />
         </FloatingButton>

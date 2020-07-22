@@ -11,6 +11,7 @@ import {
 } from './utils/customVariant';
 
 const themes = {
+  baseline: 'baseline',
   orange: 'orange',
   yellow: 'yellow',
   blueGrey: 'blueGrey',
@@ -28,6 +29,41 @@ const themes = {
 };
 
 export const themeColors = {
+  [themes.baseline]: {
+    primary: {
+      main: '#75706b',
+      light: '#908c88',
+      dark: '#514e4a',
+      contrastText: '#fff',
+    },
+    secondary: {
+      main: '#f9a31e',
+      ligh: '#fab54b',
+      dark: '#ae7215',
+      contrastText: '#000',
+    },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+    warning: {
+      main: '#fb8c00',
+      contrastText: '#000',
+    },
+    success: {
+      main: '#43a047',
+      contrastText: '#fff',
+    },
+    info: {
+      main: '#039be5',
+      contrastText: '#000',
+    },
+    text: {
+      primary: '#212121',
+      secondary: '#616161',
+      disabled: '#bdbdbd',
+    },
+  },
   [themes.orange]: {
     primary: { main: '#616161', contrastText: '#ffffff' },
     secondary: { main: '#f99f1f', contrastText: '#ffffff' },
@@ -180,7 +216,7 @@ export const customDatePickerStyle = variant => {
 };
 
 export const renderStyledColor = variant =>
-  variant === themes.yellow || themes.blueGrey || themes.blueOcean
+  variant === (themes.yellow || themes.blueGrey || themes.blueOcean)
     ? 'secondary'
     : 'primary';
 

@@ -3,45 +3,53 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
-import {
-  defaultGreen,
-  defaultGrey,
-  defaultOrange,
-  defaultRed,
-} from '../../utils/colors';
 
-export const buttonStyle = ({ spacing }) => ({
+export const buttonStyle = ({ spacing, palette }) => ({
   buttonSpan: {
     '& > :first-child': {
       marginRight: spacing(0.5),
     },
   },
   buttonColorDefault: {
-    backgroundColor: `${defaultGrey}`,
-    color: 'white',
+    backgroundColor: palette.primary.main,
+    color: palette.primary.contrastText,
     '&:hover': {
-      backgroundColor: defaultGrey,
+      backgroundColor: palette.primary.main,
     },
   },
   buttonColorSuccess: {
-    backgroundColor: `${defaultGreen}`,
-    color: 'white',
+    backgroundColor: palette.success.main,
+    color: palette.success.contrastText,
     '&:hover': {
-      backgroundColor: defaultGreen,
+      backgroundColor: palette.success.main,
     },
   },
   buttonColorWarning: {
-    backgroundColor: `${defaultOrange}`,
-    color: 'white',
+    backgroundColor: palette.warning.main,
+    color: palette.warning.contrastText,
     '&:hover': {
-      backgroundColor: defaultOrange,
+      backgroundColor: palette.warning.main,
     },
   },
   buttonColorError: {
-    backgroundColor: `${defaultRed}`,
-    color: 'white',
+    backgroundColor: palette.error.main,
+    color: palette.error.contrastText,
     '&:hover': {
-      backgroundColor: defaultRed,
+      backgroundColor: palette.error.main,
+    },
+  },
+  buttonColorInfo: {
+    backgroundColor: palette.info.main,
+    color: palette.info.contrastText,
+    '&:hover': {
+      backgroundColor: palette.info.main,
+    },
+  },
+  buttonColorDark: {
+    backgroundColor: palette.secondary.dark,
+    color: palette.secondary.contrastText,
+    '&:hover': {
+      backgroundColor: palette.secondary.dark,
     },
   },
 });
@@ -52,6 +60,8 @@ export function buttonClassNameDefinition(classes, margin, customVariant) {
     [classes.buttonColorSuccess]: customVariant === 'success',
     [classes.buttonColorWarning]: customVariant === 'warning',
     [classes.buttonColorError]: customVariant === 'error',
+    [classes.buttonColorInfo]: customVariant === 'info',
+    [classes.buttonColorDark]: customVariant === 'dark',
   };
 }
 const useStyles = makeStyles(buttonStyle);
@@ -107,7 +117,14 @@ Button.defaultProps = {
 };
 Button.propTypes = {
   /** Predefined custom button */
-  customVariant: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
+  customVariant: PropTypes.oneOf([
+    'default',
+    'success',
+    'warning',
+    'error',
+    'info',
+    'dark',
+  ]),
   /** Button disabled during form submission */
   submitting: PropTypes.bool,
   /** Button elevation disabled */
