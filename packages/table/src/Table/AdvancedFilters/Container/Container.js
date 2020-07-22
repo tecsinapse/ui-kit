@@ -41,7 +41,7 @@ const filterStyles = mobile =>
   }));
 
 const advancedFilterStyles = mobile =>
-  makeStyles(theme => ({
+  makeStyles(({ spacing }) => ({
     title: {
       height: mobile ? '20px' : '50px',
       padding: mobile ? '20px 0px 20px 0px' : '20px 20px 20px 20px',
@@ -54,16 +54,16 @@ const advancedFilterStyles = mobile =>
       borderTop: '1px #ccc solid',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
+      flexDirection: 'column',
     },
     panelButtonMobile: {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
+      flexDirection: 'column',
     },
     button: {
       width: '75%',
-      top: '25%',
+      marginTop: spacing(1),
     },
   }));
 
@@ -286,6 +286,17 @@ const Container = ({
         >
           {applyFiltersLabel}
         </Button>
+        {customAdvancedFilters?.cleanFilters && (
+          <Button
+            onClick={() => customAdvancedFilters.cleanFilters()}
+            variant="outlined"
+            className={classes.button}
+            color={renderStyledColor(variant)}
+            disableElevation
+          >
+            {customAdvancedFilters?.cleanFiltersLabel || 'Limpar Filtros'}
+          </Button>
+        )}
       </div>
     </div>
   );

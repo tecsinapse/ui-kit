@@ -31,6 +31,7 @@ const AdvancedFilters = ({
   filters,
   mobile,
   customAdvancedFilters,
+  onDrawerClose,
 }) => {
   const [open, setOpen] = React.useState(false);
 
@@ -57,7 +58,7 @@ const AdvancedFilters = ({
   };
 
   const handleClose = () => {
-    customAdvancedFilters?.cleanFilters(); // eslint-disable-line
+    onDrawerClose(); // eslint-disable-line
     setOpen(false);
   };
 
