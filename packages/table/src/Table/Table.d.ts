@@ -140,9 +140,12 @@ export interface TableProps {
     applyFilters: Function;
     filters: ReactNode;
     cleanFilters: Function;
+    cleanFiltersLabel: string;
   };
   /** Provides custom row render. See examples for more detailed use cases. */
   customRow?: (params: object) => void;
+  /** Callback when closing advanced filters. */
+  onDrawerClose: Function;
 }
 
 declare const Table: FC<TableProps>;

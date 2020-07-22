@@ -67,6 +67,7 @@ const TableComponent = props => {
     hideSelectFilterLabel,
     customAdvancedFilters,
     customRow,
+    onDrawerClose = () => {},
   } = props;
   const classes = tableStyles(useWindowSize()[1]);
   const [rowCount, setRowCount] = useState(0);
@@ -139,6 +140,7 @@ const TableComponent = props => {
         tableToolbarHide={tableToolbarHide}
         mobile={mobile}
         customAdvancedFilters={customAdvancedFilters}
+        onDrawerClose={onDrawerClose}
       />
       {mobile ? (
         <div className={propClasses.rootMobile || classes.rootMobile}>
@@ -268,11 +270,11 @@ TableComponent.propTypes = {
   ]),
   /** On data filter funtion handler */
   onFilterData: PropTypes.func,
-  /** Set vertical actions legacy */
+  /** Set vertical actions table */
   verticalActions: PropTypes.bool,
   /** Row identifier */
   rowId: PropTypes.func.isRequired,
-  /** Set legacy selectable rows */
+  /** Set table selectable rows */
   options: PropTypes.shape({
     selection: PropTypes.bool,
   }),
@@ -283,7 +285,7 @@ TableComponent.propTypes = {
   /** Row click handler */
   onRowClick: PropTypes.func,
   id: PropTypes.string,
-  /** Configure legacy actions */
+  /** Configure table actions */
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       tooltip: PropTypes.string,
@@ -297,11 +299,11 @@ TableComponent.propTypes = {
   ),
   /** Table toolbar options. Check accepted attributes [here](https://github.com/tecsinapse/table/blob/master/src/Table/TablePropTypes.js#L3) */
   toolbarOptions: toolbarOptionsTypes,
-  /** Enable legacy pagination */
+  /** Enable table pagination */
   pagination: PropTypes.bool,
-  /** Hide legacy toolbar */
+  /** Hide table toolbar */
   tableToolbarHide: PropTypes.bool,
-  /** Hide legacy header */
+  /** Hide table header */
   tableHeaderHide: PropTypes.bool,
   /** Number of rows per page available to be selected */
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
@@ -314,7 +316,7 @@ TableComponent.propTypes = {
     root: PropTypes.string,
     rootMobile: PropTypes.string,
   }),
-  /** Set options for exporting legacy. If custom `type` is provided, you have to set `exportFunc` and `label` */
+  /** Set options for exporting table. If custom `type` is provided, you have to set `exportFunc` and `label` */
   exportOptions: PropTypes.shape({
     exportFileName: PropTypes.string,
     position: PropTypes.oneOf(['header', 'footer']),
@@ -327,7 +329,7 @@ TableComponent.propTypes = {
       })
     ),
   }),
-  /** Set legacy variant view */
+  /** Set table variant view */
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
   /** Label for mobile show less button */
   labelShowLess: PropTypes.string,
@@ -337,14 +339,17 @@ TableComponent.propTypes = {
   empytStateComponent: PropTypes.node,
   /** Hide floating label of select filter */
   hideSelectFilterLabel: PropTypes.bool,
-  /** Replace legacy advanced filters to your own. `cleanFilters` is associated to close button on custom Advanced Filters */
+  /** Replace table advanced filters to your own. */
   customAdvancedFilters: PropTypes.shape({
     applyFilters: PropTypes.func,
     filters: PropTypes.node,
     cleanFilters: PropTypes.func,
+    cleanFiltersLabel: PropTypes.string,
   }),
   /** Provides custom row render. See examples for more detailed use cases. */
   customRow: PropTypes.func,
+  /** Callback when closing advanced filters. */
+  onDrawerClose: PropTypes.func,
 };
 
 export const Table = TableComponent;

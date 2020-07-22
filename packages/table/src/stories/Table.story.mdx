@@ -145,10 +145,12 @@ Here you can check the code snippet for the story.
     data={fetchData(countries)}
     rowId={row => row.code}
     toolbarOptions={countryOptions}
+    onDrawerClose={() => console.log('Custom close callback')}
     pagination
     customAdvancedFilters={{
       applyFilters: () => console.log('Custom apply filters'),
       cleanFilters: () => console.log('Custom clean filters'),
+      cleanFiltersLabel: "Limpar Filtros",
       toolbarButton: handleClick => (
         <Button
           onClick={handleClick}
