@@ -9,10 +9,7 @@ import { buttonClassNameDefinition, buttonStyle } from './Button';
 const useStyles = makeStyles(theme => ({
   ...buttonStyle(theme),
   button: {
-    position: 'fixed',
-    bottom: 80,
-    right: 30,
-    borderRadius: '50%',
+    boxShadow: 'none',
   },
 }));
 
@@ -29,8 +26,6 @@ export const FloatingButton = ({
 }) => {
   const classes = useStyles();
 
-  // TODO: Colocar Fab default para secondary.main
-
   return (
     <Fab
       aria-label="add"
@@ -39,7 +34,8 @@ export const FloatingButton = ({
       size={size}
       className={clsx(
         className,
-        buttonClassNameDefinition(classes, false, variantFab || customVariant)
+        buttonClassNameDefinition(classes, false, variantFab || customVariant),
+        classes.button
       )}
       color={color}
       {...props}

@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.2.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.1.0...@tecsinapse/wizard@3.2.0) (2020-07-17)
+
+**Note:** Version bump only for package @tecsinapse/wizard
+
+
+
+
+
 ## <small>2.0.3 (2020-06-05)</small>
 
 * Adding circular step label ([0651460](https://github.com/tecsinapse/wizard/commit/0651460))
@@ -927,7 +940,3 @@
 * Select: select não fecha ao clicar no icon de dropdown #40 ([99b37c2](https://github.com/tecsinapse/wizard/commit/99b37c2)), closes [#40](https://github.com/tecsinapse/wizard/issues/40)
 * Select: select não fecha ao clicar no icon de dropdown #40 ([a7a07ee](https://github.com/tecsinapse/wizard/commit/a7a07ee)), closes [#40](https://github.com/tecsinapse/wizard/issues/40)
 * Select: select não fecha ao clicar no icon de dropdown #40 ([89c84f0](https://github.com/tecsinapse/wizard/commit/89c84f0)), closes [#40](https://github.com/tecsinapse/wizard/issues/40)
-
-
-
-

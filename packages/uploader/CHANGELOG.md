@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.2.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/uploader@2.1.0...@tecsinapse/uploader@2.2.0) (2020-07-17)
+
+**Note:** Version bump only for package @tecsinapse/uploader
+
+
+
+
+
 ## <small>1.2.1 (2020-03-12)</small>
 
 * Fixed FormUploader.js API to display snackbar messages ([f6b52a7](https://github.com/tecsinapse/uploader/commit/f6b52a7))
@@ -900,6 +913,3 @@
 * Select: select não fecha ao clicar no icon de dropdown #40 ([99b37c2](https://github.com/tecsinapse/uploader/commit/99b37c2)), closes [#40](https://github.com/tecsinapse/uploader/issues/40)
 * Select: select não fecha ao clicar no icon de dropdown #40 ([a7a07ee](https://github.com/tecsinapse/uploader/commit/a7a07ee)), closes [#40](https://github.com/tecsinapse/uploader/issues/40)
 * Select: select não fecha ao clicar no icon de dropdown #40 ([89c84f0](https://github.com/tecsinapse/uploader/commit/89c84f0)), closes [#40](https://github.com/tecsinapse/uploader/issues/40)
-
-
-

@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [5.2.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.1.0...@tecsinapse/ui-kit@5.2.0) (2020-07-17)
+
+**Note:** Version bump only for package @tecsinapse/ui-kit
+
+
+
+
+
 ## <small>4.3.8 (2020-06-10)</small>
 
 * Change GroupedInput onChange method ([2bb65ba](https://github.com/tecsinapse/ui-kit/commit/2bb65ba))
@@ -2412,6 +2425,3 @@
 * initial boilerplate for library with umd/esm/cjs bundling ([653b14b](https://github.com/tecsinapse/ui-kit/commit/653b14b))
 * new version ([f3331e7](https://github.com/tecsinapse/ui-kit/commit/f3331e7))
 * v0.0.2 ([c1cd3ae](https://github.com/tecsinapse/ui-kit/commit/c1cd3ae))
-
-
-
