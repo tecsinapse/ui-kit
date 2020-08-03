@@ -1,29 +1,23 @@
 import { grey } from '@material-ui/core/colors';
 
-export const defaultGreen = '#43a047';
-export const defaultGreenDarker = '#388e3c';
-export const defaultRed = '#e53935';
-export const defaultRedDarker = '#d32f2f';
-export const defaultOrange = '#f9a31e';
-export const defaultOrangeDarker = '#ae7215';
-export const defaultWarning = '#fb8c00';
-export const defaultWarningDarker = '#f57c00';
-export const defaultGrey = '#75706b';
-export const defaultGreyLight = '#908c88'; // TODO: Check to remove
-export const defaultGreyDark = '#514e4a'; // TODO: Check to remove
-export const defaultGreyDisabled = '#bdbdbd';
-export const defaultWhite = '#fff'; // TODO: Check to remove
-export const defaultBlack = '#000'; // TODO: Check to remove
-
-// Check colors to remove
-export const defaultGrey2 = '#787879'; // TODO: Check to remove
+export const defaultGreen = '#4caf50';
+export const defaultGreenDarker = '#448744';
+export const defaultRed = '#e6433f';
+export const defaultRedDarker = '#af423e';
+export const defaultOrange = '#ff9d0d';
+export const defaultOrangeDarker = '#cd6e0d';
+export const defaultGrey = grey[700];
+export const defaultGrey2 = '#787879';
+export const defaultGreyLight = grey[500];
 export const defaultGreyLight2 = grey[600];
-export const defaultGreyLight3 = '#f7f7f7'; // TODO: Check to remove
+export const defaultGreyLight3 = '#f7f7f7';
 export const defaultGreyLight200 = grey[200];
-export const defaultGreyLight4 = '#f2f2f2'; // TODO: Check to remove
-export const defaultGreyLight5 = '#B2B2B2'; // TODO: Check to remove
-
-// These colors is not ui-kit related
+export const defaultGreyDisabled = grey[400];
+export const defaultGreyLight4 = '#f2f2f2';
+export const defaultGreyLight5 = '#B2B2B2';
+export const defaultGreyDark = '#817e7d';
+export const defaultWhite = '#ffffff';
+export const defaultBlack = '#000';
 export const defaultBlue = '#003473';
 export const defaultYellow = '#ffed00';
 export const defaultBadgeColor = '#e31c1c';

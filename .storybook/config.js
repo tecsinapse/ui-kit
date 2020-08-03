@@ -42,7 +42,7 @@ const withGraphqlClientProvider = storyFn => (
 );
 
 const withThemeProvider = storyFn => (
-  <ThemeProvider variant="baseline" overrides={overrides}>
+  <ThemeProvider variant="orange" overrides={overrides}>
     {storyFn()}
   </ThemeProvider>
 );

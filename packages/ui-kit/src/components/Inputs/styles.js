@@ -1,8 +1,8 @@
 import {
   defaultGreen,
   defaultGreenDarker,
-  defaultWarning,
-  defaultWarningDarker,
+  defaultOrange,
+  defaultOrangeDarker,
   defaultRed,
   defaultRedDarker,
 } from '../../utils/colors';
@@ -46,20 +46,20 @@ export const stylesSuccess = {
 export const stylesWarning = {
   cssOutlinedInputWarning: {
     '& $notchedOutline': {
-      borderColor: defaultWarning,
+      borderColor: defaultOrange,
     },
     '&$cssFocused $notchedOutline': {
-      borderColor: defaultWarning,
+      borderColor: defaultOrange,
     },
     '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
-      borderColor: `${defaultWarningDarker} !important`,
+      borderColor: `${defaultOrangeDarker} !important`,
     },
   },
   cssLabelWarning: {
     '&$cssFocused': {
-      color: defaultWarning,
+      color: defaultOrange,
     },
-    color: defaultWarning,
+    color: defaultOrange,
   },
 };
 
@@ -78,12 +78,18 @@ export const styles = theme => ({
   },
   cssOutlinedInput: {
     '&$focused $notchedOutline $cssFocused': {
-      borderColor: theme.palette.primary.main,
+      borderColor: ({ variant }) =>
+        variant === 'yellow'
+          ? theme.palette.secondary.main
+          : theme.palette.primary.main,
     },
   },
   cssLabel: {
     '&$focused $cssFocused': {
-      color: theme.palette.primary.main,
+      color: ({ variant }) =>
+        variant === 'yellow'
+          ? theme.palette.secondary.main
+          : theme.palette.primary.main,
     },
   },
   ...stylesError,
