@@ -50,7 +50,7 @@ FloatingButton.defaultProps = {
 };
 FloatingButton.propTypes = {
   /** This prop can be customVariant as well */
-  variantFab: PropTypes.oneOf(['success', 'warning', 'error', 'info']),
+  variantFab: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
   disabled: PropTypes.bool,
 };
 export default FloatingButton;
