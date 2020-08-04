@@ -44,7 +44,7 @@ export const customVariantYellow = {
   },
 };
 
-export const customVariantBlueOcean = pallete => {
+export const customVariantSecondaryAccent = pallete => {
   const secondaryColor = pallete.secondary.main;
 
   return {
