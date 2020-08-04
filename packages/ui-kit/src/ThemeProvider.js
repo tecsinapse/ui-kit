@@ -190,7 +190,7 @@ export const customDatePickerStyle = variant => {
 };
 
 export const renderStyledColor = variant =>
-  variant === themes.yellow || themes.blueGrey || themes.blueOcean
+  variant === (themes.yellow || themes.blueGrey || themes.blueOcean)
     ? 'secondary'
     : 'primary';
 
