@@ -3,10 +3,15 @@ import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles';
 import { blue, grey } from '@material-ui/core/colors';
 import PropTypes from 'prop-types';
 import React, { useLayoutEffect, useState } from 'react';
-import { defaultBlue, defaultRed, defaultYellow } from './utils/colors';
+import {
+  defaultBlue,
+  defaultRed,
+  defaultYellow,
+  defaultBlack,
+} from './utils/colors';
 import {
   customVariantBlueGrey,
-  customVariantBlueOcean,
+  customVariantSecondaryAccent,
   customVariantYellow,
 } from './utils/customVariant';
 
@@ -25,6 +30,7 @@ const themes = {
   greyLight: 'greyLight',
   lightOrange: 'lightOrange',
   blueOcean: 'blueOcean',
+  shallowBlue: 'shallowBlue',
 };
 
 export const themeColors = {
@@ -158,6 +164,14 @@ export const themeColors = {
       contrastText: '#ffffff',
     },
   },
+  [themes.shallowBlue]: {
+    primary: { main: '#6e6e6e', light: '#b6b6b6', contrastText: '#ffffff' },
+    secondary: { main: '#0063b4', contrastText: '#ffffff' },
+    error: {
+      main: defaultRed,
+      contrastText: '#ffffff',
+    },
+  },
 };
 export const customDatePickerStyle = variant => {
   if (variant === themes.yellow) {
@@ -198,37 +212,46 @@ export const renderStyledLabel = (label, variant) => {
 };
 
 export const customAppBarStyle = variant => {
-  if (variant === themes.yellow) {
-    return {
-      titleColor: '#fff',
-      subtitleColor: defaultYellow,
-      breadcrumbBackgroundColor: defaultYellow,
-      breadcrumbTextColor: '#000',
-      activeBreadcrumbTextColor: defaultBlue,
-      appBarBackgroundColor: defaultBlue,
-    };
+  const pallete = themeColors[variant];
+
+  switch (variant) {
+    case themes.yellow:
+      return {
+        titleColor: '#fff',
+        subtitleColor: defaultYellow,
+        breadcrumbBackgroundColor: defaultYellow,
+        breadcrumbTextColor: '#000',
+        activeBreadcrumbTextColor: defaultBlue,
+        appBarBackgroundColor: defaultBlue,
+      };
+
+    case themes.blueGrey:
+      return {
+        activeBreadcrumbTextColor: '#fff',
+      };
+
+    case themes.blueOcean:
+      return {
+        appBarBackgroundColor: pallete.secondary.main,
+        titleColor: pallete.primary.contrastText,
+        subtitleColor: pallete.primary.main,
+        breadcrumbBackgroundColor: pallete.primary.main,
+        breadcrumbTextColor: pallete.secondary.main,
+        activeBreadcrumbTextColor: pallete.secondary.main,
+      };
+
+    case themes.shallowBlue:
+      return {
+        titleColor: pallete.primary.contrastText,
+        subtitleColor: defaultBlack,
+        breadcrumbBackgroundColor: pallete.secondary.main,
+        breadcrumbTextColor: pallete.secondary.contrastText,
+        activeBreadcrumbTextColor: pallete.secondary.contrastText,
+      };
+
+    default:
+      return {};
   }
-
-  if (variant === themes.blueGrey) {
-    return {
-      activeBreadcrumbTextColor: '#fff',
-    };
-  }
-
-  if (variant === themes.blueOcean) {
-    const pallete = themeColors[variant];
-
-    return {
-      appBarBackgroundColor: pallete.secondary.main,
-      titleColor: pallete.primary.contrastText,
-      subtitleColor: pallete.primary.main,
-      breadcrumbBackgroundColor: pallete.primary.main,
-      breadcrumbTextColor: pallete.secondary.main,
-      activeBreadcrumbTextColor: pallete.secondary.main,
-    };
-  }
-
-  return {};
 };
 
 export const useWindowSize = () => {
@@ -254,22 +277,25 @@ const themeGlobals = variant => ({
 });
 
 const themeCustom = (variant, overrides) => {
-  if (variant === themes.yellow) {
-    return { ...customVariantYellow, ...overrides };
+  const themePallete = themeColors[variant];
+
+  switch (variant) {
+    case themes.yellow:
+      return { ...customVariantYellow, ...overrides };
+
+    case themes.blueGrey:
+      return { ...customVariantBlueGrey, ...overrides };
+
+    case themes.blueOcean:
+    case themes.shallowBlue: {
+      const themeAdjustments = customVariantSecondaryAccent(themePallete);
+
+      return { ...themeAdjustments, ...overrides };
+    }
+
+    default:
+      return { ...overrides };
   }
-
-  if (variant === themes.blueGrey) {
-    return { ...customVariantBlueGrey, ...overrides };
-  }
-
-  if (variant === themes.blueOcean) {
-    const themePallete = themeColors[variant];
-    const themeAdjustments = customVariantBlueOcean(themePallete);
-
-    return { ...themeAdjustments, ...overrides };
-  }
-
-  return { ...overrides };
 };
 
 const theme = (variant, overrides, spacing) => {
