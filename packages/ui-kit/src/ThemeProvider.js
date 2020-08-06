@@ -31,17 +31,21 @@ const themes = {
   lightOrange: 'lightOrange',
   blueOcean: 'blueOcean',
   shallowBlue: 'shallowBlue',
+  wingo: 'wingo',
+};
+
+const baseline = {
+  primary: { main: '#616161', contrastText: '#ffffff' },
+  secondary: { main: '#f99f1f', contrastText: '#ffffff' },
+  error: {
+    main: defaultRed,
+    contrastText: '#ffffff',
+  },
 };
 
 export const themeColors = {
-  [themes.orange]: {
-    primary: { main: '#616161', contrastText: '#ffffff' },
-    secondary: { main: '#f99f1f', contrastText: '#ffffff' },
-    error: {
-      main: defaultRed,
-      contrastText: '#ffffff',
-    },
-  },
+  [themes.orange]: baseline,
+  [themes.wingo]: baseline,
   [themes.yellow]: {
     primary: { main: '#ffed00', contrastText: '#ffffff' },
     secondary: { main: '#003473', contrastText: '#ffffff' },
@@ -173,6 +177,7 @@ export const themeColors = {
     },
   },
 };
+
 export const customDatePickerStyle = variant => {
   if (variant === themes.yellow) {
     return {
@@ -247,6 +252,14 @@ export const customAppBarStyle = variant => {
         breadcrumbBackgroundColor: pallete.secondary.main,
         breadcrumbTextColor: pallete.secondary.contrastText,
         activeBreadcrumbTextColor: pallete.secondary.contrastText,
+      };
+
+    case themes.wingo:
+      return {
+        appBarBackgroundColor: '#0B2D44',
+        breadcrumbBackgroundColor: '#EF7D14',
+        breadcrumbTextColor: '#FFF',
+        activeBreadcrumbTextColor: '#0B2D44',
       };
 
     default:
