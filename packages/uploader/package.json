@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/uploader",
   "description": "TecSinapse Uploader",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "main": "build/index.js",
   "module": "build/index.js",
   "author": {
@@ -23,7 +23,7 @@
     "uploader"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.3.1",
+    "@tecsinapse/ui-kit": "^5.3.2",
     "react-dropzone": "^10.0.2",
     "uniqid": "^5.0.3"
   },
