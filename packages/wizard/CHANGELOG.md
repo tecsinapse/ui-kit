@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.3.2...@tecsinapse/wizard@3.3.3) (2020-08-28)
+
+
+### Features
+
+* **wizard:** added option to disabled finish button ([9cfe68e](https://github.com/tecsinapse/ui-kit/commit/9cfe68eaac7af22fef8b2e4a502f9d7a32842429))
+
+
+
+
+
 ## [3.3.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.3.1...@tecsinapse/wizard@3.3.2) (2020-08-06)
 
 **Note:** Version bump only for package @tecsinapse/wizard
