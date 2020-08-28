@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.3.3...@tecsinapse/wizard@3.3.4) (2020-08-28)
+
+
+### Bug Fixes
+
+* removed font-family from wizard ([873bd87](https://github.com/tecsinapse/ui-kit/commit/873bd8718111a0923ee3ffdf8213209d60cef868))
+
+
+
+
+
 ## [3.3.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.3.2...@tecsinapse/wizard@3.3.3) (2020-08-28)
 
 
