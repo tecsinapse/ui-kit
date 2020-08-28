@@ -145,7 +145,7 @@ export interface TableProps {
   /** Provides custom row render. See examples for more detailed use cases. */
   customRow?: (params: object) => void;
   /** Callback when closing advanced filters. */
-  onDrawerClose: Function;
+  onDrawerClose?: Function;
 }
 
 declare const Table: FC<TableProps>;

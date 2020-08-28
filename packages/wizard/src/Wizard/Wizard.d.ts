@@ -32,6 +32,8 @@ export interface WizardProps {
     /** Label used to display N 'of' M on mobile */
     stepMobileLabel?: string;
   };
+  /** Disables finish button to prevent submit */
+  disableFinishButton?: boolean;
 }
 
 declare const Wizard: FC<WizardProps>;

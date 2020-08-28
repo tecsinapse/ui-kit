@@ -20,6 +20,7 @@ const Wizard = ({
   size,
   strokeWidth,
   labels,
+  disableFinishButton,
 }) => {
   const currentStep = React.Children.toArray(children)[activeStep];
   const [error, setError] = useState(false);
@@ -116,6 +117,10 @@ const Wizard = ({
           onClick={handleNext}
           fullWidth={mobile}
           className={innerClasses.nextButton}
+          disabled={
+            disableFinishButton &&
+            activeStep === React.Children.count(children) - 1
+          }
         >
           {activeStep < React.Children.count(children) - 1
             ? nextText
@@ -143,6 +148,7 @@ Wizard.defaultProps = {
     nextMobileLabel: 'Next',
     stepMobileLabel: 'of',
   },
+  disableFinishButton: false,
 };
 
 Wizard.propTypes = {
@@ -172,6 +178,8 @@ Wizard.propTypes = {
     nextMobileLabel: PropTypes.string,
     stepMobileLabel: PropTypes.string,
   }),
+  /** Disables finish button to prevent submit */
+  disableFinishButton: PropTypes.bool,
 };
 
 export default Wizard;
