@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/table",
   "description": "TecSinapse Table",
-  "version": "3.3.4",
+  "version": "3.3.3",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "author": {
@@ -23,7 +23,7 @@
     "ui-kit"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.3.3",
+    "@tecsinapse/ui-kit": "^5.3.2",
     "react-virtualized": "^9.21.2"
   },
   "files": [
