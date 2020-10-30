@@ -295,17 +295,17 @@ AppBar.defaultProps = {
 
 AppBar.propTypes = {
   /** Bar title */
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /** Bar subtitle */
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /** Replace bar title for a component */
-  titleComponent: PropTypes.object,
+  titleComponent: PropTypes.node,
   /** Fired when menu icon is clicked */
   menuOnClick: PropTypes.func,
   /** Icons placed to the left of title */
-  leftIcons: PropTypes.object,
+  leftIcons: PropTypes.node,
   /** Icons placed to the right of title */
-  rightIcons: PropTypes.object,
+  rightIcons: PropTypes.node,
   /** If component is `a`, you can pass `{ href: URL }` as `componentProps` */
   breadcrumbs: PropTypes.arrayOf(
     PropTypes.shape({
