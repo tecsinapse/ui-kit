@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.3.3...@tecsinapse/ui-kit@5.3.4) (2020-11-20)
+
+
+### Bug Fixes
+
+* fixing proptypes for AppBar.js ([7f66dac](https://github.com/tecsinapse/ui-kit/commit/7f66dace34cec51428b5478bb8380d6e0b8e9732))
+
+
+
+
+
 ## [5.3.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.3.2...@tecsinapse/ui-kit@5.3.3) (2020-09-18)
 
 **Note:** Version bump only for package @tecsinapse/ui-kit

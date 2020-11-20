@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.5](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.3.4...@tecsinapse/table@3.3.5) (2020-11-20)
+
+
+### Features
+
+* added option to override mobile table actions list render ([ae9255e](https://github.com/tecsinapse/ui-kit/commit/ae9255eafb270ffff7b570d12b86fda02434ddc2))
+
+
+
+
+
 ## [3.3.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.3.3...@tecsinapse/table@3.3.4) (2020-09-18)
 
 **Note:** Version bump only for package @tecsinapse/table
