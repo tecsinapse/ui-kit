@@ -68,6 +68,7 @@ const TableComponent = props => {
     customAdvancedFilters,
     customRow,
     onDrawerClose = () => {},
+    customActionsMobile,
   } = props;
   const classes = tableStyles(useWindowSize()[1]);
   const [rowCount, setRowCount] = useState(0);
@@ -157,6 +158,7 @@ const TableComponent = props => {
             page={filters.page}
             tableHeaderHide={tableHeaderHide}
             empytStateComponent={empytStateComponent}
+            customActionsMobile={customActionsMobile}
           />
         </div>
       ) : (
@@ -247,6 +249,7 @@ TableComponent.defaultProps = {
   hideSelectFilterLabel: false,
   customAdvancedFilters: undefined,
   customRow: undefined,
+  customActionsMobile: undefined,
 };
 
 TableComponent.propTypes = {
@@ -350,6 +353,8 @@ TableComponent.propTypes = {
   customRow: PropTypes.func,
   /** Callback when closing advanced filters. */
   onDrawerClose: PropTypes.func,
+  /** Override custom list render when opening actions drawer on mobile */
+  customActionsMobile: PropTypes.func,
 };
 
 export const Table = TableComponent;

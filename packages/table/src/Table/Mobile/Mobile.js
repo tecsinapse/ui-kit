@@ -27,6 +27,7 @@ export const Mobile = ({
   page,
   tableHeaderHide,
   empytStateComponent,
+  customActionsMobile,
 }) => {
   const list = useRef();
 
@@ -107,6 +108,7 @@ export const Mobile = ({
                       labelShowLess={labelShowLess}
                       labelShowMore={labelShowMore}
                       tableHeaderHide={tableHeaderHide}
+                      customActionsMobile={customActionsMobile}
                     />
                   </div>
                 </CellMeasurer>

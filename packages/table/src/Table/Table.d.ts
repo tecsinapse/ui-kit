@@ -146,6 +146,8 @@ export interface TableProps {
   customRow?: (params: object) => void;
   /** Callback when closing advanced filters. */
   onDrawerClose?: Function;
+  /** Override custom list render when opening actions drawer on mobile */
+  customActionsMobile?: Function;
 }
 
 declare const Table: FC<TableProps>;

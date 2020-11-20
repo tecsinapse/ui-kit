@@ -92,6 +92,7 @@ export const Card = ({
   labelShowLess,
   labelShowMore,
   tableHeaderHide,
+  customActionsMobile,
 }) => {
   const [expanded, setExpanded] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
@@ -143,36 +144,41 @@ export const Card = ({
                           classes={classes}
                         />
                       </div>
-                      {index === 0 && isNotEmptyOrNull(actions) && (
-                        <>
-                          <div style={flex0AutoStart}>
-                            <IconButton
-                              aria-label="actions"
-                              style={marginNegative}
-                              onClick={e => {
+                      {index === 0 &&
+                        (isNotEmptyOrNull(actions) || customActionsMobile) && (
+                          <>
+                            <div style={flex0AutoStart}>
+                              <IconButton
+                                aria-label="actions"
+                                style={marginNegative}
+                                onClick={e => {
+                                  e.stopPropagation();
+                                  e.preventDefault();
+                                  setOpenActions(true);
+                                }}
+                              >
+                                <Icon path={mdiDotsVertical} size={1} />
+                              </IconButton>
+                            </div>
+                            <Drawer
+                              anchor="bottom"
+                              open={openActions}
+                              onClose={e => {
                                 e.stopPropagation();
                                 e.preventDefault();
-                                setOpenActions(true);
+                                setOpenActions(false);
                               }}
                             >
-                              <Icon path={mdiDotsVertical} size={1} />
-                            </IconButton>
-                          </div>
-                          <Drawer
-                            anchor="bottom"
-                            open={openActions}
-                            onClose={e => {
-                              e.stopPropagation();
-                              e.preventDefault();
-                              setOpenActions(false);
-                            }}
-                          >
-                            <List disablePadding>
-                              {getActionButtons(actions, true, data)}
-                            </List>
-                          </Drawer>
-                        </>
-                      )}
+                              {customActionsMobile ? (
+                                customActionsMobile(data)
+                              ) : (
+                                <List disablePadding>
+                                  {getActionButtons(actions, true, data)}
+                                </List>
+                              )}
+                            </Drawer>
+                          </>
+                        )}
                     </div>
                   </Grid>
                 );
