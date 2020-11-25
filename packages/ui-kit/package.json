@@ -23,8 +23,6 @@
     "react-select": "^3.1.0",
     "react-sizeme": "^2.6.12",
     "react-text-mask": "^5.4.3",
-    "react-virtualized": "^9.21.2",
-    "react-window": "^1.8.5",
     "text-mask-addons": "^3.8.0",
     "text-mask-core": "^5.1.2"
   },

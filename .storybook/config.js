@@ -15,8 +15,6 @@ const theme = create({
   base: 'light',
   brandTitle: 'TecSinapse UI-KIT',
   brandUrl: 'https://github.com/tecsinapse/ui-kit',
-  brandImage:
-    'https://www.tecsinapse.com.br/wp-content/themes/TecSinapse/assets/images/tecsinapse.svg',
   fontBase: 'Roboto',
   colorPrimary: themeColors.orange.primary.main,
   colorSecondary: themeColors.orange.secondary.main,
