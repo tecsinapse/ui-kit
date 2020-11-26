@@ -8,10 +8,12 @@ export function conformToMask(text, mask) {
 
   return result.conformedValue;
 }
+
 export const maskConfig = {
   guide: false,
   placeholderChar: '\u2000',
 };
+
 export const PHONE_MASK = [
   '(',
   /[1-9]/,
@@ -36,7 +38,7 @@ export const CELL_MASK = [
   ')',
   ' ',
   /[1-9]/,
-  /[1-9]/,
+  /\d/,
   /\d/,
   /\d/,
   /\d/,
@@ -182,7 +184,7 @@ export const CURRENCY_MASK = createNumberMask({
 });
 
 export const CELL_PHONE_MASK = rawValue => {
-  if (rawValue.length > 10) {
+  if (rawValue.length > 14) {
     return CELL_MASK;
   }
 
