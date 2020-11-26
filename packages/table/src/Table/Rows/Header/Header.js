@@ -171,6 +171,7 @@ const Header = ({
       <TableRow>
         {(columns || []).map((column, index) => (
           <ConvertColumnToTableCell
+            key={column?.title}
             sortedColumIndex={sortedColumIndex}
             setSortedColumIndex={setSortedColumIndex}
             index={index}
