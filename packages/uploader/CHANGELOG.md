@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.5](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/uploader@2.3.4...@tecsinapse/uploader@2.3.5) (2020-11-26)
+
+
+### Bug Fixes
+
+* changed default behavior do avoid multiple snackbars when upload fails ([50832e0](https://github.com/tecsinapse/ui-kit/commit/50832e03154c75f59b69e202766be10ef0b8b80c))
+
+
+
+
+
 ## [2.3.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/uploader@2.3.3...@tecsinapse/uploader@2.3.4) (2020-11-20)
 
 **Note:** Version bump only for package @tecsinapse/uploader

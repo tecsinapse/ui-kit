@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.5](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.3.4...@tecsinapse/ui-kit@5.3.5) (2020-11-26)
+
+
+### Bug Fixes
+
+* cellphone mask now understands mobile and home numbers (brazil) ([c391596](https://github.com/tecsinapse/ui-kit/commit/c3915968822e6b6cc47b39e15356d74736c54630))
+* fixed select options list overlapping its content when characters passes 2 lines ([4c9a9f8](https://github.com/tecsinapse/ui-kit/commit/4c9a9f89acc8c590d1e638b88689c0623dbc7cd7))
+* removed outline in select when disabled ([ec832b9](https://github.com/tecsinapse/ui-kit/commit/ec832b9513b4b81495f93cd47a962c6357cb480c))
+
+
+
+
+
 ## [5.3.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.3.3...@tecsinapse/ui-kit@5.3.4) (2020-11-20)
 
 

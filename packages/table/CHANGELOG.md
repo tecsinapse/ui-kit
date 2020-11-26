@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.6](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.3.5...@tecsinapse/table@3.3.6) (2020-11-26)
+
+
+### Bug Fixes
+
+* added key prop to header on table ([ac61e8a](https://github.com/tecsinapse/ui-kit/commit/ac61e8af0aa21d54804eaa33b9dfd499f94c22fa))
+* fixed bug when table re-render change his number of columns ([36d209d](https://github.com/tecsinapse/ui-kit/commit/36d209daf0e353c0df6abc0ad59e8882c1c5c7b8))
+
+
+
+
+
 ## [3.3.5](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.3.4...@tecsinapse/table@3.3.5) (2020-11-20)
 
 
