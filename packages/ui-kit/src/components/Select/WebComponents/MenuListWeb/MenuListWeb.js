@@ -1,24 +1,20 @@
-import { FixedSizeList as List } from 'react-window';
 import React from 'react';
+import { List as MuiList } from '@material-ui/core';
 
 const selectMenuHeight = 50;
 const optionsShown = 4;
 
 export const MenuListWeb = props => {
-  const { options, children, getValue } = props;
-  const [value] = getValue();
+  const { options, children } = props;
 
-  const initialOffset = Math.max(options.indexOf(value), 0) * selectMenuHeight;
   const listSize = selectMenuHeight * Math.min(optionsShown, options.length);
 
-  return (
-    <List
-      height={listSize}
-      itemCount={options.length}
-      itemSize={selectMenuHeight}
-      initialScrollOffset={initialOffset} // TODO: tem alguma coisa errada aqui
-    >
-      {({ index, style }) => <div style={style}>{children[index]}</div>}
-    </List>
-  );
+  const listStyle = {
+    padding: 0,
+    maxHeight: listSize,
+    overflowY: 'scroll',
+    overflowX: 'hidden',
+  };
+
+  return <MuiList style={listStyle}>{(children || []).map(i => i)}</MuiList>;
 };

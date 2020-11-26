@@ -195,7 +195,7 @@ const maskProp = PropTypes.oneOfType([
   PropTypes.oneOf([
     'cep',
     'phone',
-    'cel',
+    'cell',
     'cpf',
     'currency',
     'cnpj',

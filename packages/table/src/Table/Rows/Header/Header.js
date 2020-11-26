@@ -6,44 +6,11 @@ import TableRow from '@material-ui/core/TableRow';
 import Checkbox from '@material-ui/core/Checkbox';
 import clsx from 'clsx';
 import { isEmptyOrNull, isNotEmptyOrNull } from '@tecsinapse/es-utils/build';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { useTheme } from '@material-ui/styles';
 import { IconButton } from '@material-ui/core';
 import { mdiArrowUp, mdiArrowUpDown } from '@mdi/js';
 import Icon from '@mdi/react';
-
-const headerStyles = makeStyles(theme => ({
-  selectionColumn: {
-    maxWidth: '7%',
-  },
-  ascending: {
-    paddingTop: 0,
-    paddingRight: theme.spacing(1 / 5),
-    paddingBottom: theme.spacing(1 / 3),
-    paddingLeft: theme.spacing(1 / 5),
-    marginLeft: 'auto',
-    transform: 'rotate(0deg)',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  descending: {
-    paddingTop: theme.spacing(1 / 3),
-    paddingRight: theme.spacing(1 / 5),
-    paddingBottom: 0,
-    paddingLeft: theme.spacing(1 / 5),
-    transform: 'rotate(180deg)',
-  },
-}));
-
-const sortStyles = makeStyles(() => ({
-  sortedHover: {
-    transition: 'opacity 0.25s',
-    opacity: ({ sortedActive }) => (!sortedActive ? 1 : 100),
-    '&:hover': {
-      opacity: 100,
-    },
-  },
-}));
+import { headerStyles, sortStyles } from './styles';
 
 const getSelectedRowsPage = (data, selectedRows, rowId) =>
   isEmptyOrNull(selectedRows)
@@ -82,8 +49,8 @@ const selectAll = (
   }
 };
 
-const convertColumnToTableCell = (
-  { field, title, options = {}, selection },
+const ConvertColumnToTableCell = ({
+  column: { field, title, options = {}, selection },
   selectedRows,
   setSelectedRows,
   data,
@@ -95,8 +62,8 @@ const convertColumnToTableCell = (
   theme,
   sortedColumIndex,
   setSortedColumIndex,
-  index
-) => {
+  index,
+}) => {
   const sortedActive = sortedColumIndex === index;
   const sortClasses = sortStyles({ sortedActive });
   const { visible = true } = options;
@@ -199,31 +166,28 @@ const Header = ({
     return null;
   }
 
-  let tableCells = null;
-
-  if (columns && columns.length > 0) {
-    tableCells = columns.map((column, index) =>
-      convertColumnToTableCell(
-        column,
-        selectedRows,
-        setSelectedRows,
-        data,
-        onSelectRow,
-        classes,
-        rowId,
-        filters,
-        onChangeSortFilter,
-        theme,
-        sortedColumIndex,
-        setSortedColumIndex,
-        index
-      )
-    );
-  }
-
   return (
     <TableHead>
-      <TableRow>{tableCells}</TableRow>
+      <TableRow>
+        {(columns || []).map((column, index) => (
+          <ConvertColumnToTableCell
+            key={column?.title}
+            sortedColumIndex={sortedColumIndex}
+            setSortedColumIndex={setSortedColumIndex}
+            index={index}
+            classes={classes}
+            data={data}
+            column={column}
+            filters={filters}
+            onChangeSortFilter={onChangeSortFilter}
+            onSelectRow={onSelectRow}
+            rowId={rowId}
+            selectedRows={selectedRows}
+            setSelectedRows={setSelectedRows}
+            theme={theme}
+          />
+        ))}
+      </TableRow>
     </TableHead>
   );
 };
