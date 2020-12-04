@@ -1,0 +1,38 @@
+import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
+import { GROUPS } from 'hierarchySeparators';
+import { Drawer } from 'components/Menu';
+import { drawerDemoItems } from './drawerDemoItems';
+
+<Meta title={`${GROUPS.MENU}/Drawer`} />
+
+# Drawer
+
+The `Drawer` component can receive the following props:
+
+<Props of={Drawer} />
+
+The `items` prop receives an object as parameter, where the attribute `componentProps` have 2 ways to be rendered.
+If the component is `a`, `componentProps` should contain `href` attribute pointing to the URL.
+If the component type is a router `Link`, `componentProps` should contain `to` attribute pointing to the resource location.
+
+# Code snippets
+
+Here you can check the code snippet for the story.
+
+## Drawer
+
+<Story name="Drawer" parameters={{ docs: { disable: true } }}>
+  <Drawer
+    items={drawerDemoItems}
+    open
+    onClose={() => {}}
+    productName="Gestão de Frotas"
+    subtitle="TecSinapse"
+    title="Portal"
+    styleProps={{
+      selectedBackgroundColor: 'blue',
+    }}
+  />
+</Story>
+
+<Source id="menu-drawer--drawer" />

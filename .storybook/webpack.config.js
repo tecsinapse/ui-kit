@@ -31,7 +31,8 @@ module.exports = async ({ config }) => {
     path.resolve(__dirname, '../packages/pickers/src'),
     path.resolve(__dirname, '../packages/table/src'),
     path.resolve(__dirname, '../packages/uploader/src'),
-    path.resolve(__dirname, '../packages/wizard/src')
+    path.resolve(__dirname, '../packages/wizard/src'),
+    path.resolve(__dirname)
   );
 
   return config;

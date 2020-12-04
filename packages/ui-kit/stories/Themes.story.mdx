@@ -1,0 +1,194 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { themeColors } from 'ThemeProvider';
+
+<Meta title="A Introduction/Themes" />
+
+# Variants
+
+`@tecsinapse/ui-kit` have the following variant's:
+
+<ColorPalette>
+  <ColorItem
+    title="variant='orange'"
+    subtitle="primary/contrast/secondary/contrast"
+    colors={[
+      themeColors.orange.primary.main,
+      themeColors.orange.primary.contrastText,
+      themeColors.orange.secondary.main,
+      themeColors.orange.secondary.contrastText,
+    ]}
+  />
+  <ColorItem
+    title="variant='greyLight'"
+    subtitle="primary/contrast/secondary/contrast"
+    colors={[
+      themeColors.greyLight.primary.main,
+      themeColors.greyLight.primary.contrastText,
+      themeColors.greyLight.secondary.main,
+      themeColors.greyLight.secondary.contrastText,
+    ]}
+  />
+  <ColorItem
+    title="variant='yellow'"
+    subtitle="primary/contrast/secondary/contrast"
+    colors={[
+      themeColors.yellow.primary.main,
+      themeColors.yellow.primary.contrastText,
+      themeColors.yellow.secondary.main,
+      themeColors.yellow.secondary.contrastText,
+    ]}
+  />
+  <ColorItem
+    title="variant='blueGrey'"
+    subtitle="primary/light/contrast/secondary/contrast"
+    colors={[
+      themeColors.blueGrey.primary.main,
+      themeColors.blueGrey.primary.light,
+      themeColors.blueGrey.primary.contrastText,
+      themeColors.blueGrey.secondary.main,
+      themeColors.blueGrey.secondary.contrastText,
+    ]}
+  />
+  <ColorItem
+    title="variant='black'"
+    subtitle="primary/light/contrast/secondary/contrast"
+    colors={[
+      themeColors.black.primary.main,
+      themeColors.black.primary.light,
+      themeColors.black.primary.contrastText,
+      themeColors.black.secondary.main,
+      themeColors.black.secondary.contrastText,
+    ]}
+  />
+  <ColorItem
+    title="variant='redLight'"
+    subtitle="primary/light/contrast/secondary/contrast"
+    colors={[
+      themeColors.redLight.primary.main,
+      themeColors.redLight.primary.light,
+      themeColors.redLight.primary.contrastText,
+      themeColors.redLight.secondary.main,
+      themeColors.redLight.secondary.contrastText,
+    ]}
+  />
+  <ColorItem
+    title="variant='green'"
+    subtitle="primary/light/contrast/secondary/contrast"
+    colors={[
+      themeColors.green.primary.main,
+      themeColors.green.primary.light,
+      themeColors.green.primary.contrastText,
+      themeColors.green.secondary.main,
+      themeColors.green.secondary.contrastText,
+    ]}
+  />
+  <ColorItem
+    title="variant='blackOrange'"
+    subtitle="primary/light/contrast/secondary/contrast"
+    colors={[
+      themeColors.blackOrange.primary.main,
+      themeColors.blackOrange.primary.light,
+      themeColors.blackOrange.primary.contrastText,
+      themeColors.blackOrange.secondary.main,
+      themeColors.blackOrange.secondary.contrastText,
+    ]}
+  />
+  <ColorItem
+    title="variant='blueLight'"
+    subtitle="primary/light/contrast/secondary/contrast"
+    colors={[
+      themeColors.blueLight.primary.main,
+      themeColors.blueLight.primary.light,
+      themeColors.blueLight.primary.contrastText,
+      themeColors.blueLight.secondary.main,
+      themeColors.blueLight.secondary.contrastText,
+    ]}
+  />
+  <ColorItem
+    title="variant='deepBlue'"
+    subtitle="primary/light/contrast/secondary/contrast"
+    colors={[
+      themeColors.deepBlue.primary.main,
+      themeColors.deepBlue.primary.light,
+      themeColors.deepBlue.primary.contrastText,
+      themeColors.deepBlue.secondary.main,
+      themeColors.deepBlue.secondary.contrastText,
+    ]}
+  />
+  <ColorItem
+    title="variant='micBlue'"
+    subtitle="primary/light/contrast/secondary/contrast"
+    colors={[
+      themeColors.micBlue.primary.main,
+      themeColors.micBlue.primary.light,
+      themeColors.micBlue.primary.contrastText,
+      themeColors.micBlue.secondary.main,
+      themeColors.micBlue.secondary.contrastText,
+    ]}
+  />
+  <ColorItem
+    title="variant='greyLight'"
+    subtitle="primary/light/dark/contrast/secondary/contrast"
+    colors={[
+      themeColors.greyLight.primary.main,
+      themeColors.greyLight.primary.light,
+      themeColors.greyLight.primary.dark,
+      themeColors.greyLight.primary.contrastText,
+      themeColors.greyLight.secondary.main,
+      themeColors.greyLight.secondary.contrastText,
+    ]}
+  />
+</ColorPalette>
+
+## Error color
+
+All themes have the default:
+
+<ColorPalette>
+  <ColorItem
+    title="Error"
+    subtitle="main/contrast"
+    colors={[
+      themeColors.orange.error.main,
+      themeColors.orange.error.contrastText,
+    ]}
+  />
+</ColorPalette>
+
+# Accessing theme palette
+
+Inside your component, you can retrieve the theme palette and variant.
+
+```
+import { useTheme, Badge } from '@material-ui/core';
+
+const App = () => {
+  const theme = useTheme();
+  console.log(theme.variant);
+  return <Badge color="theme.palette.primary.main" />;
+}
+
+```
+
+# Overriding palette defaults
+
+With `@tecsinapse/ui-kit` it's possible to override default styles for components. The following example override the Picker toolbar background color.
+Check [material-ui docs](https://material-ui.com/) for component CSS API rules.
+
+```
+import { ThemeProvider } from '@tecsinapse/ui-kit';
+
+const defaultStyle = {
+  MuiPickersToolbar: {
+    toolbar: {
+      backgroundColor: '#FFF',
+    },
+  }
+};
+
+const App = () => (
+  <ThemeProvider variant="orange" overrides={defaultStyle}>
+    <App />
+  </ThemeProvider>
+);
+```

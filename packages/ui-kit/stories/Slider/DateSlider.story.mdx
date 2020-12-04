@@ -1,0 +1,81 @@
+import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
+import { useState } from 'react';
+import { DateSlider } from 'components/Slider';
+import { GROUPS } from 'hierarchySeparators';
+import { DivFlex } from 'components/DivFlex';
+
+<Meta
+  title={`${GROUPS.COMPONENTS}/Date Slider`}
+  decorators={[story => <DivFlex>{story()}</DivFlex>]}
+/>
+
+# Date Slider
+
+The `DateSlider` component can receive the following props:
+
+<Props of={DateSlider} />
+
+# Code snippets
+
+Here you can check the code snippet for the story.
+
+## Interval slider
+
+<Story name="Interval slider" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const [dates, setDates] = useState([]);
+    const handleChange = array => {
+      setDates(array);
+      console.log(dates);
+    };
+    const dateRange = [
+      new Date('2019-01-01'),
+      new Date('2019-01-02'),
+      new Date('2019-01-03'),
+      new Date('2019-01-04'),
+      new Date('2019-01-05'),
+    ];
+    return (
+      <div style={{ width: '75%', marginTop: '5vh' }}>
+        <DateSlider
+          range={dateRange}
+          values={dates}
+          onChange={handleChange}
+        />
+      </div>
+    );
+  }}
+</Story>
+
+<Source id="components-date-slider--interval-slider" />
+
+## Simple slider
+
+<Story name="Simple slider" parameters={{ docs: { disable: true } }}>
+  {() => {
+    const [dates, setDates] = useState([]);
+    const handleChange = array => {
+      setDates(array);
+      console.log(dates);
+    };
+    const dateRange = [
+      new Date('2019-01-01'),
+      new Date('2019-01-02'),
+      new Date('2019-01-03'),
+      new Date('2019-01-04'),
+      new Date('2019-01-05'),
+    ];
+    return (
+      <div style={{ width: '75%', marginTop: '5vh' }}>
+        <DateSlider
+          range={dateRange}
+          values={dates}
+          onChange={handleChange}
+          simple
+        />
+      </div>
+    );
+  }}
+</Story>
+
+<Source id="components-date-slider--simple-slider" />

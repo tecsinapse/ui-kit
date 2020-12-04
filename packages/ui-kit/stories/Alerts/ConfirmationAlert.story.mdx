@@ -1,0 +1,30 @@
+import { Meta, Story, Props, Source } from '@storybook/addon-docs/blocks';
+import { ConfirmationAlert } from 'components/Alerts';
+import { GROUPS } from 'hierarchySeparators';
+
+<Meta
+  title={`${GROUPS.ALERTS}/Confirmation Alert`}
+/>
+
+# Confirmation Alert
+
+The `ConfirmationAlert` component can receive the following props.
+
+<Props of={ConfirmationAlert} />
+
+# Code snippets
+
+Here you can check the code snippet for the story.
+
+## Dialog
+
+<Story name="Dialog" parameters={{ docs: { disable: true } }}>
+  <ConfirmationAlert
+    show
+    cancel={() => console.log('cancel')}
+    dismiss={() => console.log('close')}
+    proceed={() => console.log('proceed')}
+  />
+</Story>
+
+<Source id="alerts-confirmation-alert--dialog" />
