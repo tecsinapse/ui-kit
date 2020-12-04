@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { UploaderStory } from '../src/stories/UploaderStory';
-import { TestProvider } from '../../../utils/TestProvider';
+import { TestProvider } from 'TestProvider';
+import { UploaderStory } from '../stories/UploaderStory';
 
 test('Render Uploader', () => {
   const { container, getByText } = render(

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Drawer as MuiDrawer } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { styled } from '@material-ui/styles';
-import { ListHeader } from './ListHeader/ListHeader';
-import { normalizeFunctionItems, searchLogic } from './utils/searchLogic';
-import { SearchResultListing } from './SearchResultListing/SearchResultListing';
-import { MenuList } from './MenuList/MenuList';
+import { ListHeader } from './ListHeader';
+import { normalizeFunctionItems, searchLogic } from './utils';
+import { SearchResultListing } from './SearchResultListing';
+import { MenuList } from './MenuList';
 
 const StyledDiv = styled('div')({
   '&&': {

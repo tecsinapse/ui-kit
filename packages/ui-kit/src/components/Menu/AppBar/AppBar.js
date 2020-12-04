@@ -12,9 +12,9 @@ import Link from '@material-ui/core/Link';
 import Input from '@material-ui/core/Input';
 import { mdiClose, mdiMagnify, mdiMenu } from '@mdi/js';
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
-import { DefaultProductTypography } from '../Drawer/DefaultProductTypography/DefaultProductTypography';
-import { LocaleContext } from '../../../LocaleProvider';
-import { customAppBarStyle } from '../../../ThemeProvider';
+import { DefaultProductTypography } from 'components/Menu/Drawer/DefaultProductTypography';
+import { LocaleContext } from 'context/LocaleContext';
+import { customAppBarStyle } from 'themes/utils';
 
 const useStyles = makeStyles(({ palette, spacing, menuGlobal }) => ({
   marginLeft: {

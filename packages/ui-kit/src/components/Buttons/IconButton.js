@@ -8,7 +8,7 @@ import {
   defaultGrey,
   defaultOrange,
   defaultRed,
-} from '../../utils/colors';
+} from 'utils/colors';
 import { buttonClassNameDefinition } from './Button';
 
 const useStyles = makeStyles({

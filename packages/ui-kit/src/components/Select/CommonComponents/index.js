@@ -1,7 +1,7 @@
-export { IndicatorsContainer } from './IndicatorContainer/IndicatorContainer';
-export { MultiValue } from './MultiValue/MultiValue';
-export { NoOptionsMessage } from './NoOptionsMessage/NoOptionsMessage';
-export { Placeholder } from './Placeholder/Placeholder';
-export { SelectAllButton } from './SelectAllButton/SelectAllButton';
-export { ValueContainer } from './ValueContainer/ValueContainer';
-export { Controlnput } from './ControlInput/Controlnput';
+export { IndicatorsContainer } from './IndicatorContainer';
+export { MultiValue } from './MultiValue';
+export { NoOptionsMessage } from './NoOptionsMessage';
+export { Placeholder } from './Placeholder';
+export { SelectAllButton } from './SelectAllButton';
+export { ValueContainer } from './ValueContainer';
+export { Controlnput } from './ControlInput';

@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/styles';
 import React, { useState } from 'react';
 import List from '@material-ui/core/List';
-import { MenuItem } from '../MenuItem/MenuItem';
-import { selectedTitlesTree } from '../utils/searchLogic';
+import { MenuItem } from 'components/Menu/Drawer/MenuItem';
+import { selectedTitlesTree } from 'components/Menu/Drawer/utils';
 
 const useStyles = makeStyles(theme => ({
   parentList: {

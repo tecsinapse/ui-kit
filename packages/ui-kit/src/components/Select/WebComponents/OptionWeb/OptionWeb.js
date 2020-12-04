@@ -1,5 +1,5 @@
-import MenuItem from '@material-ui/core/MenuItem';
 import React from 'react';
+import MenuItem from '@material-ui/core/MenuItem';
 import Checkbox from '@material-ui/core/Checkbox';
 
 export function OptionWeb({

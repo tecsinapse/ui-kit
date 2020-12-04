@@ -8,8 +8,8 @@ import MenuList from '@material-ui/core/MenuList';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { Chip } from '@material-ui/core';
-import { Input } from '../Inputs/Input';
-import { renderStyledColor } from '../../ThemeProvider';
+import { Input } from 'components/Inputs';
+import { renderStyledColor } from 'themes/utils';
 
 const styles = makeStyles(theme => ({
   root: {

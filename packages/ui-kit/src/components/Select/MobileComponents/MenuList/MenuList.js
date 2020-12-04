@@ -3,7 +3,7 @@ import { List as MuiList } from '@material-ui/core';
 import {
   NoItemsSearchDialog,
   SearchTextContext,
-} from '../SearchDialog/SearchDialog';
+} from 'components/Select/MobileComponents/SearchDialog';
 
 export const MenuList = props => {
   let { options, children } = props;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import { TestProvider } from 'TestProvider';
 import { Table } from '../src';
-import { columnsSimple } from '../src/stories/storyHelper';
-import { cars } from '../src/stories/exampleData';
-import { TestProvider } from '../../../utils/TestProvider';
+import { columnsSimple } from '../stories/storyHelper';
+import { cars } from '../stories/exampleData';
 
 test('Render Table', () => {
   const { container } = render(

@@ -1,6 +1,6 @@
+import React from 'react';
 import { Snackbar as MaterialSnackbar } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import React from 'react';
 import { StyledSnackbarContent } from './StyledSnackbarContent';
 
 export function Snackbar({

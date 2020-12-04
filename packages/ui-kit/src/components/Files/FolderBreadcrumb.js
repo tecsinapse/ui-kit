@@ -7,7 +7,7 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import PropTypes from 'prop-types';
 import Link from '@material-ui/core/Link';
 import clsx from 'clsx';
-import { defaultGreyLight2 } from '../../utils/colors';
+import { defaultGreyLight2 } from 'utils/colors';
 
 const useStyles = (light, dense) =>
   makeStyles(theme => ({

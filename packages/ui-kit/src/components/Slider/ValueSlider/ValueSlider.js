@@ -1,7 +1,7 @@
+import React from 'react';
 import { Slider } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
-import React from 'react';
 
 /*
  * Based on PrettoSlider at materia-ui

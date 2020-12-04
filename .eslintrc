@@ -15,5 +15,12 @@
         "extensions": [".js", ".jsx", ".mdx"]
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["utils","packages/uploader/src", "packages/wizard/src"]
+      }
+    }
   }
 }

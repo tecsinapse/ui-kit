@@ -1,9 +1,9 @@
-import MuiDivider from '@material-ui/core/Divider';
-
 import React from 'react';
+
+import MuiDivider from '@material-ui/core/Divider';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
-import { defaultGreyDisabled } from '../../utils/colors';
+import { defaultGreyDisabled } from 'utils/colors';
 
 const noBackground = { backgroundColor: 'unset' };
 const useStyles = makeStyles({

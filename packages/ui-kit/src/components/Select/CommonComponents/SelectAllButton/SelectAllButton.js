@@ -1,9 +1,9 @@
+import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import MenuItem from '@material-ui/core/MenuItem';
-import React from 'react';
 import Icon from '@mdi/react';
-import { Button } from '../../../Buttons/Button';
-import { Divider } from '../../../Divider/Divider';
+import { Button } from 'components/Buttons';
+import { Divider } from 'components/Divider';
 
 const style = {
   fontWeight: 500,

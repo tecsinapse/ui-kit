@@ -2,8 +2,8 @@ import React from 'react';
 import Icon from '@mdi/react';
 import { mdiPlus } from '@mdi/js';
 import { Collapse } from '@material-ui/core';
+import { FloatingButton } from 'components/Buttons';
 import { useFloatingButtonListStyles } from './FloatingButtonListStyle';
-import { FloatingButton } from '../FloatingButton';
 
 const style = { marginTop: '6px' };
 

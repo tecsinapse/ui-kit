@@ -5,7 +5,7 @@ import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { DialogContent } from '@material-ui/core';
-import { defaultGrey } from '../../utils/colors';
+import { defaultGrey } from 'utils/colors';
 
 export const ConfirmationAlert = ({
   show,

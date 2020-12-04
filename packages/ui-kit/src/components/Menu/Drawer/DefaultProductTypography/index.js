@@ -1,0 +1,1 @@
+export { DefaultProductTypography } from './DefaultProductTypography';

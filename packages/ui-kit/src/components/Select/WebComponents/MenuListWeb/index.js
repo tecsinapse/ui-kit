@@ -1,0 +1,1 @@
+export { MenuListWeb } from './MenuListWeb';
