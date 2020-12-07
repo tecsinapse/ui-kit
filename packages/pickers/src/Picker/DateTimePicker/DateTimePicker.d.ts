@@ -15,7 +15,7 @@ export interface DateTimePickerProps {
   /** Use keyboard picker */
   keyboardPicker?: boolean;
   /** Dates pointed on calendar */
-  pointedDates?: Array<DateTime | Date>;
+  pointedDates?: DateTime[] | Date[];
   /** Input variant selector */
   inputVariant?: 'standard' | 'outlined' | 'filled';
 }

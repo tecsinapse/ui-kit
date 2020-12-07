@@ -112,4 +112,5 @@ Drawer.propTypes = {
   /** Search placeholder */
   searchBarPlaceholder: PropTypes.string,
 };
+
 export default Drawer;

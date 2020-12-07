@@ -17,4 +17,7 @@ export * from './themes';
 
 ThemeProvider.propTypes = {
   variant: PropTypes.oneOf(Object.keys(themes)).isRequired,
+  overrides: PropTypes.object,
+  spacing: PropTypes.number,
+  children: PropTypes.node,
 };

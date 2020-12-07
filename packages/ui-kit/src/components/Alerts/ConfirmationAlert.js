@@ -34,11 +34,13 @@ export const ConfirmationAlert = ({
     </DialogActions>
   </Dialog>
 );
+
 ConfirmationAlert.defaultProps = {
   text: 'Você tem certeza?',
   cancelButtonText: 'Cancelar',
   confirmButtonText: 'Confirmar',
 };
+
 ConfirmationAlert.propTypes = {
   /** Display dialog */
   show: PropTypes.bool.isRequired,
@@ -55,3 +57,5 @@ ConfirmationAlert.propTypes = {
   /** Confirm button label */
   confirmButtonText: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };
+
+export default ConfirmationAlert;

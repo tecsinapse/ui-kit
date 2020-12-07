@@ -107,3 +107,5 @@ Card.defaultProps = {
     customSubtitleColor: '',
   },
 };
+
+export default Card;

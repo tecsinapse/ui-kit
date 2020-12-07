@@ -81,6 +81,7 @@ DateSlider.defaultProps = {
   days: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
   simple: false,
 };
+
 DateSlider.propTypes = {
   /** Range of dates to be displayed */
   range: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
@@ -101,3 +102,4 @@ DateSlider.propTypes = {
 };
 
 export { DateSlider };
+export default DateSlider;

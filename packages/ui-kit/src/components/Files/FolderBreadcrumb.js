@@ -88,6 +88,7 @@ export const FolderBreadcrumb = ({
     </Breadcrumbs>
   );
 };
+
 FolderBreadcrumb.propTypes = {
   /** If component is `a`, you can pass `{ href: URL }` as `componentProps` */
   breadcrumbs: PropTypes.arrayOf(
@@ -104,7 +105,10 @@ FolderBreadcrumb.propTypes = {
   light: PropTypes.bool,
   dense: PropTypes.bool,
 };
+
 FolderBreadcrumb.defaultProps = {
   light: false,
   dense: false,
 };
+
+export default FolderBreadcrumb;

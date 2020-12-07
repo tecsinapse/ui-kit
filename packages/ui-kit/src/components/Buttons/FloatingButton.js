@@ -4,7 +4,7 @@ import React from 'react';
 import Fab from '@material-ui/core/Fab';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
-import { buttonClassNameDefinition, buttonStyle } from './Button';
+import { buttonClassNameDefinition, buttonStyle } from './styles';
 
 const useStyles = makeStyles(theme => ({
   ...buttonStyle(theme),
@@ -44,13 +44,16 @@ export const FloatingButton = ({
     </Fab>
   );
 };
+
 FloatingButton.defaultProps = {
   disabled: false,
   variantFab: undefined,
 };
+
 FloatingButton.propTypes = {
   /** This prop can be customVariant as well */
   variantFab: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
   disabled: PropTypes.bool,
 };
+
 export default FloatingButton;

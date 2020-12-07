@@ -24,9 +24,12 @@ export const Flag = ({ variant = 'Brazil', width = 20 }) => {
   return <Component className={classes.svg} />;
 };
 
+export default Flag;
+
 Flag.defaultProps = {
   width: 20,
 };
+
 Flag.propTypes = {
   variant: PropTypes.oneOf(['brazil', 'spain', 'united-states']).isRequired,
   width: PropTypes.number,

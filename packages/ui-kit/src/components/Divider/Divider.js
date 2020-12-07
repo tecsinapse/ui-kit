@@ -22,9 +22,13 @@ export const Divider = ({ variant = 'dashed' }) => {
     />
   );
 };
+
 Divider.defaultProps = {
   variant: 'dashed',
 };
+
 Divider.propTypes = {
   variant: PropTypes.oneOf(['dashed', 'solid']),
 };
+
+export default Divider;

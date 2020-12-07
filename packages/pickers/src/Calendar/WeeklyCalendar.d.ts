@@ -5,7 +5,7 @@ export interface WeeklyCalendarProps {
   /** Day change event handler */
   onDayChange?: (day: DateTime) => void;
   /** Week change event handler */
-  onWeekChange?: (week: Array<DateTime> | Array<Date>) => void;
+  onWeekChange?: (week: DateTime[] | Date[]) => void;
   /** Initial date */
   currentDate: Date | DateTime;
   /** Locale language code to format date */

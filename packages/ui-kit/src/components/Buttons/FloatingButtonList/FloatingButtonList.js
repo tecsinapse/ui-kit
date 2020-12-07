@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from '@mdi/react';
 import { mdiPlus } from '@mdi/js';
 import { Collapse } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { FloatingButton } from 'components/Buttons';
 import { useFloatingButtonListStyles } from './FloatingButtonListStyle';
 
@@ -34,4 +35,22 @@ const FloatingButtonList = ({ items, onClick, open, color }) => {
   );
 };
 
+FloatingButtonList.defaultProps = {
+  items: undefined,
+  onClick: undefined,
+  open: undefined,
+};
+
+FloatingButtonList.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      component: PropTypes.node,
+    })
+  ),
+  onClick: PropTypes.func,
+  open: PropTypes.bool,
+};
+
 export { FloatingButtonList };
+export default FloatingButtonList;

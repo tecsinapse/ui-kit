@@ -10,8 +10,8 @@ export { AutoComplete } from './components/AutoComplete';
 export { ConfirmationAlert } from './components/Alerts';
 export { Divider } from './components/Divider';
 export { GroupedInput } from './components/GroupedInput';
-export { Flag } from './components/Icon/Flag';
-export { FolderBreadcrumb } from './components/Files/FolderBreadcrumb';
+export { Flag } from './components/Icon';
+export { FolderBreadcrumb } from './components/Files';
 export { Input } from './components/Inputs';
 export { FullScreenLoading } from './components/Loading';
 export { AppBar } from './components/Menu/AppBar';
@@ -23,7 +23,7 @@ export { ValueSlider, DateSlider } from './components/Slider';
 export { Card } from './components/Card';
 export { Select, SelectUnstyled } from './components/Select';
 
-export { ThemeProvider } from './ThemeProvider';
+export { default as ThemeProvider } from './ThemeProvider';
 export {
   themeColors,
   renderStyledColor,

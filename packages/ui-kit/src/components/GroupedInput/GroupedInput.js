@@ -144,6 +144,8 @@ export const GroupedInput = ({
   );
 };
 
+export default GroupedInput;
+
 GroupedInput.defaultProps = {
   error: null,
   success: [],
@@ -156,6 +158,7 @@ GroupedInput.defaultProps = {
   hr: false,
   inputType: 'inside',
 };
+
 GroupedInput.propTypes = {
   /** Input name */
   name: PropTypes.string.isRequired,

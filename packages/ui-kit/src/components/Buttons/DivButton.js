@@ -62,4 +62,5 @@ DivButton.propTypes = {
   /** Number of notifications */
   notifyNumber: PropTypes.number,
 };
+
 export default DivButton;

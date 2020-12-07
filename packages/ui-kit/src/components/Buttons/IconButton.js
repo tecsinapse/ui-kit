@@ -9,7 +9,7 @@ import {
   defaultOrange,
   defaultRed,
 } from 'utils/colors';
-import { buttonClassNameDefinition } from './Button';
+import { buttonClassNameDefinition } from './styles';
 
 const useStyles = makeStyles({
   disabled: {
@@ -48,6 +48,7 @@ IconButton.defaultProps = {
   disabled: false,
   customVariant: undefined,
 };
+
 IconButton.propTypes = {
   customVariant: PropTypes.oneOf(['success', 'warning', 'error']),
   disabled: PropTypes.bool,

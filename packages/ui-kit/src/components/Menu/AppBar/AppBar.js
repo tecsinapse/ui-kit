@@ -336,4 +336,5 @@ AppBar.propTypes = {
   /** Fired when the bar leaves the search mode */
   onCancelSearchMode: PropTypes.func,
 };
+
 export default AppBar;

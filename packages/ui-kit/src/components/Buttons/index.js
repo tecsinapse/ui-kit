@@ -1,5 +1,5 @@
 export { default as Button } from './Button';
-export { FloatingButton } from './FloatingButton';
-export { IconButton } from './IconButton';
-export { DivButton } from './DivButton';
-export { FloatingButtonList } from './FloatingButtonList';
+export { default as FloatingButton } from './FloatingButton';
+export { default as IconButton } from './IconButton';
+export { default as DivButton } from './DivButton';
+export { default as FloatingButtonList } from './FloatingButtonList';

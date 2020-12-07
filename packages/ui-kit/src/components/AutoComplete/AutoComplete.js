@@ -263,3 +263,4 @@ AutoComplete.propTypes = {
 };
 
 export { AutoComplete };
+export default AutoComplete;

@@ -43,7 +43,7 @@ export type ToolbarFiltersTypes = {
   type: 'input' | 'select' | 'multi-select' | 'date' | 'time' | 'checkbox';
   name: string;
   label: string;
-  options?: Array<ToolbarFiltersOptionsTypes>;
+  options?: ToolbarFiltersOptionsTypes[];
   value?: any;
 };
 
@@ -55,11 +55,11 @@ export type ToolbarFiltersGroupTypes = {
 export type ToolbarTypes = {
   title?: ReactNode;
   selectedLabel?: Function;
-  actions?: Array<ToolbarActionsTypes>;
+  actions?: ToolbarActionsTypes[];
   advancedFilters?: {
     applyFilters?: Function;
-    filtersGroup?: Array<ToolbarFiltersGroupTypes>;
-    filters?: Array<ToolbarFiltersTypes>;
+    filtersGroup?: ToolbarFiltersGroupTypes[];
+    filters?: ToolbarFiltersTypes[];
     maxWidth?: string | number;
     maxHeight?: string | number;
   };
@@ -74,9 +74,9 @@ export type ExportOptionsTypes = {
 
 export interface TableProps {
   /** Table columns options. Please note `defaultSort` option initializes a single column sorted in the order provided. Do not use more then one defaultSort field at a time. */
-  columns: Array<ColumnsType>;
+  columns: ColumnsType[];
   /** Data object or function loader */
-  data: Array<object> | Function;
+  data: object[] | Function;
   /** On data filter funtion handler */
   onFilterData?: (data: object) => void;
   /** Set vertical actions legacy */
@@ -88,18 +88,18 @@ export interface TableProps {
     selection: boolean;
   };
   /** Object containing selected rows */
-  selectedData?: Array<object>;
+  selectedData?: object[];
   /** Row selection handler */
   onSelectRow?: (
-    selectedRows: Array<object>,
+    selectedRows: object[],
     rowData: object,
     checked: boolean
   ) => void;
   /** Row click handler */
-  onRowClick?: (data: object) => void;
+  onRowClick?: (row: object) => void;
   id?: string;
   /** Configure legacy actions */
-  actions?: Array<ActionsType>;
+  actions?: ActionsType[];
   /** Table toolbar options. Check accepted attributes [here](https://github.com/tecsinapse/table/blob/master/src/Table/TablePropTypes.js#L3) */
   toolbarOptions?: ToolbarTypes;
   /** Enable legacy pagination */
@@ -109,7 +109,7 @@ export interface TableProps {
   /** Hide legacy header */
   tableHeaderHide?: boolean;
   /** Number of rows per page available to be selected */
-  rowsPerPageOptions?: Array<number>;
+  rowsPerPageOptions?: number[];
   /** Rows to be rendered per page if paginated */
   rowsPerPage?: number;
   /** Current page number */
@@ -123,7 +123,7 @@ export interface TableProps {
   exportOptions?: {
     exportFileName?: string;
     position?: 'header' | 'footer';
-    exportTypes: Array<ExportOptionsTypes>;
+    exportTypes: ExportOptionsTypes[];
   };
   /** Set legacy variant view */
   variant?: 'auto' | 'web' | 'mobile';
@@ -137,17 +137,17 @@ export interface TableProps {
   hideSelectFilterLabel?: boolean;
   /** Replace legacy advanced filters to your own. `cleanFilters` is associated to close button on custom Advanced Filters */
   customAdvancedFilters?: {
-    applyFilters: Function;
+    applyFilters: () => void;
     filters: ReactNode;
-    cleanFilters: Function;
+    cleanFilters: () => void;
     cleanFiltersLabel: string;
   };
   /** Provides custom row render. See examples for more detailed use cases. */
-  customRow?: (params: object) => void;
+  customRow?: Function; // TODO: Improve parameters and return
   /** Callback when closing advanced filters. */
-  onDrawerClose?: Function;
+  onDrawerClose?: () => void;
   /** Override custom list render when opening actions drawer on mobile */
-  customActionsMobile?: Function;
+  customActionsMobile?: (data: object[]) => ReactNode;
 }
 
 declare const Table: FC<TableProps>;
