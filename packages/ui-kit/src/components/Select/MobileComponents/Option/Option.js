@@ -16,6 +16,7 @@ export function Option({
     whiteSpace: 'normal',
     textOverflow: 'ellipsis',
     overflow: 'hidden',
+    minHeight: 50,
   };
 
   return (

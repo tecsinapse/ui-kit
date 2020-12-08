@@ -35,6 +35,7 @@ const tabStyles = theme => ({
     paddingRight: 0,
     boxShadow: 'none !important',
     width: '100%',
+    height: 'unset',
   },
   searchBarContainer: {
     marginRight: 0,

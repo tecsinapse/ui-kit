@@ -11643,10 +11643,10 @@ material-ui-dots@^2.0.0:
   dependencies:
     prop-types "^15.5.10"
 
-material-ui-search-bar@1.0.0-beta.13:
-  version "1.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/material-ui-search-bar/-/material-ui-search-bar-1.0.0-beta.13.tgz#08c246431666f91c3ca52df78987b86352783ee1"
-  integrity sha512-ETZiBvza26+0dyHamUO1Nmh5oRymdzmMM1Z6QH+wraQ6e+0GQdwuJjX4T0eL+nKYDBQB4UpSbFhkBs5ECN2QwA==
+material-ui-search-bar@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/material-ui-search-bar/-/material-ui-search-bar-1.0.0.tgz#2652dd5bdc4cb043cffb7144d9c296c120702e62"
+  integrity sha512-lCNuzMLPBVukVAkcnYKLXHneozsuKZREZNOcc8z9S9scXHqxJzhC9hOS3OC3/YJ+NJEB5lZB9zg1gryBaXEu8w==
   dependencies:
     classnames "^2.2.5"
     prop-types "^15.5.8"

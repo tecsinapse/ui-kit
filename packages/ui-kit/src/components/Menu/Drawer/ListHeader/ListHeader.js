@@ -23,8 +23,8 @@ const useStyles = makeStyles(({ spacing }) => ({
     height: spacing(5),
     borderRadius: 0,
     backgroundColor: grey[100],
-    paddingTop: spacing(0.5),
-    paddingBottom: spacing(0.5),
+    display: 'flex',
+    alignItems: 'center',
   },
 }));
 

@@ -41,7 +41,10 @@ export const Button = React.forwardRef(
         disableElevation={disableElevation}
         {...props}
       >
-        {submitting && <CircularProgress size={20} />} {children}
+        {submitting && (
+          <CircularProgress data-testid="button-loading" size={20} />
+        )}
+        {children}
       </MaterialButton>
     );
   }

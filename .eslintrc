@@ -19,7 +19,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": [".storybook", "packages/ui-kit/src"]
+        "paths": [".storybook", "packages/ui-kit/src", "utils"]
       }
     }
   }
