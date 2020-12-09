@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.4.0...@tecsinapse/ui-kit@5.4.1) (2020-12-09)
+
+
+### Bug Fixes
+
+* **ui-kit:** adding babel module resolver ([e89af76](https://github.com/tecsinapse/ui-kit/commit/e89af76baec228bcb716cc800a2723c91ff02a0b))
+* **ui-kit:** adding babel module resolver ([219cd9c](https://github.com/tecsinapse/ui-kit/commit/219cd9cdd5e2ee8bad99664b9deb1b75c683232e))
+
+
+
+
+
 # [5.4.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.3.5...@tecsinapse/ui-kit@5.4.0) (2020-12-09)
 
 **Note:** Version bump only for package @tecsinapse/ui-kit
