@@ -10,6 +10,10 @@ module.exports = function presets(api) {
         root: ['./src'],
         alias: {
           components: './src/components',
+          context: './src/context',
+          hooks: './src/hooks',
+          themes: './src/themes',
+          utils: './src/utils',
         },
       },
     ],
