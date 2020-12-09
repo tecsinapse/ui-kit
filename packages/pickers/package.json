@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/pickers",
   "description": "TecSinapse Pickers",
-  "version": "2.3.5",
+  "version": "2.4.0",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "author": {
@@ -28,7 +28,7 @@
     "@date-io/luxon": "^1.3.13",
     "@material-ui/pickers": "^3.2.10",
     "@tecsinapse/material-ui-color-picker": "^4.4.0",
-    "@tecsinapse/ui-kit": "^5.3.5",
+    "@tecsinapse/ui-kit": "^5.4.0",
     "@types/luxon": "^1.24.1",
     "luxon": "^1.24.1"
   },
