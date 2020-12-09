@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import { TestProvider } from 'TestProvider';
 import { DatePicker, PickersProvider } from '../src';
-import { TestProvider } from '../../../utils/TestProvider';
 
 test('Render Picker', () => {
   const selectedDate = new Date('2014-08-18T21:11:54');

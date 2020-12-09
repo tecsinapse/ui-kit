@@ -87,8 +87,11 @@ StyledSnackbarContent.defaultProps = {
   message: '',
   onClose: () => {},
 };
+
 StyledSnackbarContent.propTypes = {
   message: PropTypes.node,
   onClose: PropTypes.func,
   variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired,
 };
+
+export default StyledSnackbarContent;

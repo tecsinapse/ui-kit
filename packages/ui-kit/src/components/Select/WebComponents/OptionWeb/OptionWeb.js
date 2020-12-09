@@ -1,5 +1,5 @@
-import MenuItem from '@material-ui/core/MenuItem';
 import React from 'react';
+import MenuItem from '@material-ui/core/MenuItem';
 import Checkbox from '@material-ui/core/Checkbox';
 
 export function OptionWeb({
@@ -11,14 +11,17 @@ export function OptionWeb({
   isSelected,
   selectProps,
 }) {
+  const style = {
+    fontWeight: isSelected ? 500 : 400,
+    minHeight: 50,
+  };
+
   return (
     <MenuItem
       buttonRef={innerRef}
       selected={isFocused}
       component="div"
-      style={{
-        fontWeight: isSelected ? 500 : 400,
-      }}
+      style={style}
       disabled={data.disabled || false}
       {...innerProps}
     >

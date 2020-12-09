@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 import SearchBar from 'material-ui-search-bar';
 import { grey } from '@material-ui/core/colors';
-import { DefaultProductTypography } from '../DefaultProductTypography/DefaultProductTypography';
+import { DefaultProductTypography } from 'components/Menu/Drawer/DefaultProductTypography';
 
 const useStyles = makeStyles(({ spacing }) => ({
   flexColumn: {
@@ -23,8 +23,8 @@ const useStyles = makeStyles(({ spacing }) => ({
     height: spacing(5),
     borderRadius: 0,
     backgroundColor: grey[100],
-    paddingTop: spacing(0.5),
-    paddingBottom: spacing(0.5),
+    display: 'flex',
+    alignItems: 'center',
   },
 }));
 

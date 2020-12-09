@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Step } from '@material-ui/core';
-import { Wizard } from '../src';
-import { TestProvider } from '../../../utils/TestProvider';
+import { Wizard } from 'Wizard';
+import { TestProvider } from 'TestProvider';
 
 test('Render Wizard', () => {
   let activeStep = 0;

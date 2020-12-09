@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { List } from '@material-ui/core';
-import { TitleSubtitleMenuItem } from '../MenuItem/MenuItem';
+import { TitleSubtitleMenuItem } from 'components/Menu/Drawer/MenuItem';
 
 export const useStyles = makeStyles(theme => ({
   parentList: {

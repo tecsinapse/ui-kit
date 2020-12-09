@@ -2,8 +2,8 @@ import { addDecorator, addParameters, configure } from '@storybook/react';
 import React from 'react';
 import { DocsContainer, DocsPage } from '@storybook/addon-docs/blocks';
 import { ClientContext, GraphQLClient } from 'graphql-hooks';
-import { ThemeProvider } from '@tecsinapse/ui-kit/src';
-import { themeColors } from '@tecsinapse/ui-kit/src/ThemeProvider';
+import { ThemeProvider, themeColors } from '@tecsinapse/ui-kit';
+
 import { create } from '@storybook/theming/create';
 import { overrides } from './themeGlobals';
 

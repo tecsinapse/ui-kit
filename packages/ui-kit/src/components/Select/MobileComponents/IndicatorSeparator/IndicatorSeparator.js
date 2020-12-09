@@ -1,5 +1,5 @@
-import { components } from 'react-select';
 import React from 'react';
+import { components } from 'react-select';
 
 export const IndicatorSeparator = props => {
   const { selectProps } = props;

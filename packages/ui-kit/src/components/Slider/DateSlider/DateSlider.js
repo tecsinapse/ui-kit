@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Slider, useTheme, withStyles } from '@material-ui/core';
 import ValueLabel from '@material-ui/core/Slider/ValueLabel';
 import PropTypes from 'prop-types';
-import { renderStyledColor } from '../../../ThemeProvider';
+import { renderStyledColor } from 'themes';
 
 const StyledValueLabel = withStyles({
   offset: {
@@ -81,6 +81,7 @@ DateSlider.defaultProps = {
   days: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
   simple: false,
 };
+
 DateSlider.propTypes = {
   /** Range of dates to be displayed */
   range: PropTypes.arrayOf(PropTypes.instanceOf(Date)).isRequired,
@@ -101,3 +102,4 @@ DateSlider.propTypes = {
 };
 
 export { DateSlider };
+export default DateSlider;

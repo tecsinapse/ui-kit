@@ -3,9 +3,9 @@ import { FormHelperText, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { Divider } from '../Divider/Divider';
-import { useGroupedInputStyles } from './hooks/useGroupedInputStyles';
-import { InputItemGroupInput } from './InputItemGroupInput/InputItemGroupInput';
+import { Divider } from 'components/Divider';
+import { useGroupedInputStyles } from './hooks';
+import { InputItemGroupInput } from './InputItemGroupInput';
 
 export const GroupedInput = ({
   name,
@@ -144,6 +144,8 @@ export const GroupedInput = ({
   );
 };
 
+export default GroupedInput;
+
 GroupedInput.defaultProps = {
   error: null,
   success: [],
@@ -156,6 +158,7 @@ GroupedInput.defaultProps = {
   hr: false,
   inputType: 'inside',
 };
+
 GroupedInput.propTypes = {
   /** Input name */
   name: PropTypes.string.isRequired,

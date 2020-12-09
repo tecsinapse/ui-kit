@@ -1,5 +1,5 @@
 import React from 'react';
-import { Controlnput } from '../../CommonComponents';
+import { Controlnput } from 'components/Select/CommonComponents/ControlInput';
 
 const style = {
   display: 'flex',

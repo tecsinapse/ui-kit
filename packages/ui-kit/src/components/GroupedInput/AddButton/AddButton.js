@@ -2,7 +2,7 @@ import Icon from '@mdi/react';
 import { mdiPlusCircle } from '@mdi/js';
 import React from 'react';
 import { Tooltip } from '@material-ui/core';
-import { Button } from '../../Buttons/Button';
+import { Button } from 'components/Buttons';
 import { useAddButtonStyles } from './useAddButtonStyles';
 
 export const AddButton = React.memo(({ push }) => {

@@ -12,3 +12,5 @@ export const DivFlex = ({ children, style, ...rest }) => {
 
   return <div style={style1}>{React.cloneElement(children, { ...rest })}</div>;
 };
+
+export default DivFlex;

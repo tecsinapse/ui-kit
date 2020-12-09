@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { omitDeep } from '@tecsinapse/es-utils/build';
-import { Input } from '../Inputs/Input';
+import { Input } from 'components/Inputs';
 
 const Password = props => {
   const [passwordFieldType, setPasswordFieldType] = useState('password');

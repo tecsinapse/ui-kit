@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import clsx from 'clsx';
-import { TextFieldComponent } from '../../../Inputs/Input';
+import { TextFieldComponent } from 'components/Inputs/Input';
 
 const useStyles = makeStyles({
   inputBaseCustom: {

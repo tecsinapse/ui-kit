@@ -7,7 +7,7 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import PropTypes from 'prop-types';
 import Link from '@material-ui/core/Link';
 import clsx from 'clsx';
-import { defaultGreyLight2 } from '../../utils/colors';
+import { defaultGreyLight2 } from 'utils/colors';
 
 const useStyles = (light, dense) =>
   makeStyles(theme => ({
@@ -88,6 +88,7 @@ export const FolderBreadcrumb = ({
     </Breadcrumbs>
   );
 };
+
 FolderBreadcrumb.propTypes = {
   /** If component is `a`, you can pass `{ href: URL }` as `componentProps` */
   breadcrumbs: PropTypes.arrayOf(
@@ -104,7 +105,10 @@ FolderBreadcrumb.propTypes = {
   light: PropTypes.bool,
   dense: PropTypes.bool,
 };
+
 FolderBreadcrumb.defaultProps = {
   light: false,
   dense: false,
 };
+
+export default FolderBreadcrumb;

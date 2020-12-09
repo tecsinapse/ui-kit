@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import { TestProvider } from 'TestProvider';
 import { AutoRotatingCarousel, Slide } from '../src';
-import { TestProvider } from '../../../utils/TestProvider';
 
 test('Render Carousel', () => {
   const { container, getByText } = render(

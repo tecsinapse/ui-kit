@@ -86,17 +86,18 @@ Card.propTypes = {
   onClick: PropTypes.func,
   /** Card title and components */
   title: PropTypes.shape({
-    name: PropTypes.string,
-    components: PropTypes.element,
+    name: PropTypes.node,
+    components: PropTypes.node,
   }),
   /** Card subtitle */
   subtitle: PropTypes.string,
   /** Card content */
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  content: PropTypes.node,
+
   /** Card extra content */
-  subContent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  subContent: PropTypes.node,
   /** Components to be rendered as card actions */
-  actions: PropTypes.element,
+  actions: PropTypes.node,
   /** Function to be rendered on load */
   onLoad: PropTypes.func,
 };
@@ -106,3 +107,5 @@ Card.defaultProps = {
     customSubtitleColor: '',
   },
 };
+
+export default Card;

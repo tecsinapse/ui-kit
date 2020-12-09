@@ -5,7 +5,7 @@ import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { DialogContent } from '@material-ui/core';
-import { defaultGrey } from '../../utils/colors';
+import { defaultGrey } from 'utils/colors';
 
 export const ConfirmationAlert = ({
   show,
@@ -34,11 +34,13 @@ export const ConfirmationAlert = ({
     </DialogActions>
   </Dialog>
 );
+
 ConfirmationAlert.defaultProps = {
   text: 'Você tem certeza?',
   cancelButtonText: 'Cancelar',
   confirmButtonText: 'Confirmar',
 };
+
 ConfirmationAlert.propTypes = {
   /** Display dialog */
   show: PropTypes.bool.isRequired,
@@ -55,3 +57,5 @@ ConfirmationAlert.propTypes = {
   /** Confirm button label */
   confirmButtonText: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };
+
+export default ConfirmationAlert;

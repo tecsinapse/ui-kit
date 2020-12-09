@@ -61,9 +61,6 @@ export const EmptyState = ({
   );
 };
 
-export const EmptyStateWrapper = ({ children, ...props }) =>
-  children && children.length ? children : <EmptyState {...props} />;
-
 EmptyState.defaultProps = {
   titleMessage: null,
   message: 'Não há nada por aqui ainda.',
@@ -71,6 +68,7 @@ EmptyState.defaultProps = {
   noConnectionTitle: 'Sem conexão',
   IconComponent: FolderOpen,
 };
+
 EmptyState.propTypes = {
   /** Icon to be displayed */
   IconComponent: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
@@ -83,3 +81,5 @@ EmptyState.propTypes = {
   /** Custom message when offline */
   offlineMessage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };
+
+export default EmptyState;

@@ -7,4 +7,11 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest',
   },
+  moduleDirectories: [
+    'node_modules',
+    'utils',
+    'packages/wizard/src',
+    'packages/uploader/src',
+    'packages/ui-kit/src',
+  ],
 };
