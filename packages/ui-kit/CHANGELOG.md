@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.4.1...@tecsinapse/ui-kit@5.4.2) (2020-12-11)
+
+
+### Bug Fixes
+
+* **ui-kit:** fixed bug when removing single item from chip on select multi ([4f10f9f](https://github.com/tecsinapse/ui-kit/commit/4f10f9fc13eaceb72da05dc5eeac5ca7f5e6bd2a))
+
+
+
+
+
 ## [5.4.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.4.0...@tecsinapse/ui-kit@5.4.1) (2020-12-09)
 
 
