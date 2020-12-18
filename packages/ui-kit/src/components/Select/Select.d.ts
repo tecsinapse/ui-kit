@@ -54,6 +54,22 @@ export interface SelectProps {
   customIndicators?: ReactNode;
   /** Customize text field behind select */
   customTextField?: object;
+  /** Input name */
+  name?: string;
+  /** Tooltip for select help */
+  tooltip?: string;
+  /** Adornment on input end */
+  endAdornment?: ReactNode;
+  /** JSS Classes */
+  classes?: string | object;
+  /** Placeholder on input */
+  placeholder?: string;
+  /** Placement of dropdown menu */
+  menuPlacement?: 'bottom' | string;
+  /** React key */
+  key?: unknown;
+  /** Input value */
+  value?: unknown;
 }
 
 declare const Select: FC<SelectProps>;
