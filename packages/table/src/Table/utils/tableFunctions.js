@@ -29,7 +29,7 @@ export const exportToCSV = (fileName, columns, data, delimeter = ';') => {
 
   const dataToExport = data.map(d =>
     exportedColumns
-      .map(c => (c.customRender ? c.customRender(d) : resolveData(c.field, d)))
+      .map(c => (c.handleExport ? c.handleExport(d) : resolveData(c.field, d)))
       .join(delimeter)
   );
 

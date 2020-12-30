@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
@@ -171,7 +172,7 @@ const Header = ({
       <TableRow>
         {(columns || []).map((column, index) => (
           <ConvertColumnToTableCell
-            key={column?.title}
+            key={`${column?.title}-${index}`}
             sortedColumIndex={sortedColumIndex}
             setSortedColumIndex={setSortedColumIndex}
             index={index}

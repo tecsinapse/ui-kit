@@ -262,8 +262,12 @@ TableComponent.propTypes = {
         filter: PropTypes.bool,
         sort: PropTypes.bool,
         defaultSort: PropTypes.oneOf(['ASC', 'DESC']),
+        /** Option to include or exclude field from CSV export */
+        export: PropTypes.bool,
       }),
       customRender: PropTypes.func,
+      /** This function must return a string, since is reserved for CSV exporter */
+      handleExport: PropTypes.func,
     })
   ).isRequired,
   /** Data object or function loader */

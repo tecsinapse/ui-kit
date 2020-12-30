@@ -231,7 +231,7 @@ export const exporterColumns = [
     options: {
       visible: false,
     },
-    customRender: ({ price }) =>
+    handleExport: ({ price }) =>
       price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }),
   },
 ];

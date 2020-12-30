@@ -9,8 +9,12 @@ export type ColumnsType = {
     defaultSort?: 'ASC' | 'DESC';
     numeric?: boolean;
     hiddenCard?: boolean;
+    /** Option to include or exclude field from CSV export */
+    export?: boolean;
   };
   customRender?: (row: object) => void;
+  /** This function must return a string, since is reserved for CSV exporter */
+  handleExport?: (row: object) => string;
 };
 
 export type ActionsType = {
