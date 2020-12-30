@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.4.3...@tecsinapse/table@3.4.4) (2020-12-30)
+
+
+### Features
+
+* **table:** added option to ignore column from csv export ([cd0d0fb](https://github.com/tecsinapse/ui-kit/commit/cd0d0fb29744951cdc93a66206d432912bdf8de4))
+
+
+
+
+
 ## [3.4.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.4.2...@tecsinapse/table@3.4.3) (2020-12-18)
 
 **Note:** Version bump only for package @tecsinapse/table
