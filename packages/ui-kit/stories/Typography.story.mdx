@@ -1,0 +1,92 @@
+import { makeStyles, Typography } from '@material-ui/core';
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { DivFlex } from '@tecsinapse/ui-kit';
+
+<Meta title="Introduction" />
+
+# Typography
+
+<Story
+  name="Typography"
+  decorators={[story => <DivFlex>{story()}</DivFlex>]}
+  parameters={{
+    viewMode: 'docs',
+  }}
+>
+  {() => {
+    const classes = makeStyles({
+      root: {
+        width: '100%',
+        maxWidth: 500,
+      },
+      code: {
+        lineHeight: 1,
+        margin: '0 2px',
+        padding: '3px 5px',
+        whiteSpace: 'nowrap',
+        borderRadius: '3px',
+        border: '1px solid #EEEEEE',
+        color: 'rgba(51,51,51,0.9)',
+        backgroundColor: '#F8F8F8',
+        textTransform: 'lowercase',
+        letterSpacing: 0,
+      },
+    })();
+    const fullWidth = { minWidth: '100%' };
+    return (
+      <div style={fullWidth}>
+        <div className={classes.root}>
+          <Typography variant="h1" gutterBottom>
+            <code className={classes.code}>h1</code>: Heading
+          </Typography>
+          <Typography variant="h2" gutterBottom>
+            <code className={classes.code}>h2</code>: Heading
+          </Typography>
+          <Typography variant="h3" gutterBottom>
+            <code className={classes.code}>h3</code>: Heading
+          </Typography>
+          <Typography variant="h4" gutterBottom>
+            <code className={classes.code}>h4</code>: Heading
+          </Typography>
+          <Typography variant="h5" gutterBottom>
+            <code className={classes.code}>h5</code>: Heading
+          </Typography>
+          <Typography variant="h6" gutterBottom>
+            <code className={classes.code}>h6</code>: Heading
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            <code className={classes.code}>subtitle1</code>: Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          </Typography>
+          <Typography variant="subtitle2" gutterBottom>
+            <code className={classes.code}>subtitle2</code>: Lorem ipsum dolor
+            sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            <code className={classes.code}>body1</code>: Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Quos blanditiis tenetur unde
+            suscipit, quam beatae rerum inventore consectetur, neque doloribus,
+            cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi
+            quidem quibusdam.
+          </Typography>
+          <Typography variant="body2" gutterBottom>
+            <code className={classes.code}>body2</code>: Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Quos blanditiis tenetur unde
+            suscipit, quam beatae rerum inventore consectetur, neque doloribus,
+            cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi
+            quidem quibusdam.
+          </Typography>
+          <Typography variant="button" display="block" gutterBottom>
+            <code className={classes.code}>button</code>: button text
+          </Typography>
+          <Typography variant="caption" display="block" gutterBottom>
+            <code className={classes.code}>caption</code>: caption text
+          </Typography>
+          <Typography variant="overline" display="block" gutterBottom>
+            <code className={classes.code}>overline</code>: overline text
+          </Typography>
+        </div>
+      </div>
+    );
+  }}
+</Story>

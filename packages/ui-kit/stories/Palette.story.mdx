@@ -1,0 +1,72 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { themeColors } from 'ThemeProvider';
+
+<Meta title="Introduction/Palette" />
+
+# Current palette colors
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="main"
+    colors={[
+      themeColors.orange.primary.main
+    ]}
+  />
+  <ColorItem
+    title="Secondary"
+    subtitle="main"
+    colors={[
+      themeColors.orange.secondary.main
+    ]}
+  />
+  <ColorItem
+    title="Error"
+    subtitle="main"
+    colors={[
+      themeColors.orange.error.main,
+    ]}
+  />
+  <ColorItem
+    title="Warning"
+    subtitle="main"
+    colors={[
+      'rgb(255, 152, 0)',
+    ]}
+  />
+  <ColorItem
+    title="Info"
+    subtitle="main"
+    colors={[
+      'rgb(33, 150, 243)',
+    ]}
+  />
+  <ColorItem
+    title="Success"
+    subtitle="main"
+    colors={[
+      'rgb(76, 175, 80)',
+    ]}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="primary"
+    colors={[
+      'rgba(0, 0, 0, 0.87)',
+    ]}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="secondary"
+    colors={[
+      'rgba(0, 0, 0, 0.54)',
+    ]}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="disabled"
+    colors={[
+      'rgba(0, 0, 0, 0.38)',
+    ]}
+  />
+</ColorPalette>

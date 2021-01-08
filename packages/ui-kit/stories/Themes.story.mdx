@@ -1,7 +1,7 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 import { themeColors } from 'ThemeProvider';
 
-<Meta title="A Introduction/Themes" />
+<Meta title="Introduction/Themes" />
 
 # Variants
 
@@ -159,15 +159,14 @@ All themes have the default:
 
 Inside your component, you can retrieve the theme palette and variant.
 
-```
+```jsx
 import { useTheme, Badge } from '@material-ui/core';
 
 const App = () => {
   const theme = useTheme();
   console.log(theme.variant);
   return <Badge color="theme.palette.primary.main" />;
-}
-
+};
 ```
 
 # Overriding palette defaults
@@ -175,7 +174,7 @@ const App = () => {
 With `@tecsinapse/ui-kit` it's possible to override default styles for components. The following example override the Picker toolbar background color.
 Check [material-ui docs](https://material-ui.com/) for component CSS API rules.
 
-```
+```jsx
 import { ThemeProvider } from '@tecsinapse/ui-kit';
 
 const defaultStyle = {
@@ -183,7 +182,7 @@ const defaultStyle = {
     toolbar: {
       backgroundColor: '#FFF',
     },
-  }
+  },
 };
 
 const App = () => (

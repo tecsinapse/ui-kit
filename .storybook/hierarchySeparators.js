@@ -15,8 +15,3 @@ export const GROUPS = {
   SCHEDULE: 'Schedule',
   TABLE: 'Table',
 };
-
-export const OPTIONS = {
-  hierarchySeparator: /\//,
-  hierarchyRootSeparator: /\|/,
-};

@@ -2,15 +2,24 @@ import React from 'react';
 import { ClientContext, GraphQLClient } from 'graphql-hooks';
 import { ThemeProvider } from '@tecsinapse/ui-kit';
 import { theme, overrides } from './utils/theme';
+import { sortStories } from './utils/helpers';
 
 const client = new GraphQLClient({
   url: 'https://countries.trevorblades.com/',
 });
 
-const sortStories = (a, b) =>
-  a[1].kind === b[1].kind
-    ? 0
-    : a[1].id.localeCompare(b[1].id, undefined, { numeric: true });
+const SORT_ORDER = {
+  Introduction: ['Get started', 'Typography', 'Themes', 'Palette'],
+  Alerts: [],
+  Components: [],
+  Files: [],
+  Forms: [],
+  Layout: [],
+  Loadings: [],
+  Menu: [],
+  Notifications: [],
+  'Packages @tecsinapse': [],
+};
 
 export const parameters = {
   actions: { argTypesRegex: '^on.*' },
@@ -18,7 +27,7 @@ export const parameters = {
     theme,
   },
   options: {
-    storySort: sortStories,
+    storySort: sortStories(SORT_ORDER),
   },
 };
 
