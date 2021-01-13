@@ -11,7 +11,6 @@ import FormControl from '@material-ui/core/FormControl';
 import { SizeMe } from 'react-sizeme';
 import ReactSelect from 'react-select';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import { defaultProps1, propTypes1 } from 'components/Select/utils/propTypes';
 
 const flattenChildren = childrenIn =>
   childrenIn
@@ -211,8 +210,5 @@ export const SelectUnstyled = ({
     </div>
   );
 };
-
-SelectUnstyled.propTypes = propTypes1;
-SelectUnstyled.defaultProps = defaultProps1;
 
 export default SelectUnstyled;

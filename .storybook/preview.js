@@ -22,7 +22,6 @@ const SORT_ORDER = {
 };
 
 export const parameters = {
-  actions: { argTypesRegex: '^on.*' },
   docs: {
     theme,
   },

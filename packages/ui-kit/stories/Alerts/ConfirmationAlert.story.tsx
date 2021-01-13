@@ -1,4 +1,3 @@
-// import { Meta, Story, ArgsTable as Props, Source } from '@storybook/addon-docs/blocks';
 import * as React from 'react';
 import { ConfirmationAlert } from 'components/Alerts';
 import { GROUPS } from 'hierarchySeparators';
@@ -18,7 +17,6 @@ export default {
       page: () => (
         <>
           <Title />
-          <Subtitle />
           <Description>
             The `ConfirmationAlert` component can receive the following props.
           </Description>
@@ -32,9 +30,9 @@ export default {
 export const Dialog = args => (
   <ConfirmationAlert
     {...args}
-    proceed={action('Confirm Action')}
-    dismiss={action('Dismiss Action')}
-    cancel={action('Cancel Action')}
+    proceed={action('proceed')}
+    dismiss={action('dismiss')}
+    cancel={action('cancel')}
   />
 );
 
