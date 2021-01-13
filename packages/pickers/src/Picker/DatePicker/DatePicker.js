@@ -248,6 +248,7 @@ DatePicker.defaultProps = {
   pointedDates: [],
   inputVariant: 'outlined',
   selectedDate: undefined,
+  weekly: undefined,
 };
 
 DatePicker.propTypes = {
@@ -273,5 +274,7 @@ DatePicker.propTypes = {
     PropTypes.node,
     PropTypes.object,
   ]),
+  /** Pick the entire week */
+  weekly: PropTypes.bool,
 };
 export default DatePicker;

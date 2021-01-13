@@ -3,8 +3,36 @@ import SearchIcon from '@material-ui/icons/Search';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/DeleteForever';
 import React from 'react';
-import Icon from '@mdi/react';
-import { mdiAccessPoint } from '@mdi/js';
+import { makeStyles } from '@material-ui/core';
+
+export const useCustomRowStyles = makeStyles({
+  root: {
+    '& > *': {
+      borderBottom: 'unset',
+    },
+  },
+  style: { borderLeft: '3px red solid' },
+  style1: { paddingTop: 0, paddingBottom: '8px' },
+  style2: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  style3: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+  },
+  style4: {
+    backgroundColor: 'green',
+    borderRadius: '10px',
+    padding: '3px 5px 2px 5px',
+    fontSize: '10px',
+    color: 'white',
+    fontWeight: '700',
+  },
+});
 
 export const columnsSimple = [
   {
@@ -261,52 +289,6 @@ export const filteredColumns = [
   },
 ];
 
-export const paginationColumns = [
-  {
-    title: 'Brand',
-    field: 'brand',
-  },
-  {
-    title: 'Model',
-    field: 'model.name',
-  },
-  {
-    title: 'Year',
-    field: 'model.year',
-    options: {
-      numeric: true,
-    },
-  },
-];
-
-export const paginationActions = [
-  {
-    icon: <Icon path={mdiAccessPoint} size={1} />,
-    tooltip: 'Teste',
-    // eslint-disable-next-line no-console
-    onClick: car => console.log(car),
-    visible: car => car.model.name === 'BMW 2',
-  },
-];
-
-export const paginationToolbar = {
-  title: 'Pagination Example',
-  advancedFilters: {
-    title: 'Pagination Example',
-    selectedFiltersLabel: 'Filtro Ativos',
-    applyFiltersLabel: 'Aplicar Filtros',
-    filtersGroup: [{ name: 'grupo' }],
-    filters: [
-      {
-        label: 'Modelo',
-        name: 'modelo',
-        type: 'input',
-        group: 'grupo',
-      },
-    ],
-  },
-};
-
 const carsList = [];
 
 for (let index = 0; index < 70; index++) {
@@ -320,27 +302,6 @@ for (let index = 0; index < 70; index++) {
     price: 3 * (index + 10),
   });
 }
-
-export const paginationData = async filters => {
-  const {
-    advancedFilters: { modelo },
-    page,
-    rowsPerPage,
-  } = filters;
-
-  const resultados = carsList.filter(
-    car =>
-      !modelo || car.model.name.toLowerCase().includes(modelo.toLowerCase())
-  );
-
-  return {
-    data: resultados.slice(
-      page * rowsPerPage,
-      page * rowsPerPage + rowsPerPage
-    ),
-    totalCount: resultados.length,
-  };
-};
 
 export const serverColumns = [
   {

@@ -20,6 +20,8 @@ export interface DatePickerProps {
   inputVariant?: 'standard' | 'outlined' | 'filled';
   /** Custom component render */
   customTextFieldComponentInput?: ReactNode;
+  /** Pick the entire week */
+  weekly?: boolean;
 }
 
 declare const DatePicker: FC<DatePickerProps>;
