@@ -200,7 +200,11 @@ const TableComponent = props => {
             <TableFooter>
               <TableRow>
                 {exportOptions?.position === 'footer' && (
-                  <TableCell colSpan={Math.ceil(columns.length / 2) || 1}>
+                  <TableCell
+                    colSpan={
+                      exportOptions?.footerSpan || Math.ceil(columns.length / 2)
+                    }
+                  >
                     <Exporter
                       {...exportOptions}
                       data={data}
@@ -327,6 +331,7 @@ TableComponent.propTypes = {
   exportOptions: PropTypes.shape({
     exportFileName: PropTypes.string,
     position: PropTypes.oneOf(['header', 'footer']),
+    footerSpan: PropTypes.number,
     exportTypes: PropTypes.arrayOf(
       PropTypes.shape({
         type: PropTypes.oneOf(['csv', 'custom']),

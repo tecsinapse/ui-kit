@@ -2,12 +2,21 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { TestProvider } from 'TestProvider';
-import { UploaderStory } from '../stories/UploaderStory';
+import { FormUploader } from '../src/Uploader';
+import { onAccept, onDeleteFiles, onReject } from '../stories/helpers';
 
 test('Render Uploader', () => {
+  const files = {};
+  const setFiles = () => {};
+
   const { container, getByText } = render(
     <TestProvider>
-      <UploaderStory />
+      <FormUploader
+        value={files}
+        onAccept={onAccept(files, setFiles, () => {})}
+        onReject={onReject(files, setFiles, () => {})}
+        onDelete={onDeleteFiles(files, setFiles)}
+      />
     </TestProvider>
   );
 

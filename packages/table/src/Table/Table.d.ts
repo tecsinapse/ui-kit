@@ -127,6 +127,7 @@ export interface TableProps {
   exportOptions?: {
     exportFileName?: string;
     position?: 'header' | 'footer';
+    footerSpan?: number;
     exportTypes: ExportOptionsTypes[];
   };
   /** Set legacy variant view */
