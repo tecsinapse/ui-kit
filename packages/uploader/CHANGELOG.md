@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/uploader@2.4.3...@tecsinapse/uploader@2.4.4) (2021-01-14)
+
+
+### Bug Fixes
+
+* **table:** adding support for custom span on footer export ([f53a921](https://github.com/tecsinapse/ui-kit/commit/f53a9211bb3600f67bd466a0f76ba866f550d4e3))
+
+
+
+
+
 ## [2.4.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/uploader@2.4.2...@tecsinapse/uploader@2.4.3) (2020-12-18)
 
 **Note:** Version bump only for package @tecsinapse/uploader
