@@ -28,7 +28,7 @@ export default {
         <>
           <Title />
           <Description>
-            Each Button component can receive the following props teste:
+            Each Button component can receive the following props:
           </Description>
           <ArgsTable />
         </>
