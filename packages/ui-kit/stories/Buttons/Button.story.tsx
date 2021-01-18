@@ -28,7 +28,7 @@ export default {
         <>
           <Title />
           <Description>
-            Each Button component can receive the following props:
+            Each Button component can receive the following props teste:
           </Description>
           <ArgsTable />
         </>
@@ -51,19 +51,21 @@ export default {
   },
 };
 
-export const Base = args => <Button {...args}>Base Button</Button>;
+export const Base = args =>  <Button {...args}>{args.label}</Button>;
 
 Base.args = {
   onClick: action('onClick'),
   customVariant: 'default',
+  label: 'Base Button'
 };
 
-export const Material = args => <Button {...args}>Material Button</Button>;
+export const Material = args => <Button {...args}>{args.label}</Button>;
 
 Material.args = {
   onClick: action('onClick'),
   color: 'primary',
   variant: 'outlined',
+  label: 'Material Button'
 };
 
 export const Icon = args => (
