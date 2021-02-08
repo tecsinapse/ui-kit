@@ -27,6 +27,14 @@ export interface DrawerProps {
   items: DrawerMenuItemProps[];
   /** Search placeholder */
   searchBarPlaceholder?: string;
+  /** source image logo */
+  srcLogo?: string;
+  /** source image avatar */
+  srcAvatar?: string;
+  /** change width logo */
+  widthLogo?: number | string;
+  /** change height logo */
+  heightLogo?: number | string;
 }
 
 declare const Drawer: FC<DrawerProps>;

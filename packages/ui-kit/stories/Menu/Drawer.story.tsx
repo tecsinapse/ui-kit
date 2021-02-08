@@ -183,9 +183,13 @@ export const Base = args => {
 };
 
 Base.args = {
-  productName: 'Gestão de Frotas',
-  subtitle: 'TecSinapse',
-  title: 'Portal',
+  productName: '',
+  subtitle: '',
+  title: '',
   onClose: action('onClose'),
   open: true,
+  srcLogo: 'https://www.facom.ufms.br/wp-content/uploads/2019/05/ts-fundo-claro.png',
+  widthLogo: 130,
+  heightLogo: 60,
+  srcAvatar: 'https://thumbs.dreamstime.com/b/portrait-young-man-beard-hair-style-male-avatar-vector-portrait-young-man-beard-hair-style-male-avatar-105082137.jpg',
 };
