@@ -9,17 +9,42 @@ import Collapse from '@material-ui/core/Collapse';
 import List from '@material-ui/core/List';
 import { grey } from '@material-ui/core/colors';
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
+import Typography from '@material-ui/core/Typography';
 
-const useStyles = depth =>
+const useStyles = (depth, children, open) =>
   makeStyles(theme => ({
+    listItemText: {
+      color: open ? 'white' : 'black',
+      marginLeft: 10,
+    },
+
+    typographyClose: {
+      fontSize: 7,
+      fontWeight: 'bold',
+      color: '#fff',
+    },
+
+    pipeIcon: {
+      color: '#f99f1f',
+      fontWeight: 'bold',
+    },
     item: {
       paddingLeft:
         depth >= 1
           ? theme.spacing((depth + 1) * 1.25)
           : theme.spacing(depth + 1),
+      '&:hover': {
+        backgroundColor: '#F29A1E',
+        '& $pipeIcon': {
+          color: '#fff',
+        },
+        '& $listItemText': {
+          color: '#fff',
+        },
+      },
     },
     openItem: {
-      backgroundColor: grey[Math.min(Math.max(1, depth) * 50, 100)],
+      backgroundColor: children && open ? '#78787A' : '#F0F0F0',
     },
     selected: {
       backgroundColor: ({ selectedBackgroundColor }) =>
@@ -72,7 +97,7 @@ export const MenuItem = ({
   selected = false,
   styleProps,
 }) => {
-  const classes = useStyles(depth)(styleProps);
+  const classes = useStyles(depth, children, open)(styleProps);
 
   return (
     <div
@@ -92,19 +117,34 @@ export const MenuItem = ({
         onClick={() => handleClick(title)}
         {...componentProps}
       >
+        <Typography variant="caption" className={classes.pipeIcon}>
+          {'|'.repeat(depth + 1)}
+        </Typography>
         <ListItemText
+          classes={{ primary: classes.listItemText }}
           primary={title}
           primaryTypographyProps={{
             variant: 'subtitle2',
             color: selected ? 'secondary' : 'textPrimary',
+            colorTextPrimary: '#132',
           }}
         />
         {children && (
           <>
             {open ? (
-              <Icon path={mdiMenuUp} color="gray" size={1} />
+              <>
+                <Typography className={classes.typographyClose} variant="h5">
+                  FECHAR
+                </Typography>
+                <Icon
+                  path={mdiMenuUp}
+                  className={classes.icon}
+                  color="#fff"
+                  size={1}
+                />
+              </>
             ) : (
-              <Icon path={mdiMenuDown} color="gray" size={1} />
+              <Icon path={mdiMenuDown} color="#949494" size={1} />
             )}
           </>
         )}
