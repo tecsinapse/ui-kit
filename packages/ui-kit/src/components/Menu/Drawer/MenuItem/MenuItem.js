@@ -10,6 +10,7 @@ import List from '@material-ui/core/List';
 import { grey } from '@material-ui/core/colors';
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
 import Typography from '@material-ui/core/Typography';
+import { defaultGreyLight5 } from '../../../../utils/colors';
 
 const useStyles = (depth, children, open) =>
   makeStyles(theme => ({
@@ -25,7 +26,7 @@ const useStyles = (depth, children, open) =>
     },
 
     pipeIcon: {
-      color: '#f99f1f',
+      color: theme.palette.secondary.main,
       fontWeight: 'bold',
     },
     item: {
@@ -33,18 +34,22 @@ const useStyles = (depth, children, open) =>
         depth >= 1
           ? theme.spacing((depth + 1) * 1.25)
           : theme.spacing(depth + 1),
+
       '&:hover': {
-        backgroundColor: '#F29A1E',
+        backgroundColor: theme.palette.secondary.main,
         '& $pipeIcon': {
-          color: '#fff',
+          color: 'white',
         },
         '& $listItemText': {
-          color: '#fff',
+          color: 'white',
         },
       },
     },
     openItem: {
-      backgroundColor: children && open ? '#78787A' : '#F0F0F0',
+      backgroundColor:
+        children && open ? theme.palette.primary.main : grey[200],
+      // width: depth >= 1 && open ? '90%' : '100%',
+      // marginLeft: depth >= 1 && open ? '10%' : 0,
     },
     selected: {
       backgroundColor: ({ selectedBackgroundColor }) =>
@@ -118,7 +123,7 @@ export const MenuItem = ({
         {...componentProps}
       >
         <Typography variant="caption" className={classes.pipeIcon}>
-          {'|'.repeat(depth + 1)}
+          {'|'.repeat(depth)}
         </Typography>
         <ListItemText
           classes={{ primary: classes.listItemText }}
@@ -126,7 +131,6 @@ export const MenuItem = ({
           primaryTypographyProps={{
             variant: 'subtitle2',
             color: selected ? 'secondary' : 'textPrimary',
-            colorTextPrimary: '#132',
           }}
         />
         {children && (
@@ -139,12 +143,12 @@ export const MenuItem = ({
                 <Icon
                   path={mdiMenuUp}
                   className={classes.icon}
-                  color="#fff"
+                  color="white"
                   size={1}
                 />
               </>
             ) : (
-              <Icon path={mdiMenuDown} color="#949494" size={1} />
+              <Icon path={mdiMenuDown} color={defaultGreyLight5} size={1} />
             )}
           </>
         )}

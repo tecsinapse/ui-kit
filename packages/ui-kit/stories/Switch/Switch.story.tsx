@@ -33,14 +33,14 @@ export default {
 export const Base = args => <Switch {...args}/>;
 
 Base.args = {
-  /** label rigth switch */
-  label1: 'Off',
-  /** label left switch */
-  label2: 'On',
-  /**function used when switch is on */
-  on: () => {},
-  /** function used when switch is off */
-  off: () => {},
+
+  /** labels (left, right) switch */
+  labels: {
+    right: 'On',
+    left: 'Off'
+  },
+  /**function onChange switch */
+  onChange: () => {},
   /** Switch size */
   size: 'medium',
   /** color switch*/

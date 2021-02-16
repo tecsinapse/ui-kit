@@ -1,35 +1,41 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Switch as SwitchMaterialUi,
   Grid,
   Typography,
 } from '@material-ui/core';
 
-export const Switch = ({ label1, label2, on, off, size, color }) => {
-  // eslint-disable-next-line no-shadow
-  const handleCheck = (e, on, off) => {
-    const { checked } = e.target;
-
-    // eslint-disable-next-line mdx/no-unused-expressions
-    checked ? on() : off();
-  };
-
-  return (
-    <>
-      <Grid>
-        <Typography>{label1}</Typography>
-      </Grid>
-      <SwitchMaterialUi
-        onChange={e => {
-          handleCheck(e, on, off);
-        }}
-        size={size}
-        color={color}
-      />
-      <Grid>
-        <Typography>{label2}</Typography>
-      </Grid>
-    </>
-  );
-};
+export const Switch = ({ labels, onChange, size, color }) => (
+  <>
+    <Grid>
+      <Typography>{labels.left}</Typography>
+    </Grid>
+    <SwitchMaterialUi
+      onChange={e => {
+        onChange(e);
+      }}
+      size={size}
+      color={color}
+    />
+    <Grid>
+      <Typography>{labels.right}</Typography>
+    </Grid>
+  </>
+);
 export default Switch;
+
+const labelsShape = {
+  left: PropTypes.string,
+  rigth: PropTypes.string,
+};
+
+Switch.propTypes = {
+  /** labels of object (left/right) */
+  labels: PropTypes.shape(labelsShape),
+  /** Switch size */
+  size: PropTypes.string,
+  /** color switch */
+  color: PropTypes.string,
+  /** function used when switch is on */
+};

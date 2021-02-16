@@ -59,7 +59,7 @@ export const ButtonGroup = ({
     } else {
       setActiveIndex([...activeIndex, idx]);
     }
-    onClick();
+    onClick(e);
   };
 
   return (
@@ -72,7 +72,7 @@ export const ButtonGroup = ({
       )}
     >
       {labels.map(({ label, onClick }, idx) => {
-        let variant = '';
+        let variant;
 
         if (!multiselect) {
           variant = activeIndex[0] === idx ? 'contained' : 'outlined';

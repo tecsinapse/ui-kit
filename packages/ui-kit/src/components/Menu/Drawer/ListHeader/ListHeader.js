@@ -43,9 +43,7 @@ const useStyles = makeStyles(({ spacing }) => ({
 
 export const ListHeader = ({
   srcAvatar,
-  srcLogo,
-  width = 130,
-  height = 60,
+  logoProps,
   search,
   setSearch,
   title,
@@ -53,15 +51,17 @@ export const ListHeader = ({
   productName,
   searchBarPlaceholder = 'O que você busca?',
 }) => {
+  const { width, height } = logoProps;
   const classes = useStyles({ width, height });
 
   return (
     <>
       <ListItem alignItems="flex-start" divider className={classes.listItem}>
         <div className={classes.flexColumn}>
-          {((title || subtitle || productName) && srcLogo) || srcLogo ? (
+          {((title || subtitle || productName) && logoProps.src) ||
+          logoProps.src ? (
             <>
-              <img src={srcLogo} className={classes.logo} alt="Logo" />
+              <img src={logoProps.src} className={classes.logo} alt="Logo" />
               <DefaultProductTypography title={title} subtitle={subtitle} />
               <ListItemText
                 className={classes.noPadding}
