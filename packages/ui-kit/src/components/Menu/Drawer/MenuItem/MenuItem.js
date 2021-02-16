@@ -10,7 +10,7 @@ import List from '@material-ui/core/List';
 import { grey } from '@material-ui/core/colors';
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
 import Typography from '@material-ui/core/Typography';
-import { defaultGreyLight5 } from '../../../../utils/colors';
+import { defaultGreyLight5 } from 'utils/colors';
 
 const useStyles = (depth, children, open) =>
   makeStyles(theme => ({
