@@ -51,12 +51,12 @@ export default {
   },
 };
 
-export const Base = args =>  <Button {...args}>{args.label}</Button>;
+export const Base = args => <Button {...args}>{args.label}</Button>;
 
 Base.args = {
   onClick: action('onClick'),
   customVariant: 'default',
-  label: 'Base Button'
+  label: 'Base Button',
 };
 
 export const Material = args => <Button {...args}>{args.label}</Button>;
@@ -65,7 +65,12 @@ Material.args = {
   onClick: action('onClick'),
   color: 'primary',
   variant: 'outlined',
-  label: 'Material Button'
+  label: 'Material Button',
+};
+
+Material.args = {
+  onClick: action('onClick'),
+  color: '',
 };
 
 export const Icon = args => (

@@ -9,17 +9,48 @@ import Collapse from '@material-ui/core/Collapse';
 import List from '@material-ui/core/List';
 import { grey } from '@material-ui/core/colors';
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
+import Typography from '@material-ui/core/Typography';
 
-const useStyles = depth =>
+const useStyles = (depth, children, open) =>
   makeStyles(theme => ({
+    listItemText: {
+      color: open ? 'white' : 'black',
+      marginLeft: 10,
+    },
+
+    icon: {
+      color: open ? 'white' : theme.palette.primary.main,
+    },
+
+    typographyClose: {
+      fontSize: 7,
+      fontWeight: 'bold',
+      color: '#fff',
+    },
+
+    pipeIcon: {
+      color: open ? 'white' : theme.palette.secondary.main,
+    },
     item: {
-      paddingLeft:
-        depth >= 1
-          ? theme.spacing((depth + 1) * 1.25)
-          : theme.spacing(depth + 1),
+      width: depth >= 1 ? '90%' : '100%',
+      marginLeft: depth >= 1 ? '10%' : '0',
+      paddingLeft: depth === 1 ? theme.spacing(0) : theme.spacing(depth * 0.5),
+
+      '&:hover': {
+        backgroundColor: theme.palette.secondary.main,
+        '& $pipeIcon': {
+          color: 'white',
+        },
+        '& $listItemText': {
+          color: 'white',
+        },
+        '& $icon': {
+          color: 'white',
+        },
+      },
     },
     openItem: {
-      backgroundColor: grey[Math.min(Math.max(1, depth) * 50, 100)],
+      backgroundColor: open ? theme.palette.primary.main : 'white',
     },
     selected: {
       backgroundColor: ({ selectedBackgroundColor }) =>
@@ -29,6 +60,9 @@ const useStyles = depth =>
     },
     shadow: {
       borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
+    },
+    isSub: {
+      backgroundColor: grey[200],
     },
   }));
 
@@ -72,7 +106,7 @@ export const MenuItem = ({
   selected = false,
   styleProps,
 }) => {
-  const classes = useStyles(depth)(styleProps);
+  const classes = useStyles(depth, children, open)(styleProps);
 
   return (
     <div
@@ -88,11 +122,16 @@ export const MenuItem = ({
           [classes.openItem]: open || showAsOpen,
           [classes.item]: true,
           [classes.selected]: selected,
+          [classes.isSub]: depth > 1 && !open,
         })}
         onClick={() => handleClick(title)}
         {...componentProps}
       >
+        <Typography variant="subtitle2" className={classes.pipeIcon}>
+          {'|'.repeat(depth)}
+        </Typography>
         <ListItemText
+          classes={{ primary: classes.listItemText }}
           primary={title}
           primaryTypographyProps={{
             variant: 'subtitle2',
@@ -102,9 +141,14 @@ export const MenuItem = ({
         {children && (
           <>
             {open ? (
-              <Icon path={mdiMenuUp} color="gray" size={1} />
+              <>
+                <Typography className={classes.typographyClose} variant="h5">
+                  FECHAR
+                </Typography>
+                <Icon path={mdiMenuUp} className={classes.icon} size={1} />
+              </>
             ) : (
-              <Icon path={mdiMenuDown} color="gray" size={1} />
+              <Icon path={mdiMenuDown} className={classes.icon} size={1} />
             )}
           </>
         )}
