@@ -16,5 +16,5 @@ test('Render Time Picker', () => {
   );
   const input = container.querySelector('input');
 
-  expect(input.value).toBe('6:41 AM');
+  expect(input.value).toBe('06:41');
 });
