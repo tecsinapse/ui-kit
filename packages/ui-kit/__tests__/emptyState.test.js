@@ -7,7 +7,7 @@ import React from 'react';
 test('Render Empty State', () => {
   const { container, getByText } = render(
     <TestProvider>
-      <EmptyState />
+      <EmptyState titleMessage="Xiiiiii" />
     </TestProvider>
   );
   const element = getByText('Xiiiiii...');
