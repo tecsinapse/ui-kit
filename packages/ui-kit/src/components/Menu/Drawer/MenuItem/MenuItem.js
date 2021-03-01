@@ -11,7 +11,7 @@ import { grey } from '@material-ui/core/colors';
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
 import Typography from '@material-ui/core/Typography';
 
-const useStyles = (depth, children, open) =>
+const useStyles = (depth, open) =>
   makeStyles(theme => ({
     listItemText: {
       color: open ? 'white' : 'black',
@@ -106,7 +106,7 @@ export const MenuItem = ({
   selected = false,
   styleProps,
 }) => {
-  const classes = useStyles(depth, children, open)(styleProps);
+  const classes = useStyles(depth, open)(styleProps);
 
   return (
     <div
