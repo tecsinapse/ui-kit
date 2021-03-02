@@ -14,4 +14,5 @@ module.exports = {
     'packages/uploader/src',
     'packages/ui-kit/src',
   ],
+  coveragePathIgnorePatterns: ['<rootDir>/packages/ui-kit/build/'],
 };

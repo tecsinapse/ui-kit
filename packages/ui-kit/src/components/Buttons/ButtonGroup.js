@@ -64,6 +64,7 @@ export const ButtonGroup = ({
 
   return (
     <div
+      data-testid="buttonGroupTest"
       className={clsx(
         orientation === 'vertical'
           ? classes.buttonsVertical
