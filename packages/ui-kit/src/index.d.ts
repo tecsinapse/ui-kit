@@ -4,7 +4,6 @@ export {
   IconButton,
   DivButton,
   FloatingButton,
-  ButtonGroup,
 } from './components/Buttons';
 export { Password } from './components/Password';
 export { AutoComplete } from './components/AutoComplete';
