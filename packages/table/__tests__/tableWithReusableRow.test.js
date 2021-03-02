@@ -6,7 +6,7 @@ import { TestProvider } from 'TestProvider';
 import { Table } from '../src';
 import { customColumns } from '../stories/storyHelper';
 import { cars } from '../stories/exampleData';
-import { Cells, handleRowClick } from '../build';
+import { Cells, handleRowClick } from '../src/Table';
 
 test('Render Table With Reusable Row', () => {
   const { container, getByText } = render(
