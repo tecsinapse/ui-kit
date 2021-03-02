@@ -20,7 +20,7 @@ test('Render Date Slider', () => {
       <DateSlider range={dateRange} values={dates} onChange={() => {}} />
     </TestProvider>
   );
-  const element = getByText('Seg');
+  const element = getByText('Ter');
 
   expect(container).toContainElement(element);
 });
