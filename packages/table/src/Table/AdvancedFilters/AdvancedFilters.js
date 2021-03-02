@@ -68,7 +68,10 @@ const AdvancedFilters = ({
         {customAdvancedFilters?.toolbarButton ? (
           customAdvancedFilters.toolbarButton(handleOpenFilters)
         ) : (
-          <IconButton onClick={handleOpenFilters}>
+          <IconButton
+            onClick={handleOpenFilters}
+            data-testid="advanced-filters-button"
+          >
             <FilterIcon />
           </IconButton>
         )}
@@ -138,11 +141,13 @@ AdvancedFilters.propTypes = {
         label: PropTypes.string.isRequired,
         options: PropTypes.arrayOf(
           PropTypes.shape({
+            // eslint-disable-next-line react/forbid-prop-types
             value: PropTypes.any,
             label: PropTypes.string,
             disabled: PropTypes.bool,
           })
         ),
+        // eslint-disable-next-line react/forbid-prop-types
         value: PropTypes.any,
         fullWidth: PropTypes.bool,
       })
