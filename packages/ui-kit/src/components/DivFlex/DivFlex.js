@@ -10,7 +10,11 @@ export const DivFlex = ({ children, style, ...rest }) => {
     ...style,
   };
 
-  return <div style={style1}>{React.cloneElement(children, { ...rest })}</div>;
+  return (
+    <div style={style1} data-testid="test-render">
+      {React.cloneElement(children, { ...rest })}
+    </div>
+  );
 };
 
 export default DivFlex;
