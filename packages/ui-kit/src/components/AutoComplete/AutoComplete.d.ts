@@ -2,12 +2,12 @@ import {FC, ReactNode} from 'react';
 import {InputProps} from "../Inputs";
 import {MenuItemProps, PaperProps} from "@material-ui/core";
 
-export type ValuesProps<T> = {
-  id: T;
+export type ValuesProps = {
+  id: any;
   label: ReactNode;
 };
 
-export interface AutoCompleteProps<T> {
+export interface AutoCompleteProps {
   /** Props passed to Input component */
   inputProps?: Omit<InputProps,
     'error' |
@@ -18,17 +18,17 @@ export interface AutoCompleteProps<T> {
   /** Props passed to individual MenuItem result */
   itemProps?: MenuItemProps;
   /** Values choosen from input */
-  values?: ValuesProps<T>[];
+  values?: ValuesProps[];
   /** Action to perform on delete choosen list item */
-  onDeleteItem?: (value: ValuesProps<T>) => void;
+  onDeleteItem?: (value: ValuesProps) => void;
   /** Action to perform on select item from list results */
-  onSelectItem?: (suggestion: ValuesProps<T>) => void;
+  onSelectItem?: (suggestion: ValuesProps) => void;
   /** Function to query list data */
-  options: (value: string) => Promise<ValuesProps<T>[]>;
+  options: (value: string) => Promise<ValuesProps[]>;
   /** Text input autocomplete specification */
   autoComplete?: 'on' | 'off';
 }
 
-declare const AutoComplete: <T>(props: AutoCompleteProps<T>) => JSX.Element;
+declare const AutoComplete: FC<AutoCompleteProps>;
 
 export default AutoComplete;
