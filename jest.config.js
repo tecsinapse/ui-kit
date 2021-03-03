@@ -15,7 +15,7 @@ module.exports = {
     'packages/ui-kit/src',
   ],
   coveragePathIgnorePatterns: [
-    '<rootDir>/packages/**/build/',
-    '<rootDir>/packages/**/stories/',
+    '<rootDir>/packages/*/build/',
+    '<rootDir>/packages/*/stories/',
   ],
 };
