@@ -1,4 +1,5 @@
 import {
+  defaultBlack,
   defaultGreen,
   defaultGrey,
   defaultOrange,
@@ -39,6 +40,13 @@ export const buttonStyle = ({ spacing }) => ({
       backgroundColor: defaultRed,
     },
   },
+  buttonColorContrast: {
+    backgroundColor: `${defaultBlack}`,
+    color: 'white',
+    '&:hover': {
+      backgroundColor: defaultBlack,
+    },
+  },
 });
 
 export function buttonClassNameDefinition(classes, margin, customVariant) {
@@ -48,5 +56,6 @@ export function buttonClassNameDefinition(classes, margin, customVariant) {
     [classes.buttonColorSuccess]: customVariant === 'success',
     [classes.buttonColorWarning]: customVariant === 'warning',
     [classes.buttonColorError]: customVariant === 'error',
+    [classes.buttonColorContrast]: customVariant === 'contrast',
   };
 }

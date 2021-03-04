@@ -1,6 +1,6 @@
 import { ReactNode, FC } from 'react';
 
-export type ColumnsType = {
+export type ColumnsType<T> = {
   title: string;
   field: string;
   options?: {
@@ -12,16 +12,16 @@ export type ColumnsType = {
     /** Option to include or exclude field from CSV export */
     export?: boolean;
   };
-  customRender?: (row: object) => void;
+  customRender?: (row: T) => void;
   /** This function must return a string, since is reserved for CSV exporter */
-  handleExport?: (row: object) => string;
+  handleExport?: (row: T) => string;
 };
 
-export type ActionsType = {
+export type ActionsType<T> = {
   tooltip: string;
   icon: ReactNode;
-  onClick: (data: object) => void;
-  visible?: (data: object) => boolean;
+  onClick: (data: T) => void;
+  visible?: (data: T) => boolean;
   labelColor?: string;
   label?: string;
   bottomDivider?: boolean;
@@ -76,34 +76,34 @@ export type ExportOptionsTypes = {
   exportFunc?: Function;
 };
 
-export interface TableProps {
+export interface TableProps<T> {
   /** Table columns options. Please note `defaultSort` option initializes a single column sorted in the order provided. Do not use more then one defaultSort field at a time. */
-  columns: ColumnsType[];
+  columns: ColumnsType<T>[];
   /** Data object or function loader */
-  data: object[] | Function;
+  data: T[] | (() => T[]);
   /** On data filter funtion handler */
-  onFilterData?: (data: object) => void;
+  onFilterData?: (data: T) => void;
   /** Set vertical actions legacy */
   verticalActions?: boolean;
   /** Row identifier */
-  rowId: (row: object) => string | number;
+  rowId: (row: T) => string | number;
   /** Set legacy selectable rows */
   options?: {
     selection: boolean;
   };
   /** Object containing selected rows */
-  selectedData?: object[];
+  selectedData?: T[];
   /** Row selection handler */
   onSelectRow?: (
-    selectedRows: object[],
-    rowData: object,
+    selectedRows: T[],
+    rowData: T,
     checked: boolean
   ) => void;
   /** Row click handler */
-  onRowClick?: (row: object) => void;
+  onRowClick?: (row: T) => void;
   id?: string;
   /** Configure legacy actions */
-  actions?: ActionsType[];
+  actions?: ActionsType<T>[];
   /** Table toolbar options. Check accepted attributes [here](https://github.com/tecsinapse/table/blob/master/src/Table/TablePropTypes.js#L3) */
   toolbarOptions?: ToolbarTypes;
   /** Enable legacy pagination */
@@ -152,9 +152,9 @@ export interface TableProps {
   /** Callback when closing advanced filters. */
   onDrawerClose?: () => void;
   /** Override custom list render when opening actions drawer on mobile */
-  customActionsMobile?: (data: object[]) => ReactNode;
+  customActionsMobile?: (data: T[]) => ReactNode;
 }
 
-declare const Table: FC<TableProps>;
+declare const Table: <T>(props: TableProps<T>) => JSX.Element;
 
 export default Table;
