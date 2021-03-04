@@ -2,18 +2,30 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { TestProvider } from 'TestProvider';
-import { FloatingButton } from 'components/Buttons';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { ValueSlider } from 'components/Slider';
 
-test('render Floating Button', () => {
+const marks = [
+  {
+    value: 0,
+    label: '0',
+  },
+  {
+    value: 3,
+    label: '3',
+  },
+  {
+    value: 5,
+    label: '5',
+  },
+];
+
+test('Render Date Slider', () => {
   const { container, getByTestId } = render(
     <TestProvider>
-      <FloatingButton>
-        <DeleteIcon />
-      </FloatingButton>
+      <ValueSlider marks={marks} />
     </TestProvider>
   );
-  const element = getByTestId('test-render');
+  const element = getByTestId('render-value-slider');
 
   expect(container).toContainElement(element);
 });

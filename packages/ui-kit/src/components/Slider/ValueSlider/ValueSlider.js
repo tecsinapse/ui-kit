@@ -44,7 +44,7 @@ const ValueSlider = ({ colorSlider, ...props }) => {
     },
   }))(Slider);
 
-  return <Component {...props} />;
+  return <Component {...props} data-testid="render-value-slider" />;
 };
 
 ValueSlider.propTypes = {

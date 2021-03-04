@@ -12,7 +12,7 @@ const FloatingButtonList = ({ items, onClick, open, color }) => {
   const classes = useFloatingButtonListStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-testid="render-floating-button-div">
       {(items || []).map(({ text, component }, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <Collapse key={index} in={open}>
@@ -24,6 +24,7 @@ const FloatingButtonList = ({ items, onClick, open, color }) => {
       ))}
       <div style={style}>
         <FloatingButton
+          data-testid="render-floating-button-list"
           onClick={() => (onClick ? onClick() : null)}
           color={color || null}
           variantFab={color || 'default'}

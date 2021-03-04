@@ -28,7 +28,7 @@ export const FloatingButton = ({
 
   return (
     <Fab
-      data-testid="test-render"
+      data-testid="test-render-floating-button"
       aria-label="add"
       disabled={disabled}
       onClick={onClick}
