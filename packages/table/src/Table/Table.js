@@ -308,7 +308,7 @@ TableComponent.propTypes = {
       bottomDivider: PropTypes.bool,
     })
   ),
-  /** Table toolbar options. Check accepted attributes [here](https://github.com/tecsinapse/table/blob/master/src/Table/TablePropTypes.js#L3) */
+  /** Table toolbar options. Check accepted attributes [here](https://github.com/tecsinapse/ui-kit/blob/master/packages/table/src/Table/Table.js) */
   toolbarOptions: toolbarOptionsTypes,
   /** Enable table pagination */
   pagination: PropTypes.bool,

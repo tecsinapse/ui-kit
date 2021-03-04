@@ -1,9 +1,10 @@
-import { ReactNode, FC } from 'react';
+import { ReactNode } from 'react';
 
 export type ColumnsType<T> = {
   title: string;
   field: string;
   options?: {
+    select?:boolean;
     filter?: boolean;
     sort?: boolean;
     defaultSort?: 'ASC' | 'DESC';
