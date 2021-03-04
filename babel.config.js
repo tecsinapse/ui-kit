@@ -4,6 +4,9 @@ module.exports = function presets(api) {
   const plugins = [
     'inline-react-svg',
     '@babel/plugin-proposal-optional-chaining',
+    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-proposal-private-methods',
+    '@babel/plugin-proposal-private-property-in-object',
   ];
 
   if (env === 'test') {
