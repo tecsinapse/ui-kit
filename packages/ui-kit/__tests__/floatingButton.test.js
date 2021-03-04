@@ -13,7 +13,7 @@ test('render Floating Button', () => {
       </FloatingButton>
     </TestProvider>
   );
-  const element = getByTestId('test-render');
+  const element = getByTestId('test-render-floating-button');
 
   expect(container).toContainElement(element);
 });
