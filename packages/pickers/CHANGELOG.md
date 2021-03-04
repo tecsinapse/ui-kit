@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.5.1...@tecsinapse/pickers@2.5.2) (2021-03-04)
+
+
+### Bug Fixes
+
+* changing day that start week to sunday. ([3e108ec](https://github.com/tecsinapse/ui-kit/commit/3e108ec95db45cdd0459b7f349ca595de2e0f4f3))
+* component was not rendering ([a49a6ed](https://github.com/tecsinapse/ui-kit/commit/a49a6ed6b152c025ab68d7a762e8f01235430b93))
+* fixing empty time picker ([5571923](https://github.com/tecsinapse/ui-kit/commit/55719236d17bc1192e64d62a19b657c238ca6b62))
+
+
+
+
+
 ## [2.5.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.5.0...@tecsinapse/pickers@2.5.1) (2021-03-03)
 
 **Note:** Version bump only for package @tecsinapse/pickers

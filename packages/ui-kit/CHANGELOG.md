@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.1...@tecsinapse/ui-kit@5.5.2) (2021-03-04)
+
+
+### Bug Fixes
+
+* AutoComplete value id inferred as never inside promise ([a6c8c6d](https://github.com/tecsinapse/ui-kit/commit/a6c8c6d761c9341b8e1032daf4a057460f342309))
+* disabling "uncheck" in single select ([bc36344](https://github.com/tecsinapse/ui-kit/commit/bc36344b50436a24c6095924ae52bd438cde4990))
+* fixing empty state test ([0301ae1](https://github.com/tecsinapse/ui-kit/commit/0301ae171526e44970b198ece2337d6115fdd08a))
+* fixing name in data-testid ([861d26b](https://github.com/tecsinapse/ui-kit/commit/861d26b15652588a248598bd4687feb2e97d146a))
+* missing ButtonGroup export in root type declarations ([d45b0da](https://github.com/tecsinapse/ui-kit/commit/d45b0dae4b7a6bd88c178b0f1d90f1073ae0a416))
+* removing unused property and change image logo ([d5f0dab](https://github.com/tecsinapse/ui-kit/commit/d5f0dab6b1a7d28751dffc12b9426a5dcab2d4ad))
+* test error only in CI ([6299cd4](https://github.com/tecsinapse/ui-kit/commit/6299cd4a53379f823c733b59caff6ba0ccd46522))
+
+
+
+
+
 ## [5.5.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.0...@tecsinapse/ui-kit@5.5.1) (2021-03-03)
 
 **Note:** Version bump only for package @tecsinapse/ui-kit
