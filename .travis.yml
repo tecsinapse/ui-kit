@@ -4,7 +4,6 @@ node_js:
 install:
   - yarn
 script:
-  - yarn eslint:fix
   - yarn build
   - yarn test
   - yarn build:storybook

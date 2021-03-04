@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
+import { Avatar } from '@material-ui/core';
 import clsx from 'clsx';
-
 import SearchBar from 'material-ui-search-bar';
 import { grey } from '@material-ui/core/colors';
 import { DefaultProductTypography } from 'components/Menu/Drawer/DefaultProductTypography';
@@ -26,9 +26,24 @@ const useStyles = makeStyles(({ spacing }) => ({
     display: 'flex',
     alignItems: 'center',
   },
+  avatar: {
+    border: `3px solid ${grey[300]}`,
+  },
+  logo: {
+    width: ({ width }) => width,
+    height: ({ height }) => height,
+  },
+  listItem: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
 }));
 
 export const ListHeader = ({
+  srcAvatar,
+  logoProps,
   search,
   setSearch,
   title,
@@ -36,13 +51,34 @@ export const ListHeader = ({
   productName,
   searchBarPlaceholder = 'O que você busca?',
 }) => {
-  const classes = useStyles();
+  const { width, height } = logoProps;
+  const classes = useStyles({ width, height });
 
   return (
     <>
-      <ListItem alignItems="flex-start" divider className={classes.flexColumn}>
-        <DefaultProductTypography title={title} subtitle={subtitle} />
-        <ListItemText className={classes.noPadding} secondary={productName} />
+      <ListItem alignItems="flex-start" divider className={classes.listItem}>
+        <div className={classes.flexColumn}>
+          {((title || subtitle || productName) && logoProps.src) ||
+          logoProps.src ? (
+            <>
+              <img src={logoProps.src} className={classes.logo} alt="Logo" />
+              <DefaultProductTypography title={title} subtitle={subtitle} />
+              <ListItemText
+                className={classes.noPadding}
+                secondary={productName}
+              />
+            </>
+          ) : (
+            <>
+              <DefaultProductTypography title={title} subtitle={subtitle} />
+              <ListItemText
+                className={classes.noPadding}
+                secondary={productName}
+              />
+            </>
+          )}
+        </div>
+        <Avatar src={srcAvatar} className={classes.avatar} />
       </ListItem>
       <ListItem
         alignItems="flex-start"

@@ -1,7 +1,7 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, JSX } from 'react';
 
-export type SelectOptionsProps = {
-  value?: unknown;
+export type SelectOptionsProps<T> = {
+  value?: T;
   label?: string;
   disabled?: boolean;
 };
@@ -14,7 +14,7 @@ export type SelectCustomActionProps = {
   handleClick: () => void;
 };
 
-export interface SelectProps {
+export interface SelectProps<T = unknown> {
   /** Show 'select' option to select all options */
   allowSelectAll?: boolean;
   /** Fill div/screen width */
@@ -37,9 +37,9 @@ export interface SelectProps {
   /** Input label */
   label?: string;
   /** Options available to Select */
-  options: SelectOptionsProps[];
+  options: SelectOptionsProps<T>[];
   /** Fired when change event */
-  onChange?: (value: unknown) => void;
+  onChange?: (value: T) => void;
   /** Fired when blur event */
   onBlur?: (event: object | unknown) => void;
   /** Select prompt placeholder */
@@ -69,9 +69,9 @@ export interface SelectProps {
   /** React key */
   key?: unknown;
   /** Input value */
-  value?: unknown;
+  value?: T;
 }
 
-declare const Select: FC<SelectProps>;
+declare const Select: <T>(props: SelectProps<T>) => JSX.Element;
 
 export default Select;

@@ -27,6 +27,8 @@ export const Drawer = ({
   id,
   className,
   styleProps,
+  srcAvatar,
+  logoProps,
 }) => {
   const items = normalizeFunctionItems(oldItems);
   const [search, setSearch] = useState('');
@@ -41,6 +43,8 @@ export const Drawer = ({
       <StyledDiv>
         <div>
           <ListHeader
+            logoProps={logoProps}
+            srcAvatar={srcAvatar}
             search={search}
             setSearch={setSearch}
             title={title}
@@ -90,6 +94,12 @@ const menuItemShape = {
   styleProps: PropTypes.object,
 };
 
+const logoShape = {
+  src: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};
+
 menuItemShape.children = PropTypes.arrayOf(PropTypes.shape(menuItemShape));
 
 Drawer.propTypes = {
@@ -111,6 +121,10 @@ Drawer.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(menuItemShape)).isRequired,
   /** Search placeholder */
   searchBarPlaceholder: PropTypes.string,
+  /** source image avatar */
+  srcAvatar: PropTypes.string,
+  /** props logo */
+  logoProps: PropTypes.shape(logoShape),
 };
 
 export default Drawer;

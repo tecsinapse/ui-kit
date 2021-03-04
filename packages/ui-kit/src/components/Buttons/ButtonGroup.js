@@ -55,7 +55,7 @@ export const ButtonGroup = ({
     } else {
       setActiveIndex([...activeIndex, idx]);
     }
-    onClick();
+    onClick(e);
   };
 
   return (

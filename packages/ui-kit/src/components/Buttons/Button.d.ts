@@ -1,9 +1,11 @@
 import { FC } from 'react';
 import { ButtonProps as MuiButtonProps } from '@material-ui/core';
 
+export type ButtonVariant = 'default' | 'success' | 'warning' | 'error' | 'contrast';
+
 export interface ButtonProps extends MuiButtonProps {
   /** Predefined custom button */
-  customVariant?: 'default' | 'success' | 'warning' | 'error';
+  customVariant?: ButtonVariant;
   /** Button disabled during form submission */
   submitting?: boolean;
   /** Button elevation disabled */

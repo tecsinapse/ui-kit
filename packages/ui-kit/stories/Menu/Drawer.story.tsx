@@ -25,147 +25,147 @@ export default {
 export const Base = args => {
   const drawerDemoItems = [
     {
-      title: '1. Portal',
+      title: 'Portal',
       children: [
         {
-          title: '1.1 Comunicados',
+          title: 'Comunicados',
           children: [
-            { title: '1.1.1. Meus Comunicados' },
-            { title: '1.1.2 Criar' },
+            { title: 'Meus Comunicados' },
+            { title: 'Criar' },
           ],
         },
         {
-          title: '1.2 Usuários',
+          title: 'Usuários',
         },
         {
-          title: '1.3 Relatórios',
-        },
-      ],
-    },
-    {
-      title: '2. Aftersales',
-      children: [
-        {
-          title: '2.1 Ordem de Serviço',
-        },
-        {
-          title: '2.2 Relatórios',
+          title: 'Relatórios',
         },
       ],
     },
     {
-      title: '3. Aftersales',
+      title: 'Aftersales 1',
       children: [
         {
-          title: '3.1 Ordem de Serviço',
+          title: 'Ordem de Serviço',
         },
         {
-          title: '3.2 Relatórios',
+          title: 'Relatórios',
         },
       ],
     },
     {
-      title: '4. Aftersales',
+      title: 'Aftersales 2',
       children: [
         {
-          title: '4.1 Ordem de Serviço',
+          title: 'Ordem de Serviço',
         },
         {
-          title: '4.2 Relatórios',
+          title: 'Relatórios',
         },
       ],
     },
     {
-      title: '5. Aftersales',
+      title: 'Aftersales 3',
       children: [
         {
-          title: '5.1 Ordem de Serviço',
+          title: 'Ordem de Serviço',
         },
         {
-          title: '5.2 Relatórios',
+          title: 'Relatórios',
         },
       ],
     },
     {
-      title: '6. Aftersales',
+      title: 'Aftersales 4',
       children: [
         {
-          title: '6.1 Ordem de Serviço',
+          title: 'Ordem de Serviço',
         },
         {
-          title: '6.2 Relatórios',
+          title: 'Relatórios',
         },
       ],
     },
     {
-      title: '7. Aftersales',
+      title: 'Aftersales 5',
       children: [
         {
-          title: '7.1 Ordem de Serviço',
+          title: 'Ordem de Serviço',
         },
         {
-          title: '7.2 Relatórios',
+          title: 'Relatórios',
         },
       ],
     },
     {
-      title: '8. Aftersales',
+      title: 'Aftersales 6',
       children: [
         {
-          title: '8.1 Ordem de Serviço',
+          title: 'Ordem de Serviço',
         },
         {
-          title: '8.2 Relatórios',
+          title: 'Relatórios',
         },
       ],
     },
     {
-      title: '9. Aftersales',
+      title: 'Aftersales 7',
       children: [
         {
-          title: '9.1 Ordem de Serviço',
+          title: 'Ordem de Serviço',
         },
         {
-          title: '9.2 Relatórios',
+          title: 'Relatórios',
         },
       ],
     },
     {
-      title: '10. Aftersales',
+      title: 'Aftersales 8',
       children: [
         {
-          title: '10.1 Ordem de Serviço',
+          title: 'Ordem de Serviço',
         },
         {
-          title: '10.2 Relatórios',
+          title: 'Relatórios',
         },
       ],
     },
     {
-      title: '11. Emplacar',
+      title: 'Aftersales 9',
       children: [
         {
-          title: '11.1 Comunicados',
+          title: 'Ordem de Serviço',
+        },
+        {
+          title: 'Relatórios 10',
+        },
+      ],
+    },
+    {
+      title: 'Emplacar',
+      children: [
+        {
+          title: 'Comunicados',
           children: [
             {
-              title: '11.1.1 Comunicados',
+              title: 'Comunicados',
               children: [
-                { title: '11.1.1.1 Meus Comunicados' },
-                { title: '11.1.1.2 Criar' },
+                { title: 'Meus Comunicados' },
+                { title: 'Criar' },
               ],
             },
             {
-              title: '11.1.2 Comunicados',
+              title: 'Comunicados',
               children: [
-                { title: '11.1.2.1 Meus Comunicados' },
-                { title: '11.1.2.2 Criar' },
+                { title: 'Meus Comunicados' },
+                { title: 'Criar' },
               ],
             },
-            { title: '11.1.3 Criar' },
+            { title: 'Criar' },
           ],
         },
         {
-          title: '11.2 Outros Relatórios',
+          title: 'Outros Relatórios',
         },
       ],
     },
@@ -183,9 +183,15 @@ export const Base = args => {
 };
 
 Base.args = {
-  productName: 'Gestão de Frotas',
-  subtitle: 'TecSinapse',
-  title: 'Portal',
+  productName: '',
+  subtitle: '',
+  title: '',
   onClose: action('onClose'),
   open: true,
+  srcAvatar: 'https://thumbs.dreamstime.com/b/portrait-young-man-beard-hair-style-male-avatar-vector-portrait-young-man-beard-hair-style-male-avatar-105082137.jpg',
+  logoProps: {
+    src: 'https://www.facom.ufms.br/wp-content/uploads/2019/05/ts-fundo-claro.png',
+    height: 60,
+    width: 130
+  }
 };
