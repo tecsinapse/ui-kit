@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.0...@tecsinapse/ui-kit@5.5.1) (2021-03-03)
+
+**Note:** Version bump only for package @tecsinapse/ui-kit
+
+
+
+
+
+# [5.5.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.4.4...@tecsinapse/ui-kit@5.5.0) (2021-02-26)
+
+
+### Bug Fixes
+
+* changing import path ([76c6b3f](https://github.com/tecsinapse/ui-kit/commit/76c6b3f0a652635ec29587a95f7c34a71dda7bb9))
+* making requested changes ([8345664](https://github.com/tecsinapse/ui-kit/commit/83456646a268e99a91e8d0ee2f99a1c0c4cfa151))
+* remove lockfile ([d4b4f21](https://github.com/tecsinapse/ui-kit/commit/d4b4f218b8ad7282716fcb5a4275d31929abf015))
+
+
+### Features
+
+* Added Button Group Component ([caf515d](https://github.com/tecsinapse/ui-kit/commit/caf515dbcb7c33363ee007abec6d7d4ec6d16a5c))
+* Added Switch Component ([23d83af](https://github.com/tecsinapse/ui-kit/commit/23d83afb670ffa9d048b0aea6fd34db8c197cd66))
+
+
+
+
+
 ## [5.4.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.4.3...@tecsinapse/ui-kit@5.4.4) (2021-01-14)
 
 **Note:** Version bump only for package @tecsinapse/ui-kit

@@ -13,6 +13,7 @@ module.exports = {
     'packages/wizard/src',
     'packages/uploader/src',
     'packages/ui-kit/src',
+    'packages/pickers/src',
   ],
   coveragePathIgnorePatterns: [
     '<rootDir>/packages/carousel/build/',

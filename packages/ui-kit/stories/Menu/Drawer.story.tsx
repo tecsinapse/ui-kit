@@ -190,7 +190,7 @@ Base.args = {
   open: true,
   srcAvatar: 'https://thumbs.dreamstime.com/b/portrait-young-man-beard-hair-style-male-avatar-vector-portrait-young-man-beard-hair-style-male-avatar-105082137.jpg',
   logoProps: {
-    src: 'https://www.facom.ufms.br/wp-content/uploads/2019/05/ts-fundo-claro.png',
+    src: 'https://www.tecsinapse.com.br/wp-content/themes/tecsinapse/img/logo.svg',
     height: 60,
     width: 130
   }

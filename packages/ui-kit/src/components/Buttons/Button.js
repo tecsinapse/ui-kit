@@ -62,7 +62,13 @@ Button.defaultProps = {
 
 Button.propTypes = {
   /** Predefined custom button */
-  customVariant: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
+  customVariant: PropTypes.oneOf([
+    'default',
+    'success',
+    'warning',
+    'error',
+    'contrast',
+  ]),
   /** Button disabled during form submission */
   submitting: PropTypes.bool,
   /** Button elevation disabled */
