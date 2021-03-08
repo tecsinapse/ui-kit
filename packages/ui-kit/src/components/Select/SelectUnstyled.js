@@ -24,6 +24,7 @@ const flattenChildren = childrenIn =>
     : [];
 
 export const SelectUnstyled = ({
+  labelNotFound,
   value,
   onChange,
   onBlur,
@@ -87,6 +88,7 @@ export const SelectUnstyled = ({
   );
 
   const defaultProps = {
+    labelNotFound,
     yPos,
     selectPromptMessage,
     isMulti,

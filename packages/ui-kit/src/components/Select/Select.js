@@ -13,6 +13,8 @@ const Select = props => {
 };
 
 Select.propTypes = {
+  /** Label used when input not existing in items */
+  labelNotFound: PropTypes.string,
   /** Show 'select' option to select all options */
   allowSelectAll: PropTypes.bool,
   /** Fill div/screen width */
@@ -37,6 +39,7 @@ Select.propTypes = {
   /** Options available to Select */
   options: PropTypes.arrayOf(
     PropTypes.shape({
+      // eslint-disable-next-line react/forbid-prop-types
       value: PropTypes.any,
       label: PropTypes.string,
       disabled: PropTypes.bool,
@@ -75,6 +78,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+  labelNotFound: 'Nada encontrado',
   allowSelectAll: true,
   fullWidth: false,
   portal: false,
