@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@tecsinapse/ui-kit": "^5.5.2",
-    "react-virtualized": "^9.21.2"
+    "react-virtualized": "^9.22.3"
   },
   "files": [
     "build",

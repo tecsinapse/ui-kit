@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import { ConfirmationAlert, Snackbar } from '@tecsinapse/ui-kit';
 import { convertBytes } from '../../utils/helper';
-import { UpFile } from '../UpFile/UpFile';
+import { UpFile } from '../UpFile';
 
 const style = { marginTop: '2%' };
 const useStyle = makeStyles({
@@ -145,10 +145,14 @@ export function PreviewList({
               {Object.keys(value).map((uid, i) => (
                 <UpFile
                   uid={uid}
-                  filename={value[uid].file.name}
+                  filename={
+                    value[uid]?.file?.name || value[uid]?.file?.file?.name
+                  }
                   completed={value[uid].completed}
                   noShowSnack={value[uid].noShowSnack && value[uid].noShowSnack}
-                  filesize={convertBytes(value[uid].file.size)}
+                  filesize={convertBytes(
+                    value[uid]?.file?.size || value[uid]?.file?.file?.size
+                  )}
                   divider={Object.keys(value).length !== i + 1}
                   setShowAlert={setShowAlert}
                   setSelectedUID={setSelectedUID}

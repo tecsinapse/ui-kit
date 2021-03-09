@@ -24,8 +24,8 @@
   ],
   "dependencies": {
     "@tecsinapse/ui-kit": "^5.5.2",
-    "react-dropzone": "^10.0.2",
-    "uniqid": "^5.0.3"
+    "react-dropzone": "^11.3.1",
+    "uniqid": "^5.3.0"
   },
   "files": [
     "build",

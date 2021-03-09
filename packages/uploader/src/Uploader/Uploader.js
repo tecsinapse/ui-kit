@@ -141,13 +141,22 @@ export const Uploader = forwardRef(
         rejectedFiles.forEach(rejectedFile => {
           let messageFile = '';
 
-          message += filenameFailedMessage(rejectedFile.name);
+          message += filenameFailedMessage(
+            rejectedFile?.name || rejectedFile?.file?.name
+          );
 
-          if (acceptedFormat && !acceptedFormat.includes(rejectedFile.type)) {
+          if (
+            acceptedFormat &&
+            !acceptedFormat.includes(
+              rejectedFile?.type || rejectedFile?.file?.type
+            )
+          ) {
             messageFile += filetypeNotSupportedMessage;
           }
 
-          if (rejectedFile.size > maxFileSize) {
+          const sizeFile = rejectedFile?.size || rejectedFile?.file.size;
+
+          if (sizeFile > maxFileSize) {
             messageFile += sizeLimitErrorMessage(convertBytes(maxFileSize));
           }
 

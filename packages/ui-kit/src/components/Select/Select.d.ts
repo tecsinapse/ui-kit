@@ -1,4 +1,4 @@
-import { FC, ReactNode, JSX } from 'react';
+import { ReactNode, JSX } from 'react';
 
 export type SelectOptionsProps<T> = {
   value?: T;
@@ -15,6 +15,8 @@ export type SelectCustomActionProps = {
 };
 
 export interface SelectProps<T = unknown> {
+  /** Label used when input not existing in items */
+  labelNotFound?: string,
   /** Show 'select' option to select all options */
   allowSelectAll?: boolean;
   /** Fill div/screen width */
