@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.5.2...@tecsinapse/table@3.5.3) (2021-03-09)
+
+
+### Bug Fixes
+
+* link and table interface ([bfd73ac](https://github.com/tecsinapse/ui-kit/commit/bfd73aceda623df95195caa07d11f573d257bfae))
+
+
+
+
+
 ## [3.5.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.5.1...@tecsinapse/table@3.5.2) (2021-03-04)
 
 

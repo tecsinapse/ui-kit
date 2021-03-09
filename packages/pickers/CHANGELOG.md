@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.5.2...@tecsinapse/pickers@2.5.3) (2021-03-09)
+
+
+### Bug Fixes
+
+* **pickers:** provider import ([28c1bcd](https://github.com/tecsinapse/ui-kit/commit/28c1bcdf9c89d9f17b38392fe95f5a4ac47a0433))
+* **pickers:** test fix ([4b7093b](https://github.com/tecsinapse/ui-kit/commit/4b7093b4e99483217dd2ce091cfd0b112cbef6a9))
+
+
+
+
+
 ## [2.5.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.5.1...@tecsinapse/pickers@2.5.2) (2021-03-04)
 
 
