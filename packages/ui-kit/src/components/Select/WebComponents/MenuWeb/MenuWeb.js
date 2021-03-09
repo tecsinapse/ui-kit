@@ -4,7 +4,7 @@ import { components } from 'react-select';
 import { SelectAllButton } from 'components/Select/CommonComponents';
 
 export const MenuWeb = props => {
-  const { selectProps, innerProps, children } = props;
+  const { selectProps, innerProps, children = [] } = props;
 
   return (
     <components.Menu {...props}>
@@ -12,7 +12,7 @@ export const MenuWeb = props => {
         {selectProps.isMulti && selectProps.allowSelectAll && (
           <SelectAllButton {...selectProps} />
         )}
-        {children}
+        {children || []}
       </Paper>
     </components.Menu>
   );
