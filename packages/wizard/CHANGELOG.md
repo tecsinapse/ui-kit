@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.5.2...@tecsinapse/wizard@3.5.3) (2021-03-09)
+
+**Note:** Version bump only for package @tecsinapse/wizard
+
+
+
+
+
 ## [3.5.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.5.1...@tecsinapse/wizard@3.5.2) (2021-03-04)
 
 **Note:** Version bump only for package @tecsinapse/wizard

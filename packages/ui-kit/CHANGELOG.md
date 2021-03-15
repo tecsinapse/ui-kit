@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.2...@tecsinapse/ui-kit@5.5.3) (2021-03-09)
+
+
+### Bug Fixes
+
+* fixing table and fixing package.json ([da188b3](https://github.com/tecsinapse/ui-kit/commit/da188b3e56804e7ac7eae2e2f59a5f29b0626e5b))
+
+
+
+
+
 ## [5.5.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.1...@tecsinapse/ui-kit@5.5.2) (2021-03-04)
 
 
