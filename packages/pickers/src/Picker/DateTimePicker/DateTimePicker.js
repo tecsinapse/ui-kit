@@ -173,6 +173,8 @@ DateTimePicker.defaultProps = {
   pointedDates: [],
   inputVariant: 'outlined',
   selectedDateTime: undefined,
+  fullWidth: undefined,
+  disabled: undefined,
 };
 
 DateTimePicker.propTypes = {
@@ -192,5 +194,9 @@ DateTimePicker.propTypes = {
   pointedDates: PropTypes.array,
   /** Input variant selector */
   inputVariant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
+  /** Fill div/screen width */
+  fullWidth: PropTypes.bool,
+  /** Disable Select */
+  disabled: PropTypes.bool,
 };
 export default DateTimePicker;

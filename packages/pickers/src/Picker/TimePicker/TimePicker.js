@@ -45,6 +45,8 @@ TimePicker.defaultProps = {
   onChange: () => {},
   format: undefined,
   inputVariant: 'outlined',
+  fullWidth: undefined,
+  disabled: undefined,
 };
 
 TimePicker.propTypes = {
@@ -60,5 +62,9 @@ TimePicker.propTypes = {
   format: PropTypes.string,
   /** Input variant selector */
   inputVariant: PropTypes.oneOf(['standard', 'outlined', 'filled']),
+  /** Fill div/screen width */
+  fullWidth: PropTypes.bool,
+  /** Disable Select */
+  disabled: PropTypes.bool,
 };
 export default TimePicker;

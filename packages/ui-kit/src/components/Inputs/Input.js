@@ -80,6 +80,7 @@ export const TextFieldComponent = ({
         classes: {
           root: clsx(classes[labelClass({ warning, error, success })]),
           focused: classes.cssFocused,
+          outlined: classes.noZIndex,
         },
         shrink: shrinkLabel,
       }}

@@ -84,4 +84,7 @@ export const styles = theme => ({
     textOverflow: 'ellipsis',
     overflow: 'hidden',
   },
+  noZIndex: {
+    zIndex: 'unset',
+  },
 });

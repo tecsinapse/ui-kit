@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { DateTime } from '@types/luxon';
+import { BaseDateTimePickerProps } from '@material-ui/pickers';
 
-export interface DateTimePickerProps {
+export interface DateTimePickerProps extends BaseDateTimePickerProps {
   /** Current selected date and time */
   selectedDateTime?: Date | DateTime;
   /** Input id */
@@ -18,6 +19,10 @@ export interface DateTimePickerProps {
   pointedDates?: DateTime[] | Date[];
   /** Input variant selector */
   inputVariant?: 'standard' | 'outlined' | 'filled';
+  /** Button fill div/screen width */
+  fullWidth?: boolean;
+  /** Disable the input */
+  disabled?: boolean;
 }
 
 declare const DateTimePicker: FC<DateTimePickerProps>;

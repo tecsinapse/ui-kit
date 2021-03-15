@@ -112,6 +112,7 @@ export const SelectUnstyled = ({
       warning,
       InputLabelProps: {
         shrink: true,
+        classes: { outlined: classes.noZIndex },
       },
       ...customTextField,
     },

@@ -1,7 +1,8 @@
 import { FC, ReactNode } from 'react';
 import { DateTime } from '@types/luxon';
+import { BaseDatePickerProps } from '@material-ui/pickers';
 
-export interface DatePickerProps {
+export interface DatePickerProps extends BaseDatePickerProps {
   /** Current selected date */
   selectedDate?: Date | DateTime;
   /** Input id */
@@ -22,6 +23,10 @@ export interface DatePickerProps {
   customTextFieldComponentInput?: ReactNode;
   /** Pick the entire week */
   weekly?: boolean;
+  /** Button fill div/screen width */
+  fullWidth?: boolean;
+  /** Disable the input */
+  disabled?: boolean;
 }
 
 declare const DatePicker: FC<DatePickerProps>;

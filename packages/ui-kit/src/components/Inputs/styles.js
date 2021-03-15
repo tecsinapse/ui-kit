@@ -76,6 +76,9 @@ export const styles = theme => ({
   inputRoot: {
     paddingRight: theme.spacing(0.333),
   },
+  noZIndex: {
+    zIndex: 'unset',
+  },
   cssOutlinedInput: {
     '&$focused $notchedOutline $cssFocused': {
       borderColor: ({ variant }) =>

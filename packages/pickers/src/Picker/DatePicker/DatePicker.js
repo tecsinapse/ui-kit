@@ -249,6 +249,8 @@ DatePicker.defaultProps = {
   inputVariant: 'outlined',
   selectedDate: undefined,
   weekly: undefined,
+  fullWidth: undefined,
+  disabled: undefined,
 };
 
 DatePicker.propTypes = {
@@ -276,5 +278,9 @@ DatePicker.propTypes = {
   ]),
   /** Pick the entire week */
   weekly: PropTypes.bool,
+  /** Fill div/screen width */
+  fullWidth: PropTypes.bool,
+  /** Disable Select */
+  disabled: PropTypes.bool,
 };
 export default DatePicker;
