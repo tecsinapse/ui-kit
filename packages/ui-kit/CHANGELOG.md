@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.3...@tecsinapse/ui-kit@5.5.4) (2021-03-15)
+
+
+### Bug Fixes
+
+* missing ButtonGroup export in root index ([302d1d5](https://github.com/tecsinapse/ui-kit/commit/302d1d5da14bf557b48274481a242d638ea35639))
+
+
+
+
+
 ## [5.5.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.2...@tecsinapse/ui-kit@5.5.3) (2021-03-09)
 
 
