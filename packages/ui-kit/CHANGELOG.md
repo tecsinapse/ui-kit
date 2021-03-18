@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.5](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.4...@tecsinapse/ui-kit@5.5.5) (2021-03-18)
+
+
+### Bug Fixes
+
+* logoProps null safety ([2b5e6f9](https://github.com/tecsinapse/ui-kit/commit/2b5e6f9415974c66b9d2daf81ddc3a4fa16e9066))
+
+
+
+
+
 ## [5.5.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.3...@tecsinapse/ui-kit@5.5.4) (2021-03-15)
 
 
