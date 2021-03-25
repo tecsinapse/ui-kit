@@ -46,6 +46,14 @@ const options = [
     value: 'c',
     label: 'CCCCCCCCCC',
   },
+  {
+    value: 'd',
+    label: 'DDDDDD',
+  },
+  {
+    value: 'e',
+    label: 'EEEEEEE',
+  },
 ];
 
 export const Base = args => {

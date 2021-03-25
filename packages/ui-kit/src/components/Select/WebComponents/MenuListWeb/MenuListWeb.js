@@ -12,7 +12,7 @@ export const MenuListWeb = props => {
   const listStyle = {
     padding: 0,
     maxHeight: listSize,
-    overflowY: 'scroll',
+    overflowY: options?.length > 4 ? 'scroll' : 'hidden',
     overflowX: 'hidden',
   };
 

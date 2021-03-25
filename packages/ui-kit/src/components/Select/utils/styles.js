@@ -1,5 +1,11 @@
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
 
+const hex2rgba = (hex, alpha = 1) => {
+  const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16));
+
+  return `rgba(${r},${g},${b},${alpha})`;
+};
+
 export const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -86,5 +92,17 @@ export const styles = theme => ({
   },
   noZIndex: {
     zIndex: 'unset',
+  },
+  '@global': {
+    '*::-webkit-scrollbar': {
+      width: '6px',
+    },
+    '*::-webkit-scrollbar-thumb': {
+      borderRadius: '12px',
+      backgroundColor: hex2rgba(theme.palette.primary.main, 0.5),
+    },
+    '*::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: theme.palette.primary.main,
+    },
   },
 });
