@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.7](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.5.6...@tecsinapse/table@3.5.7) (2021-04-01)
+
+
+### Bug Fixes
+
+* fix footer exporter ([75500da](https://github.com/tecsinapse/ui-kit/commit/75500daf51fefb49d4faceaf0ddbcb2f4da61232))
+
+
+
+
+
 ## [3.5.6](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.5.5...@tecsinapse/table@3.5.6) (2021-04-01)
 
 
