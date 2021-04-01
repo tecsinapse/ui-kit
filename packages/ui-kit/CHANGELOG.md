@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.8](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.7...@tecsinapse/ui-kit@5.5.8) (2021-04-01)
+
+
+### Bug Fixes
+
+* **core:** input floating label z-index ([1415a49](https://github.com/tecsinapse/ui-kit/commit/1415a49ee6d3d51dc5636ea62a93e23a0d687b6a))
+
+
+
+
+
 ## [5.5.7](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.6...@tecsinapse/ui-kit@5.5.7) (2021-04-01)
 
 **Note:** Version bump only for package @tecsinapse/ui-kit
