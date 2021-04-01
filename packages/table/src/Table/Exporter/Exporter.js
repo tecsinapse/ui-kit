@@ -99,9 +99,11 @@ const Exporter = ({
     const whiteSpace = { whiteSpace: 'nowrap' };
     const typoLabel = { fontWeight: '500', fontSize: '0.875rem' };
 
+    const handleFooterExport = () => exportTypes[0]?.exportFunc(data, columns);
+
     return (
       <Button
-        onClick={() => exportTypes[0]?.exportFunc()}
+        onClick={handleFooterExport}
         style={whiteSpace}
         variant="contained"
         color={renderStyledColor(theme.variant)}
