@@ -78,7 +78,7 @@ const Exporter = ({
 
   const handleExport = async (type, delimeter, exportFunc) => {
     if (exportFunc || type === 'custom') {
-      exportFunc();
+      exportFunc(data, columns);
       setAnchorEl(false);
     } else {
       await exportData(
