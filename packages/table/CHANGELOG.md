@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.6](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.5.5...@tecsinapse/table@3.5.6) (2021-04-01)
+
+
+### Bug Fixes
+
+* add data and columns param to exportFunc ([bbdae8d](https://github.com/tecsinapse/ui-kit/commit/bbdae8da660d36ccfeacc432f105f1dcd565db51))
+
+
+
+
+
 ## [3.5.5](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.5.4...@tecsinapse/table@3.5.5) (2021-03-18)
 
 **Note:** Version bump only for package @tecsinapse/table
