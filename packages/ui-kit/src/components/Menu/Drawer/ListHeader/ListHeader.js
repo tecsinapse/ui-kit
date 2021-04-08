@@ -30,6 +30,7 @@ const useStyles = makeStyles(({ spacing }) => ({
     border: `3px solid ${grey[300]}`,
   },
   logo: {
+    paddingTop: ({ paddingTop }) => paddingTop,
     width: ({ width }) => width,
     height: ({ height }) => height,
   },
@@ -51,8 +52,8 @@ export const ListHeader = ({
   productName,
   searchBarPlaceholder = 'O que você busca?',
 }) => {
-  const { width = 0, height = 0 } = logoProps;
-  const classes = useStyles({ width, height });
+  const { width, height, paddingTop = 0 } = logoProps;
+  const classes = useStyles({ width, height, paddingTop });
 
   return (
     <>
