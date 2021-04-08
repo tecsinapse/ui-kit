@@ -98,6 +98,7 @@ const logoShape = {
   src: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  paddingTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 menuItemShape.children = PropTypes.arrayOf(PropTypes.shape(menuItemShape));

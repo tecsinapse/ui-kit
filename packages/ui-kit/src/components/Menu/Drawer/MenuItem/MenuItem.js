@@ -8,18 +8,17 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import List from '@material-ui/core/List';
 import { grey } from '@material-ui/core/colors';
-import { isNotUndefOrNull } from '@tecsinapse/es-utils/build/object';
 import Typography from '@material-ui/core/Typography';
 
-const useStyles = (depth, open) =>
+const useStyles = (depth, open, selected) =>
   makeStyles(theme => ({
     listItemText: {
-      color: open ? 'white' : 'black',
+      color: open || selected ? 'white' : 'black',
       marginLeft: 10,
     },
 
     icon: {
-      color: open ? 'white' : theme.palette.primary.main,
+      color: open ? 'white' : '#616161',
     },
 
     typographyClose: {
@@ -29,34 +28,29 @@ const useStyles = (depth, open) =>
     },
 
     pipeIcon: {
-      color: open ? 'white' : theme.palette.secondary.main,
+      color: open || selected ? 'white' : '#89898A',
     },
     item: {
       width: depth >= 1 ? '90%' : '100%',
       marginLeft: depth >= 1 ? '10%' : '0',
       paddingLeft: depth === 1 ? theme.spacing(0) : theme.spacing(depth * 0.5),
+      borderBottom: depth > 0 ? '1px solid rgba(0, 0, 0, 0.12)' : '',
 
       '&:hover': {
-        backgroundColor: theme.palette.secondary.main,
-        '& $pipeIcon': {
-          color: 'white',
-        },
-        '& $listItemText': {
-          color: 'white',
-        },
-        '& $icon': {
-          color: 'white',
-        },
+        backgroundColor: open ? '#1f1f1f' : '#E0E0E0',
       },
     },
-    openItem: {
-      backgroundColor: open ? theme.palette.primary.main : 'white',
+    openItemDepth0: {
+      backgroundColor: open ? '#89898A' : 'white',
+    },
+    openItemDepth1: {
+      backgroundColor: open ? '#666666' : 'white',
+    },
+    openItemDepth2: {
+      backgroundColor: open ? '#4C4C4D' : 'white',
     },
     selected: {
-      backgroundColor: ({ selectedBackgroundColor }) =>
-        isNotUndefOrNull(selectedBackgroundColor)
-          ? selectedBackgroundColor
-          : grey[200],
+      backgroundColor: 'black',
     },
     shadow: {
       borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
@@ -106,7 +100,7 @@ export const MenuItem = ({
   selected = false,
   styleProps,
 }) => {
-  const classes = useStyles(depth, open)(styleProps);
+  const classes = useStyles(depth, open, selected)(styleProps);
 
   return (
     <div
@@ -119,7 +113,9 @@ export const MenuItem = ({
         component={component}
         divider={depth === 0}
         className={clsx({
-          [classes.openItem]: open || showAsOpen,
+          [classes.openItemDepth0]: (open && depth === 0) || showAsOpen,
+          [classes.openItemDepth1]: open && depth === 1,
+          [classes.openItemDepth2]: open && depth >= 2,
           [classes.item]: true,
           [classes.selected]: selected,
           [classes.isSub]: depth > 1 && !open,
