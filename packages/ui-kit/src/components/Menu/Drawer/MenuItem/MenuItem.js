@@ -37,7 +37,7 @@ const useStyles = (depth, open, selected) =>
       borderBottom: depth > 0 ? '1px solid rgba(0, 0, 0, 0.12)' : '',
 
       '&:hover': {
-        backgroundColor: open ? '#1f1f1f' : '#E0E0E0',
+        backgroundColor: open || selected ? '#1f1f1f' : '#E0E0E0',
       },
     },
     openItemDepth0: {
