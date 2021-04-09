@@ -29,6 +29,7 @@ export const Drawer = ({
   styleProps,
   srcAvatar,
   logoProps,
+  userName,
 }) => {
   const items = normalizeFunctionItems(oldItems);
   const [search, setSearch] = useState('');
@@ -43,6 +44,7 @@ export const Drawer = ({
       <StyledDiv>
         <div>
           <ListHeader
+            userName={userName}
             logoProps={logoProps}
             srcAvatar={srcAvatar}
             search={search}

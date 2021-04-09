@@ -43,6 +43,7 @@ const useStyles = makeStyles(({ spacing }) => ({
 }));
 
 export const ListHeader = ({
+  userName,
   srcAvatar,
   logoProps = {},
   search,
@@ -79,7 +80,13 @@ export const ListHeader = ({
             </>
           )}
         </div>
-        <Avatar src={srcAvatar} className={classes.avatar} />
+        {srcAvatar ? (
+          <Avatar src={srcAvatar} className={classes.avatar} />
+        ) : (
+          <Avatar className={classes.avatar}>
+            {userName?.charAt(0) || ''}
+          </Avatar>
+        )}
       </ListItem>
       <ListItem
         alignItems="flex-start"
