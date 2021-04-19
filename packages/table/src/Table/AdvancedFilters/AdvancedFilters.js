@@ -26,13 +26,13 @@ const Transition = React.forwardRef((props, ref) => (
 ));
 
 const AdvancedFilters = ({
-  advancedFilters,
-  setFilters,
-  filters,
-  mobile,
-  customAdvancedFilters,
-  onDrawerClose,
-}) => {
+                           advancedFilters,
+                           setFilters,
+                           filters,
+                           mobile,
+                           customAdvancedFilters,
+                           onDrawerClose,
+                         }) => {
   const [open, setOpen] = React.useState(false);
 
   const {
@@ -43,9 +43,13 @@ const AdvancedFilters = ({
     return null;
   }
 
+  console.log(customAdvancedFilters.drawerWidth);
+
   const {
     maxHeight = '100%',
-    maxWidth = mobile ? '1000' : '350px',
+    maxWidth = mobile ? '100%' : advancedFilters.drawerWidth ?
+      advancedFilters.drawerWidth : customAdvancedFilters.drawerWidth ?
+        customAdvancedFilters.drawerWidth : '350px',
   } = advancedFilters;
 
   const maxSizeAdvancedFilters = {
@@ -119,6 +123,7 @@ AdvancedFilters.defaultProps = {
 
 AdvancedFilters.propTypes = {
   advancedFilters: PropTypes.shape({
+    drawerWidth: PropTypes.string,
     applyFilters: PropTypes.func,
     filtersGroup: PropTypes.arrayOf(
       PropTypes.shape({
