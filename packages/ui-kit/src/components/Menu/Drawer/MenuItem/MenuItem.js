@@ -16,17 +16,14 @@ const useStyles = (depth, open, selected) =>
       color: open || selected ? 'white' : 'black',
       marginLeft: 10,
     },
-
     icon: {
       color: open ? 'white' : '#616161',
     },
-
     typographyClose: {
       fontSize: 7,
       fontWeight: 'bold',
       color: '#fff',
     },
-
     pipeIcon: {
       color: open || selected ? 'white' : '#89898A',
     },
@@ -35,22 +32,30 @@ const useStyles = (depth, open, selected) =>
       marginLeft: depth >= 1 ? '10%' : '0',
       paddingLeft: depth === 1 ? theme.spacing(0) : theme.spacing(depth * 0.5),
       borderBottom: depth > 0 ? '1px solid rgba(0, 0, 0, 0.12)' : '',
-
       '&:hover': {
-        backgroundColor: open || selected ? '#1f1f1f' : '#E0E0E0',
+        backgroundColor: '#4c4c4c',
+        '& $listItemText': {
+          color: 'white',
+        },
+        '& $pipeIcon': {
+          color: 'white',
+        },
+        '& $icon': {
+          color: 'white',
+        },
       },
     },
     openItemDepth0: {
-      backgroundColor: open ? '#89898A' : 'white',
+      backgroundColor: open ? '#666' : 'white',
     },
     openItemDepth1: {
-      backgroundColor: open ? '#666666' : 'white',
+      backgroundColor: open ? '#7f7f7f' : 'white',
     },
     openItemDepth2: {
-      backgroundColor: open ? '#4C4C4D' : 'white',
+      backgroundColor: open ? '#999' : 'white',
     },
     selected: {
-      backgroundColor: 'black',
+      backgroundColor: '#4c4c4c',
     },
     shadow: {
       borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
