@@ -142,7 +142,8 @@ export const SelectUnstyled = ({
             input2.map(c => c.value).length === map.length
         );
       }
-      const inputValue = input2 ? input2.value : '';
+      const emptyValue = isMulti ? [] : '';
+      const inputValue = input2 ? input2.value : emptyValue;
 
       onChange(input2 instanceof Array ? input2.map(c => c.value) : inputValue);
     },
