@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.11...@tecsinapse/ui-kit@5.6.0) (2021-04-19)
+
+
+### Bug Fixes
+
+* fixing error return in multselect ([43d932f](https://github.com/tecsinapse/ui-kit/commit/43d932fb65a6053d153b3a2c55d620027e9f9e2f))
+
+
+
+
+
 ## [5.5.11](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.10...@tecsinapse/ui-kit@5.5.11) (2021-04-16)
 
 **Note:** Version bump only for package @tecsinapse/ui-kit
