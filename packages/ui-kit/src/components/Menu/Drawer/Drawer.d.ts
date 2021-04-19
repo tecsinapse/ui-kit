@@ -8,6 +8,13 @@ export type DrawerMenuItemProps = {
   children?: DrawerMenuItemProps[];
 };
 
+export type DrawerLogoProps = {
+  src: string;
+  width: string | number;
+  height: string | number;
+  paddingTop: string | number;
+};
+
 export interface DrawerProps {
   /** Display drawer */
   open: boolean;
@@ -30,7 +37,7 @@ export interface DrawerProps {
   /** source image avatar */
   srcAvatar?: string;
   /** change props logo */
-  logo?: object
+  logoProps?: DrawerLogoProps;
 }
 
 declare const Drawer: FC<DrawerProps>;

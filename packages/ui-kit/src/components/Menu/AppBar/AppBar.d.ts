@@ -29,7 +29,7 @@ export interface AppBarProps {
   /** Display menu option */
   menuBar?: boolean;
   /** Fired when the text value changes. */
-  onChange: (value: unknown) => void;
+  onChange?: (value: unknown) => void;
   /** Fired when the search icon is clicked. */
   onRequestSearch?: (value: unknown) => void;
   /** Sets placeholder text for the embedded text field. */
