@@ -217,6 +217,7 @@ const AutoComplete = ({
             <Chip
               key={value.id}
               label={value.label}
+              title={value.tooltip}
               color={renderStyledColor(variant)}
               clickable
               className={classes.chip}

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.11](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/carousel@2.5.10...@tecsinapse/carousel@2.5.11) (2021-04-16)
+
+**Note:** Version bump only for package @tecsinapse/carousel
+
+
+
+
+
+## [2.5.10](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/carousel@2.5.9...@tecsinapse/carousel@2.5.10) (2021-04-09)
+
+**Note:** Version bump only for package @tecsinapse/carousel
+
+
+
+
+
+## [2.5.9](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/carousel@2.5.8...@tecsinapse/carousel@2.5.9) (2021-04-08)
+
+**Note:** Version bump only for package @tecsinapse/carousel
+
+
+
+
+
 ## [2.5.8](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/carousel@2.5.7...@tecsinapse/carousel@2.5.8) (2021-04-01)
 
 **Note:** Version bump only for package @tecsinapse/carousel
