@@ -26,13 +26,13 @@ const Transition = React.forwardRef((props, ref) => (
 ));
 
 const AdvancedFilters = ({
-                           advancedFilters,
-                           setFilters,
-                           filters,
-                           mobile,
-                           customAdvancedFilters,
-                           onDrawerClose,
-                         }) => {
+  advancedFilters,
+  setFilters,
+  filters,
+  mobile,
+  customAdvancedFilters,
+  onDrawerClose,
+}) => {
   const [open, setOpen] = React.useState(false);
 
   const {
@@ -43,14 +43,15 @@ const AdvancedFilters = ({
     return null;
   }
 
-  console.log(customAdvancedFilters.drawerWidth);
-
-  const {
+  let {
     maxHeight = '100%',
-    maxWidth = mobile ? '100%' : advancedFilters.drawerWidth ?
-      advancedFilters.drawerWidth : customAdvancedFilters.drawerWidth ?
-        customAdvancedFilters.drawerWidth : '350px',
+    maxWidth = mobile ? '100%' : '350px',
   } = advancedFilters;
+
+  if (customAdvancedFilters) {
+    maxHeight = customAdvancedFilters?.maxHeight;
+    maxWidth = customAdvancedFilters?.maxWidth;
+  }
 
   const maxSizeAdvancedFilters = {
     maxHeight,
@@ -123,7 +124,6 @@ AdvancedFilters.defaultProps = {
 
 AdvancedFilters.propTypes = {
   advancedFilters: PropTypes.shape({
-    drawerWidth: PropTypes.string,
     applyFilters: PropTypes.func,
     filtersGroup: PropTypes.arrayOf(
       PropTypes.shape({
@@ -157,6 +157,8 @@ AdvancedFilters.propTypes = {
         fullWidth: PropTypes.bool,
       })
     ),
+    maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }),
 };
 

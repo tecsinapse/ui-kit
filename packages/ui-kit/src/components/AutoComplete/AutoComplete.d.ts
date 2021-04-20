@@ -3,7 +3,7 @@ import {InputProps} from "../Inputs";
 import {MenuItemProps, PaperProps} from "@material-ui/core";
 
 export type ValuesProps = {
-  id: any;
+  id: string | number;
   label: ReactNode;
   tooltip?: string;
 };
