@@ -4,7 +4,7 @@ export type ColumnsType<T> = {
   title: string;
   field: string;
   options?: {
-    select?:boolean;
+    select?: boolean;
     filter?: boolean;
     sort?: boolean;
     defaultSort?: 'ASC' | 'DESC';
@@ -95,11 +95,7 @@ export interface TableProps<T> {
   /** Object containing selected rows */
   selectedData?: T[];
   /** Row selection handler */
-  onSelectRow?: (
-    selectedRows: T[],
-    rowData: T,
-    checked: boolean
-  ) => void;
+  onSelectRow?: (selectedRows: T[], rowData: T, checked: boolean) => void;
   /** Row click handler */
   onRowClick?: (row: T) => void;
   id?: string;
@@ -145,8 +141,11 @@ export interface TableProps<T> {
   customAdvancedFilters?: {
     applyFilters: () => void;
     filters: ReactNode;
+    toolbarButton?: (handleOpenFilters: () => void) => ReactNode;
     cleanFilters: () => void;
     cleanFiltersLabel: string;
+    maxWidth?: string | number;
+    maxHeight?: string | number;
   };
   /** Provides custom row render. See examples for more detailed use cases. */
   customRow?: Function; // TODO: Improve parameters and return

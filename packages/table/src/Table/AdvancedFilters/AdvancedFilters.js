@@ -43,10 +43,8 @@ const AdvancedFilters = ({
     return null;
   }
 
-  let {
-    maxHeight = '100%',
-    maxWidth = mobile ? '100%' : '350px',
-  } = advancedFilters;
+  let { maxHeight = '100%', maxWidth = mobile ? '100%' : '350px' } =
+    advancedFilters || {};
 
   if (customAdvancedFilters) {
     maxHeight = customAdvancedFilters?.maxHeight;
