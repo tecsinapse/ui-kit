@@ -43,10 +43,13 @@ const AdvancedFilters = ({
     return null;
   }
 
-  const {
-    maxHeight = '100%',
-    maxWidth = mobile ? '1000' : '350px',
-  } = advancedFilters;
+  let { maxHeight = '100%', maxWidth = mobile ? '100%' : '350px' } =
+    advancedFilters || {};
+
+  if (customAdvancedFilters) {
+    maxHeight = customAdvancedFilters?.maxHeight;
+    maxWidth = customAdvancedFilters?.maxWidth;
+  }
 
   const maxSizeAdvancedFilters = {
     maxHeight,
@@ -152,6 +155,8 @@ AdvancedFilters.propTypes = {
         fullWidth: PropTypes.bool,
       })
     ),
+    maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }),
 };
 

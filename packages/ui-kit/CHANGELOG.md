@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.6.0...@tecsinapse/ui-kit@5.6.1) (2021-05-19)
+
+
+### Bug Fixes
+
+* **types:** appbar and drawer type defs ([702b19c](https://github.com/tecsinapse/ui-kit/commit/702b19cb17b595d1d7ea375ccbd0a2c155773466))
+
+
+
+
+
 # [5.6.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.5.11...@tecsinapse/ui-kit@5.6.0) (2021-04-19)
 
 

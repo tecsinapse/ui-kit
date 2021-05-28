@@ -357,6 +357,9 @@ TableComponent.propTypes = {
     filters: PropTypes.node,
     cleanFilters: PropTypes.func,
     cleanFiltersLabel: PropTypes.string,
+    toolbarButton: PropTypes.func,
+    maxWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }),
   /** Provides custom row render. See examples for more detailed use cases. */
   customRow: PropTypes.func,
