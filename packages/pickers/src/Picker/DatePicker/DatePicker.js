@@ -241,7 +241,8 @@ export const DatePicker = ({
 
 DatePicker.defaultProps = {
   label: 'Date Picker',
-  id: 'datepicker-id',
+  id: undefined,
+  name: undefined,
   onChange: () => {},
   format: undefined,
   keyboardPicker: false,
@@ -258,6 +259,8 @@ DatePicker.propTypes = {
   selectedDate: PropTypes.object,
   /** Input id */
   id: PropTypes.string,
+  /** Input name */
+  name: PropTypes.string,
   /** Input label */
   label: PropTypes.string,
   /** Change event handler */

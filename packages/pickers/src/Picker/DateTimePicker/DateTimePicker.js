@@ -166,7 +166,8 @@ export const DateTimePicker = ({
 
 DateTimePicker.defaultProps = {
   label: 'Date Picker',
-  id: 'datepicker-id',
+  id: undefined,
+  name: undefined,
   onChange: () => {},
   format: undefined,
   keyboardPicker: false,
@@ -198,5 +199,7 @@ DateTimePicker.propTypes = {
   fullWidth: PropTypes.bool,
   /** Disable Select */
   disabled: PropTypes.bool,
+  /** Input name */
+  name: PropTypes.string,
 };
 export default DateTimePicker;

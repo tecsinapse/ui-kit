@@ -77,11 +77,16 @@ export type ExportOptionsTypes = {
   exportFunc?: Function;
 };
 
+export type ServerSideTable<T> = {
+  data: T[];
+  totalCount: number;
+};
+
 export interface TableProps<T> {
   /** Table columns options. Please note `defaultSort` option initializes a single column sorted in the order provided. Do not use more then one defaultSort field at a time. */
   columns: ColumnsType<T>[];
   /** Data object or function loader */
-  data: T[] | (() => T[]);
+  data: T[] | ((filters: any) => ServerSideTable<T>);
   /** On data filter funtion handler */
   onFilterData?: (data: T) => void;
   /** Set vertical actions legacy */

@@ -7,6 +7,8 @@ export interface DatePickerProps extends BaseDatePickerProps {
   selectedDate?: Date | DateTime;
   /** Input id */
   id?: string;
+  /** Input name */
+  name?: string;
   /** Input label */
   label?: string;
   /** Change event handler */
