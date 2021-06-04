@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export type ColumnsType<T> = {
   title: string;
-  field: string;
+  field: keyof T | string;
   options?: {
     select?: boolean;
     filter?: boolean;
@@ -104,11 +104,29 @@ export type CustomRowProps<T> = {
   verticalActions?: boolean;
 };
 
+export type ServerSideFilters<T> = {
+  advancedFilters?: any; // TODO: Add mapping
+  ascending?: boolean;
+  headerFilters?:
+    | { [K in keyof T]: { value: string; matchType: 'INCLUDE' | 'EXACT' } }
+    | any; // TODO: Check mapping
+  loadedResolver?: () => void | null;
+  page?: number;
+  rowsPerPage?: number;
+  sortField?: string;
+  sortFunc?: (data: T[], field: string, ascending: boolean) => T[];
+  startIndex?: number;
+  stopIndex?: number;
+};
+
 export interface TableProps<T> {
   /** Table columns options. Please note `defaultSort` option initializes a single column sorted in the order provided. Do not use more then one defaultSort field at a time. */
   columns: ColumnsType<T>[];
   /** Data object or function loader */
-  data: T[] | ((filters: any) => ServerSideTable<T>);
+  data:
+    | T[]
+    | ((filters: ServerSideFilters<T>) => ServerSideTable<T>)
+    | ((filters: ServerSideFilters<T>) => Promise<ServerSideTable<T>>);
   /** On data filter funtion handler */
   onFilterData?: (data: T) => void;
   /** Set vertical actions legacy */
@@ -175,7 +193,7 @@ export interface TableProps<T> {
     maxHeight?: string | number;
   };
   /** Provides custom row render. See examples for more detailed use cases. */
-  customRow?: (props: CustomRowProps) => ReactNode | JSX.Element; // TODO: Improve parameters and return
+  customRow?: (props: CustomRowProps) => ReactNode | JSX.Element;
   /** Callback when closing advanced filters. */
   onDrawerClose?: () => void;
   /** Override custom list render when opening actions drawer on mobile */
