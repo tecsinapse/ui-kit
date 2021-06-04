@@ -16,7 +16,7 @@ export type SelectCustomActionProps = {
 
 export interface SelectProps<T = unknown> {
   /** Label used when input not existing in items */
-  labelNotFound?: string,
+  labelNotFound?: string;
   /** Show 'select' option to select all options */
   allowSelectAll?: boolean;
   /** Fill div/screen width */
@@ -33,6 +33,7 @@ export interface SelectProps<T = unknown> {
   variant?: 'auto' | 'mobile' | 'web';
   /** Select is touched */
   touched?: boolean;
+  /** Raises menu zIndex */
   portal?: boolean;
   /** Error message/variant */
   error?: boolean | string;

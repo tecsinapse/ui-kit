@@ -31,6 +31,7 @@ Select.propTypes = {
   variant: PropTypes.oneOf(['auto', 'mobile', 'web']),
   /** Select is touched */
   touched: PropTypes.bool,
+  /** Raises menu zIndex */
   portal: PropTypes.bool,
   /** Error message/variant */
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
