@@ -13,7 +13,7 @@ export type ColumnsType<T> = {
     /** Option to include or exclude field from CSV export */
     export?: boolean;
   };
-  customRender?: (row: T) => void;
+  customRender?: (row: T) => ReactNode | JSX.Element;
   /** This function must return a string, since is reserved for CSV exporter */
   handleExport?: (row: T) => string;
 };
@@ -82,6 +82,28 @@ export type ServerSideTable<T> = {
   totalCount: number;
 };
 
+export type OnSelectRowProp<T> = (
+  selectedRows: T[],
+  rowData: T,
+  checked: boolean
+) => void;
+
+export type RowIdProp<T> = (row: T) => string | number;
+
+export type OnRowClickProp<T> = (row: T) => void;
+
+export type CustomRowProps<T> = {
+  rowData: T;
+  rowId: RowIdProp<T>;
+  columns: ColumnsType<T>;
+  selectedRows?: T[];
+  onSelectRow?: OnSelectRowProp<T>;
+  setSelectedRows?: (rowData: T[]) => void;
+  onRowClick?: OnRowClickProp<T>;
+  forceCollapseActions?: boolean;
+  verticalActions?: boolean;
+};
+
 export interface TableProps<T> {
   /** Table columns options. Please note `defaultSort` option initializes a single column sorted in the order provided. Do not use more then one defaultSort field at a time. */
   columns: ColumnsType<T>[];
@@ -92,7 +114,7 @@ export interface TableProps<T> {
   /** Set vertical actions legacy */
   verticalActions?: boolean;
   /** Row identifier */
-  rowId: (row: T) => string | number;
+  rowId: RowIdProp<T>;
   /** Set legacy selectable rows */
   options?: {
     selection: boolean;
@@ -100,9 +122,9 @@ export interface TableProps<T> {
   /** Object containing selected rows */
   selectedData?: T[];
   /** Row selection handler */
-  onSelectRow?: (selectedRows: T[], rowData: T, checked: boolean) => void;
+  onSelectRow?: OnSelectRowProp<T>;
   /** Row click handler */
-  onRowClick?: (row: T) => void;
+  onRowClick?: OnRowClickProp<T>;
   id?: string;
   /** Configure legacy actions */
   actions?: ActionsType<T>[];
@@ -153,11 +175,13 @@ export interface TableProps<T> {
     maxHeight?: string | number;
   };
   /** Provides custom row render. See examples for more detailed use cases. */
-  customRow?: Function; // TODO: Improve parameters and return
+  customRow?: (props: CustomRowProps) => ReactNode | JSX.Element; // TODO: Improve parameters and return
   /** Callback when closing advanced filters. */
   onDrawerClose?: () => void;
   /** Override custom list render when opening actions drawer on mobile */
   customActionsMobile?: (data: T[]) => ReactNode;
+  /** Apply debounce time to headers filters. Helpful when dealing with server side */
+  headerFiltersDebounceTime?: number;
 }
 
 declare const Table: <T>(props: TableProps<T>) => JSX.Element;

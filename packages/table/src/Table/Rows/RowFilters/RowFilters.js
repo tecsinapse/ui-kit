@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
@@ -6,6 +6,7 @@ import { mdiMagnify } from '@mdi/js';
 import Icon from '@mdi/react';
 import { resolveObj } from '@tecsinapse/es-utils/build';
 import { Input, Select, LocaleContext } from '@tecsinapse/ui-kit';
+import { debounce } from '@material-ui/core';
 
 import {
   EXACT_MATCH_CONST,
@@ -50,10 +51,22 @@ const RowFilters = ({
   onChangeFilter,
   data,
   hideSelectFilterLabel,
+  headerFiltersDebounceTime = 700,
 }) => {
   const [headerFilters, setHeaderFilters] = useState(
     initialHeaderFilters(columns)
   );
+
+  const debounceChange = useCallback(
+    debounce(value => {
+      onChangeFilter(value);
+    }, headerFiltersDebounceTime),
+    [onChangeFilter]
+  );
+
+  const handleDebouncedChange = value => {
+    debounceChange(value);
+  };
 
   const { selectPromptMessage, selectAllMessage } = useContext(LocaleContext);
 
@@ -148,7 +161,7 @@ const RowFilters = ({
                 }
                 style={regularInputStyle}
                 fullWidth
-                onChange={onChange(onChangeFilter, setHeaderFilters)}
+                onChange={onChange(handleDebouncedChange, setHeaderFilters)}
               />
             )}
           </TableCell>
@@ -161,6 +174,7 @@ const RowFilters = ({
 RowFilters.defaultProps = {
   rendered: false,
   hideSelectFilterLabel: false,
+  headerFiltersDebounceTime: 700,
 };
 
 RowFilters.propTypes = {
@@ -176,6 +190,7 @@ RowFilters.propTypes = {
   rendered: PropTypes.bool,
   onChangeFilter: PropTypes.func.isRequired,
   hideSelectFilterLabel: PropTypes.bool,
+  headerFiltersDebounceTime: PropTypes.number,
 };
 
 export default RowFilters;
