@@ -83,6 +83,7 @@ Drawer.defaultProps = {
   id: undefined,
   className: undefined,
   styleProps: undefined,
+  userName: undefined,
 };
 const menuItemShape = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
@@ -128,6 +129,8 @@ Drawer.propTypes = {
   srcAvatar: PropTypes.string,
   /** props logo */
   logoProps: PropTypes.shape(logoShape),
+  /** If user has no picture, you can use his first name to show only the first letter */
+  userName: PropTypes.string,
 };
 
 export default Drawer;

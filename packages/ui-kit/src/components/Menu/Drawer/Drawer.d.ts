@@ -38,6 +38,8 @@ export interface DrawerProps {
   srcAvatar?: string;
   /** change props logo */
   logoProps?: DrawerLogoProps;
+  /** If user has no picture, you can use his first name to show only the first letter */
+  userName: string;
 }
 
 declare const Drawer: FC<DrawerProps>;
