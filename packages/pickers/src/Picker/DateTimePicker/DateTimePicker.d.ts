@@ -4,7 +4,7 @@ import { BaseDateTimePickerProps } from '@material-ui/pickers';
 
 export interface DateTimePickerProps extends BaseDateTimePickerProps {
   /** Current selected date and time */
-  selectedDateTime?: Date | DateTime;
+  selectedDateTime?: Date | DateTime | null;
   /** Input id */
   id?: string;
   /** Input name */
