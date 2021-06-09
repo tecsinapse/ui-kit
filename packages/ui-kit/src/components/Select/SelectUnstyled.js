@@ -23,6 +23,8 @@ const flattenChildren = childrenIn =>
         }))
     : [];
 
+const isBrowser = typeof window !== 'undefined';
+
 export const SelectUnstyled = ({
   labelNotFound,
   value,
@@ -54,8 +56,6 @@ export const SelectUnstyled = ({
   customTextField,
   ...rest
 }) => {
-  const isBrowser = typeof window !== 'undefined';
-
   const valuesAllSelected = isMulti && value && value.length === options.length;
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [allSelected, setAllSelected] = useState(valuesAllSelected);
