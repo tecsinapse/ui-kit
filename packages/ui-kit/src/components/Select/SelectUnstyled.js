@@ -54,6 +54,8 @@ export const SelectUnstyled = ({
   customTextField,
   ...rest
 }) => {
+  const isBrowser = typeof window !== 'undefined';
+
   const valuesAllSelected = isMulti && value && value.length === options.length;
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [allSelected, setAllSelected] = useState(valuesAllSelected);
@@ -171,7 +173,7 @@ export const SelectUnstyled = ({
     variant === 'mobile'
       ? {
           components: MOBILE_COMPONENTS,
-          menuPortalTarget: document.body,
+          menuPortalTarget: isBrowser ? document.body : null,
           backspaceRemovesValue: false,
           deleteRemovesValue: false,
           ...defaultProps,
@@ -180,7 +182,7 @@ export const SelectUnstyled = ({
           menuPlacement,
           ...(portal && {
             styles: { menuPortal: base => ({ ...base, zIndex: 9999 }) },
-            menuPortalTarget: document.body,
+            menuPortalTarget: isBrowser ? document.body : null,
           }),
           components: WEB_COMPONENTS,
           ...defaultProps,
@@ -193,25 +195,27 @@ export const SelectUnstyled = ({
   const style = { minWidth };
 
   return (
-    <div ref={selectRef}>
-      <FormControl
-        key={key}
-        error={!!error}
-        fullWidth={fullWidth}
-        style={style}
-      >
-        <SizeMe noPlaceholder>
-          {({ size }) => (
-            <ReactSelect
-              {...selectProps}
-              valuesWidth={valuesWidth}
-              selectSize={size}
-            />
-          )}
-        </SizeMe>
-        {error && <FormHelperText>{error}</FormHelperText>}
-      </FormControl>
-    </div>
+    isBrowser && (
+      <div ref={selectRef}>
+        <FormControl
+          key={key}
+          error={!!error}
+          fullWidth={fullWidth}
+          style={style}
+        >
+          <SizeMe noPlaceholder>
+            {({ size }) => (
+              <ReactSelect
+                {...selectProps}
+                valuesWidth={valuesWidth}
+                selectSize={size}
+              />
+            )}
+          </SizeMe>
+          {error && <FormHelperText>{error}</FormHelperText>}
+        </FormControl>
+      </div>
+    )
   );
 };
 
