@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.7.0...@tecsinapse/pickers@2.7.1) (2021-06-09)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
+# [2.7.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.6.1...@tecsinapse/pickers@2.7.0) (2021-06-04)
+
+
+### Bug Fixes
+
+* **types:** table types ([4ac4654](https://github.com/tecsinapse/ui-kit/commit/4ac465435a1351220b0d7dd1937cd12f37a0eea8))
+
+
+
+
+
 ## [2.6.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.6.0...@tecsinapse/pickers@2.6.1) (2021-05-19)
 
 **Note:** Version bump only for package @tecsinapse/pickers

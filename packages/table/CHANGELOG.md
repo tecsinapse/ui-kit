@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.7.0...@tecsinapse/table@3.7.1) (2021-06-09)
+
+
+### Bug Fixes
+
+* **table:** table types ([0adeb73](https://github.com/tecsinapse/ui-kit/commit/0adeb738420f8e08793b4f8de5ef7f66a5604414))
+
+
+
+
+
+# [3.7.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.6.2...@tecsinapse/table@3.7.0) (2021-06-04)
+
+
+### Bug Fixes
+
+* **types:** table types ([4ac4654](https://github.com/tecsinapse/ui-kit/commit/4ac465435a1351220b0d7dd1937cd12f37a0eea8))
+
+
+### Features
+
+* **table:** table header filters debounce ([5da8794](https://github.com/tecsinapse/ui-kit/commit/5da87945930cfcd3cb197abdc63c25e59af99325))
+
+
+
+
+
 ## [3.6.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.6.1...@tecsinapse/table@3.6.2) (2021-05-28)
 
 

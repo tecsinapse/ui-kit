@@ -69,6 +69,7 @@ const TableComponent = props => {
     customRow,
     onDrawerClose = () => {},
     customActionsMobile,
+    headerFiltersDebounceTime = 700,
   } = props;
   const classes = tableStyles(useWindowSize()[1]);
   const [rowCount, setRowCount] = useState(0);
@@ -182,6 +183,7 @@ const TableComponent = props => {
                 data={originalData}
                 onChangeFilter={onChangeHeaderFilter(setFilters)}
                 hideSelectFilterLabel={hideSelectFilterLabel}
+                headerFiltersDebounceTime={headerFiltersDebounceTime}
               />
               <Rows
                 columns={tableColumns}
@@ -254,6 +256,7 @@ TableComponent.defaultProps = {
   customAdvancedFilters: undefined,
   customRow: undefined,
   customActionsMobile: undefined,
+  headerFiltersDebounceTime: 700,
 };
 
 TableComponent.propTypes = {
@@ -367,6 +370,8 @@ TableComponent.propTypes = {
   onDrawerClose: PropTypes.func,
   /** Override custom list render when opening actions drawer on mobile */
   customActionsMobile: PropTypes.func,
+  /** Apply debounce time to headers filters. Helpful when dealing with server side */
+  headerFiltersDebounceTime: PropTypes.number,
 };
 
 export const Table = TableComponent;
