@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.6.1...@tecsinapse/ui-kit@5.6.2) (2021-06-09)
+
+
+### Bug Fixes
+
+* fixing error render select in nextjs ([8c2e7fb](https://github.com/tecsinapse/ui-kit/commit/8c2e7fb4520a57babef6b692ed9bba78dcfc8ff0))
+* passando função para fora do componente ([11ad17d](https://github.com/tecsinapse/ui-kit/commit/11ad17dc8a6b26d982e017b248cbf0f10efad61e))
+* **drawer:** type definitions ([a6f41af](https://github.com/tecsinapse/ui-kit/commit/a6f41af30d5962fd287c4f48ede5a48920d05902))
+* **select:** select types ([1501a6a](https://github.com/tecsinapse/ui-kit/commit/1501a6a7cd798592eef5e25df0882aae7cfec03f))
+
+
+
+
+
 ## [5.6.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.6.0...@tecsinapse/ui-kit@5.6.1) (2021-05-19)
 
 
