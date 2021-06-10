@@ -1,7 +1,12 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { ButtonProps as MuiButtonProps } from '@material-ui/core';
 
-export type ButtonVariant = 'default' | 'success' | 'warning' | 'error' | 'contrast';
+export type ButtonVariant =
+  | 'default'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'contrast';
 
 export interface ButtonProps extends MuiButtonProps {
   /** Predefined custom button */
@@ -18,6 +23,10 @@ export interface ButtonProps extends MuiButtonProps {
   type?: 'submit' | 'button' | 'reset';
   /** Button size */
   size?: 'small' | 'medium' | 'large';
+  /** Override default 'button' component. Useful for creating Links */
+  component?: ReactNode;
+  /** When using React Router Links, point to location using this property */
+  to?: string;
 }
 
 declare const Button: FC<ButtonProps>;
