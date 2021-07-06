@@ -6,7 +6,7 @@ import { Description, Title, ArgsTable } from '@storybook/addon-docs/blocks';
 
 export default {
   title: `${GROUPS.COMPONENTS}/RadioButton`,
-  component: <h1>Ola</h1>,
+  component: RadioButton,
   decorators: [
     Story => (
       <DivFlex>
@@ -29,8 +29,6 @@ export default {
   },
 };
 
-export const Base = () => <h1>Ola</h1>;
+export const Base = () => <RadioButton />;
 
-Base.args = {
-}
-
+Base.args = {};

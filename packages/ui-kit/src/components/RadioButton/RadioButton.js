@@ -1,7 +1,7 @@
 import React from 'react';
 import Radio from '@material-ui/core/Radio';
 
-const RadioButtonUI = ({ checked, disabled, required, value }) => (
+const RadioButton = ({ checked, disabled, required, value }) => (
   <Radio
     checked={checked}
     disabled={disabled}
@@ -9,8 +9,6 @@ const RadioButtonUI = ({ checked, disabled, required, value }) => (
     value={value}
   />
 );
-
-export const RadioButton = <RadioButtonUI {...props} />;
 
 RadioButton.defaultProps = {
   checked: false,
