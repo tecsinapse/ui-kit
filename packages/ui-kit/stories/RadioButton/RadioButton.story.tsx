@@ -5,7 +5,7 @@ import { GROUPS } from 'hierarchySeparators';
 import { Description, Title, ArgsTable } from '@storybook/addon-docs/blocks';
 
 export default {
-  title: `${GROUPS.COMPONENTS}/RadioButton`,
+  title: `${GROUPS.FORMS}/RadioButton`,
   component: RadioButton,
   decorators: [
     Story => (
@@ -19,9 +19,9 @@ export default {
       page: () => (
         <>
           <Title />
-          <Description>
-            RadioButton component can receive the following props:
-          </Description>
+            <Description>
+              `RadioButton` component can receive the following props:
+            </Description>
           <ArgsTable />
         </>
       ),
@@ -29,6 +29,11 @@ export default {
   },
 };
 
-export const Base = () => <RadioButton />;
+export const Base = args => <RadioButton {...args} />;
 
-Base.args = {};
+Base.args = {
+  checked: true,
+  label: 'Option 1',
+  name: 'option1',
+  value: 'option 1'
+};
