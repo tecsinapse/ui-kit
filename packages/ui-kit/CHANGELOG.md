@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.6.2...@tecsinapse/ui-kit@5.6.3) (2021-07-09)
+
+
+### Bug Fixes
+
+* **button:** type definitions ([6a87252](https://github.com/tecsinapse/ui-kit/commit/6a87252b13b6d6f571c6e257362d94f171b7a3fe))
+* **select:** type definitions ([87d98a8](https://github.com/tecsinapse/ui-kit/commit/87d98a8c1f8fe9bb0bc1e169bf47ca18d50ebcd5))
+
+
+
+
+
 ## [5.6.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.6.1...@tecsinapse/ui-kit@5.6.2) (2021-06-09)
 
 
