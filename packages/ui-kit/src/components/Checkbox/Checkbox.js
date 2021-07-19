@@ -5,19 +5,21 @@ import PropTypes from 'prop-types'
 export const Checkbox = ({
   checked,
   checkedIcon,
+  color,
   disabled,
   disableRipple,
   handleChange,
   id,
+  index,
+  icon,
   indeterminate,
   indeterminateIcon,
   label,
-  labelPlacement,
-  required
+  labelPlacement
 }) => {
   const [check, setCheck] = useState(checked)
 
-  function toggleCheck() {
+  const toggleCheck = () => {
     setCheck(!check)
   }
 
@@ -27,31 +29,23 @@ export const Checkbox = ({
         <Check
           checked={check}
           checkedIcon={checkedIcon}
-          disabled={disabled}
+          color={color}
           disableRipple={disableRipple}
+          onChange={(event) => {
+            toggleCheck()
+            handleChange(event, index)
+          }}
           id={id}
+          icon={icon}
           indeterminate={indeterminate}
           indeterminateIcon={indeterminateIcon}
-          onClick={() => toggleCheck()}
-          onChange={(event) => handleChange(event)}
-          required={required}
-          value={check}
         />
       }
+      disabled={disabled}
       label={label}
       labelPlacement={labelPlacement}
-      onClick={() => toggleCheck()}
     />
   )
-}
-
-Checkbox.defaultProps = {
-  checked: false,
-  disabled: false,
-  disableRipple: false,
-  indeterminate: false,
-  labelPlacement: 'end',
-  required: false
 }
 
 Checkbox.propTypes = {
@@ -59,6 +53,8 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   /** Defines the component checked icon. */
   checkedIcon: PropTypes.node,
+  /** Defines the component theme color. */
+  color: PropTypes.string,
   /** Defines if the component is disabled. */
   disabled: PropTypes.bool,
   /** Disable the ripple effect when component is clicked. */
@@ -67,14 +63,16 @@ Checkbox.propTypes = {
   handleChange: PropTypes.func,
   /** Defines the component id. */
   id: PropTypes.string,
+  /** Defines the component index. */
+  index: PropTypes.string,
+  /** Defines the component icon. */
+  icon: PropTypes.node,
   /** Defines if the component is indeterminate. */
   indeterminate: PropTypes.bool,
   /** Defines the component indeterminate icon. */
   indeterminateIcon: PropTypes.node,
   /** Defines the component label. */
   label: PropTypes.string,
-  /** Defines the component place. Possible values are: "top", "start", "bottom" and "end". */
-  labelPlacement: PropTypes.string,
-  /** Defines if the component are required or not. */
-  required: PropTypes.bool
+  /** Defines the component place. Possible values are: "start" and "end". */
+  labelPlacement: PropTypes.oneOf(['start', 'end'])
 }
