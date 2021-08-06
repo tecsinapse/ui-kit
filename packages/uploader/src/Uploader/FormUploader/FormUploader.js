@@ -108,6 +108,8 @@ export function FormUploader({
   );
 }
 
+export default FormUploader;
+
 FormUploader.defaultProps = {
   value: {},
   acceptedFormat: ['image/*', 'video/*', 'application/*'],

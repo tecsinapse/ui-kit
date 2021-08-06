@@ -259,6 +259,8 @@ export const Uploader = forwardRef(
   }
 );
 
+export default Uploader;
+
 Uploader.defaultProps = {
   value: {},
   acceptedFormat: undefined,
