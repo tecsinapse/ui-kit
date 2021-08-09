@@ -14,7 +14,7 @@ export type SelectCustomActionProps = {
   handleClick: () => void;
 };
 
-export interface SelectProps<T = unknown> {
+export interface SelectProps<T extends unknown, V extends unknown> {
   /** Label used when input not existing in items */
   labelNotFound?: string;
   /** Show 'select' option to select all options */
@@ -42,7 +42,7 @@ export interface SelectProps<T = unknown> {
   /** Options available to Select */
   options: SelectOptionsProps<T>[];
   /** Fired when change event */
-  onChange?: (value: T) => void;
+  onChange?: (value: V) => void;
   /** Fired when blur event */
   onBlur?: (event: object | unknown) => void;
   /** Select prompt placeholder */
@@ -72,9 +72,9 @@ export interface SelectProps<T = unknown> {
   /** React key */
   key?: unknown;
   /** Input value */
-  value?: T;
+  value?: V;
 }
 
-declare const Select: <T>(props: SelectProps<T>) => JSX.Element;
+declare const Select: <T, V>(props: SelectProps<T, V>) => JSX.Element;
 
 export default Select;
