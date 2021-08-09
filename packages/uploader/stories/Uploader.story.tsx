@@ -34,7 +34,7 @@ export default {
 };
 
 export const Base = args => {
-  const ref = React.useRef();
+  const ref = React.useRef<any>();
   const [files, setFiles] = React.useState({});
   const [open, setOpen] = React.useState(false);
 

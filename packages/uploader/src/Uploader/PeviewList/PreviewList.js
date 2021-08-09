@@ -171,6 +171,8 @@ export function PreviewList({
   );
 }
 
+export default PreviewList;
+
 PreviewList.defaultProps = {
   value: {},
   onDelete: () => {},
