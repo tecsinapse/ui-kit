@@ -2,9 +2,11 @@ import { FC, ReactNode } from 'react';
 import { DateTime } from '@types/luxon';
 import { BaseDatePickerProps } from '@material-ui/pickers';
 
+export type SelectedDateTime = Date | DateTime | null;
+
 export interface DatePickerProps extends BaseDatePickerProps {
   /** Current selected date */
-  selectedDate?: Date | DateTime;
+  selectedDate?: SelectedDateTime;
   /** Input id */
   id?: string;
   /** Input name */
@@ -12,7 +14,7 @@ export interface DatePickerProps extends BaseDatePickerProps {
   /** Input label */
   label?: string;
   /** Change event handler */
-  onChange?: (value: Date) => void;
+  onChange?: (value: SelectedDateTime) => void;
   /** Date format to be rendered */
   format?: string;
   /** Use keyboard picker */
