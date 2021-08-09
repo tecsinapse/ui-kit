@@ -10,7 +10,7 @@ export interface UploaderProps<T> {
   onReject?: (files: RejectedType[]) => void;
   silent?: boolean;
   messages?: UploaderMessagesProps;
-  ref: RefObject<T>;
+  ref?: RefObject<T>;
 }
 
 declare const Uploader: <T>(props: UploaderProps<T>) => JSX.Element;
