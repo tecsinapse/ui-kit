@@ -34,6 +34,8 @@ const SimpleToolbar = ({
   columns,
   filters,
   setFilters,
+  setPage,
+  rowsPerPage,
   setLoading,
   rowCount,
   mobile,
@@ -85,6 +87,8 @@ const SimpleToolbar = ({
             advancedFilters={advancedFilters}
             setFilters={setFilters}
             filters={filters}
+            setPage={setPage}
+            rowsPerPage={rowsPerPage}
             mobile={mobile}
             customAdvancedFilters={customAdvancedFilters}
             onDrawerClose={onDrawerClose}
@@ -96,6 +100,8 @@ const SimpleToolbar = ({
           advancedFilters={advancedFilters}
           filters={filters}
           setFilters={setFilters}
+          setPage={setPage}
+          rowsPerPage={rowsPerPage}
         />
       )}
     </div>
@@ -111,6 +117,8 @@ const Toolbar = ({
   columns,
   filters,
   setFilters,
+  setPage,
+  rowsPerPage,
   setLoading,
   rowCount,
   tableToolbarHide = false,
@@ -134,6 +142,8 @@ const Toolbar = ({
         data={data}
         filters={filters}
         setFilters={setFilters}
+        setPage={setPage}
+        rowsPerPage={rowsPerPage}
         columns={columns}
         setLoading={setLoading}
         rowCount={rowCount}

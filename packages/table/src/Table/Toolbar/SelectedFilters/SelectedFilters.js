@@ -90,17 +90,24 @@ const CardFilter = ({ title, selectedValues, onDelete }) => {
   );
 };
 
-const onApplyAdvFilter = setFilters => filters => {
+const onApplyAdvFilter = (setFilters, setPage, rowsPerPage) => filters => {
   setFilters(prevFilters => ({
     ...prevFilters,
     ...filters,
-    page: 0,
     startIndex: 0,
-    stopIndex: filters.rowsPerPage - 1,
+    stopIndex: rowsPerPage - 1,
   }));
+  setPage(0);
 };
 
-const checkTypeAndApply = (setFilters, filters, name, i) => {
+const checkTypeAndApply = (
+  setFilters,
+  filters,
+  setPage,
+  rowsPerPage,
+  name,
+  i
+) => {
   const type = typeof filters.advancedFilters[name];
 
   if (type === 'string') {
@@ -112,7 +119,7 @@ const checkTypeAndApply = (setFilters, filters, name, i) => {
   } else {
     filters.advancedFilters[name].splice(i, 1);
   }
-  onApplyAdvFilter(setFilters)(filters);
+  onApplyAdvFilter(setFilters, setPage, rowsPerPage)(filters);
 };
 
 const filterOptions = (options, value) => {
@@ -125,7 +132,13 @@ const filterOptions = (options, value) => {
   return value;
 };
 
-const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
+const SelectedFilters = ({
+  advancedFilters,
+  filters,
+  setFilters,
+  setPage,
+  rowsPerPage,
+}) => {
   const [filtersSelected, setFiltersSelected] = useState([]);
 
   useEffect(() => {
@@ -177,7 +190,14 @@ const SelectedFilters = ({ advancedFilters, filters, setFilters }) => {
             title={label}
             selectedValues={values}
             onDelete={i => {
-              checkTypeAndApply(setFilters, filters, name, i);
+              checkTypeAndApply(
+                setFilters,
+                filters,
+                setPage,
+                rowsPerPage,
+                name,
+                i
+              );
             }}
           />
         ))}
