@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.7.2...@tecsinapse/table@4.0.0) (2021-09-06)
+
+
+### Bug Fixes
+
+* **table:** pagination ([7eb6338](https://github.com/tecsinapse/ui-kit/commit/7eb63388de3f4f08f5c84b721ee8d922c8f3b349))
+* paginação Table ([10766f5](https://github.com/tecsinapse/ui-kit/commit/10766f50ff907b57c6b15b77a211153ea728fa3d))
+
+
+
+
+
 ## [3.7.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@3.7.1...@tecsinapse/table@3.7.2) (2021-07-09)
 
 **Note:** Version bump only for package @tecsinapse/table
