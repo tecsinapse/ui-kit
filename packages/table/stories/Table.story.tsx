@@ -381,10 +381,13 @@ export const WithHeaderExport = args => {
       price: 3 * (index + 10),
     });
   }
+  const [page, setPage] = useState(0);
 
   return (
     <Table
       {...args}
+      page={page}
+      setPage={setPage}
       columns={exporterColumns}
       data={carsList}
       rowId={row => row.id}
@@ -422,10 +425,13 @@ export const WithFooterExport = args => {
       price: 3 * (index + 10),
     });
   }
+  const [page, setPage] = useState(0);
 
   return (
     <Table
       {...args}
+      page={page}
+      setPage={setPage}
       columns={exporterColumns}
       data={carsList}
       rowId={row => row.id}
@@ -538,10 +544,13 @@ export const WithRemoteData = args => {
       totalCount: filteredData.length,
     };
   };
+  const [page, setPage] = useState(0);
 
   return (
     <Table
       {...args}
+      page={page}
+      setPage={setPage}
       columns={serverColumns}
       data={serverData}
       rowId={row => row.code}
@@ -577,10 +586,13 @@ export const WithSorting = args => {
       price: 30000000,
     });
   }
+  const [page, setPage] = useState(0);
 
   return (
     <Table
       {...args}
+      page={page}
+      setPage={setPage}
       columns={sortColumns}
       data={carsList}
       rowId={row => row.id}
