@@ -47,10 +47,11 @@ const TableComponent = props => {
     onSelectRow,
     actions,
     toolbarOptions,
-    pagination,
+    pagination = false,
     rowsPerPageOptions,
-    rowsPerPage: rowsPerPageProp,
-    page: pageProp,
+    rowsPerPage: originalRowsPerPage,
+    page = 0,
+    setPage = undefined,
     exportOptions,
     classes: propClasses,
     forceCollapseActions,
@@ -71,21 +72,26 @@ const TableComponent = props => {
     customActionsMobile,
     headerFiltersDebounceTime = 700,
   } = props;
+
+  if (pagination && !setPage) {
+    throw new Error('[Table] You should provide pagination handlers');
+  }
+
   const classes = tableStyles(useWindowSize()[1]);
   const [rowCount, setRowCount] = useState(0);
   const [data, setData] = useState([]);
   const [pageData, setPageData] = useState([]);
   const [selectedRows, setSelectedRows] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const [rowsPerPage, setRowsPerPage] = useState(
+    rowsPerPageOptions.includes(originalRowsPerPage)
+      ? originalRowsPerPage
+      : rowsPerPageOptions[0]
+  );
+
   const [filters, setFilters] = useState(() =>
-    initializeFilters(
-      pagination,
-      rowsPerPageOptions,
-      rowsPerPageProp,
-      pageProp,
-      toolbarOptions,
-      initializeSortFunc(sortFunc)
-    )
+    initializeFilters(rowsPerPage, toolbarOptions, initializeSortFunc(sortFunc))
   );
   // Update the device
   const breakpoint = useMediaQuery(useTheme().breakpoints.down('xs'));
@@ -102,20 +108,28 @@ const TableComponent = props => {
     setLoading,
     setData,
     filters,
+    page,
+    rowsPerPage,
     setRowCount,
     mobile
   );
   useUpdateDataProp(originalData, setLoading, setData, filters, setRowCount);
 
-  useUpdatePageData(isRemoteData(originalData), data, setPageData, filters);
+  useUpdatePageData(
+    isRemoteData(originalData),
+    data,
+    setPageData,
+    page,
+    rowsPerPage
+  );
 
   const paginationOptions = {
     rowsPerPageOptions,
-    rowsPerPage: filters.rowsPerPage,
-    page: filters.page,
+    rowsPerPage,
+    page,
     rowCount,
     pagination,
-    onChangePage: onChangePage(setFilters),
+    onChangePage: onChangePage(setRowsPerPage, setPage),
     tableColumns,
   };
 
@@ -136,6 +150,8 @@ const TableComponent = props => {
         data={isRemoteData(originalData) ? originalData : data}
         filters={filters}
         setFilters={setFilters}
+        setPage={setPage}
+        rowsPerPage={rowsPerPage}
         columns={columns}
         setLoading={setLoading}
         rowCount={rowCount}
@@ -153,10 +169,14 @@ const TableComponent = props => {
             actions={actions}
             rowCount={rowCount}
             data={data}
-            onChangeStartStopIndex={onChangeStartStopIndex(setFilters)}
+            onChangeStartStopIndex={onChangeStartStopIndex(
+              setFilters,
+              setPage,
+              rowsPerPage
+            )}
             labelShowLess={labelShowLess}
             labelShowMore={labelShowMore}
-            page={filters.page}
+            page={page}
             tableHeaderHide={tableHeaderHide}
             empytStateComponent={empytStateComponent}
             customActionsMobile={customActionsMobile}
@@ -181,7 +201,7 @@ const TableComponent = props => {
                 rendered={someColumnHasFilter}
                 columns={tableColumns}
                 data={originalData}
-                onChangeFilter={onChangeHeaderFilter(setFilters)}
+                onChangeFilter={onChangeHeaderFilter(setFilters, setPage)}
                 hideSelectFilterLabel={hideSelectFilterLabel}
                 headerFiltersDebounceTime={headerFiltersDebounceTime}
               />
@@ -325,6 +345,8 @@ TableComponent.propTypes = {
   rowsPerPage: PropTypes.number,
   /** Current page number */
   page: PropTypes.number,
+  /** Current page handler */
+  setPage: PropTypes.func,
   /** CSS classes applied to root div */
   classes: PropTypes.shape({
     root: PropTypes.string,

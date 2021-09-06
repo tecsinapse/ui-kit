@@ -160,6 +160,8 @@ export interface TableProps<T> {
   rowsPerPage?: number;
   /** Current page number */
   page?: number;
+  /** Current page handler */
+  setPage?: (page: number) => void;
   /** CSS classes applied to root div */
   classes?: {
     root?: string;

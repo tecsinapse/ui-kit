@@ -10,14 +10,19 @@ import { LocaleContext } from '@tecsinapse/ui-kit';
 import Drawer from '@material-ui/core/Drawer';
 import Container from './Container/Container';
 
-const onApplyFilter = (setFilters, setOpen) => advancedFilters => {
+const onApplyFilter = (
+  setFilters,
+  setPage,
+  rowsPerPage,
+  setOpen
+) => advancedFilters => {
   setFilters(prevFilters => ({
     ...prevFilters,
     advancedFilters,
-    page: 0,
     startIndex: 0,
-    stopIndex: prevFilters.rowsPerPage - 1,
+    stopIndex: rowsPerPage - 1,
   }));
+  setPage(0);
   setOpen(false);
 };
 
@@ -29,6 +34,8 @@ const AdvancedFilters = ({
   advancedFilters,
   setFilters,
   filters,
+  setPage,
+  rowsPerPage,
   mobile,
   customAdvancedFilters,
   onDrawerClose,
@@ -84,7 +91,12 @@ const AdvancedFilters = ({
           <div style={maxSizeAdvancedFilters}>
             <Container
               advancedFilters={advancedFilters}
-              onApplyFilter={onApplyFilter(setFilters, setOpen)}
+              onApplyFilter={onApplyFilter(
+                setFilters,
+                setPage,
+                rowsPerPage,
+                setOpen
+              )}
               setFilters={setFilters}
               filters={filters}
               customAdvancedFilters={customAdvancedFilters}
@@ -102,7 +114,12 @@ const AdvancedFilters = ({
           <div style={maxSizeAdvancedFilters}>
             <Container
               advancedFilters={advancedFilters}
-              onApplyFilter={onApplyFilter(setFilters, setOpen)}
+              onApplyFilter={onApplyFilter(
+                setFilters,
+                setPage,
+                rowsPerPage,
+                setOpen
+              )}
               setFilters={setFilters}
               filters={filters}
               mobile={mobile}
