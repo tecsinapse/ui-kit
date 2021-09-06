@@ -27,7 +27,6 @@ import {
   onChangePage,
   onChangeSortFilter,
   onChangeStartStopIndex,
-  verifyPaginationHandlers,
 } from './utils/tableFunctions';
 import {
   useInitialCheckboxData,
@@ -48,11 +47,11 @@ const TableComponent = props => {
     onSelectRow,
     actions,
     toolbarOptions,
-    pagination,
-    rowsPerPageOptions: originalRowsPerPageOptions,
+    pagination = false,
+    rowsPerPageOptions,
     rowsPerPage: originalRowsPerPage,
-    page,
-    setPage,
+    page = 0,
+    setPage = undefined,
     exportOptions,
     classes: propClasses,
     forceCollapseActions,
@@ -74,7 +73,9 @@ const TableComponent = props => {
     headerFiltersDebounceTime = 700,
   } = props;
 
-  verifyPaginationHandlers(pagination, page, setPage);
+  if (pagination && !setPage) {
+    throw new Error('[Table] You should provide pagination handlers');
+  }
 
   const classes = tableStyles(useWindowSize()[1]);
   const [rowCount, setRowCount] = useState(0);
@@ -83,11 +84,10 @@ const TableComponent = props => {
   const [selectedRows, setSelectedRows] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const [rowsPerPageOptions] = useState(originalRowsPerPageOptions);
   const [rowsPerPage, setRowsPerPage] = useState(
-    originalRowsPerPageOptions.includes(originalRowsPerPage)
+    rowsPerPageOptions.includes(originalRowsPerPage)
       ? originalRowsPerPage
-      : originalRowsPerPageOptions[0]
+      : rowsPerPageOptions[0]
   );
 
   const [filters, setFilters] = useState(() =>
@@ -262,6 +262,7 @@ TableComponent.defaultProps = {
   pagination: false,
   rowsPerPageOptions: [10, 20, 30],
   rowsPerPage: null,
+  page: 0,
   exportOptions: {
     position: 'header',
   },

@@ -306,11 +306,3 @@ export const handleRowClick = (
     }
   }
 };
-
-export const verifyPaginationHandlers = (pagination, page, setPage) => {
-  console.log(pagination, page, setPage);
-
-  if (pagination && (page == undefined || !setPage)) {
-    throw new Error('[Table] You should provide pagination handlers');
-  }
-};
