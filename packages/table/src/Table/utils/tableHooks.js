@@ -22,31 +22,44 @@ export const useUpdateDataRemote = (
   setLoading,
   setData,
   filters,
+  page,
+  rowsPerPage,
   setTotalCount,
   mobile
 ) => {
   useEffect(() => {
     if (isRemoteData(originalData)) {
       setLoading(true);
-      originalData(filters).then(({ data: resultData, totalCount }) => {
-        setData(prevData => {
-          if (!mobile || !filters.loadedResolver) {
-            return [...resultData];
+      originalData({ ...filters, page, rowsPerPage }).then(
+        ({ data: resultData, totalCount }) => {
+          setData(prevData => {
+            if (!mobile || !filters.loadedResolver) {
+              return [...resultData];
+            }
+
+            return prevData.slice(0, filters.startIndex).concat(resultData);
+          });
+          setTotalCount(totalCount);
+
+          // Warns the infinity mobile loader list that the new data has been retrieved
+          if (mobile && filters.loadedResolver) {
+            filters.loadedResolver();
           }
 
-          return prevData.slice(0, filters.startIndex).concat(resultData);
-        });
-        setTotalCount(totalCount);
-
-        // Warns the infinity mobile loader list that the new data has been retrieved
-        if (mobile && filters.loadedResolver) {
-          filters.loadedResolver();
+          setLoading(false);
         }
-
-        setLoading(false);
-      });
+      );
     }
-  }, [filters, originalData, setLoading, mobile, setTotalCount, setData]);
+  }, [
+    filters,
+    originalData,
+    setLoading,
+    mobile,
+    setTotalCount,
+    setData,
+    page,
+    rowsPerPage,
+  ]);
 };
 
 export const useUpdateDataProp = (
@@ -87,7 +100,8 @@ export const useUpdatePageData = (
   isRemote,
   data,
   setPageData,
-  { page, rowsPerPage }
+  page,
+  rowsPerPage
 ) => {
   useEffect(() => {
     if (isRemote || !rowsPerPage || rowsPerPage === 0) {

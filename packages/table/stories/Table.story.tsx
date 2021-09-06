@@ -33,6 +33,7 @@ import {
 import FilterIcon from '@material-ui/icons/FilterList';
 import { resolveObj } from '@tecsinapse/es-utils';
 import { action } from '@storybook/addon-actions';
+import { useState } from 'react';
 
 export default {
   title: `Packages @tecsinapse/table`,
@@ -108,93 +109,106 @@ export const WithVerticalActions = args => (
   />
 );
 
-export const WithAdvancedFilters = args => (
-  <Table
-    {...args}
-    columns={countryColumns}
-    data={fetchData(countries)}
-    rowId={row => row.code}
-    toolbarOptions={countryOptions}
-  />
-);
+export const WithAdvancedFilters = args => {
+  const [page, setPage] = useState(0);
+
+  return (
+    <Table
+      {...args}
+      columns={countryColumns}
+      data={fetchData(countries)}
+      rowId={row => row.code}
+      toolbarOptions={countryOptions}
+      rowsPerPageOptions={[1, 2, 5, 10, 20, 30]}
+      page={page}
+      setPage={setPage}
+    />
+  );
+};
 
 WithAdvancedFilters.args = {
   pagination: true,
 };
 
-export const WithAdvancedCustomFilters = args => (
-  <Table
-    {...args}
-    columns={countryColumns}
-    data={fetchData(countries)}
-    rowId={row => row.code}
-    toolbarOptions={countryOptions}
-    onDrawerClose={action('onDrawerClose')}
-    customAdvancedFilters={{
-      applyFilters: action('applyFilters'),
-      cleanFilters: action('cleanFilters'),
-      cleanFiltersLabel: 'Limpar Filtros',
-      toolbarButton: handleClick => (
-        <Button
-          onClick={handleClick}
-          startIcon={<FilterIcon />}
-          customVariant="default"
-          style={{ whiteSpace: 'nowrap' }}
-          size="small"
-        >
-          Filtros Avançados
-        </Button>
-      ),
-      filters: (
-        <div style={{ padding: '20px 16px 20px 16px' }}>
-          <Typography variant="subtitle2">Continent</Typography>
-          <Input
-            name="continent"
-            placeholder="Continent"
-            fullWidth
-            variantDevice="web"
-            disabled
-          />
-          <Typography variant="subtitle2" style={{ marginTop: '16px' }}>
-            Languages
-          </Typography>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-evenly',
-              marginTop: '8px',
-            }}
+export const WithAdvancedCustomFilters = args => {
+  const [page, setPage] = useState(0);
+
+  return (
+    <Table
+      {...args}
+      page={page}
+      setPage={setPage}
+      columns={countryColumns}
+      data={fetchData(countries)}
+      rowId={row => row.code}
+      toolbarOptions={countryOptions}
+      onDrawerClose={action('onDrawerClose')}
+      customAdvancedFilters={{
+        applyFilters: action('applyFilters'),
+        cleanFilters: action('cleanFilters'),
+        cleanFiltersLabel: 'Limpar Filtros',
+        toolbarButton: handleClick => (
+          <Button
+            onClick={handleClick}
+            startIcon={<FilterIcon />}
+            customVariant="default"
+            style={{ whiteSpace: 'nowrap' }}
+            size="small"
           >
-            <FormControlLabel
-              control={<Switch size="small" />}
-              label="ca"
-              checked
+            Filtros Avançados
+          </Button>
+        ),
+        filters: (
+          <div style={{ padding: '20px 16px 20px 16px' }}>
+            <Typography variant="subtitle2">Continent</Typography>
+            <Input
+              name="continent"
+              placeholder="Continent"
+              fullWidth
+              variantDevice="web"
               disabled
             />
-            <FormControlLabel
-              control={<Switch size="small" />}
-              label="ar"
-              checked
-              disabled
-            />
-            <FormControlLabel
-              control={<Switch size="small" />}
-              label="ps/uz/tk"
-              checked
-              disabled
-            />
-            <FormControlLabel
-              control={<Switch size="small" />}
-              label="pt"
-              checked
-              disabled
-            />
+            <Typography variant="subtitle2" style={{ marginTop: '16px' }}>
+              Languages
+            </Typography>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-evenly',
+                marginTop: '8px',
+              }}
+            >
+              <FormControlLabel
+                control={<Switch size="small" />}
+                label="ca"
+                checked
+                disabled
+              />
+              <FormControlLabel
+                control={<Switch size="small" />}
+                label="ar"
+                checked
+                disabled
+              />
+              <FormControlLabel
+                control={<Switch size="small" />}
+                label="ps/uz/tk"
+                checked
+                disabled
+              />
+              <FormControlLabel
+                control={<Switch size="small" />}
+                label="pt"
+                checked
+                disabled
+              />
+            </div>
           </div>
-        </div>
-      ),
-    }}
-  />
-);
+        ),
+      }}
+    />
+  );
+};
 
 WithAdvancedCustomFilters.args = {
   pagination: true,

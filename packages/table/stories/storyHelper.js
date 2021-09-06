@@ -168,11 +168,9 @@ export const countryOptions = {
   },
 };
 
-export const fetchData = props => async filters => {
+export const fetchData = props => async ({ page, rowsPerPage, ...filters }) => {
   const {
     advancedFilters: { continent },
-    page,
-    rowsPerPage,
   } = filters;
 
   let {

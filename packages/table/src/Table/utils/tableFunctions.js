@@ -55,9 +55,10 @@ export const exportToCSV = (fileName, columns, data, delimeter = ';') => {
   }
 };
 
-export const onChangeHeaderFilter = setFilters => headerFilters => {
+export const onChangeHeaderFilter = (setFilters, setPage) => headerFilters => {
+  setPage(0);
   setFilters(prevFilters => {
-    const newFilters = { page: 0 };
+    const newFilters = {};
 
     newFilters.headerFilters = { ...headerFilters };
 
@@ -84,7 +85,7 @@ export const onChangeSortFilter = setFilters => (field, defaultSort) => {
   });
 };
 
-export const onChangeStartStopIndex = setFilters => ({
+export const onChangeStartStopIndex = (setFilters, setPage, rowsPerPage) => ({
   startIndex,
   stopIndex,
 }) => {
@@ -96,14 +97,18 @@ export const onChangeStartStopIndex = setFilters => ({
   setFilters(prevFilters => ({
     ...prevFilters,
     ...{ startIndex, stopIndex, loadedResolver },
-    page: Math.round(startIndex / prevFilters.rowsPerPage),
   }));
+  setPage(Math.round(startIndex / rowsPerPage));
 
   return loadedPromise;
 };
 
-export const onChangePage = setFilters => (rowsPerPage, page) => {
-  setFilters(prevFilters => ({ ...prevFilters, ...{ page, rowsPerPage } }));
+export const onChangePage = (setRowsPerPage, setPage) => (
+  rowsPerPage,
+  page
+) => {
+  setRowsPerPage(rowsPerPage);
+  setPage(page);
 };
 
 export const initializeColumns = (tableColumns, tableOptions, actions) => {
@@ -131,23 +136,13 @@ export const initializeColumns = (tableColumns, tableOptions, actions) => {
 export const isRemoteData = data => typeof data === 'function';
 
 export const initializeFilters = (
-  pagination,
-  rowsPerPageOptions,
-  rowsPerPageProp,
-  pageProp,
+  rowsPerPage,
   toolbarOptions = {},
   sortFuncInit
 ) => {
   const { advancedFilters: advancedFiltersProp } = toolbarOptions;
   const headerFilters = {};
   const advancedFilters = {};
-  let rowsPerPage = null;
-
-  if (pagination) {
-    rowsPerPage = rowsPerPageOptions.includes(rowsPerPageProp)
-      ? rowsPerPageProp
-      : rowsPerPageOptions[0];
-  }
 
   if (advancedFiltersProp) {
     advancedFiltersProp.filters.forEach(
@@ -170,8 +165,6 @@ export const initializeFilters = (
   return {
     headerFilters,
     advancedFilters,
-    page: pageProp,
-    rowsPerPage,
     ascending: true,
     sortField: '',
     sortFunc: sortFuncInit,
