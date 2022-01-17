@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/pickers",
   "description": "TecSinapse Pickers",
-  "version": "2.7.2",
+  "version": "2.8.0",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "author": {
