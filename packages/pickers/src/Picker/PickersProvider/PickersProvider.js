@@ -1,9 +1,10 @@
 import React from 'react';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { CustomDateFnsUtils } from '../../utils/startWeekSunday';
+import { ptBR } from 'date-fns/locale';
+import DateFnsUtils from '@date-io/date-fns';
 
-export const PickersProvider = ({ children, locale = 'pt-BR' }) => (
-  <MuiPickersUtilsProvider utils={CustomDateFnsUtils} locale={locale}>
+export const PickersProvider = ({ children, locale = ptBR }) => (
+  <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locale}>
     {children}
   </MuiPickersUtilsProvider>
 );

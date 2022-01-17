@@ -22,8 +22,8 @@ export default {
           <Description>
             There are several types of Picker components. To use these pickers,
             you have to specify a date provider like `moment`, `luxon` or
-            `datefns`. By default, `@tecsinapse/pickers` have a `luxon` provider
-            that you can import.
+            `datefns`. By default, `@tecsinapse/pickers` have a `date-fns`
+            provider that you can import.
           </Description>
           <ArgsTable />
         </>

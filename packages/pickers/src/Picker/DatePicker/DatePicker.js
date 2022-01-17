@@ -10,6 +10,7 @@ import {
   KeyboardDatePicker,
   MuiPickersContext,
 } from '@material-ui/pickers';
+import { endOfWeek, startOfWeek } from 'date-fns';
 
 import { isNotUndefOrNull } from '@tecsinapse/es-utils/build';
 import {
@@ -132,8 +133,8 @@ export const DatePicker = ({
     selectedDateRender,
     dayInCurrentMonth
   ) => {
-    const start = selectedDateRender.startOf('week');
-    const end = selectedDateRender.endOf('week');
+    const start = startOfWeek(selectedDateRender);
+    const end = endOfWeek(selectedDateRender);
 
     const dayIsBetween =
       utils.isAfterDay(date, start) && utils.isBeforeDay(date, end);

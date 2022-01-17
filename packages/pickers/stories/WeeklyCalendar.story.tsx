@@ -3,6 +3,7 @@ import { Title, Description, ArgsTable } from '@storybook/addon-docs/blocks';
 import { DivFlex } from '@tecsinapse/ui-kit';
 import { WeeklyCalendar } from 'Calendar/WeeklyCalendar';
 import { action } from '@storybook/addon-actions';
+import { ptBR } from 'date-fns/locale';
 
 export default {
   title: `Packages @tecsinapse/pickers/Week Calendar`,
@@ -35,5 +36,6 @@ export const Base = args => (
     onDayChange={action('onDayChange')}
     onWeekChange={action('onWeekChange')}
     currentDate={new Date()}
+    locale={ptBR}
   />
 );

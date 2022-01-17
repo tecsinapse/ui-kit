@@ -1,8 +1,7 @@
 import { FC, ReactNode } from 'react';
-import { DateTime } from '@types/luxon';
 import { BaseDatePickerProps } from '@material-ui/pickers';
 
-export type SelectedDateTime = Date | DateTime | null;
+export type SelectedDateTime = Date | null;
 
 export interface DatePickerProps extends BaseDatePickerProps {
   /** Current selected date */
@@ -20,7 +19,7 @@ export interface DatePickerProps extends BaseDatePickerProps {
   /** Use keyboard picker */
   keyboardPicker?: boolean;
   /** Dates to be pointed on calendar */
-  pointedDates?: DateTime[] | Date[];
+  pointedDates?: Date[];
   /** Input variant style */
   inputVariant?: 'standard' | 'outlined' | 'filled';
   /** Custom component render */
