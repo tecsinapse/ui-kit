@@ -1,5 +1,5 @@
 /* eslint-disable mdx/no-unused-expressions */
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -7,6 +7,17 @@ import Typography from '@material-ui/core/Typography';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import Button from '@material-ui/core/Button';
+import {
+  add,
+  format,
+  formatISO,
+  getDay,
+  isEqual,
+  parseISO,
+  startOfWeek,
+  sub,
+} from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import { styles as useStyles } from './styles';
 import DatePicker from '../Picker/DatePicker';
 import PickersProvider from '../Picker/PickersProvider';
@@ -15,6 +26,16 @@ import { fillWeekDays, WEEK_DAYS } from './utils';
 const style = { textAlign: 'center' };
 const style1 = { display: 'flex' };
 
+const daysOfTheWeek = {
+  0: 'Dom',
+  1: 'Seg',
+  2: 'Ter',
+  3: 'Qua',
+  4: 'Qui',
+  5: 'Sex',
+  6: 'Sab',
+};
+
 const WeeklyCalendarComponent = ({
   classes,
   currentDate,
@@ -22,35 +43,38 @@ const WeeklyCalendarComponent = ({
   onWeekChange,
   locale,
 }) => {
-  const [selectedDay, setSelectedDay] = useState(currentDate.setLocale(locale));
+  const [selectedDay, setSelectedDay] = useState(currentDate);
   const [weekDays, setWeekDays] = useState(
-    fillWeekDays(currentDate.setLocale(locale), WEEK_DAYS)
+    fillWeekDays(startOfWeek(currentDate), WEEK_DAYS)
   );
 
   const handleWeekChange = startDay => {
-    const localizedDate = startDay.setLocale(locale);
+    const localizedDate = startDay;
 
-    if (localizedDate.equals(weekDays[0])) {
+    if (isEqual(localizedDate, weekDays[0])) {
       return;
     }
     setWeekDays(fillWeekDays(localizedDate, WEEK_DAYS));
   };
 
-  const previousWeek = () => {
-    const nextWeekStart = selectedDay.minus({ day: 7 });
+  const previousWeek = useCallback(() => {
+    const nextWeekStart = sub(selectedDay, {
+      days: 7 + getDay(selectedDay),
+    });
 
-    setWeekDays(fillWeekDays(nextWeekStart.setLocale(locale), WEEK_DAYS));
-  };
+    setWeekDays(fillWeekDays(nextWeekStart, WEEK_DAYS));
+  }, [selectedDay]);
 
-  const nextWeek = () => {
-    const nextWeekStart = selectedDay.plus({ day: 7 });
+  const nextWeek = useCallback(() => {
+    const nextWeekStart = add(selectedDay, {
+      days: 7 - getDay(selectedDay),
+    });
 
-    setWeekDays(fillWeekDays(nextWeekStart.setLocale(locale), WEEK_DAYS));
-  };
+    setWeekDays(fillWeekDays(nextWeekStart, WEEK_DAYS));
+  }, [selectedDay]);
 
   useEffect(() => {
     onWeekChange && onWeekChange(weekDays);
-    setSelectedDay(weekDays[0]);
   }, [weekDays]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -58,7 +82,7 @@ const WeeklyCalendarComponent = ({
   }, [selectedDay]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleChange = (event, day) =>
-    !day.equals(selectedDay) && setSelectedDay(day);
+    !isEqual(parseISO(day), selectedDay) && setSelectedDay(parseISO(day));
 
   return (
     <div className={classes.root}>
@@ -66,7 +90,7 @@ const WeeklyCalendarComponent = ({
         <DatePicker
           weekly
           selectedDate={selectedDay}
-          onChange={newDate => handleWeekChange(newDate.startOf('week'))}
+          onChange={newDate => handleWeekChange(startOfWeek(newDate))}
           format="dd/MM/yyyy"
           customTextFieldComponentInput={() => (
             <Typography
@@ -75,21 +99,18 @@ const WeeklyCalendarComponent = ({
               color="primary"
               data-testid="week-header"
             >
-              {selectedDay.toFormat('MMMM, yyyy')}
+              {format(selectedDay, 'MMMM, yyyy', { locale })}
             </Typography>
           )}
         />
       </PickersProvider>
 
       <div style={style1}>
-        <Button
-          className={classes.cssButtonWeekChange}
-          onClick={() => previousWeek()}
-        >
+        <Button className={classes.cssButtonWeekChange} onClick={previousWeek}>
           <KeyboardArrowLeft />
         </Button>
         <BottomNavigation
-          value={selectedDay}
+          value={formatISO(selectedDay, { representation: 'date' })}
           onChange={handleChange}
           showLabels
           className={classes.cssButtonNavigation}
@@ -109,25 +130,22 @@ const WeeklyCalendarComponent = ({
                     color="textSecondary"
                     variant="caption"
                   >
-                    {day.get('weekdayShort')}
+                    {daysOfTheWeek[getDay(day)]}
                   </Typography>
                   <Typography
                     className={classes.weekDayValue}
                     color="textSecondary"
                     variant="body1"
                   >
-                    {day.day}
+                    {format(day, 'dd')}
                   </Typography>
                 </div>
               }
-              value={day}
+              value={formatISO(day, { representation: 'date' })}
             />
           ))}
         </BottomNavigation>
-        <Button
-          className={classes.cssButtonWeekChange}
-          onClick={() => nextWeek()}
-        >
+        <Button className={classes.cssButtonWeekChange} onClick={nextWeek}>
           <KeyboardArrowRight />
         </Button>
       </div>
@@ -139,7 +157,7 @@ const WeeklyCalendarUI = ({
   currentDate,
   onDayChange,
   onWeekChange,
-  locale,
+  locale = ptBR,
   ...other
 }) => {
   const classes = useStyles();

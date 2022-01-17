@@ -1,10 +1,9 @@
 import { FC } from 'react';
-import { DateTime } from 'luxon';
 import { BaseTimePickerProps } from '@material-ui/pickers';
 
 export interface TimePickerProps extends BaseTimePickerProps {
   /** Current selected time */
-  selectedTime: Date | DateTime;
+  selectedTime: Date;
   /** Input id */
   id?: string;
   /** Input label */

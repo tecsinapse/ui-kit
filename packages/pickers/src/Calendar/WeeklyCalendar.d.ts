@@ -3,11 +3,11 @@ import { DateTime } from 'luxon';
 
 export interface WeeklyCalendarProps {
   /** Day change event handler */
-  onDayChange?: (day: DateTime) => void;
+  onDayChange?: (day: Date) => void;
   /** Week change event handler */
-  onWeekChange?: (week: DateTime[] | Date[]) => void;
+  onWeekChange?: (week: Date[]) => void;
   /** Initial date */
-  currentDate: Date | DateTime;
+  currentDate: Date;
   /** Locale language code to format date */
   locale?: string;
 }
