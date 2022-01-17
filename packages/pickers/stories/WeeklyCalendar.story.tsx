@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Title, Description, ArgsTable } from '@storybook/addon-docs/blocks';
 import { DivFlex } from '@tecsinapse/ui-kit';
 import { WeeklyCalendar } from 'Calendar/WeeklyCalendar';
-import { DateTime } from 'luxon';
 import { action } from '@storybook/addon-actions';
 
 export default {
@@ -35,6 +34,6 @@ export const Base = args => (
     {...args}
     onDayChange={action('onDayChange')}
     onWeekChange={action('onWeekChange')}
-    currentDate={DateTime.local()}
+    currentDate={new Date()}
   />
 );

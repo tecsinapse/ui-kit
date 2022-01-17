@@ -1,7 +1,7 @@
-import LuxonUtils from '@date-io/luxon';
+import DateFnsUtils from '@date-io/date-fns';
 import DataWrapper from './DataWrapper';
 
-export class CustomLuxonUtils extends LuxonUtils {
+export class CustomDateFnsUtils extends DateFnsUtils {
   dayNames = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
 
   wrapper;

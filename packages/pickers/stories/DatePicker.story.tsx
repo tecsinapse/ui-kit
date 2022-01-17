@@ -3,9 +3,9 @@ import { Title, Description, ArgsTable } from '@storybook/addon-docs/blocks';
 import { DivFlex } from '@tecsinapse/ui-kit';
 import { DatePicker } from 'Picker/DatePicker/DatePicker';
 import { PickersProvider } from 'Picker/PickersProvider/PickersProvider';
-import { DateTime } from 'luxon';
 import { Typography } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
+import { format, parseISO } from 'date-fns';
 
 export default {
   title: `Packages @tecsinapse/pickers/Date Picker`,
@@ -49,7 +49,7 @@ export const Base = args => {
           action('onChange')(date);
           setSelectedDate(date);
         }}
-        pointedDates={[DateTime.fromISO('2014-08-25T09:08:34.123')]}
+        pointedDates={[parseISO('2014-08-25T09:08:34.123')]}
       />
     </PickersProvider>
   );
@@ -61,7 +61,7 @@ Base.args = {
 
 export const CustomInput = args => {
   const [selectedDate, setSelectedDate] = React.useState(
-    DateTime.fromISO('2019-08-25T09:08:34.123')
+    parseISO('2019-08-25T09:08:34.123')
   );
 
   return (
@@ -75,7 +75,7 @@ export const CustomInput = args => {
         }}
         customTextFieldComponentInput={() => (
           <Typography variant="h6" color="secondary">
-            {selectedDate.setLocale('pt-BR').toFormat('MMMM, yyyy')}
+            {format(selectedDate, 'MM, yyyy')}
           </Typography>
         )}
       />
