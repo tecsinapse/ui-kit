@@ -106,7 +106,7 @@ export const DateTimePicker = ({
         <IconButton className={dayClassName}>
           <span>
             <Typography variant="body2" color="inherit">
-              {utils.getDayText(date)}{' '}
+              {utils.getDayText(date)}
             </Typography>
           </span>
           {isPointed && (
