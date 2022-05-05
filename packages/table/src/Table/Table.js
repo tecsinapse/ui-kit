@@ -224,7 +224,8 @@ const TableComponent = props => {
                 {exportOptions?.position === 'footer' && (
                   <TableCell
                     colSpan={
-                      exportOptions?.footerSpan || Math.ceil(columns.length / 2)
+                      exportOptions?.footerSpan ||
+                      Math.ceil(columns.filter(it => it.visible).length / 2)
                     }
                   >
                     <Exporter
