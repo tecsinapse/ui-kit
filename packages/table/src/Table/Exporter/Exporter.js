@@ -76,6 +76,53 @@ const Exporter = ({
     return null;
   }
 
+  if (position === 'footer') {
+    const whiteSpace = { whiteSpace: 'nowrap' };
+    const typoLabel = { fontWeight: '500', fontSize: '0.875rem' };
+
+    const handleFooterExport = async (type, delimeter, exportFunc) => {
+      if (exportFunc || type === 'custom') {
+        exportFunc(data, columns);
+        setAnchorEl(false);
+      } else {
+        await exportData(
+          type,
+          exportFileName,
+          columns,
+          data,
+          setAnchorEl,
+          delimeter,
+          filters,
+          setLoading,
+          rowCount
+        );
+      }
+    };
+
+    return (
+      <Button
+        onClick={() =>
+          handleFooterExport(
+            exportTypes[0]?.type,
+            exportTypes[0]?.delimeter,
+            exportTypes[0]?.exportFunc
+          )
+        }
+        style={whiteSpace}
+        variant="contained"
+        color={renderStyledColor(theme.variant)}
+        size="small"
+      >
+        <Icon
+          path={mdiDownload}
+          size={1}
+          color={theme.palette.primary.contrastText}
+        />
+        <Typography style={typoLabel}>{exportTypes[0]?.label}</Typography>
+      </Button>
+    );
+  }
+
   const handleExport = async (type, delimeter, exportFunc) => {
     if (exportFunc || type === 'custom') {
       exportFunc(data, columns);
@@ -94,30 +141,6 @@ const Exporter = ({
       );
     }
   };
-
-  if (position === 'footer') {
-    const whiteSpace = { whiteSpace: 'nowrap' };
-    const typoLabel = { fontWeight: '500', fontSize: '0.875rem' };
-
-    const handleFooterExport = () => exportTypes[0]?.exportFunc(data, columns);
-
-    return (
-      <Button
-        onClick={handleFooterExport}
-        style={whiteSpace}
-        variant="contained"
-        color={renderStyledColor(theme.variant)}
-        size="small"
-      >
-        <Icon
-          path={mdiDownload}
-          size={1}
-          color={theme.palette.primary.contrastText}
-        />
-        <Typography style={typoLabel}>{exportTypes[0]?.label}</Typography>
-      </Button>
-    );
-  }
 
   return (
     <>
