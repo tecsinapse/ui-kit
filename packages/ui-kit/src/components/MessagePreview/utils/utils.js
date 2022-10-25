@@ -8,7 +8,7 @@ export const lineBreak = str => {
 };
 
 export const monospace = str => {
-  const code = /```([_~*0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\-\[\]{},. \s]+)```/g;
+  const code = /```([_~*0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-\[\] \s]+)```/g;
 
   return str.replace(code, (match, value) =>
     typeof value != 'undefined' ? `<code>${value}</code>` : match
@@ -16,7 +16,7 @@ export const monospace = str => {
 };
 
 export const italic = str => {
-  const italic = /_([0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ{}\-\[\],.~* \s]+)_/g;
+  const italic = /_([~*`0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-\[\] \s]+)_/g;
 
   return str.replace(italic, (match, value) =>
     typeof value != 'undefined' ? `<i>${value}</i>` : match
@@ -24,7 +24,7 @@ export const italic = str => {
 };
 
 export const strikethrough = str => {
-  const strike = /~([0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ{}\-\[\],.* \s]+)~/g;
+  const strike = /~([_*`0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-\[\] \s]+)~/g;
 
   return str.replace(strike, (match, value) =>
     typeof value != 'undefined' ? `<s>${value}</s>` : match
@@ -32,7 +32,7 @@ export const strikethrough = str => {
 };
 
 export const bold = str => {
-  const bold = /\*([0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ{}\-\[\],.~* \s]+)\*/g;
+  const bold = /\*([_~`0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-\[\] \s]+)\*/g;
 
   return str.replace(bold, (match, value) =>
     typeof value != 'undefined' ? `<strong>${value}</strong>` : match
