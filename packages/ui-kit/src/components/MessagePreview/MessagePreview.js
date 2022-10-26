@@ -9,7 +9,7 @@ import { MessageButtons } from './components/MessageButtons';
 
 const useStyles = makeStyles(cardStyle);
 
-const MessagePreview = ({ unformattedText, buttons }) => {
+export const MessagePreview = ({ unformattedText, buttons }) => {
   const classes = useStyles();
   const [formattedText, setFormattedText] = useState();
 
@@ -18,8 +18,16 @@ const MessagePreview = ({ unformattedText, buttons }) => {
   }, [unformattedText]);
 
   return (
-    <>
-      <Grid className={classes.body} data-testid="test-render-message-preview">
+    <Grid
+      className={classes.body}
+      container
+      justify="flex-start"
+      alignContent="center"
+    >
+      <Grid
+        className={classes.message}
+        data-testid="test-render-message-preview"
+      >
         <Grid className={classes.card}>
           <Grid className={classes.cardText}>
             <Typography
@@ -29,20 +37,26 @@ const MessagePreview = ({ unformattedText, buttons }) => {
             <div className={classes.textTime}>18:00</div>
           </Grid>
         </Grid>
-        <Grid className={classes.cardButtons}>
-          <MessageButtons buttons={buttons} classes={classes} />
-        </Grid>
+        {buttons?.length > 0 && (
+          <Grid className={classes.cardButtons}>
+            <MessageButtons buttons={buttons} classes={classes} />
+          </Grid>
+        )}
       </Grid>
-    </>
+    </Grid>
   );
 };
 
-export { MessagePreview };
-export default MessagePreview;
-
 MessagePreview.propTypes = {
   /** plain message */
-  unformattedMessage: PropTypes.string,
+  unformattedText: PropTypes.string.isRequired,
   /** array of buttons that should be displayed */
   buttons: PropTypes.array,
 };
+
+MessagePreview.defaultProps = {
+  unformattedText: 'O _*Modelo de Mensagem*_ aparece aqui, após selecionado',
+  buttons: [],
+};
+
+export default MessagePreview;

@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { ArgsTable, Description, Title } from '@storybook/addon-docs/blocks';
 import { MessagePreview } from 'components/MessagePreview';
 import { DivFlex } from 'components/DivFlex';
 import { GROUPS } from 'hierarchySeparators';
 import { Grid } from '@material-ui/core';
-import { Divider, Input } from '../../build';
 
 export default {
   title: `${GROUPS.COMPONENTS}/MessagePreview`,
@@ -33,36 +31,20 @@ export default {
 };
 
 export const Base = args => {
-  const { unformattedMessage, buttons } = args;
-  const [field, setField] = useState(unformattedMessage || '');
-
-  const handleSetField = event => setField(event.target.value);
+  const { unformattedText, buttons } = args;
 
   return (
-    <Grid
-      container
-      alignContent="center"
-      justify="center"
-      alignItems="center"
-      direction="row"
-      spacing={2}
-      style={{ height: '500px' }}
-    >
-      <Grid item>
-        <MessagePreview unformattedText={field} buttons={buttons} />
-      </Grid>
-      <Grid item xs={12}>
-        <Divider variant="solid" />
-      </Grid>
-      <Grid item>
-        <Input
-          multiline
-          placeholder="Texto da mensagem"
-          name="Texto da mensagem"
-          type="text"
-          onChange={event => handleSetField(event)}
-          value={field}
-        />
+    <Grid item xs={6}>
+      <Grid
+        container
+        alignContent="center"
+        alignItems="center"
+        justify="center"
+        direction="column"
+      >
+        <Grid item xs={6}>
+          <MessagePreview unformattedText={unformattedText} buttons={buttons} />
+        </Grid>
       </Grid>
     </Grid>
   );
@@ -70,7 +52,7 @@ export const Base = args => {
 
 Base.args = {
   /** plain message */
-  unformattedMessage:
+  unformattedText:
     '\uD83D\uDEA6 *CONFIRMAÇÃO DE AGENDAMENTO - {{1}}*\n\nOlá {{2}},\n{{1}} agradece sua preferência! \uD83D\uDE98\n\nTemos um horário agendado para o dia {{3}}\n{{4}}\nPodemos Confirmar?',
   /** buttons of message*/
   buttons: [

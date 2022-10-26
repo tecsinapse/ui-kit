@@ -1,5 +1,15 @@
+import image from './images/backgroundImage.jpg';
+
 export const cardStyle = () => ({
   body: {
+    width: '400px',
+    padding: '1.3vh 0px 5vh 6vh',
+    filter: 'drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.55))',
+    backgroundImage: `url(${image})`,
+    backgroundSize: 'cover',
+    borderRadius: '6px 6px 6px 6px',
+  },
+  message: {
     display: 'flex',
     flexDirection: 'column',
     alignItem: 'flex-end',
@@ -78,7 +88,6 @@ export const cardStyle = () => ({
 
     gap: '2px',
     width: '232px',
-    height: '52px',
 
     /* Inside auto layout */
 
@@ -110,7 +119,12 @@ export const cardStyle = () => ({
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
+    textTransform: 'none',
 
     color: '#2CB3F2',
+
+    '&:hover': {
+      background: '#e5e5e5',
+    },
   },
 });
