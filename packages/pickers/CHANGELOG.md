@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.8.0...@tecsinapse/pickers@2.8.1) (2022-10-27)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
 # [2.8.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.7.2...@tecsinapse/pickers@2.8.0) (2022-01-17)
 
 
