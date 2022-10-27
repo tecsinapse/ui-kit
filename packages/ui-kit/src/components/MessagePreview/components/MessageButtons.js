@@ -10,7 +10,7 @@ export const MessageButtons = ({ buttons, classes }) => {
   );
 
   const descriptionIsLong = () =>
-    buttons.length === 1
+    buttons?.length === 1
       ? false
       : buttons.filter((it, index) => it.description.length > 14 && index < 2)
           .length > 0;
