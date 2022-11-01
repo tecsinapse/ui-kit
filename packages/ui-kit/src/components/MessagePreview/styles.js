@@ -1,11 +1,9 @@
-import image from './images/backgroundImage.jpg';
-
 export const cardStyle = () => ({
   body: {
     width: '400px',
     padding: '1.3vh 0px 5vh 6vh',
     filter: 'drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.55))',
-    backgroundImage: `url(${image})`,
+    backgroundImage: `url(https://cdn.portaltecsinapse.com.br/src/chat-component/message-preview-background.jpg)`,
     backgroundSize: 'cover',
     borderRadius: '6px 6px 6px 6px',
   },
