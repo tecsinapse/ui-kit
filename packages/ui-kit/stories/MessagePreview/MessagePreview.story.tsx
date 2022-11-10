@@ -31,7 +31,7 @@ export default {
 };
 
 export const Base = args => {
-  const { unformattedText, buttons } = args;
+  const { unformattedText, buttons, media, header, footer } = args;
 
   return (
     <Grid item xs={6}>
@@ -43,7 +43,13 @@ export const Base = args => {
         direction="column"
       >
         <Grid item xs={6}>
-          <MessagePreview unformattedText={unformattedText} buttons={buttons} />
+          <MessagePreview
+            unformattedText={unformattedText}
+            buttons={buttons}
+            media={media}
+            header={header}
+            footer={footer}
+          />
         </Grid>
       </Grid>
     </Grid>
@@ -69,4 +75,8 @@ Base.args = {
       description: 'Encerrar',
     },
   ],
+  media:
+    'https://quatrorodas.abril.com.br/wp-content/uploads/2016/11/5658cb0e52657372a136b3a8novofocus2016-se1-6-39.jpeg?quality=70&strip=all',
+  header: undefined,
+  footer: undefined,
 };

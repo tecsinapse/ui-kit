@@ -1,6 +1,15 @@
+export const IMAGE = ['MEDIA_IMAGE', 'IMAGE'];
+
+export const VIDEO = ['MEDIA_VIDEO', 'VIDEO'];
+
+export const DOCUMENT = ['MEDIA_DOCUMENT', 'DOCUMENT'];
+
+export const isMedia = header =>
+  DOCUMENT.concat(VIDEO).concat(IMAGE).includes(header);
+
 export const lineBreak = str => {
   if (!str) {
-    return;
+    return str;
   }
   const br = /\n/g;
 
@@ -8,40 +17,40 @@ export const lineBreak = str => {
 };
 
 export const monospace = str => {
-  const code = /```([_~*0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-\[\] \s]+)```/g;
+  const rgx = /```([_~*0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-[\] \s]+)```/g;
 
-  return str.replace(code, (match, value) =>
+  return str.replace(rgx, (match, value) =>
     typeof value != 'undefined' ? `<code>${value}</code>` : match
   );
 };
 
 export const italic = str => {
-  const italic = /_([~*`0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-\[\] \s]+)_/g;
+  const rgx = /_([~*`0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-[\] \s]+)_/g;
 
-  return str.replace(italic, (match, value) =>
+  return str.replace(rgx, (match, value) =>
     typeof value != 'undefined' ? `<i>${value}</i>` : match
   );
 };
 
 export const strikethrough = str => {
-  const strike = /~([_*`0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-\[\] \s]+)~/g;
+  const rgx = /~([_*`0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-[\] \s]+)~/g;
 
-  return str.replace(strike, (match, value) =>
+  return str.replace(rgx, (match, value) =>
     typeof value != 'undefined' ? `<s>${value}</s>` : match
   );
 };
 
 export const bold = str => {
-  const bold = /\*([_~`0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-\[\] \s]+)\*/g;
+  const rgx = /\*([_~`0-9A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ^{}()!@#$%&=/+<>"'?;:,.\-[\] \s]+)\*/g;
 
-  return str.replace(bold, (match, value) =>
+  return str.replace(rgx, (match, value) =>
     typeof value != 'undefined' ? `<strong>${value}</strong>` : match
   );
 };
 
 export const normalizeInHtml = str => {
   if (!str) {
-    return;
+    return str;
   }
 
   return bold(strikethrough(italic(monospace(str))));

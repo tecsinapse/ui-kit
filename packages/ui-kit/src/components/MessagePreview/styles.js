@@ -1,11 +1,16 @@
 export const cardStyle = () => ({
   body: {
+    fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
     width: '400px',
     padding: '1.3vh 0px 5vh 6vh',
     filter: 'drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.55))',
     backgroundImage: `url(https://cdn.portaltecsinapse.com.br/src/chat-component/message-preview-background.jpg)`,
     backgroundSize: 'cover',
     borderRadius: '6px 6px 6px 6px',
+  },
+  footer: {
+    marginTop: '-3px',
+    width: '215px',
   },
   message: {
     display: 'flex',
@@ -64,17 +69,41 @@ export const cardStyle = () => ({
     alignSelf: 'stretch',
     flexGrou: 0,
   },
+  textHeader: {
+    width: '206px',
+    margin: '-4px 0 -2px 0',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    fontSize: '13px',
+    lineHeight: '13px',
+
+    color: '#000000',
+  },
+  textFooter: {
+    margin: '2px 0 -5px 0',
+    width: '180px',
+    fontSize: '10px',
+    lineHeight: '11px',
+    alignItems: 'center',
+    textAlign: 'left',
+
+    color: '#00000073',
+
+    flex: 'none',
+    order: 1,
+    alignSelf: 'stretch',
+  },
   textTime: {
-    height: '11px',
+    marginBottom: '-5px',
     fontSize: '9px',
     lineHeight: '11px',
     alignItems: 'center',
     textAlign: 'right',
 
-    color: '#858585',
+    color: '#00000073',
 
     flex: 'none',
-    order: 1,
+    order: 2,
     alignSelf: 'stretch',
   },
   cardButtons: {
@@ -86,8 +115,6 @@ export const cardStyle = () => ({
 
     gap: '2px',
     width: '232px',
-
-    /* Inside auto layout */
 
     flex: 'none',
     order: 1,
@@ -112,8 +139,6 @@ export const cardStyle = () => ({
     fontSize: '11px',
     background: '#FFFFFF',
 
-    /* identical to box height */
-
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
@@ -124,5 +149,13 @@ export const cardStyle = () => ({
     '&:hover': {
       background: '#e5e5e5',
     },
+  },
+  image: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    borderRadius: '6px 6px 6px 6px',
+    width: '215px',
+    color: '#858585',
   },
 });
