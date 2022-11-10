@@ -22,9 +22,9 @@ export const Media = ({ header, media, classes }) => {
 
   return (
     <div className={classes.image}>
-      {IMAGE.includes(header) && MediaImage()}
-      {VIDEO.includes(header) && MediaVideo()}
-      {DOCUMENT.includes(header) && MediaDocument()}
+      {IMAGE.includes(header) && <MediaImage />}
+      {VIDEO.includes(header) && <MediaVideo />}
+      {DOCUMENT.includes(header) && <MediaDocument />}
     </div>
   );
 };

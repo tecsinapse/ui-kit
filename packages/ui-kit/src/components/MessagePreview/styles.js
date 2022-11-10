@@ -18,7 +18,6 @@ export const cardStyle = () => ({
     alignItem: 'flex-end',
     padding: '0px',
     gap: '2px',
-
     position: 'relative',
     width: '232px',
 
@@ -36,7 +35,6 @@ export const cardStyle = () => ({
   card: {
     padding: '0px',
     filter: 'drop-shadow(5px 5px 6px rgba(0, 0, 0, 0.25))',
-
     flex: 'none',
     order: 0,
     flexGrow: 0,
@@ -47,10 +45,8 @@ export const cardStyle = () => ({
     alignItems: 'flex-start',
     padding: '10px',
     gap: '10px',
-
     background: '#ffffff',
     borderRadius: '0px 6px 6px 6px',
-
     flex: 'none',
     order: 1,
     flexGrow: 0,
@@ -61,9 +57,7 @@ export const cardStyle = () => ({
     fontWeight: 400,
     fontSize: '11px',
     lineHeight: '13px',
-
     color: '#000000de',
-
     flex: 'none',
     order: 0,
     alignSelf: 'stretch',
@@ -76,7 +70,6 @@ export const cardStyle = () => ({
     fontWeight: 'bold',
     fontSize: '13px',
     lineHeight: '13px',
-
     color: '#000000de',
   },
   textFooter: {
@@ -86,9 +79,7 @@ export const cardStyle = () => ({
     lineHeight: '11px',
     alignItems: 'center',
     textAlign: 'left',
-
     color: '#00000073',
-
     flex: 'none',
     order: 1,
     alignSelf: 'stretch',
@@ -99,9 +90,7 @@ export const cardStyle = () => ({
     lineHeight: '11px',
     alignItems: 'center',
     textAlign: 'right',
-
     color: '#00000073',
-
     flex: 'none',
     order: 2,
     alignSelf: 'stretch',
@@ -112,10 +101,8 @@ export const cardStyle = () => ({
     alignItems: 'flex-start',
     padding: '0px',
     filter: 'drop-shadow(5px 5px 6px rgba(0, 0, 0, 0.25))',
-
     gap: '2px',
     width: '232px',
-
     flex: 'none',
     order: 1,
     flexGrow: 0,
@@ -127,23 +114,19 @@ export const cardStyle = () => ({
     justifyContent: 'space-around',
     padding: '0px',
     gap: '2px',
-
     width: '232px',
   },
   button: {
     width: '100%',
-
     fontStyle: 'normal',
     fontWeight: 500,
     lineHeight: '13px',
     fontSize: '11px',
     background: '#FFFFFF',
-
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
     textTransform: 'none',
-
     color: '#2CB3F2',
 
     '&:hover': {

@@ -76,7 +76,7 @@ Base.args = {
     },
   ],
   media:
-    'https://quatrorodas.abril.com.br/wp-content/uploads/2016/11/5658cb0e52657372a136b3a8novofocus2016-se1-6-39.jpeg?quality=70&strip=all',
+    'https://cdn.portaltecsinapse.com.br/src/chat-component/template-image-example.jpg',
   header: undefined,
   footer: undefined,
 };

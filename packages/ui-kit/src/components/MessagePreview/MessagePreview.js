@@ -24,11 +24,8 @@ export const MessagePreview = ({
     setFormattedText(normalizeInHtml(lineBreak(unformattedText)));
   }, [unformattedText]);
 
-  const currentTime = () => {
-    const date = new Date();
-
-    return `${date.toLocaleTimeString('pt-BR', { timeStyle: 'short' })}`;
-  };
+  const currentTime = () =>
+    `${new Date().toLocaleTimeString('pt-BR', { timeStyle: 'short' })}`;
 
   return (
     <Grid
@@ -43,7 +40,9 @@ export const MessagePreview = ({
       >
         <Grid className={classes.card}>
           <Grid className={classes.cardText}>
-            {header && PreviewHeader(header, media, classes)}
+            {header && (
+              <PreviewHeader header={header} media={media} classes={classes} />
+            )}
             <Typography
               className={classes.text}
               dangerouslySetInnerHTML={{ __html: formattedText }}
@@ -78,7 +77,6 @@ MessagePreview.propTypes = {
 };
 
 MessagePreview.defaultProps = {
-  unformattedText: 'O _*Modelo de Mensagem*_ aparece aqui, após selecionado',
   buttons: [],
   media: undefined,
   header: undefined,
