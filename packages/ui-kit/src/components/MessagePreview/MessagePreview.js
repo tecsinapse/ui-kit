@@ -66,7 +66,7 @@ export const MessagePreview = ({
 
 MessagePreview.propTypes = {
   /** plain message */
-  unformattedText: PropTypes.string,
+  unformattedText: PropTypes.string.isRequired,
   /** array of buttons that should be displayed */
   buttons: PropTypes.array,
   /** media link */
