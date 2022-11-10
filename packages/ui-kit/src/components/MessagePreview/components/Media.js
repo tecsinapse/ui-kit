@@ -9,12 +9,16 @@ export const Media = ({ header, media, classes }) => {
       return <img className={classes.image} src={media} alt={header} />;
     }
 
-    return <Icon path={mdiCamera} size={5} />;
+    return <Icon className={classes.icon} path={mdiCamera} />;
   };
 
-  const MediaVideo = () => <Icon path={mdiVideoOutline} size={5} />;
+  const MediaVideo = () => (
+    <Icon className={classes.icon} path={mdiVideoOutline} />
+  );
 
-  const MediaDocument = () => <Icon path={mdiFileDocumentOutline} size={5} />;
+  const MediaDocument = () => (
+    <Icon className={classes.icon} path={mdiFileDocumentOutline} />
+  );
 
   return (
     <div className={classes.image}>

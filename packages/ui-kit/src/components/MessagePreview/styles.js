@@ -62,7 +62,7 @@ export const cardStyle = () => ({
     fontSize: '11px',
     lineHeight: '13px',
 
-    color: '#000000',
+    color: '#000000de',
 
     flex: 'none',
     order: 0,
@@ -77,7 +77,7 @@ export const cardStyle = () => ({
     fontSize: '13px',
     lineHeight: '13px',
 
-    color: '#000000',
+    color: '#000000de',
   },
   textFooter: {
     margin: '2px 0 -5px 0',
@@ -156,6 +156,12 @@ export const cardStyle = () => ({
     alignItems: 'center',
     borderRadius: '6px 6px 6px 6px',
     width: '215px',
-    color: '#858585',
+    color: '#',
+    background: '#F5F5F5;',
+  },
+  icon: {
+    width: '5rem',
+    color: '#000000de',
+    padding: '30px 0',
   },
 });
