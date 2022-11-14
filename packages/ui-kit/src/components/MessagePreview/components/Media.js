@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '@mdi/react';
-import { mdiCamera, mdiFileDocumentOutline, mdiVideoOutline } from '@mdi/js';
+import { mdiImage, mdiPdfBox, mdiVideoBox } from '@mdi/js';
 import { DOCUMENT, IMAGE, VIDEO } from '../utils/utils';
 
 export const Media = ({ header, media, classes }) => {
@@ -9,15 +9,13 @@ export const Media = ({ header, media, classes }) => {
       return <img className={classes.image} src={media} alt={header} />;
     }
 
-    return <Icon className={classes.icon} path={mdiCamera} />;
+    return <Icon className={classes.icon} path={mdiImage} />;
   };
 
-  const MediaVideo = () => (
-    <Icon className={classes.icon} path={mdiVideoOutline} />
-  );
+  const MediaVideo = () => <Icon className={classes.icon} path={mdiVideoBox} />;
 
   const MediaDocument = () => (
-    <Icon className={classes.icon} path={mdiFileDocumentOutline} />
+    <Icon className={classes.icon} path={mdiPdfBox} />
   );
 
   return (
