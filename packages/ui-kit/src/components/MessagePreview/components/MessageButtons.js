@@ -1,45 +1,68 @@
 import Grid from '@material-ui/core/Grid';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../../Buttons';
 
 export const MessageButtons = ({ buttons, classes }) => {
-  const MessageButton = description => (
-    <Button className={classes.button} key={description}>
+  const [previewButtons, setPreviewButtons] = useState([]);
+
+  useEffect(() => {
+    if (buttons?.length > 0) {
+      buttons.forEach((it, index) => {
+        if (typeof it === 'string') {
+          previewButtons.push({ position: index + 1, description: it });
+        } else {
+          previewButtons.push(it);
+        }
+      });
+
+      setPreviewButtons(previewButtons);
+    }
+  }, [buttons, previewButtons, setPreviewButtons]);
+
+  const MessageButton = ({ description }) => (
+    <Button type="button" className={classes.button} key={description}>
       {description}
     </Button>
   );
 
   const descriptionIsLong = () =>
-    buttons?.length === 1
+    previewButtons?.length === 1
       ? false
-      : buttons.filter((it, index) => it.description.length > 14 && index < 2)
-          .length > 0;
+      : previewButtons.filter(
+          (it, index) => it.description.length > 14 && index < 2
+        ).length > 0;
 
   return (
     <>
-      {buttons?.length <= 2 && !descriptionIsLong() && (
+      {previewButtons?.length <= 2 && !descriptionIsLong() && (
         <Grid className={classes.buttons}>
-          {buttons.map(it => MessageButton(it.description))}
+          {previewButtons.map(it => (
+            <MessageButton description={it.description} />
+          ))}
         </Grid>
       )}
-      {buttons?.length >= 2 &&
+      {previewButtons?.length >= 2 &&
         descriptionIsLong() &&
-        buttons.map(it => (
+        previewButtons.map(it => (
           <Grid key={it.position} className={classes.buttons}>
-            {MessageButton(it.description)}
+            <MessageButton description={it.description} />
           </Grid>
         ))}
-      {buttons?.length > 2 && !descriptionIsLong() && (
+      {previewButtons?.length > 2 && !descriptionIsLong() && (
         <>
           <Grid className={classes.buttons}>
-            {buttons
+            {previewButtons
               .filter(it => it.position < 3)
-              .map(it => MessageButton(it.description))}
+              .map(it => (
+                <MessageButton description={it.description} />
+              ))}
           </Grid>
           <Grid className={classes.buttons}>
-            {buttons
+            {previewButtons
               .filter(it => it.position > 2)
-              .map(it => MessageButton(it.description))}
+              .map(it => (
+                <MessageButton description={it.description} />
+              ))}
           </Grid>
         </>
       )}
