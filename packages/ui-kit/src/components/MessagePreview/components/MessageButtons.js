@@ -6,7 +6,7 @@ export const MessageButtons = ({ buttons, classes }) => {
   const [previewButtons, setPreviewButtons] = useState([]);
 
   useEffect(() => {
-    if (buttons?.length > 0) {
+    if (buttons?.length > 0 && previewButtons.length === 0) {
       buttons.forEach((it, index) => {
         if (typeof it === 'string') {
           previewButtons.push({ position: index + 1, description: it });
