@@ -24,6 +24,7 @@ export { ValueSlider, DateSlider } from './components/Slider';
 export { Card } from './components/Card';
 export { Select, SelectUnstyled } from './components/Select';
 export { MessagePreview } from './components/MessagePreview';
+export { MessagePreviewUtils } from './components/MessagePreview/utils';
 
 export { default as ThemeProvider } from './ThemeProvider';
 export {

@@ -7,7 +7,7 @@ export const DOCUMENT = ['MEDIA_DOCUMENT', 'DOCUMENT'];
 export const isMedia = header =>
   DOCUMENT.concat(VIDEO).concat(IMAGE).includes(header);
 
-export const lineBreak = str => {
+const lineBreak = str => {
   if (!str) {
     return str;
   }
@@ -48,10 +48,12 @@ export const bold = str => {
   );
 };
 
-export const normalizeInHtml = str => {
+const normalizeInHtml = str => {
   if (!str) {
     return str;
   }
 
   return bold(strikethrough(italic(monospace(str))));
 };
+
+export default { normalizeInHtml, lineBreak };

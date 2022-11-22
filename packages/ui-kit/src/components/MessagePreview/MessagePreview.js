@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import { cardStyle } from './styles';
-import { lineBreak, normalizeInHtml } from './utils/utils';
+import { MessagePreviewUtils } from './utils';
 import { MessageButtons } from './components/MessageButtons';
 import { PreviewHeader } from './components/PreviewHeader';
 
@@ -21,7 +21,10 @@ export const MessagePreview = ({
   const [formattedText, setFormattedText] = useState();
 
   useEffect(() => {
-    setFormattedText(normalizeInHtml(lineBreak(unformattedText)));
+    let formatted = MessagePreviewUtils.lineBreak(unformattedText);
+
+    formatted = MessagePreviewUtils.normalizeInHtml(formatted);
+    setFormattedText(formatted);
   }, [unformattedText]);
 
   const currentTime = () =>
