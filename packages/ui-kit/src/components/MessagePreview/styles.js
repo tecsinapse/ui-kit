@@ -118,21 +118,19 @@ export const cardStyle = () => ({
   },
   button: {
     width: '100%',
-    fontStyle: 'normal',
     fontWeight: 500,
-    lineHeight: '13px',
-    fontSize: '11px',
     background: '#FFFFFF',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     textAlign: 'center',
-    textTransform: 'none',
+    padding: '6px 8px',
+    borderRadius: '4px',
+    fontSize: '11px',
+    fontStyle: 'normal',
+    lineHeight: '13px',
+    letterSpacing: '0.02857em',
     color: '#2CB3F2',
-
-    '&:hover': {
-      background: '#FFFFFF',
-      cursor: 'default',
-    },
   },
   image: {
     display: 'flex',

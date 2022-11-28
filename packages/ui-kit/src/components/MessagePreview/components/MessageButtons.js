@@ -1,6 +1,5 @@
 import Grid from '@material-ui/core/Grid';
 import React, { useEffect, useState } from 'react';
-import { Button } from '../../Buttons';
 
 export const MessageButtons = ({ buttons, classes }) => {
   const [previewButtons, setPreviewButtons] = useState([]);
@@ -20,9 +19,9 @@ export const MessageButtons = ({ buttons, classes }) => {
   }, [buttons, previewButtons, setPreviewButtons]);
 
   const MessageButton = ({ description }) => (
-    <Button type="button" className={classes.button} key={description}>
+    <div className={classes.button} key={description}>
       {description}
-    </Button>
+    </div>
   );
 
   const descriptionIsLong = () =>
