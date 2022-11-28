@@ -130,7 +130,8 @@ export const cardStyle = () => ({
     color: '#2CB3F2',
 
     '&:hover': {
-      background: '#e5e5e5',
+      background: '#FFFFFF',
+      cursor: 'default',
     },
   },
   image: {
