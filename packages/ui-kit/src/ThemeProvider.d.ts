@@ -17,7 +17,8 @@ export interface ThemeProviderProps {
     | 'lightOrange'
     | 'blueOcean'
     | 'shallowBlue'
-    | 'wingo';
+    | 'wingo'
+    | 'bajaj';
   overrides?: object;
   spacing?: number;
   children?: ReactNode;
