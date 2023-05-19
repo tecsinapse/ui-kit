@@ -35,6 +35,5 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "sideEffects": false,
-  "gitHead": "859826b6f538a9d633227e152681ce4895e9f093"
+  "sideEffects": false
 }
