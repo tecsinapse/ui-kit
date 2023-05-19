@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.12](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.6.11...@tecsinapse/wizard@3.6.12) (2022-11-30)
+
+**Note:** Version bump only for package @tecsinapse/wizard
+
+
+
+
+
+## [3.6.10](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.6.9...@tecsinapse/wizard@3.6.10) (2022-11-22)
+
+**Note:** Version bump only for package @tecsinapse/wizard
+
+
+
+
+
+## [3.6.9](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.6.8...@tecsinapse/wizard@3.6.9) (2022-11-18)
+
+**Note:** Version bump only for package @tecsinapse/wizard
+
+
+
+
+
+## [3.6.8](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.6.7...@tecsinapse/wizard@3.6.8) (2022-11-14)
+
+**Note:** Version bump only for package @tecsinapse/wizard
+
+
+
+
+
+## [3.6.7](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.6.6...@tecsinapse/wizard@3.6.7) (2022-11-10)
+
+**Note:** Version bump only for package @tecsinapse/wizard
+
+
+
+
+
+## [3.6.6](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.6.5...@tecsinapse/wizard@3.6.6) (2022-11-01)
+
+**Note:** Version bump only for package @tecsinapse/wizard
+
+
+
+
+
+## [3.6.5](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.6.4...@tecsinapse/wizard@3.6.5) (2022-11-01)
+
+**Note:** Version bump only for package @tecsinapse/wizard
+
+
+
+
+
+## [3.6.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.6.3...@tecsinapse/wizard@3.6.4) (2022-10-27)
+
+**Note:** Version bump only for package @tecsinapse/wizard
+
+
+
+
+
 ## [3.6.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/wizard@3.6.2...@tecsinapse/wizard@3.6.3) (2021-07-09)
 
 **Note:** Version bump only for package @tecsinapse/wizard

@@ -3,6 +3,82 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.9](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.8.8...@tecsinapse/pickers@2.8.9) (2022-11-30)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
+## [2.8.7](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.8.6...@tecsinapse/pickers@2.8.7) (2022-11-22)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
+## [2.8.6](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.8.5...@tecsinapse/pickers@2.8.6) (2022-11-18)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
+## [2.8.5](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.8.4...@tecsinapse/pickers@2.8.5) (2022-11-14)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
+## [2.8.4](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.8.3...@tecsinapse/pickers@2.8.4) (2022-11-10)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
+## [2.8.3](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.8.2...@tecsinapse/pickers@2.8.3) (2022-11-01)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
+## [2.8.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.8.1...@tecsinapse/pickers@2.8.2) (2022-11-01)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
+## [2.8.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.8.0...@tecsinapse/pickers@2.8.1) (2022-10-27)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
+# [2.8.0](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.7.2...@tecsinapse/pickers@2.8.0) (2022-01-17)
+
+
+### Bug Fixes
+
+* change @date-io/luxon to @date-io/date-fns and luxon to date-fns ([4e62bce](https://github.com/tecsinapse/ui-kit/commit/4e62bcebb0474c7ed5e37aebec694dedde81f092))
+* change LuxonUtils to DateFnsUtils in PickersProvider, fix WeeklyCalendar and DatePicker issues ([52a733b](https://github.com/tecsinapse/ui-kit/commit/52a733b3d2340e8f5a2b6a2d3395d750869d0fb4))
+
+
+
+
+
 ## [2.7.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.7.1...@tecsinapse/pickers@2.7.2) (2021-07-09)
 
 

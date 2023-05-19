@@ -6,13 +6,13 @@ const optionsShown = 4;
 
 export const MenuListWeb = props => {
   const { options, children = [] } = props;
-  const listSize =
-    selectMenuHeight * Math.min(optionsShown, options?.length || 1);
+  const listSize = selectMenuHeight * Math.min(optionsShown, options?.flatMap(e => e.options).length || 1);
 
   const listStyle = {
     padding: 0,
     maxHeight: listSize,
-    overflowY: options?.length > 4 ? 'scroll' : 'hidden',
+    overflowY:
+    options?.flatMap(e => e.options).length > 4 ? 'scroll' : 'hidden',
     overflowX: 'hidden',
   };
 
