@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/table",
   "description": "TecSinapse Table",
-  "version": "4.1.0",
+  "version": "4.1.1-beta.20+b0977eb",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "author": {
@@ -23,7 +23,7 @@
     "ui-kit"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.0",
+    "@tecsinapse/ui-kit": "^5.7.1-beta.20+b0977eb",
     "react-virtualized": "^9.22.3"
   },
   "files": [
@@ -35,5 +35,6 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "gitHead": "b0977eb259caaa83efd915d7acd9ef7e809edc87"
 }
