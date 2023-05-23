@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/carousel",
   "description": "TecSinapse Carousel",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "main": "build/index.js",
   "module": "build/index.js",
   "author": {
@@ -23,7 +23,7 @@
     "ui-kit"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.0",
+    "@tecsinapse/ui-kit": "^5.7.1",
     "material-ui-dots": "^2.0.2",
     "react-swipeable-views": "^0.13.9",
     "react-swipeable-views-utils": "^0.13.9"
