@@ -23,7 +23,7 @@
     "ui-kit"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.1-beta.20+b0977eb",
+    "@tecsinapse/ui-kit": "^5.7.0",
     "material-ui-dots": "^2.0.2",
     "react-swipeable-views": "^0.13.9",
     "react-swipeable-views-utils": "^0.13.9"

@@ -23,7 +23,7 @@
     "wizard"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.1-beta.20+b0977eb"
+    "@tecsinapse/ui-kit": "^5.7.0"
   },
   "files": [
     "build",
