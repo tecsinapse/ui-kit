@@ -8,7 +8,7 @@ import SearchBar from 'material-ui-search-bar';
 import { grey } from '@material-ui/core/colors';
 import { DefaultProductTypography } from 'components/Menu/Drawer/DefaultProductTypography';
 
-const useStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(({ spacing, palette, variant }) => ({
   flexColumn: {
     display: 'flex',
     flexDirection: 'column',
@@ -39,6 +39,7 @@ const useStyles = makeStyles(({ spacing }) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: variant === 'bajaj' ? palette.primary.main : 'white',
   },
 }));
 
