@@ -165,7 +165,7 @@ export const themeColors = {
   },
   [themes.bajaj]: {
     primary: { main: '#005dab', light: '#002561', contrastText: '#ffffff' },
-    secondary: { main: '#005dab', contrastText: '#ffffff' },
+    secondary: { main: '#ffffff', contrastText: '#ffffff' },
     error: {
       main: defaultRed,
       contrastText: '#ffffff',
