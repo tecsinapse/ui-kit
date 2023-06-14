@@ -92,7 +92,7 @@ export const customAppBarStyle = variant => {
         activeBreadcrumbTextColor: '#0B2D44',
       };
 
-    case themes.bajaj:
+    case themes.heavyBlue:
       return {
         titleColor: '#ffffff',
         subtitleColor: '#ffffff',
