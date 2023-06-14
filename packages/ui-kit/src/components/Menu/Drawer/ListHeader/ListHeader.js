@@ -39,7 +39,7 @@ const useStyles = makeStyles(({ spacing, palette, variant }) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: variant === 'heavyBlue' ? palette.primary.main : 'white',
+    backgroundColor: variant === 'bajaj' ? palette.primary.main : 'white',
   },
 }));
 
