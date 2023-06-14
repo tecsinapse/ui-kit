@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/uploader",
   "description": "TecSinapse Uploader",
-  "version": "2.7.2-beta.14+6d9248d",
+  "version": "2.7.1",
   "main": "build/index.js",
   "typings": "build/index.d.js",
   "author": {
@@ -23,7 +23,7 @@
     "uploader"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.2-beta.14+6d9248d",
+    "@tecsinapse/ui-kit": "^5.7.1",
     "react-dropzone": "^11.3.1",
     "uniqid": "^5.3.0"
   },
@@ -36,6 +36,5 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "sideEffects": false,
-  "gitHead": "6d9248dce1979d722c3220ba981ae6f7af604362"
+  "sideEffects": false
 }
