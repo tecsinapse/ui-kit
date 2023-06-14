@@ -18,7 +18,7 @@ export const themes = {
   blueOcean: 'blueOcean',
   shallowBlue: 'shallowBlue',
   wingo: 'wingo',
-  bajaj: 'bajaj',
+  heavyBlue: 'heavyBlue',
 };
 
 const baseline = {
@@ -163,9 +163,9 @@ export const themeColors = {
       contrastText: '#ffffff',
     },
   },
-  [themes.bajaj]: {
+  [themes.heavyBlue]: {
     primary: { main: '#005dab', light: '#002561', contrastText: '#ffffff' },
-    secondary: { main: '#005dab', contrastText: '#ffffff' },
+    secondary: { main: '#ffffff', contrastText: '#ffffff' },
     error: {
       main: defaultRed,
       contrastText: '#ffffff',
