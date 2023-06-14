@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/wizard",
   "description": "TecSinapse Wizard",
-  "version": "3.7.1",
+  "version": "3.7.2-beta.14+6d9248d",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "author": {
@@ -23,7 +23,7 @@
     "wizard"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.1"
+    "@tecsinapse/ui-kit": "^5.7.2-beta.14+6d9248d"
   },
   "files": [
     "build",
@@ -47,5 +47,6 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "gitHead": "6d9248dce1979d722c3220ba981ae6f7af604362"
 }
