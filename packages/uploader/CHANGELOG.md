@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.2](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/uploader@2.7.1...@tecsinapse/uploader@2.7.2) (2023-06-14)
+
+**Note:** Version bump only for package @tecsinapse/uploader
+
+
+
+
+
 ## [2.7.1](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/uploader@2.7.0...@tecsinapse/uploader@2.7.1) (2023-05-23)
 
 **Note:** Version bump only for package @tecsinapse/uploader
