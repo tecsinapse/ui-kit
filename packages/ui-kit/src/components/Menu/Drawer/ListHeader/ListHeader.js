@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
 import { Avatar } from '@material-ui/core';
@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import SearchBar from 'material-ui-search-bar';
 import { grey } from '@material-ui/core/colors';
 import { DefaultProductTypography } from 'components/Menu/Drawer/DefaultProductTypography';
+import { customAppBarStyle } from '../../../../themes';
 
 const useStyles = makeStyles(({ spacing, palette, variant }) => ({
   flexColumn: {
@@ -56,6 +57,8 @@ export const ListHeader = ({
 }) => {
   const { width, height, paddingTop = 0 } = logoProps;
   const classes = useStyles({ width, height, paddingTop });
+  const theme = useTheme();
+  const styleProps = customAppBarStyle(theme.variant);
 
   return (
     <>
@@ -65,7 +68,15 @@ export const ListHeader = ({
           logoProps?.src ? (
             <>
               <img src={logoProps.src} className={classes.logo} alt="Logo" />
-              <DefaultProductTypography title={title} subtitle={subtitle} />
+              {theme.variant === 'bajaj' ? (
+                <DefaultProductTypography
+                  title={title}
+                  subtitle={subtitle}
+                  styleProps={styleProps}
+                />
+              ) : (
+                <DefaultProductTypography title={title} subtitle={subtitle} />
+              )}
               <ListItemText
                 className={classes.noPadding}
                 secondary={productName}
@@ -73,7 +84,15 @@ export const ListHeader = ({
             </>
           ) : (
             <>
-              <DefaultProductTypography title={title} subtitle={subtitle} />
+              {theme.variant === 'bajaj' ? (
+                <DefaultProductTypography
+                  title={title}
+                  subtitle={subtitle}
+                  styleProps={styleProps}
+                />
+              ) : (
+                <DefaultProductTypography title={title} subtitle={subtitle} />
+              )}
               <ListItemText
                 className={classes.noPadding}
                 secondary={productName}
