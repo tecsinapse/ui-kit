@@ -49,6 +49,49 @@ export const CELL_MASK = [
   /\d/,
 ];
 
+export const PHONE_MASK_WITH_DDI = [
+  '+',
+  /[1-9]/,
+  /\d/,
+  ' ',
+  '(',
+  /[1-9]/,
+  /\d/,
+  ')',
+  ' ',
+  /[1-9]/,
+  /\d/,
+  /\d/,
+  /\d/,
+  '-',
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/,
+];
+
+export const CELL_MASK_WITH_DDI = [
+  '+',
+  /[1-9]/,
+  /\d/,
+  ' ',
+  '(',
+  /[1-9]/,
+  /\d/,
+  ')',
+  ' ',
+  /[1-9]/,
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/,
+  '-',
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/,
+];
+
 export const CPF_MASK = [
   /\d/,
   /\d/,
@@ -191,6 +234,14 @@ export const CELL_PHONE_MASK = rawValue => {
   return PHONE_MASK;
 };
 
+export const CELL_PHONE_MASK_WITH_DDI = rawValue => {
+  if (rawValue.length > 18) {
+    return CELL_MASK_WITH_DDI;
+  }
+
+  return PHONE_MASK_WITH_DDI;
+};
+
 export const CPF_CNPJ_MASK = rawValue => {
   if (rawValue.length > 14) {
     return CNPJ_MASK;
@@ -244,6 +295,7 @@ const masks = {
   cnpj: CNPJ_MASK,
   plate: PLATE_MASK,
   cellphone: CELL_PHONE_MASK,
+  cellphonewithddi: CELL_PHONE_MASK_WITH_DDI,
   cpfcnpj: CPF_CNPJ_MASK,
   date: DATE_MASK,
   time: TIME_MASK,
