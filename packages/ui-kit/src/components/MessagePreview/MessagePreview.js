@@ -80,6 +80,8 @@ MessagePreview.propTypes = {
   unformattedText: PropTypes.string.isRequired,
   /** array of buttons that should be displayed */
   buttons: PropTypes.array,
+  /** array of list items that should be displayed */
+  sections: PropTypes.array,
   /** media link */
   media: PropTypes.string,
   /** message header */
@@ -90,6 +92,7 @@ MessagePreview.propTypes = {
 
 MessagePreview.defaultProps = {
   buttons: [],
+  sections: [],
   media: undefined,
   header: undefined,
   footer: undefined,

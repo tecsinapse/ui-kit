@@ -3,7 +3,7 @@ import { FC } from 'react';
 export interface MessagePreviewProps {
   unformattedText: string,
   buttons?: [object],
-  list?: [object],
+  sections?: [object],
   media?: string | undefined | null,
   header?: string | undefined | null,
   footer?: string | undefined | null,
