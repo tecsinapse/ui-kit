@@ -84,6 +84,9 @@ export const cardStyle = () => ({
     order: 1,
     alignSelf: 'stretch',
   },
+  listButton: {
+    width: '100%',
+  },
   textTime: {
     marginBottom: '-5px',
     fontSize: '9px',

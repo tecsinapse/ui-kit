@@ -31,7 +31,7 @@ export default {
 };
 
 export const Base = args => {
-  const { unformattedText, buttons, media, header, footer } = args;
+  const { unformattedText, buttons, sections, media, header, footer } = args;
 
   return (
     <Grid item xs={6}>
@@ -47,6 +47,7 @@ export const Base = args => {
             unformattedText={unformattedText}
             buttons={buttons}
             media={media}
+            sections={sections}
             header={header}
             footer={footer}
           />
@@ -74,6 +75,13 @@ Base.args = {
       position: 3,
       description: 'Encerrar',
     },
+  ],
+  sections: [
+    {
+      position: 1,
+      title: 'Título do item na lista',
+      description: 'Descrição do item da lista',
+    }
   ],
   media:
     'https://cdn.portaltecsinapse.com.br/src/chat-component/template-image-example.jpg',
