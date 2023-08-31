@@ -43,7 +43,7 @@ export const cardStyle = () => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    padding: '10px',
+    padding: '10px 10px 0px 10px',
     gap: '10px',
     background: '#ffffff',
     borderRadius: '0px 6px 6px 6px',
@@ -84,8 +84,10 @@ export const cardStyle = () => ({
     order: 1,
     alignSelf: 'stretch',
   },
+  listButton: {
+    width: '100%',
+  },
   textTime: {
-    marginBottom: '-5px',
     fontSize: '9px',
     lineHeight: '11px',
     alignItems: 'center',

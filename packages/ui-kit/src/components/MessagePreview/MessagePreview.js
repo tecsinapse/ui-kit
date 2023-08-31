@@ -7,12 +7,15 @@ import { cardStyle } from './styles';
 import { MessagePreviewUtils } from './utils';
 import { MessageButtons } from './components/MessageButtons';
 import { PreviewHeader } from './components/PreviewHeader';
+import { ListItens } from './components/ListItens';
+import Divider from '../Divider';
 
 const useStyles = makeStyles(cardStyle);
 
 export const MessagePreview = ({
   unformattedText,
   buttons,
+  sections,
   media,
   header,
   footer,
@@ -53,6 +56,12 @@ export const MessagePreview = ({
             <div className={classes.footer}>
               {footer && <div className={classes.textFooter}>{footer}</div>}
               <div className={classes.textTime}>{currentTime()}</div>
+              {sections?.length > 0 && buttons?.length === 0 && (
+                <Grid className={classes.listButton}>
+                  <Divider variant="solid" />
+                  <ListItens sections={sections} classes={classes} />
+                </Grid>
+              )}
             </div>
           </Grid>
         </Grid>
@@ -71,6 +80,8 @@ MessagePreview.propTypes = {
   unformattedText: PropTypes.string.isRequired,
   /** array of buttons that should be displayed */
   buttons: PropTypes.array,
+  /** array of list items that should be displayed */
+  sections: PropTypes.array,
   /** media link */
   media: PropTypes.string,
   /** message header */
@@ -81,6 +92,7 @@ MessagePreview.propTypes = {
 
 MessagePreview.defaultProps = {
   buttons: [],
+  sections: [],
   media: undefined,
   header: undefined,
   footer: undefined,

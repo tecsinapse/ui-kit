@@ -1,8 +1,9 @@
 import { FC } from 'react';
 
 export interface MessagePreviewProps {
-  unformattedText: string
-  buttons?: [object];
+  unformattedText: string,
+  buttons?: [object],
+  sections?: [object],
   media?: string | undefined | null,
   header?: string | undefined | null,
   footer?: string | undefined | null,
