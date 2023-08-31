@@ -56,13 +56,13 @@ export const MessagePreview = ({
             <div className={classes.footer}>
               {footer && <div className={classes.textFooter}>{footer}</div>}
               <div className={classes.textTime}>{currentTime()}</div>
+              {sections?.length > 0 && buttons?.length === 0 && (
+                <Grid className={classes.listButton}>
+                  <Divider variant="solid" />
+                  <ListItens sections={sections} classes={classes} />
+                </Grid>
+              )}
             </div>
-            {sections?.length > 0 && buttons?.length === 0 && (
-              <Grid className={classes.listButton}>
-                <Divider variant="solid" />
-                <ListItens sections={sections} classes={classes} />
-              </Grid>
-            )}
           </Grid>
         </Grid>
         {buttons?.length > 0 && (
