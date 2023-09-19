@@ -45,18 +45,35 @@ ReactDOM.render(
 );
 ```
 
-### Desenvolvimento
+## Deploy
+### Gerando a biblioteca para o ambiente de produção
+Após enviar as suas alterações para a branch [master]((https://github.com/tecsinapse/portal-menu-kit/tree/master)), execute a construção da release [aqui](https://jenkins.portaltecsinapse.com.br/job/ui-kit_prod_shell_script_release/).
 
-Para rodar localmente na porta 5555
+### Gerando a biblioteca para o ambiente de homologação
+Podemos utilizar a ferramenta Lerna para publicarmos os nossos pacotes para homologação. Caso necessite de mais informações, elas podem ser obtidas [aqui](https://github.com/lerna/lerna).).
 
+Envie as suas alterações para o git.
+Execute o comando ```npx lerna publish --canary patch --preid beta```
+
+### Gerando a biblioteca no ambiente local
+Podemos utilizar a ferramente Yalc para criarmos pacotes em seu ambiente local. A documentação pode ser consultada [aqui](https://www.npmjs.com/package/yalc)).
+
+### Instalação da ferramente
+##### Utilizando NPM:
 ```
-    yarn && yarn dev
+npm i yalc -g
 ```
 
-Para buildar e publicar a lib:
+##### Utilizando Yarn:
 ```
-    npx lerna publish
+yarn global add yalc
 ```
+
+### Publicação
+1. Após modificar o código, utilize o comando ```yarn build```
+2. Com a conclusão do processo de build, execute o comando yalc publish. Com isso, o pacote será disponibilizada no seu ambiente local.
+3. Caso o pacote já tenha sido publicado, utilize o comando yalc push para enviar as suas alterações.
+4. Para adicionar a biblioteca em outro projeto, utilize ```yalc add my-package``` no projeto dependente.
 
 
 # Outras libs no ui-kit-verso
