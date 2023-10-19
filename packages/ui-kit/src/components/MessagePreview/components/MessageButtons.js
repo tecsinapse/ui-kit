@@ -5,18 +5,18 @@ export const MessageButtons = ({ buttons, classes }) => {
   const [previewButtons, setPreviewButtons] = useState([]);
 
   useEffect(() => {
-    if (buttons?.length > 0 && previewButtons.length === 0) {
-      buttons.forEach((it, index) => {
-        if (typeof it === 'string') {
-          previewButtons.push({ position: index + 1, description: it });
-        } else {
-          previewButtons.push(it);
-        }
-      });
+    const newPreviewButtons = [];
 
-      setPreviewButtons(previewButtons);
-    }
-  }, [buttons, previewButtons, setPreviewButtons]);
+    buttons.forEach((it, index) => {
+      if (typeof it === 'string') {
+        newPreviewButtons.push({ position: index + 1, description: it });
+      } else {
+        newPreviewButtons.push(it);
+      }
+    });
+
+    setPreviewButtons(newPreviewButtons);
+  }, [buttons]);
 
   const MessageButton = ({ description }) => (
     <div className={classes.button} key={description}>
