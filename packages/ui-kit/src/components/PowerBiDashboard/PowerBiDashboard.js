@@ -2,7 +2,6 @@ import React from 'react';
 import { PowerBIEmbed } from 'powerbi-client-react';
 import { models } from 'powerbi-client';
 import { useStyle } from './styles';
-import MessagePreview from '../MessagePreview/MessagePreview';
 
 export const PowerBiDashboard = ({
   accessToken,
@@ -23,12 +22,22 @@ export const PowerBiDashboard = ({
         tokenType: models.TokenType.Embed,
         filters,
         slicers,
+        pageName: reportData?.defaultPage,
         settings: {
+          layoutType: models.LayoutType.Custom,
+          customLayout: {
+            displayOption: models.DisplayOption.FitToWidth,
+          },
           filterPaneEnabled: false,
           navContentPaneEnabled: false,
           localeSettings: {
             language: 'pt',
             formatLocale: 'pt-BR',
+          },
+          panes: {
+            pageNavigation: {
+              visible: reportData?.pageNavigation,
+            },
           },
         },
       }}
