@@ -34,11 +34,6 @@ export const PowerBiDashboard = ({
             language: 'pt',
             formatLocale: 'pt-BR',
           },
-          panes: {
-            pageNavigation: {
-              visible: reportData?.pageNavigation,
-            },
-          },
         },
       }}
     />
