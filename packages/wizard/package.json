@@ -1,6 +1,6 @@
 {
   "name": "@tecsinapse/wizard",
-  "version": "3.7.8-alpha.0",
+  "version": "3.7.9-alpha.0",
   "description": "TecSinapse Wizard",
   "keywords": [
     "material-ui",
@@ -42,7 +42,7 @@
     ]
   },
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.8-alpha.0"
+    "@tecsinapse/ui-kit": "^5.7.9-alpha.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

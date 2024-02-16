@@ -1,6 +1,6 @@
 {
   "name": "@tecsinapse/carousel",
-  "version": "2.7.8-alpha.0",
+  "version": "2.7.9-alpha.0",
   "description": "TecSinapse Carousel",
   "keywords": [
     "carousel",
@@ -29,7 +29,7 @@
     "dist"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.8-alpha.0",
+    "@tecsinapse/ui-kit": "^5.7.9-alpha.0",
     "material-ui-dots": "^2.0.2",
     "react-swipeable-views": "^0.13.9",
     "react-swipeable-views-utils": "^0.13.9"

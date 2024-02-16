@@ -1,6 +1,6 @@
 {
   "name": "@tecsinapse/table",
-  "version": "4.1.8-alpha.0",
+  "version": "4.1.9-alpha.0",
   "description": "TecSinapse Table",
   "keywords": [
     "material-ui",
@@ -29,7 +29,7 @@
     "../dist"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.8-alpha.0",
+    "@tecsinapse/ui-kit": "^5.7.9-alpha.0",
     "react-virtualized": "^9.22.3"
   },
   "peerDependencies": {
