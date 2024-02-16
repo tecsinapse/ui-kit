@@ -1,17 +1,22 @@
 {
   "name": "@tecsinapse/ui-kit",
+  "version": "5.7.8-alpha.0",
   "description": "TecSinapse UI-KIT",
-  "version": "5.7.7",
-  "main": "build/index.js",
-  "module": "build/index.js",
+  "homepage": "https://tecsinapse.github.io/ui-kit/",
+  "bugs": {
+    "url": "https://github.com/tecsinapse/ui-kit/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
   },
-  "bugs": {
-    "url": "https://github.com/tecsinapse/ui-kit/issues"
-  },
-  "homepage": "https://tecsinapse.github.io/ui-kit/",
+  "sideEffects": false,
+  "main": "build/index.js",
+  "module": "build/index.js",
+  "files": [
+    "build",
+    "dist"
+  ],
   "dependencies": {
     "@material-ui/core": "^4.11.1",
     "@material-ui/icons": "^4.11.1",
@@ -27,13 +32,8 @@
     "text-mask-addons": "^3.8.0",
     "text-mask-core": "^5.1.2"
   },
-  "files": [
-    "build",
-    "dist"
-  ],
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  },
-  "sideEffects": false
+  }
 }

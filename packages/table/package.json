@@ -1,20 +1,7 @@
 {
   "name": "@tecsinapse/table",
+  "version": "4.1.8-alpha.0",
   "description": "TecSinapse Table",
-  "version": "4.1.7",
-  "main": "build/index.js",
-  "typings": "build/index.d.ts",
-  "author": {
-    "name": "TecSinapse"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
-  },
-  "bugs": {
-    "url": "https://github.com/tecsinapse/ui-kit/issues"
-  },
-  "homepage": "https://tecsinapse.github.io/ui-kit/",
   "keywords": [
     "material-ui",
     "react",
@@ -22,18 +9,31 @@
     "tecsinapse",
     "ui-kit"
   ],
-  "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.7",
-    "react-virtualized": "^9.22.3"
+  "homepage": "https://tecsinapse.github.io/ui-kit/",
+  "bugs": {
+    "url": "https://github.com/tecsinapse/ui-kit/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "TecSinapse"
+  },
+  "sideEffects": false,
+  "main": "build/index.js",
+  "typings": "build/index.d.ts",
   "files": [
     "build",
     "../dist"
   ],
-  "license": "MIT",
+  "dependencies": {
+    "@tecsinapse/ui-kit": "^5.7.8-alpha.0",
+    "react-virtualized": "^9.22.3"
+  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  },
-  "sideEffects": false
+  }
 }

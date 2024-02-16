@@ -1,20 +1,7 @@
 {
   "name": "@tecsinapse/carousel",
+  "version": "2.7.8-alpha.0",
   "description": "TecSinapse Carousel",
-  "version": "2.7.7",
-  "main": "build/index.js",
-  "module": "build/index.js",
-  "author": {
-    "name": "TecSinapse"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
-  },
-  "bugs": {
-    "url": "https://github.com/tecsinapse/ui-kit/issues"
-  },
-  "homepage": "https://tecsinapse.github.io/ui-kit/",
   "keywords": [
     "carousel",
     "material-ui",
@@ -22,20 +9,33 @@
     "tecsinapse",
     "ui-kit"
   ],
-  "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.7",
-    "material-ui-dots": "^2.0.2",
-    "react-swipeable-views": "^0.13.9",
-    "react-swipeable-views-utils": "^0.13.9"
+  "homepage": "https://tecsinapse.github.io/ui-kit/",
+  "bugs": {
+    "url": "https://github.com/tecsinapse/ui-kit/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "TecSinapse"
+  },
+  "sideEffects": false,
+  "main": "build/index.js",
+  "module": "build/index.js",
   "files": [
     "build",
     "dist"
   ],
-  "license": "MIT",
+  "dependencies": {
+    "@tecsinapse/ui-kit": "^5.7.8-alpha.0",
+    "material-ui-dots": "^2.0.2",
+    "react-swipeable-views": "^0.13.9",
+    "react-swipeable-views-utils": "^0.13.9"
+  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  },
-  "sideEffects": false
+  }
 }

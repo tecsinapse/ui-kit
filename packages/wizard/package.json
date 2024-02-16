@@ -1,20 +1,7 @@
 {
   "name": "@tecsinapse/wizard",
+  "version": "3.7.8-alpha.0",
   "description": "TecSinapse Wizard",
-  "version": "3.7.7",
-  "main": "build/index.js",
-  "typings": "build/index.d.ts",
-  "author": {
-    "name": "TecSinapse"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
-  },
-  "bugs": {
-    "url": "https://github.com/tecsinapse/ui-kit/issues"
-  },
-  "homepage": "https://tecsinapse.github.io/ui-kit/",
   "keywords": [
     "material-ui",
     "react",
@@ -22,18 +9,29 @@
     "ui-kit",
     "wizard"
   ],
-  "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.7"
+  "homepage": "https://tecsinapse.github.io/ui-kit/",
+  "bugs": {
+    "url": "https://github.com/tecsinapse/ui-kit/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tecsinapse/ui-kit.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "TecSinapse"
+  },
+  "sideEffects": false,
+  "main": "build/index.js",
+  "typings": "build/index.d.ts",
   "files": [
     "build",
     "dist"
   ],
-  "license": "MIT",
   "husky": {
     "hooks": {
-      "post-commit": "git update-index --again",
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "post-commit": "git update-index --again"
     }
   },
   "lint-staged": {
@@ -43,9 +41,11 @@
       "git add"
     ]
   },
+  "dependencies": {
+    "@tecsinapse/ui-kit": "^5.7.8-alpha.0"
+  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  },
-  "sideEffects": false
+  }
 }
