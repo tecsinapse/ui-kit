@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.8](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@4.1.7...@tecsinapse/table@4.1.8) (2024-05-20)
+
+**Note:** Version bump only for package @tecsinapse/table
+
+
+
+
+
 ## [4.1.5](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/table@4.1.4...@tecsinapse/table@4.1.5) (2023-07-03)
 
 **Note:** Version bump only for package @tecsinapse/table
