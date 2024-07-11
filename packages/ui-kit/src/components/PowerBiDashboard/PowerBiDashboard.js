@@ -29,11 +29,7 @@ export const PowerBiDashboard = ({
             displayOption: models.DisplayOption.FitToWidth,
           },
           filterPaneEnabled: false,
-          navContentPaneEnabled: false,
-          localeSettings: {
-            language: 'pt',
-            formatLocale: 'pt-BR',
-          },
+          navContentPaneEnabled: false
         },
       }}
     />
