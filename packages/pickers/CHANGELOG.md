@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.10](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.9.8...@tecsinapse/pickers@2.9.10) (2024-07-11)
+
+**Note:** Version bump only for package @tecsinapse/pickers
+
+
+
+
+
 ## [2.9.8](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/pickers@2.9.7...@tecsinapse/pickers@2.9.8) (2024-05-20)
 
 **Note:** Version bump only for package @tecsinapse/pickers

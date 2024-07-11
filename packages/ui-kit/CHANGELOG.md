@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.10](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.7.8...@tecsinapse/ui-kit@5.7.10) (2024-07-11)
+
+**Note:** Version bump only for package @tecsinapse/ui-kit
+
+
+
+
+
 ## [5.7.8](https://github.com/tecsinapse/ui-kit/compare/@tecsinapse/ui-kit@5.7.7...@tecsinapse/ui-kit@5.7.8) (2024-05-20)
 
 **Note:** Version bump only for package @tecsinapse/ui-kit
