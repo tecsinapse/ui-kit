@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/carousel",
   "description": "TecSinapse Carousel",
-  "version": "2.7.8",
+  "version": "2.7.9-alpha.1",
   "main": "build/index.js",
   "module": "build/index.js",
   "author": {
@@ -23,7 +23,7 @@
     "ui-kit"
   ],
   "dependencies": {
-    "@tecsinapse/ui-kit": "^5.7.8",
+    "@tecsinapse/ui-kit": "^5.7.9-alpha.1",
     "material-ui-dots": "^2.0.2",
     "react-swipeable-views": "^0.13.9",
     "react-swipeable-views-utils": "^0.13.9"
@@ -37,5 +37,6 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "gitHead": "cb442f29b3de70ac95d5dcaf334a132ca208d13c"
 }

@@ -1,7 +1,7 @@
 {
   "name": "@tecsinapse/pickers",
   "description": "TecSinapse Pickers",
-  "version": "2.9.8",
+  "version": "2.9.9-alpha.1",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "author": {
@@ -28,7 +28,7 @@
     "@date-io/date-fns": "^1.3.13",
     "@material-ui/pickers": "^3.2.10",
     "@tecsinapse/material-ui-color-picker": "^4.4.0",
-    "@tecsinapse/ui-kit": "^5.7.8",
+    "@tecsinapse/ui-kit": "^5.7.9-alpha.1",
     "date-fns": "^2.28.0"
   },
   "files": [
@@ -40,5 +40,6 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "gitHead": "cb442f29b3de70ac95d5dcaf334a132ca208d13c"
 }
