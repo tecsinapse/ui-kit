@@ -235,7 +235,7 @@ export const CELL_PHONE_MASK = rawValue => {
 };
 
 export const CELL_PHONE_MASK_WITH_DDI = rawValue => {
-  if (rawValue.length > 18) {
+  if (rawValue.length > 18 || (!regex.test(rawValue) && rawValue.length > 13)) {
     return CELL_MASK_WITH_DDI;
   }
 
