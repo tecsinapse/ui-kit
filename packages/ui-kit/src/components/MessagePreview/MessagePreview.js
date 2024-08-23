@@ -14,7 +14,8 @@ export const MessagePreview = ({
   unformattedText,
   buttons,
   media,
-  header,
+  headerType,
+  headerText,
   footer,
 }) => {
   const classes = useStyles();
@@ -43,9 +44,15 @@ export const MessagePreview = ({
       >
         <Grid className={classes.card}>
           <Grid className={classes.cardText}>
-            {header && (
-              <PreviewHeader header={header} media={media} classes={classes} />
-            )}
+            {headerType ||
+              (headerText && (
+                <PreviewHeader
+                  headerType={headerType}
+                  headerText={headerText}
+                  media={media}
+                  classes={classes}
+                />
+              ))}
             <Typography
               className={classes.text}
               dangerouslySetInnerHTML={{ __html: formattedText }}
@@ -73,8 +80,10 @@ MessagePreview.propTypes = {
   buttons: PropTypes.array,
   /** media link */
   media: PropTypes.string,
-  /** message header */
-  header: PropTypes.string,
+  /** message header text */
+  headerText: PropTypes.string,
+  /** message header type */
+  headerType: PropTypes.string,
   /** message footer */
   footer: PropTypes.string,
 };
@@ -82,7 +91,8 @@ MessagePreview.propTypes = {
 MessagePreview.defaultProps = {
   buttons: [],
   media: undefined,
-  header: undefined,
+  headerType: undefined,
+  headerText: undefined,
   footer: undefined,
 };
 
