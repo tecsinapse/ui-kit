@@ -44,15 +44,14 @@ export const MessagePreview = ({
       >
         <Grid className={classes.card}>
           <Grid className={classes.cardText}>
-            {headerType ||
-              (headerText && (
+            {headerType && (
                 <PreviewHeader
                   headerType={headerType}
                   headerText={headerText}
                   media={media}
                   classes={classes}
                 />
-              ))}
+              )}
             <Typography
               className={classes.text}
               dangerouslySetInnerHTML={{ __html: formattedText }}

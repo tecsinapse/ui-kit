@@ -1,7 +1,7 @@
 import { Typography } from '@material-ui/core';
 import React from 'react';
-import { isMedia } from '../utils';
 import { Media } from './Media';
+import {isMedia} from "../utils/utils";
 
 export const PreviewHeader = ({ headerType, headerText, media, classes }) =>
   isMedia(headerType) ? (
