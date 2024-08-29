@@ -36,6 +36,7 @@ export interface InputProps extends Omit<TextFieldProps, 'error'> {
     | 'cnpj'
     | 'plate'
     | 'cellphone'
+    | 'cellphonewithddi'
     | 'cpfcnpj'
     | 'date'
     | 'time'

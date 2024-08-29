@@ -4,7 +4,8 @@ export interface MessagePreviewProps {
   unformattedText: string
   buttons?: [object];
   media?: string | undefined | null,
-  header?: string | undefined | null,
+  headerText?: string | undefined | null,
+  headerType?: string | undefined | null,
   footer?: string | undefined | null,
 }
 
