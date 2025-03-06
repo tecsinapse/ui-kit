@@ -1,0 +1,41 @@
+name: UI Kit Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      semantic_version:
+        description: "Versão Semântica"
+        required: true
+        type: choice
+        options:
+          - "patch"
+          - "minor"
+          - "major"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+          cache: yarn
+
+      - name: Instalar Dependências
+        run: yarn install
+
+      - name: Configurar Token do NPM
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc        
+
+      - name: Publicar com Lerna
+        run: npx lerna publish ${{ inputs.semantic_version }} --yes --no-verify-access --conventional-commits
+
+      - name: Remover arquivo .npmrc
+        run: rm ~/.npmrc
