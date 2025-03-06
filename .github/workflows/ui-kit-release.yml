@@ -2,6 +2,15 @@ name: UI Kit Release
 
 on:
   workflow_dispatch:
+    inputs:
+      semantic_version:
+        description: "Versão Semântica"
+        required: true
+        type: choice
+        options:
+          - "patch"
+          - "minor"
+          - "major"
 
 jobs:
   publish:
@@ -26,7 +35,7 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc        
 
       - name: Publicar com Lerna
-        run: npx lerna publish patch --yes --no-verify-access --conventional-commits
+        run: npx lerna publish ${{ inputs.semantic_version }} --yes --no-verify-access --conventional-commits
 
       - name: Remover arquivo .npmrc
         run: rm ~/.npmrc
