@@ -20,6 +20,12 @@ jobs:
       - name: Checkout do Código
         uses: actions/checkout@v4
 
+      - name: Configure Git
+        shell: bash
+        run: |
+          git config --global user.email "git@tecsinapse.com.br"
+          git config --global user.name "gitTecsinapse[bot]"
+
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
