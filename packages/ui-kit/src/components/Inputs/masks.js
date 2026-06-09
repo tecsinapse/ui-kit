@@ -110,21 +110,21 @@ export const CPF_MASK = [
 ];
 
 export const CNPJ_MASK = [
-  /\d/,
-  /\d/,
+  /[A-Za-z0-9]/,
+  /[A-Za-z0-9]/,
   '.',
-  /\d/,
-  /\d/,
-  /\d/,
+  /[A-Za-z0-9]/,
+  /[A-Za-z0-9]/,
+  /[A-Za-z0-9]/,
   '.',
-  /\d/,
-  /\d/,
-  /\d/,
+  /[A-Za-z0-9]/,
+  /[A-Za-z0-9]/,
+  /[A-Za-z0-9]/,
   '/',
-  /\d/,
-  /\d/,
-  /\d/,
-  /\d/,
+  /[A-Za-z0-9]/,
+  /[A-Za-z0-9]/,
+  /[A-Za-z0-9]/,
+  /[A-Za-z0-9]/,
   '-',
   /\d/,
   /\d/,
@@ -248,7 +248,7 @@ export const CELL_PHONE_MASK_WITH_DDI = rawValue => {
 };
 
 export const CPF_CNPJ_MASK = rawValue => {
-  if (rawValue.length > 14) {
+  if (rawValue.length > 14 || /[A-Za-z]/.test(rawValue)) {
     return CNPJ_MASK;
   }
 
