@@ -11,14 +11,23 @@ on:
           - "patch"
           - "minor"
           - "major"
+          - "from-package"
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    env:
+      NPM_REGISTRY_URL: "https://registry.npmjs.org/"
 
     steps:
       - name: Checkout do Código
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
 
       - name: Configure Git
         shell: bash
@@ -33,15 +42,26 @@ jobs:
           cache: yarn
 
       - name: Instalar Dependências
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Configurar Token do NPM
         env:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc        
+        run: |
+          echo "${NPM_REGISTRY_URL#https:}:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+          echo "always-auth=true" >> ~/.npmrc
+
+      - name: Validar autenticação no NPM
+        run: npm whoami --registry="${NPM_REGISTRY_URL}"
 
       - name: Publicar com Lerna
-        run: npx lerna publish ${{ inputs.semantic_version }} --yes --no-verify-access --conventional-commits
+        run: |
+          if [ "${{ inputs.semantic_version }}" = "from-package" ]; then
+            npx lerna publish from-package --yes --no-verify-access --registry="${NPM_REGISTRY_URL}" --access public
+          else
+            npx lerna publish ${{ inputs.semantic_version }} --yes --no-verify-access --conventional-commits --registry="${NPM_REGISTRY_URL}" --access public
+          fi
 
       - name: Remover arquivo .npmrc
+        if: always()
         run: rm ~/.npmrc
