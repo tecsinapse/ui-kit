@@ -29,7 +29,7 @@ export const PowerBiDashboard = ({
             displayOption: models.DisplayOption.FitToWidth,
           },
           filterPaneEnabled: false,
-          navContentPaneEnabled: false
+          navContentPaneEnabled: reportData?.pageNavigation ?? false
         },
       }}
     />
