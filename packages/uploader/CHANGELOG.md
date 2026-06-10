@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.7.16 (2026-06-10)
+
+**Note:** Version bump only for package @tecsinapse/uploader
+
+
+
+
+
 ## 2.7.15 (2026-06-10)
 
 **Note:** Version bump only for package @tecsinapse/uploader
