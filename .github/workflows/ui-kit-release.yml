@@ -57,9 +57,9 @@ jobs:
       - name: Publicar com Lerna
         run: |
           if [ "${{ inputs.semantic_version }}" = "from-package" ]; then
-            npx lerna publish from-package --yes --no-verify-access --registry="${NPM_REGISTRY_URL}" --access public
+            npx lerna publish from-package --yes --no-verify-access --registry="${NPM_REGISTRY_URL}"
           else
-            npx lerna publish ${{ inputs.semantic_version }} --yes --no-verify-access --conventional-commits --registry="${NPM_REGISTRY_URL}" --access public
+            npx lerna publish ${{ inputs.semantic_version }} --yes --no-verify-access --conventional-commits --registry="${NPM_REGISTRY_URL}"
           fi
 
       - name: Remover arquivo .npmrc
