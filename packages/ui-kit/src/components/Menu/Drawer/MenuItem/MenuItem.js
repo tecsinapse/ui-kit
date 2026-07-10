@@ -84,7 +84,7 @@ export const TitleSubtitleMenuItem = ({
 const CollapsedList = ({ childrenBack, open }) => {
   const listRef = useRef(null);
 
-  useEffect(() => listRef.current.scrollIntoView(true), []);
+  useEffect(() => { listRef.current?.scrollIntoView(true);}, []);
 
   return (
     <List component="div" disablePadding dense ref={listRef}>
