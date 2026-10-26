@@ -1,0 +1,34 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: ui-kit
+  title: ui-kit
+  description: >
+    Biblioteca ui-kit.
+  tags:
+    - eks
+    - product
+
+spec:
+  owner: group:default/quasar
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ui-kit
+  title: ui-kit
+  description: >
+    Biblioteca ui-kit.
+  annotations:
+    github.com/project-slug: tecsinapse/ui-kit
+    backstage.io/source-location: url:https://github.com/tecsinapse/ui-kit/tree/master/
+  tags:
+    - eks
+    - product
+
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/quasar
+  system: ui-kit
