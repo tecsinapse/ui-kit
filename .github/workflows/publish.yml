@@ -1,0 +1,74 @@
+name: publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      semantic_version:
+        description: Versão semântica
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: configure git
+        shell: bash
+        run: |
+          git config user.email "git@tecsinapse.com.br"
+          git config user.name "gitTecsinapse[bot]"
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      - name: setup npm
+        run: |
+          npm install -g npm@12
+          npm --version
+          node -e 'const p=process.versions.node.split(".").map(Number); if (p[0] < 22 || (p[0] === 22 && p[1] < 14)) { console.error(process.version); process.exit(1) }'
+
+      - name: install
+        run: yarn install
+
+      - name: version
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SEMVER: ${{ inputs.semantic_version }}
+        run: npx lerna version "$SEMVER" --yes --conventional-commits
+
+      - name: publish
+        run: |
+          set -euo pipefail
+          for dir in packages/*; do
+            [ -f "$dir/package.json" ] || continue
+            node -e '
+              const { execSync } = require("child_process");
+              const dir = process.argv[1];
+              const pkg = require("./" + dir + "/package.json");
+              if (pkg.private) process.exit(0);
+              const spec = pkg.name + "@" + pkg.version;
+              try {
+                execSync("npm view " + JSON.stringify(spec) + " version", { stdio: "ignore" });
+                console.log("já publicado " + spec);
+              } catch (error) {
+                console.log("publicando " + spec);
+                execSync("npm publish", { cwd: dir, stdio: "inherit" });
+              }
+            ' "$dir"
+          done
